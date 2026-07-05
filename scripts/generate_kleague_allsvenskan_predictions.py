@@ -271,9 +271,11 @@ def render_html(payload: dict[str, Any]) -> str:
     cards = []
     for item in payload["matches"]:
         reads = "".join(f"<li>{esc(text)}</li>" for text in item["marketRead"] if text)
+        league_class = "kleague" if item["league"] == "韩国职业联赛" else "allsvenskan"
+        league_short = "韩职" if item["league"] == "韩国职业联赛" else "瑞超"
         cards.append(f"""
-        <section class="card">
-          <h2>{esc(item['matchNumStr'])} {esc(item['home'])} vs {esc(item['away'])}</h2>
+        <section class="card match-card {league_class}">
+          <div class="title-row"><h2>{esc(item['matchNumStr'])} {esc(item['home'])} vs {esc(item['away'])}</h2><span class="league-badge">{league_short}</span></div>
           <div class="grid">
             <div><span>方向</span><strong>{esc(item['directionText'])}</strong></div>
             <div><span>总进球</span><strong>{esc(item['totalGoals'])}</strong></div>
@@ -298,6 +300,13 @@ header,main{{max-width:1120px;margin:auto;padding:22px 16px}}
 header{{border-bottom:1px solid #d9dfdd;background:#fff;position:sticky;top:0}}
 h1{{margin:0;font-size:30px}} h2{{margin:0 0 10px;font-size:22px}}
 .muted{{color:#5f6f69}} .card{{background:#fff;border:1px solid #d9dfdd;border-radius:8px;padding:18px;margin:16px 0}}
+.match-card{{border-left-width:8px}}
+.match-card.kleague{{background:#f5fbff;border-color:#b8ddf4;border-left-color:#1683c7}}
+.match-card.allsvenskan{{background:#fff9ed;border-color:#f0d7a6;border-left-color:#d99416}}
+.title-row{{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}}
+.league-badge{{display:inline-flex;align-items:center;justify-content:center;min-width:52px;padding:6px 10px;border-radius:999px;font-weight:800;color:#fff}}
+.kleague .league-badge{{background:#1683c7}}
+.allsvenskan .league-badge{{background:#d99416}}
 .grid{{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}}
 .grid div{{border:1px solid #d9dfdd;border-radius:8px;padding:12px;background:#fbfcfc}}
 .grid span{{display:block;color:#63736d;font-size:13px}} .grid strong{{display:block;font-size:24px;color:#0f6b4f}}
