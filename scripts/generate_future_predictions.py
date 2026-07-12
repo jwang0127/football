@@ -116,6 +116,9 @@ def pick(match: dict[str, Any]) -> dict[str, Any]:
     confidence = "高" if gap >= 0.24 else "中"
     if main_dir == "draw" or draw_prob >= 0.29:
         confidence = "中低"
+    top_probability = max(probs.values())
+    confidence_score = round(48 + max(0, top_probability - 0.34) * 78 + gap * 32 + (4 if draw_prob >= 0.29 else 0))
+    confidence_score = max(1, min(99, confidence_score))
     return {
         "id": match["id"], "matchNumStr": match["matchNumStr"], "matchDate": match["matchDate"],
         "league": match["league"], "leagueCode": match["leagueCode"], "kickoff": match["kickoff"],
@@ -124,7 +127,8 @@ def pick(match: dict[str, Any]) -> dict[str, Any]:
         "probabilities": {key: round(value, 3) for key, value in probs.items()},
         "direction": main_dir, "directionText": label(main_dir), "marketFavorite": label(market),
         "mainScore": main, "backupScores": backups, "upsetScore": upset, "totalGoals": goal_pick,
-        "goalCandidates": [x[0] for x in goals[:3]], "confidence": confidence, "reviewReason": reason,
+        "goalCandidates": [x[0] for x in goals[:3]], "confidence": confidence,
+        "confidenceScore": confidence_score, "reviewReason": reason,
         "odds": odds,
     }
 
@@ -176,7 +180,7 @@ def make_html(payload: dict[str, Any]) -> str:
     for row in payload["matches"]:
         cls = league_cls.get(row["leagueCode"], "o")
         p = row["probabilities"]
-        cards.append(f'''<section class="card {cls}"><div class="title"><h2>{esc(row["matchNumStr"])} {esc(row["home"])} vs {esc(row["away"])}</h2><span>{esc(row["league"])}</span></div><div class="grid"><div><small>方向</small><strong>{esc(row["directionText"])}</strong></div><div><small>总进球</small><strong>{esc(row["totalGoals"])}</strong></div><div><small>主比分</small><strong>{esc(row["mainScore"])}</strong></div><div><small>爆冷比分</small><strong>{esc(row["upsetScore"])}</strong></div></div><p class="muted">开球：{esc(row["kickoff"])}；隐含概率：主 {p["home"]:.1%} / 平 {p["draw"]:.1%} / 客 {p["away"]:.1%}；信心：{esc(row["confidence"])}</p><p>比分池：{esc(" / ".join([row["mainScore"], *row["backupScores"]]))}；总进球候选：{esc(" / ".join(row["goalCandidates"]))}</p><p><strong>复盘修正：</strong>{esc(row["reviewReason"])}</p></section>''')
+        cards.append(f'''<section class="card {cls}"><div class="title"><h2>#{row["confidenceRank"]} {esc(row["matchNumStr"])} {esc(row["home"])} vs {esc(row["away"])}</h2><span>{esc(row["league"])}</span></div><div class="grid"><div><small>方向</small><strong>{esc(row["directionText"])}</strong></div><div><small>总进球</small><strong>{esc(row["totalGoals"])}</strong></div><div><small>主比分</small><strong>{esc(row["mainScore"])}</strong></div><div><small>爆冷比分</small><strong>{esc(row["upsetScore"])}</strong></div></div><p class="muted">信心排序：第 {row["confidenceRank"]} 名，{row["confidenceScore"]}/100；开球：{esc(row["kickoff"])}；隐含概率：主 {p["home"]:.1%} / 平 {p["draw"]:.1%} / 客 {p["away"]:.1%}；等级：{esc(row["confidence"])}</p><p>比分池：{esc(" / ".join([row["mainScore"], *row["backupScores"]]))}；总进球候选：{esc(" / ".join(row["goalCandidates"]))}</p><p><strong>复盘修正：</strong>{esc(row["reviewReason"])}</p></section>''')
     parlay_sections = []
     for name, value in payload["parlays"].items():
         rows = []
@@ -237,6 +241,9 @@ def main() -> None:
             (rows[13], "crs", rows[13]["upsetScore"], rows[13]["upsetScore"]),
         ]),
     }
+    rows.sort(key=lambda row: (row["confidenceScore"], row["probabilities"][row["direction"]]), reverse=True)
+    for rank, row in enumerate(rows, start=1):
+        row["confidenceRank"] = rank
     write(OUTPUT_JSON, payload)
     OUTPUT_DIR.mkdir(exist_ok=True)
     page = make_html(payload)
