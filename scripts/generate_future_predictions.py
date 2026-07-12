@@ -214,16 +214,27 @@ def main() -> None:
         "强方向四串一": parlay([rows[4], rows[6], rows[9], rows[10]], "had", ["主胜", "客胜", "主胜", "主胜"]),
         "强方向五串一": parlay([rows[4], rows[6], rows[9], rows[10], rows[13]], "had", ["主胜", "客胜", "主胜", "主胜", "主胜"]),
         "总进球四串一": parlay([rows[3], rows[4], rows[6], rows[7]], "ttg", ["2", "2", "2", "2"]),
+        "总进球二串一": parlay([rows[4], rows[6]], "ttg", ["2", "2"]),
+        "总进球五串一": parlay([rows[3], rows[4], rows[6], rows[7], rows[9]], "ttg", ["2", "2", "2", "2", "2"]),
         "混合稳胆四串一": custom_parlay([
             (rows[4], "had", "主胜", "home"),
             (rows[6], "had", "客胜", "away"),
             (rows[7], "ttg", "2", "s2"),
             (rows[9], "had", "主胜", "home"),
         ]),
-        "比分三串一（高风险）": custom_parlay([
+        "比分稳胆二串一": custom_parlay([
+            (rows[4], "crs", rows[4]["mainScore"], rows[4]["mainScore"]),
+            (rows[13], "crs", rows[13]["mainScore"], rows[13]["mainScore"]),
+        ]),
+        "比分主选三串一": custom_parlay([
             (rows[4], "crs", rows[4]["mainScore"], rows[4]["mainScore"]),
             (rows[6], "crs", rows[6]["mainScore"], rows[6]["mainScore"]),
             (rows[13], "crs", rows[13]["mainScore"], rows[13]["mainScore"]),
+        ]),
+        "比分三串一（高风险）": custom_parlay([
+            (rows[4], "crs", rows[4]["upsetScore"], rows[4]["upsetScore"]),
+            (rows[6], "crs", rows[6]["upsetScore"], rows[6]["upsetScore"]),
+            (rows[13], "crs", rows[13]["upsetScore"], rows[13]["upsetScore"]),
         ]),
     }
     write(OUTPUT_JSON, payload)
