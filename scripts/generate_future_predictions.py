@@ -153,6 +153,23 @@ def parlay(rows: list[dict[str, Any]], key: str, picks: list[str]) -> dict[str, 
     items.append({"match": "理论乘积", "pick": "", "odds": round(product, 2), "updatedAt": ""})
     return {"items": items, "product": round(product, 2)}
 
+def custom_parlay(specs: list[tuple[dict[str, Any], str, str, str]]) -> dict[str, Any]:
+    items = []
+    product = 1.0
+    for match, pool, selected, pool_key in specs:
+        value = num(match["odds"][pool].get(pool_key))
+        if value is None:
+            continue
+        product *= value
+        items.append({
+            "match": f"{match['matchNumStr']} {match['home']} vs {match['away']}",
+            "pick": selected,
+            "odds": value,
+            "updatedAt": match["odds"][pool].get("updatedAt", ""),
+        })
+    items.append({"match": "理论乘积", "pick": "", "odds": round(product, 2), "updatedAt": ""})
+    return {"items": items, "product": round(product, 2)}
+
 def make_html(payload: dict[str, Any]) -> str:
     cards = []
     league_cls = {"KD1": "k", "SAL": "s", "NTL": "n"}
@@ -193,6 +210,21 @@ def main() -> None:
     payload["parlays"] = {
         "胜平负三串一": parlay(rows[:3], "had", [x["directionText"] for x in rows[:3]]),
         "总进球三串一": parlay(rows[3:6], "ttg", [x["totalGoals"] for x in rows[3:6]]),
+        "强方向三串一": parlay([rows[4], rows[6], rows[9]], "had", ["主胜", "客胜", "主胜"]),
+        "强方向四串一": parlay([rows[4], rows[6], rows[9], rows[10]], "had", ["主胜", "客胜", "主胜", "主胜"]),
+        "强方向五串一": parlay([rows[4], rows[6], rows[9], rows[10], rows[13]], "had", ["主胜", "客胜", "主胜", "主胜", "主胜"]),
+        "总进球四串一": parlay([rows[3], rows[4], rows[6], rows[7]], "ttg", ["2", "2", "2", "2"]),
+        "混合稳胆四串一": custom_parlay([
+            (rows[4], "had", "主胜", "home"),
+            (rows[6], "had", "客胜", "away"),
+            (rows[7], "ttg", "2", "s2"),
+            (rows[9], "had", "主胜", "home"),
+        ]),
+        "比分三串一（高风险）": custom_parlay([
+            (rows[4], "crs", rows[4]["mainScore"], rows[4]["mainScore"]),
+            (rows[6], "crs", rows[6]["mainScore"], rows[6]["mainScore"]),
+            (rows[13], "crs", rows[13]["mainScore"], rows[13]["mainScore"]),
+        ]),
     }
     write(OUTPUT_JSON, payload)
     OUTPUT_DIR.mkdir(exist_ok=True)
