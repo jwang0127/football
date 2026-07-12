@@ -180,7 +180,7 @@ def make_html(payload: dict[str, Any]) -> str:
     for row in payload["matches"]:
         cls = league_cls.get(row["leagueCode"], "o")
         p = row["probabilities"]
-        cards.append(f'''<section class="card {cls}"><div class="title"><h2>#{row["confidenceRank"]} {esc(row["matchNumStr"])} {esc(row["home"])} vs {esc(row["away"])}</h2><span>{esc(row["league"])}</span></div><div class="grid"><div><small>方向</small><strong>{esc(row["directionText"])}</strong></div><div><small>总进球</small><strong>{esc(row["totalGoals"])}</strong></div><div><small>主比分</small><strong>{esc(row["mainScore"])}</strong></div><div><small>爆冷比分</small><strong>{esc(row["upsetScore"])}</strong></div></div><p class="muted">信心排序：第 {row["confidenceRank"]} 名，{row["confidenceScore"]}/100；开球：{esc(row["kickoff"])}；隐含概率：主 {p["home"]:.1%} / 平 {p["draw"]:.1%} / 客 {p["away"]:.1%}；等级：{esc(row["confidence"])}</p><p>比分池：{esc(" / ".join([row["mainScore"], *row["backupScores"]]))}；总进球候选：{esc(" / ".join(row["goalCandidates"]))}</p><p><strong>复盘修正：</strong>{esc(row["reviewReason"])}</p></section>''')
+        cards.append(f'''<section class="card {cls}"><div class="title"><h2>{esc(row["matchNumStr"])} {esc(row["home"])} vs {esc(row["away"])}</h2><span>{esc(row["league"])}</span></div><div class="grid"><div><small>方向</small><strong>{esc(row["directionText"])}</strong></div><div><small>总进球</small><strong>{esc(row["totalGoals"])}</strong></div><div><small>主比分</small><strong>{esc(row["mainScore"])}</strong></div><div><small>爆冷比分</small><strong>{esc(row["upsetScore"])}</strong></div></div><p class="muted">信心分：{row["confidenceScore"]}/100；开球：{esc(row["kickoff"])}；隐含概率：主 {p["home"]:.1%} / 平 {p["draw"]:.1%} / 客 {p["away"]:.1%}；等级：{esc(row["confidence"])}</p><p>比分池：{esc(" / ".join([row["mainScore"], *row["backupScores"]]))}；总进球候选：{esc(" / ".join(row["goalCandidates"]))}</p><p><strong>复盘修正：</strong>{esc(row["reviewReason"])}</p></section>''')
     parlay_sections = []
     for name, value in payload["parlays"].items():
         rows = []
@@ -190,7 +190,7 @@ def make_html(payload: dict[str, Any]) -> str:
                 f"<td>{item['odds']:.2f}</td><td>{esc(item['updatedAt'])}</td></tr>"
             )
         parlay_sections.append(
-            f"<h3>{esc(name)}</h3><div class=\"table\"><table>"
+            f"<h3>#{value['confidenceRank']} {esc(name)} <small>信心分 {value['confidenceScore']}/100</small></h3><div class=\"table\"><table>"
             "<thead><tr><th>比赛</th><th>选择</th><th>赔率</th><th>更新时间</th></tr></thead>"
             f"<tbody>{''.join(rows)}</tbody></table></div>"
         )
@@ -241,9 +241,17 @@ def main() -> None:
             (rows[13], "crs", rows[13]["upsetScore"], rows[13]["upsetScore"]),
         ]),
     }
-    rows.sort(key=lambda row: (row["confidenceScore"], row["probabilities"][row["direction"]]), reverse=True)
-    for rank, row in enumerate(rows, start=1):
-        row["confidenceRank"] = rank
+    for value in payload["parlays"].values():
+        legs = [item for item in value["items"] if item["match"] != "理论乘积" and item["odds"]]
+        average_probability = sum(min(1.0, 1 / item["odds"]) for item in legs) / len(legs)
+        value["confidenceScore"] = max(1, min(99, round(average_probability * 100)))
+    payload["parlays"] = dict(sorted(
+        payload["parlays"].items(),
+        key=lambda item: item[1]["confidenceScore"],
+        reverse=True,
+    ))
+    for rank, value in enumerate(payload["parlays"].values(), start=1):
+        value["confidenceRank"] = rank
     write(OUTPUT_JSON, payload)
     OUTPUT_DIR.mkdir(exist_ok=True)
     page = make_html(payload)
