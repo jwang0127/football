@@ -241,6 +241,10 @@ def main() -> None:
             (rows[13], "crs", rows[13]["upsetScore"], rows[13]["upsetScore"]),
         ]),
     }
+    payload["parlays"] = {
+        name: value for name, value in payload["parlays"].items()
+        if value["product"] >= 10
+    }
     for value in payload["parlays"].values():
         legs = [item for item in value["items"] if item["match"] != "理论乘积" and item["odds"]]
         average_probability = sum(min(1.0, 1 / item["odds"]) for item in legs) / len(legs)
