@@ -1,0 +1,46 @@
+{
+  "reviewDate": "2026-07-12",
+  "timezone": "Asia/Shanghai",
+  "scope": "北京时间2026-07-12开赛的全部12场看板比赛",
+  "generatedAt": "2026-07-13",
+  "summary": {
+    "matches": 12,
+    "directionHits": 8,
+    "directionHitRate": 0.6667,
+    "mainScoreHits": 1,
+    "mainScoreHitRate": 0.0833,
+    "scorePoolHits": 4,
+    "scorePoolHitRate": 0.3333,
+    "mainTotalGoalsHits": 3,
+    "mainTotalGoalsHitRate": 0.25,
+    "goalCandidateHits": 8,
+    "goalCandidateHitRate": 0.6667
+  },
+  "matches": [
+    {"id":"201","fixture":"仁川联 vs 安养FC","result":"0-1","predDirection":"平","directionHit":false,"mainScore":"1-1","scorePool":["1-1","1-0","2-1"],"scorePoolHit":false,"actualTotalGoals":1,"goalCandidateHit":true,"lesson":"均势盘不能只保留主队单球路径，必须对称保留0-1。"},
+    {"id":"202","fixture":"济州SK vs 大田市民","result":"0-0","predDirection":"平","directionHit":true,"mainScore":"1-1","scorePool":["1-1","0-1","1-2"],"scorePoolHit":false,"actualTotalGoals":0,"goalCandidateHit":false,"lesson":"低效进攻对局需保留0-0，不能默认平局必为1-1。"},
+    {"id":"203","fixture":"首尔FC vs 江原FC","result":"0-0","predDirection":"平","directionHit":true,"mainScore":"1-1","scorePool":["1-1","1-0","2-1"],"scorePoolHit":false,"actualTotalGoals":0,"goalCandidateHit":false,"lesson":"低总进球均势盘应同时覆盖0-0与1-1。"},
+    {"id":"204","fixture":"马尔默 vs IFK哥德堡","result":"4-0","predDirection":"主胜","directionHit":true,"mainScore":"1-0","scorePool":["1-0","1-1","2-1"],"scorePoolHit":false,"actualTotalGoals":4,"goalCandidateHit":true,"lesson":"强队主胜虽命中，但比分池过度压缩；强势主队应保留3-0/4-0尾部。"},
+    {"id":"205","fixture":"哈马比 vs 卡尔马","result":"2-0","predDirection":"主胜","directionHit":true,"mainScore":"1-0","scorePool":["1-0","2-1","2-0"],"scorePoolHit":true,"actualTotalGoals":2,"goalCandidateHit":true,"lesson":"中强主队零封路径有效，2-0作为保护比分命中。"},
+    {"id":"206","fixture":"韦斯特罗斯 vs 代格福什","result":"2-0","predDirection":"平","directionHit":false,"mainScore":"1-1","scorePool":["1-1","1-0","2-1"],"scorePoolHit":false,"actualTotalGoals":2,"goalCandidateHit":true,"lesson":"主胜接近2.00时不能因均势叙事把2-0零封路径排除。"},
+    {"id":"207","fixture":"奥斯陆KFUM vs 博德闪耀","result":"0-2","predDirection":"客胜","directionHit":true,"mainScore":"0-1","scorePool":["0-1","1-2","1-3"],"scorePoolHit":false,"actualTotalGoals":2,"goalCandidateHit":true,"lesson":"低赔客胜应优先保留0-2，不能只放0-1和双方进球路径。"},
+    {"id":"208","fixture":"哥德堡盖斯 vs 埃尔夫斯堡","result":"1-0","predDirection":"主胜","directionHit":true,"mainScore":"1-0","scorePool":["1-0","1-1","2-1"],"scorePoolHit":true,"actualTotalGoals":1,"goalCandidateHit":true,"lesson":"主方向、主比分与低比分控制路径全部命中。"},
+    {"id":"209","fixture":"布鲁马波卡纳 vs 天狼星","result":"1-2","predDirection":"客胜","directionHit":true,"mainScore":"0-1","scorePool":["0-1","1-2","1-1"],"scorePoolHit":true,"actualTotalGoals":3,"goalCandidateHit":true,"lesson":"客胜且主队有进球能力时，1-2保护路径有效。"},
+    {"id":"210","fixture":"布兰 vs 斯达","result":"0-0","predDirection":"主胜","directionHit":false,"mainScore":"1-0","scorePool":["1-0","2-1","2-0"],"scorePoolHit":false,"actualTotalGoals":0,"goalCandidateHit":false,"lesson":"绝对主胜定价也需审计0-0冷门，尤其长期低效或赛季重启场景。"},
+    {"id":"211","fixture":"罗森博格 vs 克里斯蒂安松","result":"1-4","predDirection":"主胜","directionHit":false,"mainScore":"1-0","scorePool":["1-0","2-1","1-1"],"scorePoolHit":false,"actualTotalGoals":5,"goalCandidateHit":false,"lesson":"不能用传统强队名气覆盖当季低迷状态；弱势主队落后后的追分会放大客胜尾部。"},
+    {"id":"212","fixture":"桑纳菲尤尔 vs 汉坎","result":"2-1","predDirection":"主胜","directionHit":true,"mainScore":"1-0","scorePool":["1-0","2-1","1-1"],"scorePoolHit":true,"actualTotalGoals":3,"goalCandidateHit":true,"lesson":"主胜与2-1保护路径命中，双方进球路线保留正确。"}
+  ],
+  "modelLessons": [
+    "所有低总进球均势盘强制审计0-0，并对称保留0-1/1-0单球路径。",
+    "强势主队或低赔客队的比分池必须包含至少一个零封扩大比分路径，如2-0、0-2、3-0或4-0。",
+    "传统强队标签不得覆盖当季状态；赛季重启、换帅或长期低迷球队需要单独提高反向大比分尾部。",
+    "方向、总进球与比分池继续分开计分；本日方向66.7%，但比分池仅33.3%，禁止用方向命中掩盖比分模型缺陷。",
+    "串关复盘：胜平负三串一因201失误未命中；所有总进球串关均未命中；比分串关未命中。"
+  ],
+  "sourceNotes": [
+    "比赛映射来自data/predictions_20260712_0714.json与20260712_0714/index.html。",
+    "赛果经联赛/俱乐部结果页、主流比分页与当日赛后报道交叉整理。",
+    "周日213萨尔普斯堡 vs 维京的北京时间开球为2026-07-13 01:15，不计入本次昨日（7月12日）复盘。"
+  ],
+  "disclaimer": "以上仅为公开信息整理后的娱乐分析，不构成任何购买彩票建议，请理性参考。"
+}

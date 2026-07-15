@@ -1,6 +1,6 @@
 {
-  "modelVersion": "three-day-review-0711-result-adjustment-v1",
-  "generatedAt": "2026-07-12T14:25:52",
+  "modelVersion": "score-pool-calibration-20260712-v2",
+  "generatedAt": "2026-07-13T10:59:25",
   "fetchedAt": "2026-07-11 22:23:14",
   "targetDates": [
     "2026-07-12",
@@ -37,7 +37,7 @@
       "away": "安养FC",
       "homeRank": "[韩职6]",
       "awayRank": "[韩职7]",
-      "modelVersion": "three-day-review-0711-result-adjustment-v1",
+      "modelVersion": "score-pool-calibration-20260712-v2",
       "probabilities": {
         "home": 0.455,
         "draw": 0.296,
@@ -48,9 +48,12 @@
       "marketFavorite": "主胜",
       "mainScore": "1-1",
       "backupScores": [
+        "0-0",
         "1-0",
+        "0-1",
         "2-1"
       ],
+      "tailRiskScores": [],
       "upsetScore": "1-0",
       "totalGoals": "2",
       "goalCandidates": [
@@ -59,8 +62,8 @@
         "1"
       ],
       "confidence": "中低",
-      "confidenceScore": 68,
-      "reviewReason": "复盘后对均势盘提高1-1保护，同时保留单球分胜负尾部。",
+      "confidenceScore": 48,
+      "reviewReason": "均势低进球盘同时覆盖0-0、1-1及双向单球路径。",
       "odds": {
         "had": {
           "home": "1.95",
@@ -145,7 +148,7 @@
       "away": "大田市民",
       "homeRank": "[韩职8]",
       "awayRank": "[韩职10]",
-      "modelVersion": "three-day-review-0711-result-adjustment-v1",
+      "modelVersion": "score-pool-calibration-20260712-v2",
       "probabilities": {
         "home": 0.3,
         "draw": 0.286,
@@ -156,9 +159,12 @@
       "marketFavorite": "客胜",
       "mainScore": "1-1",
       "backupScores": [
+        "0-0",
+        "1-0",
         "0-1",
         "1-2"
       ],
+      "tailRiskScores": [],
       "upsetScore": "0-1",
       "totalGoals": "2",
       "goalCandidates": [
@@ -167,8 +173,8 @@
         "1"
       ],
       "confidence": "中低",
-      "confidenceScore": 57,
-      "reviewReason": "复盘后对均势盘提高1-1保护，同时保留单球分胜负尾部。",
+      "confidenceScore": 44,
+      "reviewReason": "均势低进球盘同时覆盖0-0、1-1及双向单球路径。",
       "odds": {
         "had": {
           "home": "2.95",
@@ -253,7 +259,7 @@
       "away": "江原FC",
       "homeRank": "[韩职1]",
       "awayRank": "[韩职5]",
-      "modelVersion": "three-day-review-0711-result-adjustment-v1",
+      "modelVersion": "score-pool-calibration-20260712-v2",
       "probabilities": {
         "home": 0.383,
         "draw": 0.305,
@@ -264,9 +270,12 @@
       "marketFavorite": "主胜",
       "mainScore": "1-1",
       "backupScores": [
+        "0-0",
         "1-0",
+        "0-1",
         "2-1"
       ],
+      "tailRiskScores": [],
       "upsetScore": "1-0",
       "totalGoals": "2",
       "goalCandidates": [
@@ -275,8 +284,8 @@
         "1"
       ],
       "confidence": "中低",
-      "confidenceScore": 58,
-      "reviewReason": "复盘后对均势盘提高1-1保护，同时保留单球分胜负尾部。",
+      "confidenceScore": 41,
+      "reviewReason": "均势低进球盘同时覆盖0-0、1-1及双向单球路径。",
       "odds": {
         "had": {
           "home": "2.31",
@@ -361,7 +370,7 @@
       "away": "IFK哥德堡",
       "homeRank": "[瑞超9]",
       "awayRank": "[瑞超14]",
-      "modelVersion": "three-day-review-0711-result-adjustment-v1",
+      "modelVersion": "score-pool-calibration-20260712-v2",
       "probabilities": {
         "home": 0.486,
         "draw": 0.252,
@@ -370,21 +379,24 @@
       "direction": "home",
       "directionText": "主胜",
       "marketFavorite": "主胜",
-      "mainScore": "1-0",
+      "mainScore": "2-1",
       "backupScores": [
+        "1-0",
+        "2-0",
         "1-1",
-        "2-1"
+        "1-2"
       ],
+      "tailRiskScores": [],
       "upsetScore": "1-1",
-      "totalGoals": "2",
+      "totalGoals": "3",
       "goalCandidates": [
         "3",
         "2",
         "4"
       ],
       "confidence": "中",
-      "confidenceScore": 67,
-      "reviewReason": "主胜赔率优势明确，主选单球主胜并防范平局。",
+      "confidenceScore": 55,
+      "reviewReason": "主胜同时保留单球、零封扩大比分和双方进球保护。",
       "odds": {
         "had": {
           "home": "1.82",
@@ -469,7 +481,7 @@
       "away": "卡尔马",
       "homeRank": "[瑞超2]",
       "awayRank": "[瑞超12]",
-      "modelVersion": "three-day-review-0711-result-adjustment-v1",
+      "modelVersion": "score-pool-calibration-20260712-v2",
       "probabilities": {
         "home": 0.681,
         "draw": 0.183,
@@ -478,21 +490,29 @@
       "direction": "home",
       "directionText": "主胜",
       "marketFavorite": "主胜",
-      "mainScore": "1-0",
+      "mainScore": "2-1",
       "backupScores": [
-        "2-1",
-        "2-0"
+        "1-0",
+        "2-0",
+        "1-1",
+        "3-0"
+      ],
+      "tailRiskScores": [
+        "3-0",
+        "3-1",
+        "4-0",
+        "4-1"
       ],
       "upsetScore": "1-1",
-      "totalGoals": "2",
+      "totalGoals": "3",
       "goalCandidates": [
         "3",
         "2",
         "4"
       ],
       "confidence": "高",
-      "confidenceScore": 92,
-      "reviewReason": "主胜赔率优势明确，主选单球主胜并防范平局。",
+      "confidenceScore": 73,
+      "reviewReason": "主胜同时保留单球、零封扩大比分和双方进球保护。",
       "odds": {
         "had": {
           "home": "1.30",
@@ -577,30 +597,33 @@
       "away": "代格福什",
       "homeRank": "[瑞超11]",
       "awayRank": "[瑞超13]",
-      "modelVersion": "three-day-review-0711-result-adjustment-v1",
+      "modelVersion": "score-pool-calibration-20260712-v2",
       "probabilities": {
         "home": 0.452,
         "draw": 0.277,
         "away": 0.272
       },
-      "direction": "draw",
-      "directionText": "平",
+      "direction": "home",
+      "directionText": "主胜",
       "marketFavorite": "主胜",
-      "mainScore": "1-1",
+      "mainScore": "1-0",
       "backupScores": [
-        "1-0",
-        "2-1"
+        "2-0",
+        "2-1",
+        "1-1",
+        "1-2"
       ],
-      "upsetScore": "1-0",
+      "tailRiskScores": [],
+      "upsetScore": "1-1",
       "totalGoals": "2",
       "goalCandidates": [
         "2",
         "3",
         "1"
       ],
-      "confidence": "中低",
-      "confidenceScore": 62,
-      "reviewReason": "按胜平负、比分和总进球赔率的交叉低赔排序。",
+      "confidence": "中",
+      "confidenceScore": 52,
+      "reviewReason": "主胜同时保留单球、零封扩大比分和双方进球保护。",
       "odds": {
         "had": {
           "home": "1.96",
@@ -685,7 +708,7 @@
       "away": "博德闪耀",
       "homeRank": "[挪超13]",
       "awayRank": "[挪超3]",
-      "modelVersion": "three-day-review-0711-result-adjustment-v1",
+      "modelVersion": "score-pool-calibration-20260712-v2",
       "probabilities": {
         "home": 0.172,
         "draw": 0.195,
@@ -694,21 +717,29 @@
       "direction": "away",
       "directionText": "客胜",
       "marketFavorite": "客胜",
-      "mainScore": "0-1",
+      "mainScore": "1-2",
       "backupScores": [
-        "1-2",
-        "1-3"
+        "0-1",
+        "0-2",
+        "1-1",
+        "0-3"
+      ],
+      "tailRiskScores": [
+        "0-3",
+        "1-3",
+        "0-4",
+        "1-4"
       ],
       "upsetScore": "1-1",
-      "totalGoals": "2",
+      "totalGoals": "3",
       "goalCandidates": [
         "3",
         "4",
         "2"
       ],
       "confidence": "高",
-      "confidenceScore": 86,
-      "reviewReason": "客胜赔率优势明确，主选低比分客胜；复盘保留客队扩大比分路径。",
+      "confidenceScore": 68,
+      "reviewReason": "客胜同时保留单球、零封扩大比分和双方进球保护。",
       "odds": {
         "had": {
           "home": "5.15",
@@ -793,7 +824,7 @@
       "away": "埃尔夫斯堡",
       "homeRank": "[瑞超7]",
       "awayRank": "[瑞超4]",
-      "modelVersion": "three-day-review-0711-result-adjustment-v1",
+      "modelVersion": "score-pool-calibration-20260712-v2",
       "probabilities": {
         "home": 0.5,
         "draw": 0.26,
@@ -804,9 +835,12 @@
       "marketFavorite": "主胜",
       "mainScore": "1-0",
       "backupScores": [
+        "2-0",
+        "2-1",
         "1-1",
-        "2-1"
+        "1-2"
       ],
+      "tailRiskScores": [],
       "upsetScore": "1-1",
       "totalGoals": "2",
       "goalCandidates": [
@@ -815,8 +849,8 @@
         "1"
       ],
       "confidence": "高",
-      "confidenceScore": 69,
-      "reviewReason": "主胜赔率优势明确，主选单球主胜并防范平局。",
+      "confidenceScore": 57,
+      "reviewReason": "主胜同时保留单球、零封扩大比分和双方进球保护。",
       "odds": {
         "had": {
           "home": "1.77",
@@ -901,7 +935,7 @@
       "away": "天狼星",
       "homeRank": "[瑞超10]",
       "awayRank": "[瑞超1]",
-      "modelVersion": "three-day-review-0711-result-adjustment-v1",
+      "modelVersion": "score-pool-calibration-20260712-v2",
       "probabilities": {
         "home": 0.199,
         "draw": 0.219,
@@ -910,21 +944,29 @@
       "direction": "away",
       "directionText": "客胜",
       "marketFavorite": "客胜",
-      "mainScore": "0-1",
+      "mainScore": "1-2",
       "backupScores": [
-        "1-2",
-        "1-1"
+        "0-1",
+        "0-2",
+        "1-1",
+        "0-3"
+      ],
+      "tailRiskScores": [
+        "0-3",
+        "1-3",
+        "0-4",
+        "1-4"
       ],
       "upsetScore": "1-1",
-      "totalGoals": "2",
+      "totalGoals": "3",
       "goalCandidates": [
         "3",
         "2",
         "4"
       ],
       "confidence": "高",
-      "confidenceScore": 79,
-      "reviewReason": "客胜赔率优势明确，主选低比分客胜；复盘保留客队扩大比分路径。",
+      "confidenceScore": 64,
+      "reviewReason": "客胜同时保留单球、零封扩大比分和双方进球保护。",
       "odds": {
         "had": {
           "home": "4.45",
@@ -1009,7 +1051,7 @@
       "away": "斯达",
       "homeRank": "[挪超11]",
       "awayRank": "[挪超16]",
-      "modelVersion": "three-day-review-0711-result-adjustment-v1",
+      "modelVersion": "score-pool-calibration-20260712-v2",
       "probabilities": {
         "home": 0.692,
         "draw": 0.179,
@@ -1018,21 +1060,29 @@
       "direction": "home",
       "directionText": "主胜",
       "marketFavorite": "主胜",
-      "mainScore": "1-0",
+      "mainScore": "2-1",
       "backupScores": [
-        "2-1",
-        "2-0"
+        "1-0",
+        "2-0",
+        "1-1",
+        "3-0"
+      ],
+      "tailRiskScores": [
+        "3-0",
+        "3-1",
+        "4-0",
+        "4-1"
       ],
       "upsetScore": "1-1",
-      "totalGoals": "2",
+      "totalGoals": "3",
       "goalCandidates": [
         "3",
         "4",
         "2"
       ],
       "confidence": "高",
-      "confidenceScore": 94,
-      "reviewReason": "主胜赔率优势明确，主选单球主胜并防范平局。",
+      "confidenceScore": 74,
+      "reviewReason": "主胜同时保留单球、零封扩大比分和双方进球保护。",
       "odds": {
         "had": {
           "home": "1.28",
@@ -1117,7 +1167,7 @@
       "away": "克里斯蒂安松",
       "homeRank": "[挪超15]",
       "awayRank": "[挪超14]",
-      "modelVersion": "three-day-review-0711-result-adjustment-v1",
+      "modelVersion": "score-pool-calibration-20260712-v2",
       "probabilities": {
         "home": 0.611,
         "draw": 0.216,
@@ -1126,21 +1176,29 @@
       "direction": "home",
       "directionText": "主胜",
       "marketFavorite": "主胜",
-      "mainScore": "1-0",
+      "mainScore": "2-1",
       "backupScores": [
-        "2-1",
-        "1-1"
+        "1-0",
+        "2-0",
+        "1-1",
+        "3-0"
+      ],
+      "tailRiskScores": [
+        "3-0",
+        "3-1",
+        "4-0",
+        "4-1"
       ],
       "upsetScore": "1-1",
-      "totalGoals": "2",
+      "totalGoals": "3",
       "goalCandidates": [
         "3",
         "2",
         "4"
       ],
       "confidence": "高",
-      "confidenceScore": 83,
-      "reviewReason": "主胜赔率优势明确，主选单球主胜并防范平局。",
+      "confidenceScore": 66,
+      "reviewReason": "主胜同时保留单球、零封扩大比分和双方进球保护。",
       "odds": {
         "had": {
           "home": "1.45",
@@ -1225,7 +1283,7 @@
       "away": "汉坎",
       "homeRank": "[挪超8]",
       "awayRank": "[挪超6]",
-      "modelVersion": "three-day-review-0711-result-adjustment-v1",
+      "modelVersion": "score-pool-calibration-20260712-v2",
       "probabilities": {
         "home": 0.512,
         "draw": 0.242,
@@ -1234,21 +1292,24 @@
       "direction": "home",
       "directionText": "主胜",
       "marketFavorite": "主胜",
-      "mainScore": "1-0",
+      "mainScore": "2-1",
       "backupScores": [
-        "2-1",
-        "1-1"
+        "1-0",
+        "2-0",
+        "1-1",
+        "1-2"
       ],
+      "tailRiskScores": [],
       "upsetScore": "1-1",
-      "totalGoals": "2",
+      "totalGoals": "3",
       "goalCandidates": [
         "3",
         "2",
         "4"
       ],
       "confidence": "高",
-      "confidenceScore": 70,
-      "reviewReason": "主胜赔率优势明确，主选单球主胜并防范平局。",
+      "confidenceScore": 57,
+      "reviewReason": "主胜同时保留单球、零封扩大比分和双方进球保护。",
       "odds": {
         "had": {
           "home": "1.73",
@@ -1333,7 +1394,7 @@
       "away": "维京",
       "homeRank": "[挪超7]",
       "awayRank": "[挪超2]",
-      "modelVersion": "three-day-review-0711-result-adjustment-v1",
+      "modelVersion": "score-pool-calibration-20260712-v2",
       "probabilities": {
         "home": 0.238,
         "draw": 0.219,
@@ -1342,21 +1403,24 @@
       "direction": "away",
       "directionText": "客胜",
       "marketFavorite": "客胜",
-      "mainScore": "0-1",
+      "mainScore": "1-2",
       "backupScores": [
-        "1-2",
-        "1-1"
+        "0-1",
+        "0-2",
+        "1-1",
+        "1-3"
       ],
+      "tailRiskScores": [],
       "upsetScore": "1-1",
-      "totalGoals": "2",
+      "totalGoals": "3",
       "goalCandidates": [
         "3",
         "4",
         "2"
       ],
       "confidence": "高",
-      "confidenceScore": 74,
-      "reviewReason": "客胜赔率优势明确，主选低比分客胜；复盘保留客队扩大比分路径。",
+      "confidenceScore": 60,
+      "reviewReason": "客胜同时保留单球、零封扩大比分和双方进球保护。",
       "odds": {
         "had": {
           "home": "3.72",
@@ -1441,7 +1505,7 @@
       "away": "哈尔姆斯塔德",
       "homeRank": "[瑞超6]",
       "awayRank": "[瑞超16]",
-      "modelVersion": "three-day-review-0711-result-adjustment-v1",
+      "modelVersion": "score-pool-calibration-20260712-v2",
       "probabilities": {
         "home": 0.75,
         "draw": 0.15,
@@ -1450,21 +1514,29 @@
       "direction": "home",
       "directionText": "主胜",
       "marketFavorite": "主胜",
-      "mainScore": "1-0",
+      "mainScore": "2-0",
       "backupScores": [
-        "2-0",
-        "2-1"
+        "1-0",
+        "2-1",
+        "1-1",
+        "3-0"
+      ],
+      "tailRiskScores": [
+        "3-0",
+        "3-1",
+        "4-0",
+        "4-1"
       ],
       "upsetScore": "1-1",
-      "totalGoals": "2",
+      "totalGoals": "3",
       "goalCandidates": [
         "3",
         "4",
         "2"
       ],
       "confidence": "高",
-      "confidenceScore": 99,
-      "reviewReason": "主胜赔率优势明确，主选单球主胜并防范平局。",
+      "confidenceScore": 79,
+      "reviewReason": "主胜同时保留单球、零封扩大比分和双方进球保护。",
       "odds": {
         "had": {
           "home": "1.18",
@@ -1575,14 +1647,14 @@
       "items": [
         {
           "match": "周日204 马尔默 vs IFK哥德堡",
-          "pick": "2",
-          "odds": 3.8,
+          "pick": "3",
+          "odds": 3.5,
           "updatedAt": "2026-07-11 09:41:44"
         },
         {
           "match": "周日205 哈马比 vs 卡尔马",
-          "pick": "2",
-          "odds": 4.3,
+          "pick": "3",
+          "odds": 3.55,
           "updatedAt": "2026-07-11 09:41:44"
         },
         {
@@ -1594,93 +1666,13 @@
         {
           "match": "理论乘积",
           "pick": "",
-          "odds": 53.92,
+          "odds": 41.0,
           "updatedAt": ""
         }
       ],
-      "product": 53.92,
-      "confidenceScore": 27,
+      "product": 41.0,
+      "confidenceScore": 29,
       "confidenceRank": 2
-    },
-    "总进球四串一": {
-      "items": [
-        {
-          "match": "周日204 马尔默 vs IFK哥德堡",
-          "pick": "2",
-          "odds": 3.8,
-          "updatedAt": "2026-07-11 09:41:44"
-        },
-        {
-          "match": "周日205 哈马比 vs 卡尔马",
-          "pick": "2",
-          "odds": 4.3,
-          "updatedAt": "2026-07-11 09:41:44"
-        },
-        {
-          "match": "周日207 奥斯陆KFUM vs 博德闪耀",
-          "pick": "2",
-          "odds": 4.7,
-          "updatedAt": "2026-07-11 09:41:44"
-        },
-        {
-          "match": "周日208 哥德堡盖斯 vs 埃尔夫斯堡",
-          "pick": "2",
-          "odds": 3.4,
-          "updatedAt": "2026-07-11 09:41:44"
-        },
-        {
-          "match": "理论乘积",
-          "pick": "",
-          "odds": 261.11,
-          "updatedAt": ""
-        }
-      ],
-      "product": 261.11,
-      "confidenceScore": 25,
-      "confidenceRank": 3
-    },
-    "总进球五串一": {
-      "items": [
-        {
-          "match": "周日204 马尔默 vs IFK哥德堡",
-          "pick": "2",
-          "odds": 3.8,
-          "updatedAt": "2026-07-11 09:41:44"
-        },
-        {
-          "match": "周日205 哈马比 vs 卡尔马",
-          "pick": "2",
-          "odds": 4.3,
-          "updatedAt": "2026-07-11 09:41:44"
-        },
-        {
-          "match": "周日207 奥斯陆KFUM vs 博德闪耀",
-          "pick": "2",
-          "odds": 4.7,
-          "updatedAt": "2026-07-11 09:41:44"
-        },
-        {
-          "match": "周日208 哥德堡盖斯 vs 埃尔夫斯堡",
-          "pick": "2",
-          "odds": 3.4,
-          "updatedAt": "2026-07-11 09:41:44"
-        },
-        {
-          "match": "周日210 布兰 vs 斯达",
-          "pick": "2",
-          "odds": 4.5,
-          "updatedAt": "2026-07-11 09:41:44"
-        },
-        {
-          "match": "理论乘积",
-          "pick": "",
-          "odds": 1175.01,
-          "updatedAt": ""
-        }
-      ],
-      "product": 1175.01,
-      "confidenceScore": 24,
-      "confidenceRank": 4
     },
     "总进球二串一": {
       "items": [
@@ -1705,94 +1697,7 @@
       ],
       "product": 20.21,
       "confidenceScore": 22,
-      "confidenceRank": 5
-    },
-    "比分稳胆二串一": {
-      "items": [
-        {
-          "match": "周日205 哈马比 vs 卡尔马",
-          "pick": "1-0",
-          "odds": 9.0,
-          "updatedAt": "2026-07-11 09:41:47"
-        },
-        {
-          "match": "周一201 佐加顿斯 vs 哈尔姆斯塔德",
-          "pick": "1-0",
-          "odds": 9.0,
-          "updatedAt": "2026-07-11 09:41:47"
-        },
-        {
-          "match": "理论乘积",
-          "pick": "",
-          "odds": 81.0,
-          "updatedAt": ""
-        }
-      ],
-      "product": 81.0,
-      "confidenceScore": 11,
-      "confidenceRank": 6
-    },
-    "比分主选三串一": {
-      "items": [
-        {
-          "match": "周日205 哈马比 vs 卡尔马",
-          "pick": "1-0",
-          "odds": 9.0,
-          "updatedAt": "2026-07-11 09:41:47"
-        },
-        {
-          "match": "周日207 奥斯陆KFUM vs 博德闪耀",
-          "pick": "0-1",
-          "odds": 10.5,
-          "updatedAt": "2026-07-11 09:41:47"
-        },
-        {
-          "match": "周一201 佐加顿斯 vs 哈尔姆斯塔德",
-          "pick": "1-0",
-          "odds": 9.0,
-          "updatedAt": "2026-07-11 09:41:47"
-        },
-        {
-          "match": "理论乘积",
-          "pick": "",
-          "odds": 850.5,
-          "updatedAt": ""
-        }
-      ],
-      "product": 850.5,
-      "confidenceScore": 11,
-      "confidenceRank": 7
-    },
-    "比分三串一（高风险）": {
-      "items": [
-        {
-          "match": "周日205 哈马比 vs 卡尔马",
-          "pick": "1-1",
-          "odds": 9.0,
-          "updatedAt": "2026-07-11 09:41:47"
-        },
-        {
-          "match": "周日207 奥斯陆KFUM vs 博德闪耀",
-          "pick": "1-1",
-          "odds": 9.5,
-          "updatedAt": "2026-07-11 09:41:47"
-        },
-        {
-          "match": "周一201 佐加顿斯 vs 哈尔姆斯塔德",
-          "pick": "1-1",
-          "odds": 10.5,
-          "updatedAt": "2026-07-11 09:41:47"
-        },
-        {
-          "match": "理论乘积",
-          "pick": "",
-          "odds": 897.75,
-          "updatedAt": ""
-        }
-      ],
-      "product": 897.75,
-      "confidenceScore": 10,
-      "confidenceRank": 8
+      "confidenceRank": 3
     }
   }
 }

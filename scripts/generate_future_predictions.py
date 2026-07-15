@@ -10,11 +10,13 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from score_pool_model import calibrated_confidence, calibrated_score_pool
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 OUTPUT_DIR = ROOT / "20260712_0714"
 OUTPUT_JSON = DATA / "predictions_20260712_0714.json"
-MODEL_VERSION = "three-day-review-0711-result-adjustment-v1"
+MODEL_VERSION = "score-pool-calibration-20260712-v2"
 NOW = datetime.fromisoformat("2026-07-12T10:30:00")
 TARGET_DATES = {"2026-07-12", "2026-07-13", "2026-07-14"}
 
@@ -111,14 +113,17 @@ def pick(match: dict[str, Any]) -> dict[str, Any]:
             backups.append(score)
         if len(backups) == 2:
             break
+    main, backups, tail_scores, reason = calibrated_score_pool(scores, probs, goals)
+    main_dir = direction(main)
+    goal_pick = str(total(main))
+    if goals and goals[0][0] in {"1", "2", "3"}:
+        goal_pick = goals[0][0]
     upset_dir = "draw" if main_dir != "draw" else ("away" if probs["away"] >= probs["home"] else "home")
     upset = next((s for s, _ in scores if direction(s) == upset_dir and s != main), backups[-1] if backups else main)
     confidence = "高" if gap >= 0.24 else "中"
     if main_dir == "draw" or draw_prob >= 0.29:
         confidence = "中低"
-    top_probability = max(probs.values())
-    confidence_score = round(48 + max(0, top_probability - 0.34) * 78 + gap * 32 + (4 if draw_prob >= 0.29 else 0))
-    confidence_score = max(1, min(99, confidence_score))
+    confidence_score = calibrated_confidence(probs, main_dir)
     return {
         "id": match["id"], "matchNumStr": match["matchNumStr"], "matchDate": match["matchDate"],
         "league": match["league"], "leagueCode": match["leagueCode"], "kickoff": match["kickoff"],
@@ -126,7 +131,8 @@ def pick(match: dict[str, Any]) -> dict[str, Any]:
         "awayRank": match.get("awayRank", ""), "modelVersion": MODEL_VERSION,
         "probabilities": {key: round(value, 3) for key, value in probs.items()},
         "direction": main_dir, "directionText": label(main_dir), "marketFavorite": label(market),
-        "mainScore": main, "backupScores": backups, "upsetScore": upset, "totalGoals": goal_pick,
+        "mainScore": main, "backupScores": backups, "tailRiskScores": tail_scores,
+        "upsetScore": upset, "totalGoals": goal_pick,
         "goalCandidates": [x[0] for x in goals[:3]], "confidence": confidence,
         "confidenceScore": confidence_score, "reviewReason": reason,
         "odds": odds,
@@ -244,6 +250,8 @@ def main() -> None:
     payload["parlays"] = {
         name: value for name, value in payload["parlays"].items()
         if value["product"] >= 10
+        and len([item for item in value["items"] if item["pick"]]) <= 3
+        and not any("-" in str(item["pick"]) for item in value["items"] if item["pick"])
     }
     for value in payload["parlays"].values():
         legs = [item for item in value["items"] if item["match"] != "理论乘积" and item["odds"]]
