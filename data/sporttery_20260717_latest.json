@@ -2,8 +2,8 @@
     "date":  "20260717",
     "dateText":  "2026-07-17",
     "source":  "sporttery-live-api",
-    "fetchedAt":  "2026-07-15T11:21:46",
-    "lastUpdateTime":  "2026-07-15 11:20:35",
+    "fetchedAt":  "2026-07-16T09:47:43",
+    "lastUpdateTime":  "2026-07-15 21:30:41",
     "apiPoolCode":  "ttg,had,hhad,crs,hafu",
     "matches":  [
                     {
@@ -19,7 +19,7 @@
                         "matchDate":  "2026-07-17",
                         "matchTime":  "01:00:00",
                         "matchStatus":  "Selling",
-                        "sellStatus":  1,
+                        "sellStatus":  2,
                         "taxDateNo":  "2607161",
                         "isHot":  false,
                         "home":  "瓦勒伦加",
@@ -134,7 +134,7 @@
                         "matchDate":  "2026-07-17",
                         "matchTime":  "06:30:00",
                         "matchStatus":  "Selling",
-                        "sellStatus":  1,
+                        "sellStatus":  2,
                         "taxDateNo":  "2607161",
                         "isHot":  false,
                         "home":  "博塔弗戈",
@@ -165,10 +165,10 @@
                         "postReview":  null,
                         "odds":  {
                                      "had":  {
-                                                 "home":  "1.85",
-                                                 "draw":  "3.40",
-                                                 "away":  "3.40",
-                                                 "updatedAt":  "2026-07-15 09:39:38"
+                                                 "home":  "1.82",
+                                                 "draw":  "3.45",
+                                                 "away":  "3.45",
+                                                 "updatedAt":  "2026-07-15 13:37:41"
                                              },
                                      "ttg":  {
                                                  "s0":  "13.00",
@@ -183,10 +183,10 @@
                                              },
                                      "hhad":  {
                                                   "home":  "3.67",
-                                                  "draw":  "3.50",
-                                                  "away":  "1.75",
+                                                  "draw":  "3.42",
+                                                  "away":  "1.77",
                                                   "handicap":  null,
-                                                  "updatedAt":  "2026-07-15 09:39:38"
+                                                  "updatedAt":  "2026-07-15 13:38:51"
                                               },
                                      "crs":  {
                                                  "0-0":  "13.00",
@@ -249,7 +249,7 @@
                         "matchDate":  "2026-07-17",
                         "matchTime":  "06:30:00",
                         "matchStatus":  "Selling",
-                        "sellStatus":  1,
+                        "sellStatus":  2,
                         "taxDateNo":  "2607161",
                         "isHot":  false,
                         "home":  "维多利亚",
@@ -280,10 +280,10 @@
                         "postReview":  null,
                         "odds":  {
                                      "had":  {
-                                                 "home":  "2.36",
+                                                 "home":  "2.30",
                                                  "draw":  "3.03",
-                                                 "away":  "2.66",
-                                                 "updatedAt":  "2026-07-15 09:39:38"
+                                                 "away":  "2.74",
+                                                 "updatedAt":  "2026-07-15 16:27:35"
                                              },
                                      "ttg":  {
                                                  "s0":  "9.50",
@@ -297,11 +297,11 @@
                                                  "updatedAt":  "2026-07-15 09:39:38"
                                              },
                                      "hhad":  {
-                                                  "home":  "5.55",
-                                                  "draw":  "3.85",
-                                                  "away":  "1.45",
+                                                  "home":  "5.45",
+                                                  "draw":  "3.77",
+                                                  "away":  "1.47",
                                                   "handicap":  null,
-                                                  "updatedAt":  "2026-07-15 09:39:38"
+                                                  "updatedAt":  "2026-07-15 16:27:43"
                                               },
                                      "crs":  {
                                                  "0-0":  "9.50",
@@ -364,7 +364,7 @@
                         "matchDate":  "2026-07-17",
                         "matchTime":  "07:30:00",
                         "matchStatus":  "Selling",
-                        "sellStatus":  1,
+                        "sellStatus":  2,
                         "taxDateNo":  "2607161",
                         "isHot":  false,
                         "home":  "蒙特利尔CF",
@@ -395,10 +395,10 @@
                         "postReview":  null,
                         "odds":  {
                                      "had":  {
-                                                 "home":  "1.82",
-                                                 "draw":  "3.55",
-                                                 "away":  "3.35",
-                                                 "updatedAt":  "2026-07-15 09:39:38"
+                                                 "home":  "1.79",
+                                                 "draw":  "3.60",
+                                                 "away":  "3.42",
+                                                 "updatedAt":  "2026-07-15 21:30:28"
                                              },
                                      "ttg":  {
                                                  "s0":  "16.00",
@@ -413,10 +413,10 @@
                                              },
                                      "hhad":  {
                                                   "home":  "3.45",
-                                                  "draw":  "3.65",
-                                                  "away":  "1.77",
+                                                  "draw":  "3.56",
+                                                  "away":  "1.79",
                                                   "handicap":  null,
-                                                  "updatedAt":  "2026-07-15 09:39:38"
+                                                  "updatedAt":  "2026-07-15 21:30:41"
                                               },
                                      "crs":  {
                                                  "0-0":  "16.00",
@@ -479,7 +479,7 @@
                         "matchDate":  "2026-07-17",
                         "matchTime":  "08:30:00",
                         "matchStatus":  "Selling",
-                        "sellStatus":  1,
+                        "sellStatus":  2,
                         "taxDateNo":  "2607161",
                         "isHot":  false,
                         "home":  "芝加哥火焰",
@@ -594,7 +594,7 @@
                         "matchDate":  "2026-07-17",
                         "matchTime":  "08:30:00",
                         "matchStatus":  "Selling",
-                        "sellStatus":  1,
+                        "sellStatus":  2,
                         "taxDateNo":  "2607161",
                         "isHot":  false,
                         "home":  "圣路易斯城",
@@ -625,10 +625,10 @@
                         "postReview":  null,
                         "odds":  {
                                      "had":  {
-                                                 "home":  "1.34",
-                                                 "draw":  "4.70",
-                                                 "away":  "5.90",
-                                                 "updatedAt":  "2026-07-15 09:39:38"
+                                                 "home":  "1.32",
+                                                 "draw":  "4.80",
+                                                 "away":  "6.10",
+                                                 "updatedAt":  "2026-07-15 20:22:04"
                                              },
                                      "ttg":  {
                                                  "s0":  "28.00",
@@ -642,11 +642,11 @@
                                                  "updatedAt":  "2026-07-15 09:39:38"
                                              },
                                      "hhad":  {
-                                                  "home":  "2.01",
-                                                  "draw":  "3.83",
-                                                  "away":  "2.70",
+                                                  "home":  "1.97",
+                                                  "draw":  "3.78",
+                                                  "away":  "2.80",
                                                   "handicap":  null,
-                                                  "updatedAt":  "2026-07-15 09:39:38"
+                                                  "updatedAt":  "2026-07-15 20:22:13"
                                               },
                                      "crs":  {
                                                  "0-0":  "28.00",
@@ -709,7 +709,7 @@
                         "matchDate":  "2026-07-17",
                         "matchTime":  "10:30:00",
                         "matchStatus":  "Selling",
-                        "sellStatus":  1,
+                        "sellStatus":  2,
                         "taxDateNo":  "2607161",
                         "isHot":  false,
                         "home":  "西雅图海湾人",
@@ -740,10 +740,10 @@
                         "postReview":  null,
                         "odds":  {
                                      "had":  {
-                                                 "home":  "1.42",
-                                                 "draw":  "4.40",
-                                                 "away":  "5.05",
-                                                 "updatedAt":  "2026-07-15 10:35:37"
+                                                 "home":  "1.40",
+                                                 "draw":  "4.45",
+                                                 "away":  "5.25",
+                                                 "updatedAt":  "2026-07-15 13:38:04"
                                              },
                                      "ttg":  {
                                                  "s0":  "27.00",
@@ -757,11 +757,11 @@
                                                  "updatedAt":  "2026-07-15 09:39:38"
                                              },
                                      "hhad":  {
-                                                  "home":  "2.20",
+                                                  "home":  "2.16",
                                                   "draw":  "3.72",
-                                                  "away":  "2.46",
+                                                  "away":  "2.52",
                                                   "handicap":  null,
-                                                  "updatedAt":  "2026-07-15 10:35:51"
+                                                  "updatedAt":  "2026-07-15 13:38:07"
                                               },
                                      "crs":  {
                                                  "0-0":  "27.00",

@@ -1,0 +1,27 @@
+{
+  "modelVersion": "non-worldcup-multileague-20260716-review-v2",
+  "reviewedAt": "2026-07-16T09:54:29",
+  "results": [
+    {
+      "key": "201-20260716",
+      "match": "周三201 比森阿泰尔 vs 克拉克斯维克",
+      "score": "1-2",
+      "aggregate": "2-4，克拉克斯维克晋级",
+      "directionHit": true,
+      "goalHit": true,
+      "scoreHit": "保护比分1-2命中",
+      "lesson": "客胜与3球正确；首回合领先方遇到主队追分时，反击扩大路径仍需保留。"
+    },
+    {
+      "key": "202-20260716",
+      "match": "周三202 苏捷斯卡 vs 阿拉木图凯拉特",
+      "score": "0-0",
+      "aggregate": "1-2，阿拉木图凯拉特晋级",
+      "directionHit": false,
+      "goalHit": false,
+      "scoreHit": "保护比分0-0命中",
+      "lesson": "把晋级优势误写成90分钟客胜；第二回合领先方可主动降速，必须单列0-0/1-1与最终晋级。"
+    }
+  ],
+  "forwardRule": "欧战第二回合分离90分钟赛果与最终晋级；按总比分状态同时覆盖控节奏和追分反击路径。"
+}

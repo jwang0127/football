@@ -13,9 +13,9 @@ from score_pool_model import calibrated_confidence, calibrated_score_pool
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 OUT = ROOT / "20260716_0717"
-MODEL_VERSION = "non-worldcup-multileague-20260715-v1"
+MODEL_VERSION = "non-worldcup-multileague-20260716-review-v2"
 MIN_COMBO_ODDS = 10.0
-DISCLAIMER = "以上仅为公开信息整理后的娱乐分析，不构成任何购买彩票建议，请理性参考。"
+DISCLAIMER = "以上仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。"
 
 LEAGUE_STYLES = {
     "欧洲冠军联赛": {"class": "ucl", "color": "#3157d5", "label": "欧冠资格赛"},
@@ -27,13 +27,41 @@ LEAGUE_STYLES = {
 CONTEXT = {
     "201-20260716": "欧冠资格赛淘汰路径；克拉克斯维克为客场市场优势方，首回合需防主队保守拖平。",
     "202-20260716": "欧冠资格赛淘汰路径；阿拉木图凯拉特客胜优势清晰，但长途客场提高1-1保护。",
-    "201-20260717": "挪超官方赛程确认在Intility Arena进行；两队竞彩排名11/12，历史14次交锋瓦勒伦加7胜4平3负。",
-    "205-20260717": "巴甲第19轮、世界杯暂停后重启；博塔弗戈主场且排名领先，重启战降低穿盘置信。",
-    "206-20260717": "巴甲第19轮重启；双方排名接近且胜平负价格集中，低比分与平局权重较高。",
-    "207-20260717": "美职重启后的加拿大德比；两队均在季后赛线外附近，德比波动与双方进球风险并存。",
-    "208-20260717": "美职重启；温哥华排名第1、芝加哥第3，强强对话不把客胜优势等同于零封。",
-    "209-20260717": "美职重启；圣路易斯主胜低赔，对手排名靠后，保留主胜扩大比分尾部。",
-    "210-20260717": "卡斯卡迪亚德比；西雅图西区第6、波特兰第13，双方重启前均两连败，波特兰更换临时主帅。",
+    "201-20260717": "挪足协确认在Intility Arena进行；两队排名11/12，奥勒松7月11日2-2战平莫尔德，主胜1.53仍是锚点但保留1-1。",
+    "205-20260717": "巴甲世界杯暂停后重启；博塔弗戈主胜由1.85降至1.82，主场倾向增强，但长暂停降低大胜确定性。",
+    "206-20260717": "巴甲重启；维多利亚主胜由2.36降至2.30，方向小幅增强，价格仍集中，低比分和平局保护不能删除。",
+    "207-20260717": "加拿大德比；多伦多7人确定缺阵、5人存疑且萨金特大腿伤存疑，蒙特利尔主胜由1.82降至1.79。",
+    "208-20260717": "温哥华西区领跑但Gauld等5人缺阵；芝加哥可能迎来莱万首秀。排名优势、伤停与新援变量相互抵消，平局升为主路径。",
+    "209-20260717": "圣路易斯主胜由1.34降至1.32；但Bürki等3人存疑，Durkin停赛、Pompeu伤缺，保留主胜同时下调零封大胜权重。",
+    "210-20260717": "西雅图此前连续两场被零封且进球仅17个；波特兰两连败、换临时主帅且Chara伤缺，德比主胜保留但总进球下调。",
+}
+
+COMPLETED_RESULTS = [
+    {
+        "key": "201-20260716", "match": "周三201 比森阿泰尔 vs 克拉克斯维克", "score": "1-2",
+        "aggregate": "2-4，克拉克斯维克晋级", "directionHit": True, "goalHit": True,
+        "scoreHit": "保护比分1-2命中",
+        "lesson": "客胜与3球正确；首回合领先方遇到主队追分时，反击扩大路径仍需保留。",
+    },
+    {
+        "key": "202-20260716", "match": "周三202 苏捷斯卡 vs 阿拉木图凯拉特", "score": "0-0",
+        "aggregate": "1-2，阿拉木图凯拉特晋级", "directionHit": False, "goalHit": False,
+        "scoreHit": "保护比分0-0命中",
+        "lesson": "把晋级优势误写成90分钟客胜；第二回合领先方可主动降速，必须单列0-0/1-1与最终晋级。",
+    },
+]
+
+MANUAL_OVERRIDES = {
+    "208-20260717": {
+        "direction": "draw", "mainScore": "1-1", "backupScores": ["1-2", "2-1", "0-1", "2-2"],
+        "totalGoals": "3", "goalCandidates": ["3", "2", "4"], "confidenceDelta": -7,
+        "reason": "温哥华实力与排名占优，但核心伤停较多；芝加哥新援首秀变量提高主队进球与平局权重。",
+    },
+    "210-20260717": {
+        "direction": "home", "mainScore": "1-0", "backupScores": ["2-0", "1-1", "2-1", "0-1"],
+        "totalGoals": "2", "goalCandidates": ["2", "3", "1"], "confidenceDelta": -3,
+        "reason": "主胜赔率继续走低，但西雅图连续两场零进球；德比和重启不确定性支持1-0/2-0而非机械追3球。",
+    },
 }
 
 SOURCES = [
@@ -42,6 +70,8 @@ SOURCES = [
     {"name": "挪威足协赛程", "url": "https://www.fotball.no/eliteserien/"},
     {"name": "巴西足协赛程", "url": "https://www.cbf.com.br/futebol-brasileiro/competicoes/campeonato-brasileiro-serie-a"},
     {"name": "MLS官方赛程与前瞻", "url": "https://www.mlssoccer.com/news/matchday-16-watch-guide-what-to-know-as-mls-returns"},
+    {"name": "MLS官方伤停报告", "url": "https://www.mlssoccer.com/league-reports/player-availability-report/"},
+    {"name": "欧冠资格赛赛果", "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/"},
 ]
 
 
@@ -120,7 +150,7 @@ def predict(match: dict[str, Any]) -> dict[str, Any]:
     goal_candidates = [row[0] for row in goals[:3]]
     goal_pick = goal_candidates[0]
     key = f"{match['id']}-{match['matchDate'].replace('-', '')}"
-    return {
+    result = {
         "id": match["id"], "matchNumStr": match["matchNumStr"], "matchDate": match["matchDate"],
         "kickoff": match["kickoff"], "league": match["league"], "leagueStyle": LEAGUE_STYLES[match["league"]],
         "home": match["home"], "away": match["away"], "homeRank": match.get("homeRank", ""), "awayRank": match.get("awayRank", ""),
@@ -132,6 +162,18 @@ def predict(match: dict[str, Any]) -> dict[str, Any]:
         "reason": reason, "context": CONTEXT.get(key, "按官方赛程、竞彩赔率与比分矩阵交叉校准。"),
         "odds": odds,
     }
+    override = MANUAL_OVERRIDES.get(key)
+    if override:
+        result["direction"] = override["direction"]
+        result["directionText"] = direction_label(override["direction"])
+        result["mainScore"] = override["mainScore"]
+        result["backupScores"] = override["backupScores"]
+        result["totalGoals"] = override["totalGoals"]
+        result["goalCandidates"] = override["goalCandidates"]
+        result["confidenceScore"] = max(25, min(82, result["confidenceScore"] + override["confidenceDelta"]))
+        result["confidence"] = "高" if result["confidenceScore"] >= 65 else "中" if result["confidenceScore"] >= 52 else "中低"
+        result["reason"] = override["reason"]
+    return result
 
 
 def leg(match: dict[str, Any], market: str) -> dict[str, Any]:
@@ -199,22 +241,30 @@ def render(payload: dict[str, Any]) -> str:
         tails = " / ".join(m["tailRiskScores"]) or "无额外尾部入选"
         match_cards.append(f'''<section class="match {m['leagueStyle']['class']}" style="--league:{m['leagueStyle']['color']}"><div class="title"><h3>{esc(m['matchNumStr'])} {esc(m['home'])} vs {esc(m['away'])}</h3><span>{esc(m['leagueStyle']['label'])}</span></div><div class="grid"><div><small>胜平负</small><strong>{esc(m['directionText'])}</strong></div><div><small>总进球</small><strong>{esc(m['totalGoals'])}</strong></div><div><small>主比分</small><strong>{esc(m['mainScore'])}</strong></div><div><small>信任度</small><strong>{m['confidenceScore']}</strong></div></div><p>比分池：{esc(pool)}；尾部审计：{esc(tails)}；总进球候选：{esc(' / '.join(m['goalCandidates']))}</p><p>隐含概率：主 {p['home']:.1%} / 平 {p['draw']:.1%} / 客 {p['away']:.1%}；排名：{esc(m['homeRank'] or '-')} / {esc(m['awayRank'] or '-')}</p><p><b>信息面：</b>{esc(m['context'])}</p><p><b>模型解释：</b>{esc(m['reason'])}</p></section>''')
     sources = "".join(f'<li><a href="{esc(x["url"])}">{esc(x["name"])}</a></li>' for x in payload["sources"])
-    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0716-0717 非世界杯足球预测</title><style>body{{margin:0;background:#f3f6f9;color:#19232d;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:22px 16px}}header{{background:#fff;border-bottom:1px solid #d8e0e8}}h1{{margin:0}}.legend span{{display:inline-block;margin:5px 8px 5px 0;padding:5px 10px;border-left:7px solid var(--c);background:#eef2f5;border-radius:5px}}.match,.combo,.notice{{background:#fff;border:1px solid #d8e0e8;border-radius:9px;padding:17px;margin:15px 0}}.match{{border-left:9px solid var(--league)}}.title{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:#fff;padding:4px 10px;border-radius:999px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f7f9fb;padding:10px;border-radius:6px}}small{{display:block;color:#687681}}strong{{font-size:22px}}.combo h3{{display:flex;justify-content:space-between}}.combo b{{color:#0a7142}}table{{width:100%;border-collapse:collapse}}td{{padding:7px;border-bottom:1px solid #e3e8ec}}a{{color:#175f9e}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style></head><body><header><h1>0716–0717 非世界杯足球预测</h1><p>共 {len(payload['matches'])} 场；官方赔率更新时间截至 {esc(payload['oddsUpdatedAt'])}；世界杯已排除。</p><div class="legend">{legend}</div></header><main><section class="notice"><h2>串关信任度排序</h2><p>仅保留理论组合赔率不低于 {MIN_COMBO_ODDS:g} 的串关；信任度用于模型内部横向排序，并非命中概率；比分组合天然高风险。</p></section>{''.join(combo_cards)}<h2>逐场预测</h2>{''.join(match_cards)}<section class="notice"><h2>来源</h2><ul>{sources}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
+    review_cards = "".join(
+        f'<section class="review"><h3>{esc(x["match"])}：{esc(x["score"])}</h3><p>{esc(x["aggregate"])}；{esc(x["scoreHit"])}。</p><p><b>复盘：</b>{esc(x["lesson"])}</p></section>'
+        for x in payload["completedResults"]
+    )
+    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0716-0717 非世界杯足球预测</title><style>body{{margin:0;background:#f3f6f9;color:#19232d;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:22px 16px}}header{{background:#fff;border-bottom:1px solid #d8e0e8}}h1{{margin:0}}.legend span{{display:inline-block;margin:5px 8px 5px 0;padding:5px 10px;border-left:7px solid var(--c);background:#eef2f5;border-radius:5px}}.match,.combo,.notice,.review{{background:#fff;border:1px solid #d8e0e8;border-radius:9px;padding:17px;margin:15px 0}}.review{{border-left:9px solid #394b59}}.match{{border-left:9px solid var(--league)}}.title{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:#fff;padding:4px 10px;border-radius:999px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f7f9fb;padding:10px;border-radius:6px}}small{{display:block;color:#687681}}strong{{font-size:22px}}.combo h3{{display:flex;justify-content:space-between}}.combo b{{color:#0a7142}}table{{width:100%;border-collapse:collapse}}td{{padding:7px;border-bottom:1px solid #e3e8ec}}a{{color:#175f9e}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style></head><body><header><h1>0716–0717 非世界杯足球预测</h1><p>两场欧冠已复盘，当前剩余 {len(payload['matches'])} 场；官方赔率更新时间截至 {esc(payload['oddsUpdatedAt'])}；世界杯已排除。</p><div class="legend">{legend}</div></header><main><section class="notice"><h2>已结束欧冠复盘</h2><p>模型修正：欧战第二回合必须分开建模90分钟赛果与最终晋级；领先方的控节奏0-0/1-1路径和落后方追分后的反击扩大路径同时保留。</p></section>{review_cards}<section class="notice"><h2>剩余场次串关信任度排序</h2><p>已剔除结束场次，仅保留理论组合赔率不低于 {MIN_COMBO_ODDS:g} 的串关；信任度用于模型内部横向排序，并非命中概率。</p></section>{''.join(combo_cards)}<h2>剩余7场预测</h2>{''.join(match_cards)}<section class="notice"><h2>来源</h2><ul>{sources}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
 
 
 def main() -> None:
-    matches = [predict(m) for m in load_matches()]
-    if len(matches) != 9:
-        raise SystemExit(f"Expected 9 non-World-Cup matches, got {len(matches)}")
+    all_matches = [predict(m) for m in load_matches()]
+    if len(all_matches) != 9:
+        raise SystemExit(f"Expected 9 non-World-Cup matches, got {len(all_matches)}")
+    matches = [m for m in all_matches if m["matchDate"] == "2026-07-17"]
+    if len(matches) != 7:
+        raise SystemExit(f"Expected 7 remaining matches, got {len(matches)}")
     updated = max(pool.get("updatedAt", "") for m in matches for pool in m["odds"].values() if isinstance(pool, dict))
-    payload = {"modelVersion": MODEL_VERSION, "generatedAt": datetime.now().isoformat(timespec="seconds"), "dates": ["2026-07-16", "2026-07-17"], "worldCupExcluded": True, "oddsUpdatedAt": updated, "leagueStyles": LEAGUE_STYLES, "matches": matches, "combos": build_combos(matches), "sources": SOURCES, "disclaimer": DISCLAIMER}
+    payload = {"modelVersion": MODEL_VERSION, "generatedAt": datetime.now().isoformat(timespec="seconds"), "dates": ["2026-07-16", "2026-07-17"], "worldCupExcluded": True, "oddsUpdatedAt": updated, "leagueStyles": LEAGUE_STYLES, "completedResults": COMPLETED_RESULTS, "matches": matches, "combos": build_combos(matches), "sources": SOURCES, "disclaimer": DISCLAIMER}
     DATA.joinpath("predictions_20260716_0717.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    DATA.joinpath("review_20260716.json").write_text(json.dumps({"modelVersion": MODEL_VERSION, "reviewedAt": payload["generatedAt"], "results": COMPLETED_RESULTS, "forwardRule": "欧战第二回合分离90分钟赛果与最终晋级；按总比分状态同时覆盖控节奏和追分反击路径。"}, ensure_ascii=False, indent=2), encoding="utf-8")
     OUT.mkdir(exist_ok=True)
     page = render(payload)
     OUT.joinpath("index.html").write_text(page, encoding="utf-8")
     OUT.joinpath("predict_20260716_0717.html").write_text(page, encoding="utf-8")
     ROOT.joinpath("index.html").write_text(page, encoding="utf-8")
-    print(f"Generated {len(matches)} matches and {len(payload['combos'])} ranked combos")
+    print(f"Reviewed {len(COMPLETED_RESULTS)} results; generated {len(matches)} remaining matches and {len(payload['combos'])} ranked combos")
 
 
 if __name__ == "__main__":
