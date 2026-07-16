@@ -44,10 +44,10 @@ COMPLETED_RESULTS = [
         "lesson": "客胜与3球正确；首回合领先方遇到主队追分时，反击扩大路径仍需保留。",
     },
     {
-        "key": "202-20260716", "match": "周三202 苏捷斯卡 vs 阿拉木图凯拉特", "score": "0-0",
-        "aggregate": "1-2，阿拉木图凯拉特晋级", "directionHit": False, "goalHit": False,
-        "scoreHit": "保护比分0-0命中",
-        "lesson": "把晋级优势误写成90分钟客胜；第二回合领先方可主动降速，必须单列0-0/1-1与最终晋级。",
+        "key": "202-20260716", "match": "周三202 苏捷斯卡 vs 阿拉木图凯拉特", "score": "0-2",
+        "aggregate": "总比分1-4，阿拉木图凯拉特晋级", "directionHit": True, "goalHit": False,
+        "scoreHit": "保护比分0-2命中",
+        "lesson": "客胜方向和0-2保护命中，3球主选失误；领先方仍可能在下半场借实力、红牌和点球扩大，不能机械等同于守和。",
     },
 ]
 
@@ -71,7 +71,8 @@ SOURCES = [
     {"name": "巴西足协赛程", "url": "https://www.cbf.com.br/futebol-brasileiro/competicoes/campeonato-brasileiro-serie-a"},
     {"name": "MLS官方赛程与前瞻", "url": "https://www.mlssoccer.com/news/matchday-16-watch-guide-what-to-know-as-mls-returns"},
     {"name": "MLS官方伤停报告", "url": "https://www.mlssoccer.com/league-reports/player-availability-report/"},
-    {"name": "欧冠资格赛赛果", "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/"},
+    {"name": "欧冠苏捷斯卡vs凯拉特官方比赛页", "url": "https://www.uefa.com/uefachampionsleague/match/2048647--sutjeska-vs-kairat-almaty/"},
+    {"name": "苏捷斯卡0-2凯拉特赛后统计", "url": "https://baonghean.vn/en/thong-ke-tran-dau-sutjeska-0-2-kairat-almaty-jorginho-toa-sang-kairat-almaty-gianh-tron-3-diem-10344307.html"},
 ]
 
 
@@ -242,10 +243,10 @@ def render(payload: dict[str, Any]) -> str:
         match_cards.append(f'''<section class="match {m['leagueStyle']['class']}" style="--league:{m['leagueStyle']['color']}"><div class="title"><h3>{esc(m['matchNumStr'])} {esc(m['home'])} vs {esc(m['away'])}</h3><span>{esc(m['leagueStyle']['label'])}</span></div><div class="grid"><div><small>胜平负</small><strong>{esc(m['directionText'])}</strong></div><div><small>总进球</small><strong>{esc(m['totalGoals'])}</strong></div><div><small>主比分</small><strong>{esc(m['mainScore'])}</strong></div><div><small>信任度</small><strong>{m['confidenceScore']}</strong></div></div><p>比分池：{esc(pool)}；尾部审计：{esc(tails)}；总进球候选：{esc(' / '.join(m['goalCandidates']))}</p><p>隐含概率：主 {p['home']:.1%} / 平 {p['draw']:.1%} / 客 {p['away']:.1%}；排名：{esc(m['homeRank'] or '-')} / {esc(m['awayRank'] or '-')}</p><p><b>信息面：</b>{esc(m['context'])}</p><p><b>模型解释：</b>{esc(m['reason'])}</p></section>''')
     sources = "".join(f'<li><a href="{esc(x["url"])}">{esc(x["name"])}</a></li>' for x in payload["sources"])
     review_cards = "".join(
-        f'<section class="review"><h3>{esc(x["match"])}：{esc(x["score"])}</h3><p>{esc(x["aggregate"])}；{esc(x["scoreHit"])}。</p><p><b>复盘：</b>{esc(x["lesson"])}</p></section>'
+        f'<section class="review"><h3>{esc(x["match"])}：{esc(x["score"])}</h3><p>{esc(x["aggregate"])}；方向：{"命中" if x["directionHit"] else "失误"}；总进球：{"命中" if x["goalHit"] else "失误"}；{esc(x["scoreHit"])}。</p><p><b>复盘：</b>{esc(x["lesson"])}</p></section>'
         for x in payload["completedResults"]
     )
-    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0716-0717 非世界杯足球预测</title><style>body{{margin:0;background:#f3f6f9;color:#19232d;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:22px 16px}}header{{background:#fff;border-bottom:1px solid #d8e0e8}}h1{{margin:0}}.legend span{{display:inline-block;margin:5px 8px 5px 0;padding:5px 10px;border-left:7px solid var(--c);background:#eef2f5;border-radius:5px}}.match,.combo,.notice,.review{{background:#fff;border:1px solid #d8e0e8;border-radius:9px;padding:17px;margin:15px 0}}.review{{border-left:9px solid #394b59}}.match{{border-left:9px solid var(--league)}}.title{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:#fff;padding:4px 10px;border-radius:999px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f7f9fb;padding:10px;border-radius:6px}}small{{display:block;color:#687681}}strong{{font-size:22px}}.combo h3{{display:flex;justify-content:space-between}}.combo b{{color:#0a7142}}table{{width:100%;border-collapse:collapse}}td{{padding:7px;border-bottom:1px solid #e3e8ec}}a{{color:#175f9e}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style></head><body><header><h1>0716–0717 非世界杯足球预测</h1><p>两场欧冠已复盘，当前剩余 {len(payload['matches'])} 场；官方赔率更新时间截至 {esc(payload['oddsUpdatedAt'])}；世界杯已排除。</p><div class="legend">{legend}</div></header><main><section class="notice"><h2>已结束欧冠复盘</h2><p>模型修正：欧战第二回合必须分开建模90分钟赛果与最终晋级；领先方的控节奏0-0/1-1路径和落后方追分后的反击扩大路径同时保留。</p></section>{review_cards}<section class="notice"><h2>剩余场次串关信任度排序</h2><p>已剔除结束场次，仅保留理论组合赔率不低于 {MIN_COMBO_ODDS:g} 的串关；信任度用于模型内部横向排序，并非命中概率。</p></section>{''.join(combo_cards)}<h2>剩余7场预测</h2>{''.join(match_cards)}<section class="notice"><h2>来源</h2><ul>{sources}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
+    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0716-0717 非世界杯足球预测</title><style>body{{margin:0;background:#f3f6f9;color:#19232d;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:22px 16px}}header{{background:#fff;border-bottom:1px solid #d8e0e8}}h1{{margin:0}}.legend span{{display:inline-block;margin:5px 8px 5px 0;padding:5px 10px;border-left:7px solid var(--c);background:#eef2f5;border-radius:5px}}.match,.combo,.notice,.review{{background:#fff;border:1px solid #d8e0e8;border-radius:9px;padding:17px;margin:15px 0}}.review{{border-left:9px solid #394b59}}.match{{border-left:9px solid var(--league)}}.title{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:#fff;padding:4px 10px;border-radius:999px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f7f9fb;padding:10px;border-radius:6px}}small{{display:block;color:#687681}}strong{{font-size:22px}}.combo h3{{display:flex;justify-content:space-between}}.combo b{{color:#0a7142}}table{{width:100%;border-collapse:collapse}}td{{padding:7px;border-bottom:1px solid #e3e8ec}}a{{color:#175f9e}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style></head><body><header><h1>0716–0717 非世界杯足球预测</h1><p>两场欧冠已复盘，当前剩余 {len(payload['matches'])} 场；官方赔率更新时间截至 {esc(payload['oddsUpdatedAt'])}；世界杯已排除。</p><div class="legend">{legend}</div></header><main><section class="notice"><h2>已结束欧冠复盘</h2><p><b>赛果纠错：</b>苏捷斯卡 0-2 阿拉木图凯拉特；上一版误录0-0。以后必须在比赛结束后核对最终比分、进球时间和总比分再结算。</p><p>模型修正：欧战第二回合分开建模90分钟赛果与最终晋级；领先方既可能控节奏，也可能在对手压出或少打一人后扩大比分。</p></section>{review_cards}<section class="notice"><h2>剩余场次串关信任度排序</h2><p>已剔除结束场次，仅保留理论组合赔率不低于 {MIN_COMBO_ODDS:g} 的串关；信任度用于模型内部横向排序，并非命中概率。</p></section>{''.join(combo_cards)}<h2>剩余7场预测</h2>{''.join(match_cards)}<section class="notice"><h2>来源</h2><ul>{sources}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
 
 
 def main() -> None:
@@ -258,7 +259,7 @@ def main() -> None:
     updated = max(pool.get("updatedAt", "") for m in matches for pool in m["odds"].values() if isinstance(pool, dict))
     payload = {"modelVersion": MODEL_VERSION, "generatedAt": datetime.now().isoformat(timespec="seconds"), "dates": ["2026-07-16", "2026-07-17"], "worldCupExcluded": True, "oddsUpdatedAt": updated, "leagueStyles": LEAGUE_STYLES, "completedResults": COMPLETED_RESULTS, "matches": matches, "combos": build_combos(matches), "sources": SOURCES, "disclaimer": DISCLAIMER}
     DATA.joinpath("predictions_20260716_0717.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    DATA.joinpath("review_20260716.json").write_text(json.dumps({"modelVersion": MODEL_VERSION, "reviewedAt": payload["generatedAt"], "results": COMPLETED_RESULTS, "forwardRule": "欧战第二回合分离90分钟赛果与最终晋级；按总比分状态同时覆盖控节奏和追分反击路径。"}, ensure_ascii=False, indent=2), encoding="utf-8")
+    DATA.joinpath("review_20260716.json").write_text(json.dumps({"modelVersion": MODEL_VERSION, "reviewedAt": payload["generatedAt"], "results": COMPLETED_RESULTS, "correction": {"error": "苏捷斯卡vs阿拉木图凯拉特被误录为0-0", "correctResult": "0-2", "rootCause": "使用了未最终结算或状态滞后的赛果页面，未交叉核对进球时间与总比分", "checkPoint": "赛后复盘必须核对最终比分、进球时间、红牌/点球与两回合总比分"}, "forwardRule": "欧战第二回合分离90分钟赛果与最终晋级；按总比分状态同时覆盖控节奏和追分反击路径。"}, ensure_ascii=False, indent=2), encoding="utf-8")
     OUT.mkdir(exist_ok=True)
     page = render(payload)
     OUT.joinpath("index.html").write_text(page, encoding="utf-8")

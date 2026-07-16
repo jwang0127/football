@@ -1,6 +1,6 @@
 {
   "modelVersion": "non-worldcup-multileague-20260716-review-v2",
-  "generatedAt": "2026-07-16T09:54:29",
+  "generatedAt": "2026-07-16T10:02:49",
   "dates": [
     "2026-07-16",
     "2026-07-17"
@@ -43,12 +43,12 @@
     {
       "key": "202-20260716",
       "match": "周三202 苏捷斯卡 vs 阿拉木图凯拉特",
-      "score": "0-0",
-      "aggregate": "1-2，阿拉木图凯拉特晋级",
-      "directionHit": false,
+      "score": "0-2",
+      "aggregate": "总比分1-4，阿拉木图凯拉特晋级",
+      "directionHit": true,
       "goalHit": false,
-      "scoreHit": "保护比分0-0命中",
-      "lesson": "把晋级优势误写成90分钟客胜；第二回合领先方可主动降速，必须单列0-0/1-1与最终晋级。"
+      "scoreHit": "保护比分0-2命中",
+      "lesson": "客胜方向和0-2保护命中，3球主选失误；领先方仍可能在下半场借实力、红牌和点球扩大，不能机械等同于守和。"
     }
   ],
   "matches": [
@@ -1049,8 +1049,12 @@
       "url": "https://www.mlssoccer.com/league-reports/player-availability-report/"
     },
     {
-      "name": "欧冠资格赛赛果",
-      "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/"
+      "name": "欧冠苏捷斯卡vs凯拉特官方比赛页",
+      "url": "https://www.uefa.com/uefachampionsleague/match/2048647--sutjeska-vs-kairat-almaty/"
+    },
+    {
+      "name": "苏捷斯卡0-2凯拉特赛后统计",
+      "url": "https://baonghean.vn/en/thong-ke-tran-dau-sutjeska-0-2-kairat-almaty-jorginho-toa-sang-kairat-almaty-gianh-tron-3-diem-10344307.html"
     }
   ],
   "disclaimer": "以上仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。"

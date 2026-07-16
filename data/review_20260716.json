@@ -1,6 +1,6 @@
 {
   "modelVersion": "non-worldcup-multileague-20260716-review-v2",
-  "reviewedAt": "2026-07-16T09:54:29",
+  "reviewedAt": "2026-07-16T10:02:49",
   "results": [
     {
       "key": "201-20260716",
@@ -15,13 +15,19 @@
     {
       "key": "202-20260716",
       "match": "周三202 苏捷斯卡 vs 阿拉木图凯拉特",
-      "score": "0-0",
-      "aggregate": "1-2，阿拉木图凯拉特晋级",
-      "directionHit": false,
+      "score": "0-2",
+      "aggregate": "总比分1-4，阿拉木图凯拉特晋级",
+      "directionHit": true,
       "goalHit": false,
-      "scoreHit": "保护比分0-0命中",
-      "lesson": "把晋级优势误写成90分钟客胜；第二回合领先方可主动降速，必须单列0-0/1-1与最终晋级。"
+      "scoreHit": "保护比分0-2命中",
+      "lesson": "客胜方向和0-2保护命中，3球主选失误；领先方仍可能在下半场借实力、红牌和点球扩大，不能机械等同于守和。"
     }
   ],
+  "correction": {
+    "error": "苏捷斯卡vs阿拉木图凯拉特被误录为0-0",
+    "correctResult": "0-2",
+    "rootCause": "使用了未最终结算或状态滞后的赛果页面，未交叉核对进球时间与总比分",
+    "checkPoint": "赛后复盘必须核对最终比分、进球时间、红牌/点球与两回合总比分"
+  },
   "forwardRule": "欧战第二回合分离90分钟赛果与最终晋级；按总比分状态同时覆盖控节奏和追分反击路径。"
 }
