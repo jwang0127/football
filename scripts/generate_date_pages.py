@@ -20,6 +20,9 @@ HAFU_TEXT = {"hh": "胜/胜", "hd": "胜/平", "ha": "胜/负", "dh": "平/胜",
 EXCLUDED_BY_DATE: dict[str, dict[str, str]] = {
     "20260718": {"法国|英格兰": ""}
 }
+EXTRA_MATCHES_BY_DATE = {
+    "20260718": ("data/sporttery_20260719_latest.json", "韩国职业联赛")
+}
 
 
 def load_base():
@@ -129,6 +132,7 @@ def predict_with_market_fallback(base: Any, match: dict[str, Any]) -> dict[str, 
             raise ValueError(f"No HAD or score-matrix direction basis for {match.get('matchNumStr')}")
         cloned["odds"]["had"] = {key: round(1 / (value / total), 3) for key, value in totals.items() if value}
     predicted = base.predict(cloned)
+    predicted["businessDate"] = match.get("businessDate", "")
     if not has_had:
         predicted["odds"]["had"] = {}
         predicted["marketBasis"] = "未开售胜平负；方向概率由官方比分矩阵归一化推导，不参与胜平负串关。"
@@ -140,7 +144,8 @@ def predict_with_market_fallback(base: Any, match: dict[str, Any]) -> dict[str, 
 
 def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
     label = datetime.strptime(payload["date"], "%Y%m%d").strftime("%m-%d")
-    legends = f'<span style="--c:#17212b">按 Sporttery 竞彩业务日分组</span><span style="--c:#c38b16">串关理论赔率 ≥ {MIN_COMBO_ODDS:.0f}</span>' + "".join(f'<span style="--c:{styles[name]["color"]}">{esc(styles[name]["label"])}</span>' for name in dict.fromkeys(m["league"] for m in payload["matches"]))
+    extra_note = '<span style="--c:#b33e5c">含07-19两场韩职</span>' if payload["date"] == "20260718" else ""
+    legends = f'<span style="--c:#17212b">按 Sporttery 竞彩业务日分组</span><span style="--c:#c38b16">串关理论赔率 ≥ {MIN_COMBO_ODDS:.0f}</span>{extra_note}' + "".join(f'<span style="--c:{styles[name]["color"]}">{esc(styles[name]["label"])}</span>' for name in dict.fromkeys(m["league"] for m in payload["matches"]))
     warnings = "".join(f"<li>{esc(x)}</li>" for x in payload["scheduleWarnings"])
     combos = []
     for c in payload["combos"]:
@@ -163,9 +168,15 @@ def main() -> None:
     args = parser.parse_args()
     base = load_base()
     raw = json.loads((ROOT / args.source).read_text(encoding="utf-8-sig"))
+    source_matches = list(raw["matches"])
+    extra_config = EXTRA_MATCHES_BY_DATE.get(args.date)
+    if extra_config:
+        extra_path, extra_league = extra_config
+        extra_raw = json.loads((ROOT / extra_path).read_text(encoding="utf-8-sig"))
+        source_matches.extend(m for m in extra_raw["matches"] if m.get("league") == extra_league)
     excluded = EXCLUDED_BY_DATE.get(args.date, {})
     supported = set(base.LEAGUE_STYLES)
-    matches = [predict_with_market_fallback(base, m) for m in raw["matches"] if m.get("league") in supported and f"{m.get('home')}|{m.get('away')}" not in excluded]
+    matches = [predict_with_market_fallback(base, m) for m in source_matches if m.get("league") in supported and f"{m.get('home')}|{m.get('away')}" not in excluded]
     if not matches:
         raise SystemExit("No verified matches available")
     updated = max(pool.get("updatedAt", "") for m in matches for pool in m["odds"].values() if isinstance(pool, dict))
@@ -177,7 +188,7 @@ def main() -> None:
         {"name": "K League官方赛程", "url": "https://tv.kleague.com/en-int/schedule"},
         {"name": "FIFA世界杯官方赛程", "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"},
     ]
-    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日", "modelVersion": f"daily-multimarket-{args.date}-v2", "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
+    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户要求并入07-19两场韩职", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"daily-multimarket-{args.date}-v3", "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
     DATA.joinpath(f"predictions_{args.date}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     out = ROOT / args.date
     out.mkdir(exist_ok=True)
