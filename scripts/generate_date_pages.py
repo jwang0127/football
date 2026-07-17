@@ -16,7 +16,9 @@ DATA = ROOT / "data"
 DISCLAIMER = "以上仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。"
 MARKET_TEXT = {"had": "胜平负", "ttg": "总进球", "crs": "比分", "hafu": "半全场"}
 HAFU_TEXT = {"hh": "胜/胜", "hd": "胜/平", "ha": "胜/负", "dh": "平/胜", "dd": "平/平", "da": "平/负", "ah": "负/胜", "ad": "负/平", "aa": "负/负"}
-EXCLUDED_BY_DATE: dict[str, dict[str, str]] = {}
+EXCLUDED_BY_DATE: dict[str, dict[str, str]] = {
+    "20260718": {"法国|英格兰": ""}
+}
 
 
 def load_base():
@@ -174,7 +176,7 @@ def main() -> None:
         {"name": "K League官方赛程", "url": "https://tv.kleague.com/en-int/schedule"},
         {"name": "FIFA世界杯官方赛程", "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"},
     ]
-    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日", "modelVersion": f"daily-multimarket-{args.date}-v2", "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": list(excluded.values()), "sources": sources, "disclaimer": DISCLAIMER}
+    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日", "modelVersion": f"daily-multimarket-{args.date}-v2", "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
     DATA.joinpath(f"predictions_{args.date}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     out = ROOT / args.date
     out.mkdir(exist_ok=True)
