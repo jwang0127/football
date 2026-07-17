@@ -2,6 +2,8 @@ param(
   [string]$Date = (Get-Date -Format "yyyyMMdd"),
   [string]$OutFile = "",
   [string]$PoolCode = "ttg,had,hhad,crs,hafu",
+  [ValidateSet("MatchDate", "BusinessDate")]
+  [string]$DateMode = "MatchDate",
   [switch]$Force,
   [switch]$MergeExisting,
   [switch]$RefreshPredictions
@@ -551,7 +553,8 @@ $matchList = New-Object System.Collections.Generic.List[object]
 
 foreach ($group in @($apiPayload.value.matchInfoList)) {
   foreach ($match in @($group.subMatchList)) {
-    if ([string]$match.matchDate -ne $targetDate) {
+    $dateValue = if ($DateMode -eq "BusinessDate") { [string]$match.businessDate } else { [string]$match.matchDate }
+    if ($dateValue -ne $targetDate) {
       continue
     }
 

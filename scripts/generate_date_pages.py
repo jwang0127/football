@@ -16,11 +16,7 @@ DATA = ROOT / "data"
 DISCLAIMER = "以上仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。"
 MARKET_TEXT = {"had": "胜平负", "ttg": "总进球", "crs": "比分", "hafu": "半全场"}
 HAFU_TEXT = {"hh": "胜/胜", "hd": "胜/平", "ha": "胜/负", "dh": "平/胜", "dd": "平/平", "da": "平/负", "ah": "负/胜", "ad": "负/平", "aa": "负/负"}
-EXCLUDED_BY_DATE = {
-    "20260718": {
-        "IFK哥德堡|布鲁马波卡纳": "瑞超官方赛程显示 IFK哥德堡 vs 布鲁马波卡纳为当地07-19 14:00（北京时间07-19 20:00），与竞彩快照日期冲突，故不纳入07-18预测及串关。"
-    }
-}
+EXCLUDED_BY_DATE: dict[str, dict[str, str]] = {}
 
 
 def load_base():
@@ -30,6 +26,7 @@ def load_base():
     assert spec.loader
     spec.loader.exec_module(module)
     module.LEAGUE_STYLES.update({
+        "世界杯": {"class": "worldcup", "color": "#7b1f2e", "label": "世界杯季军赛"},
         "瑞典超级联赛": {"class": "swe", "color": "#176da3", "label": "瑞超"},
         "韩国职业联赛": {"class": "kor", "color": "#b33e5c", "label": "韩职"},
     })
@@ -140,7 +137,7 @@ def predict_with_market_fallback(base: Any, match: dict[str, Any]) -> dict[str, 
 
 def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
     label = datetime.strptime(payload["date"], "%Y%m%d").strftime("%m-%d")
-    legends = "".join(f'<span style="--c:{styles[name]["color"]}">{esc(styles[name]["label"])}</span>' for name in dict.fromkeys(m["league"] for m in payload["matches"]))
+    legends = '<span style="--c:#17212b">按 Sporttery 竞彩业务日分组</span>' + "".join(f'<span style="--c:{styles[name]["color"]}">{esc(styles[name]["label"])}</span>' for name in dict.fromkeys(m["league"] for m in payload["matches"]))
     warnings = "".join(f"<li>{esc(x)}</li>" for x in payload["scheduleWarnings"])
     combos = []
     for c in payload["combos"]:
@@ -165,7 +162,7 @@ def main() -> None:
     raw = json.loads((ROOT / args.source).read_text(encoding="utf-8-sig"))
     excluded = EXCLUDED_BY_DATE.get(args.date, {})
     supported = set(base.LEAGUE_STYLES)
-    matches = [predict_with_market_fallback(base, m) for m in raw["matches"] if m.get("league") in supported and f"{m.get('home')}|{m.get('away')}" not in excluded and "世界杯" not in m.get("league", "")]
+    matches = [predict_with_market_fallback(base, m) for m in raw["matches"] if m.get("league") in supported and f"{m.get('home')}|{m.get('away')}" not in excluded]
     if not matches:
         raise SystemExit("No verified matches available")
     updated = max(pool.get("updatedAt", "") for m in matches for pool in m["odds"].values() if isinstance(pool, dict))
@@ -175,8 +172,9 @@ def main() -> None:
         {"name": "巴西足协赛程", "url": "https://www.cbf.com.br/futebol-brasileiro/jogos/campeonato-brasileiro/serie-a/2026"},
         {"name": "MLS官方赛程", "url": "https://www.mlssoccer.com/news/mls-unveils-2026-regular-season-schedule"},
         {"name": "K League官方赛程", "url": "https://tv.kleague.com/en-int/schedule"},
+        {"name": "FIFA世界杯官方赛程", "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"},
     ]
-    payload = {"date": args.date, "modelVersion": f"daily-multimarket-{args.date}-v1", "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": list(excluded.values()), "sources": sources, "disclaimer": DISCLAIMER}
+    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日", "modelVersion": f"daily-multimarket-{args.date}-v2", "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": list(excluded.values()), "sources": sources, "disclaimer": DISCLAIMER}
     DATA.joinpath(f"predictions_{args.date}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     out = ROOT / args.date
     out.mkdir(exist_ok=True)

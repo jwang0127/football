@@ -1,50 +1,24 @@
 {
-  "modelVersion": "non-worldcup-multileague-20260716-review-v2",
-  "reviewedAt": "2026-07-16T10:02:49",
-  "results": [
-    {
-      "key": "102-20260716",
-      "competition": "世界杯半决赛",
-      "match": "周三102 英格兰 vs 阿根廷",
-      "score": "1-2",
-      "aggregate": "阿根廷晋级决赛，英格兰进入季军赛",
-      "directionHit": false,
-      "goalHit": false,
-      "scoreHit": "主比分1-1只命中至第80分钟前的均势路径，未覆盖阿根廷末段连续进球",
-      "lesson": "淘汰赛末段领先方换人与防守收缩会改变攻守结构；必须把强队80分钟后的连续得分与1-2逆转列为独立尾部路径。"
-    },
-    {
-      "key": "201-20260716",
-      "competition": "欧冠资格赛",
-      "match": "周三201 比森阿泰尔 vs 克拉克斯维克",
-      "score": "1-2",
-      "aggregate": "2-4，克拉克斯维克晋级",
-      "directionHit": true,
-      "goalHit": true,
-      "scoreHit": "保护比分1-2命中",
-      "lesson": "客胜与3球正确；首回合领先方遇到主队追分时，反击扩大路径仍需保留。"
-    },
-    {
-      "key": "202-20260716",
-      "competition": "欧冠资格赛",
-      "match": "周三202 苏捷斯卡 vs 阿拉木图凯拉特",
-      "score": "0-2",
-      "aggregate": "总比分1-4，阿拉木图凯拉特晋级",
-      "directionHit": true,
-      "goalHit": false,
-      "scoreHit": "保护比分0-2命中",
-      "lesson": "客胜方向和0-2保护命中，3球主选失误；领先方仍可能在下半场借实力、红牌和点球扩大，不能机械等同于守和。"
-    }
-  ],
-  "correction": {
-    "error": "苏捷斯卡vs阿拉木图凯拉特被误录为0-0",
-    "correctResult": "0-2",
-    "rootCause": "使用了未最终结算或状态滞后的赛果页面，未交叉核对进球时间与总比分",
-    "checkPoint": "赛后复盘必须核对最终比分、进球时间、红牌/点球与两回合总比分"
-  },
+  "date": "20260716",
+  "dateBasis": "Sporttery竞彩业务日",
+  "reviewedAt": "2026-07-17T13:10:00+08:00",
   "byCompetition": {
-    "世界杯半决赛": "英格兰1-2阿根廷：模型抓到长期均势但漏掉末段逆转尾部。以后淘汰赛必须同时展示90分钟方向、晋级方向及80分钟后的换人/压迫触发路径。",
-    "欧冠资格赛": "两场均命中客胜方向，比分保护分别命中1-2和0-2；总进球一中一失。第二回合领先方既可能控节奏，也可能利用对手追分和红牌/点球继续扩大。"
+    "挪超": [{"match":"瓦勒伦加 vs 奥勒松","result":"6-1","directionHit":true,"lesson":"主胜方向正确但严重低估比分扩张；强主胜且对手追分时必须保留4+球尾部。"}],
+    "欧联资格赛": [
+      {"match":"德里城 vs 索菲亚中央陆军","result":"1-2","directionHit":true,"scoreHit":true,"lesson":"客胜、3球和1-2命中。"},
+      {"match":"费伦茨瓦罗斯 vs 伏伊伏丁那","result":"3-0","directionHit":true,"lesson":"主胜与3球命中，强主队零封扩大路径有效。"},
+      {"match":"日利纳 vs 斯普利特海杜克","result":"2-1","directionHit":false,"lesson":"主队追总比分可赢下90分钟，即使最终仍可能无缘晋级；90分钟与晋级必须分开。"}
+    ],
+    "巴甲": [
+      {"match":"博塔弗戈 vs 桑托斯","result":"2-1","directionHit":true,"scoreHit":true,"lesson":"主胜和2-1命中，总进球主选偏低。"},
+      {"match":"维多利亚 vs 瓦斯科达伽马","result":"1-0","directionHit":true,"scoreHit":true,"lesson":"低比分主胜路径命中。"}
+    ],
+    "美职": [
+      {"match":"蒙特利尔CF vs 多伦多FC","result":"0-0","directionHit":false,"lesson":"德比与复赛不确定性被低估，需提高0-0与平局权重。"},
+      {"match":"芝加哥火焰 vs 温哥华白帽","result":"延期至10月6日","void":true,"lesson":"空气质量导致延期，不计模型命中率。"},
+      {"match":"圣路易斯城 vs 堪萨斯城竞技","result":"3-2","directionHit":true,"lesson":"主胜命中但总进球尾部不足。"},
+      {"match":"西雅图海湾人 vs 波特兰伐木工","result":"0-4","directionHit":false,"lesson":"德比战不能把低赔主胜当单一路径，必须保留客队反击与大比分尾部。"}
+    ]
   },
-  "forwardRule": "世界杯淘汰赛提高末段强队连续得分与逆转尾部权重；欧战第二回合分离90分钟赛果与最终晋级，并按总比分状态同时覆盖控节奏和追分反击路径。"
+  "forwardRule": "按竞彩业务日复盘；延期场次剔除命中率。强主胜审计4+球尾部，德比与复赛提高0-0/平局及反向大比分保护，欧战第二回合分离90分钟赛果与最终晋级。"
 }
