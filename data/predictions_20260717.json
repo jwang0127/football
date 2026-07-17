@@ -1,8 +1,11 @@
 {
   "date": "20260717",
-  "dateBasis": "Sporttery竞彩业务日",
-  "modelVersion": "daily-multimarket-20260717-v2",
-  "generatedAt": "2026-07-17T13:29:06",
+  "dateBasis": "Sporttery竞彩业务日；07-18页面按用户要求并入07-19两场韩职",
+  "includedBusinessDates": [
+    "2026-07-17"
+  ],
+  "modelVersion": "daily-multimarket-20260717-v4",
+  "generatedAt": "2026-07-17T14:05:09",
   "oddsUpdatedAt": "2026-07-17 12:35:06",
   "matches": [
     {
@@ -117,6 +120,7 @@
           "updatedAt": "2026-07-16 13:36:10"
         }
       },
+      "businessDate": "2026-07-17",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -236,6 +240,7 @@
           "updatedAt": "2026-07-16 13:36:10"
         }
       },
+      "businessDate": "2026-07-17",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -350,6 +355,7 @@
           "updatedAt": "2026-07-17 10:49:09"
         }
       },
+      "businessDate": "2026-07-17",
       "marketBasis": "未开售胜平负；方向概率由官方比分矩阵归一化推导，不参与胜平负串关。"
     },
     {
@@ -469,6 +475,7 @@
           "updatedAt": "2026-07-16 13:36:10"
         }
       },
+      "businessDate": "2026-07-17",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -583,6 +590,7 @@
           "updatedAt": "2026-07-16 13:36:10"
         }
       },
+      "businessDate": "2026-07-17",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -697,6 +705,7 @@
           "updatedAt": "2026-07-16 13:36:10"
         }
       },
+      "businessDate": "2026-07-17",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -816,6 +825,7 @@
           "updatedAt": "2026-07-16 13:36:10"
         }
       },
+      "businessDate": "2026-07-17",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -930,23 +940,15 @@
           "updatedAt": "2026-07-16 13:36:10"
         }
       },
+      "businessDate": "2026-07-17",
       "marketBasis": "官方胜平负赔率"
     }
   ],
   "combos": [
     {
-      "name": "混合4串一",
+      "name": "混合3串一",
       "category": "mixed",
       "legs": [
-        {
-          "matchId": "2040532",
-          "match": "周五201 IFK哥德堡 vs 布鲁马波卡纳",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.78,
-          "probability": 0.4974
-        },
         {
           "matchId": "2040535",
           "match": "周五204 巴伊亚 vs 沙佩科恩斯",
@@ -956,6 +958,177 @@
           "odds": 1.3,
           "probability": 0.6808
         },
+        {
+          "matchId": "2040536",
+          "match": "周五205 弗鲁米嫩塞 vs 布拉干蒂诺RB",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.2,
+          "probability": 0.3125
+        },
+        {
+          "matchId": "2040537",
+          "match": "周五206 米拉索尔 vs 格雷米奥",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.15,
+          "probability": 0.31746031746031744
+        }
+      ],
+      "productOdds": 13.1,
+      "trustScore": 36,
+      "rank": 1
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040535",
+          "match": "周五204 巴伊亚 vs 沙佩科恩斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.3,
+          "probability": 0.6808
+        },
+        {
+          "matchId": "2040537",
+          "match": "周五206 米拉索尔 vs 格雷米奥",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.15,
+          "probability": 0.31746031746031744
+        },
+        {
+          "matchId": "2040533",
+          "match": "周五202 米亚尔比 vs 韦斯特罗斯",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.55,
+          "probability": 0.3
+        }
+      ],
+      "productOdds": 10.44,
+      "trustScore": 35,
+      "rank": 2
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040535",
+          "match": "周五204 巴伊亚 vs 沙佩科恩斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.3,
+          "probability": 0.6808
+        },
+        {
+          "matchId": "2040533",
+          "match": "周五202 米亚尔比 vs 韦斯特罗斯",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.55,
+          "probability": 0.3
+        },
+        {
+          "matchId": "2040539",
+          "match": "周五208 洛杉矶银河 vs 洛杉矶FC",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "负/负",
+          "odds": 3.15,
+          "probability": 0.3
+        }
+      ],
+      "productOdds": 10.44,
+      "trustScore": 35,
+      "rank": 3
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040535",
+          "match": "周五204 巴伊亚 vs 沙佩科恩斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.3,
+          "probability": 0.6808
+        },
+        {
+          "matchId": "2040536",
+          "match": "周五205 弗鲁米嫩塞 vs 布拉干蒂诺RB",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.2,
+          "probability": 0.3125
+        },
+        {
+          "matchId": "2040533",
+          "match": "周五202 米亚尔比 vs 韦斯特罗斯",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.55,
+          "probability": 0.3
+        }
+      ],
+      "productOdds": 10.61,
+      "trustScore": 35,
+      "rank": 4
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040538",
+          "match": "周五207 纳什维尔 vs 亚特兰大联",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.36,
+          "probability": 0.6512
+        },
+        {
+          "matchId": "2040537",
+          "match": "周五206 米拉索尔 vs 格雷米奥",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.15,
+          "probability": 0.31746031746031744
+        },
+        {
+          "matchId": "2040533",
+          "match": "周五202 米亚尔比 vs 韦斯特罗斯",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.55,
+          "probability": 0.3
+        }
+      ],
+      "productOdds": 10.92,
+      "trustScore": 35,
+      "rank": 5
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
         {
           "matchId": "2040538",
           "match": "周五207 纳什维尔 vs 亚特兰大联",
@@ -973,236 +1146,92 @@
           "pick": "2",
           "odds": 3.2,
           "probability": 0.3125
-        }
-      ],
-      "productOdds": 10.07,
-      "trustScore": 43,
-      "rank": 1
-    },
-    {
-      "name": "混合4串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040533",
-          "match": "周五202 米亚尔比 vs 韦斯特罗斯",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.61,
-          "probability": 0.5503
-        },
-        {
-          "matchId": "2040535",
-          "match": "周五204 巴伊亚 vs 沙佩科恩斯",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.3,
-          "probability": 0.6808
-        },
-        {
-          "matchId": "2040538",
-          "match": "周五207 纳什维尔 vs 亚特兰大联",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.36,
-          "probability": 0.6512
-        },
-        {
-          "matchId": "2040539",
-          "match": "周五208 洛杉矶银河 vs 洛杉矶FC",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.65,
-          "probability": 0.273972602739726
-        }
-      ],
-      "productOdds": 10.39,
-      "trustScore": 42,
-      "rank": 2
-    },
-    {
-      "name": "混合4串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040535",
-          "match": "周五204 巴伊亚 vs 沙佩科恩斯",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.3,
-          "probability": 0.6808
-        },
-        {
-          "matchId": "2040536",
-          "match": "周五205 弗鲁米嫩塞 vs 布拉干蒂诺RB",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.72,
-          "probability": 0.515
-        },
-        {
-          "matchId": "2040538",
-          "match": "周五207 纳什维尔 vs 亚特兰大联",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.36,
-          "probability": 0.6512
         },
         {
           "matchId": "2040533",
           "match": "周五202 米亚尔比 vs 韦斯特罗斯",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.45,
-          "probability": 0.2898550724637681
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.55,
+          "probability": 0.3
         }
       ],
-      "productOdds": 10.49,
-      "trustScore": 42,
-      "rank": 3
-    },
-    {
-      "name": "混合4串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040535",
-          "match": "周五204 巴伊亚 vs 沙佩科恩斯",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.3,
-          "probability": 0.6808
-        },
-        {
-          "matchId": "2040536",
-          "match": "周五205 弗鲁米嫩塞 vs 布拉干蒂诺RB",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.72,
-          "probability": 0.515
-        },
-        {
-          "matchId": "2040538",
-          "match": "周五207 纳什维尔 vs 亚特兰大联",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.36,
-          "probability": 0.6512
-        },
-        {
-          "matchId": "2040532",
-          "match": "周五201 IFK哥德堡 vs 布鲁马波卡纳",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.5,
-          "probability": 0.2857142857142857
-        }
-      ],
-      "productOdds": 10.64,
-      "trustScore": 42,
-      "rank": 4
-    },
-    {
-      "name": "混合4串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040535",
-          "match": "周五204 巴伊亚 vs 沙佩科恩斯",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.3,
-          "probability": 0.6808
-        },
-        {
-          "matchId": "2040537",
-          "match": "周五206 米拉索尔 vs 格雷米奥",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.75,
-          "probability": 0.5058
-        },
-        {
-          "matchId": "2040538",
-          "match": "周五207 纳什维尔 vs 亚特兰大联",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.36,
-          "probability": 0.6512
-        },
-        {
-          "matchId": "2040533",
-          "match": "周五202 米亚尔比 vs 韦斯特罗斯",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.45,
-          "probability": 0.2898550724637681
-        }
-      ],
-      "productOdds": 10.67,
-      "trustScore": 42,
-      "rank": 5
-    },
-    {
-      "name": "胜平负4串一",
-      "category": "had",
-      "legs": [
-        {
-          "matchId": "2040532",
-          "match": "周五201 IFK哥德堡 vs 布鲁马波卡纳",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.78,
-          "probability": 0.4974
-        },
-        {
-          "matchId": "2040536",
-          "match": "周五205 弗鲁米嫩塞 vs 布拉干蒂诺RB",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.72,
-          "probability": 0.515
-        },
-        {
-          "matchId": "2040537",
-          "match": "周五206 米拉索尔 vs 格雷米奥",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.75,
-          "probability": 0.5058
-        },
-        {
-          "matchId": "2040539",
-          "match": "周五208 洛杉矶银河 vs 洛杉矶FC",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "客胜",
-          "odds": 1.93,
-          "probability": 0.4588
-        }
-      ],
-      "productOdds": 10.34,
-      "trustScore": 41,
+      "productOdds": 11.1,
+      "trustScore": 35,
       "rank": 6
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040535",
+          "match": "周五204 巴伊亚 vs 沙佩科恩斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.3,
+          "probability": 0.6808
+        },
+        {
+          "matchId": "2040537",
+          "match": "周五206 米拉索尔 vs 格雷米奥",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.15,
+          "probability": 0.31746031746031744
+        },
+        {
+          "matchId": "2040532",
+          "match": "周五201 IFK哥德堡 vs 布鲁马波卡纳",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.8,
+          "probability": 0.3
+        }
+      ],
+      "productOdds": 11.47,
+      "trustScore": 35,
+      "rank": 7
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040535",
+          "match": "周五204 巴伊亚 vs 沙佩科恩斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.3,
+          "probability": 0.6808
+        },
+        {
+          "matchId": "2040532",
+          "match": "周五201 IFK哥德堡 vs 布鲁马波卡纳",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.8,
+          "probability": 0.3
+        },
+        {
+          "matchId": "2040539",
+          "match": "周五208 洛杉矶银河 vs 洛杉矶FC",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "负/负",
+          "odds": 3.15,
+          "probability": 0.3
+        }
+      ],
+      "productOdds": 11.47,
+      "trustScore": 35,
+      "rank": 8
     },
     {
       "name": "总进球2串一",
@@ -1229,7 +1258,7 @@
       ],
       "productOdds": 10.08,
       "trustScore": 30,
-      "rank": 7
+      "rank": 9
     },
     {
       "name": "总进球2串一",
@@ -1256,7 +1285,7 @@
       ],
       "productOdds": 10.71,
       "trustScore": 29,
-      "rank": 8
+      "rank": 10
     },
     {
       "name": "总进球2串一",
@@ -1283,7 +1312,61 @@
       ],
       "productOdds": 10.87,
       "trustScore": 29,
-      "rank": 9
+      "rank": 11
+    },
+    {
+      "name": "总进球2串一",
+      "category": "ttg",
+      "legs": [
+        {
+          "matchId": "2040535",
+          "match": "周五204 巴伊亚 vs 沙佩科恩斯",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.29411764705882354
+        },
+        {
+          "matchId": "2040536",
+          "match": "周五205 弗鲁米嫩塞 vs 布拉干蒂诺RB",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.2,
+          "probability": 0.3125
+        }
+      ],
+      "productOdds": 10.88,
+      "trustScore": 28,
+      "rank": 12
+    },
+    {
+      "name": "总进球2串一",
+      "category": "ttg",
+      "legs": [
+        {
+          "matchId": "2040532",
+          "match": "周五201 IFK哥德堡 vs 布鲁马波卡纳",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.5,
+          "probability": 0.2857142857142857
+        },
+        {
+          "matchId": "2040537",
+          "match": "周五206 米拉索尔 vs 格雷米奥",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.15,
+          "probability": 0.31746031746031744
+        }
+      ],
+      "productOdds": 11.03,
+      "trustScore": 28,
+      "rank": 13
     },
     {
       "name": "半全场3串一",
@@ -1319,7 +1402,7 @@
       ],
       "productOdds": 10.53,
       "trustScore": 27,
-      "rank": 10
+      "rank": 14
     },
     {
       "name": "半全场3串一",
@@ -1355,7 +1438,7 @@
       ],
       "productOdds": 10.92,
       "trustScore": 27,
-      "rank": 11
+      "rank": 15
     },
     {
       "name": "半全场3串一",
@@ -1391,7 +1474,7 @@
       ],
       "productOdds": 11.85,
       "trustScore": 27,
-      "rank": 12
+      "rank": 16
     },
     {
       "name": "比分2串一",
@@ -1418,7 +1501,7 @@
       ],
       "productOdds": 35.94,
       "trustScore": 16,
-      "rank": 13
+      "rank": 17
     },
     {
       "name": "比分2串一",
@@ -1445,7 +1528,7 @@
       ],
       "productOdds": 35.94,
       "trustScore": 16,
-      "rank": 14
+      "rank": 18
     },
     {
       "name": "比分2串一",
@@ -1472,7 +1555,61 @@
       ],
       "productOdds": 37.38,
       "trustScore": 15,
-      "rank": 15
+      "rank": 19
+    },
+    {
+      "name": "比分2串一",
+      "category": "crs",
+      "legs": [
+        {
+          "matchId": "2040535",
+          "match": "周五204 巴伊亚 vs 沙佩科恩斯",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "2-0",
+          "odds": 6.25,
+          "probability": 0.16
+        },
+        {
+          "matchId": "2040536",
+          "match": "周五205 弗鲁米嫩塞 vs 布拉干蒂诺RB",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-0",
+          "odds": 6.25,
+          "probability": 0.16
+        }
+      ],
+      "productOdds": 39.06,
+      "trustScore": 15,
+      "rank": 20
+    },
+    {
+      "name": "比分2串一",
+      "category": "crs",
+      "legs": [
+        {
+          "matchId": "2040533",
+          "match": "周五202 米亚尔比 vs 韦斯特罗斯",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "2-1",
+          "odds": 6.8,
+          "probability": 0.14705882352941177
+        },
+        {
+          "matchId": "2040537",
+          "match": "周五206 米拉索尔 vs 格雷米奥",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-0",
+          "odds": 5.75,
+          "probability": 0.17391304347826086
+        }
+      ],
+      "productOdds": 39.1,
+      "trustScore": 15,
+      "rank": 21
     }
   ],
   "scheduleWarnings": [],

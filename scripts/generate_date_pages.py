@@ -84,7 +84,9 @@ def combo(name: str, legs: tuple[dict[str, Any], ...] | list[dict[str, Any]], ca
 def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     all_legs = {market: [leg(m, market) for m in matches] for market in MARKET_TEXT}
-    for market, candidates in all_legs.items():
+    # Pure HAD parlays are intentionally disabled: every displayed combo may contain at most one HAD leg.
+    for market in ("ttg", "crs", "hafu"):
+        candidates = all_legs[market]
         usable = [x for x in candidates if x["odds"] and x["probability"]]
         pool = []
         for size in range(2, min(4 if market == "had" else 3, len(usable)) + 1):
@@ -92,7 +94,8 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 item = combo(f"{MARKET_TEXT[market]}{size}串一", selected, market)
                 if item["productOdds"] >= MIN_COMBO_ODDS:
                     pool.append(item)
-        rows.extend(sorted(pool, key=lambda x: (-x["trustScore"], x["productOdds"]))[:3])
+        keep = 5 if market in {"ttg", "crs"} else 3
+        rows.extend(sorted(pool, key=lambda x: (-x["trustScore"], x["productOdds"]))[:keep])
 
     mixed = []
     candidates = [x for legs in all_legs.values() for x in legs if x["odds"] and x["probability"]]
@@ -100,10 +103,12 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
         for selected in combinations(candidates, size):
             if len({x["matchId"] for x in selected}) != size or len({x["market"] for x in selected}) < 2:
                 continue
+            if sum(x["market"] == "had" for x in selected) > 1:
+                continue
             item = combo(f"混合{size}串一", selected, "mixed")
             if item["productOdds"] >= MIN_COMBO_ODDS:
                 mixed.append(item)
-    rows.extend(sorted(mixed, key=lambda x: (-x["trustScore"], x["productOdds"]))[:5])
+    rows.extend(sorted(mixed, key=lambda x: (-x["trustScore"], x["productOdds"]))[:8])
     rows.sort(key=lambda x: (-x["trustScore"], x["productOdds"]))
     for rank, row in enumerate(rows, 1):
         row["rank"] = rank
@@ -145,7 +150,7 @@ def predict_with_market_fallback(base: Any, match: dict[str, Any]) -> dict[str, 
 def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
     label = datetime.strptime(payload["date"], "%Y%m%d").strftime("%m-%d")
     extra_note = '<span style="--c:#b33e5c">含07-19两场韩职</span>' if payload["date"] == "20260718" else ""
-    legends = f'<span style="--c:#17212b">按 Sporttery 竞彩业务日分组</span><span style="--c:#c38b16">串关理论赔率 ≥ {MIN_COMBO_ODDS:.0f}</span>{extra_note}' + "".join(f'<span style="--c:{styles[name]["color"]}">{esc(styles[name]["label"])}</span>' for name in dict.fromkeys(m["league"] for m in payload["matches"]))
+    legends = f'<span style="--c:#17212b">按 Sporttery 竞彩业务日分组</span><span style="--c:#c38b16">串关理论赔率 ≥ {MIN_COMBO_ODDS:.0f}</span><span style="--c:#287d70">每串最多1个胜平负</span>{extra_note}' + "".join(f'<span style="--c:{styles[name]["color"]}">{esc(styles[name]["label"])}</span>' for name in dict.fromkeys(m["league"] for m in payload["matches"]))
     warnings = "".join(f"<li>{esc(x)}</li>" for x in payload["scheduleWarnings"])
     combos = []
     for c in payload["combos"]:
@@ -188,7 +193,7 @@ def main() -> None:
         {"name": "K League官方赛程", "url": "https://tv.kleague.com/en-int/schedule"},
         {"name": "FIFA世界杯官方赛程", "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"},
     ]
-    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户要求并入07-19两场韩职", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"daily-multimarket-{args.date}-v3", "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
+    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户要求并入07-19两场韩职", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"daily-multimarket-{args.date}-v4", "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
     DATA.joinpath(f"predictions_{args.date}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     out = ROOT / args.date
     out.mkdir(exist_ok=True)
