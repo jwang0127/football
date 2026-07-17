@@ -1,38 +1,8 @@
 {
-  "modelVersion": "non-worldcup-multileague-20260717-v3",
-  "generatedAt": "2026-07-16T23:45:27",
-  "dates": [
-    "2026-07-17"
-  ],
-  "worldCupExcluded": true,
+  "date": "20260717",
+  "modelVersion": "daily-multimarket-20260717-v1",
+  "generatedAt": "2026-07-17T12:42:25",
   "oddsUpdatedAt": "2026-07-16 21:55:27",
-  "leagueStyles": {
-    "欧罗巴联赛": {
-      "class": "uel",
-      "color": "#d85b17",
-      "label": "欧联资格赛"
-    },
-    "欧洲冠军联赛": {
-      "class": "ucl",
-      "color": "#3157d5",
-      "label": "欧冠资格赛"
-    },
-    "挪威超级联赛": {
-      "class": "nor",
-      "color": "#7a43b6",
-      "label": "挪超"
-    },
-    "巴西甲级联赛": {
-      "class": "bra",
-      "color": "#17854b",
-      "label": "巴甲"
-    },
-    "美国职业大联盟": {
-      "class": "mls",
-      "color": "#d56b18",
-      "label": "美职"
-    }
-  },
   "matches": [
     {
       "id": "201",
@@ -150,7 +120,8 @@
           "hh": "2.25",
           "updatedAt": "2026-07-16 21:19:31"
         }
-      }
+      },
+      "marketBasis": "官方胜平负赔率"
     },
     {
       "id": "202",
@@ -263,7 +234,8 @@
           "hh": "6.70",
           "updatedAt": "2026-07-16 17:15:36"
         }
-      }
+      },
+      "marketBasis": "官方胜平负赔率"
     },
     {
       "id": "203",
@@ -381,7 +353,8 @@
           "hh": "1.85",
           "updatedAt": "2026-07-16 21:13:14"
         }
-      }
+      },
+      "marketBasis": "官方胜平负赔率"
     },
     {
       "id": "204",
@@ -494,7 +467,8 @@
           "hh": "5.20",
           "updatedAt": "2026-07-16 20:48:31"
         }
-      }
+      },
+      "marketBasis": "官方胜平负赔率"
     },
     {
       "id": "205",
@@ -607,7 +581,8 @@
           "hh": "2.90",
           "updatedAt": "2026-07-16 20:12:27"
         }
-      }
+      },
+      "marketBasis": "官方胜平负赔率"
     },
     {
       "id": "206",
@@ -720,7 +695,8 @@
           "hh": "3.75",
           "updatedAt": "2026-07-16 19:56:01"
         }
-      }
+      },
+      "marketBasis": "官方胜平负赔率"
     },
     {
       "id": "207",
@@ -833,7 +809,8 @@
           "hh": "3.20",
           "updatedAt": "2026-07-16 21:09:16"
         }
-      }
+      },
+      "marketBasis": "官方胜平负赔率"
     },
     {
       "id": "208",
@@ -946,7 +923,8 @@
           "hh": "4.00",
           "updatedAt": "2026-07-16 20:22:41"
         }
-      }
+      },
+      "marketBasis": "官方胜平负赔率"
     },
     {
       "id": "209",
@@ -1064,7 +1042,8 @@
           "hh": "1.85",
           "updatedAt": "2026-07-16 16:49:14"
         }
-      }
+      },
+      "marketBasis": "官方胜平负赔率"
     },
     {
       "id": "210",
@@ -1182,63 +1161,17 @@
           "hh": "1.95",
           "updatedAt": "2026-07-16 12:47:24"
         }
-      }
+      },
+      "marketBasis": "官方胜平负赔率"
     }
   ],
   "combos": [
     {
-      "name": "胜平负5串一",
-      "legs": [
-        {
-          "match": "周四201 瓦勒伦加 vs 奥勒松",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.5,
-          "probability": 0.59
-        },
-        {
-          "match": "周四203 费伦茨瓦罗斯 vs 伏伊伏丁那",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.25,
-          "probability": 0.7081
-        },
-        {
-          "match": "周四204 日利纳 vs 斯普利特海杜克",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "客胜",
-          "odds": 1.94,
-          "probability": 0.4565
-        },
-        {
-          "match": "周四206 维多利亚 vs 瓦斯科达伽马",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 2.12,
-          "probability": 0.4178
-        },
-        {
-          "match": "周四209 圣路易斯城 vs 堪萨斯城竞技",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.3,
-          "probability": 0.681
-        }
-      ],
-      "productOdds": 10.02,
-      "trustScore": 44,
+      "name": "胜平负4串一",
       "category": "had",
-      "rank": 1
-    },
-    {
-      "name": "胜平负5串一",
       "legs": [
         {
+          "matchId": "201",
           "match": "周四201 瓦勒伦加 vs 奥勒松",
           "market": "had",
           "marketText": "胜平负",
@@ -1247,22 +1180,16 @@
           "probability": 0.59
         },
         {
-          "match": "周四205 博塔弗戈 vs 桑托斯",
+          "matchId": "207",
+          "match": "周四207 蒙特利尔CF vs 多伦多FC",
           "market": "had",
           "marketText": "胜平负",
           "pick": "主胜",
-          "odds": 1.81,
-          "probability": 0.4891
+          "odds": 1.92,
+          "probability": 0.461
         },
         {
-          "match": "周四206 维多利亚 vs 瓦斯科达伽马",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 2.12,
-          "probability": 0.4178
-        },
-        {
+          "matchId": "209",
           "match": "周四209 圣路易斯城 vs 堪萨斯城竞技",
           "market": "had",
           "marketText": "胜平负",
@@ -1271,6 +1198,7 @@
           "probability": 0.681
         },
         {
+          "matchId": "210",
           "match": "周四210 西雅图海湾人 vs 波特兰伐木工",
           "market": "had",
           "marketText": "胜平负",
@@ -1279,15 +1207,61 @@
           "probability": 0.6609
         }
       ],
-      "productOdds": 10.03,
-      "trustScore": 44,
+      "productOdds": 5.02,
+      "trustScore": 49,
+      "rank": 1
+    },
+    {
+      "name": "胜平负4串一",
       "category": "had",
+      "legs": [
+        {
+          "matchId": "201",
+          "match": "周四201 瓦勒伦加 vs 奥勒松",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.5,
+          "probability": 0.59
+        },
+        {
+          "matchId": "204",
+          "match": "周四204 日利纳 vs 斯普利特海杜克",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "客胜",
+          "odds": 1.94,
+          "probability": 0.4565
+        },
+        {
+          "matchId": "209",
+          "match": "周四209 圣路易斯城 vs 堪萨斯城竞技",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.3,
+          "probability": 0.681
+        },
+        {
+          "matchId": "210",
+          "match": "周四210 西雅图海湾人 vs 波特兰伐木工",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.34,
+          "probability": 0.6609
+        }
+      ],
+      "productOdds": 5.07,
+      "trustScore": 49,
       "rank": 2
     },
     {
-      "name": "胜平负5串一",
+      "name": "胜平负4串一",
+      "category": "had",
       "legs": [
         {
+          "matchId": "202",
           "match": "周四202 德里城 vs 索菲亚中央陆军",
           "market": "had",
           "marketText": "胜平负",
@@ -1296,6 +1270,7 @@
           "probability": 0.5432
         },
         {
+          "matchId": "203",
           "match": "周四203 费伦茨瓦罗斯 vs 伏伊伏丁那",
           "market": "had",
           "marketText": "胜平负",
@@ -1304,22 +1279,16 @@
           "probability": 0.7081
         },
         {
-          "match": "周四205 博塔弗戈 vs 桑托斯",
+          "matchId": "207",
+          "match": "周四207 蒙特利尔CF vs 多伦多FC",
           "market": "had",
           "marketText": "胜平负",
           "pick": "主胜",
-          "odds": 1.81,
-          "probability": 0.4891
+          "odds": 1.92,
+          "probability": 0.461
         },
         {
-          "match": "周四206 维多利亚 vs 瓦斯科达伽马",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 2.12,
-          "probability": 0.4178
-        },
-        {
+          "matchId": "209",
           "match": "周四209 圣路易斯城 vs 堪萨斯城竞技",
           "market": "had",
           "marketText": "胜平负",
@@ -1328,23 +1297,88 @@
           "probability": 0.681
         }
       ],
-      "productOdds": 10.16,
-      "trustScore": 43,
-      "category": "had",
+      "productOdds": 5.09,
+      "trustScore": 49,
       "rank": 3
     },
     {
-      "name": "总进球2串一",
+      "name": "混合4串一",
+      "category": "mixed",
       "legs": [
         {
+          "matchId": "201",
           "match": "周四201 瓦勒伦加 vs 奥勒松",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.5,
+          "probability": 0.59
+        },
+        {
+          "matchId": "203",
+          "match": "周四203 费伦茨瓦罗斯 vs 伏伊伏丁那",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.25,
+          "probability": 0.7081
+        },
+        {
+          "matchId": "209",
+          "match": "周四209 圣路易斯城 vs 堪萨斯城竞技",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.3,
+          "probability": 0.681
+        },
+        {
+          "matchId": "207",
+          "match": "周四207 蒙特利尔CF vs 多伦多FC",
           "market": "ttg",
           "marketText": "总进球",
           "pick": "3",
-          "odds": 3.15,
-          "probability": 0.31746031746031744
+          "odds": 3.3,
+          "probability": 0.30303030303030304
+        }
+      ],
+      "productOdds": 8.04,
+      "trustScore": 45,
+      "rank": 4
+    },
+    {
+      "name": "混合4串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "201",
+          "match": "周四201 瓦勒伦加 vs 奥勒松",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.5,
+          "probability": 0.59
         },
         {
+          "matchId": "203",
+          "match": "周四203 费伦茨瓦罗斯 vs 伏伊伏丁那",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.25,
+          "probability": 0.7081
+        },
+        {
+          "matchId": "210",
+          "match": "周四210 西雅图海湾人 vs 波特兰伐木工",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.34,
+          "probability": 0.6609
+        },
+        {
+          "matchId": "205",
           "match": "周四205 博塔弗戈 vs 桑托斯",
           "market": "ttg",
           "marketText": "总进球",
@@ -1353,23 +1387,88 @@
           "probability": 0.3125
         }
       ],
-      "productOdds": 10.08,
-      "trustScore": 30,
-      "category": "ttg",
-      "rank": 4
+      "productOdds": 8.04,
+      "trustScore": 45,
+      "rank": 5
     },
     {
-      "name": "总进球2串一",
+      "name": "混合4串一",
+      "category": "mixed",
       "legs": [
         {
-          "match": "周四202 德里城 vs 索菲亚中央陆军",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.25,
-          "probability": 0.3076923076923077
+          "matchId": "201",
+          "match": "周四201 瓦勒伦加 vs 奥勒松",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.5,
+          "probability": 0.59
         },
         {
+          "matchId": "203",
+          "match": "周四203 费伦茨瓦罗斯 vs 伏伊伏丁那",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.25,
+          "probability": 0.7081
+        },
+        {
+          "matchId": "210",
+          "match": "周四210 西雅图海湾人 vs 波特兰伐木工",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.34,
+          "probability": 0.6609
+        },
+        {
+          "matchId": "207",
+          "match": "周四207 蒙特利尔CF vs 多伦多FC",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 3.2,
+          "probability": 0.3
+        }
+      ],
+      "productOdds": 8.04,
+      "trustScore": 45,
+      "rank": 6
+    },
+    {
+      "name": "混合4串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "201",
+          "match": "周四201 瓦勒伦加 vs 奥勒松",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.5,
+          "probability": 0.59
+        },
+        {
+          "matchId": "209",
+          "match": "周四209 圣路易斯城 vs 堪萨斯城竞技",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.3,
+          "probability": 0.681
+        },
+        {
+          "matchId": "210",
+          "match": "周四210 西雅图海湾人 vs 波特兰伐木工",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.34,
+          "probability": 0.6609
+        },
+        {
+          "matchId": "206",
           "match": "周四206 维多利亚 vs 瓦斯科达伽马",
           "market": "ttg",
           "marketText": "总进球",
@@ -1378,15 +1477,88 @@
           "probability": 0.3225806451612903
         }
       ],
-      "productOdds": 10.08,
-      "trustScore": 30,
-      "category": "ttg",
-      "rank": 5
+      "productOdds": 8.1,
+      "trustScore": 45,
+      "rank": 7
+    },
+    {
+      "name": "混合4串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "201",
+          "match": "周四201 瓦勒伦加 vs 奥勒松",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.5,
+          "probability": 0.59
+        },
+        {
+          "matchId": "203",
+          "match": "周四203 费伦茨瓦罗斯 vs 伏伊伏丁那",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.25,
+          "probability": 0.7081
+        },
+        {
+          "matchId": "210",
+          "match": "周四210 西雅图海湾人 vs 波特兰伐木工",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.34,
+          "probability": 0.6609
+        },
+        {
+          "matchId": "202",
+          "match": "周四202 德里城 vs 索菲亚中央陆军",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.25,
+          "probability": 0.3076923076923077
+        }
+      ],
+      "productOdds": 8.17,
+      "trustScore": 45,
+      "rank": 8
     },
     {
       "name": "总进球2串一",
+      "category": "ttg",
       "legs": [
         {
+          "matchId": "201",
+          "match": "周四201 瓦勒伦加 vs 奥勒松",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.15,
+          "probability": 0.31746031746031744
+        },
+        {
+          "matchId": "206",
+          "match": "周四206 维多利亚 vs 瓦斯科达伽马",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.1,
+          "probability": 0.3225806451612903
+        }
+      ],
+      "productOdds": 9.77,
+      "trustScore": 30,
+      "rank": 9
+    },
+    {
+      "name": "总进球2串一",
+      "category": "ttg",
+      "legs": [
+        {
+          "matchId": "204",
           "match": "周四204 日利纳 vs 斯普利特海杜克",
           "market": "ttg",
           "marketText": "总进球",
@@ -1395,23 +1567,133 @@
           "probability": 0.31746031746031744
         },
         {
-          "match": "周四205 博塔弗戈 vs 桑托斯",
+          "matchId": "206",
+          "match": "周四206 维多利亚 vs 瓦斯科达伽马",
           "market": "ttg",
           "marketText": "总进球",
           "pick": "2",
-          "odds": 3.2,
-          "probability": 0.3125
+          "odds": 3.1,
+          "probability": 0.3225806451612903
         }
       ],
-      "productOdds": 10.08,
+      "productOdds": 9.77,
       "trustScore": 30,
+      "rank": 10
+    },
+    {
+      "name": "总进球2串一",
       "category": "ttg",
-      "rank": 6
+      "legs": [
+        {
+          "matchId": "201",
+          "match": "周四201 瓦勒伦加 vs 奥勒松",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.15,
+          "probability": 0.31746031746031744
+        },
+        {
+          "matchId": "204",
+          "match": "周四204 日利纳 vs 斯普利特海杜克",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.15,
+          "probability": 0.31746031746031744
+        }
+      ],
+      "productOdds": 9.92,
+      "trustScore": 30,
+      "rank": 11
+    },
+    {
+      "name": "半全场2串一",
+      "category": "hafu",
+      "legs": [
+        {
+          "matchId": "201",
+          "match": "周四201 瓦勒伦加 vs 奥勒松",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.25,
+          "probability": 0.3
+        },
+        {
+          "matchId": "202",
+          "match": "周四202 德里城 vs 索菲亚中央陆军",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "负/负",
+          "odds": 2.6,
+          "probability": 0.3
+        }
+      ],
+      "productOdds": 5.85,
+      "trustScore": 28,
+      "rank": 12
+    },
+    {
+      "name": "半全场2串一",
+      "category": "hafu",
+      "legs": [
+        {
+          "matchId": "203",
+          "match": "周四203 费伦茨瓦罗斯 vs 伏伊伏丁那",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 1.85,
+          "probability": 0.3
+        },
+        {
+          "matchId": "207",
+          "match": "周四207 蒙特利尔CF vs 多伦多FC",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 3.2,
+          "probability": 0.3
+        }
+      ],
+      "productOdds": 5.92,
+      "trustScore": 28,
+      "rank": 13
+    },
+    {
+      "name": "半全场2串一",
+      "category": "hafu",
+      "legs": [
+        {
+          "matchId": "207",
+          "match": "周四207 蒙特利尔CF vs 多伦多FC",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 3.2,
+          "probability": 0.3
+        },
+        {
+          "matchId": "209",
+          "match": "周四209 圣路易斯城 vs 堪萨斯城竞技",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 1.85,
+          "probability": 0.3
+        }
+      ],
+      "productOdds": 5.92,
+      "trustScore": 28,
+      "rank": 14
     },
     {
       "name": "比分2串一",
+      "category": "crs",
       "legs": [
         {
+          "matchId": "201",
           "match": "周四201 瓦勒伦加 vs 奥勒松",
           "market": "crs",
           "marketText": "比分",
@@ -1420,6 +1702,7 @@
           "probability": 0.18867924528301888
         },
         {
+          "matchId": "202",
           "match": "周四202 德里城 vs 索菲亚中央陆军",
           "market": "crs",
           "marketText": "比分",
@@ -1430,13 +1713,14 @@
       ],
       "productOdds": 30.47,
       "trustScore": 17,
-      "category": "crs",
-      "rank": 7
+      "rank": 15
     },
     {
       "name": "比分2串一",
+      "category": "crs",
       "legs": [
         {
+          "matchId": "201",
           "match": "周四201 瓦勒伦加 vs 奥勒松",
           "market": "crs",
           "marketText": "比分",
@@ -1445,6 +1729,7 @@
           "probability": 0.18867924528301888
         },
         {
+          "matchId": "203",
           "match": "周四203 费伦茨瓦罗斯 vs 伏伊伏丁那",
           "market": "crs",
           "marketText": "比分",
@@ -1455,13 +1740,14 @@
       ],
       "productOdds": 30.47,
       "trustScore": 17,
-      "category": "crs",
-      "rank": 8
+      "rank": 16
     },
     {
       "name": "比分2串一",
+      "category": "crs",
       "legs": [
         {
+          "matchId": "201",
           "match": "周四201 瓦勒伦加 vs 奥勒松",
           "market": "crs",
           "marketText": "比分",
@@ -1470,6 +1756,7 @@
           "probability": 0.18867924528301888
         },
         {
+          "matchId": "205",
           "match": "周四205 博塔弗戈 vs 桑托斯",
           "market": "crs",
           "marketText": "比分",
@@ -1480,10 +1767,10 @@
       ],
       "productOdds": 31.8,
       "trustScore": 17,
-      "category": "crs",
-      "rank": 9
+      "rank": 17
     }
   ],
+  "scheduleWarnings": [],
   "sources": [
     {
       "name": "Sporttery官方接口",
@@ -1508,6 +1795,26 @@
     {
       "name": "MLS官方复赛前瞻",
       "url": "https://www.mlssoccer.com/news/matchday-16-watch-guide-what-to-know-as-mls-returns"
+    },
+    {
+      "name": "瑞超官方赛程",
+      "url": "https://allsvenskan.se/nyheter/sa-spelas-omgang-11-17-av-allsvenskan/"
+    },
+    {
+      "name": "挪威足协赛程",
+      "url": "https://www.fotball.no/eliteserien/"
+    },
+    {
+      "name": "巴西足协赛程",
+      "url": "https://www.cbf.com.br/futebol-brasileiro/jogos/campeonato-brasileiro/serie-a/2026"
+    },
+    {
+      "name": "MLS官方赛程",
+      "url": "https://www.mlssoccer.com/news/mls-unveils-2026-regular-season-schedule"
+    },
+    {
+      "name": "K League官方赛程",
+      "url": "https://tv.kleague.com/en-int/schedule"
     }
   ],
   "disclaimer": "以上仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。"

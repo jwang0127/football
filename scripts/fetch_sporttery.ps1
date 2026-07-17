@@ -516,8 +516,29 @@ $headers = @{
 $apiUrl = "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=$PoolCode"
 
 Write-Host "Fetching Sporttery API: $apiUrl"
-$response = Invoke-WebRequest -UseBasicParsing -Uri $apiUrl -Headers $headers
-$apiPayload = $response.Content | ConvertFrom-Json
+try {
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+  $response = Invoke-WebRequest -UseBasicParsing -Uri $apiUrl -Headers $headers
+  $apiPayload = $response.Content | ConvertFrom-Json
+}
+catch {
+  Write-Warning "Invoke-WebRequest failed; retrying the same official API with curl.exe: $($_.Exception.Message)"
+  $tempResponse = Join-Path ([IO.Path]::GetTempPath()) ("sporttery_" + [guid]::NewGuid().ToString("N") + ".json")
+  try {
+    & curl.exe -sS -L --retry 2 --connect-timeout 20 `
+      -H ("User-Agent: " + $headers["User-Agent"]) `
+      -H ("Referer: " + $headers["Referer"]) `
+      -H ("Origin: " + $headers["Origin"]) `
+      -H ("Accept: " + $headers["Accept"]) `
+      -H ("Accept-Language: " + $headers["Accept-Language"]) `
+      $apiUrl -o $tempResponse
+    if ($LASTEXITCODE -ne 0) { throw "curl.exe exited with code $LASTEXITCODE" }
+    $apiPayload = Get-Content -Raw -Encoding UTF8 $tempResponse | ConvertFrom-Json
+  }
+  finally {
+    if (Test-Path -LiteralPath $tempResponse) { Remove-Item -LiteralPath $tempResponse -Force }
+  }
+}
 
 if ([string]$apiPayload.errorCode -ne "0" -or -not $apiPayload.value.matchInfoList) {
   throw "Sporttery API returned no usable match data."
@@ -675,7 +696,8 @@ foreach ($group in @($apiPayload.value.matchInfoList)) {
     }
 
     $matchObject = [pscustomobject]@{
-      id = $matchCode
+      id = [string]$match.matchId
+      lotteryCode = $matchCode
       matchNumStr = $match.matchNumStr
       matchId = [string]$match.matchId
       businessDate = $match.businessDate
