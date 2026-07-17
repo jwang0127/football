@@ -14,6 +14,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 DISCLAIMER = "以上仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。"
+MIN_COMBO_ODDS = 10.0
 MARKET_TEXT = {"had": "胜平负", "ttg": "总进球", "crs": "比分", "hafu": "半全场"}
 HAFU_TEXT = {"hh": "胜/胜", "hd": "胜/平", "ha": "胜/负", "dh": "平/胜", "dd": "平/平", "da": "平/负", "ah": "负/胜", "ad": "负/平", "aa": "负/负"}
 EXCLUDED_BY_DATE: dict[str, dict[str, str]] = {
@@ -86,7 +87,7 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
         for size in range(2, min(4 if market == "had" else 3, len(usable)) + 1):
             for selected in combinations(usable, size):
                 item = combo(f"{MARKET_TEXT[market]}{size}串一", selected, market)
-                if item["productOdds"] >= 5:
+                if item["productOdds"] >= MIN_COMBO_ODDS:
                     pool.append(item)
         rows.extend(sorted(pool, key=lambda x: (-x["trustScore"], x["productOdds"]))[:3])
 
@@ -97,7 +98,7 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
             if len({x["matchId"] for x in selected}) != size or len({x["market"] for x in selected}) < 2:
                 continue
             item = combo(f"混合{size}串一", selected, "mixed")
-            if item["productOdds"] >= 8:
+            if item["productOdds"] >= MIN_COMBO_ODDS:
                 mixed.append(item)
     rows.extend(sorted(mixed, key=lambda x: (-x["trustScore"], x["productOdds"]))[:5])
     rows.sort(key=lambda x: (-x["trustScore"], x["productOdds"]))
@@ -139,7 +140,7 @@ def predict_with_market_fallback(base: Any, match: dict[str, Any]) -> dict[str, 
 
 def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
     label = datetime.strptime(payload["date"], "%Y%m%d").strftime("%m-%d")
-    legends = '<span style="--c:#17212b">按 Sporttery 竞彩业务日分组</span>' + "".join(f'<span style="--c:{styles[name]["color"]}">{esc(styles[name]["label"])}</span>' for name in dict.fromkeys(m["league"] for m in payload["matches"]))
+    legends = f'<span style="--c:#17212b">按 Sporttery 竞彩业务日分组</span><span style="--c:#c38b16">串关理论赔率 ≥ {MIN_COMBO_ODDS:.0f}</span>' + "".join(f'<span style="--c:{styles[name]["color"]}">{esc(styles[name]["label"])}</span>' for name in dict.fromkeys(m["league"] for m in payload["matches"]))
     warnings = "".join(f"<li>{esc(x)}</li>" for x in payload["scheduleWarnings"])
     combos = []
     for c in payload["combos"]:
