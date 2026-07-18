@@ -4,6 +4,7 @@ param(
   [string]$PoolCode = "ttg,had,hhad,crs,hafu",
   [ValidateSet("MatchDate", "BusinessDate")]
   [string]$DateMode = "MatchDate",
+  [string[]]$ExcludedLeagues = @("世界杯"),
   [switch]$Force,
   [switch]$MergeExisting,
   [switch]$RefreshPredictions
@@ -553,6 +554,9 @@ $matchList = New-Object System.Collections.Generic.List[object]
 
 foreach ($group in @($apiPayload.value.matchInfoList)) {
   foreach ($match in @($group.subMatchList)) {
+    if ($ExcludedLeagues -contains [string]$match.leagueAllName) {
+      continue
+    }
     $dateValue = if ($DateMode -eq "BusinessDate") { [string]$match.businessDate } else { [string]$match.matchDate }
     if ($dateValue -ne $targetDate) {
       continue

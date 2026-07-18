@@ -21,11 +21,15 @@ def main() -> None:
     matches = payload["matches"]
     assert len(matches) == args.expected_matches, (len(matches), args.expected_matches)
     assert len({match["id"] for match in matches}) == len(matches)
+    assert all(match["league"] != "世界杯" for match in matches)
     assert len(payload["competitionModels"]) == len({match["league"] for match in matches})
-    assert "法国 vs 英格兰" not in html
+    assert "世界杯" not in html and "法国 vs 英格兰" not in html and "西班牙 vs 阿根廷" not in html
     assert DISCLAIMER in html and html == mirror
     assert html.count('<section class="match"') == len(matches)
     assert html.count('<section class="combo ') == len(payload["combos"])
+    assert 5 <= len(payload["combos"]) <= 10
+    assert any(combo["productOdds"] > 20 for combo in payload["combos"])
+    assert [combo["trustScore"] for combo in payload["combos"]] == sorted((combo["trustScore"] for combo in payload["combos"]), reverse=True)
     match_ids = {match["id"] for match in matches}
     for match in matches:
         profile = payload["competitionModels"][match["league"]]

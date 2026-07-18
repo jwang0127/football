@@ -6,22 +6,6 @@
   ],
   "modelVersion": "competition-specific-multimarket-20260719-v5",
   "competitionModels": {
-    "世界杯": {
-      "version": "world-cup-v2",
-      "had": 0.46,
-      "crs": 0.42,
-      "prior": 0.12,
-      "prior_probs": [
-        0.39,
-        0.29,
-        0.32
-      ],
-      "goal_shift": 0.0,
-      "draw_boost": 1.06,
-      "clean_sheet_boost": 1.03,
-      "confidence_delta": -1,
-      "lesson": "淘汰赛独立校准：提高平局保护，并把90分钟方向与最终赛果分开。"
-    },
     "韩国职业联赛": {
       "version": "k-league-v3",
       "had": 0.42,
@@ -71,137 +55,9 @@
       "lesson": "芬超独立校准：比分矩阵权重高于单一胜平负锚点，保留受控小胜。"
     }
   },
-  "generatedAt": "2026-07-18T13:42:08",
-  "oddsUpdatedAt": "2026-07-18 13:00:38",
+  "generatedAt": "2026-07-18T14:06:31",
+  "oddsUpdatedAt": "2026-07-18 09:34:01",
   "matches": [
-    {
-      "id": "2040541",
-      "matchNumStr": "周日104",
-      "matchDate": "2026-07-20",
-      "kickoff": "2026-07-20 03:00:00",
-      "league": "世界杯",
-      "leagueStyle": {
-        "class": "worldcup",
-        "color": "#7b1f2e",
-        "label": "世界杯季军赛"
-      },
-      "home": "西班牙",
-      "away": "阿根廷",
-      "homeRank": "[世界杯1]",
-      "awayRank": "[世界杯1]",
-      "probabilities": {
-        "home": 0.4266,
-        "draw": 0.3179,
-        "away": 0.2555
-      },
-      "direction": "home",
-      "directionText": "主胜",
-      "mainScore": "2-1",
-      "backupScores": [
-        "1-1",
-        "1-0",
-        "2-0",
-        "0-0",
-        "1-2"
-      ],
-      "tailRiskScores": [
-        "2-2",
-        "3-0",
-        "1-3"
-      ],
-      "totalGoals": "2",
-      "goalCandidates": [
-        "2",
-        "3",
-        "1"
-      ],
-      "confidenceScore": 50,
-      "confidence": "中低",
-      "reason": "淘汰赛独立校准：提高平局保护，并把90分钟方向与最终赛果分开。 本场按该赛事专属的胜平负、比分矩阵和进球分布权重计算。",
-      "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
-      "odds": {
-        "had": {
-          "home": "2.02",
-          "draw": "2.87",
-          "away": "3.50",
-          "updatedAt": "2026-07-18 10:11:31"
-        },
-        "ttg": {
-          "s0": "7.50",
-          "s1": "4.25",
-          "s2": "3.00",
-          "s3": "3.85",
-          "s4": "6.75",
-          "s5": "13.50",
-          "s6": "24.00",
-          "s7": "35.00",
-          "updatedAt": "2026-07-17 18:33:53"
-        },
-        "hhad": {
-          "home": "4.35",
-          "draw": "3.55",
-          "away": "1.62",
-          "handicap": null,
-          "updatedAt": "2026-07-18 10:12:12"
-        },
-        "crs": {
-          "0-0": "7.50",
-          "0-1": "10.50",
-          "0-2": "20.00",
-          "0-3": "60.00",
-          "0-4": "200.0",
-          "0-5": "600.0",
-          "1-0": "6.60",
-          "1-1": "5.20",
-          "1-2": "10.00",
-          "1-3": "36.00",
-          "1-4": "175.0",
-          "1-5": "500.0",
-          "2-0": "9.50",
-          "2-1": "6.80",
-          "2-2": "12.50",
-          "2-3": "30.00",
-          "2-4": "115.0",
-          "2-5": "400.0",
-          "3-0": "21.00",
-          "3-1": "16.00",
-          "3-2": "28.00",
-          "3-3": "50.00",
-          "4-0": "55.00",
-          "4-1": "50.00",
-          "4-2": "80.00",
-          "5-0": "175.0",
-          "5-1": "175.0",
-          "5-2": "300.0",
-          "homeOther": "90.00",
-          "drawOther": "200.0",
-          "awayOther": "225.0",
-          "updatedAt": "2026-07-18 13:00:38"
-        },
-        "hafu": {
-          "aa": "6.35",
-          "ad": "14.00",
-          "ah": "20.00",
-          "da": "7.50",
-          "dd": "4.45",
-          "dh": "4.70",
-          "ha": "23.00",
-          "hd": "14.00",
-          "hh": "3.45",
-          "updatedAt": "2026-07-17 19:34:01"
-        }
-      },
-      "modelProfile": {
-        "version": "world-cup-v2",
-        "had": 0.46,
-        "crs": 0.42,
-        "prior": 0.12,
-        "goal_shift": 0.0
-      },
-      "modelLesson": "淘汰赛独立校准：提高平局保护，并把90分钟方向与最终赛果分开。",
-      "businessDate": "2026-07-19",
-      "marketBasis": "官方胜平负赔率"
-    },
     {
       "id": "2040560",
       "matchNumStr": "周日201",
@@ -986,78 +842,6 @@
           "probability": 0.6796
         },
         {
-          "matchId": "2040541",
-          "match": "周日104 西班牙 vs 阿根廷",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
-        },
-        {
-          "matchId": "2040561",
-          "match": "周日202 安养FC vs 光州FC",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.1,
-          "probability": 0.3225806451612903
-        }
-      ],
-      "productOdds": 10.79,
-      "trustScore": 37,
-      "rank": 1
-    },
-    {
-      "name": "混合3串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040564",
-          "match": "周日205 哈马比 vs 代格福什",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.16,
-          "probability": 0.6796
-        },
-        {
-          "matchId": "2040541",
-          "match": "周日104 西班牙 vs 阿根廷",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
-        },
-        {
-          "matchId": "2040560",
-          "match": "周日201 富川FC vs 首尔FC",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.2,
-          "probability": 0.3125
-        }
-      ],
-      "productOdds": 11.14,
-      "trustScore": 37,
-      "rank": 2
-    },
-    {
-      "name": "混合3串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040564",
-          "match": "周日205 哈马比 vs 代格福什",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.16,
-          "probability": 0.6796
-        },
-        {
           "matchId": "2040560",
           "match": "周日201 富川FC vs 首尔FC",
           "market": "ttg",
@@ -1078,43 +862,7 @@
       ],
       "productOdds": 11.51,
       "trustScore": 36,
-      "rank": 3
-    },
-    {
-      "name": "混合3串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040564",
-          "match": "周日205 哈马比 vs 代格福什",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.16,
-          "probability": 0.6796
-        },
-        {
-          "matchId": "2040541",
-          "match": "周日104 西班牙 vs 阿根廷",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
-        },
-        {
-          "matchId": "2040565",
-          "match": "周日206 雅罗 vs 国际图尔库",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.4,
-          "probability": 0.29411764705882354
-        }
-      ],
-      "productOdds": 11.83,
-      "trustScore": 36,
-      "rank": 4
+      "rank": 1
     },
     {
       "name": "混合3串一",
@@ -1150,7 +898,7 @@
       ],
       "productOdds": 10.21,
       "trustScore": 35,
-      "rank": 5
+      "rank": 2
     },
     {
       "name": "混合3串一",
@@ -1186,7 +934,7 @@
       ],
       "productOdds": 10.85,
       "trustScore": 35,
-      "rank": 6
+      "rank": 3
     },
     {
       "name": "混合3串一",
@@ -1201,150 +949,6 @@
           "odds": 1.16,
           "probability": 0.6796
         },
-        {
-          "matchId": "2040541",
-          "match": "周日104 西班牙 vs 阿根廷",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
-        },
-        {
-          "matchId": "2040562",
-          "match": "周日203 埃尔夫斯堡 vs 天狼星",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.5,
-          "probability": 0.2857142857142857
-        }
-      ],
-      "productOdds": 12.18,
-      "trustScore": 35,
-      "rank": 7
-    },
-    {
-      "name": "混合3串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040564",
-          "match": "周日205 哈马比 vs 代格福什",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.16,
-          "probability": 0.6796
-        },
-        {
-          "matchId": "2040541",
-          "match": "周日104 西班牙 vs 阿根廷",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
-        },
-        {
-          "matchId": "2040563",
-          "match": "周日204 哈尔姆斯塔德 vs 赫根",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.5,
-          "probability": 0.2857142857142857
-        }
-      ],
-      "productOdds": 12.18,
-      "trustScore": 35,
-      "rank": 8
-    },
-    {
-      "name": "总进球2串一",
-      "category": "ttg",
-      "legs": [
-        {
-          "matchId": "2040541",
-          "match": "周日104 西班牙 vs 阿根廷",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
-        },
-        {
-          "matchId": "2040565",
-          "match": "周日206 雅罗 vs 国际图尔库",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.4,
-          "probability": 0.29411764705882354
-        }
-      ],
-      "productOdds": 10.2,
-      "trustScore": 29,
-      "rank": 9
-    },
-    {
-      "name": "总进球2串一",
-      "category": "ttg",
-      "legs": [
-        {
-          "matchId": "2040541",
-          "match": "周日104 西班牙 vs 阿根廷",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
-        },
-        {
-          "matchId": "2040562",
-          "match": "周日203 埃尔夫斯堡 vs 天狼星",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.5,
-          "probability": 0.2857142857142857
-        }
-      ],
-      "productOdds": 10.5,
-      "trustScore": 29,
-      "rank": 10
-    },
-    {
-      "name": "总进球2串一",
-      "category": "ttg",
-      "legs": [
-        {
-          "matchId": "2040541",
-          "match": "周日104 西班牙 vs 阿根廷",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
-        },
-        {
-          "matchId": "2040563",
-          "match": "周日204 哈尔姆斯塔德 vs 赫根",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.5,
-          "probability": 0.2857142857142857
-        }
-      ],
-      "productOdds": 10.5,
-      "trustScore": 29,
-      "rank": 11
-    },
-    {
-      "name": "总进球2串一",
-      "category": "ttg",
-      "legs": [
         {
           "matchId": "2040561",
           "match": "周日202 安养FC vs 光州FC",
@@ -1364,126 +968,45 @@
           "probability": 0.29411764705882354
         }
       ],
-      "productOdds": 10.54,
-      "trustScore": 29,
-      "rank": 12
+      "productOdds": 12.23,
+      "trustScore": 35,
+      "rank": 4
     },
     {
-      "name": "总进球2串一",
-      "category": "ttg",
+      "name": "混合3串一",
+      "category": "mixed",
       "legs": [
-        {
-          "matchId": "2040541",
-          "match": "周日104 西班牙 vs 阿根廷",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
-        },
         {
           "matchId": "2040564",
           "match": "周日205 哈马比 vs 代格福什",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.6,
-          "probability": 0.2777777777777778
-        }
-      ],
-      "productOdds": 10.8,
-      "trustScore": 29,
-      "rank": 13
-    },
-    {
-      "name": "半全场3串一",
-      "category": "hafu",
-      "legs": [
-        {
-          "matchId": "2040562",
-          "match": "周日203 埃尔夫斯堡 vs 天狼星",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "负/负",
-          "odds": 2.75,
-          "probability": 0.3
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.16,
+          "probability": 0.6796
         },
-        {
-          "matchId": "2040563",
-          "match": "周日204 哈尔姆斯塔德 vs 赫根",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "负/负",
-          "odds": 2.16,
-          "probability": 0.3
-        },
-        {
-          "matchId": "2040565",
-          "match": "周日206 雅罗 vs 国际图尔库",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "负/负",
-          "odds": 2.1,
-          "probability": 0.3
-        }
-      ],
-      "productOdds": 12.47,
-      "trustScore": 27,
-      "rank": 14
-    },
-    {
-      "name": "半全场2串一",
-      "category": "hafu",
-      "legs": [
-        {
-          "matchId": "2040560",
-          "match": "周日201 富川FC vs 首尔FC",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "平/负",
-          "odds": 4.05,
-          "probability": 0.2469135802469136
-        },
-        {
-          "matchId": "2040562",
-          "match": "周日203 埃尔夫斯堡 vs 天狼星",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "负/负",
-          "odds": 2.75,
-          "probability": 0.3
-        }
-      ],
-      "productOdds": 11.14,
-      "trustScore": 26,
-      "rank": 15
-    },
-    {
-      "name": "半全场2串一",
-      "category": "hafu",
-      "legs": [
         {
           "matchId": "2040561",
           "match": "周日202 安养FC vs 光州FC",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "平/胜",
-          "odds": 4.1,
-          "probability": 0.24390243902439027
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.1,
+          "probability": 0.3225806451612903
         },
         {
           "matchId": "2040562",
           "match": "周日203 埃尔夫斯堡 vs 天狼星",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "负/负",
-          "odds": 2.75,
-          "probability": 0.3
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.5,
+          "probability": 0.2857142857142857
         }
       ],
-      "productOdds": 11.27,
-      "trustScore": 25,
-      "rank": 16
+      "productOdds": 12.59,
+      "trustScore": 35,
+      "rank": 5
     },
     {
       "name": "比分2串一",
@@ -1510,7 +1033,7 @@
       ],
       "productOdds": 42.25,
       "trustScore": 14,
-      "rank": 17
+      "rank": 6
     },
     {
       "name": "比分2串一",
@@ -1537,7 +1060,7 @@
       ],
       "productOdds": 43.88,
       "trustScore": 14,
-      "rank": 18
+      "rank": 7
     },
     {
       "name": "比分2串一",
@@ -1564,7 +1087,7 @@
       ],
       "productOdds": 43.88,
       "trustScore": 14,
-      "rank": 19
+      "rank": 8
     },
     {
       "name": "比分2串一",
@@ -1591,7 +1114,7 @@
       ],
       "productOdds": 43.88,
       "trustScore": 14,
-      "rank": 20
+      "rank": 9
     },
     {
       "name": "比分2串一",
@@ -1618,7 +1141,7 @@
       ],
       "productOdds": 43.88,
       "trustScore": 14,
-      "rank": 21
+      "rank": 10
     }
   ],
   "scheduleWarnings": [],
@@ -1666,10 +1189,6 @@
     {
       "name": "K League官方赛程",
       "url": "https://tv.kleague.com/en-int/schedule"
-    },
-    {
-      "name": "FIFA世界杯官方赛程",
-      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
     }
   ],
   "disclaimer": "以上仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。"

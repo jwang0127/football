@@ -72,7 +72,7 @@
       "lesson": "07-17瑞超复盘：米亚尔比0-0漏选，增加0-0/平局与低比分分支。"
     }
   },
-  "generatedAt": "2026-07-18T13:42:07",
+  "generatedAt": "2026-07-18T14:06:30",
   "oddsUpdatedAt": "2026-07-18 13:39:15",
   "matches": [
     {
@@ -2306,330 +2306,6 @@
       "rank": 5
     },
     {
-      "name": "混合3串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040559",
-          "match": "周六214 维京 vs 桑纳菲尤尔",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.16,
-          "probability": 0.7167
-        },
-        {
-          "matchId": "2040549",
-          "match": "周六204 仁川联 vs 全北现代",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.1,
-          "probability": 0.3225806451612903
-        },
-        {
-          "matchId": "2040561",
-          "match": "周日202 安养FC vs 光州FC",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.1,
-          "probability": 0.3225806451612903
-        }
-      ],
-      "productOdds": 11.15,
-      "trustScore": 37,
-      "rank": 6
-    },
-    {
-      "name": "混合3串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040559",
-          "match": "周六214 维京 vs 桑纳菲尤尔",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.16,
-          "probability": 0.7167
-        },
-        {
-          "matchId": "2040547",
-          "match": "周六202 江原FC vs 金泉尚武",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.15,
-          "probability": 0.31746031746031744
-        },
-        {
-          "matchId": "2040549",
-          "match": "周六204 仁川联 vs 全北现代",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.1,
-          "probability": 0.3225806451612903
-        }
-      ],
-      "productOdds": 11.33,
-      "trustScore": 37,
-      "rank": 7
-    },
-    {
-      "name": "混合3串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040559",
-          "match": "周六214 维京 vs 桑纳菲尤尔",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.16,
-          "probability": 0.7167
-        },
-        {
-          "matchId": "2040547",
-          "match": "周六202 江原FC vs 金泉尚武",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.15,
-          "probability": 0.31746031746031744
-        },
-        {
-          "matchId": "2040561",
-          "match": "周日202 安养FC vs 光州FC",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.1,
-          "probability": 0.3225806451612903
-        }
-      ],
-      "productOdds": 11.33,
-      "trustScore": 37,
-      "rank": 8
-    },
-    {
-      "name": "总进球2串一",
-      "category": "ttg",
-      "legs": [
-        {
-          "matchId": "2040548",
-          "match": "周六203 济州SK vs 浦项制铁",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
-        },
-        {
-          "matchId": "2040554",
-          "match": "周六209 斯达 vs 罗森博格",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.35,
-          "probability": 0.29850746268656714
-        }
-      ],
-      "productOdds": 10.05,
-      "trustScore": 30,
-      "rank": 9
-    },
-    {
-      "name": "总进球2串一",
-      "category": "ttg",
-      "legs": [
-        {
-          "matchId": "2040547",
-          "match": "周六202 江原FC vs 金泉尚武",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.15,
-          "probability": 0.31746031746031744
-        },
-        {
-          "matchId": "2040560",
-          "match": "周日201 富川FC vs 首尔FC",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.2,
-          "probability": 0.3125
-        }
-      ],
-      "productOdds": 10.08,
-      "trustScore": 30,
-      "rank": 10
-    },
-    {
-      "name": "总进球2串一",
-      "category": "ttg",
-      "legs": [
-        {
-          "matchId": "2040548",
-          "match": "周六203 济州SK vs 浦项制铁",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
-        },
-        {
-          "matchId": "2040550",
-          "match": "周六205 汉坎 vs 特罗姆瑟",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.4,
-          "probability": 0.29411764705882354
-        }
-      ],
-      "productOdds": 10.2,
-      "trustScore": 29,
-      "rank": 11
-    },
-    {
-      "name": "总进球2串一",
-      "category": "ttg",
-      "legs": [
-        {
-          "matchId": "2040548",
-          "match": "周六203 济州SK vs 浦项制铁",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
-        },
-        {
-          "matchId": "2040551",
-          "match": "周六206 赫尔辛基 vs 瓦萨",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.4,
-          "probability": 0.29411764705882354
-        }
-      ],
-      "productOdds": 10.2,
-      "trustScore": 29,
-      "rank": 12
-    },
-    {
-      "name": "总进球2串一",
-      "category": "ttg",
-      "legs": [
-        {
-          "matchId": "2040548",
-          "match": "周六203 济州SK vs 浦项制铁",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
-        },
-        {
-          "matchId": "2040553",
-          "match": "周六208 利勒斯特罗姆 vs 奥斯陆KFUM",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.4,
-          "probability": 0.29411764705882354
-        }
-      ],
-      "productOdds": 10.2,
-      "trustScore": 29,
-      "rank": 13
-    },
-    {
-      "name": "半全场2串一",
-      "category": "hafu",
-      "legs": [
-        {
-          "matchId": "2040555",
-          "match": "周六210 克里斯蒂安松 vs 萨尔普斯堡",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "负/负",
-          "odds": 3.35,
-          "probability": 0.29850746268656714
-        },
-        {
-          "matchId": "2040558",
-          "match": "周六213 莫尔德 vs 布兰",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "胜/胜",
-          "odds": 3.0,
-          "probability": 0.3
-        }
-      ],
-      "productOdds": 10.05,
-      "trustScore": 28,
-      "rank": 14
-    },
-    {
-      "name": "半全场2串一",
-      "category": "hafu",
-      "legs": [
-        {
-          "matchId": "2040554",
-          "match": "周六209 斯达 vs 罗森博格",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "负/负",
-          "odds": 3.4,
-          "probability": 0.29411764705882354
-        },
-        {
-          "matchId": "2040558",
-          "match": "周六213 莫尔德 vs 布兰",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "胜/胜",
-          "odds": 3.0,
-          "probability": 0.3
-        }
-      ],
-      "productOdds": 10.2,
-      "trustScore": 28,
-      "rank": 15
-    },
-    {
-      "name": "半全场2串一",
-      "category": "hafu",
-      "legs": [
-        {
-          "matchId": "2040554",
-          "match": "周六209 斯达 vs 罗森博格",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "负/负",
-          "odds": 3.4,
-          "probability": 0.29411764705882354
-        },
-        {
-          "matchId": "2040555",
-          "match": "周六210 克里斯蒂安松 vs 萨尔普斯堡",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "负/负",
-          "odds": 3.35,
-          "probability": 0.29850746268656714
-        }
-      ],
-      "productOdds": 11.39,
-      "trustScore": 28,
-      "rank": 16
-    },
-    {
       "name": "比分2串一",
       "category": "crs",
       "legs": [
@@ -2654,7 +2330,7 @@
       ],
       "productOdds": 39.0,
       "trustScore": 15,
-      "rank": 17
+      "rank": 6
     },
     {
       "name": "比分2串一",
@@ -2681,7 +2357,7 @@
       ],
       "productOdds": 39.0,
       "trustScore": 15,
-      "rank": 18
+      "rank": 7
     },
     {
       "name": "比分2串一",
@@ -2708,7 +2384,7 @@
       ],
       "productOdds": 39.0,
       "trustScore": 15,
-      "rank": 19
+      "rank": 8
     },
     {
       "name": "比分2串一",
@@ -2735,7 +2411,7 @@
       ],
       "productOdds": 40.5,
       "trustScore": 15,
-      "rank": 20
+      "rank": 9
     },
     {
       "name": "比分2串一",
@@ -2762,7 +2438,7 @@
       ],
       "productOdds": 40.8,
       "trustScore": 15,
-      "rank": 21
+      "rank": 10
     }
   ],
   "scheduleWarnings": [],
@@ -2810,10 +2486,6 @@
     {
       "name": "K League官方赛程",
       "url": "https://tv.kleague.com/en-int/schedule"
-    },
-    {
-      "name": "FIFA世界杯官方赛程",
-      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
     }
   ],
   "disclaimer": "以上仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。"
