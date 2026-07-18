@@ -46,9 +46,9 @@
           "1"
         ]
       },
-      "result": null,
+      "result": {"homeGoals": 2, "awayGoals": 2, "status": "Finished", "source": "K League public result cross-check"},
       "review": "Auto-generated from Sporttery live odds: total-goals 2, lean draw, adjusted by hhad/crs/hafu and draw pressure.",
-      "postReview": null,
+      "postReview": "2-2完场：方向未中；2-2在尾部池；4球未中。",
       "odds": {
         "had": {
           "home": "2.27",
@@ -162,9 +162,9 @@
           "1"
         ]
       },
-      "result": null,
+      "result": {"homeGoals": 2, "awayGoals": 0, "status": "Finished", "source": "K League public result cross-check"},
       "review": "Auto-generated from Sporttery live odds: total-goals 2, lean home, adjusted by hhad/crs/hafu and draw pressure.",
-      "postReview": null,
+      "postReview": "2-0完场：方向、主比分和2球全部命中。",
       "odds": {
         "had": {
           "home": "1.65",
@@ -278,9 +278,9 @@
           "3"
         ]
       },
-      "result": null,
+      "result": {"homeGoals": 2, "awayGoals": 1, "status": "Finished", "source": "K League public result cross-check"},
       "review": "Auto-generated from Sporttery live odds: total-goals 2, lean away, adjusted by hhad/crs/hafu and draw pressure.",
-      "postReview": null,
+      "postReview": "2-1完场：方向未中；2-1在保护池；3球次选覆盖。",
       "odds": {
         "had": {
           "home": "3.10",
@@ -394,9 +394,9 @@
           "1"
         ]
       },
-      "result": null,
+      "result": {"homeGoals": 1, "awayGoals": 0, "status": "Finished", "source": "K League public result cross-check"},
       "review": "Auto-generated from Sporttery live odds: total-goals 2, lean away, adjusted by hhad/crs/hafu and draw pressure.",
-      "postReview": null,
+      "postReview": "1-0完场：方向未中；1-0在保护池；1球次选覆盖。",
       "odds": {
         "had": {
           "home": "3.40",

@@ -7,20 +7,20 @@
   "modelVersion": "competition-specific-multimarket-20260719-v5",
   "competitionModels": {
     "韩国职业联赛": {
-      "version": "k-league-v3",
-      "had": 0.42,
-      "crs": 0.43,
-      "prior": 0.15,
+      "version": "k-league-v4-review-0718",
+      "had": 0.32,
+      "crs": 0.48,
+      "prior": 0.2,
       "prior_probs": [
-        0.38,
-        0.3,
-        0.32
+        0.46,
+        0.29,
+        0.25
       ],
-      "goal_shift": -0.1,
-      "draw_boost": 1.1,
-      "clean_sheet_boost": 1.04,
-      "confidence_delta": -2,
-      "lesson": "韩职独立校准：高温密集赛程提高平局与低比分权重。"
+      "goal_shift": 0.0,
+      "draw_boost": 1.06,
+      "clean_sheet_boost": 1.07,
+      "confidence_delta": -3,
+      "lesson": "07-18韩职复盘：比分池4场全覆盖但方向仅1场命中，降低胜平负锚定、提高比分矩阵与主场基准，取消过度压低进球均值。"
     },
     "瑞典超级联赛": {
       "version": "allsvenskan-v4-review-0717",
@@ -55,7 +55,48 @@
       "lesson": "芬超独立校准：比分矩阵权重高于单一胜平负锚点，保留受控小胜。"
     }
   },
-  "generatedAt": "2026-07-18T14:06:31",
+  "competitionReview": {
+    "league": "韩国职业联赛",
+    "reviewDate": "2026-07-18",
+    "source": "K League赛程与公开完场比分交叉核对",
+    "results": [
+      {
+        "matchId": "2040546",
+        "matchNumStr": "周六201",
+        "home": "大田市民",
+        "away": "蔚山现代",
+        "score": "2-2",
+        "assessment": "方向未中；2-2在尾部池；4球未中"
+      },
+      {
+        "matchId": "2040547",
+        "matchNumStr": "周六202",
+        "home": "江原FC",
+        "away": "金泉尚武",
+        "score": "2-0",
+        "assessment": "方向、主比分、2球全部命中"
+      },
+      {
+        "matchId": "2040548",
+        "matchNumStr": "周六203",
+        "home": "济州SK",
+        "away": "浦项制铁",
+        "score": "2-1",
+        "assessment": "方向未中；2-1在保护池；3球次选覆盖"
+      },
+      {
+        "matchId": "2040549",
+        "matchNumStr": "周六204",
+        "home": "仁川联",
+        "away": "全北现代",
+        "score": "1-0",
+        "assessment": "方向未中；1-0在保护池；1球次选覆盖"
+      }
+    ],
+    "summary": "方向1/4、主比分1/4、比分池4/4、总进球主选1/4。比分矩阵有覆盖能力，但胜平负锚点把主比分过度拉向市场方向，且统一压低进球均值造成主选过窄。",
+    "modelAdjustment": "只将韩职升级到k-league-v4-review-0718：胜平负权重0.42→0.32，比分矩阵0.43→0.48，联赛先验0.15→0.20，并提高主场先验；进球偏移-0.10→0.00。其他联赛模型参数保持不变。"
+  },
+  "generatedAt": "2026-07-18T21:09:10",
   "oddsUpdatedAt": "2026-07-18 09:34:01",
   "matches": [
     {
@@ -74,9 +115,9 @@
       "homeRank": "[韩职9]",
       "awayRank": "[韩职1]",
       "probabilities": {
-        "home": 0.2023,
-        "draw": 0.2777,
-        "away": 0.52
+        "home": 0.2309,
+        "draw": 0.27,
+        "away": 0.4991
       },
       "direction": "away",
       "directionText": "客胜",
@@ -99,9 +140,9 @@
         "3",
         "1"
       ],
-      "confidenceScore": 61,
+      "confidenceScore": 60,
       "confidence": "中",
-      "reason": "韩职独立校准：高温密集赛程提高平局与低比分权重。 本场按该赛事专属的胜平负、比分矩阵和进球分布权重计算。",
+      "reason": "07-18韩职复盘：比分池4场全覆盖但方向仅1场命中，降低胜平负锚定、提高比分矩阵与主场基准，取消过度压低进球均值。 本场按该赛事专属的胜平负、比分矩阵和进球分布权重计算。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -176,13 +217,13 @@
         }
       },
       "modelProfile": {
-        "version": "k-league-v3",
-        "had": 0.42,
-        "crs": 0.43,
-        "prior": 0.15,
-        "goal_shift": -0.1
+        "version": "k-league-v4-review-0718",
+        "had": 0.32,
+        "crs": 0.48,
+        "prior": 0.2,
+        "goal_shift": 0.0
       },
-      "modelLesson": "韩职独立校准：高温密集赛程提高平局与低比分权重。",
+      "modelLesson": "07-18韩职复盘：比分池4场全覆盖但方向仅1场命中，降低胜平负锚定、提高比分矩阵与主场基准，取消过度压低进球均值。",
       "businessDate": "2026-07-19",
       "marketBasis": "官方胜平负赔率"
     },
@@ -202,9 +243,9 @@
       "homeRank": "[韩职6]",
       "awayRank": "[韩职12]",
       "probabilities": {
-        "home": 0.5352,
-        "draw": 0.2753,
-        "away": 0.1895
+        "home": 0.5464,
+        "draw": 0.2679,
+        "away": 0.1857
       },
       "direction": "home",
       "directionText": "主胜",
@@ -227,9 +268,9 @@
         "3",
         "1"
       ],
-      "confidenceScore": 62,
+      "confidenceScore": 61,
       "confidence": "中",
-      "reason": "韩职独立校准：高温密集赛程提高平局与低比分权重。 本场按该赛事专属的胜平负、比分矩阵和进球分布权重计算。",
+      "reason": "07-18韩职复盘：比分池4场全覆盖但方向仅1场命中，降低胜平负锚定、提高比分矩阵与主场基准，取消过度压低进球均值。 本场按该赛事专属的胜平负、比分矩阵和进球分布权重计算。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -304,13 +345,13 @@
         }
       },
       "modelProfile": {
-        "version": "k-league-v3",
-        "had": 0.42,
-        "crs": 0.43,
-        "prior": 0.15,
-        "goal_shift": -0.1
+        "version": "k-league-v4-review-0718",
+        "had": 0.32,
+        "crs": 0.48,
+        "prior": 0.2,
+        "goal_shift": 0.0
       },
-      "modelLesson": "韩职独立校准：高温密集赛程提高平局与低比分权重。",
+      "modelLesson": "07-18韩职复盘：比分池4场全覆盖但方向仅1场命中，降低胜平负锚定、提高比分矩阵与主场基准，取消过度压低进球均值。",
       "businessDate": "2026-07-19",
       "marketBasis": "官方胜平负赔率"
     },
