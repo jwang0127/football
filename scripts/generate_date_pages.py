@@ -20,6 +20,48 @@ HAFU_TEXT = {"hh": "胜/胜", "hd": "胜/平", "ha": "胜/负", "dh": "平/胜",
 EXCLUDED_BY_DATE: dict[str, dict[str, str]] = {
     "20260718": {"法国|英格兰": ""}
 }
+
+# Each competition has its own calibration.  The weights are deliberately kept
+# here (rather than hidden in one global predictor) so a review changes only the
+# competition that produced the evidence.
+COMPETITION_MODELS: dict[str, dict[str, Any]] = {
+    "世界杯": {"version": "world-cup-v2", "had": .46, "crs": .42, "prior": .12,
+              "prior_probs": (.39, .29, .32), "goal_shift": 0.00, "draw_boost": 1.06,
+              "clean_sheet_boost": 1.03, "confidence_delta": -1,
+              "lesson": "淘汰赛独立校准：提高平局保护，并把90分钟方向与最终赛果分开。"},
+    "韩国职业联赛": {"version": "k-league-v3", "had": .42, "crs": .43, "prior": .15,
+                 "prior_probs": (.38, .30, .32), "goal_shift": -0.10, "draw_boost": 1.10,
+                 "clean_sheet_boost": 1.04, "confidence_delta": -2,
+                 "lesson": "韩职独立校准：高温密集赛程提高平局与低比分权重。"},
+    "瑞典超级联赛": {"version": "allsvenskan-v4-review-0717", "had": .38, "crs": .46, "prior": .16,
+                 "prior_probs": (.39, .31, .30), "goal_shift": -0.18, "draw_boost": 1.16,
+                 "clean_sheet_boost": 1.08, "confidence_delta": -3,
+                 "lesson": "07-17瑞超复盘：米亚尔比0-0漏选，增加0-0/平局与低比分分支。"},
+    "挪威超级联赛": {"version": "eliteserien-v4-review-0717", "had": .45, "crs": .43, "prior": .12,
+                 "prior_probs": (.44, .26, .30), "goal_shift": -0.12, "draw_boost": 1.02,
+                 "clean_sheet_boost": 1.10, "confidence_delta": -1,
+                 "lesson": "07-17挪超复盘：博德闪耀1-0，复赛首战强队不机械追3球。"},
+    "芬兰超级联赛": {"version": "veikkausliiga-v2", "had": .40, "crs": .45, "prior": .15,
+                 "prior_probs": (.42, .28, .30), "goal_shift": -0.05, "draw_boost": 1.06,
+                 "clean_sheet_boost": 1.06, "confidence_delta": -2,
+                 "lesson": "芬超独立校准：比分矩阵权重高于单一胜平负锚点，保留受控小胜。"},
+    "巴西甲级联赛": {"version": "brasileirao-v4-review-0717", "had": .38, "crs": .47, "prior": .15,
+                 "prior_probs": (.45, .30, .25), "goal_shift": -0.16, "draw_boost": 1.13,
+                 "clean_sheet_boost": 1.09, "confidence_delta": -3,
+                 "lesson": "07-17巴甲复盘：2-0/1-1/2-1，复赛阶段提高受控比分与平局。"},
+    "美国职业大联盟": {"version": "mls-v4-review-0717", "had": .41, "crs": .45, "prior": .14,
+                 "prior_probs": (.43, .25, .32), "goal_shift": -0.05, "draw_boost": .98,
+                 "clean_sheet_boost": 1.18, "confidence_delta": -3,
+                 "lesson": "07-17美职复盘：方向2/2，但1-0与0-3零封路径漏选，提高零封尾部。"},
+    "欧罗巴联赛": {"version": "uel-qualifying-v3", "had": .42, "crs": .43, "prior": .15,
+                "prior_probs": (.44, .27, .29), "goal_shift": .08, "draw_boost": 1.02,
+                "clean_sheet_boost": 1.02, "confidence_delta": -1,
+                "lesson": "欧战资格赛独立校准：结合两回合追分状态扩展晚段进球。"},
+    "欧洲冠军联赛": {"version": "ucl-qualifying-v3", "had": .44, "crs": .43, "prior": .13,
+                 "prior_probs": (.45, .27, .28), "goal_shift": .04, "draw_boost": 1.03,
+                 "clean_sheet_boost": 1.05, "confidence_delta": 0,
+                 "lesson": "欧冠资格赛独立校准：实力差与晋级策略分别建模。"},
+}
 EXTRA_MATCHES_BY_DATE = {
     "20260718": ("data/sporttery_20260719_latest.json", "韩国职业联赛")
 }
@@ -35,6 +77,7 @@ def load_base():
         "世界杯": {"class": "worldcup", "color": "#7b1f2e", "label": "世界杯季军赛"},
         "瑞典超级联赛": {"class": "swe", "color": "#176da3", "label": "瑞超"},
         "韩国职业联赛": {"class": "kor", "color": "#b33e5c", "label": "韩职"},
+        "芬兰超级联赛": {"class": "fin", "color": "#16766c", "label": "芬超"},
     })
     return module
 
@@ -44,6 +87,99 @@ def num(value: Any) -> float | None:
         return None if value in (None, "") else float(value)
     except (TypeError, ValueError):
         return None
+
+
+def normalized(values: dict[str, float]) -> dict[str, float]:
+    total = sum(values.values())
+    return {key: (value / total if total else 0.0) for key, value in values.items()}
+
+
+def inverse_market(rows: dict[str, Any], keys: tuple[str, ...]) -> dict[str, float]:
+    return normalized({key: 1 / num(rows.get(key)) for key in keys if num(rows.get(key))})
+
+
+def competition_direction_probabilities(match: dict[str, Any], profile: dict[str, Any]) -> dict[str, float]:
+    had = inverse_market(match.get("odds", {}).get("had") or {}, ("home", "draw", "away"))
+    crs_totals = {"home": 0.0, "draw": 0.0, "away": 0.0}
+    for score, price in (match.get("odds", {}).get("crs") or {}).items():
+        if "-" not in score or not num(price):
+            continue
+        home, away = (int(value) for value in score.split("-"))
+        crs_totals["home" if home > away else "away" if home < away else "draw"] += 1 / float(price)
+    crs = normalized(crs_totals)
+    prior = dict(zip(("home", "draw", "away"), profile["prior_probs"]))
+    # If HAD is not offered, its weight is reassigned to the score matrix.
+    had_weight = profile["had"] if len(had) == 3 else 0.0
+    crs_weight = profile["crs"] + (profile["had"] - had_weight)
+    blended = {key: had_weight * had.get(key, 0) + crs_weight * crs.get(key, 0) + profile["prior"] * prior[key]
+               for key in ("home", "draw", "away")}
+    blended["draw"] *= profile["draw_boost"]
+    return normalized(blended)
+
+
+def competition_goal_probabilities(match: dict[str, Any], profile: dict[str, Any]) -> dict[str, float]:
+    market = inverse_market(match.get("odds", {}).get("ttg") or {}, tuple(f"s{i}" for i in range(8)))
+    if not market:
+        return {"2": 1.0}
+    mean = sum((7 if key == "s7" else int(key[1:])) * value for key, value in market.items())
+    target = mean + profile["goal_shift"]
+    adjusted = {}
+    for key, value in market.items():
+        goals = 7 if key == "s7" else int(key[1:])
+        adjusted["7+" if goals == 7 else str(goals)] = value * math.exp(-0.18 * (goals - target) ** 2)
+    return normalized(adjusted)
+
+
+def competition_score_pool(match: dict[str, Any], probabilities: dict[str, float], goal_probs: dict[str, float], profile: dict[str, Any]) -> tuple[str, list[str], list[str]]:
+    ranked: list[tuple[str, float]] = []
+    for score, price in (match.get("odds", {}).get("crs") or {}).items():
+        if "-" not in score or not num(price):
+            continue
+        home, away = (int(value) for value in score.split("-"))
+        outcome = "home" if home > away else "away" if home < away else "draw"
+        goals = home + away
+        goal_key = "7+" if goals >= 7 else str(goals)
+        likelihood = (1 / float(price)) * (0.55 + probabilities[outcome]) * (0.55 + goal_probs.get(goal_key, 0))
+        if home == 0 or away == 0:
+            likelihood *= profile["clean_sheet_boost"]
+        ranked.append((score, likelihood))
+    ranked.sort(key=lambda row: row[1], reverse=True)
+    if not ranked:
+        return "1-1", ["1-0", "0-1", "2-1"], []
+    main = ranked[0][0]
+    backups = [score for score, _ in ranked[1:6]]
+    tails = [score for score, _ in ranked[6:] if score in {"0-0", "0-3", "1-3", "1-4", "2-2", "3-0"}][:3]
+    return main, backups, tails
+
+
+def predict_by_competition(base: Any, match: dict[str, Any]) -> dict[str, Any]:
+    profile = COMPETITION_MODELS[match["league"]]
+    predicted = base.predict(match)
+    probabilities = competition_direction_probabilities(match, profile)
+    goal_probs = competition_goal_probabilities(match, profile)
+    main, backups, tails = competition_score_pool(match, probabilities, goal_probs, profile)
+    direction = max(probabilities, key=probabilities.get)
+    aligned = [score for score in [main, *backups] if ("home" if int(score.split("-")[0]) > int(score.split("-")[1]) else "away" if int(score.split("-")[0]) < int(score.split("-")[1]) else "draw") == direction]
+    if aligned and main not in aligned:
+        backups.remove(aligned[0])
+        backups.insert(0, main)
+        main = aligned[0]
+    predicted.update({
+        "probabilities": {key: round(value, 4) for key, value in probabilities.items()},
+        "direction": direction,
+        "directionText": {"home": "主胜", "draw": "平", "away": "客胜"}[direction],
+        "mainScore": main,
+        "backupScores": backups,
+        "tailRiskScores": tails,
+        "totalGoals": max(goal_probs, key=goal_probs.get),
+        "goalCandidates": sorted(goal_probs, key=goal_probs.get, reverse=True)[:3],
+        "confidenceScore": max(25, min(82, predicted["confidenceScore"] + profile["confidence_delta"])),
+        "modelProfile": {key: profile[key] for key in ("version", "had", "crs", "prior", "goal_shift")},
+        "modelLesson": profile["lesson"],
+        "reason": f"{profile['lesson']} 本场按该赛事专属的胜平负、比分矩阵和进球分布权重计算。",
+    })
+    predicted["confidence"] = "高" if predicted["confidenceScore"] >= 65 else "中" if predicted["confidenceScore"] >= 52 else "中低"
+    return predicted
 
 
 def hafu_pick(match: dict[str, Any]) -> tuple[str, float | None, float]:
@@ -136,7 +272,7 @@ def predict_with_market_fallback(base: Any, match: dict[str, Any]) -> dict[str, 
         if not total:
             raise ValueError(f"No HAD or score-matrix direction basis for {match.get('matchNumStr')}")
         cloned["odds"]["had"] = {key: round(1 / (value / total), 3) for key, value in totals.items() if value}
-    predicted = base.predict(cloned)
+    predicted = predict_by_competition(base, cloned)
     predicted["businessDate"] = match.get("businessDate", "")
     if not has_had:
         predicted["odds"]["had"] = {}
@@ -161,9 +297,9 @@ def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
         p, had = m["probabilities"], m["odds"]["had"]
         pool = " / ".join([m["mainScore"], *m["backupScores"]])
         hkey, _, _ = hafu_pick(m)
-        cards.append(f'''<section class="match" style="--league:{m['leagueStyle']['color']}"><div class="title"><h3>{esc(m['matchNumStr'])} {esc(m['home'])} vs {esc(m['away'])}</h3><span>{esc(m['leagueStyle']['label'])}</span></div><p><b>北京时间：</b>{esc(m['kickoff'])}　<b>胜平负赔率：</b>{had.get('home','-')} / {had.get('draw','-')} / {had.get('away','-')}</p><div class="grid"><div><small>胜平负</small><strong>{esc(m['directionText'])}</strong></div><div><small>总进球</small><strong>{esc(m['totalGoals'])}</strong></div><div><small>比分</small><strong>{esc(m['mainScore'])}</strong></div><div><small>半全场</small><strong>{esc(HAFU_TEXT[hkey])}</strong></div></div><p>比分池：{esc(pool)}；尾部审计：{esc(' / '.join(m['tailRiskScores']) or '无额外尾部入选')}；总进球候选：{esc(' / '.join(m['goalCandidates']))}</p><p>隐含概率：主 {p['home']:.1%} / 平 {p['draw']:.1%} / 客 {p['away']:.1%}；模型信任度 {m['confidenceScore']}/100。</p><p>{esc(m['reason'])}</p></section>''')
+        cards.append(f'''<section class="match" style="--league:{m['leagueStyle']['color']}"><div class="title"><h3>{esc(m['matchNumStr'])} {esc(m['home'])} vs {esc(m['away'])}</h3><span>{esc(m['leagueStyle']['label'])}</span></div><p><b>北京时间：</b>{esc(m['kickoff'])}　<b>胜平负赔率：</b>{had.get('home','-')} / {had.get('draw','-')} / {had.get('away','-')}</p><p><b>独立模型：</b>{esc(m['modelProfile']['version'])}</p><div class="grid"><div><small>胜平负</small><strong>{esc(m['directionText'])}</strong></div><div><small>总进球</small><strong>{esc(m['totalGoals'])}</strong></div><div><small>比分</small><strong>{esc(m['mainScore'])}</strong></div><div><small>半全场</small><strong>{esc(HAFU_TEXT[hkey])}</strong></div></div><p>比分池：{esc(pool)}；尾部审计：{esc(' / '.join(m['tailRiskScores']) or '无额外尾部入选')}；总进球候选：{esc(' / '.join(m['goalCandidates']))}</p><p>模型概率：主 {p['home']:.1%} / 平 {p['draw']:.1%} / 客 {p['away']:.1%}；模型信任度 {m['confidenceScore']}/100。</p><p>{esc(m['reason'])}</p></section>''')
     source_items = "".join(f'<li><a href="{esc(x["url"])}">{esc(x["name"])}</a></li>' for x in payload["sources"])
-    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2026-{label}足球预测</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef4f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:24px 16px}}nav a{{margin-right:10px}}h1{{font-size:clamp(30px,5vw,48px)}}.legend span{{display:inline-block;margin:5px;padding:6px 11px;border-left:7px solid var(--c);background:white;border-radius:7px}}.notice,.match,.combo{{background:white;border:1px solid #dce4ea;border-radius:14px;padding:18px;margin:15px 0;box-shadow:0 8px 26px #2336460f}}.match{{border-left:10px solid var(--league)}}.title,.combo h3{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:white;padding:4px 11px;border-radius:99px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f5f8fa;padding:10px;border-radius:8px}}small{{display:block;color:#657482}}strong{{font-size:21px}}.combo{{border-top:6px solid #287d70}}.combo.hafu{{border-top-color:#7a43b6}}.combo.crs{{border-top-color:#b35430}}.combo.ttg{{border-top-color:#355dc5}}.combo.mixed{{border-top-color:#c38b16}}table{{width:100%;border-collapse:collapse}}td{{padding:8px;border-bottom:1px solid #e7ecef}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style></head><body><header><nav><a href="../index.html">日期首页</a><a href="../20260716/review.html">07-16复盘</a></nav><h1>{label}足球预测</h1><p>共 {len(payload['matches'])} 场 · 北京时间 · 赔率更新至 {esc(payload['oddsUpdatedAt'])}</p><div class="legend">{legends}</div></header><main>{f'<section class="notice"><h2>赛程冲突提示</h2><ul>{warnings}</ul></section>' if warnings else ''}<section class="notice"><h2>n串一总榜</h2><p>包含胜平负、总进球、比分、半全场及混合玩法；信任度仅用于模型横向比较，不等同于命中率。</p></section>{''.join(combos)}<h2>逐场预测</h2>{''.join(cards)}<section class="notice"><h2>赛程与赔率来源</h2><ul>{source_items}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
+    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2026-{label}足球预测</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef4f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:24px 16px}}nav a{{margin-right:10px}}h1{{font-size:clamp(30px,5vw,48px)}}.legend span{{display:inline-block;margin:5px;padding:6px 11px;border-left:7px solid var(--c);background:white;border-radius:7px}}.notice,.match,.combo{{background:white;border:1px solid #dce4ea;border-radius:14px;padding:18px;margin:15px 0;box-shadow:0 8px 26px #2336460f}}.match{{border-left:10px solid var(--league)}}.title,.combo h3{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:white;padding:4px 11px;border-radius:99px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f5f8fa;padding:10px;border-radius:8px}}small{{display:block;color:#657482}}strong{{font-size:21px}}.combo{{border-top:6px solid #287d70}}.combo.hafu{{border-top-color:#7a43b6}}.combo.crs{{border-top-color:#b35430}}.combo.ttg{{border-top-color:#355dc5}}.combo.mixed{{border-top-color:#c38b16}}table{{width:100%;border-collapse:collapse}}td{{padding:8px;border-bottom:1px solid #e7ecef}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style></head><body><header><nav><a href="../index.html">日期首页</a><a href="../20260717/review.html">07-17复盘</a></nav><h1>{label}足球预测</h1><p>共 {len(payload['matches'])} 场 · 北京时间 · 赔率更新至 {esc(payload['oddsUpdatedAt'])}</p><div class="legend">{legends}</div></header><main>{f'<section class="notice"><h2>赛程冲突提示</h2><ul>{warnings}</ul></section>' if warnings else ''}<section class="notice"><h2>n串一总榜</h2><p>每场先使用所属赛事的独立模型，再统一按理论赔率和几何信任度排序；包含胜平负、总进球、比分、半全场及混合玩法。信任度仅用于模型横向比较，不等同于命中率。</p></section>{''.join(combos)}<h2>逐场预测</h2>{''.join(cards)}<section class="notice"><h2>赛程与赔率来源</h2><ul>{source_items}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
 
 
 def main() -> None:
@@ -193,7 +329,7 @@ def main() -> None:
         {"name": "K League官方赛程", "url": "https://tv.kleague.com/en-int/schedule"},
         {"name": "FIFA世界杯官方赛程", "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"},
     ]
-    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户要求并入07-19两场韩职", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"daily-multimarket-{args.date}-v4", "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
+    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户此前要求并入07-19两场韩职" if args.date == "20260718" else "Sporttery竞彩业务日", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"competition-specific-multimarket-{args.date}-v5", "competitionModels": {league: COMPETITION_MODELS[league] for league in dict.fromkeys(m["league"] for m in matches)}, "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
     DATA.joinpath(f"predictions_{args.date}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     out = ROOT / args.date
     out.mkdir(exist_ok=True)
