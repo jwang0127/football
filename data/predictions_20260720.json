@@ -4,7 +4,8 @@
   "includedBusinessDates": [
     "2026-07-20"
   ],
-  "modelVersion": "competition-specific-multimarket-20260720-v6",
+  "modelVersion": "competition-specific-contextual-20260720-v7",
+  "contextVersion": "match-context-v1-20260720",
   "competitionModels": {
     "芬兰超级联赛": {
       "version": "veikkausliiga-v3-review-0718",
@@ -211,7 +212,7 @@
       }
     ]
   },
-  "generatedAt": "2026-07-19T11:46:23",
+  "generatedAt": "2026-07-19T12:53:32",
   "oddsUpdatedAt": "2026-07-18 09:34:01",
   "matches": [
     {
@@ -230,19 +231,19 @@
       "homeRank": "[芬超7]",
       "awayRank": "[芬超9]",
       "probabilities": {
-        "home": 0.3673,
-        "draw": 0.2612,
-        "away": 0.3715
+        "home": 0.4464,
+        "draw": 0.2926,
+        "away": 0.261
       },
-      "direction": "away",
-      "directionText": "客胜",
-      "mainScore": "1-2",
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "2-1",
       "backupScores": [
-        "2-1",
-        "1-1"
+        "1-1",
+        "2-0"
       ],
       "tailRiskScores": [
-        "2-2",
+        "3-0",
         "1-3",
         "0-3"
       ],
@@ -252,9 +253,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 41,
+      "confidenceScore": 39,
       "confidence": "中低",
-      "reason": "07-18芬超复盘：两场0-2客胜零封暴露主场先验偏强，降低主场基准并提高比分矩阵、客胜零封分支权重。 本场按该赛事专属的胜平负、比分矩阵和进球分布权重计算。",
+      "reason": "情境层把原本微弱的客胜市场优势翻转为TPS主场不败，原因是前六卡位、完整休息和伊尔维斯周中欧战。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -328,14 +329,39 @@
           "updatedAt": "2026-07-18 09:33:59"
         }
       },
+      "marketBaselineProbabilities": {
+        "home": 0.3673,
+        "draw": 0.2612,
+        "away": 0.3715
+      },
       "modelProfile": {
         "version": "veikkausliiga-v3-review-0718",
         "had": 0.38,
         "crs": 0.47,
         "prior": 0.15,
-        "goal_shift": -0.08
+        "goal_shift": -0.08,
+        "contextLayer": "match-context-v1"
       },
       "modelLesson": "07-18芬超复盘：两场0-2客胜零封暴露主场先验偏强，降低主场基准并提高比分矩阵、客胜零封分支权重。",
+      "contextFactors": {
+        "stage": "芬超第16轮、常规阶段共22轮。TPS第7、伊尔维斯第9，双方都在争夺前六争冠组入口。",
+        "schedule": "TPS自7月11日3-0击败AC奥卢后完整休整；伊尔维斯周中参加欧战并晋级，客队恢复时间更短。",
+        "motivation": "这是一场前六卡位战，TPS主场赢球可直接改善争冠组位置；伊尔维斯若输球，余下轮次追赶压力明显增加。",
+        "weather": "图尔库约19℃、多云并有阵雨，湿滑场地会放大二点球和定位球的重要性。",
+        "teamNews": "正式阵容将在赛前公布；当前不采用未经核实的伤停传闻。",
+        "coach": "TPS可用更充分体能压迫伊尔维斯的欧战后轮换阵容；客队若控制节奏成功，比赛会回到均势。",
+        "upsetPath": "市场几乎五五开且略倾客队，但体能与主场动机均偏向TPS；主胜并不是冷门，真正需要防的是双方谨慎形成1-1。"
+      },
+      "contextSources": [
+        {
+          "name": "TPS官方联赛赛程与近赛果",
+          "url": "https://www.veikkausliiga.com/joukkueet/tps/otteluohjelma"
+        },
+        {
+          "name": "芬超欧战动态",
+          "url": "https://www.veikkausliiga.com/?links=false"
+        }
+      ],
       "businessDate": "2026-07-20",
       "marketBasis": "官方胜平负赔率"
     },
@@ -355,21 +381,21 @@
       "homeRank": "[芬超12]",
       "awayRank": "[芬超8]",
       "probabilities": {
-        "home": 0.2072,
-        "draw": 0.2325,
-        "away": 0.5602
+        "home": 0.2178,
+        "draw": 0.2806,
+        "away": 0.5016
       },
       "direction": "away",
       "directionText": "客胜",
-      "mainScore": "1-2",
+      "mainScore": "0-2",
       "backupScores": [
-        "0-2",
-        "0-3"
+        "1-2",
+        "1-1"
       ],
       "tailRiskScores": [
         "2-2",
-        "1-4",
-        "0-0"
+        "0-0",
+        "1-4"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -377,9 +403,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 64,
+      "confidenceScore": 61,
       "confidence": "中",
-      "reason": "07-18芬超复盘：两场0-2客胜零封暴露主场先验偏强，降低主场基准并提高比分矩阵、客胜零封分支权重。 本场按该赛事专属的胜平负、比分矩阵和进球分布权重计算。",
+      "reason": "拉赫蒂客胜仍是主线，依据不仅是赔率，还包括玛丽港近期防守崩塌；海岛、有风和保级强度使平局权重高于市场直觉。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -453,14 +479,39 @@
           "updatedAt": "2026-07-18 09:33:59"
         }
       },
+      "marketBaselineProbabilities": {
+        "home": 0.2072,
+        "draw": 0.2325,
+        "away": 0.5602
+      },
       "modelProfile": {
         "version": "veikkausliiga-v3-review-0718",
         "had": 0.38,
         "crs": 0.47,
         "prior": 0.15,
-        "goal_shift": -0.08
+        "goal_shift": -0.08,
+        "contextLayer": "match-context-v1"
       },
       "modelLesson": "07-18芬超复盘：两场0-2客胜零封暴露主场先验偏强，降低主场基准并提高比分矩阵、客胜零封分支权重。",
+      "contextFactors": {
+        "stage": "芬超第16轮。玛丽港垫底，拉赫蒂第8；常规阶段仅余约6轮，保级与争冠组边缘积分都很关键。",
+        "schedule": "两队自上轮后均有一周以上恢复时间，体能项接近中性；客队需要额外完成海岛旅行。",
+        "motivation": "玛丽港必须结束连续失分才能避免榜尾差距扩大；拉赫蒂要向前六靠拢，面对垫底队目标明确是三分。",
+        "weather": "玛丽港约20℃，早段局部阵雨后转有风。海风和湿场会降低传中落点稳定性，也增加定位球偶然性。",
+        "teamNews": "联赛官方页面注明正式阵容赛前一小时发布，当前不使用未确认的球员传闻。",
+        "coach": "玛丽港近期防线连续失球，主帅必须在抢分和避免过早压出之间取舍；拉赫蒂更适合先稳住再攻击主队身后。",
+        "upsetPath": "玛丽港近年主场和本季首回合都出现过平局路径，海岛客场也有环境变量；但其近期连续大比分失球使反转更偏向1-1而非主胜。"
+      },
+      "contextSources": [
+        {
+          "name": "玛丽港官方联赛赛程与近赛果",
+          "url": "https://www.veikkausliiga.com/joukkueet/ifk-mariehamn/otteluohjelma"
+        },
+        {
+          "name": "芬超官方阵容页",
+          "url": "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036947/kokoonpanot/"
+        }
+      ],
       "businessDate": "2026-07-20",
       "marketBasis": "官方胜平负赔率"
     },
@@ -480,21 +531,21 @@
       "homeRank": "[瑞超15]",
       "awayRank": "[瑞超5]",
       "probabilities": {
-        "home": 0.1752,
-        "draw": 0.2169,
-        "away": 0.6079
+        "home": 0.2254,
+        "draw": 0.3226,
+        "away": 0.452
       },
       "direction": "away",
       "directionText": "客胜",
       "mainScore": "1-2",
       "backupScores": [
-        "0-3",
-        "0-2"
+        "0-2",
+        "1-1"
       ],
       "tailRiskScores": [
         "1-4",
-        "2-2",
-        "0-0"
+        "0-0",
+        "3-0"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -502,9 +553,9 @@
         "4",
         "2"
       ],
-      "confidenceScore": 71,
-      "confidence": "高",
-      "reason": "07-18瑞超复盘：AIK 2-0方向与比分池命中，延续低比分校准并小幅提高强侧零封权重；单场样本不扩大方向先验。 本场按该赛事专属的胜平负、比分矩阵和进球分布权重计算。",
+      "confidenceScore": 63,
+      "confidence": "中",
+      "reason": "客胜仍略优，但不再接受1.27赔率所暗示的碾压概率；主队刚爆冷、客队中卫短缺与主队停赛相互抵消，比赛方差显著放大。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -578,14 +629,35 @@
           "updatedAt": "2026-07-18 09:33:59"
         }
       },
+      "marketBaselineProbabilities": {
+        "home": 0.1752,
+        "draw": 0.2169,
+        "away": 0.6079
+      },
       "modelProfile": {
         "version": "allsvenskan-v5-review-0718",
         "had": 0.37,
         "crs": 0.47,
         "prior": 0.16,
-        "goal_shift": -0.22
+        "goal_shift": -0.22,
+        "contextLayer": "match-context-v1"
       },
       "modelLesson": "07-18瑞超复盘：AIK 2-0方向与比分池命中，延续低比分校准并小幅提高强侧零封权重；单场样本不扩大方向先验。",
+      "contextFactors": {
+        "stage": "瑞超第13轮。厄尔格里特排名倒数第2，佐加顿斯处于欧战席位竞争区。",
+        "schedule": "双方都有一周左右恢复时间；佐加顿斯训练周强度正常，不是短休。",
+        "motivation": "佐加顿斯需要连续赢球进入争冠/欧战集团；厄尔格里特刚以4-3击败赫根，保级队的信心和抢分紧迫性同时上升。",
+        "weather": "哥德堡约23℃、大致晴朗舒适，天气有利于正常技术发挥，不支持机械压低总进球。",
+        "teamNews": "佐加顿斯中卫Mikael Marques继续停赛，Leon Hien等人此前缺阵；厄尔格里特核心Tobias Sana停赛，主帅Andreas Holmberg也因累计黄牌无法临场指挥。",
+        "coach": "Jani Honkavaara强调要建立连续赢球能力；厄尔格里特虽然擅长控球，但缺少Sana与主帅临场调度会削弱反转稳定性。",
+        "upsetPath": "厄尔格里特上一轮4-3击败强队赫根，证明其主场可以把比赛拉入高波动；佐加顿斯中卫储备不足时，1-1、2-2和2-1都必须审计。"
+      },
+      "contextSources": [
+        {
+          "name": "佐加顿斯官方赛前与停赛信息",
+          "url": "https://www.dif.se/nyheter/2026/infor-orgryte-djurgarden"
+        }
+      ],
       "businessDate": "2026-07-20",
       "marketBasis": "官方胜平负赔率"
     },
@@ -605,21 +677,21 @@
       "homeRank": "[瑞超12]",
       "awayRank": "[瑞超6]",
       "probabilities": {
-        "home": 0.3774,
-        "draw": 0.2852,
-        "away": 0.3374
+        "home": 0.3463,
+        "draw": 0.3874,
+        "away": 0.2663
       },
-      "direction": "home",
-      "directionText": "主胜",
-      "mainScore": "2-1",
+      "direction": "draw",
+      "directionText": "平",
+      "mainScore": "1-1",
       "backupScores": [
-        "1-1",
-        "1-2"
+        "2-1",
+        "2-2"
       ],
       "tailRiskScores": [
-        "2-2",
         "3-0",
-        "1-3"
+        "1-3",
+        "0-0"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -627,9 +699,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 42,
+      "confidenceScore": 37,
       "confidence": "中低",
-      "reason": "07-18瑞超复盘：AIK 2-0方向与比分池命中，延续低比分校准并小幅提高强侧零封权重；单场样本不扩大方向先验。 本场按该赛事专属的胜平负、比分矩阵和进球分布权重计算。",
+      "reason": "综合主场强度、马尔默伤缺与两队近期状态后，模型从主胜微倾调整为平局主线，2-2优先于机械选择名气更大的马尔默。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -703,31 +775,56 @@
           "updatedAt": "2026-07-18 09:33:59"
         }
       },
+      "marketBaselineProbabilities": {
+        "home": 0.3774,
+        "draw": 0.2852,
+        "away": 0.3374
+      },
       "modelProfile": {
         "version": "allsvenskan-v5-review-0718",
         "had": 0.37,
         "crs": 0.47,
         "prior": 0.16,
-        "goal_shift": -0.22
+        "goal_shift": -0.22,
+        "contextLayer": "match-context-v1"
       },
       "modelLesson": "07-18瑞超复盘：AIK 2-0方向与比分池命中，延续低比分校准并小幅提高强侧零封权重；单场样本不扩大方向先验。",
+      "contextFactors": {
+        "stage": "瑞超第13轮。卡尔马升班后排名第12，以保级站稳为目标；马尔默第6，需要三分回到欧战竞争区。",
+        "schedule": "双方都获得约8天恢复时间，体能差距不大。",
+        "motivation": "卡尔马主场拿分是保级核心路径，已有联赛第4好的主场积分；马尔默三连胜后必须延续势头，不能接受长期停留第6。",
+        "weather": "卡尔马约17℃、有风偏凉并可能早段小雨，比赛时地面和风向会增加传中、二点球的不确定性。",
+        "teamNews": "卡尔马主要缺少Malcolm Stolt；马尔默缺少Anders Christiansen、Pontus Jansson，Oscar Sjöstrand又遭重伤赛季报销，但Erik Botheim仍保持高产。",
+        "coach": "Toni Koskela的卡尔马主场4胜，打法并不保守；Gaute Helstrup的马尔默近期三连胜，但客场表现并非绝对稳定。",
+        "upsetPath": "市场稍偏卡尔马并非错误定价：主场表现、马尔默核心伤缺足以支撑2-2甚至2-1；反面是Botheim状态可把比赛翻成1-2。"
+      },
+      "contextSources": [
+        {
+          "name": "卡尔马-马尔默状态与伤停",
+          "url": "https://www.sportsmole.co.uk/football/kalmar/preview/kalmar-vs-malmo-prediction-team-news-lineups_601422.html"
+        },
+        {
+          "name": "马尔默官方赛程",
+          "url": "https://www.mff.se/matcher/kalmar-ff-vs-malmo-ff-herr-2026-07-20/"
+        }
+      ],
       "businessDate": "2026-07-20",
       "marketBasis": "官方胜平负赔率"
     }
   ],
   "combos": [
     {
-      "name": "混合3串一",
+      "name": "混合2串一",
       "category": "mixed",
       "legs": [
         {
-          "matchId": "2040568",
-          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "matchId": "2040569",
+          "match": "周一204 卡尔马 vs 马尔默",
           "market": "had",
           "marketText": "胜平负",
-          "pick": "客胜",
-          "odds": 1.27,
-          "probability": 0.6079
+          "pick": "平",
+          "odds": 3.45,
+          "probability": 0.3874
         },
         {
           "matchId": "2040566",
@@ -737,69 +834,24 @@
           "pick": "3",
           "odds": 3.4,
           "probability": 0.29411764705882354
-        },
-        {
-          "matchId": "2040567",
-          "match": "周一202 玛丽港 vs 拉赫蒂",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.4,
-          "probability": 0.29411764705882354
         }
       ],
-      "productOdds": 14.68,
-      "trustScore": 33,
+      "productOdds": 11.73,
+      "trustScore": 32,
       "rank": 1
     },
     {
-      "name": "混合3串一",
+      "name": "混合2串一",
       "category": "mixed",
       "legs": [
-        {
-          "matchId": "2040568",
-          "match": "周一203 厄尔格里特 vs 佐加顿斯",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "客胜",
-          "odds": 1.27,
-          "probability": 0.6079
-        },
-        {
-          "matchId": "2040566",
-          "match": "周一201 TPS图尔库 vs 坦佩雷山猫",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.4,
-          "probability": 0.29411764705882354
-        },
         {
           "matchId": "2040569",
           "match": "周一204 卡尔马 vs 马尔默",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.45,
-          "probability": 0.2898550724637681
-        }
-      ],
-      "productOdds": 14.9,
-      "trustScore": 33,
-      "rank": 2
-    },
-    {
-      "name": "混合3串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040568",
-          "match": "周一203 厄尔格里特 vs 佐加顿斯",
           "market": "had",
           "marketText": "胜平负",
-          "pick": "客胜",
-          "odds": 1.27,
-          "probability": 0.6079
+          "pick": "平",
+          "odds": 3.45,
+          "probability": 0.3874
         },
         {
           "matchId": "2040567",
@@ -809,19 +861,37 @@
           "pick": "3",
           "odds": 3.4,
           "probability": 0.29411764705882354
-        },
+        }
+      ],
+      "productOdds": 11.73,
+      "trustScore": 32,
+      "rank": 2
+    },
+    {
+      "name": "混合2串一",
+      "category": "mixed",
+      "legs": [
         {
           "matchId": "2040569",
           "match": "周一204 卡尔马 vs 马尔默",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "平",
+          "odds": 3.45,
+          "probability": 0.3874
+        },
+        {
+          "matchId": "2040568",
+          "match": "周一203 厄尔格里特 vs 佐加顿斯",
           "market": "ttg",
           "marketText": "总进球",
           "pick": "3",
-          "odds": 3.45,
-          "probability": 0.2898550724637681
+          "odds": 3.65,
+          "probability": 0.273972602739726
         }
       ],
-      "productOdds": 14.9,
-      "trustScore": 33,
+      "productOdds": 12.59,
+      "trustScore": 31,
       "rank": 3
     },
     {
@@ -829,13 +899,13 @@
       "category": "mixed",
       "legs": [
         {
-          "matchId": "2040568",
-          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "matchId": "2040567",
+          "match": "周一202 玛丽港 vs 拉赫蒂",
           "market": "had",
           "marketText": "胜平负",
           "pick": "客胜",
-          "odds": 1.27,
-          "probability": 0.6079
+          "odds": 1.44,
+          "probability": 0.5016
         },
         {
           "matchId": "2040566",
@@ -849,15 +919,15 @@
         {
           "matchId": "2040569",
           "match": "周一204 卡尔马 vs 马尔默",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "胜/胜",
-          "odds": 3.65,
-          "probability": 0.273972602739726
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.45,
+          "probability": 0.2898550724637681
         }
       ],
-      "productOdds": 15.76,
-      "trustScore": 32,
+      "productOdds": 16.89,
+      "trustScore": 31,
       "rank": 4
     },
     {
@@ -865,13 +935,13 @@
       "category": "mixed",
       "legs": [
         {
-          "matchId": "2040568",
-          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "matchId": "2040566",
+          "match": "周一201 TPS图尔库 vs 坦佩雷山猫",
           "market": "had",
           "marketText": "胜平负",
-          "pick": "客胜",
-          "odds": 1.27,
-          "probability": 0.6079
+          "pick": "主胜",
+          "odds": 2.44,
+          "probability": 0.4464
         },
         {
           "matchId": "2040567",
@@ -883,32 +953,59 @@
           "probability": 0.29411764705882354
         },
         {
+          "matchId": "2040568",
+          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "负/负",
+          "odds": 1.73,
+          "probability": 0.3
+        }
+      ],
+      "productOdds": 14.35,
+      "trustScore": 30,
+      "rank": 5
+    },
+    {
+      "name": "半全场3串一",
+      "category": "hafu",
+      "legs": [
+        {
+          "matchId": "2040567",
+          "match": "周一202 玛丽港 vs 拉赫蒂",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "负/负",
+          "odds": 2.0,
+          "probability": 0.3
+        },
+        {
+          "matchId": "2040568",
+          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "负/负",
+          "odds": 1.73,
+          "probability": 0.3
+        },
+        {
           "matchId": "2040569",
           "match": "周一204 卡尔马 vs 马尔默",
           "market": "hafu",
           "marketText": "半全场",
-          "pick": "胜/胜",
-          "odds": 3.65,
-          "probability": 0.273972602739726
+          "pick": "平/平",
+          "odds": 6.0,
+          "probability": 0.16666666666666666
         }
       ],
-      "productOdds": 15.76,
-      "trustScore": 32,
-      "rank": 5
+      "productOdds": 20.76,
+      "trustScore": 22,
+      "rank": 6
     },
     {
       "name": "比分2串一",
       "category": "crs",
       "legs": [
-        {
-          "matchId": "2040567",
-          "match": "周一202 玛丽港 vs 拉赫蒂",
-          "market": "crs",
-          "marketText": "比分",
-          "pick": "1-2",
-          "odds": 6.75,
-          "probability": 0.14814814814814814
-        },
         {
           "matchId": "2040568",
           "match": "周一203 厄尔格里特 vs 佐加顿斯",
@@ -917,37 +1014,19 @@
           "pick": "1-2",
           "odds": 7.0,
           "probability": 0.14285714285714285
-        }
-      ],
-      "productOdds": 47.25,
-      "trustScore": 14,
-      "rank": 6
-    },
-    {
-      "name": "比分2串一",
-      "category": "crs",
-      "legs": [
-        {
-          "matchId": "2040566",
-          "match": "周一201 TPS图尔库 vs 坦佩雷山猫",
-          "market": "crs",
-          "marketText": "比分",
-          "pick": "1-2",
-          "odds": 7.5,
-          "probability": 0.13333333333333333
         },
         {
-          "matchId": "2040567",
-          "match": "周一202 玛丽港 vs 拉赫蒂",
+          "matchId": "2040569",
+          "match": "周一204 卡尔马 vs 马尔默",
           "market": "crs",
           "marketText": "比分",
-          "pick": "1-2",
-          "odds": 6.75,
-          "probability": 0.14814814814814814
+          "pick": "1-1",
+          "odds": 6.7,
+          "probability": 0.14925373134328357
         }
       ],
-      "productOdds": 50.62,
-      "trustScore": 13,
+      "productOdds": 46.9,
+      "trustScore": 14,
       "rank": 7
     },
     {
@@ -959,21 +1038,21 @@
           "match": "周一202 玛丽港 vs 拉赫蒂",
           "market": "crs",
           "marketText": "比分",
-          "pick": "1-2",
-          "odds": 6.75,
-          "probability": 0.14814814814814814
+          "pick": "0-2",
+          "odds": 7.5,
+          "probability": 0.13333333333333333
         },
         {
           "matchId": "2040569",
           "match": "周一204 卡尔马 vs 马尔默",
           "market": "crs",
           "marketText": "比分",
-          "pick": "2-1",
-          "odds": 7.5,
-          "probability": 0.13333333333333333
+          "pick": "1-1",
+          "odds": 6.7,
+          "probability": 0.14925373134328357
         }
       ],
-      "productOdds": 50.62,
+      "productOdds": 50.25,
       "trustScore": 13,
       "rank": 8
     },
@@ -986,21 +1065,21 @@
           "match": "周一201 TPS图尔库 vs 坦佩雷山猫",
           "market": "crs",
           "marketText": "比分",
-          "pick": "1-2",
-          "odds": 7.5,
-          "probability": 0.13333333333333333
+          "pick": "2-1",
+          "odds": 7.75,
+          "probability": 0.12903225806451613
         },
         {
-          "matchId": "2040568",
-          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "matchId": "2040569",
+          "match": "周一204 卡尔马 vs 马尔默",
           "market": "crs",
           "marketText": "比分",
-          "pick": "1-2",
-          "odds": 7.0,
-          "probability": 0.14285714285714285
+          "pick": "1-1",
+          "odds": 6.7,
+          "probability": 0.14925373134328357
         }
       ],
-      "productOdds": 52.5,
+      "productOdds": 51.93,
       "trustScore": 13,
       "rank": 9
     },
@@ -1009,6 +1088,15 @@
       "category": "crs",
       "legs": [
         {
+          "matchId": "2040567",
+          "match": "周一202 玛丽港 vs 拉赫蒂",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "0-2",
+          "odds": 7.5,
+          "probability": 0.13333333333333333
+        },
+        {
           "matchId": "2040568",
           "match": "周一203 厄尔格里特 vs 佐加顿斯",
           "market": "crs",
@@ -1016,15 +1104,6 @@
           "pick": "1-2",
           "odds": 7.0,
           "probability": 0.14285714285714285
-        },
-        {
-          "matchId": "2040569",
-          "match": "周一204 卡尔马 vs 马尔默",
-          "market": "crs",
-          "marketText": "比分",
-          "pick": "2-1",
-          "odds": 7.5,
-          "probability": 0.13333333333333333
         }
       ],
       "productOdds": 52.5,

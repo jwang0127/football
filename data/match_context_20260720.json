@@ -1,0 +1,78 @@
+{
+  "version": "match-context-v1-20260720",
+  "capturedAt": "2026-07-19T12:30:00+08:00",
+  "method": "赔率为市场基线；赛制阶段、休息天数、积分动机、可靠球员与教练消息、天气和反向路径按场次修正。",
+  "matches": {
+    "2040566": {
+      "stage": "芬超第16轮、常规阶段共22轮。TPS第7、伊尔维斯第9，双方都在争夺前六争冠组入口。",
+      "schedule": "TPS自7月11日3-0击败AC奥卢后完整休整；伊尔维斯周中参加欧战并晋级，客队恢复时间更短。",
+      "motivation": "这是一场前六卡位战，TPS主场赢球可直接改善争冠组位置；伊尔维斯若输球，余下轮次追赶压力明显增加。",
+      "weather": "图尔库约19℃、多云并有阵雨，湿滑场地会放大二点球和定位球的重要性。",
+      "teamNews": "正式阵容将在赛前公布；当前不采用未经核实的伤停传闻。",
+      "coach": "TPS可用更充分体能压迫伊尔维斯的欧战后轮换阵容；客队若控制节奏成功，比赛会回到均势。",
+      "upsetPath": "市场几乎五五开且略倾客队，但体能与主场动机均偏向TPS；主胜并不是冷门，真正需要防的是双方谨慎形成1-1。",
+      "judgement": "情境层把原本微弱的客胜市场优势翻转为TPS主场不败，原因是前六卡位、完整休息和伊尔维斯周中欧战。",
+      "outcomeMultipliers": {"home": 1.28, "draw": 1.18, "away": 0.74},
+      "goalShift": -0.05,
+      "scoreBoosts": {"2-1": 1.45, "1-1": 1.40, "1-2": 0.78, "2-0": 1.18},
+      "confidenceDelta": -2,
+      "sources": [
+        {"name": "TPS官方联赛赛程与近赛果", "url": "https://www.veikkausliiga.com/joukkueet/tps/otteluohjelma"},
+        {"name": "芬超欧战动态", "url": "https://www.veikkausliiga.com/?links=false"}
+      ]
+    },
+    "2040567": {
+      "stage": "芬超第16轮。玛丽港垫底，拉赫蒂第8；常规阶段仅余约6轮，保级与争冠组边缘积分都很关键。",
+      "schedule": "两队自上轮后均有一周以上恢复时间，体能项接近中性；客队需要额外完成海岛旅行。",
+      "motivation": "玛丽港必须结束连续失分才能避免榜尾差距扩大；拉赫蒂要向前六靠拢，面对垫底队目标明确是三分。",
+      "weather": "玛丽港约20℃，早段局部阵雨后转有风。海风和湿场会降低传中落点稳定性，也增加定位球偶然性。",
+      "teamNews": "联赛官方页面注明正式阵容赛前一小时发布，当前不使用未确认的球员传闻。",
+      "coach": "玛丽港近期防线连续失球，主帅必须在抢分和避免过早压出之间取舍；拉赫蒂更适合先稳住再攻击主队身后。",
+      "upsetPath": "玛丽港近年主场和本季首回合都出现过平局路径，海岛客场也有环境变量；但其近期连续大比分失球使反转更偏向1-1而非主胜。",
+      "judgement": "拉赫蒂客胜仍是主线，依据不仅是赔率，还包括玛丽港近期防守崩塌；海岛、有风和保级强度使平局权重高于市场直觉。",
+      "outcomeMultipliers": {"home": 1.08, "draw": 1.24, "away": 0.92},
+      "goalShift": -0.04,
+      "scoreBoosts": {"1-1": 1.40, "0-2": 1.22, "1-2": 1.12, "0-3": 1.05},
+      "confidenceDelta": -3,
+      "sources": [
+        {"name": "玛丽港官方联赛赛程与近赛果", "url": "https://www.veikkausliiga.com/joukkueet/ifk-mariehamn/otteluohjelma"},
+        {"name": "芬超官方阵容页", "url": "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036947/kokoonpanot/"}
+      ]
+    },
+    "2040568": {
+      "stage": "瑞超第13轮。厄尔格里特排名倒数第2，佐加顿斯处于欧战席位竞争区。",
+      "schedule": "双方都有一周左右恢复时间；佐加顿斯训练周强度正常，不是短休。",
+      "motivation": "佐加顿斯需要连续赢球进入争冠/欧战集团；厄尔格里特刚以4-3击败赫根，保级队的信心和抢分紧迫性同时上升。",
+      "weather": "哥德堡约23℃、大致晴朗舒适，天气有利于正常技术发挥，不支持机械压低总进球。",
+      "teamNews": "佐加顿斯中卫Mikael Marques继续停赛，Leon Hien等人此前缺阵；厄尔格里特核心Tobias Sana停赛，主帅Andreas Holmberg也因累计黄牌无法临场指挥。",
+      "coach": "Jani Honkavaara强调要建立连续赢球能力；厄尔格里特虽然擅长控球，但缺少Sana与主帅临场调度会削弱反转稳定性。",
+      "upsetPath": "厄尔格里特上一轮4-3击败强队赫根，证明其主场可以把比赛拉入高波动；佐加顿斯中卫储备不足时，1-1、2-2和2-1都必须审计。",
+      "judgement": "客胜仍略优，但不再接受1.27赔率所暗示的碾压概率；主队刚爆冷、客队中卫短缺与主队停赛相互抵消，比赛方差显著放大。",
+      "outcomeMultipliers": {"home": 1.28, "draw": 1.48, "away": 0.74},
+      "goalShift": 0.20,
+      "scoreBoosts": {"1-1": 1.50, "2-2": 1.70, "2-1": 1.40, "1-2": 1.12, "0-3": 0.75},
+      "confidenceDelta": -8,
+      "sources": [
+        {"name": "佐加顿斯官方赛前与停赛信息", "url": "https://www.dif.se/nyheter/2026/infor-orgryte-djurgarden"}
+      ]
+    },
+    "2040569": {
+      "stage": "瑞超第13轮。卡尔马升班后排名第12，以保级站稳为目标；马尔默第6，需要三分回到欧战竞争区。",
+      "schedule": "双方都获得约8天恢复时间，体能差距不大。",
+      "motivation": "卡尔马主场拿分是保级核心路径，已有联赛第4好的主场积分；马尔默三连胜后必须延续势头，不能接受长期停留第6。",
+      "weather": "卡尔马约17℃、有风偏凉并可能早段小雨，比赛时地面和风向会增加传中、二点球的不确定性。",
+      "teamNews": "卡尔马主要缺少Malcolm Stolt；马尔默缺少Anders Christiansen、Pontus Jansson，Oscar Sjöstrand又遭重伤赛季报销，但Erik Botheim仍保持高产。",
+      "coach": "Toni Koskela的卡尔马主场4胜，打法并不保守；Gaute Helstrup的马尔默近期三连胜，但客场表现并非绝对稳定。",
+      "upsetPath": "市场稍偏卡尔马并非错误定价：主场表现、马尔默核心伤缺足以支撑2-2甚至2-1；反面是Botheim状态可把比赛翻成1-2。",
+      "judgement": "综合主场强度、马尔默伤缺与两队近期状态后，模型从主胜微倾调整为平局主线，2-2优先于机械选择名气更大的马尔默。",
+      "outcomeMultipliers": {"home": 1.00, "draw": 1.48, "away": 0.86},
+      "goalShift": 0.16,
+      "scoreBoosts": {"2-2": 1.75, "1-1": 1.28, "2-1": 1.12, "1-2": 1.15},
+      "confidenceDelta": -5,
+      "sources": [
+        {"name": "卡尔马-马尔默状态与伤停", "url": "https://www.sportsmole.co.uk/football/kalmar/preview/kalmar-vs-malmo-prediction-team-news-lineups_601422.html"},
+        {"name": "马尔默官方赛程", "url": "https://www.mff.se/matcher/kalmar-ff-vs-malmo-ff-herr-2026-07-20/"}
+      ]
+    }
+  }
+}
