@@ -1,0 +1,1095 @@
+{
+  "date": "20260720",
+  "dateBasis": "Sporttery竞彩业务日",
+  "includedBusinessDates": [
+    "2026-07-20"
+  ],
+  "modelVersion": "competition-specific-multimarket-20260720-v6",
+  "competitionModels": {
+    "芬兰超级联赛": {
+      "version": "veikkausliiga-v3-review-0718",
+      "had": 0.38,
+      "crs": 0.47,
+      "prior": 0.15,
+      "prior_probs": [
+        0.39,
+        0.28,
+        0.33
+      ],
+      "goal_shift": -0.08,
+      "draw_boost": 1.06,
+      "clean_sheet_boost": 1.14,
+      "confidence_delta": -3,
+      "lesson": "07-18芬超复盘：两场0-2客胜零封暴露主场先验偏强，降低主场基准并提高比分矩阵、客胜零封分支权重。"
+    },
+    "瑞典超级联赛": {
+      "version": "allsvenskan-v5-review-0718",
+      "had": 0.37,
+      "crs": 0.47,
+      "prior": 0.16,
+      "prior_probs": [
+        0.39,
+        0.31,
+        0.3
+      ],
+      "goal_shift": -0.22,
+      "draw_boost": 1.16,
+      "clean_sheet_boost": 1.12,
+      "confidence_delta": -3,
+      "lesson": "07-18瑞超复盘：AIK 2-0方向与比分池命中，延续低比分校准并小幅提高强侧零封权重；单场样本不扩大方向先验。"
+    }
+  },
+  "competitionReview": {
+    "reviewDate": "07-18",
+    "source": "K League公开完场比分、ESPN赛事记分牌、Sofascore与联赛官方赛果交叉核对",
+    "sources": [
+      {
+        "name": "HamKam官方赛后报告（1-4特罗姆瑟）",
+        "url": "https://www.hamkam.no/nyheter/senket-av-et-godt-tromso-lag"
+      },
+      {
+        "name": "ESPN挪超07-18记分牌",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260718"
+      },
+      {
+        "name": "HJK官方赛后报告（2-1 VPS）",
+        "url": "https://www.hjk.fi/uutiset/juhlaottelusta-hieno-voitto-kylla-lammittaa"
+      },
+      {
+        "name": "Sofascore AC奥卢0-2格尼斯坦",
+        "url": "https://www.sofascore.com/ro/football/match/ac-oulu-if-gnistan/wVsocc"
+      },
+      {
+        "name": "Sofascore SJK 0-2库普斯",
+        "url": "https://www.sofascore.com/nl/football/match/sjk-kups/UUsVXi"
+      },
+      {
+        "name": "Aftonbladet AIK 2-0 GAIS赛后报道",
+        "url": "https://www.aftonbladet.se/sportbladet/fotboll/a/0pW2Kg/taha-ayari-malskytt-nar-aik-slog-gais"
+      }
+    ],
+    "reviews": [
+      {
+        "league": "韩国职业联赛",
+        "results": [
+          {
+            "matchId": "2040546",
+            "matchNumStr": "周六201",
+            "home": "大田市民",
+            "away": "蔚山现代",
+            "score": "2-2",
+            "assessment": "方向未中；2-2在尾部池；4球未中"
+          },
+          {
+            "matchId": "2040547",
+            "matchNumStr": "周六202",
+            "home": "江原FC",
+            "away": "金泉尚武",
+            "score": "2-0",
+            "assessment": "方向、主比分、2球全部命中"
+          },
+          {
+            "matchId": "2040548",
+            "matchNumStr": "周六203",
+            "home": "济州SK",
+            "away": "浦项制铁",
+            "score": "2-1",
+            "assessment": "方向未中；2-1在保护池；3球次选覆盖"
+          },
+          {
+            "matchId": "2040549",
+            "matchNumStr": "周六204",
+            "home": "仁川联",
+            "away": "全北现代",
+            "score": "1-0",
+            "assessment": "方向未中；1-0在保护池；1球次选覆盖"
+          }
+        ],
+        "summary": "方向1/4、主比分1/4、比分池4/4、总进球主选1/4。",
+        "modelAdjustment": "沿用已完成的k-league-v4-review-0718，本轮不使用同一批赛果重复调参。"
+      },
+      {
+        "league": "挪威超级联赛",
+        "results": [
+          {
+            "matchId": "2040550",
+            "matchNumStr": "周六205",
+            "home": "汉坎",
+            "away": "特罗姆瑟",
+            "score": "1-4",
+            "assessment": "客胜方向命中；高比分客胜长尾漏选"
+          },
+          {
+            "matchId": "2040553",
+            "matchNumStr": "周六208",
+            "home": "利勒斯特罗姆",
+            "away": "奥斯陆KFUM",
+            "score": "2-1",
+            "assessment": "方向、主比分、3球全部命中"
+          },
+          {
+            "matchId": "2040554",
+            "matchNumStr": "周六209",
+            "home": "斯达",
+            "away": "罗森博格",
+            "score": "0-3",
+            "assessment": "客胜方向与3球命中；比分池覆盖"
+          },
+          {
+            "matchId": "2040555",
+            "matchNumStr": "周六210",
+            "home": "克里斯蒂安松",
+            "away": "萨尔普斯堡",
+            "score": "0-0",
+            "assessment": "方向、比分池与总进球均未覆盖"
+          },
+          {
+            "matchId": "2040558",
+            "matchNumStr": "周六213",
+            "home": "莫尔德",
+            "away": "布兰",
+            "score": "1-2",
+            "assessment": "方向未中；反向比分在保护池；3球命中"
+          },
+          {
+            "matchId": "2040559",
+            "matchNumStr": "周六214",
+            "home": "维京",
+            "away": "桑纳菲尤尔",
+            "score": "2-1",
+            "assessment": "方向与主比分命中；3球为次选"
+          }
+        ],
+        "summary": "方向4/6、主比分2/6、比分池4/6、总进球主选3/6。既有大比分客胜长尾，也有0-0，不能统一抬高均值。",
+        "modelAdjustment": "仅升级挪超至eliteserien-v5-review-0718：比分矩阵0.43→0.45、进球偏移-0.12→-0.04，并同时保留零封与3球以上客胜尾部。"
+      },
+      {
+        "league": "芬兰超级联赛",
+        "results": [
+          {
+            "matchId": "2040551",
+            "matchNumStr": "周六206",
+            "home": "赫尔辛基",
+            "away": "VPS瓦萨",
+            "score": "2-1",
+            "assessment": "方向、主比分、3球全部命中"
+          },
+          {
+            "matchId": "2040556",
+            "matchNumStr": "周六211",
+            "home": "AC奥卢",
+            "away": "格尼斯坦",
+            "score": "0-2",
+            "assessment": "方向与比分池未中；客队零封路径漏选"
+          },
+          {
+            "matchId": "2040557",
+            "matchNumStr": "周六212",
+            "home": "塞伊奈约基",
+            "away": "库普斯",
+            "score": "0-2",
+            "assessment": "客胜方向命中；0-2在比分池；2球次选覆盖"
+          }
+        ],
+        "summary": "方向2/3、主比分1/3、比分池2/3、总进球主选1/3。两场0-2说明主场先验偏强、客胜零封权重不足。",
+        "modelAdjustment": "仅升级芬超至veikkausliiga-v3-review-0718：降低主场先验、比分矩阵0.45→0.47、零封权重1.06→1.14。"
+      },
+      {
+        "league": "瑞典超级联赛",
+        "results": [
+          {
+            "matchId": "2040552",
+            "matchNumStr": "周六207",
+            "home": "AIK索尔纳",
+            "away": "哥德堡盖斯",
+            "score": "2-0",
+            "assessment": "主胜方向与比分池命中；2球为次选"
+          }
+        ],
+        "summary": "方向1/1、主比分0/1、比分池1/1、总进球主选0/1。单场只支持小幅加强低比分零封，不调整方向先验。",
+        "modelAdjustment": "仅升级瑞超至allsvenskan-v5-review-0718：小幅提高比分矩阵和零封权重，保持方向先验不变。"
+      }
+    ]
+  },
+  "generatedAt": "2026-07-19T11:26:55",
+  "oddsUpdatedAt": "2026-07-18 09:34:01",
+  "matches": [
+    {
+      "id": "2040566",
+      "matchNumStr": "周一201",
+      "matchDate": "2026-07-20",
+      "kickoff": "2026-07-20 23:00:00",
+      "league": "芬兰超级联赛",
+      "leagueStyle": {
+        "class": "fin",
+        "color": "#16766c",
+        "label": "芬超"
+      },
+      "home": "TPS图尔库",
+      "away": "坦佩雷山猫",
+      "homeRank": "[芬超7]",
+      "awayRank": "[芬超9]",
+      "probabilities": {
+        "home": 0.3673,
+        "draw": 0.2612,
+        "away": 0.3715
+      },
+      "direction": "away",
+      "directionText": "客胜",
+      "mainScore": "1-2",
+      "backupScores": [
+        "2-1",
+        "1-1",
+        "0-1",
+        "0-2",
+        "2-0"
+      ],
+      "tailRiskScores": [
+        "2-2",
+        "1-3",
+        "0-3"
+      ],
+      "totalGoals": "3",
+      "goalCandidates": [
+        "3",
+        "2",
+        "4"
+      ],
+      "confidenceScore": 41,
+      "confidence": "中低",
+      "reason": "07-18芬超复盘：两场0-2客胜零封暴露主场先验偏强，降低主场基准并提高比分矩阵、客胜零封分支权重。 本场按该赛事专属的胜平负、比分矩阵和进球分布权重计算。",
+      "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
+      "odds": {
+        "had": {
+          "home": "2.44",
+          "draw": "3.40",
+          "away": "2.35",
+          "updatedAt": "2026-07-18 09:33:58"
+        },
+        "ttg": {
+          "s0": "17.00",
+          "s1": "5.80",
+          "s2": "3.90",
+          "s3": "3.40",
+          "s4": "4.70",
+          "s5": "7.50",
+          "s6": "13.00",
+          "s7": "20.00",
+          "updatedAt": "2026-07-18 09:33:57"
+        },
+        "hhad": {
+          "home": "1.45",
+          "draw": "4.25",
+          "away": "4.90",
+          "handicap": null,
+          "updatedAt": "2026-07-18 09:34:01"
+        },
+        "crs": {
+          "0-0": "17.00",
+          "0-1": "10.50",
+          "0-2": "13.00",
+          "0-3": "24.00",
+          "0-4": "50.00",
+          "0-5": "175.0",
+          "1-0": "11.00",
+          "1-1": "7.00",
+          "1-2": "7.50",
+          "1-3": "17.00",
+          "1-4": "45.00",
+          "1-5": "120.0",
+          "2-0": "13.00",
+          "2-1": "7.75",
+          "2-2": "11.00",
+          "2-3": "21.00",
+          "2-4": "55.00",
+          "2-5": "120.0",
+          "3-0": "25.00",
+          "3-1": "18.00",
+          "3-2": "22.00",
+          "3-3": "40.00",
+          "4-0": "65.00",
+          "4-1": "45.00",
+          "4-2": "55.00",
+          "5-0": "175.0",
+          "5-1": "120.0",
+          "5-2": "175.0",
+          "homeOther": "55.00",
+          "drawOther": "200.0",
+          "awayOther": "55.00",
+          "updatedAt": "2026-07-18 09:33:59"
+        },
+        "hafu": {
+          "aa": "3.75",
+          "ad": "14.00",
+          "ah": "22.00",
+          "da": "5.80",
+          "dd": "6.00",
+          "dh": "6.00",
+          "ha": "21.00",
+          "hd": "14.00",
+          "hh": "4.10",
+          "updatedAt": "2026-07-18 09:33:59"
+        }
+      },
+      "modelProfile": {
+        "version": "veikkausliiga-v3-review-0718",
+        "had": 0.38,
+        "crs": 0.47,
+        "prior": 0.15,
+        "goal_shift": -0.08
+      },
+      "modelLesson": "07-18芬超复盘：两场0-2客胜零封暴露主场先验偏强，降低主场基准并提高比分矩阵、客胜零封分支权重。",
+      "businessDate": "2026-07-20",
+      "marketBasis": "官方胜平负赔率"
+    },
+    {
+      "id": "2040567",
+      "matchNumStr": "周一202",
+      "matchDate": "2026-07-21",
+      "kickoff": "2026-07-21 00:00:00",
+      "league": "芬兰超级联赛",
+      "leagueStyle": {
+        "class": "fin",
+        "color": "#16766c",
+        "label": "芬超"
+      },
+      "home": "玛丽港",
+      "away": "拉赫蒂",
+      "homeRank": "[芬超12]",
+      "awayRank": "[芬超8]",
+      "probabilities": {
+        "home": 0.2072,
+        "draw": 0.2325,
+        "away": 0.5602
+      },
+      "direction": "away",
+      "directionText": "客胜",
+      "mainScore": "1-2",
+      "backupScores": [
+        "0-2",
+        "0-3",
+        "0-1",
+        "1-1",
+        "1-3"
+      ],
+      "tailRiskScores": [
+        "2-2",
+        "1-4",
+        "0-0"
+      ],
+      "totalGoals": "3",
+      "goalCandidates": [
+        "3",
+        "2",
+        "4"
+      ],
+      "confidenceScore": 64,
+      "confidence": "中",
+      "reason": "07-18芬超复盘：两场0-2客胜零封暴露主场先验偏强，降低主场基准并提高比分矩阵、客胜零封分支权重。 本场按该赛事专属的胜平负、比分矩阵和进球分布权重计算。",
+      "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
+      "odds": {
+        "had": {
+          "home": "5.25",
+          "draw": "4.10",
+          "away": "1.44",
+          "updatedAt": "2026-07-18 09:33:58"
+        },
+        "ttg": {
+          "s0": "17.00",
+          "s1": "5.70",
+          "s2": "3.80",
+          "s3": "3.40",
+          "s4": "4.70",
+          "s5": "7.80",
+          "s6": "14.00",
+          "s7": "20.00",
+          "updatedAt": "2026-07-18 09:33:57"
+        },
+        "hhad": {
+          "home": "2.40",
+          "draw": "3.50",
+          "away": "2.35",
+          "handicap": null,
+          "updatedAt": "2026-07-18 09:34:01"
+        },
+        "crs": {
+          "0-0": "17.00",
+          "0-1": "8.00",
+          "0-2": "7.50",
+          "0-3": "10.50",
+          "0-4": "21.00",
+          "0-5": "45.00",
+          "1-0": "16.00",
+          "1-1": "7.50",
+          "1-2": "6.75",
+          "1-3": "10.00",
+          "1-4": "22.00",
+          "1-5": "45.00",
+          "2-0": "30.00",
+          "2-1": "14.00",
+          "2-2": "14.00",
+          "2-3": "21.00",
+          "2-4": "45.00",
+          "2-5": "80.00",
+          "3-0": "80.00",
+          "3-1": "40.00",
+          "3-2": "45.00",
+          "3-3": "50.00",
+          "4-0": "300.0",
+          "4-1": "120.0",
+          "4-2": "120.0",
+          "5-0": "750.0",
+          "5-1": "550.0",
+          "5-2": "450.0",
+          "homeOther": "120.0",
+          "drawOther": "250.0",
+          "awayOther": "26.00",
+          "updatedAt": "2026-07-18 09:33:59"
+        },
+        "hafu": {
+          "aa": "2.00",
+          "ad": "18.00",
+          "ah": "40.00",
+          "da": "4.15",
+          "dd": "7.00",
+          "dh": "12.00",
+          "ha": "21.00",
+          "hd": "18.00",
+          "hh": "9.70",
+          "updatedAt": "2026-07-18 09:33:59"
+        }
+      },
+      "modelProfile": {
+        "version": "veikkausliiga-v3-review-0718",
+        "had": 0.38,
+        "crs": 0.47,
+        "prior": 0.15,
+        "goal_shift": -0.08
+      },
+      "modelLesson": "07-18芬超复盘：两场0-2客胜零封暴露主场先验偏强，降低主场基准并提高比分矩阵、客胜零封分支权重。",
+      "businessDate": "2026-07-20",
+      "marketBasis": "官方胜平负赔率"
+    },
+    {
+      "id": "2040568",
+      "matchNumStr": "周一203",
+      "matchDate": "2026-07-21",
+      "kickoff": "2026-07-21 01:00:00",
+      "league": "瑞典超级联赛",
+      "leagueStyle": {
+        "class": "swe",
+        "color": "#176da3",
+        "label": "瑞超"
+      },
+      "home": "厄尔格里特",
+      "away": "佐加顿斯",
+      "homeRank": "[瑞超15]",
+      "awayRank": "[瑞超5]",
+      "probabilities": {
+        "home": 0.1752,
+        "draw": 0.2169,
+        "away": 0.6079
+      },
+      "direction": "away",
+      "directionText": "客胜",
+      "mainScore": "1-2",
+      "backupScores": [
+        "0-3",
+        "0-2",
+        "1-3",
+        "0-1",
+        "0-4"
+      ],
+      "tailRiskScores": [
+        "1-4",
+        "2-2",
+        "0-0"
+      ],
+      "totalGoals": "3",
+      "goalCandidates": [
+        "3",
+        "4",
+        "2"
+      ],
+      "confidenceScore": 71,
+      "confidence": "高",
+      "reason": "07-18瑞超复盘：AIK 2-0方向与比分池命中，延续低比分校准并小幅提高强侧零封权重；单场样本不扩大方向先验。 本场按该赛事专属的胜平负、比分矩阵和进球分布权重计算。",
+      "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
+      "odds": {
+        "had": {
+          "home": "6.60",
+          "draw": "5.25",
+          "away": "1.27",
+          "updatedAt": "2026-07-18 09:33:58"
+        },
+        "ttg": {
+          "s0": "27.00",
+          "s1": "7.75",
+          "s2": "4.70",
+          "s3": "3.65",
+          "s4": "4.30",
+          "s5": "6.00",
+          "s6": "9.30",
+          "s7": "10.50",
+          "updatedAt": "2026-07-18 09:33:57"
+        },
+        "hhad": {
+          "home": "3.00",
+          "draw": "3.90",
+          "away": "1.86",
+          "handicap": null,
+          "updatedAt": "2026-07-18 09:34:01"
+        },
+        "crs": {
+          "0-0": "27.00",
+          "0-1": "11.00",
+          "0-2": "8.25",
+          "0-3": "9.50",
+          "0-4": "15.00",
+          "0-5": "27.00",
+          "1-0": "24.00",
+          "1-1": "10.00",
+          "1-2": "7.00",
+          "1-3": "9.00",
+          "1-4": "14.00",
+          "1-5": "28.00",
+          "2-0": "50.00",
+          "2-1": "16.00",
+          "2-2": "15.00",
+          "2-3": "16.00",
+          "2-4": "28.00",
+          "2-5": "60.00",
+          "3-0": "150.0",
+          "3-1": "60.00",
+          "3-2": "40.00",
+          "3-3": "45.00",
+          "4-0": "400.0",
+          "4-1": "200.0",
+          "4-2": "150.0",
+          "5-0": "800.0",
+          "5-1": "500.0",
+          "5-2": "500.0",
+          "homeOther": "120.0",
+          "drawOther": "200.0",
+          "awayOther": "12.50",
+          "updatedAt": "2026-07-18 09:33:59"
+        },
+        "hafu": {
+          "aa": "1.73",
+          "ad": "19.00",
+          "ah": "55.00",
+          "da": "4.10",
+          "dd": "9.50",
+          "dh": "16.00",
+          "ha": "20.00",
+          "hd": "19.00",
+          "hh": "11.00",
+          "updatedAt": "2026-07-18 09:33:59"
+        }
+      },
+      "modelProfile": {
+        "version": "allsvenskan-v5-review-0718",
+        "had": 0.37,
+        "crs": 0.47,
+        "prior": 0.16,
+        "goal_shift": -0.22
+      },
+      "modelLesson": "07-18瑞超复盘：AIK 2-0方向与比分池命中，延续低比分校准并小幅提高强侧零封权重；单场样本不扩大方向先验。",
+      "businessDate": "2026-07-20",
+      "marketBasis": "官方胜平负赔率"
+    },
+    {
+      "id": "2040569",
+      "matchNumStr": "周一204",
+      "matchDate": "2026-07-21",
+      "kickoff": "2026-07-21 01:00:00",
+      "league": "瑞典超级联赛",
+      "leagueStyle": {
+        "class": "swe",
+        "color": "#176da3",
+        "label": "瑞超"
+      },
+      "home": "卡尔马",
+      "away": "马尔默",
+      "homeRank": "[瑞超12]",
+      "awayRank": "[瑞超6]",
+      "probabilities": {
+        "home": 0.3774,
+        "draw": 0.2852,
+        "away": 0.3374
+      },
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "2-1",
+      "backupScores": [
+        "1-1",
+        "1-2",
+        "1-0",
+        "2-0",
+        "0-1"
+      ],
+      "tailRiskScores": [
+        "2-2",
+        "3-0",
+        "1-3"
+      ],
+      "totalGoals": "3",
+      "goalCandidates": [
+        "3",
+        "2",
+        "4"
+      ],
+      "confidenceScore": 42,
+      "confidence": "中低",
+      "reason": "07-18瑞超复盘：AIK 2-0方向与比分池命中，延续低比分校准并小幅提高强侧零封权重；单场样本不扩大方向先验。 本场按该赛事专属的胜平负、比分矩阵和进球分布权重计算。",
+      "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
+      "odds": {
+        "had": {
+          "home": "2.30",
+          "draw": "3.45",
+          "away": "2.47",
+          "updatedAt": "2026-07-18 09:33:58"
+        },
+        "ttg": {
+          "s0": "17.00",
+          "s1": "6.00",
+          "s2": "3.85",
+          "s3": "3.45",
+          "s4": "4.70",
+          "s5": "7.50",
+          "s6": "13.00",
+          "s7": "18.00",
+          "updatedAt": "2026-07-18 09:33:57"
+        },
+        "hhad": {
+          "home": "4.92",
+          "draw": "4.15",
+          "away": "1.46",
+          "handicap": null,
+          "updatedAt": "2026-07-18 09:34:01"
+        },
+        "crs": {
+          "0-0": "17.00",
+          "0-1": "11.00",
+          "0-2": "14.00",
+          "0-3": "28.00",
+          "0-4": "75.00",
+          "0-5": "200.0",
+          "1-0": "10.50",
+          "1-1": "6.70",
+          "1-2": "8.00",
+          "1-3": "17.00",
+          "1-4": "50.00",
+          "1-5": "150.0",
+          "2-0": "13.50",
+          "2-1": "7.50",
+          "2-2": "11.00",
+          "2-3": "21.00",
+          "2-4": "60.00",
+          "2-5": "200.0",
+          "3-0": "23.00",
+          "3-1": "15.00",
+          "3-2": "20.00",
+          "3-3": "40.00",
+          "4-0": "60.00",
+          "4-1": "40.00",
+          "4-2": "50.00",
+          "5-0": "175.0",
+          "5-1": "100.0",
+          "5-2": "150.0",
+          "homeOther": "50.00",
+          "drawOther": "200.0",
+          "awayOther": "60.00",
+          "updatedAt": "2026-07-18 09:33:59"
+        },
+        "hafu": {
+          "aa": "4.00",
+          "ad": "14.00",
+          "ah": "24.00",
+          "da": "6.25",
+          "dd": "6.00",
+          "dh": "5.50",
+          "ha": "27.00",
+          "hd": "14.00",
+          "hh": "3.65",
+          "updatedAt": "2026-07-18 09:33:59"
+        }
+      },
+      "modelProfile": {
+        "version": "allsvenskan-v5-review-0718",
+        "had": 0.37,
+        "crs": 0.47,
+        "prior": 0.16,
+        "goal_shift": -0.22
+      },
+      "modelLesson": "07-18瑞超复盘：AIK 2-0方向与比分池命中，延续低比分校准并小幅提高强侧零封权重；单场样本不扩大方向先验。",
+      "businessDate": "2026-07-20",
+      "marketBasis": "官方胜平负赔率"
+    }
+  ],
+  "combos": [
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040568",
+          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "客胜",
+          "odds": 1.27,
+          "probability": 0.6079
+        },
+        {
+          "matchId": "2040566",
+          "match": "周一201 TPS图尔库 vs 坦佩雷山猫",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.29411764705882354
+        },
+        {
+          "matchId": "2040567",
+          "match": "周一202 玛丽港 vs 拉赫蒂",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.29411764705882354
+        }
+      ],
+      "productOdds": 14.68,
+      "trustScore": 33,
+      "rank": 1
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040568",
+          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "客胜",
+          "odds": 1.27,
+          "probability": 0.6079
+        },
+        {
+          "matchId": "2040566",
+          "match": "周一201 TPS图尔库 vs 坦佩雷山猫",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.29411764705882354
+        },
+        {
+          "matchId": "2040569",
+          "match": "周一204 卡尔马 vs 马尔默",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.45,
+          "probability": 0.2898550724637681
+        }
+      ],
+      "productOdds": 14.9,
+      "trustScore": 33,
+      "rank": 2
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040568",
+          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "客胜",
+          "odds": 1.27,
+          "probability": 0.6079
+        },
+        {
+          "matchId": "2040567",
+          "match": "周一202 玛丽港 vs 拉赫蒂",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.29411764705882354
+        },
+        {
+          "matchId": "2040569",
+          "match": "周一204 卡尔马 vs 马尔默",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.45,
+          "probability": 0.2898550724637681
+        }
+      ],
+      "productOdds": 14.9,
+      "trustScore": 33,
+      "rank": 3
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040568",
+          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "客胜",
+          "odds": 1.27,
+          "probability": 0.6079
+        },
+        {
+          "matchId": "2040566",
+          "match": "周一201 TPS图尔库 vs 坦佩雷山猫",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.29411764705882354
+        },
+        {
+          "matchId": "2040569",
+          "match": "周一204 卡尔马 vs 马尔默",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 3.65,
+          "probability": 0.273972602739726
+        }
+      ],
+      "productOdds": 15.76,
+      "trustScore": 32,
+      "rank": 4
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040568",
+          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "客胜",
+          "odds": 1.27,
+          "probability": 0.6079
+        },
+        {
+          "matchId": "2040567",
+          "match": "周一202 玛丽港 vs 拉赫蒂",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.29411764705882354
+        },
+        {
+          "matchId": "2040569",
+          "match": "周一204 卡尔马 vs 马尔默",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 3.65,
+          "probability": 0.273972602739726
+        }
+      ],
+      "productOdds": 15.76,
+      "trustScore": 32,
+      "rank": 5
+    },
+    {
+      "name": "比分2串一",
+      "category": "crs",
+      "legs": [
+        {
+          "matchId": "2040567",
+          "match": "周一202 玛丽港 vs 拉赫蒂",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 6.75,
+          "probability": 0.14814814814814814
+        },
+        {
+          "matchId": "2040568",
+          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 7.0,
+          "probability": 0.14285714285714285
+        }
+      ],
+      "productOdds": 47.25,
+      "trustScore": 14,
+      "rank": 6
+    },
+    {
+      "name": "比分2串一",
+      "category": "crs",
+      "legs": [
+        {
+          "matchId": "2040566",
+          "match": "周一201 TPS图尔库 vs 坦佩雷山猫",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 7.5,
+          "probability": 0.13333333333333333
+        },
+        {
+          "matchId": "2040567",
+          "match": "周一202 玛丽港 vs 拉赫蒂",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 6.75,
+          "probability": 0.14814814814814814
+        }
+      ],
+      "productOdds": 50.62,
+      "trustScore": 13,
+      "rank": 7
+    },
+    {
+      "name": "比分2串一",
+      "category": "crs",
+      "legs": [
+        {
+          "matchId": "2040567",
+          "match": "周一202 玛丽港 vs 拉赫蒂",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 6.75,
+          "probability": 0.14814814814814814
+        },
+        {
+          "matchId": "2040569",
+          "match": "周一204 卡尔马 vs 马尔默",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "2-1",
+          "odds": 7.5,
+          "probability": 0.13333333333333333
+        }
+      ],
+      "productOdds": 50.62,
+      "trustScore": 13,
+      "rank": 8
+    },
+    {
+      "name": "比分2串一",
+      "category": "crs",
+      "legs": [
+        {
+          "matchId": "2040566",
+          "match": "周一201 TPS图尔库 vs 坦佩雷山猫",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 7.5,
+          "probability": 0.13333333333333333
+        },
+        {
+          "matchId": "2040568",
+          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 7.0,
+          "probability": 0.14285714285714285
+        }
+      ],
+      "productOdds": 52.5,
+      "trustScore": 13,
+      "rank": 9
+    },
+    {
+      "name": "比分2串一",
+      "category": "crs",
+      "legs": [
+        {
+          "matchId": "2040568",
+          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 7.0,
+          "probability": 0.14285714285714285
+        },
+        {
+          "matchId": "2040569",
+          "match": "周一204 卡尔马 vs 马尔默",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "2-1",
+          "odds": 7.5,
+          "probability": 0.13333333333333333
+        }
+      ],
+      "productOdds": 52.5,
+      "trustScore": 13,
+      "rank": 10
+    }
+  ],
+  "scheduleWarnings": [],
+  "sources": [
+    {
+      "name": "Sporttery官方接口",
+      "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+    },
+    {
+      "name": "UEFA欧联资格赛官方赛程",
+      "url": "https://www.uefa.com/uefaeuropaleague/accesslist/"
+    },
+    {
+      "name": "挪威足协赛程",
+      "url": "https://www.fotball.no/eliteserien/"
+    },
+    {
+      "name": "巴西足协第19轮官方赛程",
+      "url": "https://www.cbf.com.br/futebol-brasileiro/noticias/campeonato-brasileiro-serie-a/a/brasileirao-de-volta-confira-o-retrospecto-dos-confrontos-da-19-rodada"
+    },
+    {
+      "name": "MLS官方7月16日赛程",
+      "url": "https://www.mlssoccer.com/news/mls-anuncia-el-calendario-completo-de-la-temporada-regular-2026"
+    },
+    {
+      "name": "MLS官方复赛前瞻",
+      "url": "https://www.mlssoccer.com/news/matchday-16-watch-guide-what-to-know-as-mls-returns"
+    },
+    {
+      "name": "瑞超官方赛程",
+      "url": "https://allsvenskan.se/nyheter/sa-spelas-omgang-11-17-av-allsvenskan/"
+    },
+    {
+      "name": "挪威足协赛程",
+      "url": "https://www.fotball.no/eliteserien/"
+    },
+    {
+      "name": "巴西足协赛程",
+      "url": "https://www.cbf.com.br/futebol-brasileiro/jogos/campeonato-brasileiro/serie-a/2026"
+    },
+    {
+      "name": "MLS官方赛程",
+      "url": "https://www.mlssoccer.com/news/mls-unveils-2026-regular-season-schedule"
+    },
+    {
+      "name": "K League官方赛程",
+      "url": "https://tv.kleague.com/en-int/schedule"
+    }
+  ],
+  "disclaimer": "以上仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。"
+}

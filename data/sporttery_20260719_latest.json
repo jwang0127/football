@@ -2,8 +2,8 @@
   "date": "20260719",
   "dateText": "2026-07-19",
   "source": "sporttery-live-api",
-  "fetchedAt": "2026-07-18T20:59:56",
-  "lastUpdateTime": "2026-07-18 20:59:07",
+  "fetchedAt": "2026-07-19T11:21:33",
+  "lastUpdateTime": "2026-07-19 11:16:51",
   "apiPoolCode": "ttg,had,hhad,crs,hafu",
   "matches": [
     {
@@ -26,7 +26,7 @@
       "home": "富川FC",
       "homeCode": "BCN",
       "homeAbbr": "富川FC",
-      "homeRank": "[韩职9]",
+      "homeRank": "[韩职10]",
       "away": "首尔FC",
       "awayCode": "SEO",
       "awayAbbr": "首尔FC",
@@ -51,28 +51,28 @@
       "postReview": null,
       "odds": {
         "had": {
-          "home": "5.15",
+          "home": "4.95",
           "draw": "3.45",
-          "away": "1.55",
-          "updatedAt": "2026-07-17 09:44:34"
+          "away": "1.57",
+          "updatedAt": "2026-07-19 11:01:28"
         },
         "ttg": {
           "s0": "9.50",
-          "s1": "4.20",
-          "s2": "3.20",
+          "s1": "4.45",
+          "s2": "3.25",
           "s3": "3.65",
-          "s4": "6.00",
-          "s5": "12.00",
+          "s4": "5.75",
+          "s5": "10.50",
           "s6": "22.00",
           "s7": "35.00",
-          "updatedAt": "2026-07-17 09:44:34"
+          "updatedAt": "2026-07-19 11:03:42"
         },
         "hhad": {
-          "home": "2.12",
-          "draw": "3.20",
-          "away": "2.90",
+          "home": "2.08",
+          "draw": "3.15",
+          "away": "3.02",
           "handicap": null,
-          "updatedAt": "2026-07-17 09:44:38"
+          "updatedAt": "2026-07-19 11:01:34"
         },
         "crs": {
           "0-0": "9.50",
@@ -142,7 +142,7 @@
       "home": "安养FC",
       "homeCode": "FAY",
       "homeAbbr": "安养FC",
-      "homeRank": "[韩职6]",
+      "homeRank": "[韩职7]",
       "away": "光州FC",
       "awayCode": "GWJ",
       "awayAbbr": "光州FC",
@@ -174,14 +174,14 @@
         },
         "ttg": {
           "s0": "9.50",
-          "s1": "4.10",
+          "s1": "3.95",
           "s2": "3.10",
           "s3": "3.70",
           "s4": "6.25",
-          "s5": "12.50",
-          "s6": "23.00",
-          "s7": "35.00",
-          "updatedAt": "2026-07-17 09:44:34"
+          "s5": "13.00",
+          "s6": "25.00",
+          "s7": "38.00",
+          "updatedAt": "2026-07-19 11:08:30"
         },
         "hhad": {
           "home": "2.88",
@@ -258,7 +258,7 @@
       "home": "埃尔夫斯堡",
       "homeCode": "ELF",
       "homeAbbr": "埃夫斯堡",
-      "homeRank": "[瑞超8]",
+      "homeRank": "[瑞超9]",
       "away": "天狼星",
       "awayCode": "SUS",
       "awayAbbr": "天狼星",
@@ -283,10 +283,10 @@
       "postReview": null,
       "odds": {
         "had": {
-          "home": "3.45",
-          "draw": "3.65",
-          "away": "1.77",
-          "updatedAt": "2026-07-18 09:33:58"
+          "home": "3.51",
+          "draw": "3.70",
+          "away": "1.74",
+          "updatedAt": "2026-07-19 11:16:46"
         },
         "ttg": {
           "s0": "16.00",
@@ -300,11 +300,11 @@
           "updatedAt": "2026-07-18 09:33:57"
         },
         "hhad": {
-          "home": "1.80",
-          "draw": "3.65",
-          "away": "3.35",
+          "home": "1.83",
+          "draw": "3.57",
+          "away": "3.30",
           "handicap": null,
-          "updatedAt": "2026-07-18 09:34:01"
+          "updatedAt": "2026-07-19 11:16:51"
         },
         "crs": {
           "0-0": "16.00",
@@ -378,7 +378,7 @@
       "away": "赫根",
       "awayCode": "HAC",
       "awayAbbr": "赫根",
-      "awayRank": "[瑞超3]",
+      "awayRank": "[瑞超4]",
       "venue": "",
       "prediction": {
         "totalGoals": "3",

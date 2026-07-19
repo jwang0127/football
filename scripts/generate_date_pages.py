@@ -33,18 +33,18 @@ COMPETITION_MODELS: dict[str, dict[str, Any]] = {
                  "prior_probs": (.46, .29, .25), "goal_shift": .00, "draw_boost": 1.06,
                  "clean_sheet_boost": 1.07, "confidence_delta": -3,
                  "lesson": "07-18韩职复盘：比分池4场全覆盖但方向仅1场命中，降低胜平负锚定、提高比分矩阵与主场基准，取消过度压低进球均值。"},
-    "瑞典超级联赛": {"version": "allsvenskan-v4-review-0717", "had": .38, "crs": .46, "prior": .16,
-                 "prior_probs": (.39, .31, .30), "goal_shift": -0.18, "draw_boost": 1.16,
-                 "clean_sheet_boost": 1.08, "confidence_delta": -3,
-                 "lesson": "07-17瑞超复盘：米亚尔比0-0漏选，增加0-0/平局与低比分分支。"},
-    "挪威超级联赛": {"version": "eliteserien-v4-review-0717", "had": .45, "crs": .43, "prior": .12,
-                 "prior_probs": (.44, .26, .30), "goal_shift": -0.12, "draw_boost": 1.02,
-                 "clean_sheet_boost": 1.10, "confidence_delta": -1,
-                 "lesson": "07-17挪超复盘：博德闪耀1-0，复赛首战强队不机械追3球。"},
-    "芬兰超级联赛": {"version": "veikkausliiga-v2", "had": .40, "crs": .45, "prior": .15,
-                 "prior_probs": (.42, .28, .30), "goal_shift": -0.05, "draw_boost": 1.06,
-                 "clean_sheet_boost": 1.06, "confidence_delta": -2,
-                 "lesson": "芬超独立校准：比分矩阵权重高于单一胜平负锚点，保留受控小胜。"},
+    "瑞典超级联赛": {"version": "allsvenskan-v5-review-0718", "had": .37, "crs": .47, "prior": .16,
+                 "prior_probs": (.39, .31, .30), "goal_shift": -0.22, "draw_boost": 1.16,
+                 "clean_sheet_boost": 1.12, "confidence_delta": -3,
+                 "lesson": "07-18瑞超复盘：AIK 2-0方向与比分池命中，延续低比分校准并小幅提高强侧零封权重；单场样本不扩大方向先验。"},
+    "挪威超级联赛": {"version": "eliteserien-v5-review-0718", "had": .42, "crs": .45, "prior": .13,
+                 "prior_probs": (.44, .26, .30), "goal_shift": -0.04, "draw_boost": 1.05,
+                 "clean_sheet_boost": 1.12, "confidence_delta": -2,
+                 "lesson": "07-18挪超复盘：方向4/6、主比分2/6；保留0-0零封分支，同时放宽客胜3球以上长尾，避免统一压低进球均值。"},
+    "芬兰超级联赛": {"version": "veikkausliiga-v3-review-0718", "had": .38, "crs": .47, "prior": .15,
+                 "prior_probs": (.39, .28, .33), "goal_shift": -0.08, "draw_boost": 1.06,
+                 "clean_sheet_boost": 1.14, "confidence_delta": -3,
+                 "lesson": "07-18芬超复盘：两场0-2客胜零封暴露主场先验偏强，降低主场基准并提高比分矩阵、客胜零封分支权重。"},
     "巴西甲级联赛": {"version": "brasileirao-v4-review-0717", "had": .38, "crs": .47, "prior": .15,
                  "prior_probs": (.45, .30, .25), "goal_shift": -0.16, "draw_boost": 1.13,
                  "clean_sheet_boost": 1.09, "confidence_delta": -3,
@@ -305,11 +305,16 @@ def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
     review = payload.get("competitionReview")
     review_html = ""
     if review:
-        result_rows = "".join(
-            f'<tr><td>{esc(row["matchNumStr"])}</td><td>{esc(row["home"])} {esc(row["score"])} {esc(row["away"])}</td><td>{esc(row["assessment"])}</td></tr>'
-            for row in review["results"]
-        )
-        review_html = f'''<section class="notice"><h2>07-18 韩国职业联赛赛果复盘</h2><table>{result_rows}</table><p><b>模型复盘：</b>{esc(review["summary"])}</p><p><b>仅韩职调整：</b>{esc(review["modelAdjustment"])}</p></section>'''
+        reviews = review.get("reviews", [review])
+        blocks = []
+        for item in reviews:
+            result_rows = "".join(
+                f'<tr><td>{esc(row["matchNumStr"])}</td><td>{esc(row["home"])} {esc(row["score"])} {esc(row["away"])}</td><td>{esc(row["assessment"])}</td></tr>'
+                for row in item["results"]
+            )
+            blocks.append(f'''<h3>{esc(item["league"])}赛果</h3><table>{result_rows}</table><p><b>模型复盘：</b>{esc(item["summary"])}</p><p><b>独立调整：</b>{esc(item["modelAdjustment"])}</p>''')
+        result_sources = "".join(f'<li><a href="{esc(row["url"])}">{esc(row["name"])}</a></li>' for row in review.get("sources", []))
+        review_html = f'''<section class="notice"><h2>{esc(review.get("reviewDate", "07-18"))} 分赛事赛果复盘</h2>{"".join(blocks)}{f'<h3>赛果核对来源</h3><ul>{result_sources}</ul>' if result_sources else ''}</section>'''
     combos = []
     for c in payload["combos"]:
         legs = "".join(f'<tr><td>{esc(x["match"])}</td><td>{esc(x["marketText"])}</td><td>{esc(x["pick"])}</td><td>{x["odds"]:.2f}</td></tr>' for x in c["legs"])
@@ -363,9 +368,9 @@ def main() -> None:
         {"name": "MLS官方赛程", "url": "https://www.mlssoccer.com/news/mls-unveils-2026-regular-season-schedule"},
         {"name": "K League官方赛程", "url": "https://tv.kleague.com/en-int/schedule"},
     ]
-    review_path = DATA / "review_20260718_kleague.json"
-    competition_review = json.loads(review_path.read_text(encoding="utf-8")) if args.date in {"20260718", "20260719"} and review_path.exists() else None
-    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户此前要求并入07-19两场韩职" if args.date == "20260718" else "Sporttery竞彩业务日", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"competition-specific-multimarket-{args.date}-v5", "competitionModels": {league: COMPETITION_MODELS[league] for league in dict.fromkeys(m["league"] for m in matches)}, "competitionReview": competition_review, "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
+    review_path = DATA / "review_20260718_competitions.json"
+    competition_review = json.loads(review_path.read_text(encoding="utf-8")) if args.date in {"20260718", "20260719", "20260720"} and review_path.exists() else None
+    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户此前要求并入07-19两场韩职" if args.date == "20260718" else "Sporttery竞彩业务日", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"competition-specific-multimarket-{args.date}-v6", "competitionModels": {league: COMPETITION_MODELS[league] for league in dict.fromkeys(m["league"] for m in matches)}, "competitionReview": competition_review, "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
     DATA.joinpath(f"predictions_{args.date}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     out = ROOT / args.date
     out.mkdir(exist_ok=True)

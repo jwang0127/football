@@ -1,0 +1,56 @@
+{
+  "reviewDate": "07-18",
+  "source": "K League公开完场比分、ESPN赛事记分牌、Sofascore与联赛官方赛果交叉核对",
+  "sources": [
+    {"name": "HamKam官方赛后报告（1-4特罗姆瑟）", "url": "https://www.hamkam.no/nyheter/senket-av-et-godt-tromso-lag"},
+    {"name": "ESPN挪超07-18记分牌", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260718"},
+    {"name": "HJK官方赛后报告（2-1 VPS）", "url": "https://www.hjk.fi/uutiset/juhlaottelusta-hieno-voitto-kylla-lammittaa"},
+    {"name": "Sofascore AC奥卢0-2格尼斯坦", "url": "https://www.sofascore.com/ro/football/match/ac-oulu-if-gnistan/wVsocc"},
+    {"name": "Sofascore SJK 0-2库普斯", "url": "https://www.sofascore.com/nl/football/match/sjk-kups/UUsVXi"},
+    {"name": "Aftonbladet AIK 2-0 GAIS赛后报道", "url": "https://www.aftonbladet.se/sportbladet/fotboll/a/0pW2Kg/taha-ayari-malskytt-nar-aik-slog-gais"}
+  ],
+  "reviews": [
+    {
+      "league": "韩国职业联赛",
+      "results": [
+        {"matchId": "2040546", "matchNumStr": "周六201", "home": "大田市民", "away": "蔚山现代", "score": "2-2", "assessment": "方向未中；2-2在尾部池；4球未中"},
+        {"matchId": "2040547", "matchNumStr": "周六202", "home": "江原FC", "away": "金泉尚武", "score": "2-0", "assessment": "方向、主比分、2球全部命中"},
+        {"matchId": "2040548", "matchNumStr": "周六203", "home": "济州SK", "away": "浦项制铁", "score": "2-1", "assessment": "方向未中；2-1在保护池；3球次选覆盖"},
+        {"matchId": "2040549", "matchNumStr": "周六204", "home": "仁川联", "away": "全北现代", "score": "1-0", "assessment": "方向未中；1-0在保护池；1球次选覆盖"}
+      ],
+      "summary": "方向1/4、主比分1/4、比分池4/4、总进球主选1/4。",
+      "modelAdjustment": "沿用已完成的k-league-v4-review-0718，本轮不使用同一批赛果重复调参。"
+    },
+    {
+      "league": "挪威超级联赛",
+      "results": [
+        {"matchId": "2040550", "matchNumStr": "周六205", "home": "汉坎", "away": "特罗姆瑟", "score": "1-4", "assessment": "客胜方向命中；高比分客胜长尾漏选"},
+        {"matchId": "2040553", "matchNumStr": "周六208", "home": "利勒斯特罗姆", "away": "奥斯陆KFUM", "score": "2-1", "assessment": "方向、主比分、3球全部命中"},
+        {"matchId": "2040554", "matchNumStr": "周六209", "home": "斯达", "away": "罗森博格", "score": "0-3", "assessment": "客胜方向与3球命中；比分池覆盖"},
+        {"matchId": "2040555", "matchNumStr": "周六210", "home": "克里斯蒂安松", "away": "萨尔普斯堡", "score": "0-0", "assessment": "方向、比分池与总进球均未覆盖"},
+        {"matchId": "2040558", "matchNumStr": "周六213", "home": "莫尔德", "away": "布兰", "score": "1-2", "assessment": "方向未中；反向比分在保护池；3球命中"},
+        {"matchId": "2040559", "matchNumStr": "周六214", "home": "维京", "away": "桑纳菲尤尔", "score": "2-1", "assessment": "方向与主比分命中；3球为次选"}
+      ],
+      "summary": "方向4/6、主比分2/6、比分池4/6、总进球主选3/6。既有大比分客胜长尾，也有0-0，不能统一抬高均值。",
+      "modelAdjustment": "仅升级挪超至eliteserien-v5-review-0718：比分矩阵0.43→0.45、进球偏移-0.12→-0.04，并同时保留零封与3球以上客胜尾部。"
+    },
+    {
+      "league": "芬兰超级联赛",
+      "results": [
+        {"matchId": "2040551", "matchNumStr": "周六206", "home": "赫尔辛基", "away": "VPS瓦萨", "score": "2-1", "assessment": "方向、主比分、3球全部命中"},
+        {"matchId": "2040556", "matchNumStr": "周六211", "home": "AC奥卢", "away": "格尼斯坦", "score": "0-2", "assessment": "方向与比分池未中；客队零封路径漏选"},
+        {"matchId": "2040557", "matchNumStr": "周六212", "home": "塞伊奈约基", "away": "库普斯", "score": "0-2", "assessment": "客胜方向命中；0-2在比分池；2球次选覆盖"}
+      ],
+      "summary": "方向2/3、主比分1/3、比分池2/3、总进球主选1/3。两场0-2说明主场先验偏强、客胜零封权重不足。",
+      "modelAdjustment": "仅升级芬超至veikkausliiga-v3-review-0718：降低主场先验、比分矩阵0.45→0.47、零封权重1.06→1.14。"
+    },
+    {
+      "league": "瑞典超级联赛",
+      "results": [
+        {"matchId": "2040552", "matchNumStr": "周六207", "home": "AIK索尔纳", "away": "哥德堡盖斯", "score": "2-0", "assessment": "主胜方向与比分池命中；2球为次选"}
+      ],
+      "summary": "方向1/1、主比分0/1、比分池1/1、总进球主选0/1。单场只支持小幅加强低比分零封，不调整方向先验。",
+      "modelAdjustment": "仅升级瑞超至allsvenskan-v5-review-0718：小幅提高比分矩阵和零封权重，保持方向先验不变。"
+    }
+  ]
+}
