@@ -34,6 +34,8 @@ def main() -> None:
     for match in matches:
         profile = payload["competitionModels"][match["league"]]
         assert match["modelProfile"]["version"] == profile["version"]
+        assert len(match["backupScores"]) == 2
+        assert len({match["mainScore"], *match["backupScores"]}) == 3
         assert match["home"] in html and match["away"] in html
         assert match["tailRiskScores"] or any(score in {"0-0", "0-3", "1-3", "1-4", "2-2", "3-0"} for score in match["backupScores"])
     for combo in payload["combos"]:
