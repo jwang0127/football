@@ -1,0 +1,34 @@
+{
+  "date": "20260719",
+  "summary": {"matches": 6, "directionHits": 5, "totalGoalHits": 1, "exactScoreHits": 1, "scorePoolHits": 2},
+  "byCompetition": {
+    "韩国职业联赛": {
+      "modelUpdate": "k-league-v5-review-0719：保留低HAD锚定，提高比分矩阵，并为强客加入1-3条件长尾。",
+      "matches": [
+        {"match": "周日201 富川FC vs 首尔FC", "result": "1-3", "prediction": "客胜；1-2 / 1-1 / 0-1；2球", "directionHit": true, "goalHit": false, "exactHit": false, "poolHit": false, "lesson": "方向正确但赢球幅度压窄；强客在主队落后追分时应保留1-3。"},
+        {"match": "周日202 安养FC vs 光州FC", "result": "1-1", "prediction": "平；1-1 / 2-1 / 1-0；2球", "directionHit": true, "goalHit": true, "exactHit": true, "poolHit": true, "lesson": "历史对位与保级动机对市场主胜完成了有效纠偏。"}
+      ]
+    },
+    "瑞典超级联赛": {
+      "modelUpdate": "allsvenskan-v6-review-0719：降低平局增益，提高比分矩阵和强侧零封/大胜尾部。",
+      "matches": [
+        {"match": "周日203 埃尔夫斯堡 vs 天狼星", "result": "1-3", "prediction": "客胜；1-2 / 1-1 / 0-2；3球", "directionHit": true, "goalHit": false, "exactHit": false, "poolHit": false, "lesson": "方向命中，但榜首强攻与主队追分共同把比分推到1-3。"},
+        {"match": "周日204 哈尔姆斯塔德 vs 赫根", "result": "0-2", "prediction": "客胜；1-2 / 1-1 / 0-2；3球", "directionHit": true, "goalHit": false, "exactHit": false, "poolHit": true, "lesson": "客胜零封分支有效，主比分不应机械要求主队进球。"},
+        {"match": "周日205 哈马比 vs 代格福什", "result": "4-0", "prediction": "主胜；2-0 / 2-1 / 3-0；3球", "directionHit": true, "goalHit": false, "exactHit": false, "poolHit": false, "lesson": "强主对弱客的4-0尾部需要进入审计，不能只停在3-0。"}
+      ]
+    },
+    "芬兰超级联赛": {
+      "modelUpdate": "veikkausliiga-v4-review-0719：提高0-0与平局分支、降低进球中心，同时保留强客零封条件路径。",
+      "matches": [
+        {"match": "周日206 雅罗 vs 国际图尔库", "result": "0-0", "prediction": "客胜；1-2 / 1-1 / 0-2；3球", "directionHit": false, "goalHit": false, "exactHit": false, "poolHit": false, "lesson": "欧战后短休与低节奏足以把强客压成0-0，不能追逐前一日客胜零封。"}
+      ]
+    }
+  },
+  "sources": [
+    {"name": "韩联社：富川1-3首尔", "url": "https://www.yna.co.kr/amp/view/AKR20260719058000007"},
+    {"name": "FotMob：安养1-1光州", "url": "https://www.fotmob.com/en-GB/matches/fc-anyang-vs-icheon/dl1ri53h"},
+    {"name": "ESPN瑞超07-19记分牌", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260719"},
+    {"name": "FC Inter官方：雅罗0-0国际图尔库", "url": "https://fcinter.fi/ottelut/edustus/ff-jaro-fc-inter-2026-07-19-4036945"}
+  ],
+  "disclaimer": "以上仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。"
+}

@@ -4,69 +4,61 @@
   "includedBusinessDates": [
     "2026-07-20"
   ],
-  "modelVersion": "competition-specific-contextual-20260720-v7",
+  "modelVersion": "competition-specific-contextual-20260720-v8",
   "contextVersion": "match-context-v1-20260720",
   "competitionModels": {
     "芬兰超级联赛": {
-      "version": "veikkausliiga-v3-review-0718",
-      "had": 0.38,
-      "crs": 0.47,
+      "version": "veikkausliiga-v4-review-0719",
+      "had": 0.36,
+      "crs": 0.49,
       "prior": 0.15,
       "prior_probs": [
         0.39,
-        0.28,
-        0.33
+        0.3,
+        0.31
       ],
-      "goal_shift": -0.08,
-      "draw_boost": 1.06,
-      "clean_sheet_boost": 1.14,
+      "goal_shift": -0.18,
+      "draw_boost": 1.12,
+      "clean_sheet_boost": 1.17,
       "confidence_delta": -3,
-      "lesson": "07-18芬超复盘：两场0-2客胜零封暴露主场先验偏强，降低主场基准并提高比分矩阵、客胜零封分支权重。"
+      "lesson": "07-19芬超复盘：雅罗0-0说明连续客胜零封后不能继续单向追客；提高比分矩阵、0-0与平局分支，仍保留强客0-2条件路径。"
     },
     "瑞典超级联赛": {
-      "version": "allsvenskan-v5-review-0718",
-      "had": 0.37,
-      "crs": 0.47,
+      "version": "allsvenskan-v6-review-0719",
+      "had": 0.35,
+      "crs": 0.49,
       "prior": 0.16,
       "prior_probs": [
-        0.39,
-        0.31,
-        0.3
+        0.38,
+        0.28,
+        0.34
       ],
-      "goal_shift": -0.22,
-      "draw_boost": 1.16,
-      "clean_sheet_boost": 1.12,
-      "confidence_delta": -3,
-      "lesson": "07-18瑞超复盘：AIK 2-0方向与比分池命中，延续低比分校准并小幅提高强侧零封权重；单场样本不扩大方向先验。"
+      "goal_shift": -0.05,
+      "draw_boost": 1.08,
+      "clean_sheet_boost": 1.18,
+      "confidence_delta": -2,
+      "lesson": "07-19瑞超复盘：方向3/3但主比分0/3，实际为1-3、0-2、4-0；降低平局增益、提高比分矩阵与强侧零封/4球尾部，不把所有比赛机械抬成大球。"
     }
   },
   "competitionReview": {
-    "reviewDate": "07-18",
-    "source": "K League公开完场比分、ESPN赛事记分牌、Sofascore与联赛官方赛果交叉核对",
+    "reviewDate": "07-19",
+    "source": "韩联社、FotMob、ESPN与俱乐部官方赛果交叉核对",
     "sources": [
       {
-        "name": "HamKam官方赛后报告（1-4特罗姆瑟）",
-        "url": "https://www.hamkam.no/nyheter/senket-av-et-godt-tromso-lag"
+        "name": "韩联社：富川1-3首尔",
+        "url": "https://www.yna.co.kr/amp/view/AKR20260719058000007"
       },
       {
-        "name": "ESPN挪超07-18记分牌",
-        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260718"
+        "name": "FotMob：安养1-1光州",
+        "url": "https://www.fotmob.com/en-GB/matches/fc-anyang-vs-icheon/dl1ri53h"
       },
       {
-        "name": "HJK官方赛后报告（2-1 VPS）",
-        "url": "https://www.hjk.fi/uutiset/juhlaottelusta-hieno-voitto-kylla-lammittaa"
+        "name": "ESPN瑞超07-19记分牌",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260719"
       },
       {
-        "name": "Sofascore AC奥卢0-2格尼斯坦",
-        "url": "https://www.sofascore.com/ro/football/match/ac-oulu-if-gnistan/wVsocc"
-      },
-      {
-        "name": "Sofascore SJK 0-2库普斯",
-        "url": "https://www.sofascore.com/nl/football/match/sjk-kups/UUsVXi"
-      },
-      {
-        "name": "Aftonbladet AIK 2-0 GAIS赛后报道",
-        "url": "https://www.aftonbladet.se/sportbladet/fotboll/a/0pW2Kg/taha-ayari-malskytt-nar-aik-slog-gais"
+        "name": "FC Inter官方：雅罗0-0国际图尔库",
+        "url": "https://fcinter.fi/ottelut/edustus/ff-jaro-fc-inter-2026-07-19-4036945"
       }
     ],
     "reviews": [
@@ -74,146 +66,75 @@
         "league": "韩国职业联赛",
         "results": [
           {
-            "matchId": "2040546",
-            "matchNumStr": "周六201",
-            "home": "大田市民",
-            "away": "蔚山现代",
-            "score": "2-2",
-            "assessment": "方向未中；2-2在尾部池；4球未中"
+            "matchId": "2040560",
+            "matchNumStr": "周日201",
+            "home": "富川FC",
+            "away": "首尔FC",
+            "score": "1-3",
+            "assessment": "客胜方向命中；1-3仅在尾部审计；4球主选未中"
           },
           {
-            "matchId": "2040547",
-            "matchNumStr": "周六202",
-            "home": "江原FC",
-            "away": "金泉尚武",
-            "score": "2-0",
-            "assessment": "方向、主比分、2球全部命中"
-          },
-          {
-            "matchId": "2040548",
-            "matchNumStr": "周六203",
-            "home": "济州SK",
-            "away": "浦项制铁",
-            "score": "2-1",
-            "assessment": "方向未中；2-1在保护池；3球次选覆盖"
-          },
-          {
-            "matchId": "2040549",
-            "matchNumStr": "周六204",
-            "home": "仁川联",
-            "away": "全北现代",
-            "score": "1-0",
-            "assessment": "方向未中；1-0在保护池；1球次选覆盖"
+            "matchId": "2040561",
+            "matchNumStr": "周日202",
+            "home": "安养FC",
+            "away": "光州FC",
+            "score": "1-1",
+            "assessment": "方向、主比分与2球全部命中"
           }
         ],
-        "summary": "方向1/4、主比分1/4、比分池4/4、总进球主选1/4。",
-        "modelAdjustment": "沿用已完成的k-league-v4-review-0718，本轮不使用同一批赛果重复调参。"
-      },
-      {
-        "league": "挪威超级联赛",
-        "results": [
-          {
-            "matchId": "2040550",
-            "matchNumStr": "周六205",
-            "home": "汉坎",
-            "away": "特罗姆瑟",
-            "score": "1-4",
-            "assessment": "客胜方向命中；高比分客胜长尾漏选"
-          },
-          {
-            "matchId": "2040553",
-            "matchNumStr": "周六208",
-            "home": "利勒斯特罗姆",
-            "away": "奥斯陆KFUM",
-            "score": "2-1",
-            "assessment": "方向、主比分、3球全部命中"
-          },
-          {
-            "matchId": "2040554",
-            "matchNumStr": "周六209",
-            "home": "斯达",
-            "away": "罗森博格",
-            "score": "0-3",
-            "assessment": "客胜方向与3球命中；比分池覆盖"
-          },
-          {
-            "matchId": "2040555",
-            "matchNumStr": "周六210",
-            "home": "克里斯蒂安松",
-            "away": "萨尔普斯堡",
-            "score": "0-0",
-            "assessment": "方向、比分池与总进球均未覆盖"
-          },
-          {
-            "matchId": "2040558",
-            "matchNumStr": "周六213",
-            "home": "莫尔德",
-            "away": "布兰",
-            "score": "1-2",
-            "assessment": "方向未中；反向比分在保护池；3球命中"
-          },
-          {
-            "matchId": "2040559",
-            "matchNumStr": "周六214",
-            "home": "维京",
-            "away": "桑纳菲尤尔",
-            "score": "2-1",
-            "assessment": "方向与主比分命中；3球为次选"
-          }
-        ],
-        "summary": "方向4/6、主比分2/6、比分池4/6、总进球主选3/6。既有大比分客胜长尾，也有0-0，不能统一抬高均值。",
-        "modelAdjustment": "仅升级挪超至eliteserien-v5-review-0718：比分矩阵0.43→0.45、进球偏移-0.12→-0.04，并同时保留零封与3球以上客胜尾部。"
-      },
-      {
-        "league": "芬兰超级联赛",
-        "results": [
-          {
-            "matchId": "2040551",
-            "matchNumStr": "周六206",
-            "home": "赫尔辛基",
-            "away": "VPS瓦萨",
-            "score": "2-1",
-            "assessment": "方向、主比分、3球全部命中"
-          },
-          {
-            "matchId": "2040556",
-            "matchNumStr": "周六211",
-            "home": "AC奥卢",
-            "away": "格尼斯坦",
-            "score": "0-2",
-            "assessment": "方向与比分池未中；客队零封路径漏选"
-          },
-          {
-            "matchId": "2040557",
-            "matchNumStr": "周六212",
-            "home": "塞伊奈约基",
-            "away": "库普斯",
-            "score": "0-2",
-            "assessment": "客胜方向命中；0-2在比分池；2球次选覆盖"
-          }
-        ],
-        "summary": "方向2/3、主比分1/3、比分池2/3、总进球主选1/3。两场0-2说明主场先验偏强、客胜零封权重不足。",
-        "modelAdjustment": "仅升级芬超至veikkausliiga-v3-review-0718：降低主场先验、比分矩阵0.45→0.47、零封权重1.06→1.14。"
+        "summary": "方向2/2、主比分1/2、展示比分池1/2、含尾部审计2/2、总进球主选1/2。",
+        "modelAdjustment": "升级韩职至k-league-v5-review-0719：维持较低HAD锚定，比分矩阵0.48→0.49，强客时保留1-3条件长尾。"
       },
       {
         "league": "瑞典超级联赛",
         "results": [
           {
-            "matchId": "2040552",
-            "matchNumStr": "周六207",
-            "home": "AIK索尔纳",
-            "away": "哥德堡盖斯",
-            "score": "2-0",
-            "assessment": "主胜方向与比分池命中；2球为次选"
+            "matchId": "2040562",
+            "matchNumStr": "周日203",
+            "home": "埃尔夫斯堡",
+            "away": "天狼星",
+            "score": "1-3",
+            "assessment": "客胜方向命中；4球候选覆盖；1-3比分漏选"
+          },
+          {
+            "matchId": "2040563",
+            "matchNumStr": "周日204",
+            "home": "哈尔姆斯塔德",
+            "away": "赫根",
+            "score": "0-2",
+            "assessment": "客胜方向与展示比分池命中；2球候选覆盖"
+          },
+          {
+            "matchId": "2040564",
+            "matchNumStr": "周日205",
+            "home": "哈马比",
+            "away": "代格福什",
+            "score": "4-0",
+            "assessment": "主胜方向与4球候选命中；4-0尾部漏选"
           }
         ],
-        "summary": "方向1/1、主比分0/1、比分池1/1、总进球主选0/1。单场只支持小幅加强低比分零封，不调整方向先验。",
-        "modelAdjustment": "仅升级瑞超至allsvenskan-v5-review-0718：小幅提高比分矩阵和零封权重，保持方向先验不变。"
+        "summary": "方向3/3、主比分0/3、展示比分池1/3、总进球主选0/3，但总进球前三候选3/3。",
+        "modelAdjustment": "升级瑞超至allsvenskan-v6-review-0719：降低平局增益，比分矩阵0.47→0.49、零封权重1.12→1.18，放宽强侧1-3/4-0尾部。"
+      },
+      {
+        "league": "芬兰超级联赛",
+        "results": [
+          {
+            "matchId": "2040565",
+            "matchNumStr": "周日206",
+            "home": "雅罗",
+            "away": "国际图尔库",
+            "score": "0-0",
+            "assessment": "方向、展示比分池和总进球主选未中；0-0仅在尾部审计"
+          }
+        ],
+        "summary": "方向0/1、主比分0/1、展示比分池0/1、含尾部审计1/1、总进球主选0/1。",
+        "modelAdjustment": "升级芬超至veikkausliiga-v4-review-0719：提高比分矩阵、平局与0-0权重，降低进球中心；保留强客0-2条件分支，避免单场过拟合。"
       }
     ]
   },
-  "generatedAt": "2026-07-19T12:53:32",
-  "oddsUpdatedAt": "2026-07-18 09:34:01",
+  "generatedAt": "2026-07-20T09:45:12",
+  "oddsUpdatedAt": "2026-07-19 22:38:52",
   "matches": [
     {
       "id": "2040566",
@@ -231,9 +152,9 @@
       "homeRank": "[芬超7]",
       "awayRank": "[芬超9]",
       "probabilities": {
-        "home": 0.4464,
-        "draw": 0.2926,
-        "away": 0.261
+        "home": 0.4388,
+        "draw": 0.3067,
+        "away": 0.2545
       },
       "direction": "home",
       "directionText": "主胜",
@@ -243,9 +164,9 @@
         "2-0"
       ],
       "tailRiskScores": [
+        "2-2",
         "3-0",
-        "1-3",
-        "0-3"
+        "1-3"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -330,19 +251,19 @@
         }
       },
       "marketBaselineProbabilities": {
-        "home": 0.3673,
-        "draw": 0.2612,
-        "away": 0.3715
+        "home": 0.3621,
+        "draw": 0.2745,
+        "away": 0.3633
       },
       "modelProfile": {
-        "version": "veikkausliiga-v3-review-0718",
-        "had": 0.38,
-        "crs": 0.47,
+        "version": "veikkausliiga-v4-review-0719",
+        "had": 0.36,
+        "crs": 0.49,
         "prior": 0.15,
-        "goal_shift": -0.08,
+        "goal_shift": -0.18,
         "contextLayer": "match-context-v1"
       },
-      "modelLesson": "07-18芬超复盘：两场0-2客胜零封暴露主场先验偏强，降低主场基准并提高比分矩阵、客胜零封分支权重。",
+      "modelLesson": "07-19芬超复盘：雅罗0-0说明连续客胜零封后不能继续单向追客；提高比分矩阵、0-0与平局分支，仍保留强客0-2条件路径。",
       "contextFactors": {
         "stage": "芬超第16轮、常规阶段共22轮。TPS第7、伊尔维斯第9，双方都在争夺前六争冠组入口。",
         "schedule": "TPS自7月11日3-0击败AC奥卢后完整休整；伊尔维斯周中参加欧战并晋级，客队恢复时间更短。",
@@ -381,9 +302,9 @@
       "homeRank": "[芬超12]",
       "awayRank": "[芬超8]",
       "probabilities": {
-        "home": 0.2178,
-        "draw": 0.2806,
-        "away": 0.5016
+        "home": 0.2161,
+        "draw": 0.2953,
+        "away": 0.4887
       },
       "direction": "away",
       "directionText": "客胜",
@@ -416,14 +337,14 @@
         },
         "ttg": {
           "s0": "17.00",
-          "s1": "5.70",
-          "s2": "3.80",
-          "s3": "3.40",
-          "s4": "4.70",
-          "s5": "7.80",
-          "s6": "14.00",
-          "s7": "20.00",
-          "updatedAt": "2026-07-18 09:33:57"
+          "s1": "5.20",
+          "s2": "3.70",
+          "s3": "3.45",
+          "s4": "4.80",
+          "s5": "8.20",
+          "s6": "15.00",
+          "s7": "22.00",
+          "updatedAt": "2026-07-19 22:38:50"
         },
         "hhad": {
           "home": "2.40",
@@ -434,15 +355,15 @@
         },
         "crs": {
           "0-0": "17.00",
-          "0-1": "8.00",
+          "0-1": "7.80",
           "0-2": "7.50",
-          "0-3": "10.50",
+          "0-3": "11.00",
           "0-4": "21.00",
           "0-5": "45.00",
-          "1-0": "16.00",
+          "1-0": "15.00",
           "1-1": "7.50",
           "1-2": "6.75",
-          "1-3": "10.00",
+          "1-3": "10.50",
           "1-4": "22.00",
           "1-5": "45.00",
           "2-0": "30.00",
@@ -464,7 +385,7 @@
           "homeOther": "120.0",
           "drawOther": "250.0",
           "awayOther": "26.00",
-          "updatedAt": "2026-07-18 09:33:59"
+          "updatedAt": "2026-07-19 22:38:52"
         },
         "hafu": {
           "aa": "2.00",
@@ -480,19 +401,19 @@
         }
       },
       "marketBaselineProbabilities": {
-        "home": 0.2072,
-        "draw": 0.2325,
-        "away": 0.5602
+        "home": 0.2064,
+        "draw": 0.2457,
+        "away": 0.548
       },
       "modelProfile": {
-        "version": "veikkausliiga-v3-review-0718",
-        "had": 0.38,
-        "crs": 0.47,
+        "version": "veikkausliiga-v4-review-0719",
+        "had": 0.36,
+        "crs": 0.49,
         "prior": 0.15,
-        "goal_shift": -0.08,
+        "goal_shift": -0.18,
         "contextLayer": "match-context-v1"
       },
-      "modelLesson": "07-18芬超复盘：两场0-2客胜零封暴露主场先验偏强，降低主场基准并提高比分矩阵、客胜零封分支权重。",
+      "modelLesson": "07-19芬超复盘：雅罗0-0说明连续客胜零封后不能继续单向追客；提高比分矩阵、0-0与平局分支，仍保留强客0-2条件路径。",
       "contextFactors": {
         "stage": "芬超第16轮。玛丽港垫底，拉赫蒂第8；常规阶段仅余约6轮，保级与争冠组边缘积分都很关键。",
         "schedule": "两队自上轮后均有一周以上恢复时间，体能项接近中性；客队需要额外完成海岛旅行。",
@@ -531,16 +452,16 @@
       "homeRank": "[瑞超15]",
       "awayRank": "[瑞超5]",
       "probabilities": {
-        "home": 0.2254,
-        "draw": 0.3226,
-        "away": 0.452
+        "home": 0.2299,
+        "draw": 0.3011,
+        "away": 0.469
       },
       "direction": "away",
       "directionText": "客胜",
       "mainScore": "1-2",
       "backupScores": [
         "0-2",
-        "1-1"
+        "1-3"
       ],
       "tailRiskScores": [
         "1-4",
@@ -553,7 +474,7 @@
         "4",
         "2"
       ],
-      "confidenceScore": 63,
+      "confidenceScore": 64,
       "confidence": "中",
       "reason": "客胜仍略优，但不再接受1.27赔率所暗示的碾压概率；主队刚爆冷、客队中卫短缺与主队停赛相互抵消，比赛方差显著放大。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -630,19 +551,19 @@
         }
       },
       "marketBaselineProbabilities": {
-        "home": 0.1752,
-        "draw": 0.2169,
-        "away": 0.6079
+        "home": 0.1766,
+        "draw": 0.2001,
+        "away": 0.6233
       },
       "modelProfile": {
-        "version": "allsvenskan-v5-review-0718",
-        "had": 0.37,
-        "crs": 0.47,
+        "version": "allsvenskan-v6-review-0719",
+        "had": 0.35,
+        "crs": 0.49,
         "prior": 0.16,
-        "goal_shift": -0.22,
+        "goal_shift": -0.05,
         "contextLayer": "match-context-v1"
       },
-      "modelLesson": "07-18瑞超复盘：AIK 2-0方向与比分池命中，延续低比分校准并小幅提高强侧零封权重；单场样本不扩大方向先验。",
+      "modelLesson": "07-19瑞超复盘：方向3/3但主比分0/3，实际为1-3、0-2、4-0；降低平局增益、提高比分矩阵与强侧零封/4球尾部，不把所有比赛机械抬成大球。",
       "contextFactors": {
         "stage": "瑞超第13轮。厄尔格里特排名倒数第2，佐加顿斯处于欧战席位竞争区。",
         "schedule": "双方都有一周左右恢复时间；佐加顿斯训练周强度正常，不是短休。",
@@ -677,9 +598,9 @@
       "homeRank": "[瑞超12]",
       "awayRank": "[瑞超6]",
       "probabilities": {
-        "home": 0.3463,
-        "draw": 0.3874,
-        "away": 0.2663
+        "home": 0.356,
+        "draw": 0.3644,
+        "away": 0.2797
       },
       "direction": "draw",
       "directionText": "平",
@@ -699,7 +620,7 @@
         "2",
         "4"
       ],
-      "confidenceScore": 37,
+      "confidenceScore": 38,
       "confidence": "中低",
       "reason": "综合主场强度、马尔默伤缺与两队近期状态后，模型从主胜微倾调整为平局主线，2-2优先于机械选择名气更大的马尔默。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -776,19 +697,19 @@
         }
       },
       "marketBaselineProbabilities": {
-        "home": 0.3774,
-        "draw": 0.2852,
-        "away": 0.3374
+        "home": 0.3838,
+        "draw": 0.2655,
+        "away": 0.3507
       },
       "modelProfile": {
-        "version": "allsvenskan-v5-review-0718",
-        "had": 0.37,
-        "crs": 0.47,
+        "version": "allsvenskan-v6-review-0719",
+        "had": 0.35,
+        "crs": 0.49,
         "prior": 0.16,
-        "goal_shift": -0.22,
+        "goal_shift": -0.05,
         "contextLayer": "match-context-v1"
       },
-      "modelLesson": "07-18瑞超复盘：AIK 2-0方向与比分池命中，延续低比分校准并小幅提高强侧零封权重；单场样本不扩大方向先验。",
+      "modelLesson": "07-19瑞超复盘：方向3/3但主比分0/3，实际为1-3、0-2、4-0；降低平局增益、提高比分矩阵与强侧零封/4球尾部，不把所有比赛机械抬成大球。",
       "contextFactors": {
         "stage": "瑞超第13轮。卡尔马升班后排名第12，以保级站稳为目标；马尔默第6，需要三分回到欧战竞争区。",
         "schedule": "双方都获得约8天恢复时间，体能差距不大。",
@@ -824,7 +745,7 @@
           "marketText": "胜平负",
           "pick": "平",
           "odds": 3.45,
-          "probability": 0.3874
+          "probability": 0.3644
         },
         {
           "matchId": "2040566",
@@ -837,7 +758,7 @@
         }
       ],
       "productOdds": 11.73,
-      "trustScore": 32,
+      "trustScore": 31,
       "rank": 1
     },
     {
@@ -851,7 +772,7 @@
           "marketText": "胜平负",
           "pick": "平",
           "odds": 3.45,
-          "probability": 0.3874
+          "probability": 0.3644
         },
         {
           "matchId": "2040567",
@@ -859,40 +780,13 @@
           "market": "ttg",
           "marketText": "总进球",
           "pick": "3",
-          "odds": 3.4,
-          "probability": 0.29411764705882354
-        }
-      ],
-      "productOdds": 11.73,
-      "trustScore": 32,
-      "rank": 2
-    },
-    {
-      "name": "混合2串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040569",
-          "match": "周一204 卡尔马 vs 马尔默",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "平",
           "odds": 3.45,
-          "probability": 0.3874
-        },
-        {
-          "matchId": "2040568",
-          "match": "周一203 厄尔格里特 vs 佐加顿斯",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.65,
-          "probability": 0.273972602739726
+          "probability": 0.2898550724637681
         }
       ],
-      "productOdds": 12.59,
+      "productOdds": 11.9,
       "trustScore": 31,
-      "rank": 3
+      "rank": 2
     },
     {
       "name": "混合3串一",
@@ -905,7 +799,7 @@
           "marketText": "胜平负",
           "pick": "客胜",
           "odds": 1.44,
-          "probability": 0.5016
+          "probability": 0.4887
         },
         {
           "matchId": "2040566",
@@ -928,6 +822,33 @@
       ],
       "productOdds": 16.89,
       "trustScore": 31,
+      "rank": 3
+    },
+    {
+      "name": "混合2串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040569",
+          "match": "周一204 卡尔马 vs 马尔默",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "平",
+          "odds": 3.45,
+          "probability": 0.3644
+        },
+        {
+          "matchId": "2040568",
+          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.65,
+          "probability": 0.273972602739726
+        }
+      ],
+      "productOdds": 12.59,
+      "trustScore": 30,
       "rank": 4
     },
     {
@@ -941,7 +862,7 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 2.44,
-          "probability": 0.4464
+          "probability": 0.4388
         },
         {
           "matchId": "2040567",
@@ -949,8 +870,8 @@
           "market": "ttg",
           "marketText": "总进球",
           "pick": "3",
-          "odds": 3.4,
-          "probability": 0.29411764705882354
+          "odds": 3.45,
+          "probability": 0.2898550724637681
         },
         {
           "matchId": "2040568",
@@ -962,7 +883,7 @@
           "probability": 0.3
         }
       ],
-      "productOdds": 14.35,
+      "productOdds": 14.56,
       "trustScore": 30,
       "rank": 5
     },

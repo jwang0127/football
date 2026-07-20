@@ -1,0 +1,39 @@
+{
+  "reviewDate": "07-19",
+  "source": "韩联社、FotMob、ESPN与俱乐部官方赛果交叉核对",
+  "sources": [
+    {"name": "韩联社：富川1-3首尔", "url": "https://www.yna.co.kr/amp/view/AKR20260719058000007"},
+    {"name": "FotMob：安养1-1光州", "url": "https://www.fotmob.com/en-GB/matches/fc-anyang-vs-icheon/dl1ri53h"},
+    {"name": "ESPN瑞超07-19记分牌", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260719"},
+    {"name": "FC Inter官方：雅罗0-0国际图尔库", "url": "https://fcinter.fi/ottelut/edustus/ff-jaro-fc-inter-2026-07-19-4036945"}
+  ],
+  "reviews": [
+    {
+      "league": "韩国职业联赛",
+      "results": [
+        {"matchId": "2040560", "matchNumStr": "周日201", "home": "富川FC", "away": "首尔FC", "score": "1-3", "assessment": "客胜方向命中；1-3仅在尾部审计；4球主选未中"},
+        {"matchId": "2040561", "matchNumStr": "周日202", "home": "安养FC", "away": "光州FC", "score": "1-1", "assessment": "方向、主比分与2球全部命中"}
+      ],
+      "summary": "方向2/2、主比分1/2、展示比分池1/2、含尾部审计2/2、总进球主选1/2。",
+      "modelAdjustment": "升级韩职至k-league-v5-review-0719：维持较低HAD锚定，比分矩阵0.48→0.49，强客时保留1-3条件长尾。"
+    },
+    {
+      "league": "瑞典超级联赛",
+      "results": [
+        {"matchId": "2040562", "matchNumStr": "周日203", "home": "埃尔夫斯堡", "away": "天狼星", "score": "1-3", "assessment": "客胜方向命中；4球候选覆盖；1-3比分漏选"},
+        {"matchId": "2040563", "matchNumStr": "周日204", "home": "哈尔姆斯塔德", "away": "赫根", "score": "0-2", "assessment": "客胜方向与展示比分池命中；2球候选覆盖"},
+        {"matchId": "2040564", "matchNumStr": "周日205", "home": "哈马比", "away": "代格福什", "score": "4-0", "assessment": "主胜方向与4球候选命中；4-0尾部漏选"}
+      ],
+      "summary": "方向3/3、主比分0/3、展示比分池1/3、总进球主选0/3，但总进球前三候选3/3。",
+      "modelAdjustment": "升级瑞超至allsvenskan-v6-review-0719：降低平局增益，比分矩阵0.47→0.49、零封权重1.12→1.18，放宽强侧1-3/4-0尾部。"
+    },
+    {
+      "league": "芬兰超级联赛",
+      "results": [
+        {"matchId": "2040565", "matchNumStr": "周日206", "home": "雅罗", "away": "国际图尔库", "score": "0-0", "assessment": "方向、展示比分池和总进球主选未中；0-0仅在尾部审计"}
+      ],
+      "summary": "方向0/1、主比分0/1、展示比分池0/1、含尾部审计1/1、总进球主选0/1。",
+      "modelAdjustment": "升级芬超至veikkausliiga-v4-review-0719：提高比分矩阵、平局与0-0权重，降低进球中心；保留强客0-2条件分支，避免单场过拟合。"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ import html
 import importlib.util
 import json
 import math
-from datetime import datetime
+from datetime import datetime, timedelta
 from itertools import combinations
 from pathlib import Path
 from typing import Any
@@ -29,22 +29,22 @@ EXCLUDED_LEAGUES = {"世界杯"}
 # here (rather than hidden in one global predictor) so a review changes only the
 # competition that produced the evidence.
 COMPETITION_MODELS: dict[str, dict[str, Any]] = {
-    "韩国职业联赛": {"version": "k-league-v4-review-0718", "had": .32, "crs": .48, "prior": .20,
+    "韩国职业联赛": {"version": "k-league-v5-review-0719", "had": .32, "crs": .49, "prior": .19,
                  "prior_probs": (.46, .29, .25), "goal_shift": .00, "draw_boost": 1.06,
-                 "clean_sheet_boost": 1.07, "confidence_delta": -3,
-                 "lesson": "07-18韩职复盘：比分池4场全覆盖但方向仅1场命中，降低胜平负锚定、提高比分矩阵与主场基准，取消过度压低进球均值。"},
-    "瑞典超级联赛": {"version": "allsvenskan-v5-review-0718", "had": .37, "crs": .47, "prior": .16,
-                 "prior_probs": (.39, .31, .30), "goal_shift": -0.22, "draw_boost": 1.16,
-                 "clean_sheet_boost": 1.12, "confidence_delta": -3,
-                 "lesson": "07-18瑞超复盘：AIK 2-0方向与比分池命中，延续低比分校准并小幅提高强侧零封权重；单场样本不扩大方向先验。"},
+                 "clean_sheet_boost": 1.08, "confidence_delta": -2,
+                 "lesson": "07-19韩职复盘：方向2/2且1-1主比分命中；保留降HAD锚定，同时把强客1-3作为条件长尾，避免只给小胜。"},
+    "瑞典超级联赛": {"version": "allsvenskan-v6-review-0719", "had": .35, "crs": .49, "prior": .16,
+                 "prior_probs": (.38, .28, .34), "goal_shift": -0.05, "draw_boost": 1.08,
+                 "clean_sheet_boost": 1.18, "confidence_delta": -2,
+                 "lesson": "07-19瑞超复盘：方向3/3但主比分0/3，实际为1-3、0-2、4-0；降低平局增益、提高比分矩阵与强侧零封/4球尾部，不把所有比赛机械抬成大球。"},
     "挪威超级联赛": {"version": "eliteserien-v5-review-0718", "had": .42, "crs": .45, "prior": .13,
                  "prior_probs": (.44, .26, .30), "goal_shift": -0.04, "draw_boost": 1.05,
                  "clean_sheet_boost": 1.12, "confidence_delta": -2,
                  "lesson": "07-18挪超复盘：方向4/6、主比分2/6；保留0-0零封分支，同时放宽客胜3球以上长尾，避免统一压低进球均值。"},
-    "芬兰超级联赛": {"version": "veikkausliiga-v3-review-0718", "had": .38, "crs": .47, "prior": .15,
-                 "prior_probs": (.39, .28, .33), "goal_shift": -0.08, "draw_boost": 1.06,
-                 "clean_sheet_boost": 1.14, "confidence_delta": -3,
-                 "lesson": "07-18芬超复盘：两场0-2客胜零封暴露主场先验偏强，降低主场基准并提高比分矩阵、客胜零封分支权重。"},
+    "芬兰超级联赛": {"version": "veikkausliiga-v4-review-0719", "had": .36, "crs": .49, "prior": .15,
+                 "prior_probs": (.39, .30, .31), "goal_shift": -0.18, "draw_boost": 1.12,
+                 "clean_sheet_boost": 1.17, "confidence_delta": -3,
+                 "lesson": "07-19芬超复盘：雅罗0-0说明连续客胜零封后不能继续单向追客；提高比分矩阵、0-0与平局分支，仍保留强客0-2条件路径。"},
     "巴西甲级联赛": {"version": "brasileirao-v4-review-0717", "had": .38, "crs": .47, "prior": .15,
                  "prior_probs": (.45, .30, .25), "goal_shift": -0.16, "draw_boost": 1.13,
                  "clean_sheet_boost": 1.09, "confidence_delta": -3,
@@ -318,6 +318,9 @@ def predict_with_market_fallback(base: Any, match: dict[str, Any], context: dict
 
 def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
     label = datetime.strptime(payload["date"], "%Y%m%d").strftime("%m-%d")
+    previous_day = datetime.strptime(payload["date"], "%Y%m%d") - timedelta(days=1)
+    previous_compact = previous_day.strftime("%Y%m%d")
+    previous_label = previous_day.strftime("%m-%d")
     extra_note = '<span style="--c:#b33e5c">含07-19两场韩职</span>' if payload["date"] == "20260718" else ""
     legends = f'<span style="--c:#17212b">按 Sporttery 竞彩业务日分组</span><span style="--c:#7a43b6">赔率仅作市场基线</span><span style="--c:#c38b16">串关理论赔率 ≥ {MIN_COMBO_ODDS:.0f}</span><span style="--c:#287d70">每串最多1个胜平负</span>{extra_note}' + "".join(f'<span style="--c:{styles[name]["color"]}">{esc(styles[name]["label"])}</span>' for name in dict.fromkeys(m["league"] for m in payload["matches"]))
     warnings = "".join(f"<li>{esc(x)}</li>" for x in payload["scheduleWarnings"])
@@ -351,7 +354,7 @@ def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
         hkey, _, _ = hafu_pick(m)
         cards.append(f'''<section class="match" style="--league:{m['leagueStyle']['color']}"><div class="title"><h3>{esc(m['matchNumStr'])} {esc(m['home'])} vs {esc(m['away'])}</h3><span>{esc(m['leagueStyle']['label'])}</span></div><p><b>北京时间：</b>{esc(m['kickoff'])}　<b>胜平负赔率：</b>{had.get('home','-')} / {had.get('draw','-')} / {had.get('away','-')}</p><p><b>独立模型：</b>{esc(m['modelProfile']['version'])} + 赛前情境层</p><div class="grid"><div><small>胜平负</small><strong>{esc(m['directionText'])}</strong></div><div><small>总进球</small><strong>{esc(m['totalGoals'])}</strong></div><div><small>主比分</small><strong>{esc(m['mainScore'])}</strong></div><div><small>半全场</small><strong>{esc(HAFU_TEXT[hkey])}</strong></div></div><p><b>三个比分（置信度从高到低）：</b>{esc(score_ranking)}</p><div class="factors"><p><b>赛制阶段：</b>{esc(factors['stage'])}</p><p><b>赛程与体能：</b>{esc(factors['schedule'])}</p><p><b>为什么要赢：</b>{esc(factors['motivation'])}</p><p><b>球员与教练：</b>{esc(factors['teamNews'])} {esc(factors['coach'])}</p><p><b>天气：</b>{esc(factors['weather'])}</p><p><b>颠倒路径：</b>{esc(factors['upsetPath'])}</p></div><p><b>综合判断：</b>{esc(m['reason'])}</p><p>尾部审计：{esc(' / '.join(m['tailRiskScores']) or '无额外尾部入选')}；总进球候选：{esc(' / '.join(m['goalCandidates']))}</p><p>情境修正后概率：主 {p['home']:.1%} / 平 {p['draw']:.1%} / 客 {p['away']:.1%}；模型信任度 {m['confidenceScore']}/100。</p><p class="sources"><b>本场资料：</b>{context_sources}</p></section>''')
     source_items = "".join(f'<li><a href="{esc(x["url"])}">{esc(x["name"])}</a></li>' for x in payload["sources"])
-    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2026-{label}足球预测</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef4f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:24px 16px}}nav a{{margin-right:10px}}h1{{font-size:clamp(30px,5vw,48px)}}.legend span{{display:inline-block;margin:5px;padding:6px 11px;border-left:7px solid var(--c);background:white;border-radius:7px}}.notice,.match,.combo{{background:white;border:1px solid #dce4ea;border-radius:14px;padding:18px;margin:15px 0;box-shadow:0 8px 26px #2336460f}}.match{{border-left:10px solid var(--league)}}.title,.combo h3{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:white;padding:4px 11px;border-radius:99px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f5f8fa;padding:10px;border-radius:8px}}.factors{{background:#f5f8fa;border-radius:10px;padding:10px 14px;margin:12px 0}}.factors p{{margin:5px 0}}.sources{{font-size:13px;color:#657482}}small{{display:block;color:#657482}}strong{{font-size:21px}}.combo{{border-top:6px solid #287d70}}.combo.hafu{{border-top-color:#7a43b6}}.combo.crs{{border-top-color:#b35430}}.combo.ttg{{border-top-color:#355dc5}}.combo.mixed{{border-top-color:#c38b16}}table{{width:100%;border-collapse:collapse}}td{{padding:8px;border-bottom:1px solid #e7ecef}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style></head><body><header><nav><a href="../index.html">日期首页</a><a href="../20260717/review.html">07-17复盘</a></nav><h1>{label}足球预测</h1><p>共 {len(payload['matches'])} 场 · 北京时间 · 赔率更新至 {esc(payload['oddsUpdatedAt'])}</p><div class="legend">{legends}</div></header><main>{f'<section class="notice"><h2>赛程冲突提示</h2><ul>{warnings}</ul></section>' if warnings else ''}{review_html}<section class="notice"><h2>模型方法</h2><p>赔率只作为市场基线；逐场再叠加赛制阶段、赛程密度、积分动机、确认过的球员与教练信息、天气及反向赛果路径。未核实的伤停不进入模型。</p></section><section class="notice"><h2>精选n串一</h2><p>仅保留 {len(payload['combos'])} 组：模型信任度高的优先排列，同时保留理论赔率超过 {HIGH_ODDS_THRESHOLD:.0f} 的高赔率组合。包含胜平负、总进球、比分、半全场及混合玩法；信任度仅用于模型横向比较，不等同于命中率。</p></section>{''.join(combos)}<h2>逐场预测</h2>{''.join(cards)}<section class="notice"><h2>赛程与赔率来源</h2><ul>{source_items}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
+    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2026-{label}足球预测</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef4f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:24px 16px}}nav a{{margin-right:10px}}h1{{font-size:clamp(30px,5vw,48px)}}.legend span{{display:inline-block;margin:5px;padding:6px 11px;border-left:7px solid var(--c);background:white;border-radius:7px}}.notice,.match,.combo{{background:white;border:1px solid #dce4ea;border-radius:14px;padding:18px;margin:15px 0;box-shadow:0 8px 26px #2336460f}}.match{{border-left:10px solid var(--league)}}.title,.combo h3{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:white;padding:4px 11px;border-radius:99px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f5f8fa;padding:10px;border-radius:8px}}.factors{{background:#f5f8fa;border-radius:10px;padding:10px 14px;margin:12px 0}}.factors p{{margin:5px 0}}.sources{{font-size:13px;color:#657482}}small{{display:block;color:#657482}}strong{{font-size:21px}}.combo{{border-top:6px solid #287d70}}.combo.hafu{{border-top-color:#7a43b6}}.combo.crs{{border-top-color:#b35430}}.combo.ttg{{border-top-color:#355dc5}}.combo.mixed{{border-top-color:#c38b16}}table{{width:100%;border-collapse:collapse}}td{{padding:8px;border-bottom:1px solid #e7ecef}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style></head><body><header><nav><a href="../index.html">日期首页</a><a href="../{previous_compact}/review.html">{previous_label}复盘</a></nav><h1>{label}足球预测</h1><p>共 {len(payload['matches'])} 场 · 北京时间 · 赔率更新至 {esc(payload['oddsUpdatedAt'])}</p><div class="legend">{legends}</div></header><main>{f'<section class="notice"><h2>赛程冲突提示</h2><ul>{warnings}</ul></section>' if warnings else ''}{review_html}<section class="notice"><h2>模型方法</h2><p>赔率只作为市场基线；逐场再叠加赛制阶段、赛程密度、积分动机、确认过的球员与教练信息、天气及反向赛果路径。未核实的伤停不进入模型。</p></section><section class="notice"><h2>精选n串一</h2><p>仅保留 {len(payload['combos'])} 组：模型信任度高的优先排列，同时保留理论赔率超过 {HIGH_ODDS_THRESHOLD:.0f} 的高赔率组合。包含胜平负、总进球、比分、半全场及混合玩法；信任度仅用于模型横向比较，不等同于命中率。</p></section>{''.join(combos)}<h2>逐场预测</h2>{''.join(cards)}<section class="notice"><h2>赛程与赔率来源</h2><ul>{source_items}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
 
 
 def main() -> None:
@@ -396,9 +399,10 @@ def main() -> None:
         {"name": "MLS官方赛程", "url": "https://www.mlssoccer.com/news/mls-unveils-2026-regular-season-schedule"},
         {"name": "K League官方赛程", "url": "https://tv.kleague.com/en-int/schedule"},
     ]
-    review_path = DATA / "review_20260718_competitions.json"
-    competition_review = json.loads(review_path.read_text(encoding="utf-8")) if args.date in {"20260718", "20260719", "20260720"} and review_path.exists() else None
-    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户此前要求并入07-19两场韩职" if args.date == "20260718" else "Sporttery竞彩业务日", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"competition-specific-contextual-{args.date}-v7", "contextVersion": context_payload.get("version", "match-context-v1"), "competitionModels": {league: COMPETITION_MODELS[league] for league in dict.fromkeys(m["league"] for m in matches)}, "competitionReview": competition_review, "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
+    review_date = "20260719" if args.date >= "20260720" else "20260718"
+    review_path = DATA / f"review_{review_date}_competitions.json"
+    competition_review = json.loads(review_path.read_text(encoding="utf-8")) if review_path.exists() else None
+    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户此前要求并入07-19两场韩职" if args.date == "20260718" else "Sporttery竞彩业务日", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"competition-specific-contextual-{args.date}-v8", "contextVersion": context_payload.get("version", "match-context-v1"), "competitionModels": {league: COMPETITION_MODELS[league] for league in dict.fromkeys(m["league"] for m in matches)}, "competitionReview": competition_review, "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
     DATA.joinpath(f"predictions_{args.date}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     out = ROOT / args.date
     out.mkdir(exist_ok=True)
