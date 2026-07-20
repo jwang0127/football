@@ -4,40 +4,44 @@
   "includedBusinessDates": [
     "2026-07-20"
   ],
-  "modelVersion": "competition-specific-contextual-20260720-v8",
+  "modelVersion": "competition-specific-contextual-20260720-v9-audit-shrinkage",
   "contextVersion": "match-context-v1-20260720",
   "competitionModels": {
     "芬兰超级联赛": {
-      "version": "veikkausliiga-v4-review-0719",
-      "had": 0.36,
-      "crs": 0.49,
+      "version": "veikkausliiga-v5-audit-0720",
+      "review_sample": 4,
+      "had": 0.39,
+      "crs": 0.46,
       "prior": 0.15,
       "prior_probs": [
         0.39,
         0.3,
         0.31
       ],
-      "goal_shift": -0.18,
-      "draw_boost": 1.12,
-      "clean_sheet_boost": 1.17,
-      "confidence_delta": -3,
-      "lesson": "07-19芬超复盘：雅罗0-0说明连续客胜零封后不能继续单向追客；提高比分矩阵、0-0与平局分支，仍保留强客0-2条件路径。"
+      "goal_shift": -0.045,
+      "draw_boost": 1.03,
+      "clean_sheet_boost": 1.0425,
+      "confidence_delta": -1,
+      "lesson": "07-19芬超复盘：雅罗0-0说明连续客胜零封后不能继续单向追客；提高比分矩阵、0-0与平局分支，仍保留强客0-2条件路径。",
+      "review_strength": 0.25
     },
     "瑞典超级联赛": {
-      "version": "allsvenskan-v6-review-0719",
-      "had": 0.35,
-      "crs": 0.49,
-      "prior": 0.16,
+      "version": "allsvenskan-v7-audit-0720",
+      "review_sample": 6,
+      "had": 0.38333333333333336,
+      "crs": 0.4633333333333333,
+      "prior": 0.15333333333333332,
       "prior_probs": [
         0.38,
         0.28,
         0.34
       ],
-      "goal_shift": -0.05,
-      "draw_boost": 1.08,
-      "clean_sheet_boost": 1.18,
-      "confidence_delta": -2,
-      "lesson": "07-19瑞超复盘：方向3/3但主比分0/3，实际为1-3、0-2、4-0；降低平局增益、提高比分矩阵与强侧零封/4球尾部，不把所有比赛机械抬成大球。"
+      "goal_shift": -0.016666666666666666,
+      "draw_boost": 1.0266666666666666,
+      "clean_sheet_boost": 1.06,
+      "confidence_delta": -1,
+      "lesson": "07-19瑞超复盘：方向3/3但主比分0/3，实际为1-3、0-2、4-0；降低平局增益、提高比分矩阵与强侧零封/4球尾部，不把所有比赛机械抬成大球。",
+      "review_strength": 0.3333
     }
   },
   "competitionReview": {
@@ -133,7 +137,7 @@
       }
     ]
   },
-  "generatedAt": "2026-07-20T09:45:12",
+  "generatedAt": "2026-07-20T10:01:46",
   "oddsUpdatedAt": "2026-07-19 22:38:52",
   "matches": [
     {
@@ -152,21 +156,21 @@
       "homeRank": "[芬超7]",
       "awayRank": "[芬超9]",
       "probabilities": {
-        "home": 0.4388,
-        "draw": 0.3067,
-        "away": 0.2545
+        "home": 0.4494,
+        "draw": 0.2901,
+        "away": 0.2606
       },
       "direction": "home",
       "directionText": "主胜",
       "mainScore": "2-1",
       "backupScores": [
-        "1-1",
-        "2-0"
+        "2-0",
+        "1-1"
       ],
       "tailRiskScores": [
-        "2-2",
         "3-0",
-        "1-3"
+        "1-3",
+        "0-3"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -174,7 +178,7 @@
         "2",
         "4"
       ],
-      "confidenceScore": 39,
+      "confidenceScore": 41,
       "confidence": "中低",
       "reason": "情境层把原本微弱的客胜市场优势翻转为TPS主场不败，原因是前六卡位、完整休息和伊尔维斯周中欧战。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -251,17 +255,20 @@
         }
       },
       "marketBaselineProbabilities": {
-        "home": 0.3621,
-        "draw": 0.2745,
-        "away": 0.3633
+        "home": 0.3699,
+        "draw": 0.259,
+        "away": 0.3711
       },
       "modelProfile": {
-        "version": "veikkausliiga-v4-review-0719",
-        "had": 0.36,
-        "crs": 0.49,
+        "version": "veikkausliiga-v5-audit-0720",
+        "had": 0.39,
+        "crs": 0.46,
         "prior": 0.15,
-        "goal_shift": -0.18,
-        "contextLayer": "match-context-v1"
+        "goal_shift": -0.045,
+        "review_sample": 4,
+        "review_strength": 0.25,
+        "contextLayer": "match-context-v1",
+        "reviewMethod": "12场中性先验收缩"
       },
       "modelLesson": "07-19芬超复盘：雅罗0-0说明连续客胜零封后不能继续单向追客；提高比分矩阵、0-0与平局分支，仍保留强客0-2条件路径。",
       "contextFactors": {
@@ -302,21 +309,21 @@
       "homeRank": "[芬超12]",
       "awayRank": "[芬超8]",
       "probabilities": {
-        "home": 0.2161,
-        "draw": 0.2953,
-        "away": 0.4887
+        "home": 0.2207,
+        "draw": 0.2784,
+        "away": 0.5009
       },
       "direction": "away",
       "directionText": "客胜",
-      "mainScore": "0-2",
+      "mainScore": "1-2",
       "backupScores": [
-        "1-2",
+        "0-2",
         "1-1"
       ],
       "tailRiskScores": [
         "2-2",
-        "0-0",
-        "1-4"
+        "1-4",
+        "0-0"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -324,7 +331,7 @@
         "2",
         "4"
       ],
-      "confidenceScore": 61,
+      "confidenceScore": 63,
       "confidence": "中",
       "reason": "拉赫蒂客胜仍是主线，依据不仅是赔率，还包括玛丽港近期防守崩塌；海岛、有风和保级强度使平局权重高于市场直觉。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -401,17 +408,20 @@
         }
       },
       "marketBaselineProbabilities": {
-        "home": 0.2064,
-        "draw": 0.2457,
-        "away": 0.548
+        "home": 0.2099,
+        "draw": 0.2307,
+        "away": 0.5594
       },
       "modelProfile": {
-        "version": "veikkausliiga-v4-review-0719",
-        "had": 0.36,
-        "crs": 0.49,
+        "version": "veikkausliiga-v5-audit-0720",
+        "had": 0.39,
+        "crs": 0.46,
         "prior": 0.15,
-        "goal_shift": -0.18,
-        "contextLayer": "match-context-v1"
+        "goal_shift": -0.045,
+        "review_sample": 4,
+        "review_strength": 0.25,
+        "contextLayer": "match-context-v1",
+        "reviewMethod": "12场中性先验收缩"
       },
       "modelLesson": "07-19芬超复盘：雅罗0-0说明连续客胜零封后不能继续单向追客；提高比分矩阵、0-0与平局分支，仍保留强客0-2条件路径。",
       "contextFactors": {
@@ -452,16 +462,16 @@
       "homeRank": "[瑞超15]",
       "awayRank": "[瑞超5]",
       "probabilities": {
-        "home": 0.2299,
-        "draw": 0.3011,
-        "away": 0.469
+        "home": 0.2312,
+        "draw": 0.2897,
+        "away": 0.479
       },
       "direction": "away",
       "directionText": "客胜",
       "mainScore": "1-2",
       "backupScores": [
         "0-2",
-        "1-3"
+        "1-1"
       ],
       "tailRiskScores": [
         "1-4",
@@ -472,10 +482,10 @@
       "goalCandidates": [
         "3",
         "4",
-        "2"
+        "5"
       ],
-      "confidenceScore": 64,
-      "confidence": "中",
+      "confidenceScore": 65,
+      "confidence": "高",
       "reason": "客胜仍略优，但不再接受1.27赔率所暗示的碾压概率；主队刚爆冷、客队中卫短缺与主队停赛相互抵消，比赛方差显著放大。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
@@ -551,17 +561,20 @@
         }
       },
       "marketBaselineProbabilities": {
-        "home": 0.1766,
-        "draw": 0.2001,
-        "away": 0.6233
+        "home": 0.1764,
+        "draw": 0.1912,
+        "away": 0.6323
       },
       "modelProfile": {
-        "version": "allsvenskan-v6-review-0719",
-        "had": 0.35,
-        "crs": 0.49,
-        "prior": 0.16,
-        "goal_shift": -0.05,
-        "contextLayer": "match-context-v1"
+        "version": "allsvenskan-v7-audit-0720",
+        "had": 0.38333333333333336,
+        "crs": 0.4633333333333333,
+        "prior": 0.15333333333333332,
+        "goal_shift": -0.016666666666666666,
+        "review_sample": 6,
+        "review_strength": 0.3333,
+        "contextLayer": "match-context-v1",
+        "reviewMethod": "12场中性先验收缩"
       },
       "modelLesson": "07-19瑞超复盘：方向3/3但主比分0/3，实际为1-3、0-2、4-0；降低平局增益、提高比分矩阵与强侧零封/4球尾部，不把所有比赛机械抬成大球。",
       "contextFactors": {
@@ -598,20 +611,20 @@
       "homeRank": "[瑞超12]",
       "awayRank": "[瑞超6]",
       "probabilities": {
-        "home": 0.356,
-        "draw": 0.3644,
-        "away": 0.2797
+        "home": 0.3621,
+        "draw": 0.3532,
+        "away": 0.2847
       },
-      "direction": "draw",
-      "directionText": "平",
-      "mainScore": "1-1",
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "2-1",
       "backupScores": [
-        "2-1",
-        "2-2"
+        "1-0",
+        "1-1"
       ],
       "tailRiskScores": [
-        "3-0",
         "1-3",
+        "3-0",
         "0-0"
       ],
       "totalGoals": "3",
@@ -620,7 +633,7 @@
         "2",
         "4"
       ],
-      "confidenceScore": 38,
+      "confidenceScore": 39,
       "confidence": "中低",
       "reason": "综合主场强度、马尔默伤缺与两队近期状态后，模型从主胜微倾调整为平局主线，2-2优先于机械选择名气更大的马尔默。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -697,17 +710,20 @@
         }
       },
       "marketBaselineProbabilities": {
-        "home": 0.3838,
-        "draw": 0.2655,
-        "away": 0.3507
+        "home": 0.3886,
+        "draw": 0.2561,
+        "away": 0.3553
       },
       "modelProfile": {
-        "version": "allsvenskan-v6-review-0719",
-        "had": 0.35,
-        "crs": 0.49,
-        "prior": 0.16,
-        "goal_shift": -0.05,
-        "contextLayer": "match-context-v1"
+        "version": "allsvenskan-v7-audit-0720",
+        "had": 0.38333333333333336,
+        "crs": 0.4633333333333333,
+        "prior": 0.15333333333333332,
+        "goal_shift": -0.016666666666666666,
+        "review_sample": 6,
+        "review_strength": 0.3333,
+        "contextLayer": "match-context-v1",
+        "reviewMethod": "12场中性先验收缩"
       },
       "modelLesson": "07-19瑞超复盘：方向3/3但主比分0/3，实际为1-3、0-2、4-0；降低平局增益、提高比分矩阵与强侧零封/4球尾部，不把所有比赛机械抬成大球。",
       "contextFactors": {
@@ -735,60 +751,6 @@
   ],
   "combos": [
     {
-      "name": "混合2串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040569",
-          "match": "周一204 卡尔马 vs 马尔默",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "平",
-          "odds": 3.45,
-          "probability": 0.3644
-        },
-        {
-          "matchId": "2040566",
-          "match": "周一201 TPS图尔库 vs 坦佩雷山猫",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.4,
-          "probability": 0.29411764705882354
-        }
-      ],
-      "productOdds": 11.73,
-      "trustScore": 31,
-      "rank": 1
-    },
-    {
-      "name": "混合2串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040569",
-          "match": "周一204 卡尔马 vs 马尔默",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "平",
-          "odds": 3.45,
-          "probability": 0.3644
-        },
-        {
-          "matchId": "2040567",
-          "match": "周一202 玛丽港 vs 拉赫蒂",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.45,
-          "probability": 0.2898550724637681
-        }
-      ],
-      "productOdds": 11.9,
-      "trustScore": 31,
-      "rank": 2
-    },
-    {
       "name": "混合3串一",
       "category": "mixed",
       "legs": [
@@ -799,7 +761,7 @@
           "marketText": "胜平负",
           "pick": "客胜",
           "odds": 1.44,
-          "probability": 0.4887
+          "probability": 0.5009
         },
         {
           "matchId": "2040566",
@@ -822,34 +784,7 @@
       ],
       "productOdds": 16.89,
       "trustScore": 31,
-      "rank": 3
-    },
-    {
-      "name": "混合2串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040569",
-          "match": "周一204 卡尔马 vs 马尔默",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "平",
-          "odds": 3.45,
-          "probability": 0.3644
-        },
-        {
-          "matchId": "2040568",
-          "match": "周一203 厄尔格里特 vs 佐加顿斯",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.65,
-          "probability": 0.273972602739726
-        }
-      ],
-      "productOdds": 12.59,
-      "trustScore": 30,
-      "rank": 4
+      "rank": 1
     },
     {
       "name": "混合3串一",
@@ -862,7 +797,7 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 2.44,
-          "probability": 0.4388
+          "probability": 0.4494
         },
         {
           "matchId": "2040567",
@@ -885,20 +820,29 @@
       ],
       "productOdds": 14.56,
       "trustScore": 30,
-      "rank": 5
+      "rank": 2
     },
     {
-      "name": "半全场3串一",
-      "category": "hafu",
+      "name": "混合3串一",
+      "category": "mixed",
       "legs": [
         {
-          "matchId": "2040567",
-          "match": "周一202 玛丽港 vs 拉赫蒂",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "负/负",
-          "odds": 2.0,
-          "probability": 0.3
+          "matchId": "2040566",
+          "match": "周一201 TPS图尔库 vs 坦佩雷山猫",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 2.44,
+          "probability": 0.4494
+        },
+        {
+          "matchId": "2040569",
+          "match": "周一204 卡尔马 vs 马尔默",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.45,
+          "probability": 0.2898550724637681
         },
         {
           "matchId": "2040568",
@@ -908,47 +852,83 @@
           "pick": "负/负",
           "odds": 1.73,
           "probability": 0.3
-        },
-        {
-          "matchId": "2040569",
-          "match": "周一204 卡尔马 vs 马尔默",
-          "market": "hafu",
-          "marketText": "半全场",
-          "pick": "平/平",
-          "odds": 6.0,
-          "probability": 0.16666666666666666
         }
       ],
-      "productOdds": 20.76,
-      "trustScore": 22,
-      "rank": 6
+      "productOdds": 14.56,
+      "trustScore": 30,
+      "rank": 3
     },
     {
-      "name": "比分2串一",
-      "category": "crs",
+      "name": "混合3串一",
+      "category": "mixed",
       "legs": [
         {
           "matchId": "2040568",
           "match": "周一203 厄尔格里特 vs 佐加顿斯",
-          "market": "crs",
-          "marketText": "比分",
-          "pick": "1-2",
-          "odds": 7.0,
-          "probability": 0.14285714285714285
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "客胜",
+          "odds": 1.27,
+          "probability": 0.479
+        },
+        {
+          "matchId": "2040566",
+          "match": "周一201 TPS图尔库 vs 坦佩雷山猫",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.29411764705882354
+        },
+        {
+          "matchId": "2040567",
+          "match": "周一202 玛丽港 vs 拉赫蒂",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.45,
+          "probability": 0.2898550724637681
+        }
+      ],
+      "productOdds": 14.9,
+      "trustScore": 30,
+      "rank": 4
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040568",
+          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "客胜",
+          "odds": 1.27,
+          "probability": 0.479
+        },
+        {
+          "matchId": "2040566",
+          "match": "周一201 TPS图尔库 vs 坦佩雷山猫",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.29411764705882354
         },
         {
           "matchId": "2040569",
           "match": "周一204 卡尔马 vs 马尔默",
-          "market": "crs",
-          "marketText": "比分",
-          "pick": "1-1",
-          "odds": 6.7,
-          "probability": 0.14925373134328357
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.45,
+          "probability": 0.2898550724637681
         }
       ],
-      "productOdds": 46.9,
-      "trustScore": 14,
-      "rank": 7
+      "productOdds": 14.9,
+      "trustScore": 30,
+      "rank": 5
     },
     {
       "name": "比分2串一",
@@ -959,23 +939,50 @@
           "match": "周一202 玛丽港 vs 拉赫蒂",
           "market": "crs",
           "marketText": "比分",
-          "pick": "0-2",
-          "odds": 7.5,
-          "probability": 0.13333333333333333
+          "pick": "1-2",
+          "odds": 6.75,
+          "probability": 0.14814814814814814
+        },
+        {
+          "matchId": "2040568",
+          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 7.0,
+          "probability": 0.14285714285714285
+        }
+      ],
+      "productOdds": 47.25,
+      "trustScore": 14,
+      "rank": 6
+    },
+    {
+      "name": "比分2串一",
+      "category": "crs",
+      "legs": [
+        {
+          "matchId": "2040567",
+          "match": "周一202 玛丽港 vs 拉赫蒂",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 6.75,
+          "probability": 0.14814814814814814
         },
         {
           "matchId": "2040569",
           "match": "周一204 卡尔马 vs 马尔默",
           "market": "crs",
           "marketText": "比分",
-          "pick": "1-1",
-          "odds": 6.7,
-          "probability": 0.14925373134328357
+          "pick": "2-1",
+          "odds": 7.5,
+          "probability": 0.13333333333333333
         }
       ],
-      "productOdds": 50.25,
+      "productOdds": 50.62,
       "trustScore": 13,
-      "rank": 8
+      "rank": 7
     },
     {
       "name": "比分2串一",
@@ -991,16 +998,43 @@
           "probability": 0.12903225806451613
         },
         {
+          "matchId": "2040567",
+          "match": "周一202 玛丽港 vs 拉赫蒂",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 6.75,
+          "probability": 0.14814814814814814
+        }
+      ],
+      "productOdds": 52.31,
+      "trustScore": 13,
+      "rank": 8
+    },
+    {
+      "name": "比分2串一",
+      "category": "crs",
+      "legs": [
+        {
+          "matchId": "2040568",
+          "match": "周一203 厄尔格里特 vs 佐加顿斯",
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 7.0,
+          "probability": 0.14285714285714285
+        },
+        {
           "matchId": "2040569",
           "match": "周一204 卡尔马 vs 马尔默",
           "market": "crs",
           "marketText": "比分",
-          "pick": "1-1",
-          "odds": 6.7,
-          "probability": 0.14925373134328357
+          "pick": "2-1",
+          "odds": 7.5,
+          "probability": 0.13333333333333333
         }
       ],
-      "productOdds": 51.93,
+      "productOdds": 52.5,
       "trustScore": 13,
       "rank": 9
     },
@@ -1009,13 +1043,13 @@
       "category": "crs",
       "legs": [
         {
-          "matchId": "2040567",
-          "match": "周一202 玛丽港 vs 拉赫蒂",
+          "matchId": "2040566",
+          "match": "周一201 TPS图尔库 vs 坦佩雷山猫",
           "market": "crs",
           "marketText": "比分",
-          "pick": "0-2",
-          "odds": 7.5,
-          "probability": 0.13333333333333333
+          "pick": "2-1",
+          "odds": 7.75,
+          "probability": 0.12903225806451613
         },
         {
           "matchId": "2040568",
@@ -1027,7 +1061,7 @@
           "probability": 0.14285714285714285
         }
       ],
-      "productOdds": 52.5,
+      "productOdds": 54.25,
       "trustScore": 13,
       "rank": 10
     }

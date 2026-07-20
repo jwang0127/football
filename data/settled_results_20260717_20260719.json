@@ -1,0 +1,35 @@
+{
+  "settlementBasis": "90分钟常规赛果",
+  "results": [
+    {"date":"20260717","matchId":"2040532","score":"2-1","source":"ESPN瑞超记分牌","url":"https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260717"},
+    {"date":"20260717","matchId":"2040533","score":"0-0","source":"ESPN瑞超记分牌","url":"https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260717"},
+    {"date":"20260717","matchId":"2040534","score":"1-0","source":"博德闪耀官方赛果","url":"https://www.glimt.no/resultater/kamp?id=8986233"},
+    {"date":"20260717","matchId":"2040535","score":"2-0","source":"圣卡塔琳娜州足协赛果","url":"https://fcf.com.br/chapecoense-e-superada-no-retorno-ao-brasileirao-serie-a/"},
+    {"date":"20260717","matchId":"2040536","score":"1-1","source":"ESPN巴甲记分牌","url":"https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260717"},
+    {"date":"20260717","matchId":"2040537","score":"2-1","source":"巴西圣保罗州足协赛果报道","url":"https://futebolpaulista.com.br/Noticias/Detalhe.aspx?Noticia=32825"},
+    {"date":"20260717","matchId":"2040538","score":"1-0","source":"纳什维尔SC官方赛果","url":"https://www.nashvillesc.com/news/recap-nashville-sc-resumes-record-start"},
+    {"date":"20260717","matchId":"2040539","score":"0-3","source":"MLS洛杉矶德比赛果","url":"https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lavslafc-07-17-2026/"},
+
+    {"date":"20260718","matchId":"2040546","score":"2-2","source":"K League公开完场赛果","url":"https://tv.kleague.com/en-int/schedule"},
+    {"date":"20260718","matchId":"2040547","score":"2-0","source":"K League公开完场赛果","url":"https://tv.kleague.com/en-int/schedule"},
+    {"date":"20260718","matchId":"2040548","score":"2-1","source":"K League公开完场赛果","url":"https://tv.kleague.com/en-int/schedule"},
+    {"date":"20260718","matchId":"2040549","score":"1-0","source":"K League公开完场赛果","url":"https://tv.kleague.com/en-int/schedule"},
+    {"date":"20260718","matchId":"2040550","score":"1-4","source":"HamKam官方赛后报告","url":"https://www.hamkam.no/nyheter/senket-av-et-godt-tromso-lag"},
+    {"date":"20260718","matchId":"2040551","score":"2-1","source":"HJK官方赛后报告","url":"https://www.hjk.fi/uutiset/juhlaottelusta-hieno-voitto-kylla-lammittaa"},
+    {"date":"20260718","matchId":"2040552","score":"2-0","source":"Aftonbladet赛后报道","url":"https://www.aftonbladet.se/sportbladet/fotboll/a/0pW2Kg/taha-ayari-malskytt-nar-aik-slog-gais"},
+    {"date":"20260718","matchId":"2040553","score":"2-1","source":"ESPN挪超记分牌","url":"https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260718"},
+    {"date":"20260718","matchId":"2040554","score":"0-3","source":"ESPN挪超记分牌","url":"https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260718"},
+    {"date":"20260718","matchId":"2040555","score":"0-0","source":"ESPN挪超记分牌","url":"https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260718"},
+    {"date":"20260718","matchId":"2040556","score":"0-2","source":"Sofascore完场赛果","url":"https://www.sofascore.com/ro/football/match/ac-oulu-if-gnistan/wVsocc"},
+    {"date":"20260718","matchId":"2040557","score":"0-2","source":"Sofascore完场赛果","url":"https://www.sofascore.com/nl/football/match/sjk-kups/UUsVXi"},
+    {"date":"20260718","matchId":"2040558","score":"1-2","source":"ESPN挪超记分牌","url":"https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260718"},
+    {"date":"20260718","matchId":"2040559","score":"2-1","source":"ESPN挪超记分牌","url":"https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260718"},
+
+    {"date":"20260719","matchId":"2040560","score":"1-3","source":"韩联社赛果","url":"https://www.yna.co.kr/amp/view/AKR20260719058000007"},
+    {"date":"20260719","matchId":"2040561","score":"1-1","source":"FotMob完场赛果","url":"https://www.fotmob.com/en-GB/matches/fc-anyang-vs-icheon/dl1ri53h"},
+    {"date":"20260719","matchId":"2040562","score":"1-3","source":"ESPN瑞超记分牌","url":"https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260719"},
+    {"date":"20260719","matchId":"2040563","score":"0-2","source":"ESPN瑞超记分牌","url":"https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260719"},
+    {"date":"20260719","matchId":"2040564","score":"4-0","source":"ESPN瑞超记分牌","url":"https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260719"},
+    {"date":"20260719","matchId":"2040565","score":"0-0","source":"FC Inter官方赛果","url":"https://fcinter.fi/ottelut/edustus/ff-jaro-fc-inter-2026-07-19-4036945"}
+  ]
+}

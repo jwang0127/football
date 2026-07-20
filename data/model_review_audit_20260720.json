@@ -1,0 +1,901 @@
+{
+  "title": "2026-07-17至2026-07-19足球预测冻结快照审计",
+  "settlement_basis": "90分钟常规赛果",
+  "coverage": {
+    "archived_predictions": 28,
+    "settled_predictions": 28,
+    "missing_or_unresolved": 0,
+    "calibration_samples": 28
+  },
+  "all_settled_metrics": {
+    "settled": 28,
+    "main_score_hits": 7,
+    "main_score_rate": "25.0%",
+    "score_pool_hits": 12,
+    "score_pool_rate": "42.9%",
+    "wdl_hits": 19,
+    "wdl_rate": "67.9%",
+    "total_goal_hits": 9,
+    "total_goal_rate": "32.1%"
+  },
+  "calibration_metrics": {
+    "settled": 28,
+    "main_score_hits": 7,
+    "main_score_rate": "25.0%",
+    "score_pool_hits": 12,
+    "score_pool_rate": "42.9%",
+    "wdl_hits": 19,
+    "wdl_rate": "67.9%",
+    "total_goal_hits": 9,
+    "total_goal_rate": "32.1%"
+  },
+  "by_competition": {
+    "巴西甲级联赛": {
+      "settled": 3,
+      "main_score_hits": 1,
+      "main_score_rate": "33.3%",
+      "score_pool_hits": 2,
+      "score_pool_rate": "66.7%",
+      "wdl_hits": 2,
+      "wdl_rate": "66.7%",
+      "total_goal_hits": 1,
+      "total_goal_rate": "33.3%"
+    },
+    "挪威超级联赛": {
+      "settled": 7,
+      "main_score_hits": 2,
+      "main_score_rate": "28.6%",
+      "score_pool_hits": 4,
+      "score_pool_rate": "57.1%",
+      "wdl_hits": 5,
+      "wdl_rate": "71.4%",
+      "total_goal_hits": 3,
+      "total_goal_rate": "42.9%"
+    },
+    "瑞典超级联赛": {
+      "settled": 6,
+      "main_score_hits": 1,
+      "main_score_rate": "16.7%",
+      "score_pool_hits": 2,
+      "score_pool_rate": "33.3%",
+      "wdl_hits": 5,
+      "wdl_rate": "83.3%",
+      "total_goal_hits": 1,
+      "total_goal_rate": "16.7%"
+    },
+    "美国职业大联盟": {
+      "settled": 2,
+      "main_score_hits": 0,
+      "main_score_rate": "0.0%",
+      "score_pool_hits": 1,
+      "score_pool_rate": "50.0%",
+      "wdl_hits": 2,
+      "wdl_rate": "100.0%",
+      "total_goal_hits": 1,
+      "total_goal_rate": "50.0%"
+    },
+    "芬兰超级联赛": {
+      "settled": 4,
+      "main_score_hits": 1,
+      "main_score_rate": "25.0%",
+      "score_pool_hits": 1,
+      "score_pool_rate": "25.0%",
+      "wdl_hits": 2,
+      "wdl_rate": "50.0%",
+      "total_goal_hits": 1,
+      "total_goal_rate": "25.0%"
+    },
+    "韩国职业联赛": {
+      "settled": 6,
+      "main_score_hits": 2,
+      "main_score_rate": "33.3%",
+      "score_pool_hits": 2,
+      "score_pool_rate": "33.3%",
+      "wdl_hits": 3,
+      "wdl_rate": "50.0%",
+      "total_goal_hits": 2,
+      "total_goal_rate": "33.3%"
+    }
+  },
+  "frozen_snapshots": {
+    "20260717": {
+      "commit": "92d6a22",
+      "path": "data/predictions_20260717.json"
+    },
+    "20260718": {
+      "commit": "af0536c",
+      "path": "data/predictions_20260718.json"
+    },
+    "20260719": {
+      "commit": "7609dac",
+      "path": "data/predictions_20260719.json"
+    }
+  },
+  "unresolved_match_ids": [],
+  "exclusions": [],
+  "structural_errors": [
+    {
+      "trigger": "主方向命中但前三比分未覆盖",
+      "samples": 8,
+      "correction": "方向层保持稳定；比分池必须在同方向内覆盖零封、小胜和追分扩张，不用更多同质比分占满前三。"
+    },
+    {
+      "trigger": "实际0-0但模型未列入前三",
+      "samples": 3,
+      "correction": "当平局概率高、总进球0/1价格不远或存在短休/复赛不确定性时，0-0进入前三而非仅尾部。"
+    },
+    {
+      "trigger": "实际4球以上但主选总进球偏低",
+      "samples": 5,
+      "correction": "强弱差、先失球追分或强客低赔同时出现时，扩大4+球条件分支；不得把该规则扩散到所有比赛。"
+    },
+    {
+      "trigger": "实际零封比分未进入前三",
+      "samples": 10,
+      "correction": "中低总进球环境下给强侧至少一个1-0/2-0/0-1/0-2路径，避免默认双方进球。"
+    }
+  ],
+  "model_improvements": [
+    {
+      "name": "赛事参数小样本收缩",
+      "detail": "每个联赛保留独立模型，但近期复盘参数先与12场中性先验加权；当前2至7场样本只启用约14%至37%的赛后修正，降低单日赛果过拟合。"
+    },
+    {
+      "name": "前三比分池结构化",
+      "detail": "固定只发布三个比分；主方向之外优先补齐零封与双方进球两种形态，方向不确定时才加入平局保护，不用尾部池扩大统计口径。"
+    },
+    {
+      "name": "0-0条件分支",
+      "detail": "仅当平局概率不低于29%且0至1球合计概率不低于18%时，把0-0从尾部提升到前三，避免把复盘规则机械扩散到所有比赛。"
+    }
+  ],
+  "matches": [
+    {
+      "date": "20260717",
+      "no": "周五201",
+      "match_id": "2040532",
+      "competition": "瑞典超级联赛",
+      "match": "IFK哥德堡 vs 布鲁马波卡纳",
+      "actual_90": "2-1",
+      "main_score": "2-1",
+      "top3_pool": [
+        "2-1",
+        "1-0",
+        "2-0"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "3",
+      "main_hit": true,
+      "score_pool_hit": true,
+      "wdl_hit": true,
+      "total_goal_hit": true,
+      "snapshot_commit": "92d6a22",
+      "result_source": "ESPN瑞超记分牌",
+      "result_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260717",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260717",
+      "no": "周五202",
+      "match_id": "2040533",
+      "competition": "瑞典超级联赛",
+      "match": "米亚尔比 vs 韦斯特罗斯",
+      "actual_90": "0-0",
+      "main_score": "2-1",
+      "top3_pool": [
+        "2-1",
+        "1-0",
+        "2-0"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "3",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": false,
+      "total_goal_hit": false,
+      "snapshot_commit": "92d6a22",
+      "result_source": "ESPN瑞超记分牌",
+      "result_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260717",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260717",
+      "no": "周五203",
+      "match_id": "2040534",
+      "competition": "挪威超级联赛",
+      "match": "博德闪耀 vs 腓特烈斯塔",
+      "actual_90": "1-0",
+      "main_score": "2-0",
+      "top3_pool": [
+        "2-0",
+        "1-0",
+        "2-1"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "3",
+      "main_hit": false,
+      "score_pool_hit": true,
+      "wdl_hit": true,
+      "total_goal_hit": false,
+      "snapshot_commit": "92d6a22",
+      "result_source": "博德闪耀官方赛果",
+      "result_url": "https://www.glimt.no/resultater/kamp?id=8986233",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260717",
+      "no": "周五204",
+      "match_id": "2040535",
+      "competition": "巴西甲级联赛",
+      "match": "巴伊亚 vs 沙佩科恩斯",
+      "actual_90": "2-0",
+      "main_score": "2-0",
+      "top3_pool": [
+        "2-0",
+        "1-0",
+        "2-1"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "3",
+      "main_hit": true,
+      "score_pool_hit": true,
+      "wdl_hit": true,
+      "total_goal_hit": false,
+      "snapshot_commit": "92d6a22",
+      "result_source": "圣卡塔琳娜州足协赛果",
+      "result_url": "https://fcf.com.br/chapecoense-e-superada-no-retorno-ao-brasileirao-serie-a/",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260717",
+      "no": "周五205",
+      "match_id": "2040536",
+      "competition": "巴西甲级联赛",
+      "match": "弗鲁米嫩塞 vs 布拉干蒂诺RB",
+      "actual_90": "1-1",
+      "main_score": "1-0",
+      "top3_pool": [
+        "1-0",
+        "2-0",
+        "2-1"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "2",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": false,
+      "total_goal_hit": true,
+      "snapshot_commit": "92d6a22",
+      "result_source": "ESPN巴甲记分牌",
+      "result_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260717",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260717",
+      "no": "周五206",
+      "match_id": "2040537",
+      "competition": "巴西甲级联赛",
+      "match": "米拉索尔 vs 格雷米奥",
+      "actual_90": "2-1",
+      "main_score": "1-0",
+      "top3_pool": [
+        "1-0",
+        "2-0",
+        "2-1"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "2",
+      "main_hit": false,
+      "score_pool_hit": true,
+      "wdl_hit": true,
+      "total_goal_hit": false,
+      "snapshot_commit": "92d6a22",
+      "result_source": "巴西圣保罗州足协赛果报道",
+      "result_url": "https://futebolpaulista.com.br/Noticias/Detalhe.aspx?Noticia=32825",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260717",
+      "no": "周五207",
+      "match_id": "2040538",
+      "competition": "美国职业大联盟",
+      "match": "纳什维尔 vs 亚特兰大联",
+      "actual_90": "1-0",
+      "main_score": "2-1",
+      "top3_pool": [
+        "2-1",
+        "1-0",
+        "2-0"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "3",
+      "main_hit": false,
+      "score_pool_hit": true,
+      "wdl_hit": true,
+      "total_goal_hit": false,
+      "snapshot_commit": "92d6a22",
+      "result_source": "纳什维尔SC官方赛果",
+      "result_url": "https://www.nashvillesc.com/news/recap-nashville-sc-resumes-record-start",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260717",
+      "no": "周五208",
+      "match_id": "2040539",
+      "competition": "美国职业大联盟",
+      "match": "洛杉矶银河 vs 洛杉矶FC",
+      "actual_90": "0-3",
+      "main_score": "1-2",
+      "top3_pool": [
+        "1-2",
+        "0-1",
+        "0-2"
+      ],
+      "wdl_prediction": "客胜",
+      "total_goal_prediction": "3",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": true,
+      "total_goal_hit": true,
+      "snapshot_commit": "92d6a22",
+      "result_source": "MLS洛杉矶德比赛果",
+      "result_url": "https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lavslafc-07-17-2026/",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260718",
+      "no": "周六201",
+      "match_id": "2040546",
+      "competition": "韩国职业联赛",
+      "match": "大田市民 vs 蔚山现代",
+      "actual_90": "2-2",
+      "main_score": "2-1",
+      "top3_pool": [
+        "2-1",
+        "1-1",
+        "1-2"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "2",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": false,
+      "total_goal_hit": false,
+      "snapshot_commit": "af0536c",
+      "result_source": "K League公开完场赛果",
+      "result_url": "https://tv.kleague.com/en-int/schedule",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260718",
+      "no": "周六202",
+      "match_id": "2040547",
+      "competition": "韩国职业联赛",
+      "match": "江原FC vs 金泉尚武",
+      "actual_90": "2-0",
+      "main_score": "2-0",
+      "top3_pool": [
+        "2-0",
+        "2-1",
+        "1-0"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "2",
+      "main_hit": true,
+      "score_pool_hit": true,
+      "wdl_hit": true,
+      "total_goal_hit": true,
+      "snapshot_commit": "af0536c",
+      "result_source": "K League公开完场赛果",
+      "result_url": "https://tv.kleague.com/en-int/schedule",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260718",
+      "no": "周六203",
+      "match_id": "2040548",
+      "competition": "韩国职业联赛",
+      "match": "济州SK vs 浦项制铁",
+      "actual_90": "2-1",
+      "main_score": "0-1",
+      "top3_pool": [
+        "0-1",
+        "1-1",
+        "1-0"
+      ],
+      "wdl_prediction": "客胜",
+      "total_goal_prediction": "2",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": false,
+      "total_goal_hit": false,
+      "snapshot_commit": "af0536c",
+      "result_source": "K League公开完场赛果",
+      "result_url": "https://tv.kleague.com/en-int/schedule",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260718",
+      "no": "周六204",
+      "match_id": "2040549",
+      "competition": "韩国职业联赛",
+      "match": "仁川联 vs 全北现代",
+      "actual_90": "1-0",
+      "main_score": "1-2",
+      "top3_pool": [
+        "1-2",
+        "1-1",
+        "0-1"
+      ],
+      "wdl_prediction": "客胜",
+      "total_goal_prediction": "2",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": false,
+      "total_goal_hit": false,
+      "snapshot_commit": "af0536c",
+      "result_source": "K League公开完场赛果",
+      "result_url": "https://tv.kleague.com/en-int/schedule",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260718",
+      "no": "周六205",
+      "match_id": "2040550",
+      "competition": "挪威超级联赛",
+      "match": "汉坎 vs 特罗姆瑟",
+      "actual_90": "1-4",
+      "main_score": "1-2",
+      "top3_pool": [
+        "1-2",
+        "0-2",
+        "0-1"
+      ],
+      "wdl_prediction": "客胜",
+      "total_goal_prediction": "2",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": true,
+      "total_goal_hit": false,
+      "snapshot_commit": "af0536c",
+      "result_source": "HamKam官方赛后报告",
+      "result_url": "https://www.hamkam.no/nyheter/senket-av-et-godt-tromso-lag",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260718",
+      "no": "周六206",
+      "match_id": "2040551",
+      "competition": "芬兰超级联赛",
+      "match": "赫尔辛基 vs 瓦萨",
+      "actual_90": "2-1",
+      "main_score": "2-1",
+      "top3_pool": [
+        "2-1",
+        "2-0",
+        "1-1"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "3",
+      "main_hit": true,
+      "score_pool_hit": true,
+      "wdl_hit": true,
+      "total_goal_hit": true,
+      "snapshot_commit": "af0536c",
+      "result_source": "HJK官方赛后报告",
+      "result_url": "https://www.hjk.fi/uutiset/juhlaottelusta-hieno-voitto-kylla-lammittaa",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260718",
+      "no": "周六207",
+      "match_id": "2040552",
+      "competition": "瑞典超级联赛",
+      "match": "AIK索尔纳 vs 哥德堡盖斯",
+      "actual_90": "2-0",
+      "main_score": "2-1",
+      "top3_pool": [
+        "2-1",
+        "1-1",
+        "1-2"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "3",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": true,
+      "total_goal_hit": false,
+      "snapshot_commit": "af0536c",
+      "result_source": "Aftonbladet赛后报道",
+      "result_url": "https://www.aftonbladet.se/sportbladet/fotboll/a/0pW2Kg/taha-ayari-malskytt-nar-aik-slog-gais",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260718",
+      "no": "周六208",
+      "match_id": "2040553",
+      "competition": "挪威超级联赛",
+      "match": "利勒斯特罗姆 vs 奥斯陆KFUM",
+      "actual_90": "2-1",
+      "main_score": "2-1",
+      "top3_pool": [
+        "2-1",
+        "2-0",
+        "1-0"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "3",
+      "main_hit": true,
+      "score_pool_hit": true,
+      "wdl_hit": true,
+      "total_goal_hit": true,
+      "snapshot_commit": "af0536c",
+      "result_source": "ESPN挪超记分牌",
+      "result_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260718",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260718",
+      "no": "周六209",
+      "match_id": "2040554",
+      "competition": "挪威超级联赛",
+      "match": "斯达 vs 罗森博格",
+      "actual_90": "0-3",
+      "main_score": "1-2",
+      "top3_pool": [
+        "1-2",
+        "1-1",
+        "2-1"
+      ],
+      "wdl_prediction": "客胜",
+      "total_goal_prediction": "3",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": true,
+      "total_goal_hit": true,
+      "snapshot_commit": "af0536c",
+      "result_source": "ESPN挪超记分牌",
+      "result_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260718",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260718",
+      "no": "周六210",
+      "match_id": "2040555",
+      "competition": "挪威超级联赛",
+      "match": "克里斯蒂安松 vs 萨尔普斯堡",
+      "actual_90": "0-0",
+      "main_score": "1-2",
+      "top3_pool": [
+        "1-2",
+        "2-1",
+        "1-1"
+      ],
+      "wdl_prediction": "客胜",
+      "total_goal_prediction": "3",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": false,
+      "total_goal_hit": false,
+      "snapshot_commit": "af0536c",
+      "result_source": "ESPN挪超记分牌",
+      "result_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260718",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260718",
+      "no": "周六211",
+      "match_id": "2040556",
+      "competition": "芬兰超级联赛",
+      "match": "AC奥卢 vs 赫尔辛基火花",
+      "actual_90": "0-2",
+      "main_score": "2-1",
+      "top3_pool": [
+        "2-1",
+        "1-1",
+        "1-2"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "3",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": false,
+      "total_goal_hit": false,
+      "snapshot_commit": "af0536c",
+      "result_source": "Sofascore完场赛果",
+      "result_url": "https://www.sofascore.com/ro/football/match/ac-oulu-if-gnistan/wVsocc",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260718",
+      "no": "周六212",
+      "match_id": "2040557",
+      "competition": "芬兰超级联赛",
+      "match": "塞伊奈约基 vs 库奥皮奥",
+      "actual_90": "0-2",
+      "main_score": "1-2",
+      "top3_pool": [
+        "1-2",
+        "1-1",
+        "2-1"
+      ],
+      "wdl_prediction": "客胜",
+      "total_goal_prediction": "3",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": true,
+      "total_goal_hit": false,
+      "snapshot_commit": "af0536c",
+      "result_source": "Sofascore完场赛果",
+      "result_url": "https://www.sofascore.com/nl/football/match/sjk-kups/UUsVXi",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260718",
+      "no": "周六213",
+      "match_id": "2040558",
+      "competition": "挪威超级联赛",
+      "match": "莫尔德 vs 布兰",
+      "actual_90": "1-2",
+      "main_score": "2-1",
+      "top3_pool": [
+        "2-1",
+        "1-2",
+        "1-1"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "3",
+      "main_hit": false,
+      "score_pool_hit": true,
+      "wdl_hit": false,
+      "total_goal_hit": true,
+      "snapshot_commit": "af0536c",
+      "result_source": "ESPN挪超记分牌",
+      "result_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260718",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260718",
+      "no": "周六214",
+      "match_id": "2040559",
+      "competition": "挪威超级联赛",
+      "match": "维京 vs 桑纳菲尤尔",
+      "actual_90": "2-1",
+      "main_score": "2-1",
+      "top3_pool": [
+        "2-1",
+        "3-0",
+        "3-1"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "4",
+      "main_hit": true,
+      "score_pool_hit": true,
+      "wdl_hit": true,
+      "total_goal_hit": false,
+      "snapshot_commit": "af0536c",
+      "result_source": "ESPN挪超记分牌",
+      "result_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260718",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260719",
+      "no": "周日201",
+      "match_id": "2040560",
+      "competition": "韩国职业联赛",
+      "match": "富川FC vs 首尔FC",
+      "actual_90": "1-3",
+      "main_score": "1-2",
+      "top3_pool": [
+        "1-2",
+        "1-1",
+        "0-1"
+      ],
+      "wdl_prediction": "客胜",
+      "total_goal_prediction": "2",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": true,
+      "total_goal_hit": false,
+      "snapshot_commit": "7609dac",
+      "result_source": "韩联社赛果",
+      "result_url": "https://www.yna.co.kr/amp/view/AKR20260719058000007",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260719",
+      "no": "周日202",
+      "match_id": "2040561",
+      "competition": "韩国职业联赛",
+      "match": "安养FC vs 光州FC",
+      "actual_90": "1-1",
+      "main_score": "1-1",
+      "top3_pool": [
+        "1-1",
+        "2-1",
+        "1-0"
+      ],
+      "wdl_prediction": "平",
+      "total_goal_prediction": "2",
+      "main_hit": true,
+      "score_pool_hit": true,
+      "wdl_hit": true,
+      "total_goal_hit": true,
+      "snapshot_commit": "7609dac",
+      "result_source": "FotMob完场赛果",
+      "result_url": "https://www.fotmob.com/en-GB/matches/fc-anyang-vs-icheon/dl1ri53h",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260719",
+      "no": "周日203",
+      "match_id": "2040562",
+      "competition": "瑞典超级联赛",
+      "match": "埃尔夫斯堡 vs 天狼星",
+      "actual_90": "1-3",
+      "main_score": "1-2",
+      "top3_pool": [
+        "1-2",
+        "1-1",
+        "0-2"
+      ],
+      "wdl_prediction": "客胜",
+      "total_goal_prediction": "3",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": true,
+      "total_goal_hit": false,
+      "snapshot_commit": "7609dac",
+      "result_source": "ESPN瑞超记分牌",
+      "result_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260719",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260719",
+      "no": "周日204",
+      "match_id": "2040563",
+      "competition": "瑞典超级联赛",
+      "match": "哈尔姆斯塔德 vs 赫根",
+      "actual_90": "0-2",
+      "main_score": "1-2",
+      "top3_pool": [
+        "1-2",
+        "1-1",
+        "0-2"
+      ],
+      "wdl_prediction": "客胜",
+      "total_goal_prediction": "3",
+      "main_hit": false,
+      "score_pool_hit": true,
+      "wdl_hit": true,
+      "total_goal_hit": false,
+      "snapshot_commit": "7609dac",
+      "result_source": "ESPN瑞超记分牌",
+      "result_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260719",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260719",
+      "no": "周日205",
+      "match_id": "2040564",
+      "competition": "瑞典超级联赛",
+      "match": "哈马比 vs 代格福什",
+      "actual_90": "4-0",
+      "main_score": "2-0",
+      "top3_pool": [
+        "2-0",
+        "2-1",
+        "3-0"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "3",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": true,
+      "total_goal_hit": false,
+      "snapshot_commit": "7609dac",
+      "result_source": "ESPN瑞超记分牌",
+      "result_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260719",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260719",
+      "no": "周日206",
+      "match_id": "2040565",
+      "competition": "芬兰超级联赛",
+      "match": "雅罗 vs 国际图尔库",
+      "actual_90": "0-0",
+      "main_score": "1-2",
+      "top3_pool": [
+        "1-2",
+        "1-1",
+        "0-2"
+      ],
+      "wdl_prediction": "客胜",
+      "total_goal_prediction": "3",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": false,
+      "total_goal_hit": false,
+      "snapshot_commit": "7609dac",
+      "result_source": "FC Inter官方赛果",
+      "result_url": "https://fcinter.fi/ottelut/edustus/ff-jaro-fc-inter-2026-07-19-4036945",
+      "excluded_from_calibration": false
+    }
+  ],
+  "sources": [
+    {
+      "name": "Aftonbladet赛后报道",
+      "url": "https://www.aftonbladet.se/sportbladet/fotboll/a/0pW2Kg/taha-ayari-malskytt-nar-aik-slog-gais"
+    },
+    {
+      "name": "ESPN巴甲记分牌",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260717"
+    },
+    {
+      "name": "ESPN挪超记分牌",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260718"
+    },
+    {
+      "name": "ESPN瑞超记分牌",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260717"
+    },
+    {
+      "name": "ESPN瑞超记分牌",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260719"
+    },
+    {
+      "name": "FC Inter官方赛果",
+      "url": "https://fcinter.fi/ottelut/edustus/ff-jaro-fc-inter-2026-07-19-4036945"
+    },
+    {
+      "name": "FotMob完场赛果",
+      "url": "https://www.fotmob.com/en-GB/matches/fc-anyang-vs-icheon/dl1ri53h"
+    },
+    {
+      "name": "HJK官方赛后报告",
+      "url": "https://www.hjk.fi/uutiset/juhlaottelusta-hieno-voitto-kylla-lammittaa"
+    },
+    {
+      "name": "HamKam官方赛后报告",
+      "url": "https://www.hamkam.no/nyheter/senket-av-et-godt-tromso-lag"
+    },
+    {
+      "name": "K League公开完场赛果",
+      "url": "https://tv.kleague.com/en-int/schedule"
+    },
+    {
+      "name": "MLS洛杉矶德比赛果",
+      "url": "https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lavslafc-07-17-2026/"
+    },
+    {
+      "name": "Sofascore完场赛果",
+      "url": "https://www.sofascore.com/nl/football/match/sjk-kups/UUsVXi"
+    },
+    {
+      "name": "Sofascore完场赛果",
+      "url": "https://www.sofascore.com/ro/football/match/ac-oulu-if-gnistan/wVsocc"
+    },
+    {
+      "name": "博德闪耀官方赛果",
+      "url": "https://www.glimt.no/resultater/kamp?id=8986233"
+    },
+    {
+      "name": "圣卡塔琳娜州足协赛果",
+      "url": "https://fcf.com.br/chapecoense-e-superada-no-retorno-ao-brasileirao-serie-a/"
+    },
+    {
+      "name": "巴西圣保罗州足协赛果报道",
+      "url": "https://futebolpaulista.com.br/Noticias/Detalhe.aspx?Noticia=32825"
+    },
+    {
+      "name": "纳什维尔SC官方赛果",
+      "url": "https://www.nashvillesc.com/news/recap-nashville-sc-resumes-record-start"
+    },
+    {
+      "name": "韩联社赛果",
+      "url": "https://www.yna.co.kr/amp/view/AKR20260719058000007"
+    }
+  ],
+  "disclaimer": "以上仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。"
+}
