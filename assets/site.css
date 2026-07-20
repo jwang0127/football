@@ -1,0 +1,129 @@
+:root {
+  --bg: #edf3f5;
+  --surface: rgba(255, 255, 255, .94);
+  --surface-soft: #f5f8f9;
+  --ink: #15242c;
+  --muted: #61727a;
+  --line: #d8e3e6;
+  --brand: #116b62;
+  --brand-dark: #0c504b;
+  --accent: #c68a24;
+  --shadow: 0 18px 48px rgba(26, 58, 67, .09);
+  --radius: 18px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0 !important;
+  color: var(--ink) !important;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(17, 107, 98, .12), transparent 34%),
+    radial-gradient(circle at 95% 8%, rgba(198, 138, 36, .10), transparent 28%),
+    var(--bg) !important;
+  font-family: "Microsoft YaHei UI", "Microsoft YaHei", system-ui, sans-serif !important;
+  line-height: 1.7 !important;
+}
+
+a { color: #0d6179; text-underline-offset: 3px; }
+header, main, footer { width: min(1180px, calc(100% - 32px)); margin-inline: auto !important; }
+header { padding: 34px 0 22px !important; }
+main { padding: 0 0 34px !important; }
+footer { padding: 18px 0 42px !important; color: var(--muted) !important; }
+h1 { margin: 10px 0 6px !important; letter-spacing: -.035em; line-height: 1.18 !important; }
+h2, h3 { line-height: 1.35; }
+
+nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+nav a, .history {
+  display: inline-flex !important;
+  align-items: center;
+  min-height: 38px;
+  padding: 7px 13px !important;
+  margin: 0 !important;
+  border: 1px solid rgba(17, 107, 98, .18) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, .82) !important;
+  color: var(--brand-dark) !important;
+  text-decoration: none;
+  box-shadow: 0 5px 18px rgba(26, 58, 67, .05);
+}
+
+.lead, .subtitle, .muted, .sources, small { color: var(--muted) !important; }
+.legend { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+.legend span { margin: 0 !important; border-radius: 999px !important; box-shadow: none !important; }
+
+section, article, .notice, .match, .combo, .card {
+  border-color: var(--line) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow) !important;
+}
+.notice, .match, .combo, .card, section { background: var(--surface) !important; }
+.notice { border-left: 7px solid var(--brand) !important; }
+.match { overflow: hidden; }
+.combo { position: relative; overflow: hidden; }
+.combo::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+}
+.grid { gap: 10px !important; }
+.grid div, .factors {
+  background: var(--surface-soft) !important;
+  border: 1px solid #e5edef;
+  border-radius: 12px !important;
+}
+
+table { overflow: hidden; border-radius: 12px; }
+th { background: #eaf2f2; color: #29444b; }
+th, td { padding: 10px 12px !important; border-color: #e4ebed !important; }
+tr:hover td { background: rgba(17, 107, 98, .035); }
+
+.cards, .date-list {
+  display: flex !important;
+  flex-direction: column;
+  gap: 12px !important;
+}
+.date-card, .date-row {
+  display: grid !important;
+  grid-template-columns: 108px minmax(190px, .85fr) minmax(260px, 1.7fr) auto;
+  align-items: center;
+  gap: 18px;
+  min-height: 104px;
+  padding: 18px 20px !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius) !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  box-shadow: var(--shadow) !important;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.date-card:hover, .date-row:hover { transform: translateY(-2px); box-shadow: 0 22px 54px rgba(26, 58, 67, .14) !important; }
+.date-card span, .date-row .badge {
+  justify-self: start;
+  margin: 0 !important;
+  padding: 5px 10px !important;
+  background: var(--brand) !important;
+  border-radius: 999px !important;
+  color: white !important;
+  font-size: 12px;
+  font-weight: 700;
+}
+.date-card h2, .date-row h2 { margin: 0 !important; font-size: 19px; }
+.date-card p, .date-row p { margin: 0 !important; color: var(--muted) !important; }
+.date-card b, .date-row b { color: var(--brand-dark) !important; white-space: nowrap; }
+
+@media (max-width: 760px) {
+  header, main, footer { width: min(100% - 22px, 1180px); }
+  header { padding-top: 22px !important; }
+  .date-card, .date-row { grid-template-columns: 1fr; gap: 8px; min-height: 0; }
+  .date-card b, .date-row b { white-space: normal; }
+  .grid, .summary, .metrics { grid-template-columns: 1fr 1fr !important; }
+  .scroll, .combo { overflow-x: auto !important; }
+  th, td { white-space: nowrap; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}

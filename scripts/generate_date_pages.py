@@ -11,6 +11,8 @@ from itertools import combinations
 from pathlib import Path
 from typing import Any
 
+from generate_homepage import generate_homepage
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 DISCLAIMER = "以上仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。"
@@ -92,6 +94,19 @@ def num(value: Any) -> float | None:
 def normalized(values: dict[str, float]) -> dict[str, float]:
     total = sum(values.values())
     return {key: (value / total if total else 0.0) for key, value in values.items()}
+
+
+def latest_competition_review(target_date: str, data_dir: Path = DATA) -> dict[str, Any] | None:
+    """Return the newest completed review strictly before the target board."""
+    candidates: list[tuple[str, Path]] = []
+    for path in data_dir.glob("review_*_competitions.json"):
+        compact = path.stem.removeprefix("review_").removesuffix("_competitions")
+        if len(compact) == 8 and compact.isdigit() and compact < target_date:
+            candidates.append((compact, path))
+    if not candidates:
+        return None
+    _, path = max(candidates)
+    return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
 def shrink_review_profile(profile: dict[str, Any]) -> dict[str, Any]:
@@ -378,9 +393,6 @@ def predict_with_market_fallback(base: Any, match: dict[str, Any], context: dict
 
 def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
     label = datetime.strptime(payload["date"], "%Y%m%d").strftime("%m-%d")
-    previous_day = datetime.strptime(payload["date"], "%Y%m%d") - timedelta(days=1)
-    previous_compact = previous_day.strftime("%Y%m%d")
-    previous_label = previous_day.strftime("%m-%d")
     extra_note = '<span style="--c:#b33e5c">含07-19两场韩职</span>' if payload["date"] == "20260718" else ""
     legends = f'<span style="--c:#17212b">按 Sporttery 竞彩业务日分组</span><span style="--c:#7a43b6">赔率仅作市场基线</span><span style="--c:#c38b16">串关理论赔率 ≥ {MIN_COMBO_ODDS:.0f}</span><span style="--c:#287d70">每串最多1个胜平负</span>{extra_note}' + "".join(f'<span style="--c:{styles[name]["color"]}">{esc(styles[name]["label"])}</span>' for name in dict.fromkeys(m["league"] for m in payload["matches"]))
     warnings = "".join(f"<li>{esc(x)}</li>" for x in payload["scheduleWarnings"])
@@ -414,7 +426,7 @@ def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
         hkey, _, _ = hafu_pick(m)
         cards.append(f'''<section class="match" style="--league:{m['leagueStyle']['color']}"><div class="title"><h3>{esc(m['matchNumStr'])} {esc(m['home'])} vs {esc(m['away'])}</h3><span>{esc(m['leagueStyle']['label'])}</span></div><p><b>北京时间：</b>{esc(m['kickoff'])}　<b>胜平负赔率：</b>{had.get('home','-')} / {had.get('draw','-')} / {had.get('away','-')}</p><p><b>独立模型：</b>{esc(m['modelProfile']['version'])} + 赛前情境层</p><div class="grid"><div><small>胜平负</small><strong>{esc(m['directionText'])}</strong></div><div><small>总进球</small><strong>{esc(m['totalGoals'])}</strong></div><div><small>主比分</small><strong>{esc(m['mainScore'])}</strong></div><div><small>半全场</small><strong>{esc(HAFU_TEXT[hkey])}</strong></div></div><p><b>三个比分（置信度从高到低）：</b>{esc(score_ranking)}</p><div class="factors"><p><b>赛制阶段：</b>{esc(factors['stage'])}</p><p><b>赛程与体能：</b>{esc(factors['schedule'])}</p><p><b>为什么要赢：</b>{esc(factors['motivation'])}</p><p><b>球员与教练：</b>{esc(factors['teamNews'])} {esc(factors['coach'])}</p><p><b>天气：</b>{esc(factors['weather'])}</p><p><b>颠倒路径：</b>{esc(factors['upsetPath'])}</p></div><p><b>综合判断：</b>{esc(m['reason'])}</p><p>尾部审计：{esc(' / '.join(m['tailRiskScores']) or '无额外尾部入选')}；总进球候选：{esc(' / '.join(m['goalCandidates']))}</p><p>情境修正后概率：主 {p['home']:.1%} / 平 {p['draw']:.1%} / 客 {p['away']:.1%}；模型信任度 {m['confidenceScore']}/100。</p><p class="sources"><b>本场资料：</b>{context_sources}</p></section>''')
     source_items = "".join(f'<li><a href="{esc(x["url"])}">{esc(x["name"])}</a></li>' for x in payload["sources"])
-    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2026-{label}足球预测</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef4f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:24px 16px}}nav a{{margin-right:10px}}h1{{font-size:clamp(30px,5vw,48px)}}.legend span{{display:inline-block;margin:5px;padding:6px 11px;border-left:7px solid var(--c);background:white;border-radius:7px}}.notice,.match,.combo{{background:white;border:1px solid #dce4ea;border-radius:14px;padding:18px;margin:15px 0;box-shadow:0 8px 26px #2336460f}}.match{{border-left:10px solid var(--league)}}.title,.combo h3{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:white;padding:4px 11px;border-radius:99px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f5f8fa;padding:10px;border-radius:8px}}.factors{{background:#f5f8fa;border-radius:10px;padding:10px 14px;margin:12px 0}}.factors p{{margin:5px 0}}.sources{{font-size:13px;color:#657482}}small{{display:block;color:#657482}}strong{{font-size:21px}}.combo{{border-top:6px solid #287d70}}.combo.hafu{{border-top-color:#7a43b6}}.combo.crs{{border-top-color:#b35430}}.combo.ttg{{border-top-color:#355dc5}}.combo.mixed{{border-top-color:#c38b16}}table{{width:100%;border-collapse:collapse}}td{{padding:8px;border-bottom:1px solid #e7ecef}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style></head><body><header><nav><a href="../index.html">日期首页</a><a href="../accuracy/">严格正确率</a><a href="../{previous_compact}/review.html">{previous_label}复盘</a></nav><h1>{label}足球预测</h1><p>共 {len(payload['matches'])} 场 · 北京时间 · 赔率更新至 {esc(payload['oddsUpdatedAt'])}</p><div class="legend">{legends}</div></header><main>{f'<section class="notice"><h2>赛程冲突提示</h2><ul>{warnings}</ul></section>' if warnings else ''}{review_html}<section class="notice"><h2>模型方法</h2><p>赔率只作为市场基线；逐场再叠加赛制阶段、赛程密度、积分动机、确认过的球员与教练信息、天气及反向赛果路径。赛事复盘参数按12场中性先验做小样本收缩，比分池固定为三个互补路径；未核实的伤停不进入模型。</p></section><section class="notice"><h2>精选n串一</h2><p>仅保留 {len(payload['combos'])} 组：模型信任度高的优先排列，同时保留理论赔率超过 {HIGH_ODDS_THRESHOLD:.0f} 的高赔率组合。包含胜平负、总进球、比分、半全场及混合玩法；信任度仅用于模型横向比较，不等同于命中率。</p></section>{''.join(combos)}<h2>逐场预测</h2>{''.join(cards)}<section class="notice"><h2>赛程与赔率来源</h2><ul>{source_items}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
+    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#116b62"><title>2026-{label}足球预测</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef4f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:24px 16px}}nav a{{margin-right:10px}}h1{{font-size:clamp(30px,5vw,48px)}}.legend span{{display:inline-block;margin:5px;padding:6px 11px;border-left:7px solid var(--c);background:white;border-radius:7px}}.notice,.match,.combo{{background:white;border:1px solid #dce4ea;border-radius:14px;padding:18px;margin:15px 0;box-shadow:0 8px 26px #2336460f}}.match{{border-left:10px solid var(--league)}}.title,.combo h3{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:white;padding:4px 11px;border-radius:99px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f5f8fa;padding:10px;border-radius:8px}}.factors{{background:#f5f8fa;border-radius:10px;padding:10px 14px;margin:12px 0}}.factors p{{margin:5px 0}}.sources{{font-size:13px;color:#657482}}small{{display:block;color:#657482}}strong{{font-size:21px}}.combo{{border-top:6px solid #287d70}}.combo.hafu{{border-top-color:#7a43b6}}.combo.crs{{border-top-color:#b35430}}.combo.ttg{{border-top-color:#355dc5}}.combo.mixed{{border-top-color:#c38b16}}table{{width:100%;border-collapse:collapse}}td{{padding:8px;border-bottom:1px solid #e7ecef}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style><link rel="stylesheet" href="../assets/site.css"></head><body><header><nav><a href="../index.html">日期首页</a><a href="../history/index.html">历史归档</a></nav><h1>{label}足球预测</h1><p>共 {len(payload['matches'])} 场 · 北京时间 · 赔率更新至 {esc(payload['oddsUpdatedAt'])}</p><div class="legend">{legends}</div></header><main>{review_html}{f'<section class="notice"><h2>赛程冲突提示</h2><ul>{warnings}</ul></section>' if warnings else ''}<section class="notice"><h2>模型方法</h2><p>赔率只作为市场基线；逐场再叠加赛制阶段、赛程密度、积分动机、确认过的球员与教练信息、天气及反向赛果路径。赛事复盘参数按12场中性先验做小样本收缩，比分池固定为三个互补路径；未核实的伤停不进入模型。</p></section><section class="notice"><h2>精选n串一</h2><p>仅保留 {len(payload['combos'])} 组：模型信任度高的优先排列，同时保留理论赔率超过 {HIGH_ODDS_THRESHOLD:.0f} 的高赔率组合。包含胜平负、总进球、比分、半全场及混合玩法；信任度仅用于模型横向比较，不等同于命中率。</p></section>{''.join(combos)}<h2>逐场预测</h2>{''.join(cards)}<section class="notice"><h2>赛程与赔率来源</h2><ul>{source_items}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
 
 
 def main() -> None:
@@ -459,9 +471,7 @@ def main() -> None:
         {"name": "MLS官方赛程", "url": "https://www.mlssoccer.com/news/mls-unveils-2026-regular-season-schedule"},
         {"name": "K League官方赛程", "url": "https://tv.kleague.com/en-int/schedule"},
     ]
-    review_date = "20260719" if args.date >= "20260720" else "20260718"
-    review_path = DATA / f"review_{review_date}_competitions.json"
-    competition_review = json.loads(review_path.read_text(encoding="utf-8")) if review_path.exists() else None
+    competition_review = latest_competition_review(args.date)
     payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户此前要求并入07-19两场韩职" if args.date == "20260718" else "Sporttery竞彩业务日", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"competition-specific-contextual-{args.date}-v9-audit-shrinkage", "contextVersion": context_payload.get("version", "match-context-v1"), "competitionModels": {league: shrink_review_profile(COMPETITION_MODELS[league]) for league in dict.fromkeys(m["league"] for m in matches)}, "competitionReview": competition_review, "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
     DATA.joinpath(f"predictions_{args.date}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     out = ROOT / args.date
@@ -469,6 +479,7 @@ def main() -> None:
     page = render(payload, base.LEAGUE_STYLES)
     out.joinpath("index.html").write_text(page, encoding="utf-8")
     out.joinpath(f"predict_{args.date}.html").write_text(page, encoding="utf-8")
+    generate_homepage(ROOT)
     print(f"Generated {len(matches)} matches, {len(payload['combos'])} parlays, {len(excluded)} schedule warnings")
 
 
