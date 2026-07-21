@@ -32,10 +32,10 @@ EXCLUDED_LEAGUES = {"世界杯"}
 # here (rather than hidden in one global predictor) so a review changes only the
 # competition that produced the evidence.
 COMPETITION_MODELS: dict[str, dict[str, Any]] = {
-    "韩国职业联赛": {"version": "k-league-v6-audit-0720", "review_sample": 6, "had": .32, "crs": .49, "prior": .19,
+    "韩国职业联赛": {"version": "k-league-v7-review-0721", "review_sample": 9, "had": .30, "crs": .47, "prior": .23,
                  "prior_probs": (.46, .29, .25), "goal_shift": .00, "draw_boost": 1.06,
                  "clean_sheet_boost": 1.08, "confidence_delta": -2,
-                 "lesson": "07-19韩职复盘：方向2/2且1-1主比分命中；保留降HAD锚定，同时把强客1-3作为条件长尾，避免只给小胜。"},
+                 "lesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。"},
     "瑞典超级联赛": {"version": "allsvenskan-v8-review-0720", "review_sample": 8, "had": .34, "crs": .49, "prior": .17,
                  "prior_probs": (.37, .30, .33), "goal_shift": -0.07, "draw_boost": 1.12,
                  "clean_sheet_boost": 1.20, "confidence_delta": -3,

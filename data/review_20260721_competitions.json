@@ -1,0 +1,20 @@
+{
+  "reviewDate": "07-21",
+  "source": "K League公开赛程与赛后报道交叉核对",
+  "sources": [
+    {"name": "K League公开赛程：济州SK1-1江原FC、全北现代0-0大田市民", "url": "https://tv.kleague.com/en-int/schedule"},
+    {"name": "直播吧赛后报道：蔚山现代1-2仁川联", "url": "https://news.zhibo8.com/zuqiu/2026-07-21/match1899507date2026vnative.htm"}
+  ],
+  "reviews": [
+    {
+      "league": "韩国职业联赛",
+      "results": [
+        {"matchId": "2040580", "matchNumStr": "周二201", "home": "济州SK", "away": "江原FC", "score": "1-1", "assessment": "方向未命中；总进球2命中；1-1进入前三比分池"},
+        {"matchId": "2040581", "matchNumStr": "周二202", "home": "全北现代", "away": "大田市民", "score": "0-0", "assessment": "方向、总进球和前三比分池均未命中；0-0仅列尾部"},
+        {"matchId": "2040582", "matchNumStr": "周二203", "home": "蔚山现代", "away": "仁川联", "score": "1-2", "assessment": "方向、总进球和前三比分池均未命中；主胜锚定漏掉客胜反向路径"}
+      ],
+      "summary": "方向0/3、主比分0/3、展示比分池1/3、总进球主选1/3。",
+      "modelAdjustment": "韩职升级至k-league-v7-review-0721：降低HAD方向锚定权重，提升低进球0-0/1-1保护；强主胜或客胜赔率集中时，前三比分必须保留一条反向路径。继续使用12场中性先验收缩，避免用单日3场过度改参。"
+    }
+  ]
+}

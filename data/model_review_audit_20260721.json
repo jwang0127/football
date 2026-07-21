@@ -1,33 +1,33 @@
 {
-  "title": "2026-07-17至2026-07-20足球预测冻结快照审计",
+  "title": "2026-07-17至2026-07-21足球预测冻结快照审计",
   "settlement_basis": "90分钟常规赛果",
   "coverage": {
-    "archived_predictions": 32,
-    "settled_predictions": 32,
-    "missing_or_unresolved": 0,
-    "calibration_samples": 32
+    "archived_predictions": 39,
+    "settled_predictions": 35,
+    "missing_or_unresolved": 4,
+    "calibration_samples": 35
   },
   "all_settled_metrics": {
-    "settled": 32,
+    "settled": 35,
     "main_score_hits": 7,
-    "main_score_rate": "21.9%",
-    "score_pool_hits": 13,
-    "score_pool_rate": "40.6%",
+    "main_score_rate": "20.0%",
+    "score_pool_hits": 14,
+    "score_pool_rate": "40.0%",
     "wdl_hits": 20,
-    "wdl_rate": "62.5%",
-    "total_goal_hits": 9,
-    "total_goal_rate": "28.1%"
+    "wdl_rate": "57.1%",
+    "total_goal_hits": 10,
+    "total_goal_rate": "28.6%"
   },
   "calibration_metrics": {
-    "settled": 32,
+    "settled": 35,
     "main_score_hits": 7,
-    "main_score_rate": "21.9%",
-    "score_pool_hits": 13,
-    "score_pool_rate": "40.6%",
+    "main_score_rate": "20.0%",
+    "score_pool_hits": 14,
+    "score_pool_rate": "40.0%",
     "wdl_hits": 20,
-    "wdl_rate": "62.5%",
-    "total_goal_hits": 9,
-    "total_goal_rate": "28.1%"
+    "wdl_rate": "57.1%",
+    "total_goal_hits": 10,
+    "total_goal_rate": "28.6%"
   },
   "by_competition": {
     "巴西甲级联赛": {
@@ -86,14 +86,14 @@
       "total_goal_rate": "16.7%"
     },
     "韩国职业联赛": {
-      "settled": 6,
+      "settled": 9,
       "main_score_hits": 2,
-      "main_score_rate": "33.3%",
-      "score_pool_hits": 2,
+      "main_score_rate": "22.2%",
+      "score_pool_hits": 3,
       "score_pool_rate": "33.3%",
       "wdl_hits": 3,
-      "wdl_rate": "50.0%",
-      "total_goal_hits": 2,
+      "wdl_rate": "33.3%",
+      "total_goal_hits": 3,
       "total_goal_rate": "33.3%"
     }
   },
@@ -113,9 +113,18 @@
     "20260720": {
       "commit": "0337b8e",
       "path": "data/predictions_20260720.json"
+    },
+    "20260721": {
+      "commit": "working-tree",
+      "path": "data/predictions_20260721.json"
     }
   },
-  "unresolved_match_ids": [],
+  "unresolved_match_ids": [
+    "2040583",
+    "2040595",
+    "2040601",
+    "2040602"
+  ],
   "exclusions": [],
   "structural_errors": [
     {
@@ -125,7 +134,7 @@
     },
     {
       "trigger": "实际0-0但模型未列入前三",
-      "samples": 4,
+      "samples": 5,
       "correction": "当平局概率高、总进球0/1价格不远或存在短休/复赛不确定性时，0-0进入前三而非仅尾部。"
     },
     {
@@ -135,7 +144,7 @@
     },
     {
       "trigger": "实际零封比分未进入前三",
-      "samples": 11,
+      "samples": 12,
       "correction": "中低总进球环境下给强侧至少一个1-0/2-0/0-1/0-2路径，避免默认双方进球。"
     }
   ],
@@ -921,6 +930,78 @@
       "result_source": "ESPN瑞超记分牌",
       "result_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260720",
       "excluded_from_calibration": false
+    },
+    {
+      "date": "20260721",
+      "no": "周二201",
+      "match_id": "2040580",
+      "competition": "韩国职业联赛",
+      "match": "济州SK vs 江原FC",
+      "actual_90": "1-1",
+      "main_score": "0-1",
+      "top3_pool": [
+        "0-1",
+        "1-2",
+        "1-1"
+      ],
+      "wdl_prediction": "客胜",
+      "total_goal_prediction": "2",
+      "main_hit": false,
+      "score_pool_hit": true,
+      "wdl_hit": false,
+      "total_goal_hit": true,
+      "snapshot_commit": "working-tree",
+      "result_source": "K League公开完场赛果",
+      "result_url": "https://tv.kleague.com/en-int/schedule",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260721",
+      "no": "周二202",
+      "match_id": "2040581",
+      "competition": "韩国职业联赛",
+      "match": "全北现代 vs 大田市民",
+      "actual_90": "0-0",
+      "main_score": "2-1",
+      "top3_pool": [
+        "2-1",
+        "1-0",
+        "1-1"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "2",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": false,
+      "total_goal_hit": false,
+      "snapshot_commit": "working-tree",
+      "result_source": "K League公开完场赛果",
+      "result_url": "https://tv.kleague.com/en-int/schedule",
+      "excluded_from_calibration": false
+    },
+    {
+      "date": "20260721",
+      "no": "周二203",
+      "match_id": "2040582",
+      "competition": "韩国职业联赛",
+      "match": "蔚山现代 vs 仁川联",
+      "actual_90": "1-2",
+      "main_score": "2-1",
+      "top3_pool": [
+        "2-1",
+        "2-0",
+        "1-1"
+      ],
+      "wdl_prediction": "主胜",
+      "total_goal_prediction": "2",
+      "main_hit": false,
+      "score_pool_hit": false,
+      "wdl_hit": false,
+      "total_goal_hit": false,
+      "snapshot_commit": "working-tree",
+      "result_source": "直播吧赛后报道",
+      "result_url": "https://news.zhibo8.com/zuqiu/2026-07-21/match1899507date2026vnative.htm",
+      "excluded_from_calibration": false
     }
   ],
   "sources": [
@@ -999,6 +1080,10 @@
     {
       "name": "巴西圣保罗州足协赛果报道",
       "url": "https://futebolpaulista.com.br/Noticias/Detalhe.aspx?Noticia=32825"
+    },
+    {
+      "name": "直播吧赛后报道",
+      "url": "https://news.zhibo8.com/zuqiu/2026-07-21/match1899507date2026vnative.htm"
     },
     {
       "name": "纳什维尔SC官方赛果",

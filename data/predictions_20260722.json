@@ -8,22 +8,22 @@
   "contextVersion": "match-context-v1",
   "competitionModels": {
     "韩国职业联赛": {
-      "version": "k-league-v6-audit-0720",
-      "review_sample": 6,
-      "had": 0.37333333333333335,
-      "crs": 0.4633333333333333,
-      "prior": 0.16333333333333333,
+      "version": "k-league-v7-review-0721",
+      "review_sample": 9,
+      "had": 0.35714285714285715,
+      "crs": 0.4585714285714286,
+      "prior": 0.18428571428571427,
       "prior_probs": [
         0.46,
         0.29,
         0.25
       ],
       "goal_shift": 0.0,
-      "draw_boost": 1.02,
-      "clean_sheet_boost": 1.0266666666666666,
+      "draw_boost": 1.0257142857142858,
+      "clean_sheet_boost": 1.0342857142857143,
       "confidence_delta": -1,
-      "lesson": "07-19韩职复盘：方向2/2且1-1主比分命中；保留降HAD锚定，同时把强客1-3作为条件长尾，避免只给小胜。",
-      "review_strength": 0.3333
+      "lesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
+      "review_strength": 0.4286
     },
     "欧洲冠军联赛": {
       "version": "ucl-qualifying-v4-volatility",
@@ -45,72 +45,53 @@
     }
   },
   "competitionReview": {
-    "reviewDate": "07-20",
-    "source": "俱乐部官方、ESPN与公开完场赛果交叉核对",
+    "reviewDate": "07-21",
+    "source": "K League公开赛程与赛后报道交叉核对",
     "sources": [
       {
-        "name": "FC Lahti官方：玛丽港0-2拉赫蒂",
-        "url": "https://www.fclahti.fi/uutiset/forenomin-otteluraportti-kolmas-perakkainen/"
+        "name": "K League公开赛程：济州SK1-1江原FC、全北现代0-0大田市民",
+        "url": "https://tv.kleague.com/en-int/schedule"
       },
       {
-        "name": "ESPN瑞超07-20记分牌",
-        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260720"
-      },
-      {
-        "name": "365Scores：TPS 1-3 Ilves",
-        "url": "https://www.365scores.com/football/match/veikkausliiga-110/ilves-tps-1269-1278-110"
+        "name": "直播吧赛后报道：蔚山现代1-2仁川联",
+        "url": "https://news.zhibo8.com/zuqiu/2026-07-21/match1899507date2026vnative.htm"
       }
     ],
     "reviews": [
       {
-        "league": "芬兰超级联赛",
+        "league": "韩国职业联赛",
         "results": [
           {
-            "matchId": "2040566",
-            "matchNumStr": "周一201",
-            "home": "TPS图尔库",
-            "away": "坦佩雷山猫",
-            "score": "1-3",
-            "assessment": "四项严格主指标均未命中；1-3仅在尾部审计"
+            "matchId": "2040580",
+            "matchNumStr": "周二201",
+            "home": "济州SK",
+            "away": "江原FC",
+            "score": "1-1",
+            "assessment": "方向未命中；总进球2命中；1-1进入前三比分池"
           },
           {
-            "matchId": "2040567",
-            "matchNumStr": "周一202",
-            "home": "玛丽港",
-            "away": "拉赫蒂",
-            "score": "0-2",
-            "assessment": "客胜方向与前三比分池命中；主比分和总进球未中"
-          }
-        ],
-        "summary": "方向1/2、主比分0/2、展示比分池1/2、总进球主选0/2。",
-        "modelAdjustment": "芬超升级至veikkausliiga-v6-review-0720：短休只作条件修正，提升零封与0-0保护，并继续用小样本收缩。"
-      },
-      {
-        "league": "瑞典超级联赛",
-        "results": [
-          {
-            "matchId": "2040568",
-            "matchNumStr": "周一203",
-            "home": "厄尔格里特",
-            "away": "佐加顿斯",
+            "matchId": "2040581",
+            "matchNumStr": "周二202",
+            "home": "全北现代",
+            "away": "大田市民",
             "score": "0-0",
-            "assessment": "四项严格主指标均未命中；0-0未进入前三"
+            "assessment": "方向、总进球和前三比分池均未命中；0-0仅列尾部"
           },
           {
-            "matchId": "2040569",
-            "matchNumStr": "周一204",
-            "home": "卡尔马",
-            "away": "马尔默",
-            "score": "2-2",
-            "assessment": "四项严格主指标均未命中；叙述层与最终方向不一致"
+            "matchId": "2040582",
+            "matchNumStr": "周二203",
+            "home": "蔚山现代",
+            "away": "仁川联",
+            "score": "1-2",
+            "assessment": "方向、总进球和前三比分池均未命中；主胜锚定漏掉客胜反向路径"
           }
         ],
-        "summary": "方向0/2、主比分0/2、展示比分池0/2、总进球主选0/2。",
-        "modelAdjustment": "瑞超升级至allsvenskan-v8-review-0720：强客低赔保留0-0，均势盘提升2-2；理由文本强制由最终方向生成。"
+        "summary": "方向0/3、主比分0/3、展示比分池1/3、总进球主选1/3。",
+        "modelAdjustment": "韩职升级至k-league-v7-review-0721：降低HAD方向锚定权重，提升低进球0-0/1-1保护；强主胜或客胜赔率集中时，前三比分必须保留一条反向路径。继续使用12场中性先验收缩，避免用单日3场过度改参。"
       }
     ]
   },
-  "generatedAt": "2026-07-21T14:46:32",
+  "generatedAt": "2026-07-21T22:03:34",
   "oddsUpdatedAt": "2026-07-21 09:45:48",
   "matches": [
     {
@@ -129,9 +110,9 @@
       "homeRank": "[韩职1]",
       "awayRank": "[韩职5]",
       "probabilities": {
-        "home": 0.5131,
-        "draw": 0.2789,
-        "away": 0.208
+        "home": 0.5109,
+        "draw": 0.2803,
+        "away": 0.2087
       },
       "direction": "home",
       "directionText": "主胜",
@@ -228,22 +209,22 @@
         }
       },
       "marketBaselineProbabilities": {
-        "home": 0.5131,
-        "draw": 0.2789,
-        "away": 0.208
+        "home": 0.5109,
+        "draw": 0.2803,
+        "away": 0.2087
       },
       "modelProfile": {
-        "version": "k-league-v6-audit-0720",
-        "had": 0.37333333333333335,
-        "crs": 0.4633333333333333,
-        "prior": 0.16333333333333333,
+        "version": "k-league-v7-review-0721",
+        "had": 0.35714285714285715,
+        "crs": 0.4585714285714286,
+        "prior": 0.18428571428571427,
         "goal_shift": 0.0,
-        "review_sample": 6,
-        "review_strength": 0.3333,
+        "review_sample": 9,
+        "review_strength": 0.4286,
         "contextLayer": "match-context-v1",
         "reviewMethod": "12场中性先验收缩"
       },
-      "modelLesson": "07-19韩职复盘：方向2/2且1-1主比分命中；保留降HAD锚定，同时把强客1-3作为条件长尾，避免只给小胜。",
+      "modelLesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
       "contextFactors": {
         "stage": "资料不足，保持中性",
         "schedule": "资料不足，保持中性",
@@ -283,9 +264,9 @@
       "homeRank": "[韩职10]",
       "awayRank": "[韩职6]",
       "probabilities": {
-        "home": 0.3356,
-        "draw": 0.2961,
-        "away": 0.3683
+        "home": 0.3382,
+        "draw": 0.297,
+        "away": 0.3648
       },
       "direction": "away",
       "directionText": "客胜",
@@ -382,22 +363,22 @@
         }
       },
       "marketBaselineProbabilities": {
-        "home": 0.3356,
-        "draw": 0.2961,
-        "away": 0.3683
+        "home": 0.3382,
+        "draw": 0.297,
+        "away": 0.3648
       },
       "modelProfile": {
-        "version": "k-league-v6-audit-0720",
-        "had": 0.37333333333333335,
-        "crs": 0.4633333333333333,
-        "prior": 0.16333333333333333,
+        "version": "k-league-v7-review-0721",
+        "had": 0.35714285714285715,
+        "crs": 0.4585714285714286,
+        "prior": 0.18428571428571427,
         "goal_shift": 0.0,
-        "review_sample": 6,
-        "review_strength": 0.3333,
+        "review_sample": 9,
+        "review_strength": 0.4286,
         "contextLayer": "match-context-v1",
         "reviewMethod": "12场中性先验收缩"
       },
-      "modelLesson": "07-19韩职复盘：方向2/2且1-1主比分命中；保留降HAD锚定，同时把强客1-3作为条件长尾，避免只给小胜。",
+      "modelLesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
       "contextFactors": {
         "stage": "资料不足，保持中性",
         "schedule": "资料不足，保持中性",
@@ -437,9 +418,9 @@
       "homeRank": "[韩职12]",
       "awayRank": "[韩职11]",
       "probabilities": {
-        "home": 0.2778,
-        "draw": 0.2698,
-        "away": 0.4524
+        "home": 0.2819,
+        "draw": 0.2714,
+        "away": 0.4467
       },
       "direction": "away",
       "directionText": "客胜",
@@ -536,22 +517,22 @@
         }
       },
       "marketBaselineProbabilities": {
-        "home": 0.2778,
-        "draw": 0.2698,
-        "away": 0.4524
+        "home": 0.2819,
+        "draw": 0.2714,
+        "away": 0.4467
       },
       "modelProfile": {
-        "version": "k-league-v6-audit-0720",
-        "had": 0.37333333333333335,
-        "crs": 0.4633333333333333,
-        "prior": 0.16333333333333333,
+        "version": "k-league-v7-review-0721",
+        "had": 0.35714285714285715,
+        "crs": 0.4585714285714286,
+        "prior": 0.18428571428571427,
         "goal_shift": 0.0,
-        "review_sample": 6,
-        "review_strength": 0.3333,
+        "review_sample": 9,
+        "review_strength": 0.4286,
         "contextLayer": "match-context-v1",
         "reviewMethod": "12场中性先验收缩"
       },
-      "modelLesson": "07-19韩职复盘：方向2/2且1-1主比分命中；保留降HAD锚定，同时把强客1-3作为条件长尾，避免只给小胜。",
+      "modelLesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
       "contextFactors": {
         "stage": "资料不足，保持中性",
         "schedule": "资料不足，保持中性",
@@ -815,7 +796,7 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.7,
-          "probability": 0.5131
+          "probability": 0.5109
         },
         {
           "matchId": "2040585",
@@ -851,7 +832,7 @@
           "marketText": "胜平负",
           "pick": "客胜",
           "odds": 1.8,
-          "probability": 0.4524
+          "probability": 0.4467
         },
         {
           "matchId": "2040584",
@@ -887,7 +868,7 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.7,
-          "probability": 0.5131
+          "probability": 0.5109
         },
         {
           "matchId": "2040585",

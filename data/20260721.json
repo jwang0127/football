@@ -46,9 +46,9 @@
                                                               "3"
                                                           ]
                                        },
-                        "result":  null,
+                        "result":  {"homeGoals": 1, "awayGoals": 1, "status": "Finished", "source": "K League公开完场赛果"},
                         "review":  "Auto-generated from Sporttery live odds: total-goals 2, lean away, adjusted by hhad/crs/hafu and draw pressure.",
-                        "postReview":  null,
+                        "postReview":  "90分钟赛果1-1；方向未中、总进球2命中、前三比分池命中。客胜锚定失效，平局保护有效。",
                         "odds":  {
                                      "had":  {
                                                  "home":  "4.20",
@@ -162,9 +162,9 @@
                                                               "1"
                                                           ]
                                        },
-                        "result":  null,
+                        "result":  {"homeGoals": 0, "awayGoals": 0, "status": "Finished", "source": "K League公开完场赛果"},
                         "review":  "Auto-generated from Sporttery live odds: total-goals 2, lean home, adjusted by hhad/crs/hafu and draw pressure.",
-                        "postReview":  null,
+                        "postReview":  "90分钟赛果0-0；方向、总进球和前三比分池均未中。低进球平局仅列入尾部，需提升至前三保护。",
                         "odds":  {
                                      "had":  {
                                                  "home":  "1.91",
@@ -278,9 +278,9 @@
                                                               "1"
                                                           ]
                                        },
-                        "result":  null,
+                        "result":  {"homeGoals": 1, "awayGoals": 2, "status": "Finished", "source": "直播吧赛后报道"},
                         "review":  "Auto-generated from Sporttery live odds: total-goals 2, lean home, adjusted by hhad/crs/hafu and draw pressure.",
-                        "postReview":  null,
+                        "postReview":  "90分钟赛果1-2；方向、总进球和前三比分池均未中。主胜过热时需保留客胜反向路径。",
                         "odds":  {
                                      "had":  {
                                                  "home":  "1.88",

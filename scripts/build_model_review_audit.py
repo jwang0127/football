@@ -16,10 +16,13 @@ SNAPSHOTS = {
     "20260718": {"commit": "af0536c", "path": "data/predictions_20260718.json"},
     "20260719": {"commit": "7609dac", "path": "data/predictions_20260719.json"},
     "20260720": {"commit": "0337b8e", "path": "data/predictions_20260720.json"},
+    "20260721": {"commit": "working-tree", "path": "data/predictions_20260721.json"},
 }
 
 
 def git_json(commit: str, path: str) -> dict[str, Any]:
+    if commit == "working-tree":
+        return json.loads((ROOT / path).read_text(encoding="utf-8-sig"))
     raw = subprocess.check_output(["git", "show", f"{commit}:{path}"], cwd=ROOT)
     return json.loads(raw.decode("utf-8-sig"))
 
@@ -97,6 +100,11 @@ def main() -> None:
     args = parser.parse_args()
     root = Path(args.root).resolve()
     results_payload = json.loads((root / "data" / "settled_results_20260717_20260720.json").read_text(encoding="utf-8"))
+    results_payload["results"].extend([
+        {"date": "20260721", "matchId": "2040580", "score": "1-1", "source": "K League公开完场赛果", "url": "https://tv.kleague.com/en-int/schedule"},
+        {"date": "20260721", "matchId": "2040581", "score": "0-0", "source": "K League公开完场赛果", "url": "https://tv.kleague.com/en-int/schedule"},
+        {"date": "20260721", "matchId": "2040582", "score": "1-2", "source": "直播吧赛后报道", "url": "https://news.zhibo8.com/zuqiu/2026-07-21/match1899507date2026vnative.htm"},
+    ])
     results = {str(row["matchId"]): row for row in results_payload["results"]}
     rows: list[dict[str, Any]] = []
     archived_ids: set[str] = set()
@@ -142,7 +150,7 @@ def main() -> None:
         grouped[row["competition"]].append(row)
     source_map = {(row["source"], row["url"]) for row in results_payload["results"]}
     payload = {
-        "title": "2026-07-17至2026-07-20足球预测冻结快照审计",
+        "title": "2026-07-17至2026-07-21足球预测冻结快照审计",
         "settlement_basis": results_payload["settlementBasis"],
         "coverage": {
             "archived_predictions": len(archived_ids),
