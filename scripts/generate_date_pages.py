@@ -16,7 +16,7 @@ from generate_homepage import generate_homepage
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 DISCLAIMER = "以上仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。"
-MIN_COMBO_ODDS = 10.0
+MIN_COMBO_ODDS = 15.0
 MAX_PARLAYS = 10
 HIGH_ODDS_THRESHOLD = 20.0
 HIGH_ODDS_SLOTS = 5
@@ -36,18 +36,18 @@ COMPETITION_MODELS: dict[str, dict[str, Any]] = {
                  "prior_probs": (.46, .29, .25), "goal_shift": .00, "draw_boost": 1.06,
                  "clean_sheet_boost": 1.08, "confidence_delta": -2,
                  "lesson": "07-19韩职复盘：方向2/2且1-1主比分命中；保留降HAD锚定，同时把强客1-3作为条件长尾，避免只给小胜。"},
-    "瑞典超级联赛": {"version": "allsvenskan-v7-audit-0720", "review_sample": 6, "had": .35, "crs": .49, "prior": .16,
-                 "prior_probs": (.38, .28, .34), "goal_shift": -0.05, "draw_boost": 1.08,
-                 "clean_sheet_boost": 1.18, "confidence_delta": -2,
-                 "lesson": "07-19瑞超复盘：方向3/3但主比分0/3，实际为1-3、0-2、4-0；降低平局增益、提高比分矩阵与强侧零封/4球尾部，不把所有比赛机械抬成大球。"},
+    "瑞典超级联赛": {"version": "allsvenskan-v8-review-0720", "review_sample": 8, "had": .34, "crs": .49, "prior": .17,
+                 "prior_probs": (.37, .30, .33), "goal_shift": -0.07, "draw_boost": 1.12,
+                 "clean_sheet_boost": 1.20, "confidence_delta": -3,
+                 "lesson": "07-20瑞超复盘新增0-0与2-2：强客低赔仍保留0-0，均势盘提升2-2；理由文本必须由最终方向生成。"},
     "挪威超级联赛": {"version": "eliteserien-v6-audit-0720", "review_sample": 7, "had": .42, "crs": .45, "prior": .13,
                  "prior_probs": (.44, .26, .30), "goal_shift": -0.04, "draw_boost": 1.05,
                  "clean_sheet_boost": 1.12, "confidence_delta": -2,
                  "lesson": "07-18挪超复盘：方向4/6、主比分2/6；保留0-0零封分支，同时放宽客胜3球以上长尾，避免统一压低进球均值。"},
-    "芬兰超级联赛": {"version": "veikkausliiga-v5-audit-0720", "review_sample": 4, "had": .36, "crs": .49, "prior": .15,
-                 "prior_probs": (.39, .30, .31), "goal_shift": -0.18, "draw_boost": 1.12,
-                 "clean_sheet_boost": 1.17, "confidence_delta": -3,
-                 "lesson": "07-19芬超复盘：雅罗0-0说明连续客胜零封后不能继续单向追客；提高比分矩阵、0-0与平局分支，仍保留强客0-2条件路径。"},
+    "芬兰超级联赛": {"version": "veikkausliiga-v6-review-0720", "review_sample": 6, "had": .35, "crs": .50, "prior": .15,
+                 "prior_probs": (.38, .31, .31), "goal_shift": -0.16, "draw_boost": 1.14,
+                 "clean_sheet_boost": 1.20, "confidence_delta": -4,
+                 "lesson": "07-20芬超复盘：短休修正不再覆盖市场主方向；提高零封与0-0保护，同时保留落后追分形成1-3的条件尾部。"},
     "巴西甲级联赛": {"version": "brasileirao-v5-audit-0720", "review_sample": 3, "had": .38, "crs": .47, "prior": .15,
                  "prior_probs": (.45, .30, .25), "goal_shift": -0.16, "draw_boost": 1.13,
                  "clean_sheet_boost": 1.09, "confidence_delta": -3,
@@ -60,10 +60,10 @@ COMPETITION_MODELS: dict[str, dict[str, Any]] = {
                 "prior_probs": (.44, .27, .29), "goal_shift": .08, "draw_boost": 1.02,
                 "clean_sheet_boost": 1.02, "confidence_delta": -1,
                 "lesson": "欧战资格赛独立校准：结合两回合追分状态扩展晚段进球。"},
-    "欧洲冠军联赛": {"version": "ucl-qualifying-v3", "had": .44, "crs": .43, "prior": .13,
-                 "prior_probs": (.45, .27, .28), "goal_shift": .04, "draw_boost": 1.03,
-                 "clean_sheet_boost": 1.05, "confidence_delta": 0,
-                 "lesson": "欧冠资格赛独立校准：实力差与晋级策略分别建模。"},
+    "欧洲冠军联赛": {"version": "ucl-qualifying-v4-volatility", "review_sample": 0, "had": .41, "crs": .44, "prior": .15,
+                 "prior_probs": (.44, .29, .27), "goal_shift": .02, "draw_boost": 1.08,
+                 "clean_sheet_boost": 1.08, "confidence_delta": -4,
+                 "lesson": "欧冠资格赛按高波动杯赛处理：强弱差、两回合控节奏、平局保护和大比分追分尾部同时建模；盘口分歧只作风险信号，不据此断言操纵比赛。"},
 }
 EXTRA_MATCHES_BY_DATE = {
     "20260718": ("data/sporttery_20260719_latest.json", "韩国职业联赛")
@@ -162,6 +162,34 @@ def apply_match_context(probabilities: dict[str, float], context: dict[str, Any]
     return normalized(adjusted)
 
 
+def market_volatility_audit(match: dict[str, Any], probabilities: dict[str, float], goal_probs: dict[str, float]) -> dict[str, Any]:
+    """Describe measurable cup volatility without making misconduct allegations."""
+    if match.get("league") != "欧洲冠军联赛":
+        return {
+            "level": "常规",
+            "factors": ["联赛模型按常规盘口与比分矩阵校准"],
+            "confidencePenalty": 0,
+            "note": "未触发杯赛高波动附加层。",
+        }
+    ordered = sorted(probabilities.items(), key=lambda row: row[1], reverse=True)
+    gap = ordered[0][1] - ordered[1][1]
+    low_mass = sum(goal_probs.get(str(i), 0.0) for i in range(3))
+    high_mass = sum(goal_probs.get(str(i), 0.0) for i in range(4, 7)) + goal_probs.get("7+", 0.0)
+    factors = ["杯赛/资格赛存在两回合策略和领先后控节奏路径"]
+    if gap <= .10:
+        factors.append("胜平负方向接近，意外结果风险按平局保护处理")
+    if low_mass >= .42:
+        factors.append("0至2球市场质量较高，保留0-0/1-0式受控比分")
+    if high_mass >= .24:
+        factors.append("4球以上尾部不可忽略，保留追分导致的大比分路径")
+    return {
+        "level": "高" if gap <= .10 or (low_mass >= .42 and high_mass >= .24) else "中高",
+        "factors": factors,
+        "confidencePenalty": -3 if gap <= .10 else -2,
+        "note": "仅依据官方赔率、比分矩阵和总进球分布审计盘口分歧；无公开证据时不认定假球、故意输或故意平。",
+    }
+
+
 def competition_goal_probabilities(match: dict[str, Any], profile: dict[str, Any], context: dict[str, Any]) -> dict[str, float]:
     market = inverse_market(match.get("odds", {}).get("ttg") or {}, tuple(f"s{i}" for i in range(8)))
     if not market:
@@ -248,6 +276,7 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
     market_probabilities = competition_direction_probabilities(match, profile)
     probabilities = apply_match_context(market_probabilities, context)
     goal_probs = competition_goal_probabilities(match, profile, context)
+    volatility = market_volatility_audit(match, probabilities, goal_probs)
     main, backups, tails = competition_score_pool(match, probabilities, goal_probs, profile, context)
     direction = max(probabilities, key=probabilities.get)
     # Public pages intentionally show exactly three confidence-ranked scores:
@@ -264,12 +293,15 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
         "totalGoals": max(goal_probs, key=goal_probs.get),
         "goalCandidates": sorted(goal_probs, key=goal_probs.get, reverse=True)[:3],
         "marketBaselineProbabilities": {key: round(value, 4) for key, value in market_probabilities.items()},
-        "confidenceScore": max(25, min(82, predicted["confidenceScore"] + profile["confidence_delta"] + int(context.get("confidenceDelta", 0)))),
+        "confidenceScore": max(25, min(82, predicted["confidenceScore"] + profile["confidence_delta"] + volatility["confidencePenalty"] + int(context.get("confidenceDelta", 0)))),
         "modelProfile": {**{key: profile[key] for key in ("version", "had", "crs", "prior", "goal_shift", "review_sample", "review_strength")}, "contextLayer": "match-context-v1", "reviewMethod": "12场中性先验收缩"},
         "modelLesson": source_profile["lesson"],
         "contextFactors": {key: context.get(key, "资料不足，保持中性") for key in ("stage", "schedule", "motivation", "weather", "teamNews", "coach", "upsetPath")},
         "contextSources": context.get("sources", []),
-        "reason": context.get("judgement", "赛前情境资料不足，本场不对市场基线作额外修正。"),
+        "marketRiskLevel": volatility["level"],
+        "marketRiskFactors": volatility["factors"],
+        "marketRiskNote": volatility["note"],
+        "reason": context.get("judgement") or f"盘口、比分矩阵与总进球模型综合后主方向为{ {'home': '主胜', 'draw': '平', 'away': '客胜'}[direction] }；未核实的传闻不进入模型。",
     })
     predicted["confidence"] = "高" if predicted["confidenceScore"] >= 65 else "中" if predicted["confidenceScore"] >= 52 else "中低"
     return predicted
@@ -424,9 +456,9 @@ def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
             f'<a href="{esc(row["url"])}">{esc(row["name"])}</a>' for row in m.get("contextSources", [])
         ) or "暂无可核验的额外名单来源"
         hkey, _, _ = hafu_pick(m)
-        cards.append(f'''<section class="match" style="--league:{m['leagueStyle']['color']}"><div class="title"><h3>{esc(m['matchNumStr'])} {esc(m['home'])} vs {esc(m['away'])}</h3><span>{esc(m['leagueStyle']['label'])}</span></div><p><b>北京时间：</b>{esc(m['kickoff'])}　<b>胜平负赔率：</b>{had.get('home','-')} / {had.get('draw','-')} / {had.get('away','-')}</p><p><b>独立模型：</b>{esc(m['modelProfile']['version'])} + 赛前情境层</p><div class="grid"><div><small>胜平负</small><strong>{esc(m['directionText'])}</strong></div><div><small>总进球</small><strong>{esc(m['totalGoals'])}</strong></div><div><small>主比分</small><strong>{esc(m['mainScore'])}</strong></div><div><small>半全场</small><strong>{esc(HAFU_TEXT[hkey])}</strong></div></div><p><b>三个比分（置信度从高到低）：</b>{esc(score_ranking)}</p><div class="factors"><p><b>赛制阶段：</b>{esc(factors['stage'])}</p><p><b>赛程与体能：</b>{esc(factors['schedule'])}</p><p><b>为什么要赢：</b>{esc(factors['motivation'])}</p><p><b>球员与教练：</b>{esc(factors['teamNews'])} {esc(factors['coach'])}</p><p><b>天气：</b>{esc(factors['weather'])}</p><p><b>颠倒路径：</b>{esc(factors['upsetPath'])}</p></div><p><b>综合判断：</b>{esc(m['reason'])}</p><p>尾部审计：{esc(' / '.join(m['tailRiskScores']) or '无额外尾部入选')}；总进球候选：{esc(' / '.join(m['goalCandidates']))}</p><p>情境修正后概率：主 {p['home']:.1%} / 平 {p['draw']:.1%} / 客 {p['away']:.1%}；模型信任度 {m['confidenceScore']}/100。</p><p class="sources"><b>本场资料：</b>{context_sources}</p></section>''')
+        cards.append(f'''<section class="match" style="--league:{m['leagueStyle']['color']}"><div class="title"><h3>{esc(m['matchNumStr'])} {esc(m['home'])} vs {esc(m['away'])}</h3><span>{esc(m['leagueStyle']['label'])}</span></div><p><b>北京时间：</b>{esc(m['kickoff'])}　<b>胜平负赔率：</b>{had.get('home','-')} / {had.get('draw','-')} / {had.get('away','-')}</p><p><b>独立模型：</b>{esc(m['modelProfile']['version'])} + 赛前情境层</p><div class="grid"><div><small>胜平负</small><strong>{esc(m['directionText'])}</strong></div><div><small>总进球</small><strong>{esc(m['totalGoals'])}</strong></div><div><small>主比分</small><strong>{esc(m['mainScore'])}</strong></div><div><small>半全场</small><strong>{esc(HAFU_TEXT[hkey])}</strong></div></div><p><b>三个比分（置信度从高到低）：</b>{esc(score_ranking)}</p><div class="factors"><p><b>赛制阶段：</b>{esc(factors['stage'])}</p><p><b>赛程与体能：</b>{esc(factors['schedule'])}</p><p><b>为什么要赢：</b>{esc(factors['motivation'])}</p><p><b>球员与教练：</b>{esc(factors['teamNews'])} {esc(factors['coach'])}</p><p><b>天气：</b>{esc(factors['weather'])}</p><p><b>颠倒路径：</b>{esc(factors['upsetPath'])}</p></div><p><b>综合判断：</b>{esc(m['reason'])}</p><p><b>盘口波动审计（{esc(m['marketRiskLevel'])}）：</b>{esc('；'.join(m['marketRiskFactors']))}。{esc(m['marketRiskNote'])}</p><p>尾部审计：{esc(' / '.join(m['tailRiskScores']) or '无额外尾部入选')}；总进球候选：{esc(' / '.join(m['goalCandidates']))}</p><p>情境修正后概率：主 {p['home']:.1%} / 平 {p['draw']:.1%} / 客 {p['away']:.1%}；模型信任度 {m['confidenceScore']}/100。</p><p class="sources"><b>本场资料：</b>{context_sources}</p></section>''')
     source_items = "".join(f'<li><a href="{esc(x["url"])}">{esc(x["name"])}</a></li>' for x in payload["sources"])
-    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#116b62"><title>2026-{label}足球预测</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef4f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:24px 16px}}nav a{{margin-right:10px}}h1{{font-size:clamp(30px,5vw,48px)}}.legend span{{display:inline-block;margin:5px;padding:6px 11px;border-left:7px solid var(--c);background:white;border-radius:7px}}.notice,.match,.combo{{background:white;border:1px solid #dce4ea;border-radius:14px;padding:18px;margin:15px 0;box-shadow:0 8px 26px #2336460f}}.match{{border-left:10px solid var(--league)}}.title,.combo h3{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:white;padding:4px 11px;border-radius:99px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f5f8fa;padding:10px;border-radius:8px}}.factors{{background:#f5f8fa;border-radius:10px;padding:10px 14px;margin:12px 0}}.factors p{{margin:5px 0}}.sources{{font-size:13px;color:#657482}}small{{display:block;color:#657482}}strong{{font-size:21px}}.combo{{border-top:6px solid #287d70}}.combo.hafu{{border-top-color:#7a43b6}}.combo.crs{{border-top-color:#b35430}}.combo.ttg{{border-top-color:#355dc5}}.combo.mixed{{border-top-color:#c38b16}}table{{width:100%;border-collapse:collapse}}td{{padding:8px;border-bottom:1px solid #e7ecef}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style><link rel="stylesheet" href="../assets/site.css"></head><body><header><nav><a href="../index.html">日期首页</a><a href="../history/index.html">历史归档</a></nav><h1>{label}足球预测</h1><p>共 {len(payload['matches'])} 场 · 北京时间 · 赔率更新至 {esc(payload['oddsUpdatedAt'])}</p><div class="legend">{legends}</div></header><main>{review_html}{f'<section class="notice"><h2>赛程冲突提示</h2><ul>{warnings}</ul></section>' if warnings else ''}<section class="notice"><h2>模型方法</h2><p>赔率只作为市场基线；逐场再叠加赛制阶段、赛程密度、积分动机、确认过的球员与教练信息、天气及反向赛果路径。赛事复盘参数按12场中性先验做小样本收缩，比分池固定为三个互补路径；未核实的伤停不进入模型。</p></section><section class="notice"><h2>精选n串一</h2><p>仅保留 {len(payload['combos'])} 组：模型信任度高的优先排列，同时保留理论赔率超过 {HIGH_ODDS_THRESHOLD:.0f} 的高赔率组合。包含胜平负、总进球、比分、半全场及混合玩法；信任度仅用于模型横向比较，不等同于命中率。</p></section>{''.join(combos)}<h2>逐场预测</h2>{''.join(cards)}<section class="notice"><h2>赛程与赔率来源</h2><ul>{source_items}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
+    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#116b62"><title>2026-{label}足球预测</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef4f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:24px 16px}}nav a{{margin-right:10px}}h1{{font-size:clamp(30px,5vw,48px)}}.legend span{{display:inline-block;margin:5px;padding:6px 11px;border-left:7px solid var(--c);background:white;border-radius:7px}}.notice,.match,.combo{{background:white;border:1px solid #dce4ea;border-radius:14px;padding:18px;margin:15px 0;box-shadow:0 8px 26px #2336460f}}.match{{border-left:10px solid var(--league)}}.title,.combo h3{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:white;padding:4px 11px;border-radius:99px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f5f8fa;padding:10px;border-radius:8px}}.factors{{background:#f5f8fa;border-radius:10px;padding:10px 14px;margin:12px 0}}.factors p{{margin:5px 0}}.sources{{font-size:13px;color:#657482}}small{{display:block;color:#657482}}strong{{font-size:21px}}.combo{{border-top:6px solid #287d70}}.combo.hafu{{border-top-color:#7a43b6}}.combo.crs{{border-top-color:#b35430}}.combo.ttg{{border-top-color:#355dc5}}.combo.mixed{{border-top-color:#c38b16}}table{{width:100%;border-collapse:collapse}}td{{padding:8px;border-bottom:1px solid #e7ecef}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style><link rel="stylesheet" href="../assets/site.css"></head><body><header><nav><a href="../index.html">日期首页</a><a href="../history/index.html">历史归档</a></nav><h1>{label}足球预测</h1><p>共 {len(payload['matches'])} 场 · 北京时间 · 赔率更新至 {esc(payload['oddsUpdatedAt'])}</p><div class="legend">{legends}</div></header><main>{review_html}{f'<section class="notice"><h2>赛程冲突提示</h2><ul>{warnings}</ul></section>' if warnings else ''}<section class="notice"><h2>模型方法</h2><p>赔率只作为市场基线；逐场再叠加赛制阶段、赛程密度、积分动机、确认过的球员与教练信息、天气及反向赛果路径。赛事复盘参数按12场中性先验做小样本收缩，比分池固定为三个互补路径；杯赛额外检查平局保护、受控小比分与追分大比分。盘口分歧不等于操纵比赛，未核实的传闻和伤停不进入模型。</p></section><section class="notice"><h2>精选n串一</h2><p>仅保留 {len(payload['combos'])} 组，全部理论组合赔率不低于 {MIN_COMBO_ODDS:.0f}，且每串最多一个胜平负选项；模型信任度高的优先排列，同时保留理论赔率超过 {HIGH_ODDS_THRESHOLD:.0f} 的高赔率组合。信任度仅用于模型横向比较，不等同于命中率。</p></section>{''.join(combos)}<h2>逐场预测</h2>{''.join(cards)}<section class="notice"><h2>赛程与赔率来源</h2><ul>{source_items}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
 
 
 def main() -> None:

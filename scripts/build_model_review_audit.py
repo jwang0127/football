@@ -15,6 +15,7 @@ SNAPSHOTS = {
     "20260717": {"commit": "92d6a22", "path": "data/predictions_20260717.json"},
     "20260718": {"commit": "af0536c", "path": "data/predictions_20260718.json"},
     "20260719": {"commit": "7609dac", "path": "data/predictions_20260719.json"},
+    "20260720": {"commit": "0337b8e", "path": "data/predictions_20260720.json"},
 }
 
 
@@ -87,7 +88,7 @@ def render(payload: dict[str, Any]) -> str:
     improvements = "".join(f'<li><b>{esc(row["name"])}</b>：{esc(row["detail"])}</li>' for row in payload["model_improvements"])
     snapshots = "".join(f'<li>{date}：<code>{esc(meta["commit"])}</code> · {esc(meta["path"])}</li>' for date, meta in payload["frozen_snapshots"].items())
     sources = "".join(f'<li><a href="{esc(row["url"])}">{esc(row["name"])}</a></li>' for row in payload["sources"])
-    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>足球预测模型审计</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef3f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.6}}header,main{{max-width:1220px;margin:auto;padding:26px 16px}}h1{{font-size:clamp(32px,5vw,52px)}}.metrics{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}}.metrics div,section{{background:#fff;border:1px solid #dbe5ea;border-radius:14px;padding:16px;margin:14px 0}}.metrics small,.metrics span{{display:block;color:#60717e}}.metrics strong{{font-size:28px}}table{{width:100%;border-collapse:collapse;background:#fff}}th,td{{padding:9px;border-bottom:1px solid #e3e9ed;text-align:left}}.scroll{{overflow:auto}}code{{background:#eef3f6;padding:2px 5px}}@media(max-width:700px){{.metrics{{grid-template-columns:1fr 1fr}}}}</style></head><body><header><nav><a href="../index.html">日期首页</a><a href="../20260720/index.html">当前预测</a></nav><h1>足球预测模型严格审计</h1><p>仅使用可证明为赛前的冻结快照，所有指标按90分钟赛果结算。尾部池、候选总进球和双重机会不计入主指标。</p><div class="metrics">{cards}</div></header><main><section><h2>覆盖与结算口径</h2><p>可审计预测 {payload["coverage"]["settled_predictions"]} 场；校准样本 {payload["coverage"]["calibration_samples"]} 场；缺失或未解决 {payload["coverage"]["missing_or_unresolved"]} 场；本数据集无赛后新增排除。</p><ul>{snapshots}</ul></section><section><h2>分联赛命中率</h2><div class="scroll"><table><thead><tr><th>赛事</th><th>场次</th><th>胜平负</th><th>总进球</th><th>主比分</th><th>前三比分</th></tr></thead><tbody>{league_rows}</tbody></table></div></section><section><h2>本轮模型优化</h2><ul>{improvements}</ul></section><section><h2>可复用条件修正</h2><ul>{lessons}</ul></section><section><h2>全部已结算预测</h2><p>末列依次为：胜平负 / 总进球 / 主比分 / 前三比分池。</p><div class="scroll"><table><thead><tr><th>业务日</th><th>编号</th><th>赛事</th><th>比赛</th><th>90分钟</th><th>主比分</th><th>冻结前三</th><th>命中</th></tr></thead><tbody>{match_rows}</tbody></table></div></section><section><h2>赛果来源</h2><ul>{sources}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
+    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>足球预测模型审计</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef3f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.6}}header,main{{max-width:1220px;margin:auto;padding:26px 16px}}h1{{font-size:clamp(32px,5vw,52px)}}.metrics{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}}.metrics div,section{{background:#fff;border:1px solid #dbe5ea;border-radius:14px;padding:16px;margin:14px 0}}.metrics small,.metrics span{{display:block;color:#60717e}}.metrics strong{{font-size:28px}}table{{width:100%;border-collapse:collapse;background:#fff}}th,td{{padding:9px;border-bottom:1px solid #e3e9ed;text-align:left}}.scroll{{overflow:auto}}code{{background:#eef3f6;padding:2px 5px}}@media(max-width:700px){{.metrics{{grid-template-columns:1fr 1fr}}}}</style></head><body><header><nav><a href="../index.html">日期首页</a><a href="../20260721/index.html">当前预测</a></nav><h1>足球预测模型严格审计</h1><p>仅使用可证明为赛前的冻结快照，所有指标按90分钟赛果结算。尾部池、候选总进球和双重机会不计入主指标。</p><div class="metrics">{cards}</div></header><main><section><h2>覆盖与结算口径</h2><p>可审计预测 {payload["coverage"]["settled_predictions"]} 场；校准样本 {payload["coverage"]["calibration_samples"]} 场；缺失或未解决 {payload["coverage"]["missing_or_unresolved"]} 场；本数据集无赛后新增排除。</p><ul>{snapshots}</ul></section><section><h2>分联赛命中率</h2><div class="scroll"><table><thead><tr><th>赛事</th><th>场次</th><th>胜平负</th><th>总进球</th><th>主比分</th><th>前三比分</th></tr></thead><tbody>{league_rows}</tbody></table></div></section><section><h2>本轮模型优化</h2><ul>{improvements}</ul></section><section><h2>可复用条件修正</h2><ul>{lessons}</ul></section><section><h2>全部已结算预测</h2><p>末列依次为：胜平负 / 总进球 / 主比分 / 前三比分池。</p><div class="scroll"><table><thead><tr><th>业务日</th><th>编号</th><th>赛事</th><th>比赛</th><th>90分钟</th><th>主比分</th><th>冻结前三</th><th>命中</th></tr></thead><tbody>{match_rows}</tbody></table></div></section><section><h2>赛果来源</h2><ul>{sources}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
 
 
 def main() -> None:
@@ -95,7 +96,7 @@ def main() -> None:
     parser.add_argument("--root", default=str(ROOT))
     args = parser.parse_args()
     root = Path(args.root).resolve()
-    results_payload = json.loads((root / "data" / "settled_results_20260717_20260719.json").read_text(encoding="utf-8"))
+    results_payload = json.loads((root / "data" / "settled_results_20260717_20260720.json").read_text(encoding="utf-8"))
     results = {str(row["matchId"]): row for row in results_payload["results"]}
     rows: list[dict[str, Any]] = []
     archived_ids: set[str] = set()
@@ -141,7 +142,7 @@ def main() -> None:
         grouped[row["competition"]].append(row)
     source_map = {(row["source"], row["url"]) for row in results_payload["results"]}
     payload = {
-        "title": "2026-07-17至2026-07-19足球预测冻结快照审计",
+        "title": "2026-07-17至2026-07-20足球预测冻结快照审计",
         "settlement_basis": results_payload["settlementBasis"],
         "coverage": {
             "archived_predictions": len(archived_ids),
@@ -174,7 +175,7 @@ def main() -> None:
         "sources": [{"name": name, "url": url} for name, url in sorted(source_map)],
         "disclaimer": DISCLAIMER,
     }
-    out_json = root / "data" / "model_review_audit_20260720.json"
+    out_json = root / "data" / "model_review_audit_20260721.json"
     out_json.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     out_dir = root / "accuracy"
     out_dir.mkdir(exist_ok=True)

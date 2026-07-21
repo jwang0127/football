@@ -33,9 +33,11 @@ def load_daily_rows(root: Path = ROOT) -> list[dict[str, Any]]:
         payload = json.loads(path.read_text(encoding="utf-8-sig"))
         matches = payload.get("matches", [])
         leagues = list(dict.fromkeys(row.get("league", "") for row in matches if row.get("league")))
+        date_kind = "赛事日" if payload.get("dateBasis") == "UEFA赛事官方日期" else "竞彩业务日"
         rows.append({
             "date": compact,
             "label": datetime.strptime(compact, "%Y%m%d").strftime("%Y-%m-%d"),
+            "dateKind": date_kind,
             "href": f"{compact}/index.html",
             "description": f"{len(matches)} 场 · {' / '.join(leagues) if leagues else '赛程预测'}",
         })
@@ -53,6 +55,7 @@ def load_daily_rows(root: Path = ROOT) -> list[dict[str, Any]]:
         rows.append({
             "date": compact,
             "label": datetime.strptime(compact, "%Y%m%d").strftime("%Y-%m-%d"),
+            "dateKind": "历史比赛日",
             "href": f"{compact}/index.html",
             "description": f"{len(matches)} 场 · {' / '.join(leagues) if leagues else '历史单日预测'}",
         })
@@ -67,7 +70,7 @@ def render(root: Path = ROOT) -> str:
         badge = "最新更新" if index == 0 else "每日预测"
         items.append(
             f'<a class="date-row" href="{esc(row["href"])}"><span class="badge">{badge}</span>'
-            f'<h2>竞彩业务日 {esc(row["label"])}</h2><p>{esc(row["description"])}</p><b>预测、复盘与串关 →</b></a>'
+            f'<h2>{esc(row["dateKind"])} {esc(row["label"])}</h2><p>{esc(row["description"])}</p><b>预测、复盘与串关 →</b></a>'
         )
     for folder, label, description in ARCHIVES:
         if (root / folder / "index.html").exists():
@@ -75,7 +78,7 @@ def render(root: Path = ROOT) -> str:
                 f'<a class="date-row" href="{folder}/index.html"><span class="badge">历史存档</span>'
                 f'<h2>{label}</h2><p>{esc(description)}</p><b>查看历史页面 →</b></a>'
             )
-    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#116b62"><title>足球预测日期首页</title><link rel="stylesheet" href="assets/site.css"></head><body><header><h1>足球预测</h1><p class="lead">按 Sporttery 竞彩业务日倒序排列；每日页面开头包含上一业务日复盘，随后是当日预测与串关。</p></header><main><section class="date-list">{''.join(items)}</section><a class="history" href="history/index.html">进入完整历史归档 →</a></main><footer>{DISCLAIMER}</footer></body></html>'''
+    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#116b62"><title>足球预测日期首页</title><link rel="stylesheet" href="assets/site.css"></head><body><header><h1>足球预测</h1><p class="lead">按日期倒序排列；竞彩页面沿用 Sporttery 业务日，杯赛专题页按赛事官方日期展示，页面内均标注具体数据口径。</p></header><main><section class="date-list">{''.join(items)}</section><a class="history" href="history/index.html">进入完整历史归档 →</a></main><footer>{DISCLAIMER}</footer></body></html>'''
 
 
 def generate_homepage(root: Path = ROOT) -> Path:

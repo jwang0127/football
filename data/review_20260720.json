@@ -1,0 +1,26 @@
+{
+  "date": "20260720",
+  "summary": {"matches": 4, "directionHits": 1, "totalGoalHits": 0, "exactScoreHits": 0, "scorePoolHits": 1},
+  "byCompetition": {
+    "芬兰超级联赛": {
+      "modelUpdate": "veikkausliiga-v6-review-0720：继续收缩主客方向，提升零封与0-0保护，并把欧战短休影响限制为条件变量。",
+      "matches": [
+        {"match": "周一201 TPS图尔库 vs 坦佩雷山猫", "result": "1-3", "prediction": "主胜；2-1 / 2-0 / 1-1；3球", "directionHit": false, "goalHit": false, "exactHit": false, "poolHit": false, "lesson": "情境层对短休影响给权过高；客队效率与主队追分可形成1-3大比分尾部。"},
+        {"match": "周一202 玛丽港 vs 拉赫蒂", "result": "0-2", "prediction": "客胜；1-2 / 0-2 / 1-1；3球", "directionHit": true, "goalHit": false, "exactHit": false, "poolHit": true, "lesson": "客胜零封分支有效，但总进球主选不应机械跟随3球中心。"}
+      ]
+    },
+    "瑞典超级联赛": {
+      "modelUpdate": "allsvenskan-v8-review-0720：强客低赔仍需0-0保护；叙述层与最终方向强制一致，均势盘提高2-2分支。",
+      "matches": [
+        {"match": "周一203 厄尔格里特 vs 佐加顿斯", "result": "0-0", "prediction": "客胜；1-2 / 0-2 / 1-1；3球", "directionHit": false, "goalHit": false, "exactHit": false, "poolHit": false, "lesson": "低赔强客并不排除杯赛式控节奏；当0至1球质量足够时把0-0提升到前三。"},
+        {"match": "周一204 卡尔马 vs 马尔默", "result": "2-2", "prediction": "主胜；2-1 / 1-0 / 1-1；3球", "directionHit": false, "goalHit": false, "exactHit": false, "poolHit": false, "lesson": "模型说明曾偏向平局而输出仍为主胜；今后理由由最终方向生成，均势盘保留2-2。"}
+      ]
+    }
+  },
+  "sources": [
+    {"name": "FC Lahti官方：玛丽港0-2拉赫蒂", "url": "https://www.fclahti.fi/uutiset/forenomin-otteluraportti-kolmas-perakkainen/"},
+    {"name": "ESPN瑞超07-20记分牌", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260720"},
+    {"name": "365Scores：TPS 1-3 Ilves", "url": "https://www.365scores.com/football/match/veikkausliiga-110/ilves-tps-1269-1278-110"}
+  ],
+  "disclaimer": "以上仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。"
+}
