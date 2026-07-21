@@ -5,7 +5,7 @@
     "2026-07-21"
   ],
   "modelVersion": "competition-specific-contextual-20260721-v9-audit-shrinkage",
-  "contextVersion": "match-context-v1",
+  "contextVersion": "integrated-simulation-v2-20260721",
   "competitionModels": {
     "韩国职业联赛": {
       "version": "k-league-v6-audit-0720",
@@ -128,7 +128,7 @@
       }
     ]
   },
-  "generatedAt": "2026-07-21T13:36:33",
+  "generatedAt": "2026-07-21T14:46:32",
   "oddsUpdatedAt": "2026-07-21 13:22:11",
   "matches": [
     {
@@ -278,6 +278,11 @@
       ],
       "marketRiskNote": "未触发杯赛高波动附加层。",
       "businessDate": "2026-07-21",
+      "halfFullKey": "da",
+      "halfFullText": "平/负",
+      "halfFullOdds": 4.35,
+      "integratedAnalysis": "结合体彩胜平负赔率4.20 / 3.05 / 1.78、官方比分矩阵、总进球分布与[韩职8]、[韩职2]进行联合模拟，模型主方向为客胜，总进球重点为2球，比分依次关注0-1 / 1-2 / 1-1。半全场采用平/负，对应赔率4.35；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -427,6 +432,11 @@
       ],
       "marketRiskNote": "未触发杯赛高波动附加层。",
       "businessDate": "2026-07-21",
+      "halfFullKey": "dh",
+      "halfFullText": "平/胜",
+      "halfFullOdds": 4.7,
+      "integratedAnalysis": "结合体彩胜平负赔率1.91 / 3.25 / 3.35、官方比分矩阵、总进球分布与[韩职3]、[韩职9]进行联合模拟，模型主方向为主胜，总进球重点为2球，比分依次关注2-1 / 1-0 / 1-1。半全场采用平/胜，对应赔率4.70；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -576,6 +586,11 @@
       ],
       "marketRiskNote": "未触发杯赛高波动附加层。",
       "businessDate": "2026-07-21",
+      "halfFullKey": "dh",
+      "halfFullText": "平/胜",
+      "halfFullOdds": 4.8,
+      "integratedAnalysis": "结合体彩胜平负赔率1.88 / 3.15 / 3.60、官方比分矩阵、总进球分布与[韩职4]、[韩职7]进行联合模拟，模型主方向为主胜，总进球重点为2球，比分依次关注2-1 / 2-0 / 1-1。半全场采用平/胜，对应赔率4.80；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -594,29 +609,29 @@
       "homeRank": "[巴甲11]",
       "awayRank": "[巴甲6]",
       "probabilities": {
-        "home": 0.4456,
-        "draw": 0.2779,
-        "away": 0.2765
+        "home": 0.4952,
+        "draw": 0.2769,
+        "away": 0.2279
       },
       "direction": "home",
       "directionText": "主胜",
-      "mainScore": "2-1",
+      "mainScore": "2-0",
       "backupScores": [
-        "1-0",
-        "1-1"
+        "2-1",
+        "1-2"
       ],
       "tailRiskScores": [
         "3-0",
         "2-2",
         "0-0"
       ],
-      "totalGoals": "2",
+      "totalGoals": "3",
       "goalCandidates": [
-        "2",
         "3",
+        "2",
         "4"
       ],
-      "confidenceScore": 46,
+      "confidenceScore": 44,
       "confidence": "中低",
       "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -725,6 +740,11 @@
       ],
       "marketRiskNote": "未触发杯赛高波动附加层。",
       "businessDate": "2026-07-21",
+      "halfFullKey": "dh",
+      "halfFullText": "平/胜",
+      "halfFullOdds": 5.0,
+      "integratedAnalysis": "图片情境假设米内罗竞技即使部分外援缺席，主场组织和压迫仍较稳定，而巴伊亚客场防线存在被连续冲击的模拟风险；叠加体彩2.01 / 3.15 / 3.18的均衡偏主盘，主队并非碾压，但主场持续施压更容易在下半场形成差距。模型保留主胜，进球集中2至3球，比分重点2-0 / 2-1 / 1-2；半全场模拟平/胜，防范上半场僵持后主队兑现优势。",
+      "analysisBasis": "体彩官方赔率 + 用户图片文字模拟；外援缺席和防线情况未作独立新闻核验。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -743,16 +763,16 @@
       "homeRank": "",
       "awayRank": "",
       "probabilities": {
-        "home": 0.5943,
-        "draw": 0.2228,
-        "away": 0.1829
+        "home": 0.6305,
+        "draw": 0.2213,
+        "away": 0.1482
       },
       "direction": "home",
       "directionText": "主胜",
-      "mainScore": "2-1",
+      "mainScore": "1-0",
       "backupScores": [
         "2-0",
-        "3-0"
+        "2-1"
       ],
       "tailRiskScores": [
         "2-2",
@@ -765,8 +785,8 @@
         "2",
         "4"
       ],
-      "confidenceScore": 65,
-      "confidence": "高",
+      "confidenceScore": 62,
+      "confidence": "中",
       "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
@@ -875,6 +895,11 @@
       ],
       "marketRiskNote": "仅依据官方赔率、比分矩阵和总进球分布审计盘口分歧；无公开证据时不认定假球、故意输或故意平。",
       "businessDate": "2026-07-21",
+      "halfFullKey": "hh",
+      "halfFullText": "胜/胜",
+      "halfFullOdds": 2.0,
+      "integratedAnalysis": "图片情境假设双方主力框架较完整，但库奥皮奥连续赛程后客场更偏保守，萨巴赫的主场压迫和先手能力因此得到额外权重；体彩1.43的主胜基线本就明显，模拟层只加强赢球路径，不把低赔率等同于必胜。模型方向主胜，总进球关注2至3球，比分重点1-0 / 2-0 / 2-1；半全场模拟胜/胜，若主队迟迟无法破门则1-1是主要反向风险。",
+      "analysisBasis": "体彩官方赔率 + 用户图片文字模拟；阵容完整度、轮换伤病和客队体能未作独立新闻核验。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -893,21 +918,21 @@
       "homeRank": "",
       "awayRank": "",
       "probabilities": {
-        "home": 0.4758,
-        "draw": 0.2695,
-        "away": 0.2546
+        "home": 0.2698,
+        "draw": 0.3156,
+        "away": 0.4146
       },
-      "direction": "home",
-      "directionText": "主胜",
-      "mainScore": "2-1",
+      "direction": "away",
+      "directionText": "客胜",
+      "mainScore": "0-1",
       "backupScores": [
-        "2-0",
-        "1-1"
+        "1-1",
+        "1-2"
       ],
       "tailRiskScores": [
         "3-0",
-        "0-0",
-        "2-2"
+        "2-2",
+        "1-3"
       ],
       "totalGoals": "2",
       "goalCandidates": [
@@ -915,9 +940,9 @@
         "3",
         "1"
       ],
-      "confidenceScore": 53,
-      "confidence": "中",
-      "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
+      "confidenceScore": 44,
+      "confidence": "中低",
+      "reason": "盘口、比分矩阵与总进球模型综合后主方向为客胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -1018,13 +1043,19 @@
         "upsetPath": "资料不足，保持中性"
       },
       "contextSources": [],
-      "marketRiskLevel": "中高",
+      "marketRiskLevel": "高",
       "marketRiskFactors": [
         "杯赛/资格赛存在两回合策略和领先后控节奏路径",
+        "胜平负方向接近，意外结果风险按平局保护处理",
         "0至2球市场质量较高，保留0-0/1-0式受控比分"
       ],
       "marketRiskNote": "仅依据官方赔率、比分矩阵和总进球分布审计盘口分歧；无公开证据时不认定假球、故意输或故意平。",
       "businessDate": "2026-07-21",
+      "halfFullKey": "da",
+      "halfFullText": "平/负",
+      "halfFullOdds": 8.0,
+      "integratedAnalysis": "图片情境假设奥胡斯多名国脚休战导致进攻受限，而波兹南莱赫在阵容价值、欧战经验和高位压迫方面更占优；这与体彩1.86 / 3.20 / 3.60的主胜表面基线存在分歧，因此按杯赛高波动处理，不直接跟随主队低赔。模拟层将方向调整为客胜并重点防平，总进球2至3球，比分关注0-1 / 1-1 / 1-2；半全场模拟平/负，表示上半场均势、客队后程利用经验取得结果。",
+      "analysisBasis": "体彩官方赔率 + 用户图片文字模拟；国脚休战、身价和欧战经验等说法未作独立新闻核验。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -1043,21 +1074,21 @@
       "homeRank": "",
       "awayRank": "",
       "probabilities": {
-        "home": 0.4852,
-        "draw": 0.2544,
-        "away": 0.2604
+        "home": 0.5696,
+        "draw": 0.235,
+        "away": 0.1954
       },
       "direction": "home",
       "directionText": "主胜",
-      "mainScore": "2-1",
+      "mainScore": "2-0",
       "backupScores": [
-        "2-0",
-        "1-1"
+        "2-1",
+        "3-1"
       ],
       "tailRiskScores": [
-        "3-0",
         "2-2",
-        "0-0"
+        "0-0",
+        "1-3"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -1065,8 +1096,8 @@
         "2",
         "4"
       ],
-      "confidenceScore": 53,
-      "confidence": "中",
+      "confidenceScore": 49,
+      "confidence": "中低",
       "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
@@ -1168,14 +1199,18 @@
         "upsetPath": "资料不足，保持中性"
       },
       "contextSources": [],
-      "marketRiskLevel": "高",
+      "marketRiskLevel": "中高",
       "marketRiskFactors": [
         "杯赛/资格赛存在两回合策略和领先后控节奏路径",
-        "0至2球市场质量较高，保留0-0/1-0式受控比分",
         "4球以上尾部不可忽略，保留追分导致的大比分路径"
       ],
       "marketRiskNote": "仅依据官方赔率、比分矩阵和总进球分布审计盘口分歧；无公开证据时不认定假球、故意输或故意平。",
       "businessDate": "2026-07-21",
+      "halfFullKey": "hh",
+      "halfFullText": "胜/胜",
+      "halfFullOdds": 2.9,
+      "integratedAnalysis": "图片情境假设哈茨存在主力转会、后场核心长期伤缺和新援磨合不足，格拉茨风暴阵容完整度及主场压制更好；体彩1.83 / 3.45 / 3.42也支持主队占优，但杯赛仍需防止对攻放大方差。模型方向主胜，总进球重点3球并保留4球尾部，比分关注2-0 / 2-1 / 3-1；半全场模拟胜/胜，若主队压迫效率下降则1-1是首要保护。",
+      "analysisBasis": "体彩官方赔率 + 用户图片文字模拟；转会、长期伤缺和新援磨合情况未作独立新闻核验。",
       "marketBasis": "官方胜平负赔率"
     }
   ],
@@ -1191,7 +1226,7 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.43,
-          "probability": 0.5943
+          "probability": 0.6305
         },
         {
           "matchId": "2040580",
@@ -1213,7 +1248,7 @@
         }
       ],
       "productOdds": 15.05,
-      "trustScore": 34,
+      "trustScore": 35,
       "rank": 1
     },
     {
@@ -1227,7 +1262,7 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.43,
-          "probability": 0.5943
+          "probability": 0.6305
         },
         {
           "matchId": "2040581",
@@ -1239,16 +1274,16 @@
           "probability": 0.30303030303030304
         },
         {
-          "matchId": "2040601",
-          "match": "周二206 奥胡斯 vs 波兹南莱赫",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.25,
-          "probability": 0.3076923076923077
+          "matchId": "2040583",
+          "match": "周二204 米内罗竞技 vs 巴伊亚",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 3.2,
+          "probability": 0.3
         }
       ],
-      "productOdds": 15.34,
+      "productOdds": 15.1,
       "trustScore": 34,
       "rank": 2
     },
@@ -1263,11 +1298,11 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.43,
-          "probability": 0.5943
+          "probability": 0.6305
         },
         {
-          "matchId": "2040583",
-          "match": "周二204 米内罗竞技 vs 巴伊亚",
+          "matchId": "2040581",
+          "match": "周二202 全北现代 vs 大田市民",
           "market": "ttg",
           "marketText": "总进球",
           "pick": "2",
@@ -1299,7 +1334,43 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.43,
-          "probability": 0.5943
+          "probability": 0.6305
+        },
+        {
+          "matchId": "2040580",
+          "match": "周二201 济州SK vs 江原FC",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.05,
+          "probability": 0.3278688524590164
+        },
+        {
+          "matchId": "2040583",
+          "match": "周二204 米内罗竞技 vs 巴伊亚",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.55,
+          "probability": 0.28169014084507044
+        }
+      ],
+      "productOdds": 15.48,
+      "trustScore": 34,
+      "rank": 4
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040595",
+          "match": "周二205 萨巴赫 vs 库奥皮奥",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.43,
+          "probability": 0.6305
         },
         {
           "matchId": "2040582",
@@ -1321,42 +1392,6 @@
         }
       ],
       "productOdds": 15.54,
-      "trustScore": 34,
-      "rank": 4
-    },
-    {
-      "name": "混合3串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040595",
-          "match": "周二205 萨巴赫 vs 库奥皮奥",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.43,
-          "probability": 0.5943
-        },
-        {
-          "matchId": "2040581",
-          "match": "周二202 全北现代 vs 大田市民",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.3,
-          "probability": 0.30303030303030304
-        },
-        {
-          "matchId": "2040583",
-          "match": "周二204 米内罗竞技 vs 巴伊亚",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.3,
-          "probability": 0.30303030303030304
-        }
-      ],
-      "productOdds": 15.57,
       "trustScore": 34,
       "rank": 5
     },
@@ -1455,11 +1490,11 @@
           "probability": 0.31746031746031744
         },
         {
-          "matchId": "2040583",
-          "match": "周二204 米内罗竞技 vs 巴伊亚",
+          "matchId": "2040595",
+          "match": "周二205 萨巴赫 vs 库奥皮奥",
           "market": "ttg",
           "marketText": "总进球",
-          "pick": "2",
+          "pick": "3",
           "odds": 3.3,
           "probability": 0.30303030303030304
         }
@@ -1482,25 +1517,25 @@
           "probability": 0.3278688524590164
         },
         {
-          "matchId": "2040582",
-          "match": "周二203 蔚山现代 vs 仁川联",
+          "matchId": "2040581",
+          "match": "周二202 全北现代 vs 大田市民",
           "market": "ttg",
           "marketText": "总进球",
           "pick": "2",
-          "odds": 3.15,
-          "probability": 0.31746031746031744
-        },
-        {
-          "matchId": "2040595",
-          "match": "周二205 萨巴赫 vs 库奥皮奥",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
           "odds": 3.3,
           "probability": 0.30303030303030304
+        },
+        {
+          "matchId": "2040601",
+          "match": "周二206 奥胡斯 vs 波兹南莱赫",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.25,
+          "probability": 0.3076923076923077
         }
       ],
-      "productOdds": 31.7,
+      "productOdds": 32.71,
       "trustScore": 28,
       "rank": 9
     },
@@ -1518,11 +1553,11 @@
           "probability": 0.3278688524590164
         },
         {
-          "matchId": "2040581",
-          "match": "周二202 全北现代 vs 大田市民",
+          "matchId": "2040595",
+          "match": "周二205 萨巴赫 vs 库奥皮奥",
           "market": "ttg",
           "marketText": "总进球",
-          "pick": "2",
+          "pick": "3",
           "odds": 3.3,
           "probability": 0.30303030303030304
         },
