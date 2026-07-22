@@ -500,7 +500,7 @@ function Should-UseLivePrediction {
 }
 
 if (-not $OutFile) {
-  $OutFile = Join-Path (Get-RootDir) ("data\" + $Date + ".json")
+  $OutFile = Join-Path (Get-RootDir) ("data" + [IO.Path]::DirectorySeparatorChar + $Date + ".json")
 }
 
 if ((Test-Path $OutFile) -and -not $Force -and -not $MergeExisting) {
