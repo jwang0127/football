@@ -62,40 +62,40 @@
       "review_strength": 0.1429
     },
     "巴西甲级联赛": {
-      "version": "brasileirao-v5-audit-0720",
-      "review_sample": 3,
-      "had": 0.396,
-      "crs": 0.454,
-      "prior": 0.15,
+      "version": "brasileirao-v6-review-0721",
+      "review_sample": 1,
+      "had": 0.39692307692307693,
+      "crs": 0.45153846153846156,
+      "prior": 0.15153846153846154,
       "prior_probs": [
-        0.45,
-        0.3,
-        0.25
+        0.43,
+        0.31,
+        0.26
       ],
-      "goal_shift": -0.032,
-      "draw_boost": 1.026,
-      "clean_sheet_boost": 1.018,
-      "confidence_delta": -1,
-      "lesson": "07-17巴甲复盘：2-0/1-1/2-1，复赛阶段提高受控比分与平局。",
-      "review_strength": 0.2
+      "goal_shift": -0.007692307692307693,
+      "draw_boost": 1.0123076923076924,
+      "clean_sheet_boost": 1.006923076923077,
+      "confidence_delta": 0,
+      "lesson": "07-21巴甲复盘：米内罗竞技1-1巴伊亚，主胜锚定未覆盖平局；单场样本仅轻量提升1-1与平局保护，继续小样本收缩。",
+      "review_strength": 0.0769
     },
     "欧洲冠军联赛": {
-      "version": "ucl-qualifying-v4-volatility",
-      "review_sample": 0,
-      "had": 0.4,
-      "crs": 0.45,
-      "prior": 0.15,
+      "version": "ucl-qualifying-v5-review-0721",
+      "review_sample": 3,
+      "had": 0.398,
+      "crs": 0.448,
+      "prior": 0.154,
       "prior_probs": [
         0.44,
         0.29,
         0.27
       ],
-      "goal_shift": 0.0,
-      "draw_boost": 1.0,
-      "clean_sheet_boost": 1.0,
-      "confidence_delta": 0,
-      "lesson": "欧冠资格赛按高波动杯赛处理：强弱差、两回合控节奏、平局保护和大比分追分尾部同时建模；盘口分歧只作风险信号，不据此断言操纵比赛。",
-      "review_strength": 0.0
+      "goal_shift": 0.020000000000000004,
+      "draw_boost": 1.012,
+      "clean_sheet_boost": 1.016,
+      "confidence_delta": -1,
+      "lesson": "07-21欧冠资格赛复盘：1-0、1-4、4-0，方向2/3但总进球0/3；扩大4+球与强侧零封/强客4球路径，同时保留低比分控节奏分支。",
+      "review_strength": 0.2
     }
   },
   "competitionReview": {
@@ -142,10 +142,56 @@
         ],
         "summary": "方向0/3、主比分0/3、展示比分池1/3、总进球主选1/3。",
         "modelAdjustment": "韩职升级至k-league-v7-review-0721：降低HAD方向锚定权重，提升低进球0-0/1-1保护；强主胜或客胜赔率集中时，前三比分必须保留一条反向路径。继续使用12场中性先验收缩，避免用单日3场过度改参。"
+      },
+      {
+        "league": "巴西甲级联赛",
+        "results": [
+          {
+            "matchId": "2040583",
+            "matchNumStr": "周二204",
+            "home": "米内罗竞技",
+            "away": "巴伊亚",
+            "score": "1-1",
+            "assessment": "主方向、总进球和前三比分池均未命中；主胜锚定未覆盖平局"
+          }
+        ],
+        "summary": "方向0/1、主比分0/1、展示比分池0/1、总进球主选0/1。",
+        "modelAdjustment": "巴甲升级至brasileirao-v6-review-0721：单场样本只作轻量修正，提升平局保护和1-1路径，不把一场赛果扩散为强参数变化。"
+      },
+      {
+        "league": "欧洲冠军联赛",
+        "results": [
+          {
+            "matchId": "2040595",
+            "matchNumStr": "周二205",
+            "home": "萨巴赫",
+            "away": "库奥皮奥",
+            "score": "1-0",
+            "assessment": "胜平负方向与主比分命中；总进球主选未中"
+          },
+          {
+            "matchId": "2040601",
+            "matchNumStr": "周二206",
+            "home": "奥胡斯",
+            "away": "波兹南莱赫",
+            "score": "1-4",
+            "assessment": "客胜方向命中；总进球和前三比分池均未覆盖高比分"
+          },
+          {
+            "matchId": "2040602",
+            "matchNumStr": "周二207",
+            "home": "格拉茨风暴",
+            "away": "哈茨",
+            "score": "4-0",
+            "assessment": "主胜方向命中；总进球和前三比分池均未覆盖4球零封"
+          }
+        ],
+        "summary": "方向2/3、主比分1/3、展示比分池1/3、总进球主选0/3。",
+        "modelAdjustment": "欧冠资格赛升级至ucl-qualifying-v5-review-0721：两回合高波动场景扩大4+球与1-4型比分分支，保留低比分控节奏路径；继续将90分钟赛果与晋级判断分开。"
       }
     ]
   },
-  "generatedAt": "2026-07-22T15:39:54",
+  "generatedAt": "2026-07-22T15:50:48",
   "oddsUpdatedAt": "2026-07-22 15:37:03",
   "matches": [
     {
@@ -1083,15 +1129,15 @@
       "homeRank": "[巴甲20]",
       "awayRank": "[巴甲2]",
       "probabilities": {
-        "home": 0.1918,
-        "draw": 0.2196,
-        "away": 0.5886
+        "home": 0.1897,
+        "draw": 0.219,
+        "away": 0.5913
       },
       "direction": "away",
       "directionText": "客胜",
-      "mainScore": "0-2",
+      "mainScore": "1-2",
       "backupScores": [
-        "1-2",
+        "0-2",
         "0-1"
       ],
       "tailRiskScores": [
@@ -1105,7 +1151,7 @@
         "2",
         "4"
       ],
-      "confidenceScore": 67,
+      "confidenceScore": 68,
       "confidence": "高",
       "reason": "盘口、比分矩阵与总进球模型综合后主方向为客胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -1182,22 +1228,22 @@
         }
       },
       "marketBaselineProbabilities": {
-        "home": 0.1918,
-        "draw": 0.2196,
-        "away": 0.5886
+        "home": 0.1897,
+        "draw": 0.219,
+        "away": 0.5913
       },
       "modelProfile": {
-        "version": "brasileirao-v5-audit-0720",
-        "had": 0.396,
-        "crs": 0.454,
-        "prior": 0.15,
-        "goal_shift": -0.032,
-        "review_sample": 3,
-        "review_strength": 0.2,
+        "version": "brasileirao-v6-review-0721",
+        "had": 0.39692307692307693,
+        "crs": 0.45153846153846156,
+        "prior": 0.15153846153846154,
+        "goal_shift": -0.007692307692307693,
+        "review_sample": 1,
+        "review_strength": 0.0769,
         "contextLayer": "match-context-v1",
         "reviewMethod": "12场中性先验收缩"
       },
-      "modelLesson": "07-17巴甲复盘：2-0/1-1/2-1，复赛阶段提高受控比分与平局。",
+      "modelLesson": "07-21巴甲复盘：米内罗竞技1-1巴伊亚，主胜锚定未覆盖平局；单场样本仅轻量提升1-1与平局保护，继续小样本收缩。",
       "contextFactors": {
         "stage": "资料不足，保持中性",
         "schedule": "资料不足，保持中性",
@@ -1217,7 +1263,7 @@
       "halfFullKey": "aa",
       "halfFullText": "负/负",
       "halfFullOdds": 1.9,
-      "integratedAnalysis": "结合体彩胜平负赔率6.55 / 4.45 / 1.33、官方比分矩阵、总进球分布与[巴甲20]、[巴甲2]进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注0-2 / 1-2 / 0-1。半全场采用负/负，对应赔率1.90；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率6.55 / 4.45 / 1.33、官方比分矩阵、总进球分布与[巴甲20]、[巴甲2]进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注1-2 / 0-2 / 0-1。半全场采用负/负，对应赔率1.90；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
       "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -1237,9 +1283,9 @@
       "homeRank": "[巴甲8]",
       "awayRank": "[巴甲5]",
       "probabilities": {
-        "home": 0.4785,
-        "draw": 0.2766,
-        "away": 0.245
+        "home": 0.4771,
+        "draw": 0.2755,
+        "away": 0.2473
       },
       "direction": "home",
       "directionText": "主胜",
@@ -1259,8 +1305,8 @@
         "3",
         "1"
       ],
-      "confidenceScore": 51,
-      "confidence": "中低",
+      "confidenceScore": 52,
+      "confidence": "中",
       "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
@@ -1336,22 +1382,22 @@
         }
       },
       "marketBaselineProbabilities": {
-        "home": 0.4785,
-        "draw": 0.2766,
-        "away": 0.245
+        "home": 0.4771,
+        "draw": 0.2755,
+        "away": 0.2473
       },
       "modelProfile": {
-        "version": "brasileirao-v5-audit-0720",
-        "had": 0.396,
-        "crs": 0.454,
-        "prior": 0.15,
-        "goal_shift": -0.032,
-        "review_sample": 3,
-        "review_strength": 0.2,
+        "version": "brasileirao-v6-review-0721",
+        "had": 0.39692307692307693,
+        "crs": 0.45153846153846156,
+        "prior": 0.15153846153846154,
+        "goal_shift": -0.007692307692307693,
+        "review_sample": 1,
+        "review_strength": 0.0769,
         "contextLayer": "match-context-v1",
         "reviewMethod": "12场中性先验收缩"
       },
-      "modelLesson": "07-17巴甲复盘：2-0/1-1/2-1，复赛阶段提高受控比分与平局。",
+      "modelLesson": "07-21巴甲复盘：米内罗竞技1-1巴伊亚，主胜锚定未覆盖平局；单场样本仅轻量提升1-1与平局保护，继续小样本收缩。",
       "contextFactors": {
         "stage": "资料不足，保持中性",
         "schedule": "资料不足，保持中性",
@@ -1545,9 +1591,9 @@
       "homeRank": "",
       "awayRank": "",
       "probabilities": {
-        "home": 0.5469,
-        "draw": 0.2445,
-        "away": 0.2086
+        "home": 0.5448,
+        "draw": 0.2469,
+        "away": 0.2083
       },
       "direction": "home",
       "directionText": "主胜",
@@ -1567,7 +1613,7 @@
         "2",
         "4"
       ],
-      "confidenceScore": 61,
+      "confidenceScore": 60,
       "confidence": "中",
       "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -1644,22 +1690,22 @@
         }
       },
       "marketBaselineProbabilities": {
-        "home": 0.5469,
-        "draw": 0.2445,
-        "away": 0.2086
+        "home": 0.5448,
+        "draw": 0.2469,
+        "away": 0.2083
       },
       "modelProfile": {
-        "version": "ucl-qualifying-v4-volatility",
-        "had": 0.4,
-        "crs": 0.45,
-        "prior": 0.15,
-        "goal_shift": 0.0,
-        "review_sample": 0,
-        "review_strength": 0.0,
+        "version": "ucl-qualifying-v5-review-0721",
+        "had": 0.398,
+        "crs": 0.448,
+        "prior": 0.154,
+        "goal_shift": 0.020000000000000004,
+        "review_sample": 3,
+        "review_strength": 0.2,
         "contextLayer": "match-context-v1",
         "reviewMethod": "12场中性先验收缩"
       },
-      "modelLesson": "欧冠资格赛按高波动杯赛处理：强弱差、两回合控节奏、平局保护和大比分追分尾部同时建模；盘口分歧只作风险信号，不据此断言操纵比赛。",
+      "modelLesson": "07-21欧冠资格赛复盘：1-0、1-4、4-0，方向2/3但总进球0/3；扩大4+球与强侧零封/强客4球路径，同时保留低比分控节奏分支。",
       "contextFactors": {
         "stage": "资料不足，保持中性",
         "schedule": "资料不足，保持中性",
@@ -1769,7 +1815,7 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.56,
-          "probability": 0.5469
+          "probability": 0.5448
         },
         {
           "matchId": "2040585",
@@ -1805,7 +1851,7 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.56,
-          "probability": 0.5469
+          "probability": 0.5448
         },
         {
           "matchId": "2040586",
@@ -1841,7 +1887,7 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.56,
-          "probability": 0.5469
+          "probability": 0.5448
         },
         {
           "matchId": "2040584",

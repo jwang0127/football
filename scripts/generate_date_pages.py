@@ -48,10 +48,10 @@ COMPETITION_MODELS: dict[str, dict[str, Any]] = {
                  "prior_probs": (.38, .31, .31), "goal_shift": -0.16, "draw_boost": 1.14,
                  "clean_sheet_boost": 1.20, "confidence_delta": -4,
                  "lesson": "07-20芬超复盘：短休修正不再覆盖市场主方向；提高零封与0-0保护，同时保留落后追分形成1-3的条件尾部。"},
-    "巴西甲级联赛": {"version": "brasileirao-v5-audit-0720", "review_sample": 3, "had": .38, "crs": .47, "prior": .15,
-                 "prior_probs": (.45, .30, .25), "goal_shift": -0.16, "draw_boost": 1.13,
+    "巴西甲级联赛": {"version": "brasileirao-v6-review-0721", "review_sample": 1, "had": .36, "crs": .47, "prior": .17,
+                 "prior_probs": (.43, .31, .26), "goal_shift": -0.10, "draw_boost": 1.16,
                  "clean_sheet_boost": 1.09, "confidence_delta": -3,
-                 "lesson": "07-17巴甲复盘：2-0/1-1/2-1，复赛阶段提高受控比分与平局。"},
+                 "lesson": "07-21巴甲复盘：米内罗竞技1-1巴伊亚，主胜锚定未覆盖平局；单场样本仅轻量提升1-1与平局保护，继续小样本收缩。"},
     "美国职业大联盟": {"version": "mls-v5-audit-0720", "review_sample": 2, "had": .41, "crs": .45, "prior": .14,
                  "prior_probs": (.43, .25, .32), "goal_shift": -0.05, "draw_boost": .98,
                  "clean_sheet_boost": 1.18, "confidence_delta": -3,
@@ -60,10 +60,10 @@ COMPETITION_MODELS: dict[str, dict[str, Any]] = {
                 "prior_probs": (.44, .27, .29), "goal_shift": .08, "draw_boost": 1.02,
                 "clean_sheet_boost": 1.02, "confidence_delta": -1,
                 "lesson": "欧战资格赛独立校准：结合两回合追分状态扩展晚段进球。"},
-    "欧洲冠军联赛": {"version": "ucl-qualifying-v4-volatility", "review_sample": 0, "had": .41, "crs": .44, "prior": .15,
-                 "prior_probs": (.44, .29, .27), "goal_shift": .02, "draw_boost": 1.08,
+    "欧洲冠军联赛": {"version": "ucl-qualifying-v5-review-0721", "review_sample": 3, "had": .39, "crs": .44, "prior": .17,
+                 "prior_probs": (.44, .29, .27), "goal_shift": .10, "draw_boost": 1.06,
                  "clean_sheet_boost": 1.08, "confidence_delta": -4,
-                 "lesson": "欧冠资格赛按高波动杯赛处理：强弱差、两回合控节奏、平局保护和大比分追分尾部同时建模；盘口分歧只作风险信号，不据此断言操纵比赛。"},
+                 "lesson": "07-21欧冠资格赛复盘：1-0、1-4、4-0，方向2/3但总进球0/3；扩大4+球与强侧零封/强客4球路径，同时保留低比分控节奏分支。"},
 }
 EXTRA_MATCHES_BY_DATE = {
     "20260718": ("data/sporttery_20260719_latest.json", "韩国职业联赛")

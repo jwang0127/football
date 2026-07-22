@@ -104,6 +104,10 @@ def main() -> None:
         {"date": "20260721", "matchId": "2040580", "score": "1-1", "source": "K League公开完场赛果", "url": "https://tv.kleague.com/en-int/schedule"},
         {"date": "20260721", "matchId": "2040581", "score": "0-0", "source": "K League公开完场赛果", "url": "https://tv.kleague.com/en-int/schedule"},
         {"date": "20260721", "matchId": "2040582", "score": "1-2", "source": "直播吧赛后报道", "url": "https://news.zhibo8.com/zuqiu/2026-07-21/match1899507date2026vnative.htm"},
+        {"date": "20260721", "matchId": "2040583", "score": "1-1", "source": "米内罗竞技官方赛后报道", "url": "https://atletico.com.br/atletico-empata-com-o-bahia-na-arena-mrv-pelo-brasileirao/"},
+        {"date": "20260721", "matchId": "2040595", "score": "1-0", "source": "FotMob完场赛果", "url": "https://www.fotmob.com/matches/kups-vs-sabah-fktns/qemxfl37"},
+        {"date": "20260721", "matchId": "2040601", "score": "1-4", "source": "波兰通讯社赛后报道", "url": "https://www.pap.pl/aktualnosci/koncertowy-wystep-lecha-poznan-w-el-lm-mistrzowie-danii-pokonani"},
+        {"date": "20260721", "matchId": "2040602", "score": "4-0", "source": "L'Équipe赛程结果", "url": "https://www.lequipe.fr/Football/ligue-des-champions/page-calendrier-general/sturm-graz"},
     ])
     results = {str(row["matchId"]): row for row in results_payload["results"]}
     rows: list[dict[str, Any]] = []
