@@ -1,0 +1,27 @@
+{
+  "reviewDate": "07-22",
+  "source": "俱乐部官方赛果、巴西足协、挪威足协及公开完场报道交叉核对",
+  "sources": [
+    {"name": "Bodø/Glimt官方赛果", "url": "https://www.glimt.no/resultater"},
+    {"name": "巴西足协：São Paulo vs Athletico-PR", "url": "https://www.cbf.com.br/futebol-brasileiro/jogos/campeonato-brasileiro/serie-a/2026/sao-paulo-x-athletico-paranaense/832072"},
+    {"name": "Inter Miami官方比赛页", "url": "https://www.intermiamicf.com/competitions/mls-regular-season/2026/matches/miavschi-07-22-2026/"},
+    {"name": "UEFA资格赛公开赛果页", "url": "https://www.footballwebpages.co.uk/match/2026-2027/uefa-champions-league/omonia-nicosia/kairat-almaty/579004"}
+  ],
+  "reviews": [
+    {"league": "韩国职业联赛", "results": [
+      {"matchId": "2040584", "matchNumStr": "周三201", "home": "首尔FC", "away": "浦项制铁", "score": "3-1", "assessment": "方向命中；总进球与主比分未命中"},
+      {"matchId": "2040585", "matchNumStr": "周三202", "home": "富川FC", "away": "安养FC", "score": "2-3", "assessment": "客胜方向命中；总进球与前三比分未覆盖"},
+      {"matchId": "2040586", "matchNumStr": "周三203", "home": "光州FC", "away": "金泉尚武", "score": "1-1", "assessment": "方向未命中；总进球2命中；平局保护未覆盖"}
+    ], "summary": "方向2/3；总进球1/3；主比分0/3。", "modelAdjustment": "韩国职继续降低单一方向锚定，保留低进球与平局保护，同时对客队追分大比分保留尾部。"},
+    {"league": "挪威超级联赛", "results": [
+      {"matchId": "2040587", "matchNumStr": "周三204", "home": "博德闪耀", "away": "汉坎", "score": "3-0", "assessment": "方向、总进球与主比分均命中"},
+      {"matchId": "2040588", "matchNumStr": "周三205", "home": "利勒斯特罗姆", "away": "维京", "score": "1-2", "assessment": "方向、总进球与主比分均命中"}
+    ], "summary": "方向2/2；总进球2/2；主比分2/2。", "modelAdjustment": "挪超维持当前低比分保护与强客尾部，不因单日全命中过度上调。"},
+    {"league": "美国职业大联盟", "results": [{"matchId": "2040589", "matchNumStr": "周三206", "home": "迈阿密国际", "away": "芝加哥火焰", "score": "3-2", "assessment": "主胜方向命中；总进球与主比分未命中"}], "summary": "方向1/1；总进球0/1；主比分0/1。", "modelAdjustment": "美职保留主胜方向但扩大高进球尾部。"},
+    {"league": "巴西甲级联赛", "results": [
+      {"matchId": "2040590", "matchNumStr": "周三207", "home": "沙佩科恩斯", "away": "弗拉门戈", "score": "0-4", "assessment": "客胜方向命中；总进球与前三比分未覆盖"},
+      {"matchId": "2040591", "matchNumStr": "周三208", "home": "圣保罗", "away": "巴拉纳竞技", "score": "1-2", "assessment": "方向、总进球与前三比分均未命中"}
+    ], "summary": "方向1/2；总进球0/2；主比分0/2。", "modelAdjustment": "巴甲从小样本轻量修正为扩大客队大比分与主场不稳尾部，仍保留1-1/低比分保护，避免把两场样本当成强参数。"},
+    {"league": "欧洲冠军联赛", "results": [{"matchId": "2040596", "matchNumStr": "周三210", "home": "奥莫尼亚", "away": "阿拉木图凯拉特", "score": "1-0", "assessment": "胜平负方向命中；主比分前三未命中；总进球未命中"}], "summary": "方向1/1；总进球0/1；主比分0/1。", "modelAdjustment": "杯赛模型更新至ucl-qualifying-v6-review-0722：保持两回合资格赛的领先后控节奏与低比分路径，同时保留落后方追分尾部；本场样本仅作收缩后的轻量更新。"}
+  ]
+}
