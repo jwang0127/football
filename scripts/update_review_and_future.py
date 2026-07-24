@@ -18,7 +18,7 @@ def update_review_and_future(review_date: str, root: Path = ROOT) -> dict[str, l
     review_day = datetime.strptime(review_date, "%Y%m%d")
     generated: list[str] = []
     skipped: list[str] = []
-    for offset in (1, 2):
+    for offset in (1, 2, 3):
         compact = (review_day + timedelta(days=offset)).strftime("%Y%m%d")
         source = root / "data" / f"sporttery_{compact}_latest.json"
         if not source.exists():

@@ -1,0 +1,90 @@
+{
+  "reviewDate": "07-23",
+  "source": "俱乐部官方赛果、巴西公开完场报道及欧罗巴资格赛公开赛果交叉核对",
+  "sources": [
+    {
+      "name": "Botafogo官方赛果：Botafogo 0-0 Vitória",
+      "url": "https://botafogo.com.br/noticias/botafogo-0-x-0-vitoria-br26"
+    },
+    {
+      "name": "Corinthians 3-0 Remo公开完场报道",
+      "url": "https://www.gazetaesportiva.com/minuto-a-minuto/brasileiro-serie-a-2026/corinthians-x-remo/237742/"
+    },
+    {
+      "name": "2026-07-23欧罗巴资格赛公开赛果汇总",
+      "url": "https://www.footballwebpages.co.uk/20260723"
+    }
+  ],
+  "reviews": [
+    {
+      "league": "巴西甲级联赛",
+      "results": [
+        {
+          "matchId": "2040594",
+          "matchNumStr": "周四201",
+          "home": "科林蒂安",
+          "away": "里莫",
+          "score": "3-0",
+          "assessment": "主胜方向命中；总进球与前三比分未覆盖"
+        },
+        {
+          "matchId": "2040593",
+          "matchNumStr": "周四202",
+          "home": "博塔弗戈",
+          "away": "维多利亚",
+          "score": "0-0",
+          "assessment": "方向、总进球与前三比分均未命中"
+        }
+      ],
+      "summary": "方向1/2；总进球0/2；主比分0/2。",
+      "modelAdjustment": "巴甲继续小样本收缩：保留主场优势，但提高0-0/低比分保护，不因两场结果扩大参数。"
+    },
+    {
+      "league": "欧罗巴联赛",
+      "results": [
+        {
+          "matchId": "2040597",
+          "matchNumStr": "周四203",
+          "home": "哈马比",
+          "away": "安德莱赫特",
+          "score": "1-1",
+          "assessment": "平局方向未命中；总进球命中；三比分池覆盖1-1"
+        },
+        {
+          "matchId": "2040603",
+          "matchNumStr": "周四204",
+          "home": "圣加仑",
+          "away": "本菲卡",
+          "score": "2-1",
+          "assessment": "方向、总进球与三比分池均未命中"
+        },
+        {
+          "matchId": "2040598",
+          "matchNumStr": "周四205",
+          "home": "贝西克塔斯",
+          "away": "中日德兰",
+          "score": "1-0",
+          "assessment": "方向命中；总进球与三比分池未覆盖"
+        },
+        {
+          "matchId": "2040599",
+          "matchNumStr": "周四206",
+          "home": "特温特",
+          "away": "费伦茨瓦罗斯",
+          "score": "1-2",
+          "assessment": "方向、总进球与三比分池均未命中"
+        },
+        {
+          "matchId": "2040600",
+          "matchNumStr": "周四207",
+          "home": "斯普利特海杜克",
+          "away": "帕福斯",
+          "score": "2-0",
+          "assessment": "方向未命中；总进球命中；三比分池覆盖2-0"
+        }
+      ],
+      "summary": "方向3/5；总进球2/5；三比分池覆盖2/5。",
+      "modelAdjustment": "欧罗巴资格赛更新为小样本收缩：提高平局与零封低比分保护，下修总进球偏移；保留两回合追分导致的高比分尾部，不把5场样本视为稳定命中率。"
+    }
+  ]
+}

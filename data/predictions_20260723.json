@@ -330,7 +330,18 @@
       "halfFullOdds": 1.93,
       "integratedAnalysis": "结合体彩胜平负赔率1.35 / 4.05 / 7.05、官方比分矩阵、总进球分布与[巴甲12]、[巴甲19]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-0 / 2-1 / 1-0。半全场采用胜/胜，对应赔率1.93；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
       "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 3,
+        "awayGoals": 0,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://botafogo.com.br/noticias/botafogo-0-x-0-vitoria-br26",
+          "https://www.gazetaesportiva.com/minuto-a-minuto/brasileiro-serie-a-2026/corinthians-x-remo/237742/",
+          "https://www.footballwebpages.co.uk/20260723"
+        ]
+      }
     },
     {
       "id": "2040593",
@@ -484,7 +495,18 @@
       "halfFullOdds": 2.45,
       "integratedAnalysis": "结合体彩胜平负赔率1.58 / 3.65 / 4.50、官方比分矩阵、总进球分布与[巴甲9]、[巴甲11]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 1-0。半全场采用胜/胜，对应赔率2.45；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
       "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://botafogo.com.br/noticias/botafogo-0-x-0-vitoria-br26",
+          "https://www.gazetaesportiva.com/minuto-a-minuto/brasileiro-serie-a-2026/corinthians-x-remo/237742/",
+          "https://www.footballwebpages.co.uk/20260723"
+        ]
+      }
     },
     {
       "id": "2040597",
@@ -638,7 +660,18 @@
       "halfFullOdds": 3.15,
       "integratedAnalysis": "结合体彩胜平负赔率1.93 / 3.35 / 3.20、官方比分矩阵、总进球分布与排名信息未作为强制修正进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 1-1。半全场采用胜/胜，对应赔率3.15；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
       "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://botafogo.com.br/noticias/botafogo-0-x-0-vitoria-br26",
+          "https://www.gazetaesportiva.com/minuto-a-minuto/brasileiro-serie-a-2026/corinthians-x-remo/237742/",
+          "https://www.footballwebpages.co.uk/20260723"
+        ]
+      }
     },
     {
       "id": "2040603",
@@ -792,7 +825,18 @@
       "halfFullOdds": 1.92,
       "integratedAnalysis": "结合体彩胜平负赔率6.40 / 4.40 / 1.34、官方比分矩阵、总进球分布与排名信息未作为强制修正进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注1-2 / 0-2 / 0-3。半全场采用负/负，对应赔率1.92；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
       "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://botafogo.com.br/noticias/botafogo-0-x-0-vitoria-br26",
+          "https://www.gazetaesportiva.com/minuto-a-minuto/brasileiro-serie-a-2026/corinthians-x-remo/237742/",
+          "https://www.footballwebpages.co.uk/20260723"
+        ]
+      }
     },
     {
       "id": "2040598",
@@ -946,7 +990,18 @@
       "halfFullOdds": 2.85,
       "integratedAnalysis": "结合体彩胜平负赔率1.82 / 3.40 / 3.50、官方比分矩阵、总进球分布与排名信息未作为强制修正进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 1-1。半全场采用胜/胜，对应赔率2.85；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
       "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 0,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://botafogo.com.br/noticias/botafogo-0-x-0-vitoria-br26",
+          "https://www.gazetaesportiva.com/minuto-a-minuto/brasileiro-serie-a-2026/corinthians-x-remo/237742/",
+          "https://www.footballwebpages.co.uk/20260723"
+        ]
+      }
     },
     {
       "id": "2040599",
@@ -1100,7 +1155,18 @@
       "halfFullOdds": 1.97,
       "integratedAnalysis": "结合体彩胜平负赔率1.40 / 4.00 / 6.05、官方比分矩阵、总进球分布与排名信息未作为强制修正进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 1-0。半全场采用胜/胜，对应赔率1.97；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
       "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 2,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://botafogo.com.br/noticias/botafogo-0-x-0-vitoria-br26",
+          "https://www.gazetaesportiva.com/minuto-a-minuto/brasileiro-serie-a-2026/corinthians-x-remo/237742/",
+          "https://www.footballwebpages.co.uk/20260723"
+        ]
+      }
     },
     {
       "id": "2040600",
@@ -1254,7 +1320,18 @@
       "halfFullOdds": 4.5,
       "integratedAnalysis": "结合体彩胜平负赔率1.85 / 3.15 / 3.70、官方比分矩阵、总进球分布与排名信息未作为强制修正进行联合模拟，模型主方向为主胜，总进球重点为2球，比分依次关注2-1 / 2-0 / 1-1。半全场采用平/胜，对应赔率4.50；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
       "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 0,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://botafogo.com.br/noticias/botafogo-0-x-0-vitoria-br26",
+          "https://www.gazetaesportiva.com/minuto-a-minuto/brasileiro-serie-a-2026/corinthians-x-remo/237742/",
+          "https://www.footballwebpages.co.uk/20260723"
+        ]
+      }
     }
   ],
   "combos": [

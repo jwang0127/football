@@ -56,7 +56,7 @@ class HomepageWorkflowTests(unittest.TestCase):
             (root / "data").mkdir()
             result = update_review_and_future("20260720", root)
             self.assertEqual(result["generated"], [])
-            self.assertEqual(len(result["skipped"]), 2)
+            self.assertEqual(len(result["skipped"]), 3)
             self.assertTrue((root / "index.html").exists())
 
 
