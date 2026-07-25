@@ -301,6 +301,8 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
         "modelLesson": source_profile["lesson"],
         "contextFactors": {key: context.get(key, "资料不足，保持中性") for key in ("stage", "schedule", "motivation", "weather", "teamNews", "coach", "upsetPath")},
         "contextSources": context.get("sources", []),
+        "evidenceStatus": context.get("evidenceStatus", "比赛级公开证据不足；情境层保持中性"),
+        "verifiedFactors": context.get("verifiedFactors", []),
         "marketRiskLevel": volatility["level"],
         "marketRiskFactors": volatility["factors"],
         "marketRiskNote": volatility["note"],
@@ -308,6 +310,40 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
     })
     predicted["confidence"] = "高" if predicted["confidenceScore"] >= 65 else "中" if predicted["confidenceScore"] >= 52 else "中低"
     return predicted
+
+
+def context_for_match(match: dict[str, Any], raw_context: dict[str, Any]) -> dict[str, Any]:
+    """Make the evidence gate explicit for every match.
+
+    A missing match report is not permission to invent injuries, motivation or
+    tactics.  The market and score matrix remain usable, while the qualitative
+    layer stays neutral and confidence is reduced until match-level evidence is
+    sourced and checked.
+    """
+    def sanitize(value: Any) -> Any:
+        if isinstance(value, str):
+            return value.replace("图片", "未核实资料").replace("截图", "未核实资料")
+        if isinstance(value, dict):
+            return {key: sanitize(item) for key, item in value.items()}
+        if isinstance(value, list):
+            return [sanitize(item) for item in value]
+        return value
+
+    context = sanitize(dict(raw_context or {}))
+    if context.get("sources"):
+        context.setdefault("evidenceStatus", "已取得比赛级公开来源；方向性修正仅使用可核验因素")
+        context.setdefault("verifiedFactors", [key for key in ("stage", "schedule", "motivation", "weather", "teamNews", "coach", "upsetPath") if context.get(key)])
+        context.setdefault("analysisBasis", "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。")
+    else:
+        context.update({
+            "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
+            "verifiedFactors": [],
+            "confidenceDelta": min(int(context.get("confidenceDelta", 0)), -8),
+            "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+            "judgement": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+            "sources": [],
+        })
+    return context
 
 
 def hafu_pick(match: dict[str, Any]) -> tuple[str, float | None, float]:
@@ -482,7 +518,7 @@ def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
         half_full_odds = m.get("halfFullOdds")
         cards.append(f'''<section class="match" style="--league:{m['leagueStyle']['color']}"><div class="title"><h3>{esc(m['matchNumStr'])} {esc(m['home'])} vs {esc(m['away'])}</h3><span>{esc(m['leagueStyle']['label'])}</span></div><p><b>北京时间：</b>{esc(m['kickoff'])}　<b>胜平负赔率：</b>{had.get('home','-')} / {had.get('draw','-')} / {had.get('away','-')}</p><p><b>独立模型：</b>{esc(m['modelProfile']['version'])} + 综合情境模拟层</p><div class="grid"><div><small>胜平负</small><strong>{esc(m['directionText'])}</strong></div><div><small>总进球</small><strong>{esc(m['totalGoals'])}</strong></div><div><small>主比分</small><strong>{esc(m['mainScore'])}</strong></div><div><small>半全场</small><strong>{esc(HAFU_TEXT[hkey])}</strong>{f'<small>赔率 {half_full_odds:.2f}</small>' if half_full_odds else ''}</div></div><p><b>三个比分（置信度从高到低）：</b>{esc(score_ranking)}</p><div class="factors"><p><b>综合性分析：</b>{esc(m['integratedAnalysis'])}</p></div><p><b>分析口径：</b>{esc(m['analysisBasis'])}</p><p><b>盘口波动审计（{esc(m['marketRiskLevel'])}）：</b>{esc('；'.join(m['marketRiskFactors']))}。{esc(m['marketRiskNote'])}</p><p>尾部审计：{esc(' / '.join(m['tailRiskScores']) or '无额外尾部入选')}；总进球候选：{esc(' / '.join(m['goalCandidates']))}</p><p>情境修正后概率：主 {p['home']:.1%} / 平 {p['draw']:.1%} / 客 {p['away']:.1%}；模型信任度 {m['confidenceScore']}/100。</p></section>''')
     source_items = "".join(f'<li><a href="{esc(x["url"])}">{esc(x["name"])}</a></li>' for x in payload["sources"])
-    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#116b62"><title>2026-{label}足球预测</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef4f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:24px 16px}}nav a{{margin-right:10px}}h1{{font-size:clamp(30px,5vw,48px)}}.legend span{{display:inline-block;margin:5px;padding:6px 11px;border-left:7px solid var(--c);background:white;border-radius:7px}}.notice,.match,.combo{{background:white;border:1px solid #dce4ea;border-radius:14px;padding:18px;margin:15px 0;box-shadow:0 8px 26px #2336460f}}.notice{{overflow-x:auto}}.match{{border-left:10px solid var(--league);overflow-wrap:anywhere}}.title,.combo h3{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:white;padding:4px 11px;border-radius:99px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f5f8fa;padding:10px;border-radius:8px}}.factors{{background:#f5f8fa;border-radius:10px;padding:10px 14px;margin:12px 0}}.factors p{{margin:5px 0}}.sources{{font-size:13px;color:#657482}}small{{display:block;color:#657482}}strong{{font-size:21px}}.combo{{border-top:6px solid #287d70}}.combo.hafu{{border-top-color:#7a43b6}}.combo.crs{{border-top-color:#b35430}}.combo.ttg{{border-top-color:#355dc5}}.combo.mixed{{border-top-color:#c38b16}}table{{width:100%;border-collapse:collapse}}td{{padding:8px;border-bottom:1px solid #e7ecef}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style><link rel="stylesheet" href="../assets/site.css"></head><body><header><nav><a href="../index.html">日期首页</a><a href="../history/index.html">历史归档</a></nav><h1>{label}足球预测</h1><p>共 {len(payload['matches'])} 场 · 北京时间 · 赔率更新至 {esc(payload['oddsUpdatedAt'])}</p><div class="legend">{legends}</div></header><main>{review_html}{f'<section class="notice"><h2>赛程冲突提示</h2><ul>{warnings}</ul></section>' if warnings else ''}<section class="notice"><h2>模型方法</h2><p>每场只展示一段综合性分析，并明确给出胜平负、总进球、比分和半全场。体彩赔率与比分矩阵是可核验基线；用户图片中的阵容、体能和战术文字仅作为模拟情境输入，不视为已经核实的新闻。杯赛额外检查平局保护、受控小比分与追分大比分，未核实传闻不作为事实下结论。</p></section><section class="notice"><h2>精选n串一</h2><p>仅保留 {len(payload['combos'])} 组，全部理论组合赔率不低于 {MIN_COMBO_ODDS:.0f}，且每串最多一个胜平负选项；模型信任度高的优先排列，同时保留理论赔率超过 {HIGH_ODDS_THRESHOLD:.0f} 的高赔率组合。信任度仅用于模型横向比较，不等同于命中率。</p></section>{''.join(combos)}<h2>逐场预测</h2>{''.join(cards)}<section class="notice"><h2>赛程与赔率来源</h2><ul>{source_items}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
+    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#116b62"><title>2026-{label}足球预测</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef4f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:24px 16px}}nav a{{margin-right:10px}}h1{{font-size:clamp(30px,5vw,48px)}}.legend span{{display:inline-block;margin:5px;padding:6px 11px;border-left:7px solid var(--c);background:white;border-radius:7px}}.notice,.match,.combo{{background:white;border:1px solid #dce4ea;border-radius:14px;padding:18px;margin:15px 0;box-shadow:0 8px 26px #2336460f}}.notice{{overflow-x:auto}}.match{{border-left:10px solid var(--league);overflow-wrap:anywhere}}.title,.combo h3{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:white;padding:4px 11px;border-radius:99px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f5f8fa;padding:10px;border-radius:8px}}.factors{{background:#f5f8fa;border-radius:10px;padding:10px 14px;margin:12px 0}}.factors p{{margin:5px 0}}.sources{{font-size:13px;color:#657482}}small{{display:block;color:#657482}}strong{{font-size:21px}}.combo{{border-top:6px solid #287d70}}.combo.hafu{{border-top-color:#7a43b6}}.combo.crs{{border-top-color:#b35430}}.combo.ttg{{border-top-color:#355dc5}}.combo.mixed{{border-top-color:#c38b16}}table{{width:100%;border-collapse:collapse}}td{{padding:8px;border-bottom:1px solid #e7ecef}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style><link rel="stylesheet" href="../assets/site.css"></head><body><header><nav><a href="../index.html">日期首页</a><a href="../history/index.html">历史归档</a></nav><h1>{label}足球预测</h1><p>共 {len(payload['matches'])} 场 · 北京时间 · 赔率更新至 {esc(payload['oddsUpdatedAt'])}</p><div class="legend">{legends}</div></header><main>{review_html}{f'<section class="notice"><h2>赛程冲突提示</h2><ul>{warnings}</ul></section>' if warnings else ''}<section class="notice"><h2>模型方法</h2><p>每场只展示一段综合性分析，并明确给出胜平负、总进球、比分和半全场。赔率与比分矩阵是市场基线；赛程、积分动机、状态、伤停和战术只有在公开来源可核验时才进入情境层，证据不足则保持中性并降低信任度。杯赛额外检查平局保护、受控小比分与追分大比分，未经核验的信息不作为事实下结论。</p></section><section class="notice"><h2>精选n串一</h2><p>仅保留 {len(payload['combos'])} 组，全部理论组合赔率不低于 {MIN_COMBO_ODDS:.0f}，且每串最多一个胜平负选项；模型信任度高的优先排列，同时保留理论赔率超过 {HIGH_ODDS_THRESHOLD:.0f} 的高赔率组合。信任度仅用于模型横向比较，不等同于命中率。</p></section>{''.join(combos)}<h2>逐场预测</h2>{''.join(cards)}<section class="notice"><h2>赛程与赔率来源</h2><ul>{source_items}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
 
 
 def main() -> None:
@@ -496,6 +532,10 @@ def main() -> None:
     context_path = DATA / f"match_context_{args.date}.json"
     context_payload = json.loads(context_path.read_text(encoding="utf-8")) if context_path.exists() else {"matches": {}}
     contexts = context_payload.get("matches", {})
+    extra_context_path = DATA / f"match_context_{args.date}_extra.json"
+    if extra_context_path.exists():
+        extra_context = json.loads(extra_context_path.read_text(encoding="utf-8"))
+        contexts.update(extra_context.get("matches", {}))
     source_matches = list(raw["matches"])
     extra_config = EXTRA_MATCHES_BY_DATE.get(args.date)
     if extra_config:
@@ -516,7 +556,8 @@ def main() -> None:
         if args.target_league and match.get("league") != args.target_league and existing:
             matches.append(existing)
         else:
-            matches.append(predict_with_market_fallback(base, match, contexts.get(str(match.get("matchId")), {})))
+            match_context = context_for_match(match, contexts.get(str(match.get("matchId")), {}))
+            matches.append(predict_with_market_fallback(base, match, match_context))
     if not matches:
         raise SystemExit("No verified matches available")
     updated = max(pool.get("updatedAt", "") for m in matches for pool in m["odds"].values() if isinstance(pool, dict))

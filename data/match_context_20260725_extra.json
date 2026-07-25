@@ -1,0 +1,53 @@
+{
+  "version": "evidence-gate-v1-20260725",
+  "matches": {
+    "2040612": {
+      "stage": "K联赛常规赛；官方赛程确认本场为7月25日金泉尚武主场对大田市民",
+      "schedule": "K League官方赛程确认比赛时间与场地；未取得足够比赛级伤停和战术公告",
+      "motivation": "仅将常规赛积分价值作为弱先验，不据此推断必胜或必败",
+      "teamNews": "缺少可交叉验证的临场缺阵清单，不作方向性调整",
+      "coach": "保持中性，交由赔率与比分矩阵判断",
+      "upsetPath": "检查主客双方的平局与低比分路径，不因市场排序直接排除不败结果",
+      "judgement": "只有赛程证据已核验，其他比赛级因素证据不足；保留市场与比分矩阵基线并降低信任度",
+      "analysisBasis": "Sporttery赔率与比分矩阵 + K League官方赛程；伤停、近期防守表现和战术动机尚未达到交叉核验阈值，未作方向性修正。",
+      "confidenceDelta": -8,
+      "sources": [{"name": "K League官方赛程/比赛页", "url": "https://tv.kleague.com/en-int/page/pohang-steelers"}]
+    },
+    "2040613": {
+      "stage": "K联赛常规赛；官方赛程确认本场为7月25日浦项制铁主场对全北现代",
+      "schedule": "K League官方赛程确认比赛时间与场地；未取得足够比赛级伤停和战术公告",
+      "motivation": "仅将常规赛积分价值作为弱先验，不据此推断必胜或必败",
+      "teamNews": "缺少可交叉验证的临场缺阵清单，不作方向性调整",
+      "coach": "保持中性，交由赔率与比分矩阵判断",
+      "upsetPath": "检查主队不败、平局和低比分路径，不因客队名气直接排除主队结果",
+      "judgement": "只有赛程证据已核验，其他比赛级因素证据不足；保留市场与比分矩阵基线并降低信任度",
+      "analysisBasis": "Sporttery赔率与比分矩阵 + K League官方赛程；伤停、近期防守表现和战术动机尚未达到交叉核验阈值，未作方向性修正。",
+      "confidenceDelta": -8,
+      "sources": [{"name": "K League官方赛程/比赛页", "url": "https://tv.kleague.com/en-int/page/jeonbuk-hyundai"}]
+    },
+    "2040621": {
+      "stage": "MLS常规赛；本场为圣迭戈FC主场对达拉斯FC",
+      "schedule": "MLS官方赛程作为比赛存在性和业务日核验来源；未取得足够比赛级伤停和战术公告",
+      "motivation": "仅将常规赛积分价值作为弱先验，不据此推断必胜或必败",
+      "teamNews": "缺少可交叉验证的临场缺阵清单，不作方向性调整",
+      "coach": "保持中性，交由赔率、比分矩阵和总进球分布判断",
+      "upsetPath": "检查客队不败及双方进球路径，不因主场赔率直接排除客队结果",
+      "judgement": "只有赛程证据已核验，其他比赛级因素证据不足；保留市场与比分矩阵基线并降低信任度",
+      "analysisBasis": "Sporttery赔率与比分矩阵 + MLS官方赛程；伤停、近期防守表现和战术动机尚未达到交叉核验阈值，未作方向性修正。",
+      "confidenceDelta": -8,
+      "sources": [{"name": "MLS官方赛程", "url": "https://www.mlssoccer.com/news/mls-unveils-2026-regular-season-schedule"}]
+    },
+    "2040622": {
+      "stage": "MLS常规赛；本场为圣何塞地震主场对洛杉矶银河",
+      "schedule": "MLS官方赛程作为比赛存在性和业务日核验来源；未取得足够比赛级伤停和战术公告",
+      "motivation": "仅将常规赛积分价值作为弱先验，不据此推断必胜或必败",
+      "teamNews": "缺少可交叉验证的临场缺阵清单，不作方向性调整",
+      "coach": "保持中性，交由赔率、比分矩阵和总进球分布判断",
+      "upsetPath": "检查主队不败、平局和反击得分路径，不因市场排序直接排除冷门",
+      "judgement": "只有赛程证据已核验，其他比赛级因素证据不足；保留市场与比分矩阵基线并降低信任度",
+      "analysisBasis": "Sporttery赔率与比分矩阵 + MLS官方赛程；伤停、近期防守表现和战术动机尚未达到交叉核验阈值，未作方向性修正。",
+      "confidenceDelta": -8,
+      "sources": [{"name": "MLS官方赛程", "url": "https://www.mlssoccer.com/news/mls-unveils-2026-regular-season-schedule"}]
+    }
+  }
+}

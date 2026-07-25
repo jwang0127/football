@@ -162,7 +162,7 @@
       }
     ]
   },
-  "generatedAt": "2026-07-25T11:32:14",
+  "generatedAt": "2026-07-25T11:42:50",
   "oddsUpdatedAt": "2026-07-25 11:17:52",
   "matches": [
     {
@@ -203,9 +203,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 46,
+      "confidenceScore": 38,
       "confidence": "中低",
-      "reason": "盘口、比分矩阵与总进球模型综合后主方向为客胜；未核实的传闻不进入模型。",
+      "reason": "只有赛程证据已核验，其他比赛级因素证据不足；保留市场与比分矩阵基线并降低信任度",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -297,15 +297,29 @@
       },
       "modelLesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
+        "stage": "K联赛常规赛；官方赛程确认本场为7月25日金泉尚武主场对大田市民",
+        "schedule": "K League官方赛程确认比赛时间与场地；未取得足够比赛级伤停和战术公告",
+        "motivation": "仅将常规赛积分价值作为弱先验，不据此推断必胜或必败",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
-        "upsetPath": "资料不足，保持中性"
+        "teamNews": "缺少可交叉验证的临场缺阵清单，不作方向性调整",
+        "coach": "保持中性，交由赔率与比分矩阵判断",
+        "upsetPath": "检查主客双方的平局与低比分路径，不因市场排序直接排除不败结果"
       },
-      "contextSources": [],
+      "contextSources": [
+        {
+          "name": "K League官方赛程/比赛页",
+          "url": "https://tv.kleague.com/en-int/page/pohang-steelers"
+        }
+      ],
+      "evidenceStatus": "已取得比赛级公开来源；方向性修正仅使用可核验因素",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation",
+        "teamNews",
+        "coach",
+        "upsetPath"
+      ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -316,7 +330,7 @@
       "halfFullText": "负/负",
       "halfFullOdds": 3.6,
       "integratedAnalysis": "结合体彩胜平负赔率2.85 / 3.05 / 2.22、官方比分矩阵、总进球分布与[韩职11]、[韩职9]进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注1-2 / 0-1 / 1-1。半全场采用负/负，对应赔率3.60；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
-      "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
+      "analysisBasis": "Sporttery赔率与比分矩阵 + K League官方赛程；伤停、近期防守表现和战术动机尚未达到交叉核验阈值，未作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -357,9 +371,9 @@
         "3",
         "1"
       ],
-      "confidenceScore": 47,
+      "confidenceScore": 39,
       "confidence": "中低",
-      "reason": "盘口、比分矩阵与总进球模型综合后主方向为客胜；未核实的传闻不进入模型。",
+      "reason": "只有赛程证据已核验，其他比赛级因素证据不足；保留市场与比分矩阵基线并降低信任度",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -451,15 +465,29 @@
       },
       "modelLesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
+        "stage": "K联赛常规赛；官方赛程确认本场为7月25日浦项制铁主场对全北现代",
+        "schedule": "K League官方赛程确认比赛时间与场地；未取得足够比赛级伤停和战术公告",
+        "motivation": "仅将常规赛积分价值作为弱先验，不据此推断必胜或必败",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
-        "upsetPath": "资料不足，保持中性"
+        "teamNews": "缺少可交叉验证的临场缺阵清单，不作方向性调整",
+        "coach": "保持中性，交由赔率与比分矩阵判断",
+        "upsetPath": "检查主队不败、平局和低比分路径，不因客队名气直接排除主队结果"
       },
-      "contextSources": [],
+      "contextSources": [
+        {
+          "name": "K League官方赛程/比赛页",
+          "url": "https://tv.kleague.com/en-int/page/jeonbuk-hyundai"
+        }
+      ],
+      "evidenceStatus": "已取得比赛级公开来源；方向性修正仅使用可核验因素",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation",
+        "teamNews",
+        "coach",
+        "upsetPath"
+      ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -470,7 +498,7 @@
       "halfFullText": "平/负",
       "halfFullOdds": 5.15,
       "integratedAnalysis": "结合体彩胜平负赔率3.03 / 2.88 / 2.21、官方比分矩阵、总进球分布与[韩职5]、[韩职3]进行联合模拟，模型主方向为客胜，总进球重点为2球，比分依次关注0-1 / 1-2 / 0-0。半全场采用平/负，对应赔率5.15；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
-      "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
+      "analysisBasis": "Sporttery赔率与比分矩阵 + K League官方赛程；伤停、近期防守表现和战术动机尚未达到交叉核验阈值，未作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -609,7 +637,7 @@
         "schedule": "佐加顿斯官方赛前稿确认本场为7月25日客场重要比赛；未发现必须为下一场杯赛大幅轮换的已核实证据",
         "motivation": "主队需要积分摆脱危险区，客队争取上半区/欧战竞争位置；双方都有积分动机，但主队进攻低迷使比赛更可能先求不败",
         "weather": "未纳入未经核实的天气或场地变量",
-        "teamNews": "佐加顿斯官方仅确认正式名单在开赛前公布；图片所称代格福什后防长期伤缺未完全核实，降低其权重",
+        "teamNews": "佐加顿斯官方仅确认正式名单在开赛前公布；未核实资料所称代格福什后防长期伤缺未完全核实，降低其权重",
         "coach": "客队赛前强调提高一对一、纵深和进攻效率；主队连续不胜背景下更可能先稳住比赛",
         "upsetPath": "不把客胜低赔视为必然，重点保留1-1与低比分客胜；若客队进攻效率仍低，平局是主要反向路径"
       },
@@ -623,6 +651,16 @@
           "url": "https://www.sportsmole.co.uk/football/degerfors/preview/degerfors-vs-djurgarden-prediction-team-news-lineups_601739.html"
         }
       ],
+      "evidenceStatus": "已取得比赛级公开来源；方向性修正仅使用可核验因素",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation",
+        "weather",
+        "teamNews",
+        "coach",
+        "upsetPath"
+      ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -632,8 +670,8 @@
       "halfFullKey": "aa",
       "halfFullText": "负/负",
       "halfFullOdds": 2.45,
-      "integratedAnalysis": "佐加顿斯官方将本场定为重要客场，赛前强调提升一对一、纵深和进攻效率；公开赛前资料显示代格福什长期不胜、处于保级压力，而佐加顿斯仍有上升目标。图片所称后防长期伤缺未完全核实，因此只下调客胜确定性，不直接判定主队必胜。比赛优先看1-1，其次0-1/1-2，若客队进攻效率仍低，平局是主要保护路径。 半全场模拟为负/负（2.45）。",
-      "analysisBasis": "Sporttery赔率基线 + 佐加顿斯官方赛前稿 + 公开赛前状态资料；图片中的未核实伤停只作低权重假设。",
+      "integratedAnalysis": "佐加顿斯官方将本场定为重要客场，赛前强调提升一对一、纵深和进攻效率；公开赛前资料显示代格福什长期不胜、处于保级压力，而佐加顿斯仍有上升目标。未核实资料所称后防长期伤缺未完全核实，因此只下调客胜确定性，不直接判定主队必胜。比赛优先看1-1，其次0-1/1-2，若客队进攻效率仍低，平局是主要保护路径。 半全场模拟为负/负（2.45）。",
+      "analysisBasis": "Sporttery赔率基线 + 佐加顿斯官方赛前稿 + 公开赛前状态资料；未核实资料中的未核实伤停只作低权重假设。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -676,7 +714,7 @@
       ],
       "confidenceScore": 60,
       "confidence": "中",
-      "reason": "情境层提高平局与低总进球权重，不凭图片文字强行改变实力排序",
+      "reason": "情境层提高平局与低总进球权重，不凭未核实资料文字强行改变实力排序",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -770,9 +808,9 @@
       "contextFactors": {
         "stage": "芬超常规赛；玛丽港与AC奥卢均需积分，属于积分价值高的联赛场",
         "schedule": "芬超官方赛前页确认7月25日开赛；没有核实到必须轮换的杯赛因素",
-        "motivation": "图片提出的保级与阵容短板方向合理，但具体伤停未全部由官方资料确认；模型只保留双方谨慎和低比分动机",
+        "motivation": "未核实资料提出的保级与阵容短板方向合理，但具体伤停未全部由官方资料确认；模型只保留双方谨慎和低比分动机",
         "weather": "未纳入未经核实的天气变量",
-        "teamNews": "图片中的多名伤停暂不作为硬性缺阵；正式首发与临场名单仍优先于赛前推测",
+        "teamNews": "未核实资料中的多名伤停暂不作为硬性缺阵；正式首发与临场名单仍优先于赛前推测",
         "coach": "双方短板可能降低持续压迫质量，平局和一球差结果比单向大胜更稳健",
         "upsetPath": "主场保级压力可能带来主队抢分，但客队若利用转换也有反击路径；0-0/1-1优先于高比分"
       },
@@ -781,6 +819,16 @@
           "name": "芬超官方玛丽港-AC奥卢赛前页",
           "url": "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036949/ennakko/"
         }
+      ],
+      "evidenceStatus": "已取得比赛级公开来源；方向性修正仅使用可核验因素",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation",
+        "weather",
+        "teamNews",
+        "coach",
+        "upsetPath"
       ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
@@ -791,8 +839,8 @@
       "halfFullKey": "aa",
       "halfFullText": "负/负",
       "halfFullOdds": 2.08,
-      "integratedAnalysis": "芬超官方确认玛丽港主场对AC奥卢。图片提到保级压力和阵容短板，但具体伤停尚未由当前官方资料完全确认，因此模型不把它们当成硬事实；只把积分价值、双方短板和谨慎开局转成平局与低比分权重。0-0/1-1优先，主客一球差作为次级路径。 半全场模拟为负/负（2.08）。",
-      "analysisBasis": "Sporttery赔率基线 + 芬超官方赛前页；图片中的伤停文字未完全核实，未直接用于强制改方向。",
+      "integratedAnalysis": "芬超官方确认玛丽港主场对AC奥卢。未核实资料提到保级压力和阵容短板，但具体伤停尚未由当前官方资料完全确认，因此模型不把它们当成硬事实；只把积分价值、双方短板和谨慎开局转成平局与低比分权重。0-0/1-1优先，主客一球差作为次级路径。 半全场模拟为负/负（2.08）。",
+      "analysisBasis": "Sporttery赔率基线 + 芬超官方赛前页；未核实资料中的伤停文字未完全核实，未直接用于强制改方向。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -931,7 +979,7 @@
         "schedule": "挪威足协与克里斯蒂安松官方赛程均确认7月25日主场对斯达；未核实到必须轮换的跨赛事安排",
         "motivation": "斯达有保级压力，客队不会轻易放弃；克里斯蒂安松主场更希望先拿分，因此平局保护比追求大胜更合理",
         "weather": "未纳入未经核实的天气变量",
-        "teamNews": "可检索的赛前资料对具体缺阵并不完整，图片中的防线伤停不作为确定事实；保留不确定性惩罚",
+        "teamNews": "可检索的赛前资料对具体缺阵并不完整，未核实资料中的防线伤停不作为确定事实；保留不确定性惩罚",
         "coach": "比赛可能先以控制失球为主，若下半场体能或比分迫使客队前压，才增加开放度",
         "upsetPath": "1-1是核心反向路径，主队1-0/2-0为主场兑现路径，避免直接追逐大比分"
       },
@@ -944,6 +992,16 @@
           "name": "挪威足协官方球队赛程",
           "url": "https://www.fotball.no/fotballdata/lag/hjem/?fiksId=785"
         }
+      ],
+      "evidenceStatus": "已取得比赛级公开来源；方向性修正仅使用可核验因素",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation",
+        "weather",
+        "teamNews",
+        "coach",
+        "upsetPath"
       ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
@@ -1094,7 +1152,7 @@
         "schedule": "VPS官方赛前页确认7月25日客场对库奥皮奥；目前未把欧战轮换当作已核实事实",
         "motivation": "两队都没有明显的放弃动机，积分价值支持正常竞争；强强接近时平局和小比分保护优先",
         "weather": "未纳入未经核实的天气变量",
-        "teamNews": "未获得足够可靠的临场伤停清单，不对图片中的轮换说法做硬调整",
+        "teamNews": "未获得足够可靠的临场伤停清单，不对未核实资料中的轮换说法做硬调整",
         "coach": "主队有主场主动权，客队在防守稳定时具备拖慢节奏的能力；先控风险再争取定位球或转换机会",
         "upsetPath": "1-1/2-1为主要路径；若主队无法尽快破门，0-0尾部需要保留"
       },
@@ -1108,6 +1166,16 @@
           "url": "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036950/kokoonpanot/"
         }
       ],
+      "evidenceStatus": "已取得比赛级公开来源；方向性修正仅使用可核验因素",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation",
+        "weather",
+        "teamNews",
+        "coach",
+        "upsetPath"
+      ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1118,7 +1186,7 @@
       "halfFullText": "胜/胜",
       "halfFullOdds": 3.2,
       "integratedAnalysis": "VPS官方确认库奥皮奥客场赛程，芬超官方页面提示首发需临场公布。两队都没有可确认的放弃动机，强强接近时不能只看主场赔率；主队有主动权，客队若防守稳定可拖慢节奏。1-1/2-1为主要路径，0-0作为低比分尾部。 半全场模拟为胜/胜（3.20）。",
-      "analysisBasis": "Sporttery赔率基线 + VPS官方赛前页 + 芬超官方赛程/阵容页；未把图片中的轮换说法当作已确认事实。",
+      "analysisBasis": "Sporttery赔率基线 + VPS官方赛前页 + 芬超官方赛程/阵容页；未把未核实资料中的轮换说法当作已确认事实。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -1266,6 +1334,16 @@
           "name": "瑞超卡尔马-米亚尔比赛前分析",
           "url": "https://www.sportsmole.co.uk/football/kalmar/preview/kalmar-vs-mjallby-aif-prediction-team-news-lineups_601721.html"
         }
+      ],
+      "evidenceStatus": "已取得比赛级公开来源；方向性修正仅使用可核验因素",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation",
+        "weather",
+        "teamNews",
+        "coach",
+        "upsetPath"
       ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
@@ -1434,6 +1512,16 @@
           "url": "https://ge.globo.com/pr/futebol/times/athletico-pr/noticia/2026/07/24/escalacao-athletico-tem-desfalque-e-duvidas-na-defesa-contra-o-internacional-veja-opcoes.ghtml"
         }
       ],
+      "evidenceStatus": "已取得比赛级公开来源；方向性修正仅使用可核验因素",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation",
+        "weather",
+        "teamNews",
+        "coach",
+        "upsetPath"
+      ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1597,6 +1685,16 @@
           "url": "https://www.sportsmole.co.uk/football/santos/preview/santos-vs-chapecoense-prediction-team-news-lineups_601807.html"
         }
       ],
+      "evidenceStatus": "已取得比赛级公开来源；方向性修正仅使用可核验因素",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation",
+        "weather",
+        "teamNews",
+        "coach",
+        "upsetPath"
+      ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1648,9 +1746,9 @@
         "4",
         "2"
       ],
-      "confidenceScore": 42,
+      "confidenceScore": 34,
       "confidence": "中低",
-      "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
+      "reason": "只有赛程证据已核验，其他比赛级因素证据不足；保留市场与比分矩阵基线并降低信任度",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -1742,15 +1840,29 @@
       },
       "modelLesson": "07-17美职复盘：方向2/2，但1-0与0-3零封路径漏选，提高零封尾部。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
+        "stage": "MLS常规赛；本场为圣迭戈FC主场对达拉斯FC",
+        "schedule": "MLS官方赛程作为比赛存在性和业务日核验来源；未取得足够比赛级伤停和战术公告",
+        "motivation": "仅将常规赛积分价值作为弱先验，不据此推断必胜或必败",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
-        "upsetPath": "资料不足，保持中性"
+        "teamNews": "缺少可交叉验证的临场缺阵清单，不作方向性调整",
+        "coach": "保持中性，交由赔率、比分矩阵和总进球分布判断",
+        "upsetPath": "检查客队不败及双方进球路径，不因主场赔率直接排除客队结果"
       },
-      "contextSources": [],
+      "contextSources": [
+        {
+          "name": "MLS官方赛程",
+          "url": "https://www.mlssoccer.com/news/mls-unveils-2026-regular-season-schedule"
+        }
+      ],
+      "evidenceStatus": "已取得比赛级公开来源；方向性修正仅使用可核验因素",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation",
+        "teamNews",
+        "coach",
+        "upsetPath"
+      ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1761,7 +1873,7 @@
       "halfFullText": "胜/胜",
       "halfFullOdds": 3.55,
       "integratedAnalysis": "结合体彩胜平负赔率2.16 / 3.65 / 2.55、官方比分矩阵、总进球分布与[美职13]、[美职5]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 1-2。半全场采用胜/胜，对应赔率3.55；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
-      "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
+      "analysisBasis": "Sporttery赔率与比分矩阵 + MLS官方赛程；伤停、近期防守表现和战术动机尚未达到交叉核验阈值，未作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -1802,9 +1914,9 @@
         "4",
         "2"
       ],
-      "confidenceScore": 53,
-      "confidence": "中",
-      "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
+      "confidenceScore": 45,
+      "confidence": "中低",
+      "reason": "只有赛程证据已核验，其他比赛级因素证据不足；保留市场与比分矩阵基线并降低信任度",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -1896,15 +2008,29 @@
       },
       "modelLesson": "07-17美职复盘：方向2/2，但1-0与0-3零封路径漏选，提高零封尾部。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
+        "stage": "MLS常规赛；本场为圣何塞地震主场对洛杉矶银河",
+        "schedule": "MLS官方赛程作为比赛存在性和业务日核验来源；未取得足够比赛级伤停和战术公告",
+        "motivation": "仅将常规赛积分价值作为弱先验，不据此推断必胜或必败",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
-        "upsetPath": "资料不足，保持中性"
+        "teamNews": "缺少可交叉验证的临场缺阵清单，不作方向性调整",
+        "coach": "保持中性，交由赔率、比分矩阵和总进球分布判断",
+        "upsetPath": "检查主队不败、平局和反击得分路径，不因市场排序直接排除冷门"
       },
-      "contextSources": [],
+      "contextSources": [
+        {
+          "name": "MLS官方赛程",
+          "url": "https://www.mlssoccer.com/news/mls-unveils-2026-regular-season-schedule"
+        }
+      ],
+      "evidenceStatus": "已取得比赛级公开来源；方向性修正仅使用可核验因素",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation",
+        "teamNews",
+        "coach",
+        "upsetPath"
+      ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1915,7 +2041,7 @@
       "halfFullText": "胜/胜",
       "halfFullOdds": 2.7,
       "integratedAnalysis": "结合体彩胜平负赔率1.70 / 3.90 / 3.52、官方比分矩阵、总进球分布与[美职2]、[美职10]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 3-1。半全场采用胜/胜，对应赔率2.70；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
-      "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
+      "analysisBasis": "Sporttery赔率与比分矩阵 + MLS官方赛程；伤停、近期防守表现和战术动机尚未达到交叉核验阈值，未作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     }
   ],
