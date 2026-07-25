@@ -162,7 +162,7 @@
       }
     ]
   },
-  "generatedAt": "2026-07-25T11:42:50",
+  "generatedAt": "2026-07-25T16:43:32",
   "oddsUpdatedAt": "2026-07-25 11:17:52",
   "matches": [
     {
@@ -181,31 +181,31 @@
       "homeRank": "[韩职11]",
       "awayRank": "[韩职9]",
       "probabilities": {
-        "home": 0.3403,
-        "draw": 0.2877,
-        "away": 0.372
+        "home": 0.3386,
+        "draw": 0.3402,
+        "away": 0.3212
       },
-      "direction": "away",
-      "directionText": "客胜",
-      "mainScore": "1-2",
+      "direction": "draw",
+      "directionText": "平",
+      "mainScore": "1-1",
       "backupScores": [
-        "0-1",
-        "1-1"
+        "0-0",
+        "1-2"
       ],
       "tailRiskScores": [
         "2-2",
-        "0-0",
-        "1-3"
+        "1-3",
+        "0-3"
       ],
-      "totalGoals": "3",
+      "totalGoals": "2",
       "goalCandidates": [
-        "3",
         "2",
-        "4"
+        "3",
+        "1"
       ],
-      "confidenceScore": 38,
+      "confidenceScore": 41,
       "confidence": "中低",
-      "reason": "只有赛程证据已核验，其他比赛级因素证据不足；保留市场与比分矩阵基线并降低信任度",
+      "reason": "韩职这场不是简单跟随客队低赔：金泉近期防守韧性提供不败路径，但进攻样本仍弱，因此下调客胜确定性并提高平局保护",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -297,18 +297,26 @@
       },
       "modelLesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
       "contextFactors": {
-        "stage": "K联赛常规赛；官方赛程确认本场为7月25日金泉尚武主场对大田市民",
-        "schedule": "K League官方赛程确认比赛时间与场地；未取得足够比赛级伤停和战术公告",
-        "motivation": "仅将常规赛积分价值作为弱先验，不据此推断必胜或必败",
+        "stage": "K联赛第20轮；官方比赛页确认7月25日金泉尚武主场对大田市民",
+        "schedule": "双方均为常规联赛任务；没有杯赛或跨赛事轮换证据进入模型",
+        "motivation": "公开赛前资料显示金泉近期进攻产出偏低但上一轮零封全北，大田近期连续平局较多；抢分需求存在，但不能等同于必胜",
         "weather": "资料不足，保持中性",
-        "teamNews": "缺少可交叉验证的临场缺阵清单，不作方向性调整",
-        "coach": "保持中性，交由赔率与比分矩阵判断",
-        "upsetPath": "检查主客双方的平局与低比分路径，不因市场排序直接排除不败结果"
+        "teamNews": "公开情报提到金泉头号射手高在贤近期重新进球；其他缺阵未达到两条独立来源交叉确认标准，因此不作硬调整",
+        "coach": "金泉的低失球/退防路径与大田的控球和连续平局路径同时保留，先检查平局和一球差",
+        "upsetPath": "市场偏向大田时，验证金泉零封全北后的不败路径；0-0、1-1和0-1优先于追逐大比分"
       },
       "contextSources": [
         {
-          "name": "K League官方赛程/比赛页",
-          "url": "https://tv.kleague.com/en-int/page/pohang-steelers"
+          "name": "K League官方比赛页",
+          "url": "https://tv.kleague.com/en-int/page/jeonbuk-hyundai"
+        },
+        {
+          "name": "金泉尚武—大田赛前公开情报",
+          "url": "https://www.yucejia.com/intelligence/detail/349020028217644c0b0c387ea8f0c993.html"
+        },
+        {
+          "name": "金泉尚武—大田近期数据页",
+          "url": "https://www.footballant.com/zh-CN/matches/2929669"
         }
       ],
       "evidenceStatus": "已取得比赛级公开来源；方向性修正仅使用可核验因素",
@@ -326,11 +334,11 @@
       ],
       "marketRiskNote": "未触发杯赛高波动附加层。",
       "businessDate": "2026-07-25",
-      "halfFullKey": "aa",
-      "halfFullText": "负/负",
-      "halfFullOdds": 3.6,
-      "integratedAnalysis": "结合体彩胜平负赔率2.85 / 3.05 / 2.22、官方比分矩阵、总进球分布与[韩职11]、[韩职9]进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注1-2 / 0-1 / 1-1。半全场采用负/负，对应赔率3.60；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
-      "analysisBasis": "Sporttery赔率与比分矩阵 + K League官方赛程；伤停、近期防守表现和战术动机尚未达到交叉核验阈值，未作方向性修正。",
+      "halfFullKey": "dd",
+      "halfFullText": "平/平",
+      "halfFullOdds": 4.9,
+      "integratedAnalysis": "金泉尚武近期进攻产出偏低，但上一轮零封全北，说明其退防站位和防守协作具备把强队拖入低比分的能力；大田近期连续平局，客队实力与稳定性仍占优，但并非无条件客胜。模型因此把市场客胜拆成0-1兑现路径，同时提高0-0/1-1的平局保护，验证金泉不败逻辑后再保留客胜尾部。 半全场模拟为平/平（4.90）。",
+      "analysisBasis": "Sporttery赔率与比分矩阵 + K League比赛页 + 赛前公开情报；已核验近期零封/进攻信息，未核验伤停不作事实使用。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -349,16 +357,16 @@
       "homeRank": "[韩职5]",
       "awayRank": "[韩职3]",
       "probabilities": {
-        "home": 0.327,
-        "draw": 0.296,
-        "away": 0.377
+        "home": 0.3287,
+        "draw": 0.3415,
+        "away": 0.3298
       },
-      "direction": "away",
-      "directionText": "客胜",
-      "mainScore": "0-1",
+      "direction": "draw",
+      "directionText": "平",
+      "mainScore": "1-1",
       "backupScores": [
-        "1-2",
-        "0-0"
+        "0-0",
+        "0-1"
       ],
       "tailRiskScores": [
         "2-2",
@@ -371,9 +379,9 @@
         "3",
         "1"
       ],
-      "confidenceScore": 39,
+      "confidenceScore": 42,
       "confidence": "中低",
-      "reason": "只有赛程证据已核验，其他比赛级因素证据不足；保留市场与比分矩阵基线并降低信任度",
+      "reason": "全北实力与市场方向仍占优，但浦项结束长期客场后回主场，且两队排名接近；模型保留客胜，同时提高平局和主队不败尾部",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -465,18 +473,26 @@
       },
       "modelLesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
       "contextFactors": {
-        "stage": "K联赛常规赛；官方赛程确认本场为7月25日浦项制铁主场对全北现代",
-        "schedule": "K League官方赛程确认比赛时间与场地；未取得足够比赛级伤停和战术公告",
-        "motivation": "仅将常规赛积分价值作为弱先验，不据此推断必胜或必败",
+        "stage": "K联赛第20轮；官方比赛页确认7月25日浦项制铁主场对全北现代",
+        "schedule": "浦项结束连续客场后回到主场；公开资料未显示本场存在杯赛轮换安排",
+        "motivation": "双方积分接近，比赛具有排名直接价值；浦项主场回归增强主动性，全北需要维持上游位置，双方都没有明显放弃动机",
         "weather": "资料不足，保持中性",
-        "teamNews": "缺少可交叉验证的临场缺阵清单，不作方向性调整",
-        "coach": "保持中性，交由赔率与比分矩阵判断",
-        "upsetPath": "检查主队不败、平局和低比分路径，不因客队名气直接排除主队结果"
+        "teamNews": "公开赛前资料提到全北锋线有缺阵说法，但未达到官方名单和第二来源同时确认标准；浦项阵容完整度只作为低权重信息",
+        "coach": "首回合交锋全北曾以3-2取胜，浦项本场主场回归使比赛不能只按客队名气处理；重点保留0-0、1-1和0-1",
+        "upsetPath": "市场偏向全北时，检查浦项主场和防守完整度带来的不败路径；若全北前场缺口属实，低比分平局权重进一步上升"
       },
       "contextSources": [
         {
-          "name": "K League官方赛程/比赛页",
+          "name": "K League全北官方比赛页",
           "url": "https://tv.kleague.com/en-int/page/jeonbuk-hyundai"
+        },
+        {
+          "name": "K League浦项官方比赛页",
+          "url": "https://tv.kleague.com/en-int/page/pohang-steelers"
+        },
+        {
+          "name": "浦项—全北赛前情报",
+          "url": "https://www.yucejia.com/intelligence/detail/a7125097def8096c8c3c33030f2b5b9a.html"
         }
       ],
       "evidenceStatus": "已取得比赛级公开来源；方向性修正仅使用可核验因素",
@@ -494,11 +510,11 @@
       ],
       "marketRiskNote": "未触发杯赛高波动附加层。",
       "businessDate": "2026-07-25",
-      "halfFullKey": "da",
-      "halfFullText": "平/负",
-      "halfFullOdds": 5.15,
-      "integratedAnalysis": "结合体彩胜平负赔率3.03 / 2.88 / 2.21、官方比分矩阵、总进球分布与[韩职5]、[韩职3]进行联合模拟，模型主方向为客胜，总进球重点为2球，比分依次关注0-1 / 1-2 / 0-0。半全场采用平/负，对应赔率5.15；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
-      "analysisBasis": "Sporttery赔率与比分矩阵 + K League官方赛程；伤停、近期防守表现和战术动机尚未达到交叉核验阈值，未作方向性修正。",
+      "halfFullKey": "dd",
+      "halfFullText": "平/平",
+      "halfFullOdds": 4.2,
+      "integratedAnalysis": "全北实力和市场方向仍占优，但浦项结束连续客场后回到主场，双方积分接近，比赛价值不是单向的；公开资料中的锋线缺阵说法尚未完成双来源确认，因此不直接当作硬事实。模型保留全北0-1/1-2路径，同时提高浦项主场不败和0-0/1-1平局路径，避免只按客队低赔下结论。 半全场模拟为平/平（4.20）。",
+      "analysisBasis": "Sporttery赔率与比分矩阵 + K League官方比赛页 + 浦项—全北赛前资料；未交叉确认的伤停只作为不确定性，不直接改变实力排序。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -2060,42 +2076,6 @@
           "probability": 0.7321
         },
         {
-          "matchId": "2040612",
-          "match": "周六201 金泉尚武 vs 大田市民",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.5,
-          "probability": 0.2857142857142857
-        },
-        {
-          "matchId": "2040614",
-          "match": "周六203 代格福什 vs 佐加顿斯",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.45,
-          "probability": 0.2898550724637681
-        }
-      ],
-      "productOdds": 15.21,
-      "trustScore": 35,
-      "rank": 1
-    },
-    {
-      "name": "混合3串一",
-      "category": "mixed",
-      "legs": [
-        {
-          "matchId": "2040620",
-          "match": "周六209 桑托斯 vs 沙佩科恩斯",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.26,
-          "probability": 0.7321
-        },
-        {
           "matchId": "2040614",
           "match": "周六203 代格福什 vs 佐加顿斯",
           "market": "ttg",
@@ -2116,7 +2096,7 @@
       ],
       "productOdds": 15.21,
       "trustScore": 35,
-      "rank": 2
+      "rank": 1
     },
     {
       "name": "混合3串一",
@@ -2152,7 +2132,7 @@
       ],
       "productOdds": 15.21,
       "trustScore": 35,
-      "rank": 3
+      "rank": 2
     },
     {
       "name": "混合3串一",
@@ -2188,7 +2168,7 @@
       ],
       "productOdds": 15.21,
       "trustScore": 35,
-      "rank": 4
+      "rank": 3
     },
     {
       "name": "混合3串一",
@@ -2224,7 +2204,79 @@
       ],
       "productOdds": 15.21,
       "trustScore": 35,
+      "rank": 4
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040620",
+          "match": "周六209 桑托斯 vs 沙佩科恩斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.26,
+          "probability": 0.7321
+        },
+        {
+          "matchId": "2040615",
+          "match": "周六204 玛丽港 vs AC奥卢",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.29411764705882354
+        },
+        {
+          "matchId": "2040621",
+          "match": "周六210 圣迭戈FC vs 达拉斯FC",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 3.55,
+          "probability": 0.28169014084507044
+        }
+      ],
+      "productOdds": 15.21,
+      "trustScore": 35,
       "rank": 5
+    },
+    {
+      "name": "总进球3串一",
+      "category": "ttg",
+      "legs": [
+        {
+          "matchId": "2040612",
+          "match": "周六201 金泉尚武 vs 大田市民",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.25,
+          "probability": 0.3076923076923077
+        },
+        {
+          "matchId": "2040613",
+          "match": "周六202 浦项制铁 vs 全北现代",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.1,
+          "probability": 0.3225806451612903
+        },
+        {
+          "matchId": "2040619",
+          "match": "周六208 巴拉纳竞技 vs 巴西国际",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.1,
+          "probability": 0.3225806451612903
+        }
+      ],
+      "productOdds": 31.23,
+      "trustScore": 28,
+      "rank": 6
     },
     {
       "name": "总进球3串一",
@@ -2260,7 +2312,7 @@
       ],
       "productOdds": 32.67,
       "trustScore": 28,
-      "rank": 6
+      "rank": 7
     },
     {
       "name": "总进球3串一",
@@ -2296,7 +2348,7 @@
       ],
       "productOdds": 32.67,
       "trustScore": 28,
-      "rank": 7
+      "rank": 8
     },
     {
       "name": "总进球3串一",
@@ -2332,7 +2384,7 @@
       ],
       "productOdds": 32.67,
       "trustScore": 28,
-      "rank": 8
+      "rank": 9
     },
     {
       "name": "总进球3串一",
@@ -2367,42 +2419,6 @@
         }
       ],
       "productOdds": 32.67,
-      "trustScore": 28,
-      "rank": 9
-    },
-    {
-      "name": "总进球3串一",
-      "category": "ttg",
-      "legs": [
-        {
-          "matchId": "2040613",
-          "match": "周六202 浦项制铁 vs 全北现代",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.1,
-          "probability": 0.3225806451612903
-        },
-        {
-          "matchId": "2040614",
-          "match": "周六203 代格福什 vs 佐加顿斯",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.45,
-          "probability": 0.2898550724637681
-        },
-        {
-          "matchId": "2040619",
-          "match": "周六208 巴拉纳竞技 vs 巴西国际",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.1,
-          "probability": 0.3225806451612903
-        }
-      ],
-      "productOdds": 33.15,
       "trustScore": 28,
       "rank": 10
     }

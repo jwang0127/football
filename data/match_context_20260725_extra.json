@@ -2,28 +2,44 @@
   "version": "evidence-gate-v1-20260725",
   "matches": {
     "2040612": {
-      "stage": "K联赛常规赛；官方赛程确认本场为7月25日金泉尚武主场对大田市民",
-      "schedule": "K League官方赛程确认比赛时间与场地；未取得足够比赛级伤停和战术公告",
-      "motivation": "仅将常规赛积分价值作为弱先验，不据此推断必胜或必败",
-      "teamNews": "缺少可交叉验证的临场缺阵清单，不作方向性调整",
-      "coach": "保持中性，交由赔率与比分矩阵判断",
-      "upsetPath": "检查主客双方的平局与低比分路径，不因市场排序直接排除不败结果",
-      "judgement": "只有赛程证据已核验，其他比赛级因素证据不足；保留市场与比分矩阵基线并降低信任度",
-      "analysisBasis": "Sporttery赔率与比分矩阵 + K League官方赛程；伤停、近期防守表现和战术动机尚未达到交叉核验阈值，未作方向性修正。",
-      "confidenceDelta": -8,
-      "sources": [{"name": "K League官方赛程/比赛页", "url": "https://tv.kleague.com/en-int/page/pohang-steelers"}]
+      "stage": "K联赛第20轮；官方比赛页确认7月25日金泉尚武主场对大田市民",
+      "schedule": "双方均为常规联赛任务；没有杯赛或跨赛事轮换证据进入模型",
+      "motivation": "公开赛前资料显示金泉近期进攻产出偏低但上一轮零封全北，大田近期连续平局较多；抢分需求存在，但不能等同于必胜",
+      "teamNews": "公开情报提到金泉头号射手高在贤近期重新进球；其他缺阵未达到两条独立来源交叉确认标准，因此不作硬调整",
+      "coach": "金泉的低失球/退防路径与大田的控球和连续平局路径同时保留，先检查平局和一球差",
+      "upsetPath": "市场偏向大田时，验证金泉零封全北后的不败路径；0-0、1-1和0-1优先于追逐大比分",
+      "judgement": "韩职这场不是简单跟随客队低赔：金泉近期防守韧性提供不败路径，但进攻样本仍弱，因此下调客胜确定性并提高平局保护",
+      "integratedAnalysis": "金泉尚武近期进攻产出偏低，但上一轮零封全北，说明其退防站位和防守协作具备把强队拖入低比分的能力；大田近期连续平局，客队实力与稳定性仍占优，但并非无条件客胜。模型因此把市场客胜拆成0-1兑现路径，同时提高0-0/1-1的平局保护，验证金泉不败逻辑后再保留客胜尾部。",
+      "analysisBasis": "Sporttery赔率与比分矩阵 + K League比赛页 + 赛前公开情报；已核验近期零封/进攻信息，未核验伤停不作事实使用。",
+      "outcomeMultipliers": {"home": 1.06, "draw": 1.26, "away": 0.92},
+      "goalShift": -0.12,
+      "scoreBoosts": {"0-0": 1.32, "1-1": 1.48, "0-1": 1.18, "1-0": 1.08},
+      "confidenceDelta": -5,
+      "sources": [
+        {"name": "K League官方比赛页", "url": "https://tv.kleague.com/en-int/page/jeonbuk-hyundai"},
+        {"name": "金泉尚武—大田赛前公开情报", "url": "https://www.yucejia.com/intelligence/detail/349020028217644c0b0c387ea8f0c993.html"},
+        {"name": "金泉尚武—大田近期数据页", "url": "https://www.footballant.com/zh-CN/matches/2929669"}
+      ]
     },
     "2040613": {
-      "stage": "K联赛常规赛；官方赛程确认本场为7月25日浦项制铁主场对全北现代",
-      "schedule": "K League官方赛程确认比赛时间与场地；未取得足够比赛级伤停和战术公告",
-      "motivation": "仅将常规赛积分价值作为弱先验，不据此推断必胜或必败",
-      "teamNews": "缺少可交叉验证的临场缺阵清单，不作方向性调整",
-      "coach": "保持中性，交由赔率与比分矩阵判断",
-      "upsetPath": "检查主队不败、平局和低比分路径，不因客队名气直接排除主队结果",
-      "judgement": "只有赛程证据已核验，其他比赛级因素证据不足；保留市场与比分矩阵基线并降低信任度",
-      "analysisBasis": "Sporttery赔率与比分矩阵 + K League官方赛程；伤停、近期防守表现和战术动机尚未达到交叉核验阈值，未作方向性修正。",
-      "confidenceDelta": -8,
-      "sources": [{"name": "K League官方赛程/比赛页", "url": "https://tv.kleague.com/en-int/page/jeonbuk-hyundai"}]
+      "stage": "K联赛第20轮；官方比赛页确认7月25日浦项制铁主场对全北现代",
+      "schedule": "浦项结束连续客场后回到主场；公开资料未显示本场存在杯赛轮换安排",
+      "motivation": "双方积分接近，比赛具有排名直接价值；浦项主场回归增强主动性，全北需要维持上游位置，双方都没有明显放弃动机",
+      "teamNews": "公开赛前资料提到全北锋线有缺阵说法，但未达到官方名单和第二来源同时确认标准；浦项阵容完整度只作为低权重信息",
+      "coach": "首回合交锋全北曾以3-2取胜，浦项本场主场回归使比赛不能只按客队名气处理；重点保留0-0、1-1和0-1",
+      "upsetPath": "市场偏向全北时，检查浦项主场和防守完整度带来的不败路径；若全北前场缺口属实，低比分平局权重进一步上升",
+      "judgement": "全北实力与市场方向仍占优，但浦项结束长期客场后回主场，且两队排名接近；模型保留客胜，同时提高平局和主队不败尾部",
+      "integratedAnalysis": "全北实力和市场方向仍占优，但浦项结束连续客场后回到主场，双方积分接近，比赛价值不是单向的；公开资料中的锋线缺阵说法尚未完成双来源确认，因此不直接当作硬事实。模型保留全北0-1/1-2路径，同时提高浦项主场不败和0-0/1-1平局路径，避免只按客队低赔下结论。",
+      "analysisBasis": "Sporttery赔率与比分矩阵 + K League官方比赛页 + 浦项—全北赛前资料；未交叉确认的伤停只作为不确定性，不直接改变实力排序。",
+      "outcomeMultipliers": {"home": 1.08, "draw": 1.24, "away": 0.94},
+      "goalShift": -0.10,
+      "scoreBoosts": {"0-0": 1.34, "1-1": 1.42, "0-1": 1.24, "1-2": 1.05},
+      "confidenceDelta": -5,
+      "sources": [
+        {"name": "K League全北官方比赛页", "url": "https://tv.kleague.com/en-int/page/jeonbuk-hyundai"},
+        {"name": "K League浦项官方比赛页", "url": "https://tv.kleague.com/en-int/page/pohang-steelers"},
+        {"name": "浦项—全北赛前情报", "url": "https://www.yucejia.com/intelligence/detail/a7125097def8096c8c3c33030f2b5b9a.html"}
+      ]
     },
     "2040621": {
       "stage": "MLS常规赛；本场为圣迭戈FC主场对达拉斯FC",
