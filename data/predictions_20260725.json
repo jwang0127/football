@@ -5,7 +5,7 @@
     "2026-07-25"
   ],
   "modelVersion": "competition-specific-contextual-20260725-v9-audit-shrinkage",
-  "contextVersion": "match-context-v1",
+  "contextVersion": "integrated-context-v3-20260725",
   "competitionModels": {
     "韩国职业联赛": {
       "version": "k-league-v7-review-0722",
@@ -162,7 +162,7 @@
       }
     ]
   },
-  "generatedAt": "2026-07-25T11:23:55",
+  "generatedAt": "2026-07-25T11:32:14",
   "oddsUpdatedAt": "2026-07-25 11:17:52",
   "matches": [
     {
@@ -489,16 +489,16 @@
       "homeRank": "[瑞超14]",
       "awayRank": "[瑞超6]",
       "probabilities": {
-        "home": 0.238,
-        "draw": 0.2491,
-        "away": 0.5129
+        "home": 0.2108,
+        "draw": 0.2864,
+        "away": 0.5028
       },
       "direction": "away",
       "directionText": "客胜",
       "mainScore": "1-2",
       "backupScores": [
         "0-2",
-        "0-1"
+        "1-1"
       ],
       "tailRiskScores": [
         "2-2",
@@ -511,9 +511,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 61,
+      "confidenceScore": 56,
       "confidence": "中",
-      "reason": "盘口、比分矩阵与总进球模型综合后主方向为客胜；未核实的传闻不进入模型。",
+      "reason": "情境层下调客胜确定性、提高平局与低比分保护",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -605,15 +605,24 @@
       },
       "modelLesson": "07-24瑞超复盘：方向1/1、总进球0/1、比分池覆盖1/1；下修总进球偏高倾向，继续保留主胜与零封路径。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
-        "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
-        "upsetPath": "资料不足，保持中性"
+        "stage": "瑞超常规赛第14轮；代格福什处于保级压力区，佐加顿斯仍有上升空间",
+        "schedule": "佐加顿斯官方赛前稿确认本场为7月25日客场重要比赛；未发现必须为下一场杯赛大幅轮换的已核实证据",
+        "motivation": "主队需要积分摆脱危险区，客队争取上半区/欧战竞争位置；双方都有积分动机，但主队进攻低迷使比赛更可能先求不败",
+        "weather": "未纳入未经核实的天气或场地变量",
+        "teamNews": "佐加顿斯官方仅确认正式名单在开赛前公布；图片所称代格福什后防长期伤缺未完全核实，降低其权重",
+        "coach": "客队赛前强调提高一对一、纵深和进攻效率；主队连续不胜背景下更可能先稳住比赛",
+        "upsetPath": "不把客胜低赔视为必然，重点保留1-1与低比分客胜；若客队进攻效率仍低，平局是主要反向路径"
       },
-      "contextSources": [],
+      "contextSources": [
+        {
+          "name": "佐加顿斯官方赛前稿",
+          "url": "https://www.dif.se/nyheter/2026/infor-degerfors-djurgarden"
+        },
+        {
+          "name": "代格福什-佐加顿斯公开赛前分析",
+          "url": "https://www.sportsmole.co.uk/football/degerfors/preview/degerfors-vs-djurgarden-prediction-team-news-lineups_601739.html"
+        }
+      ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -623,8 +632,8 @@
       "halfFullKey": "aa",
       "halfFullText": "负/负",
       "halfFullOdds": 2.45,
-      "integratedAnalysis": "结合体彩胜平负赔率4.30 / 3.80 / 1.58、官方比分矩阵、总进球分布与[瑞超14]、[瑞超6]进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注1-2 / 0-2 / 0-1。半全场采用负/负，对应赔率2.45；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
-      "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
+      "integratedAnalysis": "佐加顿斯官方将本场定为重要客场，赛前强调提升一对一、纵深和进攻效率；公开赛前资料显示代格福什长期不胜、处于保级压力，而佐加顿斯仍有上升目标。图片所称后防长期伤缺未完全核实，因此只下调客胜确定性，不直接判定主队必胜。比赛优先看1-1，其次0-1/1-2，若客队进攻效率仍低，平局是主要保护路径。 半全场模拟为负/负（2.45）。",
+      "analysisBasis": "Sporttery赔率基线 + 佐加顿斯官方赛前稿 + 公开赛前状态资料；图片中的未核实伤停只作低权重假设。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -643,21 +652,21 @@
       "homeRank": "[芬超12]",
       "awayRank": "[芬超4]",
       "probabilities": {
-        "home": 0.213,
-        "draw": 0.2317,
-        "away": 0.5554
+        "home": 0.2109,
+        "draw": 0.2878,
+        "away": 0.5013
       },
       "direction": "away",
       "directionText": "客胜",
       "mainScore": "1-2",
       "backupScores": [
         "0-2",
-        "0-3"
+        "1-1"
       ],
       "tailRiskScores": [
         "2-2",
-        "1-4",
-        "0-0"
+        "0-0",
+        "1-4"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -665,9 +674,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 65,
-      "confidence": "高",
-      "reason": "盘口、比分矩阵与总进球模型综合后主方向为客胜；未核实的传闻不进入模型。",
+      "confidenceScore": 60,
+      "confidence": "中",
+      "reason": "情境层提高平局与低总进球权重，不凭图片文字强行改变实力排序",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -759,15 +768,20 @@
       },
       "modelLesson": "07-24芬超复盘：方向0/1、总进球1/1；不追随客队低赔锚定，保留主场反向路径、低比分保护与追分尾部。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
-        "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
-        "upsetPath": "资料不足，保持中性"
+        "stage": "芬超常规赛；玛丽港与AC奥卢均需积分，属于积分价值高的联赛场",
+        "schedule": "芬超官方赛前页确认7月25日开赛；没有核实到必须轮换的杯赛因素",
+        "motivation": "图片提出的保级与阵容短板方向合理，但具体伤停未全部由官方资料确认；模型只保留双方谨慎和低比分动机",
+        "weather": "未纳入未经核实的天气变量",
+        "teamNews": "图片中的多名伤停暂不作为硬性缺阵；正式首发与临场名单仍优先于赛前推测",
+        "coach": "双方短板可能降低持续压迫质量，平局和一球差结果比单向大胜更稳健",
+        "upsetPath": "主场保级压力可能带来主队抢分，但客队若利用转换也有反击路径；0-0/1-1优先于高比分"
       },
-      "contextSources": [],
+      "contextSources": [
+        {
+          "name": "芬超官方玛丽港-AC奥卢赛前页",
+          "url": "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036949/ennakko/"
+        }
+      ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -777,8 +791,8 @@
       "halfFullKey": "aa",
       "halfFullText": "负/负",
       "halfFullOdds": 2.08,
-      "integratedAnalysis": "结合体彩胜平负赔率5.00 / 4.10 / 1.46、官方比分矩阵、总进球分布与[芬超12]、[芬超4]进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注1-2 / 0-2 / 0-3。半全场采用负/负，对应赔率2.08；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
-      "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
+      "integratedAnalysis": "芬超官方确认玛丽港主场对AC奥卢。图片提到保级压力和阵容短板，但具体伤停尚未由当前官方资料完全确认，因此模型不把它们当成硬事实；只把积分价值、双方短板和谨慎开局转成平局与低比分权重。0-0/1-1优先，主客一球差作为次级路径。 半全场模拟为负/负（2.08）。",
+      "analysisBasis": "Sporttery赔率基线 + 芬超官方赛前页；图片中的伤停文字未完全核实，未直接用于强制改方向。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -797,9 +811,9 @@
       "homeRank": "[挪超15]",
       "awayRank": "[挪超16]",
       "probabilities": {
-        "home": 0.4557,
-        "draw": 0.251,
-        "away": 0.2932
+        "home": 0.4828,
+        "draw": 0.2897,
+        "away": 0.2275
       },
       "direction": "home",
       "directionText": "主胜",
@@ -819,9 +833,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 51,
+      "confidenceScore": 47,
       "confidence": "中低",
-      "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
+      "reason": "将保级动机转译为低比分和平局权重，而不是简单等同于必胜或必败",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -913,15 +927,24 @@
       },
       "modelLesson": "07-18挪超复盘：方向4/6、主比分2/6；保留0-0零封分支，同时放宽客胜3球以上长尾，避免统一压低进球均值。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
-        "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
-        "upsetPath": "资料不足，保持中性"
+        "stage": "挪超常规赛第15轮；双方积分价值高，主队具备主场抢分基础",
+        "schedule": "挪威足协与克里斯蒂安松官方赛程均确认7月25日主场对斯达；未核实到必须轮换的跨赛事安排",
+        "motivation": "斯达有保级压力，客队不会轻易放弃；克里斯蒂安松主场更希望先拿分，因此平局保护比追求大胜更合理",
+        "weather": "未纳入未经核实的天气变量",
+        "teamNews": "可检索的赛前资料对具体缺阵并不完整，图片中的防线伤停不作为确定事实；保留不确定性惩罚",
+        "coach": "比赛可能先以控制失球为主，若下半场体能或比分迫使客队前压，才增加开放度",
+        "upsetPath": "1-1是核心反向路径，主队1-0/2-0为主场兑现路径，避免直接追逐大比分"
       },
-      "contextSources": [],
+      "contextSources": [
+        {
+          "name": "克里斯蒂安松官方赛程",
+          "url": "https://www.kristiansundbk.no/terminliste"
+        },
+        {
+          "name": "挪威足协官方球队赛程",
+          "url": "https://www.fotball.no/fotballdata/lag/hjem/?fiksId=785"
+        }
+      ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -931,8 +954,8 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 3.2,
-      "integratedAnalysis": "结合体彩胜平负赔率1.96 / 3.50 / 3.00、官方比分矩阵、总进球分布与[挪超15]、[挪超16]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 1-0 / 1-1。半全场采用胜/胜，对应赔率3.20；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
-      "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
+      "integratedAnalysis": "克里斯蒂安松官方和挪威足协赛程确认本场为主场联赛。斯达有抢分/保级压力，主队也更重视先拿分；这类动机不等于一方必胜，反而可能先控制失球。1-1是核心反向路径，主队1-0/2-0为主场兑现路径，避免追逐未经核实的大比分伤停叙事。 半全场模拟为胜/胜（3.20）。",
+      "analysisBasis": "Sporttery赔率基线 + 克里斯蒂安松官方赛程 + 挪威足协赛程；具体临场伤停等待首发确认。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -951,9 +974,9 @@
       "homeRank": "[芬超1]",
       "awayRank": "[芬超3]",
       "probabilities": {
-        "home": 0.4298,
-        "draw": 0.2707,
-        "away": 0.2995
+        "home": 0.425,
+        "draw": 0.3172,
+        "away": 0.2578
       },
       "direction": "home",
       "directionText": "主胜",
@@ -964,8 +987,8 @@
       ],
       "tailRiskScores": [
         "2-2",
-        "3-0",
-        "0-0"
+        "0-0",
+        "3-0"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -973,9 +996,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 50,
+      "confidenceScore": 46,
       "confidence": "中低",
-      "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
+      "reason": "情境层减少单一主胜锚定，增加均势和平局路径",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -1067,15 +1090,24 @@
       },
       "modelLesson": "07-24芬超复盘：方向0/1、总进球1/1；不追随客队低赔锚定，保留主场反向路径、低比分保护与追分尾部。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
-        "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
-        "upsetPath": "资料不足，保持中性"
+        "stage": "芬超常规赛；库奥皮奥与瓦萨均处于积分竞争区，属于强度接近的对话",
+        "schedule": "VPS官方赛前页确认7月25日客场对库奥皮奥；目前未把欧战轮换当作已核实事实",
+        "motivation": "两队都没有明显的放弃动机，积分价值支持正常竞争；强强接近时平局和小比分保护优先",
+        "weather": "未纳入未经核实的天气变量",
+        "teamNews": "未获得足够可靠的临场伤停清单，不对图片中的轮换说法做硬调整",
+        "coach": "主队有主场主动权，客队在防守稳定时具备拖慢节奏的能力；先控风险再争取定位球或转换机会",
+        "upsetPath": "1-1/2-1为主要路径；若主队无法尽快破门，0-0尾部需要保留"
       },
-      "contextSources": [],
+      "contextSources": [
+        {
+          "name": "VPS官方库奥皮奥-瓦萨赛前页",
+          "url": "https://www.vepsu.fi/event/8001/"
+        },
+        {
+          "name": "芬超官方赛程与阵容页",
+          "url": "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036950/kokoonpanot/"
+        }
+      ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1085,8 +1117,8 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 3.2,
-      "integratedAnalysis": "结合体彩胜平负赔率2.01 / 3.30 / 3.05、官方比分矩阵、总进球分布与[芬超1]、[芬超3]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 1-0 / 1-1。半全场采用胜/胜，对应赔率3.20；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
-      "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
+      "integratedAnalysis": "VPS官方确认库奥皮奥客场赛程，芬超官方页面提示首发需临场公布。两队都没有可确认的放弃动机，强强接近时不能只看主场赔率；主队有主动权，客队若防守稳定可拖慢节奏。1-1/2-1为主要路径，0-0作为低比分尾部。 半全场模拟为胜/胜（3.20）。",
+      "analysisBasis": "Sporttery赔率基线 + VPS官方赛前页 + 芬超官方赛程/阵容页；未把图片中的轮换说法当作已确认事实。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -1105,9 +1137,9 @@
       "homeRank": "[瑞超12]",
       "awayRank": "[瑞超10]",
       "probabilities": {
-        "home": 0.3953,
-        "draw": 0.2721,
-        "away": 0.3326
+        "home": 0.3702,
+        "draw": 0.3548,
+        "away": 0.2749
       },
       "direction": "home",
       "directionText": "主胜",
@@ -1117,9 +1149,9 @@
         "1-1"
       ],
       "tailRiskScores": [
-        "2-2",
         "3-0",
-        "0-0"
+        "0-0",
+        "1-3"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -1127,9 +1159,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 46,
+      "confidenceScore": 41,
       "confidence": "中低",
-      "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
+      "reason": "提高平局和双方进球权重，适度保留2-2而非简单压低总进球",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -1221,15 +1253,20 @@
       },
       "modelLesson": "07-24瑞超复盘：方向1/1、总进球0/1、比分池覆盖1/1；下修总进球偏高倾向，继续保留主胜与零封路径。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
-        "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
-        "upsetPath": "资料不足，保持中性"
+        "stage": "瑞超常规赛；卡尔马在积分榜下半区，米亚尔比为卫冕/强势一方",
+        "schedule": "赛前资料显示米亚尔比刚经历欧战资格赛/洲际比赛，但没有发现新的伤病后果；这会带来节奏与轮换不确定性",
+        "motivation": "卡尔马需要积分远离附加赛区，米亚尔比仍需维持联赛势头；双方都有动机，但客队连续平局使平局保护合理",
+        "weather": "未纳入未经核实的天气变量",
+        "teamNews": "已核实米亚尔比Timo Stavitski继续缺阵，卡尔马前锋Malcolm Stolt继续缺阵；其余以官方首发为准",
+        "coach": "卡尔马依靠主场和Rosenqvist制造机会，米亚尔比欧战后可能更重视控制；比赛存在2-2等均势高比分路径",
+        "upsetPath": "不把卫冕队客胜视为单向结论，主队抢分与客队体能/轮换共同提高平局概率"
       },
-      "contextSources": [],
+      "contextSources": [
+        {
+          "name": "瑞超卡尔马-米亚尔比赛前分析",
+          "url": "https://www.sportsmole.co.uk/football/kalmar/preview/kalmar-vs-mjallby-aif-prediction-team-news-lineups_601721.html"
+        }
+      ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1239,8 +1276,8 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 3.55,
-      "integratedAnalysis": "结合体彩胜平负赔率2.20 / 3.32 / 2.68、官方比分矩阵、总进球分布与[瑞超12]、[瑞超10]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 1-0 / 1-1。半全场采用胜/胜，对应赔率3.55；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
-      "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
+      "integratedAnalysis": "公开赛前资料显示卡尔马处于下半区并需要积分，米亚尔比刚有洲际比赛但没有新的伤病后果；米亚尔比仍缺少Timo Stavitski，卡尔马前锋Malcolm Stolt继续缺阵。客队实力与主队主场形成拉扯，连续平局和欧战后节奏使2-2/1-1比单向客胜更值得保护。 半全场模拟为胜/胜（3.55）。",
+      "analysisBasis": "Sporttery赔率基线 + 瑞超赛前状态、伤停与欧战赛程资料；不采用未核实的额外轮换传闻。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -1259,20 +1296,20 @@
       "homeRank": "[巴甲3]",
       "awayRank": "[巴甲14]",
       "probabilities": {
-        "home": 0.4456,
-        "draw": 0.2809,
-        "away": 0.2735
+        "home": 0.5518,
+        "draw": 0.2635,
+        "away": 0.1848
       },
       "direction": "home",
       "directionText": "主胜",
-      "mainScore": "2-1",
+      "mainScore": "1-0",
       "backupScores": [
-        "1-0",
-        "1-1"
+        "2-1",
+        "2-0"
       ],
       "tailRiskScores": [
-        "0-0",
         "3-0",
+        "0-0",
         "2-2"
       ],
       "totalGoals": "2",
@@ -1281,9 +1318,9 @@
         "3",
         "1"
       ],
-      "confidenceScore": 47,
+      "confidenceScore": 45,
       "confidence": "中低",
-      "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
+      "reason": "情境层强化主队与零封路径，同时给客队追分尾部保留小概率，不把赔率当成唯一依据",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -1375,15 +1412,28 @@
       },
       "modelLesson": "07-21巴甲复盘：米内罗竞技1-1巴伊亚，主胜锚定未覆盖平局；单场样本仅轻量提升1-1与平局保护，继续小样本收缩。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
-        "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
-        "upsetPath": "资料不足，保持中性"
+        "stage": "巴甲第20轮；巴拉纳竞技处于上半区/欧战竞争，国际处于下半区并承受保级压力",
+        "schedule": "国际官方确认7月25日客场对巴拉纳竞技；没有跨赛事轮换证据，但客队需要关注长途与阵容体能",
+        "motivation": "主队争取连续胜利和上半区位置，客队急需止住连续不胜；动机不对称更支持主队主动、客队防守反击",
+        "weather": "未纳入未经核实的天气变量",
+        "teamNews": "已核实主队Arthur Dias停赛、Bruno Zapelli等缺阵；国际有Vitor Gabriel停赛及多名伤病，阵容完整度偏向主队",
+        "coach": "主队防守基础和Viveros前场威胁较强，客队若先失球必须前压，后段可能出现更大空间",
+        "upsetPath": "主胜与1-0/2-0主线优先；国际定位球或反击进球是1-1/2-1尾部，不追客胜冷门"
       },
-      "contextSources": [],
+      "contextSources": [
+        {
+          "name": "国际官方赛前训练稿",
+          "url": "https://internacional.com.br/noticias/masculino/inter-abre-preparacao-para-enfrentar-o-athletico-pr-pelo-brasileirao"
+        },
+        {
+          "name": "巴拉纳竞技-国际赛前伤停分析",
+          "url": "https://www.sportsmole.co.uk/football/atletico-paranaense/preview/athletico-pr-vs-internacional-prediction-team-news-lineups_601806.html"
+        },
+        {
+          "name": "巴拉纳竞技预计阵容与后防缺阵",
+          "url": "https://ge.globo.com/pr/futebol/times/athletico-pr/noticia/2026/07/24/escalacao-athletico-tem-desfalque-e-duvidas-na-defesa-contra-o-internacional-veja-opcoes.ghtml"
+        }
+      ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1393,8 +1443,8 @@
       "halfFullKey": "dh",
       "halfFullText": "平/胜",
       "halfFullOdds": 4.7,
-      "integratedAnalysis": "结合体彩胜平负赔率1.99 / 3.05 / 3.35、官方比分矩阵、总进球分布与[巴甲3]、[巴甲14]进行联合模拟，模型主方向为主胜，总进球重点为2球，比分依次关注2-1 / 1-0 / 1-1。半全场采用平/胜，对应赔率4.70；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
-      "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
+      "integratedAnalysis": "国际官方确认客场赛程，公开赛前资料显示巴拉纳竞技争取连续胜利、处于上半区竞争，而国际连续不胜并承受积分压力。主队也有Arthur Dias停赛等后防变数，不能机械追主胜；主线仍是主队控制与零封，1-0/2-0优先，客队定位球或反击得分则进入1-1/2-1尾部。 半全场模拟为平/胜（4.70）。",
+      "analysisBasis": "Sporttery赔率基线 + 国际官方训练稿 + 巴拉纳竞技/国际赛前伤停资料；将已核实缺阵与未确认名单分开处理。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -1413,16 +1463,16 @@
       "homeRank": "[巴甲15]",
       "awayRank": "[巴甲20]",
       "probabilities": {
-        "home": 0.6549,
-        "draw": 0.2041,
-        "away": 0.141
+        "home": 0.7321,
+        "draw": 0.1818,
+        "away": 0.0862
       },
       "direction": "home",
       "directionText": "主胜",
-      "mainScore": "2-0",
+      "mainScore": "2-1",
       "backupScores": [
-        "2-1",
-        "3-0"
+        "2-0",
+        "3-1"
       ],
       "tailRiskScores": [
         "2-2",
@@ -1435,9 +1485,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 70,
+      "confidenceScore": 67,
       "confidence": "高",
-      "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
+      "reason": "把保级动机拆成主队抢分、客队追分和防守残缺三条变量，抬高比赛总进球与主胜尾部，而非只看主胜赔率",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -1529,15 +1579,24 @@
       },
       "modelLesson": "07-21巴甲复盘：米内罗竞技1-1巴伊亚，主胜锚定未覆盖平局；单场样本仅轻量提升1-1与平局保护，继续小样本收缩。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
-        "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
-        "upsetPath": "资料不足，保持中性"
+        "stage": "巴甲第20轮；桑托斯与沙佩科恩斯都在积分压力区，属于保级相关直接积分场",
+        "schedule": "FCF官方确认沙佩科恩斯7月25日开始下半程；双方没有欧战轮换因素",
+        "motivation": "桑托斯需要利用主场拉开与降级区距离，沙佩科恩斯积分极度紧张但阵容残缺；主队主动、客队被迫追分的比赛脚本更明显",
+        "weather": "未纳入未经核实的天气变量",
+        "teamNews": "可靠赛前资料确认桑托斯中场伤缺但Neymar恢复训练并入选；沙佩科恩斯门将及多名球员缺阵，且进攻选项减少",
+        "coach": "主队更可能控球并利用主场压迫，客队防线缺口使其难以长期守平；若客队先失球，比赛会出现追分大比分",
+        "upsetPath": "主胜主线但不排除双方进球，3-1/2-1优先；沙佩科恩斯因保级不能只守，后段失球风险高"
       },
-      "contextSources": [],
+      "contextSources": [
+        {
+          "name": "巴西圣卡塔琳娜足协赛前稿",
+          "url": "https://fcf.com.br/chapecoense-abre-o-returno-do-brasileirao-neste-sabado/"
+        },
+        {
+          "name": "桑托斯-沙佩科恩斯赛前伤停与积分分析",
+          "url": "https://www.sportsmole.co.uk/football/santos/preview/santos-vs-chapecoense-prediction-team-news-lineups_601807.html"
+        }
+      ],
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1547,8 +1606,8 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 1.7,
-      "integratedAnalysis": "结合体彩胜平负赔率1.26 / 4.80 / 8.00、官方比分矩阵、总进球分布与[巴甲15]、[巴甲20]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-0 / 2-1 / 3-0。半全场采用胜/胜，对应赔率1.70；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
-      "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
+      "integratedAnalysis": "桑托斯与沙佩科恩斯都是积分压力场。可靠赛前资料确认桑托斯主场抢分需求、沙佩科恩斯排名垫底且攻击和防守数据都弱，客队门将及多名球员缺阵；桑托斯也有中场伤缺，但Neymar已恢复训练并入选。模型因此把比赛拆为主队抢分、客队被迫追分、防线残缺三条变量，主胜与2-1/3-1优先，不排除客队追分造成双方进球。 半全场模拟为胜/胜（1.70）。",
+      "analysisBasis": "Sporttery赔率基线 + 巴西足协/州足协赛前信息 + 桑托斯/沙佩科恩斯赛前伤停与积分分析；不把媒体预测比分直接复制为模型结论。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -1866,49 +1925,13 @@
       "category": "mixed",
       "legs": [
         {
-          "matchId": "2040614",
-          "match": "周六203 代格福什 vs 佐加顿斯",
-          "market": "had",
-          "marketText": "胜平负",
-          "pick": "客胜",
-          "odds": 1.58,
-          "probability": 0.5129
-        },
-        {
-          "matchId": "2040613",
-          "match": "周六202 浦项制铁 vs 全北现代",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.1,
-          "probability": 0.3225806451612903
-        },
-        {
-          "matchId": "2040619",
-          "match": "周六208 巴拉纳竞技 vs 巴西国际",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.1,
-          "probability": 0.3225806451612903
-        }
-      ],
-      "productOdds": 15.18,
-      "trustScore": 33,
-      "rank": 1
-    },
-    {
-      "name": "混合3串一",
-      "category": "mixed",
-      "legs": [
-        {
           "matchId": "2040620",
           "match": "周六209 桑托斯 vs 沙佩科恩斯",
           "market": "had",
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.26,
-          "probability": 0.6549
+          "probability": 0.7321
         },
         {
           "matchId": "2040612",
@@ -1930,8 +1953,8 @@
         }
       ],
       "productOdds": 15.21,
-      "trustScore": 33,
-      "rank": 2
+      "trustScore": 35,
+      "rank": 1
     },
     {
       "name": "混合3串一",
@@ -1944,7 +1967,7 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.26,
-          "probability": 0.6549
+          "probability": 0.7321
         },
         {
           "matchId": "2040614",
@@ -1966,8 +1989,8 @@
         }
       ],
       "productOdds": 15.21,
-      "trustScore": 33,
-      "rank": 3
+      "trustScore": 35,
+      "rank": 2
     },
     {
       "name": "混合3串一",
@@ -1980,7 +2003,7 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.26,
-          "probability": 0.6549
+          "probability": 0.7321
         },
         {
           "matchId": "2040614",
@@ -2002,8 +2025,8 @@
         }
       ],
       "productOdds": 15.21,
-      "trustScore": 33,
-      "rank": 4
+      "trustScore": 35,
+      "rank": 3
     },
     {
       "name": "混合3串一",
@@ -2016,7 +2039,7 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.26,
-          "probability": 0.6549
+          "probability": 0.7321
         },
         {
           "matchId": "2040614",
@@ -2038,7 +2061,43 @@
         }
       ],
       "productOdds": 15.21,
-      "trustScore": 33,
+      "trustScore": 35,
+      "rank": 4
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040620",
+          "match": "周六209 桑托斯 vs 沙佩科恩斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.26,
+          "probability": 0.7321
+        },
+        {
+          "matchId": "2040615",
+          "match": "周六204 玛丽港 vs AC奥卢",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.29411764705882354
+        },
+        {
+          "matchId": "2040618",
+          "match": "周六207 卡尔马 vs 米亚尔比",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 3.55,
+          "probability": 0.28169014084507044
+        }
+      ],
+      "productOdds": 15.21,
+      "trustScore": 35,
       "rank": 5
     },
     {
