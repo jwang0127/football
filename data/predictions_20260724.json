@@ -289,7 +289,17 @@
       "halfFullOdds": 2.95,
       "integratedAnalysis": "结合体彩胜平负赔率3.15 / 3.65 / 1.86、官方比分矩阵、总进球分布与[芬超11]、[芬超10]进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注1-2 / 0-2 / 1-1。半全场采用负/负，对应赔率2.95；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
       "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://iffhs.com/it/match/44330",
+          "https://www.aftonbladet.se/sportbladet/fotboll/a/M79AoE/taonsas-succe-sankte-ois-med-dubbla-mal"
+        ]
+      }
     },
     {
       "id": "2040611",
@@ -443,7 +453,17 @@
       "halfFullOdds": 2.15,
       "integratedAnalysis": "结合体彩胜平负赔率1.49 / 4.05 / 4.75、官方比分矩阵、总进球分布与[瑞超8]、[瑞超15]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 3-0。半全场采用胜/胜，对应赔率2.15；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
       "analysisBasis": "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 0,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://iffhs.com/it/match/44330",
+          "https://www.aftonbladet.se/sportbladet/fotboll/a/M79AoE/taonsas-succe-sankte-ois-med-dubbla-mal"
+        ]
+      }
     }
   ],
   "combos": [
