@@ -4,7 +4,7 @@ param(
   [string]$PoolCode = "ttg,had,hhad,crs,hafu",
   [ValidateSet("MatchDate", "BusinessDate")]
   [string]$DateMode = "MatchDate",
-  [string[]]$ExcludedLeagues = @("世界杯"),
+  [string[]]$ExcludedLeagues = @(),
   [switch]$Force,
   [switch]$MergeExisting,
   [switch]$RefreshPredictions

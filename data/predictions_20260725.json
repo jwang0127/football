@@ -339,7 +339,19 @@
       "halfFullOdds": 4.9,
       "integratedAnalysis": "金泉尚武近期进攻产出偏低，但上一轮零封全北，说明其退防站位和防守协作具备把强队拖入低比分的能力；大田近期连续平局，客队实力与稳定性仍占优，但并非无条件客胜。模型因此把市场客胜拆成0-1兑现路径，同时提高0-0/1-1的平局保护，验证金泉不败逻辑后再保留客胜尾部。 半全场模拟为平/平（4.90）。",
       "analysisBasis": "Sporttery赔率与比分矩阵 + K League比赛页 + 赛前公开情报；已核验近期零封/进攻信息，未核验伤停不作事实使用。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 3,
+        "awayGoals": 2,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260725",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260725",
+          "https://www.soccerstats.com/round_details.asp?league=southkorea&mrevid=m115&st1=5&st2=11",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036949/raportti/"
+        ]
+      }
     },
     {
       "id": "2040613",
@@ -515,7 +527,19 @@
       "halfFullOdds": 4.2,
       "integratedAnalysis": "全北实力和市场方向仍占优，但浦项结束连续客场后回到主场，双方积分接近，比赛价值不是单向的；公开资料中的锋线缺阵说法尚未完成双来源确认，因此不直接当作硬事实。模型保留全北0-1/1-2路径，同时提高浦项主场不败和0-0/1-1平局路径，避免只按客队低赔下结论。 半全场模拟为平/平（4.20）。",
       "analysisBasis": "Sporttery赔率与比分矩阵 + K League官方比赛页 + 浦项—全北赛前资料；未交叉确认的伤停只作为不确定性，不直接改变实力排序。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 2,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260725",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260725",
+          "https://www.soccerstats.com/round_details.asp?league=southkorea&mrevid=m115&st1=5&st2=11",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036949/raportti/"
+        ]
+      }
     },
     {
       "id": "2040614",
@@ -688,7 +712,19 @@
       "halfFullOdds": 2.45,
       "integratedAnalysis": "佐加顿斯官方将本场定为重要客场，赛前强调提升一对一、纵深和进攻效率；公开赛前资料显示代格福什长期不胜、处于保级压力，而佐加顿斯仍有上升目标。未核实资料所称后防长期伤缺未完全核实，因此只下调客胜确定性，不直接判定主队必胜。比赛优先看1-1，其次0-1/1-2，若客队进攻效率仍低，平局是主要保护路径。 半全场模拟为负/负（2.45）。",
       "analysisBasis": "Sporttery赔率基线 + 佐加顿斯官方赛前稿 + 公开赛前状态资料；未核实资料中的未核实伤停只作低权重假设。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260725",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260725",
+          "https://www.soccerstats.com/round_details.asp?league=southkorea&mrevid=m115&st1=5&st2=11",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036949/raportti/"
+        ]
+      }
     },
     {
       "id": "2040615",
@@ -857,7 +893,19 @@
       "halfFullOdds": 2.08,
       "integratedAnalysis": "芬超官方确认玛丽港主场对AC奥卢。未核实资料提到保级压力和阵容短板，但具体伤停尚未由当前官方资料完全确认，因此模型不把它们当成硬事实；只把积分价值、双方短板和谨慎开局转成平局与低比分权重。0-0/1-1优先，主客一球差作为次级路径。 半全场模拟为负/负（2.08）。",
       "analysisBasis": "Sporttery赔率基线 + 芬超官方赛前页；未核实资料中的伤停文字未完全核实，未直接用于强制改方向。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260725",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260725",
+          "https://www.soccerstats.com/round_details.asp?league=southkorea&mrevid=m115&st1=5&st2=11",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036949/raportti/"
+        ]
+      }
     },
     {
       "id": "2040616",
@@ -1030,7 +1078,19 @@
       "halfFullOdds": 3.2,
       "integratedAnalysis": "克里斯蒂安松官方和挪威足协赛程确认本场为主场联赛。斯达有抢分/保级压力，主队也更重视先拿分；这类动机不等于一方必胜，反而可能先控制失球。1-1是核心反向路径，主队1-0/2-0为主场兑现路径，避免追逐未经核实的大比分伤停叙事。 半全场模拟为胜/胜（3.20）。",
       "analysisBasis": "Sporttery赔率基线 + 克里斯蒂安松官方赛程 + 挪威足协赛程；具体临场伤停等待首发确认。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260725",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260725",
+          "https://www.soccerstats.com/round_details.asp?league=southkorea&mrevid=m115&st1=5&st2=11",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036949/raportti/"
+        ]
+      }
     },
     {
       "id": "2040617",
@@ -1203,7 +1263,19 @@
       "halfFullOdds": 3.2,
       "integratedAnalysis": "VPS官方确认库奥皮奥客场赛程，芬超官方页面提示首发需临场公布。两队都没有可确认的放弃动机，强强接近时不能只看主场赔率；主队有主动权，客队若防守稳定可拖慢节奏。1-1/2-1为主要路径，0-0作为低比分尾部。 半全场模拟为胜/胜（3.20）。",
       "analysisBasis": "Sporttery赔率基线 + VPS官方赛前页 + 芬超官方赛程/阵容页；未把未核实资料中的轮换说法当作已确认事实。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 3,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260725",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260725",
+          "https://www.soccerstats.com/round_details.asp?league=southkorea&mrevid=m115&st1=5&st2=11",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036949/raportti/"
+        ]
+      }
     },
     {
       "id": "2040618",
@@ -1372,7 +1444,19 @@
       "halfFullOdds": 3.55,
       "integratedAnalysis": "公开赛前资料显示卡尔马处于下半区并需要积分，米亚尔比刚有洲际比赛但没有新的伤病后果；米亚尔比仍缺少Timo Stavitski，卡尔马前锋Malcolm Stolt继续缺阵。客队实力与主队主场形成拉扯，连续平局和欧战后节奏使2-2/1-1比单向客胜更值得保护。 半全场模拟为胜/胜（3.55）。",
       "analysisBasis": "Sporttery赔率基线 + 瑞超赛前状态、伤停与欧战赛程资料；不采用未核实的额外轮换传闻。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260725",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260725",
+          "https://www.soccerstats.com/round_details.asp?league=southkorea&mrevid=m115&st1=5&st2=11",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036949/raportti/"
+        ]
+      }
     },
     {
       "id": "2040619",
@@ -1549,7 +1633,19 @@
       "halfFullOdds": 4.7,
       "integratedAnalysis": "国际官方确认客场赛程，公开赛前资料显示巴拉纳竞技争取连续胜利、处于上半区竞争，而国际连续不胜并承受积分压力。主队也有Arthur Dias停赛等后防变数，不能机械追主胜；主线仍是主队控制与零封，1-0/2-0优先，客队定位球或反击得分则进入1-1/2-1尾部。 半全场模拟为平/胜（4.70）。",
       "analysisBasis": "Sporttery赔率基线 + 国际官方训练稿 + 巴拉纳竞技/国际赛前伤停资料；将已核实缺阵与未确认名单分开处理。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 2,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260725",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260725",
+          "https://www.soccerstats.com/round_details.asp?league=southkorea&mrevid=m115&st1=5&st2=11",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036949/raportti/"
+        ]
+      }
     },
     {
       "id": "2040620",
@@ -1722,7 +1818,19 @@
       "halfFullOdds": 1.7,
       "integratedAnalysis": "桑托斯与沙佩科恩斯都是积分压力场。可靠赛前资料确认桑托斯主场抢分需求、沙佩科恩斯排名垫底且攻击和防守数据都弱，客队门将及多名球员缺阵；桑托斯也有中场伤缺，但Neymar已恢复训练并入选。模型因此把比赛拆为主队抢分、客队被迫追分、防线残缺三条变量，主胜与2-1/3-1优先，不排除客队追分造成双方进球。 半全场模拟为胜/胜（1.70）。",
       "analysisBasis": "Sporttery赔率基线 + 巴西足协/州足协赛前信息 + 桑托斯/沙佩科恩斯赛前伤停与积分分析；不把媒体预测比分直接复制为模型结论。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 2,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260725",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260725",
+          "https://www.soccerstats.com/round_details.asp?league=southkorea&mrevid=m115&st1=5&st2=11",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036949/raportti/"
+        ]
+      }
     },
     {
       "id": "2040621",
@@ -1890,7 +1998,19 @@
       "halfFullOdds": 3.55,
       "integratedAnalysis": "结合体彩胜平负赔率2.16 / 3.65 / 2.55、官方比分矩阵、总进球分布与[美职13]、[美职5]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 1-2。半全场采用胜/胜，对应赔率3.55；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
       "analysisBasis": "Sporttery赔率与比分矩阵 + MLS官方赛程；伤停、近期防守表现和战术动机尚未达到交叉核验阈值，未作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260725",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260725",
+          "https://www.soccerstats.com/round_details.asp?league=southkorea&mrevid=m115&st1=5&st2=11",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036949/raportti/"
+        ]
+      }
     },
     {
       "id": "2040622",
@@ -2058,7 +2178,19 @@
       "halfFullOdds": 2.7,
       "integratedAnalysis": "结合体彩胜平负赔率1.70 / 3.90 / 3.52、官方比分矩阵、总进球分布与[美职2]、[美职10]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 3-1。半全场采用胜/胜，对应赔率2.70；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
       "analysisBasis": "Sporttery赔率与比分矩阵 + MLS官方赛程；伤停、近期防守表现和战术动机尚未达到交叉核验阈值，未作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260725",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260725",
+          "https://www.soccerstats.com/round_details.asp?league=southkorea&mrevid=m115&st1=5&st2=11",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036949/raportti/"
+        ]
+      }
     }
   ],
   "combos": [
