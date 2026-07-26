@@ -4,8 +4,8 @@
   "includedBusinessDates": [
     "2026-07-26"
   ],
-  "modelVersion": "competition-specific-contextual-20260726-v9-audit-shrinkage",
-  "contextVersion": "match-context-v1",
+  "modelVersion": "competition-specific-evidence-chain-20260726-v10",
+  "contextVersion": "evidence-chain-v2",
   "competitionModels": {
     "韩国职业联赛": {
       "version": "k-league-v7-review-0722",
@@ -252,7 +252,7 @@
       }
     ]
   },
-  "generatedAt": "2026-07-26T13:25:14",
+  "generatedAt": "2026-07-26T14:03:54",
   "oddsUpdatedAt": "2026-07-26 13:00:11",
   "matches": [
     {
@@ -382,8 +382,8 @@
         "goal_shift": 0.0,
         "review_sample": 12,
         "review_strength": 0.5,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
       "contextFactors": {
@@ -398,6 +398,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/1-1；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -407,7 +470,7 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 2.55,
-      "integratedAnalysis": "结合体彩胜平负赔率1.63 / 3.55 / 4.26、官方比分矩阵、总进球分布与[韩职1]、[韩职4]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 1-1。半全场采用胜/胜，对应赔率2.55；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率1.63 / 3.55 / 4.26、官方比分矩阵、总进球分布与[韩职1]、[韩职4]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 1-1。半全场采用胜/胜，对应赔率2.55；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -538,8 +601,8 @@
         "goal_shift": 0.0,
         "review_sample": 12,
         "review_strength": 0.5,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
       "contextFactors": {
@@ -554,6 +617,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分1-0，备选2-1/2-0；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -563,7 +689,7 @@
       "halfFullKey": "dh",
       "halfFullText": "平/胜",
       "halfFullOdds": 4.0,
-      "integratedAnalysis": "结合体彩胜平负赔率1.56 / 3.35 / 5.30、官方比分矩阵、总进球分布与[韩职7]、[韩职11]进行联合模拟，模型主方向为主胜，总进球重点为2球，比分依次关注1-0 / 2-1 / 2-0。半全场采用平/胜，对应赔率4.00；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率1.56 / 3.35 / 5.30、官方比分矩阵、总进球分布与[韩职7]、[韩职11]进行联合模拟，模型主方向为主胜，总进球重点为2球，比分依次关注1-0 / 2-1 / 2-0。半全场采用平/胜，对应赔率4.00；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -694,8 +820,8 @@
         "goal_shift": 0.0,
         "review_sample": 12,
         "review_strength": 0.5,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
       "contextFactors": {
@@ -710,6 +836,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-1/1-1；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -719,7 +908,7 @@
       "halfFullKey": "da",
       "halfFullText": "平/负",
       "halfFullOdds": 4.7,
-      "integratedAnalysis": "结合体彩胜平负赔率3.65 / 3.00 / 1.92、官方比分矩阵、总进球分布与[韩职12]、[韩职8]进行联合模拟，模型主方向为客胜，总进球重点为2球，比分依次关注1-2 / 0-1 / 1-1。半全场采用平/负，对应赔率4.70；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率3.65 / 3.00 / 1.92、官方比分矩阵、总进球分布与[韩职12]、[韩职8]进行联合模拟，模型主方向为客胜，总进球重点为2球，比分依次关注1-2 / 0-1 / 1-1。半全场采用平/负，对应赔率4.70；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -850,8 +1039,8 @@
         "goal_shift": 0.0,
         "review_sample": 12,
         "review_strength": 0.5,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
       "contextFactors": {
@@ -866,6 +1055,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "客队为市场与联赛基线下的暂定方向，主比分0-1，备选1-2/0-0；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -875,7 +1127,7 @@
       "halfFullKey": "da",
       "halfFullText": "平/负",
       "halfFullOdds": 4.5,
-      "integratedAnalysis": "结合体彩胜平负赔率4.12 / 2.94 / 1.83、官方比分矩阵、总进球分布与[韩职6]、[韩职3]进行联合模拟，模型主方向为客胜，总进球重点为2球，比分依次关注0-1 / 1-2 / 0-0。半全场采用平/负，对应赔率4.50；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率4.12 / 2.94 / 1.83、官方比分矩阵、总进球分布与[韩职6]、[韩职3]进行联合模拟，模型主方向为客胜，总进球重点为2球，比分依次关注0-1 / 1-2 / 0-0。半全场采用平/负，对应赔率4.50；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -1006,8 +1258,8 @@
         "goal_shift": -0.04285714285714286,
         "review_sample": 9,
         "review_strength": 0.4286,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-24瑞超复盘：方向1/1、总进球0/1、比分池覆盖1/1；下修总进球偏高倾向，继续保留主胜与零封路径。",
       "contextFactors": {
@@ -1022,6 +1274,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-2/0-3；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1031,7 +1346,7 @@
       "halfFullKey": "aa",
       "halfFullText": "负/负",
       "halfFullOdds": 1.9,
-      "integratedAnalysis": "结合体彩胜平负赔率6.32 / 4.80 / 1.31、官方比分矩阵、总进球分布与[瑞超12]、[瑞超2]进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注1-2 / 0-2 / 0-3。半全场采用负/负，对应赔率1.90；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率6.32 / 4.80 / 1.31、官方比分矩阵、总进球分布与[瑞超12]、[瑞超2]进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注1-2 / 0-2 / 0-3。半全场采用负/负，对应赔率1.90；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -1162,8 +1477,8 @@
         "goal_shift": -0.04285714285714286,
         "review_sample": 9,
         "review_strength": 0.4286,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-24瑞超复盘：方向1/1、总进球0/1、比分池覆盖1/1；下修总进球偏高倾向，继续保留主胜与零封路径。",
       "contextFactors": {
@@ -1178,6 +1493,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/3-1；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1187,7 +1565,7 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 1.87,
-      "integratedAnalysis": "结合体彩胜平负赔率1.31 / 4.88 / 6.20、官方比分矩阵、总进球分布与[瑞超1]、[瑞超13]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 3-1。半全场采用胜/胜，对应赔率1.87；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率1.31 / 4.88 / 6.20、官方比分矩阵、总进球分布与[瑞超1]、[瑞超13]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 3-1。半全场采用胜/胜，对应赔率1.87；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -1318,8 +1696,8 @@
         "goal_shift": -0.05894736842105263,
         "review_sample": 7,
         "review_strength": 0.3684,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-24芬超复盘：方向0/1、总进球1/1；不追随客队低赔锚定，保留主场反向路径、低比分保护与追分尾部。",
       "contextFactors": {
@@ -1334,6 +1712,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/1-0；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1343,7 +1784,7 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 2.6,
-      "integratedAnalysis": "结合体彩胜平负赔率1.66 / 3.65 / 3.95、官方比分矩阵、总进球分布与[芬超2]、[芬超6]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 1-0。半全场采用胜/胜，对应赔率2.60；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率1.66 / 3.65 / 3.95、官方比分矩阵、总进球分布与[芬超2]、[芬超6]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 1-0。半全场采用胜/胜，对应赔率2.60；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -1474,8 +1915,8 @@
         "goal_shift": -0.05894736842105263,
         "review_sample": 7,
         "review_strength": 0.3684,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-24芬超复盘：方向0/1、总进球1/1；不追随客队低赔锚定，保留主场反向路径、低比分保护与追分尾部。",
       "contextFactors": {
@@ -1490,6 +1931,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/1-1；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1499,7 +2003,7 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 3.35,
-      "integratedAnalysis": "结合体彩胜平负赔率2.08 / 3.40 / 2.82、官方比分矩阵、总进球分布与[芬超9]、[芬超7]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 1-0 / 1-1。半全场采用胜/胜，对应赔率3.35；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率2.08 / 3.40 / 2.82、官方比分矩阵、总进球分布与[芬超9]、[芬超7]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 1-0 / 1-1。半全场采用胜/胜，对应赔率3.35；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -1630,8 +2134,8 @@
         "goal_shift": -0.017142857142857144,
         "review_sample": 9,
         "review_strength": 0.4286,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-18挪超复盘：方向4/6、主比分2/6；保留0-0零封分支，同时放宽客胜3球以上长尾，避免统一压低进球均值。",
       "contextFactors": {
@@ -1646,6 +2150,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/3-1；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1655,7 +2222,7 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 2.4,
-      "integratedAnalysis": "结合体彩胜平负赔率1.59 / 4.12 / 3.88、官方比分矩阵、总进球分布与[挪超6]、[挪超9]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 3-1。半全场采用胜/胜，对应赔率2.40；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率1.59 / 4.12 / 3.88、官方比分矩阵、总进球分布与[挪超6]、[挪超9]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 3-1。半全场采用胜/胜，对应赔率2.40；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -1786,8 +2353,8 @@
         "goal_shift": -0.05894736842105263,
         "review_sample": 7,
         "review_strength": 0.3684,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-24芬超复盘：方向0/1、总进球1/1；不追随客队低赔锚定，保留主场反向路径、低比分保护与追分尾部。",
       "contextFactors": {
@@ -1802,6 +2369,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/3-1；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1811,7 +2441,7 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 2.1,
-      "integratedAnalysis": "结合体彩胜平负赔率1.45 / 4.18 / 5.00、官方比分矩阵、总进球分布与[芬超5]、[芬超8]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 3-1。半全场采用胜/胜，对应赔率2.10；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率1.45 / 4.18 / 5.00、官方比分矩阵、总进球分布与[芬超5]、[芬超8]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 3-1。半全场采用胜/胜，对应赔率2.10；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -1942,8 +2572,8 @@
         "goal_shift": -0.04285714285714286,
         "review_sample": 9,
         "review_strength": 0.4286,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-24瑞超复盘：方向1/1、总进球0/1、比分池覆盖1/1；下修总进球偏高倾向，继续保留主胜与零封路径。",
       "contextFactors": {
@@ -1958,6 +2588,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-0，备选2-1/3-0；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1967,7 +2660,7 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 1.7,
-      "integratedAnalysis": "结合体彩胜平负赔率1.23 / 5.10 / 8.30、官方比分矩阵、总进球分布与[瑞超8]、[瑞超16]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-0 / 2-1 / 3-0。半全场采用胜/胜，对应赔率1.70；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率1.23 / 5.10 / 8.30、官方比分矩阵、总进球分布与[瑞超8]、[瑞超16]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-0 / 2-1 / 3-0。半全场采用胜/胜，对应赔率1.70；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -2098,8 +2791,8 @@
         "goal_shift": -0.04285714285714286,
         "review_sample": 9,
         "review_strength": 0.4286,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-24瑞超复盘：方向1/1、总进球0/1、比分池覆盖1/1；下修总进球偏高倾向，继续保留主胜与零封路径。",
       "contextFactors": {
@@ -2114,6 +2807,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/1-1；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -2123,7 +2879,7 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 2.7,
-      "integratedAnalysis": "结合体彩胜平负赔率1.74 / 3.65 / 3.56、官方比分矩阵、总进球分布与[瑞超7]、[瑞超9]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 1-1。半全场采用胜/胜，对应赔率2.70；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率1.74 / 3.65 / 3.56、官方比分矩阵、总进球分布与[瑞超7]、[瑞超9]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 1-1。半全场采用胜/胜，对应赔率2.70；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -2254,8 +3010,8 @@
         "goal_shift": -0.017142857142857144,
         "review_sample": 9,
         "review_strength": 0.4286,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-18挪超复盘：方向4/6、主比分2/6；保留0-0零封分支，同时放宽客胜3球以上长尾，避免统一压低进球均值。",
       "contextFactors": {
@@ -2270,6 +3026,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/3-1；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -2279,7 +3098,7 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 2.2,
-      "integratedAnalysis": "结合体彩胜平负赔率1.55 / 3.95 / 4.35、官方比分矩阵、总进球分布与[挪超7]、[挪超8]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 3-1。半全场采用胜/胜，对应赔率2.20；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率1.55 / 3.95 / 4.35、官方比分矩阵、总进球分布与[挪超7]、[挪超8]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-1 / 2-0 / 3-1。半全场采用胜/胜，对应赔率2.20；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -2410,8 +3229,8 @@
         "goal_shift": -0.017142857142857144,
         "review_sample": 9,
         "review_strength": 0.4286,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-18挪超复盘：方向4/6、主比分2/6；保留0-0零封分支，同时放宽客胜3球以上长尾，避免统一压低进球均值。",
       "contextFactors": {
@@ -2426,6 +3245,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-1/1-1；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -2435,7 +3317,7 @@
       "halfFullKey": "aa",
       "halfFullText": "负/负",
       "halfFullOdds": 3.35,
-      "integratedAnalysis": "结合体彩胜平负赔率2.80 / 3.55 / 2.04、官方比分矩阵、总进球分布与[挪超13]、[挪超5]进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注1-2 / 0-1 / 1-1。半全场采用负/负，对应赔率3.35；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率2.80 / 3.55 / 2.04、官方比分矩阵、总进球分布与[挪超13]、[挪超5]进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注1-2 / 0-1 / 1-1。半全场采用负/负，对应赔率3.35；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -2566,8 +3448,8 @@
         "goal_shift": -0.017142857142857144,
         "review_sample": 9,
         "review_strength": 0.4286,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-18挪超复盘：方向4/6、主比分2/6；保留0-0零封分支，同时放宽客胜3球以上长尾，避免统一压低进球均值。",
       "contextFactors": {
@@ -2582,6 +3464,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-3/1-3；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -2591,7 +3536,7 @@
       "halfFullKey": "aa",
       "halfFullText": "负/负",
       "halfFullOdds": 1.7,
-      "integratedAnalysis": "结合体彩胜平负赔率7.10 / 5.50 / 1.24、官方比分矩阵、总进球分布与[挪超11]、[挪超2]进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注1-2 / 0-3 / 1-3。半全场采用负/负，对应赔率1.70；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率7.10 / 5.50 / 1.24、官方比分矩阵、总进球分布与[挪超11]、[挪超2]进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注1-2 / 0-3 / 1-3。半全场采用负/负，对应赔率1.70；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -2722,8 +3667,8 @@
         "goal_shift": -0.017142857142857144,
         "review_sample": 9,
         "review_strength": 0.4286,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-18挪超复盘：方向4/6、主比分2/6；保留0-0零封分支，同时放宽客胜3球以上长尾，避免统一压低进球均值。",
       "contextFactors": {
@@ -2738,6 +3683,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-2/1-3；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -2747,7 +3755,7 @@
       "halfFullKey": "aa",
       "halfFullText": "负/负",
       "halfFullOdds": 2.0,
-      "integratedAnalysis": "结合体彩胜平负赔率5.15 / 4.63 / 1.39、官方比分矩阵、总进球分布与[挪超14]、[挪超1]进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注1-2 / 0-2 / 1-3。半全场采用负/负，对应赔率2.00；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率5.15 / 4.63 / 1.39、官方比分矩阵、总进球分布与[挪超14]、[挪超1]进行联合模拟，模型主方向为客胜，总进球重点为3球，比分依次关注1-2 / 0-2 / 1-3。半全场采用负/负，对应赔率2.00；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -2878,8 +3886,8 @@
         "goal_shift": -0.020000000000000004,
         "review_sample": 3,
         "review_strength": 0.2,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-21巴甲复盘：米内罗竞技1-1巴伊亚，主胜锚定未覆盖平局；单场样本仅轻量提升1-1与平局保护，继续小样本收缩。",
       "contextFactors": {
@@ -2894,6 +3902,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-0，备选2-1/1-0；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -2903,7 +3974,7 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 1.93,
-      "integratedAnalysis": "结合体彩胜平负赔率1.35 / 4.25 / 6.50、官方比分矩阵、总进球分布与[巴甲2]、[巴甲12]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-0 / 2-1 / 1-0。半全场采用胜/胜，对应赔率1.93；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率1.35 / 4.25 / 6.50、官方比分矩阵、总进球分布与[巴甲2]、[巴甲12]进行联合模拟，模型主方向为主胜，总进球重点为3球，比分依次关注2-0 / 2-1 / 1-0。半全场采用胜/胜，对应赔率1.93；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -3034,8 +4105,8 @@
         "goal_shift": -0.020000000000000004,
         "review_sample": 3,
         "review_strength": 0.2,
-        "contextLayer": "match-context-v1",
-        "reviewMethod": "12场中性先验收缩"
+        "contextLayer": "evidence-chain-v2",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-21巴甲复盘：米内罗竞技1-1巴伊亚，主胜锚定未覆盖平局；单场样本仅轻量提升1-1与平局保护，继续小样本收缩。",
       "contextFactors": {
@@ -3050,6 +4121,69 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/1-1；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -3059,7 +4193,7 @@
       "halfFullKey": "dh",
       "halfFullText": "平/胜",
       "halfFullOdds": 6.0,
-      "integratedAnalysis": "结合体彩胜平负赔率2.62 / 2.95 / 2.46、官方比分矩阵、总进球分布与[巴甲16]、[巴甲4]进行联合模拟，模型主方向为主胜，总进球重点为2球，比分依次关注2-1 / 1-0 / 1-1。半全场采用平/胜，对应赔率6.00；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。",
+      "integratedAnalysis": "结合体彩胜平负赔率2.62 / 2.95 / 2.46、官方比分矩阵、总进球分布与[巴甲16]、[巴甲4]进行联合模拟，模型主方向为主胜，总进球重点为2球，比分依次关注2-1 / 1-0 / 1-1。半全场采用平/胜，对应赔率6.00；若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。 五问逻辑：为什么赢——未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。；为什么要赢——未核验积分、赛制或晋级压力，不能声称任何一方必须赢。；为什么会输——未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。；为什么不输——仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。；为什么会平——未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。 背后因果维度：schedule_load：未核验上场比赛时间、赛程密度与下一场任务。；rest_fatigue：未核验双方实际休息天数、加时赛和高强度出场时间。；travel_home_advantage：未核验旅行距离、时区、主客场连续性与场地适应。；squad_availability：未核验官方伤停、停赛、首发和轮换信息。；recent_performance：未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。；coach_tactics：未核验教练近期阵型、压迫/退防和针对性部署。；motivation_competition：未核验积分、保级、晋级、两回合策略或必须抢分条件。；weather_pitch：未核验当地天气、草皮和比赛时段对节奏的影响。；set_piece_transition：未核验定位球、反击、边路防守和转换攻防的具体相克关系。；market_contradiction：未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     }

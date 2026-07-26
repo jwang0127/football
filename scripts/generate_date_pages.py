@@ -21,6 +21,11 @@ MAX_PARLAYS = 10
 HIGH_ODDS_THRESHOLD = 20.0
 HIGH_ODDS_SLOTS = 5
 REVIEW_SHRINKAGE_PRIOR = 12
+ANALYSIS_DIMENSIONS = (
+    "schedule_load", "rest_fatigue", "travel_home_advantage", "squad_availability",
+    "recent_performance", "coach_tactics", "motivation_competition", "weather_pitch",
+    "set_piece_transition", "market_contradiction",
+)
 MARKET_TEXT = {"had": "胜平负", "ttg": "总进球", "crs": "比分", "hafu": "半全场"}
 HAFU_TEXT = {"hh": "胜/胜", "hd": "胜/平", "ha": "胜/负", "dh": "平/胜", "dd": "平/平", "da": "平/负", "ah": "负/胜", "ad": "负/平", "aa": "负/负"}
 EXCLUDED_BY_DATE: dict[str, dict[str, str]] = {
@@ -286,6 +291,7 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
     # the primary score plus the two strongest remaining alternatives. Tail
     # risks stay in their own audit field and do not inflate the recommendation.
     backups = backups[:2]
+    reasoning = build_reasoning_contract(match, direction, context, main, backups)
     predicted.update({
         "probabilities": {key: round(value, 4) for key, value in probabilities.items()},
         "direction": direction,
@@ -297,12 +303,17 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
         "goalCandidates": sorted(goal_probs, key=goal_probs.get, reverse=True)[:3],
         "marketBaselineProbabilities": {key: round(value, 4) for key, value in market_probabilities.items()},
         "confidenceScore": max(25, min(82, predicted["confidenceScore"] + profile["confidence_delta"] + volatility["confidencePenalty"] + int(context.get("confidenceDelta", 0)))),
-        "modelProfile": {**{key: profile[key] for key in ("version", "had", "crs", "prior", "goal_shift", "review_sample", "review_strength")}, "contextLayer": "match-context-v1", "reviewMethod": "12场中性先验收缩"},
+        "modelProfile": {**{key: profile[key] for key in ("version", "had", "crs", "prior", "goal_shift", "review_sample", "review_strength")}, "contextLayer": "evidence-chain-v2", "reviewMethod": "12场中性先验收缩 + 多维证据闸门"},
         "modelLesson": source_profile["lesson"],
         "contextFactors": {key: context.get(key, "资料不足，保持中性") for key in ("stage", "schedule", "motivation", "weather", "teamNews", "coach", "upsetPath")},
         "contextSources": context.get("sources", []),
         "evidenceStatus": context.get("evidenceStatus", "比赛级公开证据不足；情境层保持中性"),
         "verifiedFactors": context.get("verifiedFactors", []),
+        "reasoningMethod": "evidence-chain-v2",
+        "reasoningContract": reasoning,
+        "analysisDimensions": reasoning["dimensionReport"]["dimensions"],
+        "missingAnalysisDimensions": reasoning["dimensionReport"]["missingDimensions"],
+        "analysisCompleteness": reasoning["dimensionReport"]["completeness"],
         "marketRiskLevel": volatility["level"],
         "marketRiskFactors": volatility["factors"],
         "marketRiskNote": volatility["note"],
@@ -343,7 +354,102 @@ def context_for_match(match: dict[str, Any], raw_context: dict[str, Any]) -> dic
             "judgement": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
             "sources": [],
         })
+    if context.get("sources") and context.get("verifiedFactors"):
+        # Structured rest data is a causal input, not a prose decoration.
+        home_rest = num(context.get("homeRestDays"))
+        away_rest = num(context.get("awayRestDays"))
+        if home_rest is not None and away_rest is not None and abs(home_rest - away_rest) >= 2:
+            advantage = "home" if home_rest > away_rest else "away"
+            tired = "away" if advantage == "home" else "home"
+            multipliers = dict(context.get("outcomeMultipliers", {}))
+            multipliers[advantage] = float(multipliers.get(advantage, 1.0)) * 1.04
+            multipliers[tired] = float(multipliers.get(tired, 1.0)) * 0.96
+            context["outcomeMultipliers"] = multipliers
+            context.setdefault("goalShift", 0.0)
+            context["goalShift"] = float(context["goalShift"]) - 0.04
+            context.setdefault("restFatigue", f"休息天数：主队{home_rest:g}天、客队{away_rest:g}天；体能优势偏向{advantage}，疲劳风险偏向{tired}。")
     return context
+
+
+def build_dimension_report(match: dict[str, Any], context: dict[str, Any]) -> dict[str, Any]:
+    """Build the causal evidence layer behind the final prediction.
+
+    The context file may provide structured values such as rest days,
+    travel, absences, tactical matchup and weather.  Free text is retained
+    for audit, but a missing value is never inferred from odds alone.
+    """
+    defaults = {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
+    }
+    aliases = {
+        "schedule_load": ("schedule", "stage"),
+        "rest_fatigue": ("restFatigue", "restDays", "fatigue"),
+        "travel_home_advantage": ("travel", "homeAdvantage", "venue"),
+        "squad_availability": ("teamNews", "injuries", "suspensions", "lineups"),
+        "recent_performance": ("recentForm", "recentPerformance", "form"),
+        "coach_tactics": ("coach", "tactics", "tacticalMatchup"),
+        "motivation_competition": ("motivation", "competitionLogic"),
+        "weather_pitch": ("weather", "pitch"),
+        "set_piece_transition": ("setPieceTransition", "transition", "matchup"),
+        "market_contradiction": ("upsetPath", "marketContradiction"),
+    }
+    dimensions = {}
+    missing = []
+    for key in ANALYSIS_DIMENSIONS:
+        value = next((context.get(alias) for alias in aliases[key] if context.get(alias)), None)
+        dimensions[key] = value or defaults[key]
+        if not value:
+            missing.append(key)
+    return {
+        "dimensions": dimensions,
+        "missingDimensions": missing,
+        "completeness": round((len(ANALYSIS_DIMENSIONS) - len(missing)) / len(ANALYSIS_DIMENSIONS), 2),
+        "adjustmentGate": "passed" if context.get("sources") and context.get("verifiedFactors") else "blocked",
+    }
+
+
+def build_reasoning_contract(match: dict[str, Any], direction: str, context: dict[str, Any], main: str, backups: list[str]) -> dict[str, Any]:
+    """Force every prediction through the five football-logic questions.
+
+    Odds are only the market baseline.  Directional changes require a source
+    backed context; otherwise each question stays explicitly unknown instead
+    of being filled with invented injuries, motivation or tactical claims.
+    """
+    labels = {"home": "主队", "draw": "平局", "away": "客队"}
+    side = labels[direction]
+    dimension_report = build_dimension_report(match, context)
+    has_evidence = dimension_report["adjustmentGate"] == "passed"
+    if not has_evidence:
+        unknown = "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。"
+        return {
+            "whyWin": unknown,
+            "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+            "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+            "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+            "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+            "decision": f"{side}为市场与联赛基线下的暂定方向，主比分{main}，备选{'/'.join(backups)}；证据不足，置信度下调。",
+            "dimensionReport": dimension_report,
+            "evidenceGate": "blocked",
+        }
+    return {
+        "whyWin": context.get("whyWin") or f"支持{side}的可核验逻辑：{context.get('coach') or context.get('teamNews') or context.get('motivation') or '已有比赛级来源，但尚未拆出明确兑现条件。'}",
+        "whyMustWin": context.get("whyMustWin") or context.get("motivation") or "来源未确认必须赢的赛制或积分条件，因此只作弱动机处理。",
+        "whyLose": context.get("whyLose") or context.get("upsetPath") or "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": context.get("whyNotLose") or context.get("upsetPath") or "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": context.get("whyDraw") or f"平局机制：{context.get('coach') or context.get('motivation') or '双方比赛目标与风险控制存在拉扯'}；对应比分池保留低比分平局。",
+        "decision": context.get("judgement") or f"综合证据后暂定{side}，主比分{main}，备选{'/'.join(backups)}；同时保留反向路径。",
+        "dimensionReport": dimension_report,
+        "evidenceGate": "passed",
+    }
 
 
 def hafu_pick(match: dict[str, Any]) -> tuple[str, float | None, float]:
@@ -476,6 +582,14 @@ def predict_with_market_fallback(base: Any, match: dict[str, Any], context: dict
     predicted["integratedAnalysis"] = context.get("integratedAnalysis", default_analysis)
     if "半全场" not in predicted["integratedAnalysis"]:
         predicted["integratedAnalysis"] += f" 半全场模拟为{predicted['halfFullText']}" + (f"（{hodds:.2f}）" if hodds else "") + "。"
+    contract = predicted["reasoningContract"]
+    predicted["integratedAnalysis"] += (
+        f" 五问逻辑：为什么赢——{contract['whyWin']}；为什么要赢——{contract['whyMustWin']}；"
+        f"为什么会输——{contract['whyLose']}；为什么不输——{contract['whyNotLose']}；"
+        f"为什么会平——{contract['whyDraw']}"
+    )
+    dimension_text = "；".join(f"{key}：{value}" for key, value in predicted["analysisDimensions"].items())
+    predicted["integratedAnalysis"] += f" 背后因果维度：{dimension_text}。"
     predicted["analysisBasis"] = context.get("analysisBasis", "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。")
     if not has_had:
         predicted["odds"]["had"] = {}
@@ -569,7 +683,7 @@ def main() -> None:
         {"name": "K League官方赛程", "url": "https://tv.kleague.com/en-int/schedule"},
     ]
     competition_review = latest_competition_review(args.date)
-    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户此前要求并入07-19两场韩职" if args.date == "20260718" else "Sporttery竞彩业务日", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"competition-specific-contextual-{args.date}-v9-audit-shrinkage", "contextVersion": context_payload.get("version", "match-context-v1"), "competitionModels": {league: shrink_review_profile(COMPETITION_MODELS[league]) for league in dict.fromkeys(m["league"] for m in matches)}, "competitionReview": competition_review, "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
+    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户此前要求并入07-19两场韩职" if args.date == "20260718" else "Sporttery竞彩业务日", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"competition-specific-evidence-chain-{args.date}-v10", "contextVersion": context_payload.get("version", "evidence-chain-v2"), "competitionModels": {league: shrink_review_profile(COMPETITION_MODELS[league]) for league in dict.fromkeys(m["league"] for m in matches)}, "competitionReview": competition_review, "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
     DATA.joinpath(f"predictions_{args.date}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     out = ROOT / args.date
     out.mkdir(exist_ok=True)

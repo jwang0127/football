@@ -1,6 +1,6 @@
 import unittest
 
-from generate_date_pages import competition_score_pool, shrink_review_profile
+from generate_date_pages import build_dimension_report, competition_score_pool, context_for_match, shrink_review_profile
 
 
 class ReviewShrinkageTests(unittest.TestCase):
@@ -22,6 +22,14 @@ class ReviewShrinkageTests(unittest.TestCase):
         self.assertAlmostEqual(effective["clean_sheet_boost"], 1.04)
         self.assertEqual(effective["confidence_delta"], -1)
         self.assertAlmostEqual(effective["had"] + effective["crs"] + effective["prior"], 1.0)
+
+    def test_rest_advantage_is_structured_and_requires_evidence(self):
+        base = {"sources": [{"name": "official", "url": "https://example.test"}], "verifiedFactors": ["schedule"], "homeRestDays": 5, "awayRestDays": 2}
+        context = context_for_match({}, base)
+        self.assertGreater(context["outcomeMultipliers"]["home"], 1.0)
+        self.assertLess(context["outcomeMultipliers"]["away"], 1.0)
+        self.assertIn("休息天数", context["restFatigue"])
+        self.assertEqual(build_dimension_report({}, context)["adjustmentGate"], "passed")
 
 
 class DiverseScorePoolTests(unittest.TestCase):

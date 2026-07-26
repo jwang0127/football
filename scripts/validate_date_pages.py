@@ -34,7 +34,9 @@ def main() -> None:
     for match in matches:
         profile = payload["competitionModels"][match["league"]]
         assert match["modelProfile"]["version"] == profile["version"]
-        assert match["modelProfile"]["contextLayer"] == "match-context-v1"
+        assert match["modelProfile"]["contextLayer"] == "evidence-chain-v2"
+        assert set(match["reasoningContract"]) >= {"whyWin", "whyMustWin", "whyLose", "whyNotLose", "whyDraw", "dimensionReport"}
+        assert set(match["analysisDimensions"]) == {"schedule_load", "rest_fatigue", "travel_home_advantage", "squad_availability", "recent_performance", "coach_tactics", "motivation_competition", "weather_pitch", "set_piece_transition", "market_contradiction"}
         assert set(match["contextFactors"]) == {"stage", "schedule", "motivation", "weather", "teamNews", "coach", "upsetPath"}
         assert set(match["marketBaselineProbabilities"]) == {"home", "draw", "away"}
         assert match["modelLesson"] not in html
