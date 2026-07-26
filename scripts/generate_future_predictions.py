@@ -89,30 +89,6 @@ def pick(match: dict[str, Any]) -> dict[str, Any]:
     market = max(probs, key=probs.get)
     gap = abs(probs["home"] - probs["away"])
     draw_prob = probs["draw"]
-    main = scores[0][0]
-    reason = "按胜平负、比分和总进球赔率的交叉低赔排序。"
-    if num(odds["crs"].get("1-1")) and (gap <= 0.12 or draw_prob >= 0.29):
-        main = "1-1"
-        reason = "复盘后对均势盘提高1-1保护，同时保留单球分胜负尾部。"
-    elif market == "away" and gap >= 0.20:
-        main = "0-1" if num(odds["crs"].get("0-1")) else main
-        reason = "客胜赔率优势明确，主选低比分客胜；复盘保留客队扩大比分路径。"
-    elif market == "home" and gap >= 0.20:
-        main = "1-0" if num(odds["crs"].get("1-0")) else main
-        reason = "主胜赔率优势明确，主选单球主胜并防范平局。"
-    main_dir = direction(main)
-    goal_pick = str(total(main))
-    if goals and goals[0][0] in {"1", "2", "3"}:
-        goal_pick = goals[0][0]
-    if total(main) <= 2 and num(odds["ttg"].get("s2")):
-        goal_pick = "2"
-    backups = []
-    allowed = {main_dir, market, "draw"}
-    for score, _ in scores:
-        if score != main and direction(score) in allowed and score not in backups:
-            backups.append(score)
-        if len(backups) == 2:
-            break
     main, backups, tail_scores, reason = calibrated_score_pool(scores, probs, goals)
     main_dir = direction(main)
     goal_pick = str(total(main))
@@ -208,6 +184,11 @@ def main() -> None:
     if not matches:
         raise SystemExit("No future matches found")
     rows = [pick(match) for match in matches]
+
+    def rows_at(*indexes: int) -> list[dict[str, Any]] | None:
+        """Guard the hand-picked parlay indexes against a shorter slate."""
+        return [rows[i] for i in indexes] if all(i < len(rows) for i in indexes) else None
+
     timestamps = [
         value.get("updatedAt", "")
         for match in matches
@@ -217,36 +198,45 @@ def main() -> None:
     ]
     fetched = max(timestamps, default="")
     payload = {"modelVersion": MODEL_VERSION, "generatedAt": datetime.now().isoformat(timespec="seconds"), "fetchedAt": fetched, "targetDates": sorted(TARGET_DATES), "review": REVIEW, "matches": rows, "parlays": {}}
-    payload["parlays"] = {
-        "胜平负三串一": parlay(rows[:3], "had", [x["directionText"] for x in rows[:3]]),
-        "总进球三串一": parlay(rows[3:6], "ttg", [x["totalGoals"] for x in rows[3:6]]),
-        "强方向三串一": parlay([rows[4], rows[6], rows[9]], "had", ["主胜", "客胜", "主胜"]),
-        "强方向四串一": parlay([rows[4], rows[6], rows[9], rows[10]], "had", ["主胜", "客胜", "主胜", "主胜"]),
-        "强方向五串一": parlay([rows[4], rows[6], rows[9], rows[10], rows[13]], "had", ["主胜", "客胜", "主胜", "主胜", "主胜"]),
-        "总进球四串一": parlay([rows[3], rows[4], rows[6], rows[7]], "ttg", ["2", "2", "2", "2"]),
-        "总进球二串一": parlay([rows[4], rows[6]], "ttg", ["2", "2"]),
-        "总进球五串一": parlay([rows[3], rows[4], rows[6], rows[7], rows[9]], "ttg", ["2", "2", "2", "2", "2"]),
-        "混合稳胆四串一": custom_parlay([
+    parlay_specs: dict[str, Any] = {}
+    parlay_specs["胜平负三串一"] = parlay(rows[:3], "had", [x["directionText"] for x in rows[:3]])
+    parlay_specs["总进球三串一"] = parlay(rows[3:6], "ttg", [x["totalGoals"] for x in rows[3:6]])
+    for name, indexes, picks in (
+        ("强方向三串一", (4, 6, 9), ["主胜", "客胜", "主胜"]),
+        ("强方向四串一", (4, 6, 9, 10), ["主胜", "客胜", "主胜", "主胜"]),
+        ("强方向五串一", (4, 6, 9, 10, 13), ["主胜", "客胜", "主胜", "主胜", "主胜"]),
+    ):
+        selected = rows_at(*indexes)
+        if selected:
+            parlay_specs[name] = parlay(selected, "had", picks)
+    for name, indexes in (("总进球四串一", (3, 4, 6, 7)), ("总进球二串一", (4, 6)), ("总进球五串一", (3, 4, 6, 7, 9))):
+        selected = rows_at(*indexes)
+        if selected:
+            parlay_specs[name] = parlay(selected, "ttg", ["2"] * len(selected))
+    if rows_at(4, 6, 7, 9):
+        parlay_specs["混合稳胆四串一"] = custom_parlay([
             (rows[4], "had", "主胜", "home"),
             (rows[6], "had", "客胜", "away"),
             (rows[7], "ttg", "2", "s2"),
             (rows[9], "had", "主胜", "home"),
-        ]),
-        "比分稳胆二串一": custom_parlay([
+        ])
+    if rows_at(4, 13):
+        parlay_specs["比分稳胆二串一"] = custom_parlay([
             (rows[4], "crs", rows[4]["mainScore"], rows[4]["mainScore"]),
             (rows[13], "crs", rows[13]["mainScore"], rows[13]["mainScore"]),
-        ]),
-        "比分主选三串一": custom_parlay([
+        ])
+    if rows_at(4, 6, 13):
+        parlay_specs["比分主选三串一"] = custom_parlay([
             (rows[4], "crs", rows[4]["mainScore"], rows[4]["mainScore"]),
             (rows[6], "crs", rows[6]["mainScore"], rows[6]["mainScore"]),
             (rows[13], "crs", rows[13]["mainScore"], rows[13]["mainScore"]),
-        ]),
-        "比分三串一（高风险）": custom_parlay([
+        ])
+        parlay_specs["比分三串一（高风险）"] = custom_parlay([
             (rows[4], "crs", rows[4]["upsetScore"], rows[4]["upsetScore"]),
             (rows[6], "crs", rows[6]["upsetScore"], rows[6]["upsetScore"]),
             (rows[13], "crs", rows[13]["upsetScore"], rows[13]["upsetScore"]),
-        ]),
-    }
+        ])
+    payload["parlays"] = parlay_specs
     payload["parlays"] = {
         name: value for name, value in payload["parlays"].items()
         if value["product"] >= 10
@@ -269,7 +259,8 @@ def main() -> None:
     page = make_html(payload)
     (OUTPUT_DIR / "index.html").write_text(page, encoding="utf-8")
     (OUTPUT_DIR / "predict_20260712_0714.html").write_text(page, encoding="utf-8")
-    (ROOT / "index.html").write_text(page, encoding="utf-8")
+    # The site homepage is owned by generate_homepage.py; this dated archive
+    # page must never overwrite it when re-run.
     print(f"Generated {len(rows)} future matches in {OUTPUT_DIR}")
 
 if __name__ == "__main__":

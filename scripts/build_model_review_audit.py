@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import math
 import subprocess
 from collections import defaultdict
 from pathlib import Path
@@ -32,6 +33,11 @@ def outcome(score: str) -> str:
     return "主胜" if home > away else "客胜" if home < away else "平"
 
 
+def outcome_key(score: str) -> str:
+    home, away = (int(value) for value in score.split("-"))
+    return "home" if home > away else "away" if home < away else "draw"
+
+
 def metrics(rows: list[dict[str, Any]]) -> dict[str, Any]:
     total = len(rows)
     output: dict[str, Any] = {"settled": total}
@@ -44,6 +50,24 @@ def metrics(rows: list[dict[str, Any]]) -> dict[str, Any]:
         hits = sum(bool(row[field]) for row in rows)
         output[f"{name}_hits"] = hits
         output[f"{name}_rate"] = f"{hits / total * 100:.1f}%" if total else "—"
+    # Probability quality of the frozen 1X2 vector, not just the top pick:
+    # multi-class Brier (0=perfect, 0.667=uniform baseline) and log loss.
+    scored = [row for row in rows if row.get("direction_probabilities")]
+    if scored:
+        brier = logloss = 0.0
+        for row in scored:
+            actual = outcome_key(row["actual_90"])
+            probs = row["direction_probabilities"]
+            brier += sum((probs.get(key, 0.0) - (1.0 if key == actual else 0.0)) ** 2
+                         for key in ("home", "draw", "away"))
+            logloss += -math.log(max(probs.get(actual, 0.0), 1e-6))
+        output["direction_brier"] = round(brier / len(scored), 4)
+        output["direction_logloss"] = round(logloss / len(scored), 4)
+        output["direction_probability_samples"] = len(scored)
+    else:
+        output["direction_brier"] = None
+        output["direction_logloss"] = None
+        output["direction_probability_samples"] = 0
     return output
 
 
@@ -80,7 +104,7 @@ def render(payload: dict[str, Any]) -> str:
         for label, key in (("胜平负", "wdl"), ("总进球主选", "total_goal"), ("主比分", "main_score"), ("前三比分池", "score_pool"))
     )
     league_rows = "".join(
-        f'<tr><td>{esc(name)}</td><td>{row["settled"]}</td><td>{row["wdl_rate"]}</td><td>{row["total_goal_rate"]}</td><td>{row["main_score_rate"]}</td><td>{row["score_pool_rate"]}</td></tr>'
+        f'<tr><td>{esc(name)}</td><td>{row["settled"]}</td><td>{row["wdl_rate"]}</td><td>{row["total_goal_rate"]}</td><td>{row["main_score_rate"]}</td><td>{row["score_pool_rate"]}</td><td>{row["direction_brier"] if row["direction_brier"] is not None else "—"}</td></tr>'
         for name, row in payload["by_competition"].items()
     )
     match_rows = "".join(
@@ -91,7 +115,7 @@ def render(payload: dict[str, Any]) -> str:
     improvements = "".join(f'<li><b>{esc(row["name"])}</b>：{esc(row["detail"])}</li>' for row in payload["model_improvements"])
     snapshots = "".join(f'<li>{date}：<code>{esc(meta["commit"])}</code> · {esc(meta["path"])}</li>' for date, meta in payload["frozen_snapshots"].items())
     sources = "".join(f'<li><a href="{esc(row["url"])}">{esc(row["name"])}</a></li>' for row in payload["sources"])
-    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>足球预测模型审计</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef3f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.6}}header,main{{max-width:1220px;margin:auto;padding:26px 16px}}h1{{font-size:clamp(32px,5vw,52px)}}.metrics{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}}.metrics div,section{{background:#fff;border:1px solid #dbe5ea;border-radius:14px;padding:16px;margin:14px 0}}.metrics small,.metrics span{{display:block;color:#60717e}}.metrics strong{{font-size:28px}}table{{width:100%;border-collapse:collapse;background:#fff}}th,td{{padding:9px;border-bottom:1px solid #e3e9ed;text-align:left}}.scroll{{overflow:auto}}code{{background:#eef3f6;padding:2px 5px}}@media(max-width:700px){{.metrics{{grid-template-columns:1fr 1fr}}}}</style></head><body><header><nav><a href="../index.html">日期首页</a><a href="../20260721/index.html">当前预测</a></nav><h1>足球预测模型严格审计</h1><p>仅使用可证明为赛前的冻结快照，所有指标按90分钟赛果结算。尾部池、候选总进球和双重机会不计入主指标。</p><div class="metrics">{cards}</div></header><main><section><h2>覆盖与结算口径</h2><p>可审计预测 {payload["coverage"]["settled_predictions"]} 场；校准样本 {payload["coverage"]["calibration_samples"]} 场；缺失或未解决 {payload["coverage"]["missing_or_unresolved"]} 场；本数据集无赛后新增排除。</p><ul>{snapshots}</ul></section><section><h2>分联赛命中率</h2><div class="scroll"><table><thead><tr><th>赛事</th><th>场次</th><th>胜平负</th><th>总进球</th><th>主比分</th><th>前三比分</th></tr></thead><tbody>{league_rows}</tbody></table></div></section><section><h2>本轮模型优化</h2><ul>{improvements}</ul></section><section><h2>可复用条件修正</h2><ul>{lessons}</ul></section><section><h2>全部已结算预测</h2><p>末列依次为：胜平负 / 总进球 / 主比分 / 前三比分池。</p><div class="scroll"><table><thead><tr><th>业务日</th><th>编号</th><th>赛事</th><th>比赛</th><th>90分钟</th><th>主比分</th><th>冻结前三</th><th>命中</th></tr></thead><tbody>{match_rows}</tbody></table></div></section><section><h2>赛果来源</h2><ul>{sources}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
+    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>足球预测模型审计</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef3f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.6}}header,main{{max-width:1220px;margin:auto;padding:26px 16px}}h1{{font-size:clamp(32px,5vw,52px)}}.metrics{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}}.metrics div,section{{background:#fff;border:1px solid #dbe5ea;border-radius:14px;padding:16px;margin:14px 0}}.metrics small,.metrics span{{display:block;color:#60717e}}.metrics strong{{font-size:28px}}table{{width:100%;border-collapse:collapse;background:#fff}}th,td{{padding:9px;border-bottom:1px solid #e3e9ed;text-align:left}}.scroll{{overflow:auto}}code{{background:#eef3f6;padding:2px 5px}}@media(max-width:700px){{.metrics{{grid-template-columns:1fr 1fr}}}}</style></head><body><header><nav><a href="../index.html">日期首页</a><a href="../20260721/index.html">当前预测</a></nav><h1>足球预测模型严格审计</h1><p>仅使用可证明为赛前的冻结快照，所有指标按90分钟赛果结算。尾部池、候选总进球和双重机会不计入主指标。</p><div class="metrics">{cards}</div></header><main><section><h2>覆盖与结算口径</h2><p>可审计预测 {payload["coverage"]["settled_predictions"]} 场；校准样本 {payload["coverage"]["calibration_samples"]} 场；缺失或未解决 {payload["coverage"]["missing_or_unresolved"]} 场；本数据集无赛后新增排除。</p><p>概率质量：方向Brier {metric["direction_brier"] if metric["direction_brier"] is not None else "—"}（均匀基线0.667）、对数损失 {metric["direction_logloss"] if metric["direction_logloss"] is not None else "—"}，覆盖 {metric["direction_probability_samples"]} 场冻结概率。</p><ul>{snapshots}</ul></section><section><h2>分联赛命中率</h2><p>方向Brier为冻结胜平负概率向量的三元Brier分（0为完美，0.667为均匀基线，越低越好）。</p><div class="scroll"><table><thead><tr><th>赛事</th><th>场次</th><th>胜平负</th><th>总进球</th><th>主比分</th><th>前三比分</th><th>方向Brier</th></tr></thead><tbody>{league_rows}</tbody></table></div></section><section><h2>本轮模型优化</h2><ul>{improvements}</ul></section><section><h2>可复用条件修正</h2><ul>{lessons}</ul></section><section><h2>全部已结算预测</h2><p>末列依次为：胜平负 / 总进球 / 主比分 / 前三比分池。</p><div class="scroll"><table><thead><tr><th>业务日</th><th>编号</th><th>赛事</th><th>比赛</th><th>90分钟</th><th>主比分</th><th>冻结前三</th><th>命中</th></tr></thead><tbody>{match_rows}</tbody></table></div></section><section><h2>赛果来源</h2><ul>{sources}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
 
 
 def main() -> None:
@@ -100,15 +124,11 @@ def main() -> None:
     args = parser.parse_args()
     root = Path(args.root).resolve()
     results_payload = json.loads((root / "data" / "settled_results_20260717_20260720.json").read_text(encoding="utf-8"))
-    results_payload["results"].extend([
-        {"date": "20260721", "matchId": "2040580", "score": "1-1", "source": "K League公开完场赛果", "url": "https://tv.kleague.com/en-int/schedule"},
-        {"date": "20260721", "matchId": "2040581", "score": "0-0", "source": "K League公开完场赛果", "url": "https://tv.kleague.com/en-int/schedule"},
-        {"date": "20260721", "matchId": "2040582", "score": "1-2", "source": "直播吧赛后报道", "url": "https://news.zhibo8.com/zuqiu/2026-07-21/match1899507date2026vnative.htm"},
-        {"date": "20260721", "matchId": "2040583", "score": "1-1", "source": "米内罗竞技官方赛后报道", "url": "https://atletico.com.br/atletico-empata-com-o-bahia-na-arena-mrv-pelo-brasileirao/"},
-        {"date": "20260721", "matchId": "2040595", "score": "1-0", "source": "FotMob完场赛果", "url": "https://www.fotmob.com/matches/kups-vs-sabah-fktns/qemxfl37"},
-        {"date": "20260721", "matchId": "2040601", "score": "1-4", "source": "波兰通讯社赛后报道", "url": "https://www.pap.pl/aktualnosci/koncertowy-wystep-lecha-poznan-w-el-lm-mistrzowie-danii-pokonani"},
-        {"date": "20260721", "matchId": "2040602", "score": "4-0", "source": "L'Équipe赛程结果", "url": "https://www.lequipe.fr/Football/ligue-des-champions/page-calendrier-general/sturm-graz"},
-    ])
+    # Later business days keep their verified results in dated *_extra files so
+    # the audit stays data-driven instead of hardcoding scores in this script.
+    for extra_path in sorted((root / "data").glob("settled_results_*_extra.json")):
+        extra_payload = json.loads(extra_path.read_text(encoding="utf-8-sig"))
+        results_payload["results"].extend(extra_payload.get("results", []))
     results = {str(row["matchId"]): row for row in results_payload["results"]}
     rows: list[dict[str, Any]] = []
     archived_ids: set[str] = set()
@@ -142,6 +162,7 @@ def main() -> None:
                 "score_pool_hit": actual in top3,
                 "wdl_hit": outcome(main_score) == outcome(actual),
                 "total_goal_hit": goal_prediction == str(actual_total),
+                "direction_probabilities": match.get("probabilities") or None,
                 "snapshot_commit": meta["commit"],
                 "result_source": result["source"],
                 "result_url": result["url"],
@@ -153,6 +174,7 @@ def main() -> None:
     for row in rows:
         grouped[row["competition"]].append(row)
     source_map = {(row["source"], row["url"]) for row in results_payload["results"]}
+    overall_metrics = metrics(rows)
     payload = {
         "title": "2026-07-17至2026-07-21足球预测冻结快照审计",
         "settlement_basis": results_payload["settlementBasis"],
@@ -162,8 +184,8 @@ def main() -> None:
             "missing_or_unresolved": len(unresolved),
             "calibration_samples": len(rows),
         },
-        "all_settled_metrics": metrics(rows),
-        "calibration_metrics": metrics(rows),
+        "all_settled_metrics": overall_metrics,
+        "calibration_metrics": overall_metrics,
         "by_competition": {name: metrics(items) for name, items in sorted(grouped.items())},
         "frozen_snapshots": SNAPSHOTS,
         "unresolved_match_ids": unresolved,

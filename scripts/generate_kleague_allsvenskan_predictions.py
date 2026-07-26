@@ -132,6 +132,8 @@ def pick_match(match: dict[str, Any]) -> dict[str, Any]:
     hafu = odds.get("hafu") or {}
 
     probs = implied_1x2(had)
+    if not crs_candidates(crs):
+        raise ValueError(f"{match.get('matchNumStr', match.get('id'))}: correct-score market is empty")
     home_rank = rank_number(match.get("homeRank", ""))
     away_rank = rank_number(match.get("awayRank", ""))
     rank_note = ""
@@ -160,7 +162,7 @@ def pick_match(match: dict[str, Any]) -> dict[str, Any]:
 
     upset_direction = "draw" if full != "draw" else ("away" if probs["home"] >= probs["away"] else "home")
     upset_pool = [row for row in crs_top if row["direction"] == upset_direction and row["score"] != main_score]
-    upset_score = upset_pool[0]["score"] if upset_pool else backups[-1]
+    upset_score = upset_pool[0]["score"] if upset_pool else (backups[-1] if backups else main_score)
 
     goal_pick = str(score_total(main_score))
     if ttg_top:
@@ -355,7 +357,8 @@ def main() -> int:
     (ROOT / "20260705").mkdir(exist_ok=True)
     (ROOT / "20260705" / "index.html").write_text(page, encoding="utf-8")
     (ROOT / "20260705" / "predict_20260705.html").write_text(page, encoding="utf-8")
-    (ROOT / "index.html").write_text(page, encoding="utf-8")
+    # The site homepage is owned by generate_homepage.py; this dated archive
+    # page must never overwrite it when re-run.
     print(f"Generated {len(matches)} target predictions.")
     return 0
 

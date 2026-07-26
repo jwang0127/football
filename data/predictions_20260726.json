@@ -252,7 +252,7 @@
       }
     ]
   },
-  "generatedAt": "2026-07-26T14:54:15",
+  "generatedAt": "2026-07-26T19:10:49",
   "oddsUpdatedAt": "2026-07-26 13:00:11",
   "matches": [
     {
@@ -271,9 +271,9 @@
       "homeRank": "[韩职1]",
       "awayRank": "[韩职4]",
       "probabilities": {
-        "home": 0.5596,
-        "draw": 0.261,
-        "away": 0.1795
+        "home": 0.5738,
+        "draw": 0.2578,
+        "away": 0.1684
       },
       "direction": "home",
       "directionText": "主胜",
@@ -369,10 +369,67 @@
           "updatedAt": "2026-07-26 12:00:48"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0186,
+        "1": 0.1184,
+        "2": 0.3025,
+        "3": 0.3297,
+        "4": 0.1709,
+        "5": 0.0492,
+        "6": 0.0092,
+        "7+": 0.0015
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0581,
+        "0-1": 0.0582,
+        "0-2": 0.0281,
+        "0-3": 0.0096,
+        "0-4": 0.0022,
+        "0-5": 0.0007,
+        "1-0": 0.1032,
+        "1-1": 0.1227,
+        "1-2": 0.0593,
+        "1-3": 0.0184,
+        "1-4": 0.0039,
+        "1-5": 0.001,
+        "2-0": 0.1003,
+        "2-1": 0.1137,
+        "2-2": 0.0553,
+        "2-3": 0.0173,
+        "2-4": 0.0037,
+        "2-5": 0.001,
+        "3-0": 0.0507,
+        "3-1": 0.0636,
+        "3-2": 0.0311,
+        "3-3": 0.0105,
+        "4-0": 0.0217,
+        "4-1": 0.023,
+        "4-2": 0.0122,
+        "5-0": 0.0069,
+        "5-1": 0.0079,
+        "5-2": 0.0038
+      },
+      "halfFullProbabilities": {
+        "hh": 0.3428,
+        "hd": 0.0467,
+        "ha": 0.0163,
+        "dh": 0.1808,
+        "dd": 0.1431,
+        "da": 0.0817,
+        "ah": 0.0299,
+        "ad": 0.0467,
+        "aa": 0.112
+      },
+      "scorelineFit": {
+        "lambdaHome": 1.757,
+        "lambdaAway": 1.029,
+        "rho": -0.032,
+        "klDivergence": 0.0094
+      },
       "marketBaselineProbabilities": {
-        "home": 0.5222,
-        "draw": 0.2597,
-        "away": 0.2181
+        "home": 0.5372,
+        "draw": 0.2575,
+        "away": 0.2053
       },
       "modelProfile": {
         "version": "k-league-v7-review-0722",
@@ -383,6 +440,7 @@
         "review_sample": 12,
         "review_strength": 0.5,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
@@ -471,6 +529,40 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 2.55,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.63,
+          "modelProbability": 0.5738,
+          "expectedValue": -0.0647
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.45,
+          "modelProbability": 0.3297,
+          "expectedValue": 0.1375
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "2-1",
+          "odds": 6.5,
+          "modelProbability": 0.1137,
+          "expectedValue": -0.261
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.55,
+          "modelProbability": 0.3428,
+          "expectedValue": -0.1259
+        }
+      ],
       "integratedAnalysis": "首尔FC的主胜不是只由赔率排序得出：赛前报道确认首尔连胜并单独领跑，而蔚山正急于结束不胜，双方动机分别是守住优势与止颓反弹。主队更可能先控球、领先后降速，客队若必须前压会给首尔转换空间，因此主线仍是主胜、2到3球和2-1/2-0；若蔚山能先守住并利用定位球或反击，1-1是主要反向路径。",
       "analysisBasis": "K League官方轮次预览 + 韩国媒体赛前报道。",
       "marketBasis": "官方胜平负赔率"
@@ -491,16 +583,16 @@
       "homeRank": "[韩职7]",
       "awayRank": "[韩职11]",
       "probabilities": {
-        "home": 0.5541,
-        "draw": 0.2916,
-        "away": 0.1543
+        "home": 0.5694,
+        "draw": 0.2895,
+        "away": 0.1411
       },
       "direction": "home",
       "directionText": "主胜",
       "mainScore": "1-0",
       "backupScores": [
         "2-1",
-        "0-0"
+        "2-0"
       ],
       "tailRiskScores": [
         "2-2",
@@ -589,10 +681,67 @@
           "updatedAt": "2026-07-24 09:22:43"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0521,
+        "1": 0.2325,
+        "2": 0.3685,
+        "3": 0.2464,
+        "4": 0.0825,
+        "5": 0.0157,
+        "6": 0.0022,
+        "7+": 0.0002
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0967,
+        "0-1": 0.0626,
+        "0-2": 0.025,
+        "0-3": 0.0056,
+        "0-4": 0.001,
+        "0-5": 0.0003,
+        "1-0": 0.1551,
+        "1-1": 0.1344,
+        "1-2": 0.0403,
+        "1-3": 0.0086,
+        "1-4": 0.0016,
+        "1-5": 0.0004,
+        "2-0": 0.1186,
+        "2-1": 0.1079,
+        "2-2": 0.0357,
+        "2-3": 0.0072,
+        "2-4": 0.0013,
+        "2-5": 0.0004,
+        "3-0": 0.0597,
+        "3-1": 0.0498,
+        "3-2": 0.0195,
+        "3-3": 0.0049,
+        "4-0": 0.0217,
+        "4-1": 0.0164,
+        "4-2": 0.0061,
+        "5-0": 0.0059,
+        "5-1": 0.0053,
+        "5-2": 0.0017
+      },
+      "halfFullProbabilities": {
+        "hh": 0.3515,
+        "hd": 0.0402,
+        "ha": 0.0129,
+        "dh": 0.201,
+        "dd": 0.1713,
+        "da": 0.0711,
+        "ah": 0.0237,
+        "ad": 0.0402,
+        "aa": 0.0882
+      },
+      "scorelineFit": {
+        "lambdaHome": 1.569,
+        "lambdaAway": 0.748,
+        "rho": -0.066,
+        "klDivergence": 0.01
+      },
       "marketBaselineProbabilities": {
-        "home": 0.543,
-        "draw": 0.2756,
-        "away": 0.1814
+        "home": 0.5594,
+        "draw": 0.2743,
+        "away": 0.1663
       },
       "modelProfile": {
         "version": "k-league-v7-review-0722",
@@ -603,6 +752,7 @@
         "review_sample": 12,
         "review_strength": 0.5,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
@@ -689,9 +839,43 @@
       ],
       "marketRiskNote": "未触发杯赛高波动附加层。",
       "businessDate": "2026-07-26",
-      "halfFullKey": "dh",
-      "halfFullText": "平/胜",
-      "halfFullOdds": 4.0,
+      "halfFullKey": "hh",
+      "halfFullText": "胜/胜",
+      "halfFullOdds": 2.5,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.56,
+          "modelProbability": 0.5694,
+          "expectedValue": -0.1117
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.0,
+          "modelProbability": 0.3685,
+          "expectedValue": 0.1055
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-0",
+          "odds": 5.0,
+          "modelProbability": 0.1551,
+          "expectedValue": -0.2245
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.5,
+          "modelProbability": 0.3515,
+          "expectedValue": -0.1213
+        }
+      ],
       "integratedAnalysis": "仁川联的主胜逻辑来自周中击败蔚山后的状态回升、外援攻击点恢复和后防四人组趋稳，但首回合与布川2-2说明对手有制造比赛波动的能力。模型因此保留主队主动压迫、2球重点和1-0/2-1主线；如果仁川边路压上后回防不及时，1-1或布川反击得分会把比赛拉回均势。",
       "analysisBasis": "K League官方第20轮预览 + 赛前赛果资料。",
       "marketBasis": "官方胜平负赔率"
@@ -712,15 +896,15 @@
       "homeRank": "[韩职12]",
       "awayRank": "[韩职8]",
       "probabilities": {
-        "home": 0.2585,
-        "draw": 0.3094,
-        "away": 0.4321
+        "home": 0.2491,
+        "draw": 0.3118,
+        "away": 0.4391
       },
       "direction": "away",
       "directionText": "客胜",
-      "mainScore": "1-2",
+      "mainScore": "0-1",
       "backupScores": [
-        "0-1",
+        "1-2",
         "0-0"
       ],
       "tailRiskScores": [
@@ -810,10 +994,67 @@
           "updatedAt": "2026-07-24 09:22:43"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0437,
+        "1": 0.2109,
+        "2": 0.3572,
+        "3": 0.2755,
+        "4": 0.0905,
+        "5": 0.019,
+        "6": 0.0028,
+        "7+": 0.0004
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0858,
+        "0-1": 0.1232,
+        "0-2": 0.0884,
+        "0-3": 0.0425,
+        "0-4": 0.0126,
+        "0-5": 0.0032,
+        "1-0": 0.0826,
+        "1-1": 0.1396,
+        "1-2": 0.1097,
+        "1-3": 0.0446,
+        "1-4": 0.0126,
+        "1-5": 0.0032,
+        "2-0": 0.0408,
+        "2-1": 0.0693,
+        "2-2": 0.0451,
+        "2-3": 0.0207,
+        "2-4": 0.0063,
+        "2-5": 0.0017,
+        "3-0": 0.0124,
+        "3-1": 0.0206,
+        "3-2": 0.0124,
+        "3-3": 0.0062,
+        "4-0": 0.0027,
+        "4-1": 0.0038,
+        "4-2": 0.0027,
+        "5-0": 0.0008,
+        "5-1": 0.0009,
+        "5-2": 0.0007
+      },
+      "halfFullProbabilities": {
+        "hh": 0.1354,
+        "hd": 0.0454,
+        "ha": 0.0241,
+        "dh": 0.1007,
+        "dd": 0.1827,
+        "da": 0.17,
+        "ah": 0.0169,
+        "ad": 0.0454,
+        "aa": 0.2794
+      },
+      "scorelineFit": {
+        "lambdaHome": 0.983,
+        "lambdaAway": 1.415,
+        "rho": -0.036,
+        "klDivergence": 0.011
+      },
       "marketBaselineProbabilities": {
-        "home": 0.2905,
-        "draw": 0.2868,
-        "away": 0.4227
+        "home": 0.2804,
+        "draw": 0.2894,
+        "away": 0.4302
       },
       "modelProfile": {
         "version": "k-league-v7-review-0722",
@@ -824,6 +1065,7 @@
         "review_sample": 12,
         "review_strength": 0.5,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
@@ -910,9 +1152,43 @@
       ],
       "marketRiskNote": "未触发杯赛高波动附加层。",
       "businessDate": "2026-07-26",
-      "halfFullKey": "da",
-      "halfFullText": "平/负",
-      "halfFullOdds": 4.7,
+      "halfFullKey": "aa",
+      "halfFullText": "负/负",
+      "halfFullOdds": 3.1,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "客胜",
+          "odds": 1.92,
+          "modelProbability": 0.4391,
+          "expectedValue": -0.1569
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.1,
+          "modelProbability": 0.3572,
+          "expectedValue": 0.1073
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "0-1",
+          "odds": 6.3,
+          "modelProbability": 0.1232,
+          "expectedValue": -0.2238
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "负/负",
+          "odds": 3.1,
+          "modelProbability": 0.2794,
+          "expectedValue": -0.1339
+        }
+      ],
       "integratedAnalysis": "济州SK的客胜并非只由赔率得出：俱乐部赛前明确提出重新整顿防守、在光州客场争胜，说明比赛计划更偏先稳住防线再打转换；光州则有主场主动权。模型保留客胜和2球重点，但把1-2/0-1作为效率型路径，1-1作为济州防守有效但进攻转化不足的主要保护。",
       "analysisBasis": "济州SK官方赛前稿 + K League轮次信息。",
       "marketBasis": "官方胜平负赔率"
@@ -933,9 +1209,9 @@
       "homeRank": "[韩职6]",
       "awayRank": "[韩职3]",
       "probabilities": {
-        "home": 0.2463,
-        "draw": 0.3184,
-        "away": 0.4353
+        "home": 0.2354,
+        "draw": 0.321,
+        "away": 0.4436
       },
       "direction": "away",
       "directionText": "客胜",
@@ -1031,10 +1307,67 @@
           "updatedAt": "2026-07-24 09:22:43"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0527,
+        "1": 0.2207,
+        "2": 0.37,
+        "3": 0.2544,
+        "4": 0.0838,
+        "5": 0.016,
+        "6": 0.0022,
+        "7+": 0.0003
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0966,
+        "0-1": 0.1293,
+        "0-2": 0.0964,
+        "0-3": 0.0457,
+        "0-4": 0.013,
+        "0-5": 0.0037,
+        "1-0": 0.0777,
+        "1-1": 0.1403,
+        "1-2": 0.106,
+        "1-3": 0.0445,
+        "1-4": 0.0126,
+        "1-5": 0.0032,
+        "2-0": 0.0351,
+        "2-1": 0.0678,
+        "2-2": 0.0419,
+        "2-3": 0.0202,
+        "2-4": 0.0057,
+        "2-5": 0.0015,
+        "3-0": 0.0103,
+        "3-1": 0.0174,
+        "3-2": 0.0118,
+        "3-3": 0.0054,
+        "4-0": 0.0021,
+        "4-1": 0.0031,
+        "4-2": 0.0019,
+        "5-0": 0.0006,
+        "5-1": 0.0007,
+        "5-2": 0.0006
+      },
+      "halfFullProbabilities": {
+        "hh": 0.1218,
+        "hd": 0.0446,
+        "ha": 0.0232,
+        "dh": 0.0925,
+        "dd": 0.1868,
+        "da": 0.1775,
+        "ah": 0.0161,
+        "ad": 0.0446,
+        "aa": 0.2929
+      },
+      "scorelineFit": {
+        "lambdaHome": 0.918,
+        "lambdaAway": 1.423,
+        "rho": -0.065,
+        "klDivergence": 0.0106
+      },
       "marketBaselineProbabilities": {
-        "home": 0.272,
-        "draw": 0.2919,
-        "away": 0.4361
+        "home": 0.2603,
+        "draw": 0.2947,
+        "away": 0.445
       },
       "modelProfile": {
         "version": "k-league-v7-review-0722",
@@ -1045,6 +1378,7 @@
         "review_sample": 12,
         "review_strength": 0.5,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-21韩职复盘：新增3场方向0/3、总进球1/3、前三比分1/3；降低方向锚定权重，继续保留低进球与1-1/0-0平局保护，并把1-2反向路径纳入条件尾部。",
@@ -1142,9 +1476,43 @@
       ],
       "marketRiskNote": "未触发杯赛高波动附加层。",
       "businessDate": "2026-07-26",
-      "halfFullKey": "da",
-      "halfFullText": "平/负",
-      "halfFullOdds": 4.5,
+      "halfFullKey": "aa",
+      "halfFullText": "负/负",
+      "halfFullOdds": 2.95,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "客胜",
+          "odds": 1.83,
+          "modelProbability": 0.4436,
+          "expectedValue": -0.1882
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.0,
+          "modelProbability": 0.37,
+          "expectedValue": 0.11
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "0-1",
+          "odds": 6.0,
+          "modelProbability": 0.1293,
+          "expectedValue": -0.2242
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "负/负",
+          "odds": 2.95,
+          "modelProbability": 0.2929,
+          "expectedValue": -0.1359
+        }
+      ],
       "integratedAnalysis": "这场不能只解释成‘客胜1.83所以客胜’。K League官方赛前稿确认安养第6、江原第2，安养近3场2胜1平，江原近9场5胜4平且只丢3球；上一场日期显示安养比江原少约一天恢复，但差距不够支持重判体能。江原的客胜兑现条件是防守继续稳定、利用安养上一场3-2后的回防空档；反向风险是江原后卫图奇停赛及另一名球员热身伤情导致后场完整度下降，安养则有主场、马特乌斯传射状态和对江原顶级联赛4场2胜2平不败的抗衡依据。综合后仍保留客胜主方向，但把结论限制在低比分一球差，0-1/1-1为核心，1-2为客队效率兑现路径，0-0为江原防守成功且安养转化不足的尾部。",
       "analysisBasis": "K League官方第20轮预览 + FotMob赛前数据页 + 赛前伤停资讯页 + 上轮比赛日期交叉核验；伤停资讯未有俱乐部公告独立确认，按中低权重处理。",
       "marketBasis": "官方胜平负赔率"
@@ -1165,9 +1533,9 @@
       "homeRank": "[瑞超12]",
       "awayRank": "[瑞超2]",
       "probabilities": {
-        "home": 0.16,
-        "draw": 0.2343,
-        "away": 0.6057
+        "home": 0.1439,
+        "draw": 0.2188,
+        "away": 0.6373
       },
       "direction": "away",
       "directionText": "客胜",
@@ -1263,10 +1631,67 @@
           "updatedAt": "2026-07-26 12:12:38"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0063,
+        "1": 0.0633,
+        "2": 0.2043,
+        "3": 0.3367,
+        "4": 0.2528,
+        "5": 0.1033,
+        "6": 0.0264,
+        "7+": 0.0068
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0319,
+        "0-1": 0.0835,
+        "0-2": 0.0977,
+        "0-3": 0.0776,
+        "0-4": 0.0447,
+        "0-5": 0.0217,
+        "1-0": 0.0353,
+        "1-1": 0.0805,
+        "1-2": 0.1115,
+        "1-3": 0.079,
+        "1-4": 0.0446,
+        "1-5": 0.0216,
+        "2-0": 0.0163,
+        "2-1": 0.0434,
+        "2-2": 0.0507,
+        "2-3": 0.0404,
+        "2-4": 0.022,
+        "2-5": 0.0086,
+        "3-0": 0.0057,
+        "3-1": 0.0127,
+        "3-2": 0.0159,
+        "3-3": 0.0124,
+        "4-0": 0.0014,
+        "4-1": 0.0028,
+        "4-2": 0.0037,
+        "5-0": 0.0005,
+        "5-1": 0.0008,
+        "5-2": 0.0009
+      },
+      "halfFullProbabilities": {
+        "hh": 0.0744,
+        "hd": 0.0379,
+        "ha": 0.0325,
+        "dh": 0.0504,
+        "dd": 0.0941,
+        "da": 0.1959,
+        "ah": 0.0119,
+        "ad": 0.0379,
+        "aa": 0.465
+      },
+      "scorelineFit": {
+        "lambdaHome": 0.992,
+        "lambdaAway": 2.352,
+        "rho": 0.02,
+        "klDivergence": 0.0038
+      },
       "marketBaselineProbabilities": {
-        "home": 0.1832,
-        "draw": 0.2091,
-        "away": 0.6077
+        "home": 0.1649,
+        "draw": 0.1954,
+        "away": 0.6397
       },
       "modelProfile": {
         "version": "allsvenskan-v9-review-0724",
@@ -1277,6 +1702,7 @@
         "review_sample": 9,
         "review_strength": 0.4286,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-24瑞超复盘：方向1/1、总进球0/1、比分池覆盖1/1；下修总进球偏高倾向，继续保留主胜与零封路径。",
@@ -1364,6 +1790,40 @@
       "halfFullKey": "aa",
       "halfFullText": "负/负",
       "halfFullOdds": 1.9,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "客胜",
+          "odds": 1.31,
+          "modelProbability": 0.6373,
+          "expectedValue": -0.1651
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.5,
+          "modelProbability": 0.3367,
+          "expectedValue": 0.1784
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 6.75,
+          "modelProbability": 0.1115,
+          "expectedValue": -0.2474
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "负/负",
+          "odds": 1.9,
+          "modelProbability": 0.4,
+          "expectedValue": -0.24
+        }
+      ],
       "integratedAnalysis": "哈马比客胜有近况和进攻质量支撑，但不能忽略欧战资格赛造成的恢复与轮换负荷；布鲁马波卡纳的主场抢分路径是定位球和客队边路身后。模型保留客胜、3球和1-2/0-2，若哈马比后段体能下降，1-1是主要保护。",
       "analysisBasis": "Sports Mole赛前预览、FotMob赛前数据和瑞典媒体欧战报道。",
       "marketBasis": "官方胜平负赔率"
@@ -1384,16 +1844,16 @@
       "homeRank": "[瑞超1]",
       "awayRank": "[瑞超13]",
       "probabilities": {
-        "home": 0.6275,
-        "draw": 0.2212,
-        "away": 0.1513
+        "home": 0.6581,
+        "draw": 0.2062,
+        "away": 0.1357
       },
       "direction": "home",
       "directionText": "主胜",
       "mainScore": "2-1",
       "backupScores": [
         "2-0",
-        "3-1"
+        "3-0"
       ],
       "tailRiskScores": [
         "2-2",
@@ -1482,10 +1942,67 @@
           "updatedAt": "2026-07-25 09:35:21"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0042,
+        "1": 0.0473,
+        "2": 0.1745,
+        "3": 0.3207,
+        "4": 0.2733,
+        "5": 0.1305,
+        "6": 0.0384,
+        "7+": 0.0112
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0265,
+        "0-1": 0.031,
+        "0-2": 0.0165,
+        "0-3": 0.0059,
+        "0-4": 0.0017,
+        "0-5": 0.0006,
+        "1-0": 0.0729,
+        "1-1": 0.0802,
+        "1-2": 0.0454,
+        "1-3": 0.0134,
+        "1-4": 0.0034,
+        "1-5": 0.0011,
+        "2-0": 0.0909,
+        "2-1": 0.1084,
+        "2-2": 0.0552,
+        "2-3": 0.021,
+        "2-4": 0.004,
+        "2-5": 0.0012,
+        "3-0": 0.0722,
+        "3-1": 0.0833,
+        "3-2": 0.0462,
+        "3-3": 0.0132,
+        "4-0": 0.0425,
+        "4-1": 0.0456,
+        "4-2": 0.0243,
+        "5-0": 0.0218,
+        "5-1": 0.0223,
+        "5-2": 0.0108
+      },
+      "halfFullProbabilities": {
+        "hh": 0.4678,
+        "hd": 0.0398,
+        "ha": 0.0135,
+        "dh": 0.1864,
+        "dd": 0.0898,
+        "da": 0.0513,
+        "ah": 0.0345,
+        "ad": 0.0398,
+        "aa": 0.0772
+      },
+      "scorelineFit": {
+        "lambdaHome": 2.42,
+        "lambdaAway": 1.077,
+        "rho": 0.008,
+        "klDivergence": 0.0053
+      },
       "marketBaselineProbabilities": {
-        "home": 0.6113,
-        "draw": 0.2078,
-        "away": 0.1809
+        "home": 0.643,
+        "draw": 0.1942,
+        "away": 0.1628
       },
       "modelProfile": {
         "version": "allsvenskan-v9-review-0724",
@@ -1496,6 +2013,7 @@
         "review_sample": 9,
         "review_strength": 0.4286,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-24瑞超复盘：方向1/1、总进球0/1、比分池覆盖1/1；下修总进球偏高倾向，继续保留主胜与零封路径。",
@@ -1584,6 +2102,40 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 1.87,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.31,
+          "modelProbability": 0.6581,
+          "expectedValue": -0.1379
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.65,
+          "modelProbability": 0.3207,
+          "expectedValue": 0.1706
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "2-1",
+          "odds": 7.0,
+          "modelProbability": 0.1084,
+          "expectedValue": -0.2412
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 1.87,
+          "modelProbability": 0.4,
+          "expectedValue": -0.252
+        }
+      ],
       "integratedAnalysis": "天狼星主胜的依据是赛前资料确认的主场不败环境和主动权，哥德堡则依靠低位防守与反击；因此主线看3球、2-1/2-0，但不排除1-1，若天狼星边后卫压上后的回防被打穿，客队会进入冷门路径。",
       "analysisBasis": "Allsvenskan赛前预览与近期数据。",
       "marketBasis": "官方胜平负赔率"
@@ -1604,9 +2156,9 @@
       "homeRank": "[芬超2]",
       "awayRank": "[芬超6]",
       "probabilities": {
-        "home": 0.5008,
-        "draw": 0.2773,
-        "away": 0.2219
+        "home": 0.5162,
+        "draw": 0.2726,
+        "away": 0.2112
       },
       "direction": "home",
       "directionText": "主胜",
@@ -1702,10 +2254,67 @@
           "updatedAt": "2026-07-25 09:35:21"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0145,
+        "1": 0.1066,
+        "2": 0.2803,
+        "3": 0.3387,
+        "4": 0.1859,
+        "5": 0.0604,
+        "6": 0.0116,
+        "7+": 0.002
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0478,
+        "0-1": 0.0621,
+        "0-2": 0.0324,
+        "0-3": 0.0138,
+        "0-4": 0.0044,
+        "0-5": 0.0011,
+        "1-0": 0.0963,
+        "1-1": 0.1045,
+        "1-2": 0.0664,
+        "1-3": 0.0234,
+        "1-4": 0.0066,
+        "1-5": 0.0019,
+        "2-0": 0.0839,
+        "2-1": 0.1109,
+        "2-2": 0.062,
+        "2-3": 0.0219,
+        "2-4": 0.0064,
+        "2-5": 0.0016,
+        "3-0": 0.0457,
+        "3-1": 0.0601,
+        "3-2": 0.0342,
+        "3-3": 0.015,
+        "4-0": 0.0194,
+        "4-1": 0.0256,
+        "4-2": 0.0155,
+        "5-0": 0.0067,
+        "5-1": 0.0097,
+        "5-2": 0.0048
+      },
+      "halfFullProbabilities": {
+        "hh": 0.3301,
+        "hd": 0.0501,
+        "ha": 0.0183,
+        "dh": 0.1721,
+        "dd": 0.1265,
+        "da": 0.0885,
+        "ah": 0.0301,
+        "ad": 0.0501,
+        "aa": 0.1341
+      },
+      "scorelineFit": {
+        "lambdaHome": 1.784,
+        "lambdaAway": 1.177,
+        "rho": 0.03,
+        "klDivergence": 0.0046
+      },
       "marketBaselineProbabilities": {
-        "home": 0.4963,
-        "draw": 0.2551,
-        "away": 0.2486
+        "home": 0.5121,
+        "draw": 0.2511,
+        "away": 0.2368
       },
       "modelProfile": {
         "version": "veikkausliiga-v7-review-0724",
@@ -1716,6 +2325,7 @@
         "review_sample": 7,
         "review_strength": 0.3684,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-24芬超复盘：方向0/1、总进球1/1；不追随客队低赔锚定，保留主场反向路径、低比分保护与追分尾部。",
@@ -1800,6 +2410,40 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 2.6,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.66,
+          "modelProbability": 0.5162,
+          "expectedValue": -0.1431
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "modelProbability": 0.3387,
+          "expectedValue": 0.1516
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "2-1",
+          "odds": 6.75,
+          "modelProbability": 0.1109,
+          "expectedValue": -0.2514
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.6,
+          "modelProbability": 0.3301,
+          "expectedValue": -0.1417
+        }
+      ],
       "integratedAnalysis": "国际图尔库主胜主要由主场主动和推进环境支持，赫尔辛基火花的机会在于低位防守后打反击；由于没有确认重大伤停和完整机会质量，模型不升高置信度，主线仍看3球、2-1/2-0，1-1是节奏被压低后的保护。",
       "analysisBasis": "芬超赛程与公开赛前数据。",
       "marketBasis": "官方胜平负赔率"
@@ -1820,9 +2464,9 @@
       "homeRank": "[芬超9]",
       "awayRank": "[芬超7]",
       "probabilities": {
-        "home": 0.4496,
-        "draw": 0.2894,
-        "away": 0.261
+        "home": 0.455,
+        "draw": 0.2876,
+        "away": 0.2574
       },
       "direction": "home",
       "directionText": "主胜",
@@ -1918,10 +2562,67 @@
           "updatedAt": "2026-07-25 09:35:21"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0127,
+        "1": 0.0996,
+        "2": 0.2625,
+        "3": 0.3424,
+        "4": 0.1994,
+        "5": 0.0671,
+        "6": 0.0137,
+        "7+": 0.0026
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0452,
+        "0-1": 0.0688,
+        "0-2": 0.0454,
+        "0-3": 0.0195,
+        "0-4": 0.0074,
+        "0-5": 0.0018,
+        "1-0": 0.0824,
+        "1-1": 0.1091,
+        "1-2": 0.0845,
+        "1-3": 0.0349,
+        "1-4": 0.0123,
+        "1-5": 0.0031,
+        "2-0": 0.0625,
+        "2-1": 0.1058,
+        "2-2": 0.0662,
+        "2-3": 0.0304,
+        "2-4": 0.01,
+        "2-5": 0.0022,
+        "3-0": 0.0323,
+        "3-1": 0.048,
+        "3-2": 0.0357,
+        "3-3": 0.0158,
+        "4-0": 0.0129,
+        "4-1": 0.0188,
+        "4-2": 0.0127,
+        "5-0": 0.0046,
+        "5-1": 0.0064,
+        "5-2": 0.0045
+      },
+      "halfFullProbabilities": {
+        "hh": 0.2583,
+        "hd": 0.0543,
+        "ha": 0.0236,
+        "dh": 0.1471,
+        "dd": 0.1306,
+        "da": 0.1154,
+        "ah": 0.0285,
+        "ad": 0.0543,
+        "aa": 0.1879
+      },
+      "scorelineFit": {
+        "lambdaHome": 1.621,
+        "lambdaAway": 1.389,
+        "rho": 0.022,
+        "klDivergence": 0.0055
+      },
       "marketBaselineProbabilities": {
-        "home": 0.418,
-        "draw": 0.2643,
-        "away": 0.3177
+        "home": 0.4235,
+        "draw": 0.2629,
+        "away": 0.3137
       },
       "modelProfile": {
         "version": "veikkausliiga-v7-review-0724",
@@ -1932,6 +2633,7 @@
         "review_sample": 7,
         "review_strength": 0.3684,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-24芬超复盘：方向0/1、总进球1/1；不追随客队低赔锚定，保留主场反向路径、低比分保护与追分尾部。",
@@ -2016,6 +2718,40 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 3.35,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 2.08,
+          "modelProbability": 0.455,
+          "expectedValue": -0.0536
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "modelProbability": 0.3424,
+          "expectedValue": 0.1642
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "2-1",
+          "odds": 7.0,
+          "modelProbability": 0.1058,
+          "expectedValue": -0.2594
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 3.35,
+          "modelProbability": 0.2583,
+          "expectedValue": -0.1347
+        }
+      ],
       "integratedAnalysis": "坦佩雷山猫主胜的依据是主场主动、压迫和定位球机会，拉赫蒂则会通过低位防守和反击争取不败；目前没有重大伤停把方向推翻，模型看主胜、3球和2-1/1-0，若主队转化率不足，1-1是主要保护。",
       "analysisBasis": "Veikkausliiga官方赛前预览。",
       "marketBasis": "官方胜平负赔率"
@@ -2036,9 +2772,9 @@
       "homeRank": "[挪超6]",
       "awayRank": "[挪超9]",
       "probabilities": {
-        "home": 0.5285,
-        "draw": 0.2521,
-        "away": 0.2194
+        "home": 0.5481,
+        "draw": 0.2443,
+        "away": 0.2076
       },
       "direction": "home",
       "directionText": "主胜",
@@ -2134,10 +2870,67 @@
           "updatedAt": "2026-07-25 09:35:21"
         }
       },
+      "goalProbabilities": {
+        "0": 0.004,
+        "1": 0.0446,
+        "2": 0.1716,
+        "3": 0.3232,
+        "4": 0.2723,
+        "5": 0.1339,
+        "6": 0.0394,
+        "7+": 0.0111
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0281,
+        "0-1": 0.0389,
+        "0-2": 0.0242,
+        "0-3": 0.011,
+        "0-4": 0.0038,
+        "0-5": 0.001,
+        "1-0": 0.0683,
+        "1-1": 0.0959,
+        "1-2": 0.0617,
+        "1-3": 0.0272,
+        "1-4": 0.0083,
+        "1-5": 0.0022,
+        "2-0": 0.0695,
+        "2-1": 0.1151,
+        "2-2": 0.0671,
+        "2-3": 0.0305,
+        "2-4": 0.0088,
+        "2-5": 0.0022,
+        "3-0": 0.0466,
+        "3-1": 0.0734,
+        "3-2": 0.0499,
+        "3-3": 0.0215,
+        "4-0": 0.0235,
+        "4-1": 0.0351,
+        "4-2": 0.0238,
+        "5-0": 0.0093,
+        "5-1": 0.0132,
+        "5-2": 0.009
+      },
+      "halfFullProbabilities": {
+        "hh": 0.3618,
+        "hd": 0.0501,
+        "ha": 0.0223,
+        "dh": 0.1658,
+        "dd": 0.1051,
+        "da": 0.0777,
+        "ah": 0.0382,
+        "ad": 0.0501,
+        "aa": 0.1287
+      },
+      "scorelineFit": {
+        "lambdaHome": 2.106,
+        "lambdaAway": 1.338,
+        "rho": -0.003,
+        "klDivergence": 0.01
+      },
       "marketBaselineProbabilities": {
-        "home": 0.5347,
-        "draw": 0.2248,
-        "away": 0.2405
+        "home": 0.5546,
+        "draw": 0.2178,
+        "away": 0.2276
       },
       "modelProfile": {
         "version": "eliteserien-v6-review-0722",
@@ -2148,6 +2941,7 @@
         "review_sample": 9,
         "review_strength": 0.4286,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-18挪超复盘：方向4/6、主比分2/6；保留0-0零封分支，同时放宽客胜3球以上长尾，避免统一压低进球均值。",
@@ -2237,6 +3031,40 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 2.4,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.59,
+          "modelProbability": 0.5481,
+          "expectedValue": -0.1285
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.55,
+          "modelProbability": 0.3232,
+          "expectedValue": 0.1474
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "2-1",
+          "odds": 6.5,
+          "modelProbability": 0.1151,
+          "expectedValue": -0.2519
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.4,
+          "modelProbability": 0.3618,
+          "expectedValue": -0.1317
+        }
+      ],
       "integratedAnalysis": "布兰主胜有主场、上游竞争和进攻产量支撑，但瓦勒伦加刚6-1大胜且布兰承担欧战资格赛，体能和转换风险不能忽略。模型保留主胜、3球和2-1/3-1，同时提高1-1/2-2保护，不把低赔解释成单向大胜。",
       "analysisBasis": "布兰官方赛前稿 + 挪超赛前预览。",
       "marketBasis": "官方胜平负赔率"
@@ -2257,9 +3085,9 @@
       "homeRank": "[芬超5]",
       "awayRank": "[芬超8]",
       "probabilities": {
-        "home": 0.5629,
-        "draw": 0.2604,
-        "away": 0.1766
+        "home": 0.5863,
+        "draw": 0.2506,
+        "away": 0.163
       },
       "direction": "home",
       "directionText": "主胜",
@@ -2355,10 +3183,67 @@
           "updatedAt": "2026-07-26 12:16:28"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0073,
+        "1": 0.0663,
+        "2": 0.2163,
+        "3": 0.3435,
+        "4": 0.2401,
+        "5": 0.0987,
+        "6": 0.0225,
+        "7+": 0.0054
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0345,
+        "0-1": 0.0397,
+        "0-2": 0.0243,
+        "0-3": 0.0089,
+        "0-4": 0.0027,
+        "0-5": 0.0009,
+        "1-0": 0.0819,
+        "1-1": 0.0962,
+        "1-2": 0.0541,
+        "1-3": 0.0192,
+        "1-4": 0.0058,
+        "1-5": 0.0016,
+        "2-0": 0.0892,
+        "2-1": 0.1121,
+        "2-2": 0.0585,
+        "2-3": 0.022,
+        "2-4": 0.0059,
+        "2-5": 0.0016,
+        "3-0": 0.0575,
+        "3-1": 0.0711,
+        "3-2": 0.0457,
+        "3-3": 0.0158,
+        "4-0": 0.0285,
+        "4-1": 0.0354,
+        "4-2": 0.0213,
+        "5-0": 0.0118,
+        "5-1": 0.0158,
+        "5-2": 0.0098
+      },
+      "halfFullProbabilities": {
+        "hh": 0.4061,
+        "hd": 0.046,
+        "ha": 0.0168,
+        "dh": 0.1823,
+        "dd": 0.1048,
+        "da": 0.0627,
+        "ah": 0.0338,
+        "ad": 0.046,
+        "aa": 0.1014
+      },
+      "scorelineFit": {
+        "lambdaHome": 2.12,
+        "lambdaAway": 1.162,
+        "rho": -0.003,
+        "klDivergence": 0.005
+      },
       "marketBaselineProbabilities": {
-        "home": 0.5602,
-        "draw": 0.2328,
-        "away": 0.207
+        "home": 0.5843,
+        "draw": 0.2244,
+        "away": 0.1913
       },
       "modelProfile": {
         "version": "veikkausliiga-v7-review-0724",
@@ -2369,6 +3254,7 @@
         "review_sample": 7,
         "review_strength": 0.3684,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-24芬超复盘：方向0/1、总进球1/1；不追随客队低赔锚定，保留主场反向路径、低比分保护与追分尾部。",
@@ -2457,6 +3343,40 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 2.1,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.45,
+          "modelProbability": 0.5863,
+          "expectedValue": -0.1499
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "modelProbability": 0.3435,
+          "expectedValue": 0.1679
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "2-1",
+          "odds": 6.75,
+          "modelProbability": 0.1121,
+          "expectedValue": -0.2433
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.1,
+          "modelProbability": 0.4,
+          "expectedValue": -0.16
+        }
+      ],
       "integratedAnalysis": "HJK主胜不能只靠名气，因为芬超官方确认TPS本季首次交锋曾1-0取胜，且进球来自利用HJK防线身后；客队反击路径已经被比赛验证。模型仍看主胜、3球和2-1/2-0，但把1-1和0-1作为真实保护，关键看HJK压上后的回防。",
       "analysisBasis": "HJK/芬超官方预览 + TPS官方伤情综述。",
       "marketBasis": "官方胜平负赔率"
@@ -2477,9 +3397,9 @@
       "homeRank": "[瑞超8]",
       "awayRank": "[瑞超16]",
       "probabilities": {
-        "home": 0.6729,
-        "draw": 0.2093,
-        "away": 0.1178
+        "home": 0.7071,
+        "draw": 0.191,
+        "away": 0.102
       },
       "direction": "home",
       "directionText": "主胜",
@@ -2575,10 +3495,67 @@
           "updatedAt": "2026-07-25 09:35:21"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0098,
+        "1": 0.0856,
+        "2": 0.2436,
+        "3": 0.339,
+        "4": 0.2201,
+        "5": 0.0798,
+        "6": 0.0183,
+        "7+": 0.0038
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0383,
+        "0-1": 0.0319,
+        "0-2": 0.0123,
+        "0-3": 0.0027,
+        "0-4": 0.0008,
+        "0-5": 0.0003,
+        "1-0": 0.1067,
+        "1-1": 0.0824,
+        "1-2": 0.0329,
+        "1-3": 0.0067,
+        "1-4": 0.0015,
+        "1-5": 0.0004,
+        "2-0": 0.1248,
+        "2-1": 0.1061,
+        "2-2": 0.036,
+        "2-3": 0.0096,
+        "2-4": 0.0016,
+        "2-5": 0.0004,
+        "3-0": 0.0983,
+        "3-1": 0.0772,
+        "3-2": 0.0297,
+        "3-3": 0.0071,
+        "4-0": 0.0573,
+        "4-1": 0.0435,
+        "4-2": 0.0134,
+        "5-0": 0.0248,
+        "5-1": 0.0187,
+        "5-2": 0.0066
+      },
+      "halfFullProbabilities": {
+        "hh": 0.5157,
+        "hd": 0.0319,
+        "ha": 0.0071,
+        "dh": 0.2058,
+        "dd": 0.0944,
+        "da": 0.0368,
+        "ah": 0.0274,
+        "ad": 0.0319,
+        "aa": 0.0489
+      },
+      "scorelineFit": {
+        "lambdaHome": 2.346,
+        "lambdaAway": 0.768,
+        "rho": 0.012,
+        "klDivergence": 0.0052
+      },
       "marketBaselineProbabilities": {
-        "home": 0.6538,
-        "draw": 0.1998,
-        "away": 0.1464
+        "home": 0.6898,
+        "draw": 0.183,
+        "away": 0.1272
       },
       "modelProfile": {
         "version": "allsvenskan-v9-review-0724",
@@ -2589,6 +3566,7 @@
         "review_sample": 9,
         "review_strength": 0.4286,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-24瑞超复盘：方向1/1、总进球0/1、比分池覆盖1/1；下修总进球偏高倾向，继续保留主胜与零封路径。",
@@ -2673,6 +3651,40 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 1.7,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.23,
+          "modelProbability": 0.7071,
+          "expectedValue": -0.1303
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.5,
+          "modelProbability": 0.339,
+          "expectedValue": 0.1865
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "2-0",
+          "odds": 6.3,
+          "modelProbability": 0.1248,
+          "expectedValue": -0.2138
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 1.7,
+          "modelProbability": 0.4,
+          "expectedValue": -0.32
+        }
+      ],
       "integratedAnalysis": "哥德堡盖斯主胜的依据是近期拿分优势和主场主动，哈尔姆斯塔德的反制是低位防守与反击；模型看主胜、3球和2-0/2-1，若盖斯转化率低，1-1是主要保护，不直接追大胜。",
       "analysisBasis": "瑞典超赛前数据与近期状态。",
       "marketBasis": "官方胜平负赔率"
@@ -2693,9 +3705,9 @@
       "homeRank": "[瑞超7]",
       "awayRank": "[瑞超9]",
       "probabilities": {
-        "home": 0.4911,
-        "draw": 0.2813,
-        "away": 0.2276
+        "home": 0.5039,
+        "draw": 0.2775,
+        "away": 0.2186
       },
       "direction": "home",
       "directionText": "主胜",
@@ -2791,10 +3803,67 @@
           "updatedAt": "2026-07-25 09:35:21"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0136,
+        "1": 0.1014,
+        "2": 0.2689,
+        "3": 0.3361,
+        "4": 0.1977,
+        "5": 0.0656,
+        "6": 0.0141,
+        "7+": 0.0026
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0464,
+        "0-1": 0.0569,
+        "0-2": 0.0325,
+        "0-3": 0.0129,
+        "0-4": 0.0038,
+        "0-5": 0.0011,
+        "1-0": 0.0877,
+        "1-1": 0.1147,
+        "1-2": 0.0751,
+        "1-3": 0.0265,
+        "1-4": 0.0068,
+        "1-5": 0.0017,
+        "2-0": 0.0798,
+        "2-1": 0.1075,
+        "2-2": 0.0602,
+        "2-3": 0.0241,
+        "2-4": 0.0065,
+        "2-5": 0.0016,
+        "3-0": 0.0477,
+        "3-1": 0.0601,
+        "3-2": 0.0359,
+        "3-3": 0.0127,
+        "4-0": 0.0216,
+        "4-1": 0.0242,
+        "4-2": 0.0132,
+        "5-0": 0.0067,
+        "5-1": 0.0082,
+        "5-2": 0.0056
+      },
+      "halfFullProbabilities": {
+        "hh": 0.3216,
+        "hd": 0.0503,
+        "ha": 0.0183,
+        "dh": 0.1689,
+        "dd": 0.1314,
+        "da": 0.0904,
+        "ah": 0.0302,
+        "ad": 0.0503,
+        "aa": 0.1386
+      },
+      "scorelineFit": {
+        "lambdaHome": 1.79,
+        "lambdaAway": 1.202,
+        "rho": -0.011,
+        "klDivergence": 0.0057
+      },
       "marketBaselineProbabilities": {
-        "home": 0.4786,
-        "draw": 0.2552,
-        "away": 0.2662
+        "home": 0.4919,
+        "draw": 0.2522,
+        "away": 0.256
       },
       "modelProfile": {
         "version": "allsvenskan-v9-review-0724",
@@ -2805,6 +3874,7 @@
         "review_sample": 9,
         "review_strength": 0.4286,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-24瑞超复盘：方向1/1、总进球0/1、比分池覆盖1/1；下修总进球偏高倾向，继续保留主胜与零封路径。",
@@ -2889,6 +3959,40 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 2.7,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.74,
+          "modelProbability": 0.5039,
+          "expectedValue": -0.1232
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.5,
+          "modelProbability": 0.3361,
+          "expectedValue": 0.1764
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "2-1",
+          "odds": 7.0,
+          "modelProbability": 0.1075,
+          "expectedValue": -0.2475
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.7,
+          "modelProbability": 0.3216,
+          "expectedValue": -0.1317
+        }
+      ],
       "integratedAnalysis": "马尔默主胜有近期连续零封、主场和欧战区追分目标支撑，但Sjöstrand赛季报销会削弱边路进攻，不能只按强势主胜理解。模型看主胜、2到3球和2-1/2-0，1-1是进攻转化不足时的主要反向路径。",
       "analysisBasis": "Sports Mole赛前预览与瑞典媒体伤停报道。",
       "marketBasis": "官方胜平负赔率"
@@ -2909,16 +4013,16 @@
       "homeRank": "[挪超7]",
       "awayRank": "[挪超8]",
       "probabilities": {
-        "home": 0.6092,
-        "draw": 0.2322,
-        "away": 0.1586
+        "home": 0.6287,
+        "draw": 0.2239,
+        "away": 0.1474
       },
       "direction": "home",
       "directionText": "主胜",
       "mainScore": "2-1",
       "backupScores": [
         "2-0",
-        "3-1"
+        "1-0"
       ],
       "tailRiskScores": [
         "2-2",
@@ -2928,8 +4032,8 @@
       "totalGoals": "3",
       "goalCandidates": [
         "3",
-        "4",
-        "2"
+        "2",
+        "4"
       ],
       "confidenceScore": 62,
       "confidence": "中",
@@ -3007,10 +4111,67 @@
           "updatedAt": "2026-07-25 09:35:21"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0093,
+        "1": 0.0795,
+        "2": 0.2344,
+        "3": 0.3421,
+        "4": 0.2272,
+        "5": 0.0842,
+        "6": 0.0192,
+        "7+": 0.0041
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0383,
+        "0-1": 0.0459,
+        "0-2": 0.0248,
+        "0-3": 0.009,
+        "0-4": 0.0027,
+        "0-5": 0.0007,
+        "1-0": 0.0896,
+        "1-1": 0.1021,
+        "1-2": 0.0558,
+        "1-3": 0.0195,
+        "1-4": 0.0057,
+        "1-5": 0.001,
+        "2-0": 0.0857,
+        "2-1": 0.1152,
+        "2-2": 0.0577,
+        "2-3": 0.0216,
+        "2-4": 0.0057,
+        "2-5": 0.0012,
+        "3-0": 0.0569,
+        "3-1": 0.0726,
+        "3-2": 0.0445,
+        "3-3": 0.0128,
+        "4-0": 0.0269,
+        "4-1": 0.0342,
+        "4-2": 0.0185,
+        "5-0": 0.01,
+        "5-1": 0.0126,
+        "5-2": 0.0067
+      },
+      "halfFullProbabilities": {
+        "hh": 0.389,
+        "hd": 0.0448,
+        "ha": 0.0153,
+        "dh": 0.1792,
+        "dd": 0.1135,
+        "da": 0.072,
+        "ah": 0.033,
+        "ad": 0.0448,
+        "aa": 0.1086
+      },
+      "scorelineFit": {
+        "lambdaHome": 2.017,
+        "lambdaAway": 1.13,
+        "rho": 0.007,
+        "klDivergence": 0.0075
+      },
       "marketBaselineProbabilities": {
-        "home": 0.5547,
-        "draw": 0.2268,
-        "away": 0.2185
+        "home": 0.5758,
+        "draw": 0.2199,
+        "away": 0.2043
       },
       "modelProfile": {
         "version": "eliteserien-v6-review-0722",
@@ -3021,6 +4182,7 @@
         "review_sample": 9,
         "review_strength": 0.4286,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-18挪超复盘：方向4/6、主比分2/6；保留0-0零封分支，同时放宽客胜3球以上长尾，避免统一压低进球均值。",
@@ -3109,6 +4271,40 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 2.2,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.55,
+          "modelProbability": 0.6287,
+          "expectedValue": -0.0255
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.45,
+          "modelProbability": 0.3421,
+          "expectedValue": 0.1802
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "2-1",
+          "odds": 6.5,
+          "modelProbability": 0.1152,
+          "expectedValue": -0.2512
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.2,
+          "modelProbability": 0.389,
+          "expectedValue": -0.1442
+        }
+      ],
       "integratedAnalysis": "萨尔普斯堡主胜有状态与对手问题共同支撑：两队同积18分，但主队近6轮5胜1平，汉坎近两场丢7球且客场未胜，还有前锋伤缺。模型主线看主胜、2到3球和2-0/2-1，1-1是主队射门转化不足的保护。",
       "analysisBasis": "Sports Mole挪超赛前预览 + FotMob赛前数据。",
       "marketBasis": "官方胜平负赔率"
@@ -3129,9 +4325,9 @@
       "homeRank": "[挪超13]",
       "awayRank": "[挪超5]",
       "probabilities": {
-        "home": 0.3003,
-        "draw": 0.2813,
-        "away": 0.4183
+        "home": 0.296,
+        "draw": 0.2797,
+        "away": 0.4243
       },
       "direction": "away",
       "directionText": "客胜",
@@ -3227,10 +4423,67 @@
           "updatedAt": "2026-07-25 09:35:21"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0113,
+        "1": 0.09,
+        "2": 0.2466,
+        "3": 0.3444,
+        "4": 0.2126,
+        "5": 0.0759,
+        "6": 0.0162,
+        "7+": 0.0031
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.044,
+        "0-1": 0.0801,
+        "0-2": 0.0626,
+        "0-3": 0.0335,
+        "0-4": 0.0129,
+        "0-5": 0.0039,
+        "1-0": 0.0656,
+        "1-1": 0.119,
+        "1-2": 0.1057,
+        "1-3": 0.0506,
+        "1-4": 0.0188,
+        "1-5": 0.0058,
+        "2-0": 0.0452,
+        "2-1": 0.0841,
+        "2-2": 0.0659,
+        "2-3": 0.0371,
+        "2-4": 0.0127,
+        "2-5": 0.0038,
+        "3-0": 0.0193,
+        "3-1": 0.036,
+        "3-2": 0.0301,
+        "3-3": 0.0143,
+        "4-0": 0.0066,
+        "4-1": 0.0106,
+        "4-2": 0.0084,
+        "5-0": 0.0017,
+        "5-1": 0.0031,
+        "5-2": 0.0026
+      },
+      "halfFullProbabilities": {
+        "hh": 0.1868,
+        "hd": 0.0543,
+        "ha": 0.031,
+        "dh": 0.1122,
+        "dd": 0.1315,
+        "da": 0.1446,
+        "ah": 0.0258,
+        "ad": 0.0543,
+        "aa": 0.2595
+      },
+      "scorelineFit": {
+        "lambdaHome": 1.375,
+        "lambdaAway": 1.622,
+        "rho": -0.001,
+        "klDivergence": 0.0077
+      },
       "marketBaselineProbabilities": {
-        "home": 0.3361,
-        "draw": 0.2497,
-        "away": 0.4141
+        "home": 0.3314,
+        "draw": 0.2483,
+        "away": 0.4203
       },
       "modelProfile": {
         "version": "eliteserien-v6-review-0722",
@@ -3241,6 +4494,7 @@
         "review_sample": 9,
         "review_strength": 0.4286,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-18挪超复盘：方向4/6、主比分2/6；保留0-0零封分支，同时放宽客胜3球以上长尾，避免统一压低进球均值。",
@@ -3329,6 +4583,40 @@
       "halfFullKey": "aa",
       "halfFullText": "负/负",
       "halfFullOdds": 3.35,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "客胜",
+          "odds": 2.04,
+          "modelProbability": 0.4243,
+          "expectedValue": -0.1344
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "modelProbability": 0.3444,
+          "expectedValue": 0.171
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 7.0,
+          "modelProbability": 0.1057,
+          "expectedValue": -0.2601
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "负/负",
+          "odds": 3.35,
+          "modelProbability": 0.2595,
+          "expectedValue": -0.1307
+        }
+      ],
       "integratedAnalysis": "莫尔德客胜的依据是整体实力和控球推进，但KFUM处于抢分压力区，会用低位防守、定位球和反击拖慢比赛；由于完整伤停和机会质量资料不足，模型不提高置信度，主线看客胜、3球和1-2/0-1，1-1是主队防守成功的主要保护。",
       "analysisBasis": "挪超官方赛程、KFUM官方比赛页与公开积分资料。",
       "marketBasis": "官方胜平负赔率"
@@ -3349,9 +4637,9 @@
       "homeRank": "[挪超11]",
       "awayRank": "[挪超2]",
       "probabilities": {
-        "home": 0.126,
-        "draw": 0.1829,
-        "away": 0.6911
+        "home": 0.1098,
+        "draw": 0.1631,
+        "away": 0.7271
       },
       "direction": "away",
       "directionText": "客胜",
@@ -3369,7 +4657,7 @@
       "goalCandidates": [
         "3",
         "4",
-        "5"
+        "2"
       ],
       "confidenceScore": 74,
       "confidence": "高",
@@ -3447,10 +4735,67 @@
           "updatedAt": "2026-07-25 09:35:21"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0029,
+        "1": 0.039,
+        "2": 0.1526,
+        "3": 0.3135,
+        "4": 0.2839,
+        "5": 0.1478,
+        "6": 0.0457,
+        "7+": 0.0145
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0223,
+        "0-1": 0.073,
+        "0-2": 0.0921,
+        "0-3": 0.0808,
+        "0-4": 0.0495,
+        "0-5": 0.0256,
+        "1-0": 0.0282,
+        "1-1": 0.0686,
+        "1-2": 0.1142,
+        "1-3": 0.0925,
+        "1-4": 0.0522,
+        "1-5": 0.0256,
+        "2-0": 0.0128,
+        "2-1": 0.0352,
+        "2-2": 0.0477,
+        "2-3": 0.0457,
+        "2-4": 0.0246,
+        "2-5": 0.0119,
+        "3-0": 0.0039,
+        "3-1": 0.0107,
+        "3-2": 0.0144,
+        "3-3": 0.0138,
+        "4-0": 0.001,
+        "4-1": 0.0027,
+        "4-2": 0.0033,
+        "5-0": 0.0004,
+        "5-1": 0.0007,
+        "5-2": 0.0009
+      },
+      "halfFullProbabilities": {
+        "hh": 0.0612,
+        "hd": 0.0348,
+        "ha": 0.0339,
+        "dh": 0.0409,
+        "dd": 0.079,
+        "da": 0.1894,
+        "ah": 0.0105,
+        "ad": 0.0348,
+        "aa": 0.5154
+      },
+      "scorelineFit": {
+        "lambdaHome": 1.0,
+        "lambdaAway": 2.596,
+        "rho": 0.041,
+        "klDivergence": 0.009
+      },
       "marketBaselineProbabilities": {
-        "home": 0.1718,
-        "draw": 0.1782,
-        "away": 0.65
+        "home": 0.1509,
+        "draw": 0.1601,
+        "away": 0.689
       },
       "modelProfile": {
         "version": "eliteserien-v6-review-0722",
@@ -3461,6 +4806,7 @@
         "review_sample": 9,
         "review_strength": 0.4286,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-18挪超复盘：方向4/6、主比分2/6；保留0-0零封分支，同时放宽客胜3球以上长尾，避免统一压低进球均值。",
@@ -3545,6 +4891,40 @@
       "halfFullKey": "aa",
       "halfFullText": "负/负",
       "halfFullOdds": 1.7,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "客胜",
+          "odds": 1.24,
+          "modelProbability": 0.7271,
+          "expectedValue": -0.0984
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.6,
+          "modelProbability": 0.3135,
+          "expectedValue": 0.1286
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 6.5,
+          "modelProbability": 0.1142,
+          "expectedValue": -0.2577
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "负/负",
+          "odds": 1.7,
+          "modelProbability": 0.4,
+          "expectedValue": -0.32
+        }
+      ],
       "integratedAnalysis": "博德闪耀客胜不是只有赔率理由：近期3-0击败汉坎且大幅轮换后仍维持强度，说明高压体系和阵容深度稳定；桑纳菲尤尔的主场机会在定位球和反击。模型看客胜、3球和1-2/0-3，若赛程负荷削弱客队后段强度，1-1是保护。",
       "analysisBasis": "挪威媒体近期比赛报道与挪超赛程资料。",
       "marketBasis": "官方胜平负赔率"
@@ -3565,9 +4945,9 @@
       "homeRank": "[挪超14]",
       "awayRank": "[挪超1]",
       "probabilities": {
-        "home": 0.1772,
-        "draw": 0.2205,
-        "away": 0.6023
+        "home": 0.1627,
+        "draw": 0.2068,
+        "away": 0.6305
       },
       "direction": "away",
       "directionText": "客胜",
@@ -3585,7 +4965,7 @@
       "goalCandidates": [
         "3",
         "4",
-        "5"
+        "2"
       ],
       "confidenceScore": 68,
       "confidence": "高",
@@ -3663,10 +5043,67 @@
           "updatedAt": "2026-07-25 09:35:21"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0033,
+        "1": 0.0417,
+        "2": 0.1583,
+        "3": 0.3181,
+        "4": 0.2767,
+        "5": 0.1448,
+        "6": 0.0436,
+        "7+": 0.0135
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0242,
+        "0-1": 0.0695,
+        "0-2": 0.0774,
+        "0-3": 0.06,
+        "0-4": 0.0339,
+        "0-5": 0.0137,
+        "1-0": 0.0362,
+        "1-1": 0.0808,
+        "1-2": 0.1119,
+        "1-3": 0.0824,
+        "1-4": 0.0424,
+        "1-5": 0.0209,
+        "2-0": 0.0221,
+        "2-1": 0.0518,
+        "2-2": 0.0611,
+        "2-3": 0.0501,
+        "2-4": 0.0253,
+        "2-5": 0.0108,
+        "3-0": 0.0078,
+        "3-1": 0.0192,
+        "3-2": 0.0239,
+        "3-3": 0.0185,
+        "4-0": 0.0022,
+        "4-1": 0.0059,
+        "4-2": 0.0067,
+        "5-0": 0.0007,
+        "5-1": 0.0013,
+        "5-2": 0.0014
+      },
+      "halfFullProbabilities": {
+        "hh": 0.0993,
+        "hd": 0.0424,
+        "ha": 0.0373,
+        "dh": 0.062,
+        "dd": 0.0928,
+        "da": 0.1755,
+        "ah": 0.0178,
+        "ad": 0.0424,
+        "aa": 0.4305
+      },
+      "scorelineFit": {
+        "lambdaHome": 1.214,
+        "lambdaAway": 2.316,
+        "rho": 0.034,
+        "klDivergence": 0.0061
+      },
       "marketBaselineProbabilities": {
-        "home": 0.2207,
-        "draw": 0.2035,
-        "away": 0.5758
+        "home": 0.2033,
+        "draw": 0.1916,
+        "away": 0.6051
       },
       "modelProfile": {
         "version": "eliteserien-v6-review-0722",
@@ -3677,6 +5114,7 @@
         "review_sample": 9,
         "review_strength": 0.4286,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-18挪超复盘：方向4/6、主比分2/6；保留0-0零封分支，同时放宽客胜3球以上长尾，避免统一压低进球均值。",
@@ -3765,6 +5203,40 @@
       "halfFullKey": "aa",
       "halfFullText": "负/负",
       "halfFullOdds": 2.0,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "客胜",
+          "odds": 1.39,
+          "modelProbability": 0.6305,
+          "expectedValue": -0.1236
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.6,
+          "modelProbability": 0.3181,
+          "expectedValue": 0.1452
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-2",
+          "odds": 6.75,
+          "modelProbability": 0.1119,
+          "expectedValue": -0.2447
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "负/负",
+          "odds": 2.0,
+          "modelProbability": 0.4,
+          "expectedValue": -0.2
+        }
+      ],
       "integratedAnalysis": "维京客胜有榜首和九连胜支撑，但奥勒松0-6惨败后的止颓动机不能忽略，而且其此前有击败强队的样本；因此不把客队低赔写成必胜。模型看客胜、3球和1-2/0-2，若主队先稳住或维京轮换，1-1是主要保护。",
       "analysisBasis": "Aftenbladet赛前报道 + 挪威伤停/近期赛果资料。",
       "marketBasis": "官方胜平负赔率"
@@ -3785,9 +5257,9 @@
       "homeRank": "[巴甲2]",
       "awayRank": "[巴甲12]",
       "probabilities": {
-        "home": 0.6506,
-        "draw": 0.233,
-        "away": 0.1163
+        "home": 0.6763,
+        "draw": 0.2208,
+        "away": 0.1029
       },
       "direction": "home",
       "directionText": "主胜",
@@ -3883,10 +5355,67 @@
           "updatedAt": "2026-07-25 09:35:21"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0188,
+        "1": 0.1263,
+        "2": 0.2959,
+        "3": 0.336,
+        "4": 0.1659,
+        "5": 0.0472,
+        "6": 0.0086,
+        "7+": 0.0014
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0563,
+        "0-1": 0.0444,
+        "0-2": 0.019,
+        "0-3": 0.006,
+        "0-4": 0.0013,
+        "0-5": 0.0003,
+        "1-0": 0.1153,
+        "1-1": 0.1005,
+        "1-2": 0.0389,
+        "1-3": 0.0109,
+        "1-4": 0.0024,
+        "1-5": 0.0006,
+        "2-0": 0.1235,
+        "2-1": 0.1103,
+        "2-2": 0.039,
+        "2-3": 0.0109,
+        "2-4": 0.0025,
+        "2-5": 0.0006,
+        "3-0": 0.077,
+        "3-1": 0.0688,
+        "3-2": 0.0284,
+        "3-3": 0.0076,
+        "4-0": 0.037,
+        "4-1": 0.0323,
+        "4-2": 0.0149,
+        "5-0": 0.0142,
+        "5-1": 0.0148,
+        "5-2": 0.0066
+      },
+      "halfFullProbabilities": {
+        "hh": 0.4455,
+        "hd": 0.0366,
+        "ha": 0.011,
+        "dh": 0.2024,
+        "dd": 0.1153,
+        "da": 0.0528,
+        "ah": 0.0287,
+        "ad": 0.0366,
+        "aa": 0.071
+      },
+      "scorelineFit": {
+        "lambdaHome": 2.019,
+        "lambdaAway": 0.838,
+        "rho": -0.018,
+        "klDivergence": 0.0039
+      },
       "marketBaselineProbabilities": {
-        "home": 0.6109,
-        "draw": 0.2266,
-        "away": 0.1625
+        "home": 0.6392,
+        "draw": 0.2161,
+        "away": 0.1446
       },
       "modelProfile": {
         "version": "brasileirao-v7-review-0722",
@@ -3897,6 +5426,7 @@
         "review_sample": 3,
         "review_strength": 0.2,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-21巴甲复盘：米内罗竞技1-1巴伊亚，主胜锚定未覆盖平局；单场样本仅轻量提升1-1与平局保护，继续小样本收缩。",
@@ -3989,6 +5519,40 @@
       "halfFullKey": "hh",
       "halfFullText": "胜/胜",
       "halfFullOdds": 1.93,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.35,
+          "modelProbability": 0.6763,
+          "expectedValue": -0.087
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.35,
+          "modelProbability": 0.336,
+          "expectedValue": 0.1256
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "2-0",
+          "odds": 6.25,
+          "modelProbability": 0.1235,
+          "expectedValue": -0.2281
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 1.93,
+          "modelProbability": 0.4,
+          "expectedValue": -0.228
+        }
+      ],
       "integratedAnalysis": "弗拉门戈主胜有副榜首、少赛一场和主场逻辑，圣保罗则经历主帅离任与杯赛出局；但弗拉门戈的Carrascal停赛、Paquetá和Luiz Araújo伤病是真实减分项，不能只看名气。模型看主胜、2到3球和2-0/2-1，1-1是圣保罗低位反击成功或主队创造力下降时的保护。",
       "analysisBasis": "GE巴西媒体、圣保罗官方公告和Sports Mole伤停预览。",
       "marketBasis": "官方胜平负赔率"
@@ -4009,15 +5573,15 @@
       "homeRank": "[巴甲16]",
       "awayRank": "[巴甲4]",
       "probabilities": {
-        "home": 0.3396,
-        "draw": 0.331,
-        "away": 0.3293
+        "home": 0.3372,
+        "draw": 0.3339,
+        "away": 0.3289
       },
       "direction": "home",
       "directionText": "主胜",
-      "mainScore": "2-1",
+      "mainScore": "1-0",
       "backupScores": [
-        "1-0",
+        "2-1",
         "0-0"
       ],
       "tailRiskScores": [
@@ -4107,10 +5671,67 @@
           "updatedAt": "2026-07-25 09:35:21"
         }
       },
+      "goalProbabilities": {
+        "0": 0.0345,
+        "1": 0.1776,
+        "2": 0.3459,
+        "3": 0.2951,
+        "4": 0.1161,
+        "5": 0.0262,
+        "6": 0.004,
+        "7+": 0.0006
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0827,
+        "0-1": 0.1059,
+        "0-2": 0.0644,
+        "0-3": 0.027,
+        "0-4": 0.0096,
+        "0-5": 0.0021,
+        "1-0": 0.0988,
+        "1-1": 0.1265,
+        "1-2": 0.089,
+        "1-3": 0.0356,
+        "1-4": 0.0102,
+        "1-5": 0.0026,
+        "2-0": 0.0583,
+        "2-1": 0.0855,
+        "2-2": 0.0504,
+        "2-3": 0.0225,
+        "2-4": 0.007,
+        "2-5": 0.0019,
+        "3-0": 0.0223,
+        "3-1": 0.033,
+        "3-2": 0.021,
+        "3-3": 0.0094,
+        "4-0": 0.0071,
+        "4-1": 0.0086,
+        "4-2": 0.0061,
+        "5-0": 0.0016,
+        "5-1": 0.0021,
+        "5-2": 0.0014
+      },
+      "halfFullProbabilities": {
+        "hh": 0.1996,
+        "hd": 0.0507,
+        "ha": 0.0215,
+        "dh": 0.1304,
+        "dd": 0.1702,
+        "da": 0.1407,
+        "ah": 0.0204,
+        "ad": 0.0507,
+        "aa": 0.2159
+      },
+      "scorelineFit": {
+        "lambdaHome": 1.219,
+        "lambdaAway": 1.288,
+        "rho": 0.0,
+        "klDivergence": 0.0026
+      },
       "marketBaselineProbabilities": {
-        "home": 0.3569,
-        "draw": 0.2899,
-        "away": 0.3532
+        "home": 0.3545,
+        "draw": 0.2926,
+        "away": 0.3529
       },
       "modelProfile": {
         "version": "brasileirao-v7-review-0722",
@@ -4121,6 +5742,7 @@
         "review_sample": 3,
         "review_strength": 0.2,
         "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
       "modelLesson": "07-21巴甲复盘：米内罗竞技1-1巴伊亚，主胜锚定未覆盖平局；单场样本仅轻量提升1-1与平局保护，继续小样本收缩。",
@@ -4211,9 +5833,43 @@
       ],
       "marketRiskNote": "未触发杯赛高波动附加层。",
       "businessDate": "2026-07-26",
-      "halfFullKey": "dh",
-      "halfFullText": "平/胜",
-      "halfFullOdds": 6.0,
+      "halfFullKey": "hh",
+      "halfFullText": "胜/胜",
+      "halfFullOdds": 4.2,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 2.62,
+          "modelProbability": 0.3372,
+          "expectedValue": -0.1165
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.1,
+          "modelProbability": 0.3459,
+          "expectedValue": 0.0723
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "1-0",
+          "odds": 7.75,
+          "modelProbability": 0.0988,
+          "expectedValue": -0.2343
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 4.2,
+          "modelProbability": 0.1996,
+          "expectedValue": -0.1617
+        }
+      ],
       "integratedAnalysis": "格雷米奥主胜不能只看主场：球队距降级区仅1分且必须抢分，但刚经历联赛和南美杯连续失利；弗鲁米嫩塞有9天准备并可能迎回多名球员，体能和阵容完整度更优。模型仍保留主队抢分主线，但把比赛定为高压力、后段易开放的2到3球结构，2-1/1-1优先，1-2是休息优势兑现的反向路径。",
       "analysisBasis": "GE巴西媒体两队赛前阵容与赛程报道 + Sports Mole预览。",
       "marketBasis": "官方胜平负赔率"
@@ -4225,35 +5881,35 @@
       "category": "mixed",
       "legs": [
         {
-          "matchId": "2040623",
-          "match": "周日201 首尔FC vs 蔚山现代",
+          "matchId": "2040637",
+          "match": "周日215 桑纳菲尤尔 vs 博德闪耀",
           "market": "had",
           "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.63,
-          "probability": 0.5596
+          "pick": "客胜",
+          "odds": 1.24,
+          "probability": 0.7271
         },
         {
-          "matchId": "2040624",
-          "match": "周日202 仁川联 vs 富川FC",
+          "matchId": "2040627",
+          "match": "周日205 布鲁马波卡纳 vs 哈马比",
           "market": "ttg",
           "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
+          "pick": "3",
+          "odds": 3.5,
+          "probability": 0.3367
         },
         {
-          "matchId": "2040625",
-          "match": "周日203 光州FC vs 济州SK",
+          "matchId": "2040633",
+          "match": "周日211 哥德堡盖斯 vs 哈尔姆斯塔德",
           "market": "ttg",
           "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.1,
-          "probability": 0.3225806451612903
+          "pick": "3",
+          "odds": 3.5,
+          "probability": 0.339
         }
       ],
-      "productOdds": 15.16,
-      "trustScore": 35,
+      "productOdds": 15.19,
+      "trustScore": 39,
       "rank": 1
     },
     {
@@ -4261,35 +5917,35 @@
       "category": "mixed",
       "legs": [
         {
-          "matchId": "2040623",
-          "match": "周日201 首尔FC vs 蔚山现代",
+          "matchId": "2040637",
+          "match": "周日215 桑纳菲尤尔 vs 博德闪耀",
           "market": "had",
           "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 1.63,
-          "probability": 0.5596
+          "pick": "客胜",
+          "odds": 1.24,
+          "probability": 0.7271
         },
         {
-          "matchId": "2040624",
-          "match": "周日202 仁川联 vs 富川FC",
+          "matchId": "2040633",
+          "match": "周日211 哥德堡盖斯 vs 哈尔姆斯塔德",
           "market": "ttg",
           "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
+          "pick": "3",
+          "odds": 3.5,
+          "probability": 0.339
         },
         {
-          "matchId": "2040640",
-          "match": "周日218 格雷米奥 vs 弗鲁米嫩塞",
+          "matchId": "2040634",
+          "match": "周日212 马尔默 vs 埃尔夫斯堡",
           "market": "ttg",
           "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.1,
-          "probability": 0.3225806451612903
+          "pick": "3",
+          "odds": 3.5,
+          "probability": 0.3361
         }
       ],
-      "productOdds": 15.16,
-      "trustScore": 35,
+      "productOdds": 15.19,
+      "trustScore": 39,
       "rank": 2
     },
     {
@@ -4297,35 +5953,35 @@
       "category": "mixed",
       "legs": [
         {
-          "matchId": "2040623",
-          "match": "周日201 首尔FC vs 蔚山现代",
+          "matchId": "2040633",
+          "match": "周日211 哥德堡盖斯 vs 哈尔姆斯塔德",
           "market": "had",
           "marketText": "胜平负",
           "pick": "主胜",
-          "odds": 1.63,
-          "probability": 0.5596
+          "odds": 1.23,
+          "probability": 0.7071
         },
         {
-          "matchId": "2040625",
-          "match": "周日203 光州FC vs 济州SK",
+          "matchId": "2040630",
+          "match": "周日208 坦佩雷山猫 vs 拉赫蒂",
           "market": "ttg",
           "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.1,
-          "probability": 0.3225806451612903
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.3424
         },
         {
-          "matchId": "2040626",
-          "match": "周日204 安养FC vs 江原FC",
+          "matchId": "2040638",
+          "match": "周日216 奥勒松 vs 维京",
           "market": "ttg",
           "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
+          "pick": "3",
+          "odds": 3.6,
+          "probability": 0.3181
         }
       ],
-      "productOdds": 15.16,
-      "trustScore": 35,
+      "productOdds": 15.06,
+      "trustScore": 38,
       "rank": 3
     },
     {
@@ -4333,35 +5989,35 @@
       "category": "mixed",
       "legs": [
         {
-          "matchId": "2040623",
-          "match": "周日201 首尔FC vs 蔚山现代",
+          "matchId": "2040633",
+          "match": "周日211 哥德堡盖斯 vs 哈尔姆斯塔德",
           "market": "had",
           "marketText": "胜平负",
           "pick": "主胜",
-          "odds": 1.63,
-          "probability": 0.5596
+          "odds": 1.23,
+          "probability": 0.7071
         },
         {
-          "matchId": "2040626",
-          "match": "周日204 安养FC vs 江原FC",
+          "matchId": "2040631",
+          "match": "周日209 布兰 vs 瓦勒伦加",
           "market": "ttg",
           "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
+          "pick": "3",
+          "odds": 3.55,
+          "probability": 0.3232
         },
         {
-          "matchId": "2040640",
-          "match": "周日218 格雷米奥 vs 弗鲁米嫩塞",
+          "matchId": "2040635",
+          "match": "周日213 萨尔普斯堡 vs 汉坎",
           "market": "ttg",
           "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.1,
-          "probability": 0.3225806451612903
+          "pick": "3",
+          "odds": 3.45,
+          "probability": 0.3421
         }
       ],
-      "productOdds": 15.16,
-      "trustScore": 35,
+      "productOdds": 15.06,
+      "trustScore": 38,
       "rank": 4
     },
     {
@@ -4369,35 +6025,35 @@
       "category": "mixed",
       "legs": [
         {
-          "matchId": "2040635",
-          "match": "周日213 萨尔普斯堡 vs 汉坎",
+          "matchId": "2040633",
+          "match": "周日211 哥德堡盖斯 vs 哈尔姆斯塔德",
           "market": "had",
           "marketText": "胜平负",
           "pick": "主胜",
-          "odds": 1.55,
-          "probability": 0.6092
+          "odds": 1.23,
+          "probability": 0.7071
         },
         {
-          "matchId": "2040624",
-          "match": "周日202 仁川联 vs 富川FC",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "2",
-          "odds": 3.0,
-          "probability": 0.3333333333333333
-        },
-        {
-          "matchId": "2040639",
-          "match": "周日217 弗拉门戈 vs 圣保罗",
+          "matchId": "2040632",
+          "match": "周日210 赫尔辛基 vs TPS图尔库",
           "market": "ttg",
           "marketText": "总进球",
           "pick": "3",
-          "odds": 3.35,
-          "probability": 0.29850746268656714
+          "odds": 3.4,
+          "probability": 0.3435
+        },
+        {
+          "matchId": "2040638",
+          "match": "周日216 奥勒松 vs 维京",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.6,
+          "probability": 0.3181
         }
       ],
-      "productOdds": 15.58,
-      "trustScore": 35,
+      "productOdds": 15.06,
+      "trustScore": 38,
       "rank": 5
     },
     {
@@ -4411,7 +6067,7 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.0,
-          "probability": 0.3333333333333333
+          "probability": 0.3685
         },
         {
           "matchId": "2040625",
@@ -4420,7 +6076,7 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.1,
-          "probability": 0.3225806451612903
+          "probability": 0.3572
         },
         {
           "matchId": "2040626",
@@ -4429,11 +6085,11 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.0,
-          "probability": 0.3333333333333333
+          "probability": 0.37
         }
       ],
       "productOdds": 27.9,
-      "trustScore": 29,
+      "trustScore": 32,
       "rank": 6
     },
     {
@@ -4447,7 +6103,7 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.0,
-          "probability": 0.3333333333333333
+          "probability": 0.3685
         },
         {
           "matchId": "2040626",
@@ -4456,7 +6112,7 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.0,
-          "probability": 0.3333333333333333
+          "probability": 0.37
         },
         {
           "matchId": "2040640",
@@ -4465,11 +6121,11 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.1,
-          "probability": 0.3225806451612903
+          "probability": 0.3459
         }
       ],
       "productOdds": 27.9,
-      "trustScore": 29,
+      "trustScore": 32,
       "rank": 7
     },
     {
@@ -4483,7 +6139,7 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.0,
-          "probability": 0.3333333333333333
+          "probability": 0.3685
         },
         {
           "matchId": "2040625",
@@ -4492,7 +6148,7 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.1,
-          "probability": 0.3225806451612903
+          "probability": 0.3572
         },
         {
           "matchId": "2040640",
@@ -4501,11 +6157,11 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.1,
-          "probability": 0.3225806451612903
+          "probability": 0.3459
         }
       ],
       "productOdds": 28.83,
-      "trustScore": 29,
+      "trustScore": 32,
       "rank": 8
     },
     {
@@ -4519,7 +6175,7 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.1,
-          "probability": 0.3225806451612903
+          "probability": 0.3572
         },
         {
           "matchId": "2040626",
@@ -4528,7 +6184,7 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.0,
-          "probability": 0.3333333333333333
+          "probability": 0.37
         },
         {
           "matchId": "2040640",
@@ -4537,11 +6193,11 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.1,
-          "probability": 0.3225806451612903
+          "probability": 0.3459
         }
       ],
       "productOdds": 28.83,
-      "trustScore": 29,
+      "trustScore": 32,
       "rank": 9
     },
     {
@@ -4555,7 +6211,7 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.0,
-          "probability": 0.3333333333333333
+          "probability": 0.3685
         },
         {
           "matchId": "2040626",
@@ -4564,7 +6220,7 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.0,
-          "probability": 0.3333333333333333
+          "probability": 0.37
         },
         {
           "matchId": "2040639",
@@ -4573,11 +6229,11 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.35,
-          "probability": 0.29850746268656714
+          "probability": 0.336
         }
       ],
       "productOdds": 30.15,
-      "trustScore": 28,
+      "trustScore": 32,
       "rank": 10
     }
   ],
