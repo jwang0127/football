@@ -570,26 +570,15 @@ def predict_with_market_fallback(base: Any, match: dict[str, Any], context: dict
     had = predicted["odds"].get("had", {})
     scores = " / ".join([predicted["mainScore"], *predicted["backupScores"]])
     ranks = "、".join(value for value in (predicted.get("homeRank"), predicted.get("awayRank")) if value) or "排名信息未作为强制修正"
+    half_full_text = f"{predicted['halfFullText']}（{hodds:.2f}）" if hodds else predicted["halfFullText"]
     default_analysis = (
-        f"结合体彩胜平负赔率{had.get('home', '-')} / {had.get('draw', '-')} / {had.get('away', '-')}、官方比分矩阵、"
-        f"总进球分布与{ranks}进行联合模拟，模型主方向为{predicted['directionText']}，总进球重点为{predicted['totalGoals']}球，"
-        f"比分依次关注{scores}。半全场采用{predicted['halfFullText']}，对应赔率{hodds:.2f}；"
-        f"若比赛节奏与赔率预期相反，则由备选比分和尾部比分承担反向保护。"
-        if hodds else
-        f"结合体彩胜平负赔率{had.get('home', '-')} / {had.get('draw', '-')} / {had.get('away', '-')}、官方比分矩阵和总进球分布联合模拟，"
-        f"模型主方向为{predicted['directionText']}，总进球重点为{predicted['totalGoals']}球，比分依次关注{scores}；半全场市场暂缺有效赔率。"
+        f"结论：{predicted['directionText']}，总进球重点{predicted['totalGoals']}球，比分关注{scores}，"
+        f"半全场为{half_full_text}；当前仅有{ranks}与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，"
+        "故只作低置信基线，主要反向路径为平局及一球差。"
     )
-    predicted["integratedAnalysis"] = context.get("integratedAnalysis", default_analysis)
-    if "半全场" not in predicted["integratedAnalysis"]:
-        predicted["integratedAnalysis"] += f" 半全场模拟为{predicted['halfFullText']}" + (f"（{hodds:.2f}）" if hodds else "") + "。"
-    contract = predicted["reasoningContract"]
-    predicted["integratedAnalysis"] += (
-        f" 五问逻辑：为什么赢——{contract['whyWin']}；为什么要赢——{contract['whyMustWin']}；"
-        f"为什么会输——{contract['whyLose']}；为什么不输——{contract['whyNotLose']}；"
-        f"为什么会平——{contract['whyDraw']}"
-    )
-    dimension_text = "；".join(f"{key}：{value}" for key, value in predicted["analysisDimensions"].items())
-    predicted["integratedAnalysis"] += f" 背后因果维度：{dimension_text}。"
+    # Web copy is intentionally one result paragraph. The full five-question
+    # contract and ten causal dimensions remain in JSON for audit/backtesting.
+    predicted["integratedAnalysis"] = " ".join(str(context.get("integratedAnalysis", default_analysis)).split())
     predicted["analysisBasis"] = context.get("analysisBasis", "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。")
     if not has_had:
         predicted["odds"]["had"] = {}
