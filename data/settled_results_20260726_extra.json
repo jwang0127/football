@@ -1,0 +1,177 @@
+{
+  "settlementBasis": "2026-07-26 90分钟赛果；不含加时赛或点球晋级结算",
+  "sources": [
+    {
+      "name": "ESPN官方赛果接口（瑞超、挪超、巴甲）",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "name": "ESPN官方赛果接口（挪超）",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726"
+    },
+    {
+      "name": "ESPN官方赛果接口（巴甲）",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726"
+    },
+    {
+      "name": "K League公开赛果交叉核对：首尔-蔚山",
+      "url": "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/"
+    },
+    {
+      "name": "K League公开赛果交叉核对：仁川-富川",
+      "url": "https://iffhs.com/en/match/13566"
+    },
+    {
+      "name": "K League公开赛果交叉核对：光州-济州",
+      "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487"
+    },
+    {
+      "name": "K League公开赛果交叉核对：安养-江原",
+      "url": "https://www.mk.co.kr/en/sports/12107860"
+    },
+    {
+      "name": "Veikkausliiga官方赛事资料",
+      "url": "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/"
+    },
+    {
+      "name": "芬超赛果交叉核对：伊尔维斯-拉赫蒂",
+      "url": "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26"
+    },
+    {
+      "name": "芬超赛果交叉核对：赫尔辛基-TPS",
+      "url": "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/"
+    },
+    {
+      "name": "芬超赛果交叉核对：国际图尔库-格尼斯坦",
+      "url": "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+    }
+  ],
+  "results": [
+    {
+      "date": "20260726",
+      "matchId": "2040623",
+      "score": "1-3",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040624",
+      "score": "1-1",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040625",
+      "score": "1-2",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040626",
+      "score": "2-1",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040627",
+      "score": "1-1",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040628",
+      "score": "1-4",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040629",
+      "score": "0-2",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040630",
+      "score": "1-0",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040631",
+      "score": "3-2",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040632",
+      "score": "1-0",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040633",
+      "score": "1-1",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040634",
+      "score": "2-1",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040635",
+      "score": "0-1",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040636",
+      "score": "4-2",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040637",
+      "score": "3-0",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040638",
+      "score": "1-1",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040639",
+      "score": "1-1",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
+      "date": "20260726",
+      "matchId": "2040640",
+      "score": "1-1",
+      "source": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    }
+  ]
+}

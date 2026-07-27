@@ -1402,6 +1402,10 @@
       "url": "https://www.sofascore.com/ro/football/match/ac-oulu-if-gnistan/wVsocc"
     },
     {
+      "name": "official/public result cross-check",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726"
+    },
+    {
       "name": "博德闪耀官方赛果",
       "url": "https://www.glimt.no/resultater/kamp?id=8986233"
     },

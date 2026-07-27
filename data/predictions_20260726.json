@@ -565,7 +565,26 @@
       ],
       "integratedAnalysis": "首尔FC的主胜不是只由赔率排序得出：赛前报道确认首尔连胜并单独领跑，而蔚山正急于结束不胜，双方动机分别是守住优势与止颓反弹。主队更可能先控球、领先后降速，客队若必须前压会给首尔转换空间，因此主线仍是主胜、2到3球和2-1/2-0；若蔚山能先守住并利用定位球或反击，1-1是主要反向路径。",
       "analysisBasis": "K League官方轮次预览 + 韩国媒体赛前报道。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 3,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040624",
@@ -878,7 +897,26 @@
       ],
       "integratedAnalysis": "仁川联的主胜逻辑来自周中击败蔚山后的状态回升、外援攻击点恢复和后防四人组趋稳，但首回合与布川2-2说明对手有制造比赛波动的能力。模型因此保留主队主动压迫、2球重点和1-0/2-1主线；如果仁川边路压上后回防不及时，1-1或布川反击得分会把比赛拉回均势。",
       "analysisBasis": "K League官方第20轮预览 + 赛前赛果资料。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040625",
@@ -1191,7 +1229,26 @@
       ],
       "integratedAnalysis": "济州SK的客胜并非只由赔率得出：俱乐部赛前明确提出重新整顿防守、在光州客场争胜，说明比赛计划更偏先稳住防线再打转换；光州则有主场主动权。模型保留客胜和2球重点，但把1-2/0-1作为效率型路径，1-1作为济州防守有效但进攻转化不足的主要保护。",
       "analysisBasis": "济州SK官方赛前稿 + K League轮次信息。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 2,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040626",
@@ -1515,7 +1572,26 @@
       ],
       "integratedAnalysis": "这场不能只解释成‘客胜1.83所以客胜’。K League官方赛前稿确认安养第6、江原第2，安养近3场2胜1平，江原近9场5胜4平且只丢3球；上一场日期显示安养比江原少约一天恢复，但差距不够支持重判体能。江原的客胜兑现条件是防守继续稳定、利用安养上一场3-2后的回防空档；反向风险是江原后卫图奇停赛及另一名球员热身伤情导致后场完整度下降，安养则有主场、马特乌斯传射状态和对江原顶级联赛4场2胜2平不败的抗衡依据。综合后仍保留客胜主方向，但把结论限制在低比分一球差，0-1/1-1为核心，1-2为客队效率兑现路径，0-0为江原防守成功且安养转化不足的尾部。",
       "analysisBasis": "K League官方第20轮预览 + FotMob赛前数据页 + 赛前伤停资讯页 + 上轮比赛日期交叉核验；伤停资讯未有俱乐部公告独立确认，按中低权重处理。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040627",
@@ -1826,7 +1902,26 @@
       ],
       "integratedAnalysis": "哈马比客胜有近况和进攻质量支撑，但不能忽略欧战资格赛造成的恢复与轮换负荷；布鲁马波卡纳的主场抢分路径是定位球和客队边路身后。模型保留客胜、3球和1-2/0-2，若哈马比后段体能下降，1-1是主要保护。",
       "analysisBasis": "Sports Mole赛前预览、FotMob赛前数据和瑞典媒体欧战报道。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040628",
@@ -2138,7 +2233,26 @@
       ],
       "integratedAnalysis": "天狼星主胜的依据是赛前资料确认的主场不败环境和主动权，哥德堡则依靠低位防守与反击；因此主线看3球、2-1/2-0，但不排除1-1，若天狼星边后卫压上后的回防被打穿，客队会进入冷门路径。",
       "analysisBasis": "Allsvenskan赛前预览与近期数据。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 4,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040629",
@@ -2446,7 +2560,26 @@
       ],
       "integratedAnalysis": "国际图尔库主胜主要由主场主动和推进环境支持，赫尔辛基火花的机会在于低位防守后打反击；由于没有确认重大伤停和完整机会质量，模型不升高置信度，主线仍看3球、2-1/2-0，1-1是节奏被压低后的保护。",
       "analysisBasis": "芬超赛程与公开赛前数据。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 2,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040630",
@@ -2754,7 +2887,26 @@
       ],
       "integratedAnalysis": "坦佩雷山猫主胜的依据是主场主动、压迫和定位球机会，拉赫蒂则会通过低位防守和反击争取不败；目前没有重大伤停把方向推翻，模型看主胜、3球和2-1/1-0，若主队转化率不足，1-1是主要保护。",
       "analysisBasis": "Veikkausliiga官方赛前预览。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 0,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040631",
@@ -3067,7 +3219,26 @@
       ],
       "integratedAnalysis": "布兰主胜有主场、上游竞争和进攻产量支撑，但瓦勒伦加刚6-1大胜且布兰承担欧战资格赛，体能和转换风险不能忽略。模型保留主胜、3球和2-1/3-1，同时提高1-1/2-2保护，不把低赔解释成单向大胜。",
       "analysisBasis": "布兰官方赛前稿 + 挪超赛前预览。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 3,
+        "awayGoals": 2,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040632",
@@ -3379,7 +3550,26 @@
       ],
       "integratedAnalysis": "HJK主胜不能只靠名气，因为芬超官方确认TPS本季首次交锋曾1-0取胜，且进球来自利用HJK防线身后；客队反击路径已经被比赛验证。模型仍看主胜、3球和2-1/2-0，但把1-1和0-1作为真实保护，关键看HJK压上后的回防。",
       "analysisBasis": "HJK/芬超官方预览 + TPS官方伤情综述。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 0,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040633",
@@ -3687,7 +3877,26 @@
       ],
       "integratedAnalysis": "哥德堡盖斯主胜的依据是近期拿分优势和主场主动，哈尔姆斯塔德的反制是低位防守与反击；模型看主胜、3球和2-0/2-1，若盖斯转化率低，1-1是主要保护，不直接追大胜。",
       "analysisBasis": "瑞典超赛前数据与近期状态。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040634",
@@ -3995,7 +4204,26 @@
       ],
       "integratedAnalysis": "马尔默主胜有近期连续零封、主场和欧战区追分目标支撑，但Sjöstrand赛季报销会削弱边路进攻，不能只按强势主胜理解。模型看主胜、2到3球和2-1/2-0，1-1是进攻转化不足时的主要反向路径。",
       "analysisBasis": "Sports Mole赛前预览与瑞典媒体伤停报道。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040635",
@@ -4307,7 +4535,26 @@
       ],
       "integratedAnalysis": "萨尔普斯堡主胜有状态与对手问题共同支撑：两队同积18分，但主队近6轮5胜1平，汉坎近两场丢7球且客场未胜，还有前锋伤缺。模型主线看主胜、2到3球和2-0/2-1，1-1是主队射门转化不足的保护。",
       "analysisBasis": "Sports Mole挪超赛前预览 + FotMob赛前数据。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040636",
@@ -4619,7 +4866,26 @@
       ],
       "integratedAnalysis": "莫尔德客胜的依据是整体实力和控球推进，但KFUM处于抢分压力区，会用低位防守、定位球和反击拖慢比赛；由于完整伤停和机会质量资料不足，模型不提高置信度，主线看客胜、3球和1-2/0-1，1-1是主队防守成功的主要保护。",
       "analysisBasis": "挪超官方赛程、KFUM官方比赛页与公开积分资料。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 4,
+        "awayGoals": 2,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040637",
@@ -4927,7 +5193,26 @@
       ],
       "integratedAnalysis": "博德闪耀客胜不是只有赔率理由：近期3-0击败汉坎且大幅轮换后仍维持强度，说明高压体系和阵容深度稳定；桑纳菲尤尔的主场机会在定位球和反击。模型看客胜、3球和1-2/0-3，若赛程负荷削弱客队后段强度，1-1是保护。",
       "analysisBasis": "挪威媒体近期比赛报道与挪超赛程资料。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 3,
+        "awayGoals": 0,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040638",
@@ -5239,7 +5524,26 @@
       ],
       "integratedAnalysis": "维京客胜有榜首和九连胜支撑，但奥勒松0-6惨败后的止颓动机不能忽略，而且其此前有击败强队的样本；因此不把客队低赔写成必胜。模型看客胜、3球和1-2/0-2，若主队先稳住或维京轮换，1-1是主要保护。",
       "analysisBasis": "Aftenbladet赛前报道 + 挪威伤停/近期赛果资料。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040639",
@@ -5555,7 +5859,26 @@
       ],
       "integratedAnalysis": "弗拉门戈主胜有副榜首、少赛一场和主场逻辑，圣保罗则经历主帅离任与杯赛出局；但弗拉门戈的Carrascal停赛、Paquetá和Luiz Araújo伤病是真实减分项，不能只看名气。模型看主胜、2到3球和2-0/2-1，1-1是圣保罗低位反击成功或主队创造力下降时的保护。",
       "analysisBasis": "GE巴西媒体、圣保罗官方公告和Sports Mole伤停预览。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     },
     {
       "id": "2040640",
@@ -5872,7 +6195,26 @@
       ],
       "integratedAnalysis": "格雷米奥主胜不能只看主场：球队距降级区仅1分且必须抢分，但刚经历联赛和南美杯连续失利；弗鲁米嫩塞有9天准备并可能迎回多名球员，体能和阵容完整度更优。模型仍保留主队抢分主线，但把比赛定为高压力、后段易开放的2到3球结构，2-1/1-1优先，1-2是休息优势兑现的反向路径。",
       "analysisBasis": "GE巴西媒体两队赛前阵容与赛程报道 + Sports Mole预览。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "official/public result cross-check",
+        "urls": [
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260726",
+          "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260726",
+          "https://www.chosun.com/english/sports-en/2026/07/26/FOIXGLXXEBDFBAAAQ2PBYMAYZI/",
+          "https://iffhs.com/en/match/13566",
+          "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596487",
+          "https://www.mk.co.kr/en/sports/12107860",
+          "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036953/ennakko/",
+          "https://statsbet.org/football/matches/ilves-vs-lahti-2026-07-26",
+          "https://www.sportytrader.com/en/results-live/hjk-helsinki-tps-turku-8032435/",
+          "https://www.livesoccertv.com/match/inter-turku-vs-gnistan/1cyrgv"
+        ]
+      }
     }
   ],
   "combos": [

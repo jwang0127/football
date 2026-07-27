@@ -76,6 +76,43 @@ COMPETITION_MODELS: dict[str, dict[str, Any]] = {
                  "clean_sheet_boost": 1.08, "confidence_delta": -4,
                  "lesson": "07-21欧冠资格赛复盘：1-0、1-4、4-0，方向2/3但总进球0/3；扩大4+球与强侧零封/强客4球路径，同时保留低比分控节奏分支。"},
 }
+
+# 07-26 review overlay. Each active league receives only its own evidence;
+# no review adjustment is shared across competitions. Cup competitions remain
+# isolated in CUP_COMPETITIONS and are not changed when no cup fixture is on
+# the current board.
+POST_REVIEW_CALIBRATION: dict[str, dict[str, Any]] = {
+    "韩国职业联赛": {
+        "version": "k-league-v8-review-0726", "review_sample": 16,
+        "had": .28, "crs": .46, "prior": .26, "goal_shift": -.03,
+        "draw_boost": 1.10, "clean_sheet_boost": 1.06, "confidence_delta": -4,
+        "lesson": "07-26复盘：主胜锚定偏强，增加平局与强队客胜反向路径；1-1、1-2、1-3仅在盘口与比赛条件同时支持时进入保护。",
+    },
+    "瑞典超级联赛": {
+        "version": "allsvenskan-v10-review-0726", "review_sample": 13,
+        "had": .33, "crs": .46, "prior": .21, "goal_shift": -.04,
+        "draw_boost": 1.14, "clean_sheet_boost": 1.18, "confidence_delta": -5,
+        "lesson": "07-26复盘：两场平局与一场1-4提示均势保护和条件尾部都要保留；不把1-4外推到非强弱差比赛。",
+    },
+    "挪威超级联赛": {
+        "version": "eliteserien-v7-review-0726", "review_sample": 14,
+        "had": .38, "crs": .45, "prior": .17, "goal_shift": .02,
+        "draw_boost": 1.10, "clean_sheet_boost": 1.08, "confidence_delta": -6,
+        "lesson": "07-26复盘：结果跨度从0-1到4-2，降低单方向信任度并扩大条件化追分与大比分尾部；不统一压到3球。",
+    },
+    "芬兰超级联赛": {
+        "version": "veikkausliiga-v8-review-0726", "review_sample": 10,
+        "had": .34, "crs": .49, "prior": .17, "goal_shift": -.25,
+        "draw_boost": 1.12, "clean_sheet_boost": 1.30, "confidence_delta": -5,
+        "lesson": "07-26复盘：三个总进球预测均偏高，下修进球偏移并提高1-0、0-1、0-2受控路径；不把零封结果机械扩散。",
+    },
+    "巴西甲级联赛": {
+        "version": "brasileirao-v8-review-0726", "review_sample": 5,
+        "had": .32, "crs": .44, "prior": .24, "goal_shift": -.08,
+        "draw_boost": 1.22, "clean_sheet_boost": 1.04, "confidence_delta": -6,
+        "lesson": "07-26复盘：两场1-1只用于提高均势盘平局和2-2审计、降低主胜置信度；样本不足，不外推全联赛小球。",
+    },
+}
 EXTRA_MATCHES_BY_DATE = {
     "20260718": ("data/sporttery_20260719_latest.json", "韩国职业联赛")
 }
@@ -309,7 +346,7 @@ def competition_score_pool(match: dict[str, Any], probabilities: dict[str, float
 
 
 def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, Any]) -> dict[str, Any]:
-    source_profile = COMPETITION_MODELS[match["league"]]
+    source_profile = {**COMPETITION_MODELS[match["league"]], **POST_REVIEW_CALIBRATION.get(match["league"], {})}
     profile = shrink_review_profile(source_profile)
     predicted = base.predict(match)
     scoreline_model = scoreline_model_for(match)
@@ -754,7 +791,7 @@ def main() -> None:
         {"name": "K League官方赛程", "url": "https://tv.kleague.com/en-int/schedule"},
     ]
     competition_review = latest_competition_review(args.date)
-    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户此前要求并入07-19两场韩职" if args.date == "20260718" else "Sporttery竞彩业务日", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"competition-specific-evidence-chain-{args.date}-v10", "contextVersion": context_payload.get("version", "evidence-chain-v2"), "competitionModels": {league: shrink_review_profile(COMPETITION_MODELS[league]) for league in dict.fromkeys(m["league"] for m in matches)}, "competitionReview": competition_review, "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
+    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户此前要求并入07-19两场韩职" if args.date == "20260718" else "Sporttery竞彩业务日", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"competition-specific-evidence-chain-{args.date}-v10", "contextVersion": context_payload.get("version", "evidence-chain-v2"), "competitionModels": {league: shrink_review_profile({**COMPETITION_MODELS[league], **POST_REVIEW_CALIBRATION.get(league, {})}) for league in dict.fromkeys(m["league"] for m in matches)}, "competitionReview": competition_review, "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
     out_root = Path(args.output_root).resolve() if args.output_root else ROOT
     out_data = out_root / "data"
     out_data.mkdir(parents=True, exist_ok=True)
