@@ -11,6 +11,7 @@ import argparse
 import difflib
 import json
 import re
+import shutil
 import subprocess
 import sys
 from collections import defaultdict
@@ -214,7 +215,10 @@ def main() -> None:
     write(DATA / f"review_{yesterday}_competitions.json", build_review(yesterday, source, results))
     optimize_models()
     target = DATA / f"sporttery_{today}_latest.json"
-    run(["powershell", "-ExecutionPolicy", "Bypass", "-File", str(ROOT / "scripts/fetch_sporttery.ps1"), "-Date", today, "-DateMode", "BusinessDate", "-OutFile", str(target), "-PoolCode", "ttg,had,hhad,crs,hafu", "-Force"])
+    shell = shutil.which("pwsh") or shutil.which("powershell")
+    if not shell:
+        raise SystemExit("PowerShell runtime not found; install PowerShell Core (pwsh) on the runner")
+    run([shell, "-ExecutionPolicy", "Bypass", "-File", str(ROOT / "scripts/fetch_sporttery.ps1"), "-Date", today, "-DateMode", "BusinessDate", "-OutFile", str(target), "-PoolCode", "ttg,had,hhad,crs,hafu", "-Force"])
     run([sys.executable, str(ROOT / "scripts/generate_date_pages.py"), "--date", today, "--source", str(target.relative_to(ROOT))])
     predictions = read(DATA / f"predictions_{today}.json")
     run([sys.executable, str(ROOT / "scripts/validate_date_pages.py"), "--date", today, "--expected-matches", str(len(predictions.get("matches", [])))])
