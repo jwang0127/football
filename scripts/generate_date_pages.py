@@ -113,6 +113,25 @@ POST_REVIEW_CALIBRATION: dict[str, dict[str, Any]] = {
         "lesson": "07-26复盘：两场1-1只用于提高均势盘平局和2-2审计、降低主胜置信度；样本不足，不外推全联赛小球。",
     },
 }
+def dynamic_calibration() -> dict[str, dict[str, Any]]:
+    """Load conservative rolling calibration produced by the daily runner."""
+    path = DATA / "auto_model_calibration.json"
+    if not path.exists():
+        return {}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8-sig"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    rows = payload.get("competitions", payload)
+    return rows if isinstance(rows, dict) else {}
+
+
+def model_profile_for(league: str) -> dict[str, Any]:
+    profile = {**COMPETITION_MODELS.get(league, {}), **POST_REVIEW_CALIBRATION.get(league, {})}
+    profile.update(dynamic_calibration().get(league, {}))
+    return profile
+
+
 EXTRA_MATCHES_BY_DATE = {
     "20260718": ("data/sporttery_20260719_latest.json", "韩国职业联赛")
 }
@@ -346,7 +365,7 @@ def competition_score_pool(match: dict[str, Any], probabilities: dict[str, float
 
 
 def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, Any]) -> dict[str, Any]:
-    source_profile = {**COMPETITION_MODELS[match["league"]], **POST_REVIEW_CALIBRATION.get(match["league"], {})}
+    source_profile = model_profile_for(match["league"])
     profile = shrink_review_profile(source_profile)
     predicted = base.predict(match)
     scoreline_model = scoreline_model_for(match)
@@ -791,7 +810,7 @@ def main() -> None:
         {"name": "K League官方赛程", "url": "https://tv.kleague.com/en-int/schedule"},
     ]
     competition_review = latest_competition_review(args.date)
-    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户此前要求并入07-19两场韩职" if args.date == "20260718" else "Sporttery竞彩业务日", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"competition-specific-evidence-chain-{args.date}-v10", "contextVersion": context_payload.get("version", "evidence-chain-v2"), "competitionModels": {league: shrink_review_profile({**COMPETITION_MODELS[league], **POST_REVIEW_CALIBRATION.get(league, {})}) for league in dict.fromkeys(m["league"] for m in matches)}, "competitionReview": competition_review, "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
+    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户此前要求并入07-19两场韩职" if args.date == "20260718" else "Sporttery竞彩业务日", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"competition-specific-evidence-chain-{args.date}-v10", "contextVersion": context_payload.get("version", "evidence-chain-v2"), "competitionModels": {league: shrink_review_profile(model_profile_for(league)) for league in dict.fromkeys(m["league"] for m in matches)}, "competitionReview": competition_review, "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
     out_root = Path(args.output_root).resolve() if args.output_root else ROOT
     out_data = out_root / "data"
     out_data.mkdir(parents=True, exist_ok=True)

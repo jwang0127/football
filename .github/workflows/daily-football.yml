@@ -1,0 +1,57 @@
+name: Daily football review and prediction
+
+on:
+  schedule:
+    # 11:10 Asia/Shanghai = 03:10 UTC.
+    - cron: "10 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run verified daily pipeline
+        run: python scripts/daily_automation.py --yesterday auto --today auto
+
+      - name: Validate model and site tests
+        run: python -m unittest discover -s scripts -p 'test_*.py' -v
+
+      - name: Configure SSH push
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          test -n "$SSH_PRIVATE_KEY" || { echo "Missing repository secret SSH_PRIVATE_KEY"; exit 1; }
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+          git remote set-url origin git@github.com:jwang0127/football.git
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit generated output and push over SSH
+        run: |
+          TODAY=$(TZ=Asia/Shanghai date +%Y%m%d)
+          git add scripts/daily_automation.py scripts/generate_date_pages.py \
+            data/auto_model_calibration.json data/backtest_report.json \
+            data/settled_results_*_auto.json data/review_*_competitions.json \
+            data/predictions_*.json data/sporttery_*_latest.json "$TODAY"
+          if git diff --cached --quiet; then
+            echo "No generated changes to push"
+            exit 0
+          fi
+          git commit -m "每日足球复盘与预测 $TODAY"
+          git push origin HEAD:master
