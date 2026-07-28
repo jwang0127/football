@@ -525,10 +525,12 @@ try {
   $apiPayload = $response.Content | ConvertFrom-Json
 }
 catch {
-  Write-Warning "Invoke-WebRequest failed; retrying the same official API with curl.exe: $($_.Exception.Message)"
+  $curlCommand = if (Get-Command curl.exe -ErrorAction SilentlyContinue) { "curl.exe" } elseif (Get-Command curl -CommandType Application -ErrorAction SilentlyContinue) { "curl" } else { $null }
+  if (-not $curlCommand) { throw "Invoke-WebRequest failed and no curl executable is available: $($_.Exception.Message)" }
+  Write-Warning "Invoke-WebRequest failed; retrying the same official API with ${curlCommand}: $($_.Exception.Message)"
   $tempResponse = Join-Path ([IO.Path]::GetTempPath()) ("sporttery_" + [guid]::NewGuid().ToString("N") + ".json")
   try {
-    & curl.exe -sS -L --retry 2 --connect-timeout 20 `
+    & $curlCommand -sS -L --retry 2 --connect-timeout 20 `
       -H ("User-Agent: " + $headers["User-Agent"]) `
       -H ("Referer: " + $headers["Referer"]) `
       -H ("Origin: " + $headers["Origin"]) `
