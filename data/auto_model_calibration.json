@@ -1,0 +1,72 @@
+{
+  "generatedAt": "2026-07-30T11:36:36",
+  "method": "rolling verified 90-minute results with conservative shrinkage",
+  "competitions": {
+    "瑞典超级联赛": {
+      "version": "allsvenskan-v10-review-0726-auto-0730",
+      "review_sample": 13,
+      "prior_probs": [
+        0.3547,
+        0.3396,
+        0.3057
+      ],
+      "goal_shift": -0.04,
+      "lesson": "滚动13场90分钟结果：主/平/客 4/6/3；参数仅小幅收缩。"
+    },
+    "挪威超级联赛": {
+      "version": "eliteserien-v7-review-0726-auto-0730",
+      "review_sample": 13,
+      "prior_probs": [
+        0.4642,
+        0.234,
+        0.3019
+      ],
+      "goal_shift": 0.02,
+      "lesson": "滚动13场90分钟结果：主/平/客 7/2/4；参数仅小幅收缩。"
+    },
+    "巴西甲级联赛": {
+      "version": "brasileirao-v8-review-0726-auto-0730",
+      "review_sample": 6,
+      "prior_probs": [
+        0.4174,
+        0.3565,
+        0.2261
+      ],
+      "goal_shift": -0.08,
+      "lesson": "滚动6场90分钟结果：主/平/客 2/4/0；参数仅小幅收缩。"
+    },
+    "韩国职业联赛": {
+      "version": "k-league-v8-review-0726-auto-0730",
+      "review_sample": 15,
+      "prior_probs": [
+        0.4117,
+        0.3175,
+        0.2708
+      ],
+      "goal_shift": -0.03,
+      "lesson": "滚动15场90分钟结果：主/平/客 4/6/5；参数仅小幅收缩。"
+    },
+    "芬兰超级联赛": {
+      "version": "veikkausliiga-v8-review-0726-auto-0730",
+      "review_sample": 9,
+      "prior_probs": [
+        0.3714,
+        0.2735,
+        0.3551
+      ],
+      "goal_shift": -0.25,
+      "lesson": "滚动9场90分钟结果：主/平/客 3/1/5；参数仅小幅收缩。"
+    },
+    "欧洲冠军联赛": {
+      "version": "ucl-qualifying-v6-review-0722-auto-0730",
+      "review_sample": 3,
+      "prior_probs": [
+        0.4558,
+        0.2698,
+        0.2744
+      ],
+      "goal_shift": 0.1,
+      "lesson": "滚动3场90分钟结果：主/平/客 2/0/1；参数仅小幅收缩。"
+    }
+  }
+}

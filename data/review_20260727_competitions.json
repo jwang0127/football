@@ -1,0 +1,42 @@
+{
+  "reviewDate": "20260727",
+  "source": "ESPN public scoreboard / Sporttery retained result",
+  "reviews": [
+    {
+      "league": "挪威超级联赛",
+      "results": [
+        {
+          "matchId": "2040642",
+          "matchNumStr": "周一202",
+          "home": "罗森博格",
+          "away": "腓特烈斯塔",
+          "score": "4-0",
+          "direction": "home",
+          "directionHit": true,
+          "mainScore": "2-1",
+          "mainHit": false
+        }
+      ],
+      "summary": "方向命中 1/1；主比分命中 0/1",
+      "modelAdjustment": "仅将本赛事结果纳入滚动校准；小样本收缩，不因单日结果大幅改参。"
+    },
+    {
+      "league": "瑞典超级联赛",
+      "results": [
+        {
+          "matchId": "2040641",
+          "matchNumStr": "周一201",
+          "home": "赫根",
+          "away": "AIK索尔纳",
+          "score": "0-0",
+          "direction": "draw",
+          "directionHit": false,
+          "mainScore": "2-1",
+          "mainHit": false
+        }
+      ],
+      "summary": "方向命中 0/1；主比分命中 0/1",
+      "modelAdjustment": "仅将本赛事结果纳入滚动校准；小样本收缩，不因单日结果大幅改参。"
+    }
+  ]
+}

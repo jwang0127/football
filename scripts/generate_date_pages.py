@@ -728,7 +728,7 @@ def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
         blocks = []
         for item in reviews:
             result_rows = "".join(
-                f'<tr><td>{esc(row["matchNumStr"])}</td><td>{esc(row["home"])} {esc(row["score"])} {esc(row["away"])}</td><td>{esc(row["assessment"])}</td></tr>'
+                f'<tr><td>{esc(row["matchNumStr"])}</td><td>{esc(row["home"])} {esc(row["score"])} {esc(row["away"])}</td><td>{esc(row.get("assessment", "方向命中" if row.get("directionHit") else "方向未命中"))}</td></tr>'
                 for row in item["results"]
             )
             blocks.append(f'''<h3>{esc(item["league"])}赛果</h3><table>{result_rows}</table><p><b>模型复盘：</b>{esc(item["summary"])}</p><p><b>独立调整：</b>{esc(item["modelAdjustment"])}</p>''')

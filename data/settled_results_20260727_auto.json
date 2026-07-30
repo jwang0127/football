@@ -1,0 +1,19 @@
+{
+  "settlementBasis": "90-minute result",
+  "results": [
+    {
+      "date": "20260727",
+      "matchId": "2040641",
+      "score": "0-0",
+      "source": "ESPN public scoreboard / Sporttery retained result",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260727"
+    },
+    {
+      "date": "20260727",
+      "matchId": "2040642",
+      "score": "4-0",
+      "source": "ESPN public scoreboard / Sporttery retained result",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260727"
+    }
+  ]
+}

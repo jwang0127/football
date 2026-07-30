@@ -1,0 +1,315 @@
+{
+  "date": "20260730",
+  "source": "data\\predictions_20260730.json",
+  "disclaimer": "仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。",
+  "positive": [
+    {
+      "matchNumStr": "周四001",
+      "home": "中日德兰",
+      "away": "贝西克塔斯",
+      "kickoff": "2026-07-31 01:00:00",
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "2-1",
+      "backupScores": [
+        "2-0",
+        "1-1"
+      ],
+      "probabilities": {
+        "home": 0.5128,
+        "draw": 0.2411,
+        "away": 0.2462
+      },
+      "risk": "中高",
+      "analysisCompleteness": 0.0,
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ]
+    },
+    {
+      "matchNumStr": "周四002",
+      "home": "帕福斯",
+      "away": "斯普利特海杜克",
+      "kickoff": "2026-07-31 01:00:00",
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "2-1",
+      "backupScores": [
+        "1-0",
+        "2-0"
+      ],
+      "probabilities": {
+        "home": 0.4921,
+        "draw": 0.259,
+        "away": 0.2489
+      },
+      "risk": "中高",
+      "analysisCompleteness": 0.0,
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ]
+    },
+    {
+      "matchNumStr": "周四003",
+      "home": "安德莱赫特",
+      "away": "哈马比",
+      "kickoff": "2026-07-31 02:30:00",
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "2-1",
+      "backupScores": [
+        "1-0",
+        "1-1"
+      ],
+      "probabilities": {
+        "home": 0.4359,
+        "draw": 0.2604,
+        "away": 0.3037
+      },
+      "risk": "中高",
+      "analysisCompleteness": 0.0,
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ]
+    },
+    {
+      "matchNumStr": "周四004",
+      "home": "费伦茨瓦罗斯",
+      "away": "特温特",
+      "kickoff": "2026-07-31 02:30:00",
+      "direction": "away",
+      "directionText": "客胜",
+      "mainScore": "1-2",
+      "backupScores": [
+        "0-2",
+        "1-1"
+      ],
+      "probabilities": {
+        "home": 0.3131,
+        "draw": 0.2488,
+        "away": 0.438
+      },
+      "risk": "中高",
+      "analysisCompleteness": 0.0,
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ]
+    },
+    {
+      "matchNumStr": "周四005",
+      "home": "本菲卡",
+      "away": "圣加仑",
+      "kickoff": "2026-07-31 03:00:00",
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "3-0",
+      "backupScores": [
+        "2-1",
+        "2-0"
+      ],
+      "probabilities": {
+        "home": 0.7666,
+        "draw": 0.1436,
+        "away": 0.0898
+      },
+      "risk": "中高",
+      "analysisCompleteness": 0.0,
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ]
+    },
+    {
+      "matchNumStr": "周四006",
+      "home": "科林蒂安",
+      "away": "巴拉纳竞技",
+      "kickoff": "2026-07-31 06:30:00",
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "1-0",
+      "backupScores": [
+        "2-1",
+        "0-0"
+      ],
+      "probabilities": {
+        "home": 0.5096,
+        "draw": 0.295,
+        "away": 0.1954
+      },
+      "risk": "常规",
+      "analysisCompleteness": 0.0,
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ]
+    }
+  ],
+  "pureUpset": [
+    {
+      "matchNumStr": "周四001",
+      "home": "中日德兰",
+      "away": "贝西克塔斯",
+      "kickoff": "2026-07-31 01:00:00",
+      "direction": "away",
+      "directionText": "客胜（纯爆冷）",
+      "mainScore": "0-1",
+      "backupScores": [
+        "1-1",
+        "2-2"
+      ],
+      "baseProbabilities": {
+        "home": 0.5128,
+        "draw": 0.2411,
+        "away": 0.2462
+      },
+      "basis": "反转基础模型方向，仅作尾部风险情景，不代表模型主判断"
+    },
+    {
+      "matchNumStr": "周四002",
+      "home": "帕福斯",
+      "away": "斯普利特海杜克",
+      "kickoff": "2026-07-31 01:00:00",
+      "direction": "away",
+      "directionText": "客胜（纯爆冷）",
+      "mainScore": "0-1",
+      "backupScores": [
+        "1-1",
+        "2-2"
+      ],
+      "baseProbabilities": {
+        "home": 0.4921,
+        "draw": 0.259,
+        "away": 0.2489
+      },
+      "basis": "反转基础模型方向，仅作尾部风险情景，不代表模型主判断"
+    },
+    {
+      "matchNumStr": "周四003",
+      "home": "安德莱赫特",
+      "away": "哈马比",
+      "kickoff": "2026-07-31 02:30:00",
+      "direction": "away",
+      "directionText": "客胜（纯爆冷）",
+      "mainScore": "0-1",
+      "backupScores": [
+        "1-1",
+        "2-2"
+      ],
+      "baseProbabilities": {
+        "home": 0.4359,
+        "draw": 0.2604,
+        "away": 0.3037
+      },
+      "basis": "反转基础模型方向，仅作尾部风险情景，不代表模型主判断"
+    },
+    {
+      "matchNumStr": "周四004",
+      "home": "费伦茨瓦罗斯",
+      "away": "特温特",
+      "kickoff": "2026-07-31 02:30:00",
+      "direction": "home",
+      "directionText": "主胜（纯爆冷）",
+      "mainScore": "1-0",
+      "backupScores": [
+        "1-1",
+        "2-2"
+      ],
+      "baseProbabilities": {
+        "home": 0.3131,
+        "draw": 0.2488,
+        "away": 0.438
+      },
+      "basis": "反转基础模型方向，仅作尾部风险情景，不代表模型主判断"
+    },
+    {
+      "matchNumStr": "周四005",
+      "home": "本菲卡",
+      "away": "圣加仑",
+      "kickoff": "2026-07-31 03:00:00",
+      "direction": "away",
+      "directionText": "客胜（纯爆冷）",
+      "mainScore": "0-1",
+      "backupScores": [
+        "1-1",
+        "2-2"
+      ],
+      "baseProbabilities": {
+        "home": 0.7666,
+        "draw": 0.1436,
+        "away": 0.0898
+      },
+      "basis": "反转基础模型方向，仅作尾部风险情景，不代表模型主判断"
+    },
+    {
+      "matchNumStr": "周四006",
+      "home": "科林蒂安",
+      "away": "巴拉纳竞技",
+      "kickoff": "2026-07-31 06:30:00",
+      "direction": "away",
+      "directionText": "客胜（纯爆冷）",
+      "mainScore": "0-1",
+      "backupScores": [
+        "1-1",
+        "2-2"
+      ],
+      "baseProbabilities": {
+        "home": 0.5096,
+        "draw": 0.295,
+        "away": 0.1954
+      },
+      "basis": "反转基础模型方向，仅作尾部风险情景，不代表模型主判断"
+    }
+  ]
+}
