@@ -26,21 +26,21 @@
       "review_strength": 0.2941
     },
     "巴西甲级联赛": {
-      "version": "brasileirao-v8-review-0726-auto-0730",
+      "version": "brasileirao-v8-review-0726-auto-0730-special0729",
       "review_sample": 6,
       "had": 0.37333333333333335,
       "crs": 0.44666666666666666,
       "prior": 0.18,
       "prior_probs": [
-        0.4174,
-        0.3565,
-        0.2261
+        0.3975,
+        0.3871,
+        0.2153
       ],
       "goal_shift": -0.026666666666666665,
       "draw_boost": 1.0733333333333333,
       "clean_sheet_boost": 1.0133333333333334,
       "confidence_delta": -2,
-      "lesson": "滚动6场90分钟结果：主/平/客 2/4/0；参数仅小幅收缩。",
+      "lesson": "滚动6场90分钟结果：主/平/客 2/4/0；参数仅小幅收缩。；追加0729六场专项样本2场，主/平/客 0/2/0，保守收缩。",
       "review_strength": 0.3333
     }
   },
@@ -86,7 +86,7 @@
       }
     ]
   },
-  "generatedAt": "2026-07-30T11:37:34",
+  "generatedAt": "2026-07-30T11:48:55",
   "oddsUpdatedAt": "2026-07-30 11:13:14",
   "matches": [
     {
@@ -1652,9 +1652,9 @@
       "homeRank": "[巴甲9]",
       "awayRank": "[巴甲3]",
       "probabilities": {
-        "home": 0.5096,
-        "draw": 0.295,
-        "away": 0.1954
+        "home": 0.5059,
+        "draw": 0.3007,
+        "away": 0.1934
       },
       "direction": "home",
       "directionText": "主胜",
@@ -1808,12 +1808,12 @@
         "klDivergence": 0.0038
       },
       "marketBaselineProbabilities": {
-        "home": 0.5096,
-        "draw": 0.295,
-        "away": 0.1954
+        "home": 0.5059,
+        "draw": 0.3007,
+        "away": 0.1934
       },
       "modelProfile": {
-        "version": "brasileirao-v8-review-0726-auto-0730",
+        "version": "brasileirao-v8-review-0726-auto-0730-special0729",
         "had": 0.37333333333333335,
         "crs": 0.44666666666666666,
         "prior": 0.18,
@@ -1824,7 +1824,7 @@
         "scorelineLayer": "dixon-coles-market-blend-v1",
         "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
       },
-      "modelLesson": "滚动6场90分钟结果：主/平/客 2/4/0；参数仅小幅收缩。",
+      "modelLesson": "滚动6场90分钟结果：主/平/客 2/4/0；参数仅小幅收缩。；追加0729六场专项样本2场，主/平/客 0/2/0，保守收缩。",
       "contextFactors": {
         "stage": "资料不足，保持中性",
         "schedule": "资料不足，保持中性",
@@ -1915,8 +1915,8 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.72,
-          "modelProbability": 0.5096,
-          "expectedValue": -0.1235
+          "modelProbability": 0.5059,
+          "expectedValue": -0.1299
         },
         {
           "market": "ttg",

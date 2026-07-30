@@ -176,9 +176,9 @@
         "0-0"
       ],
       "probabilities": {
-        "home": 0.5096,
-        "draw": 0.295,
-        "away": 0.1954
+        "home": 0.5059,
+        "draw": 0.3007,
+        "away": 0.1934
       },
       "risk": "常规",
       "analysisCompleteness": 0.0,
@@ -305,9 +305,9 @@
         "2-2"
       ],
       "baseProbabilities": {
-        "home": 0.5096,
-        "draw": 0.295,
-        "away": 0.1954
+        "home": 0.5059,
+        "draw": 0.3007,
+        "away": 0.1934
       },
       "basis": "反转基础模型方向，仅作尾部风险情景，不代表模型主判断"
     }

@@ -1,0 +1,12 @@
+{
+  "settlementBasis": "90-minute result; extra time and penalties recorded separately",
+  "source": "Public result cross-check: Soccer Base, CBF, Sky Sports and match reports",
+  "results": [
+    {"matchId": "special-20260729-01", "matchNumStr": "传足26140-1", "league": "欧洲冠军联赛", "home": "库奥皮奥", "away": "萨巴赫", "score": "0-2", "extraTimeScore": null, "penaltyShootout": null, "sourceUrl": "https://www.soccerbase.com/matches/results.sd?date=2026-07-29"},
+    {"matchId": "special-20260729-02", "matchNumStr": "传足26140-2", "league": "欧洲冠军联赛", "home": "哈茨", "away": "格拉茨风暴", "score": "0-2", "extraTimeScore": null, "penaltyShootout": null, "sourceUrl": "https://www.reddit.com/r/ScottishFootball/comments/1v9ahfq/heart_of_midlothian_0_2_sturm_graz_agg_0_6/"},
+    {"matchId": "special-20260729-03", "matchNumStr": "传足26140-3", "league": "欧洲冠军联赛", "home": "阿拉木图凯拉特", "away": "奥莫尼亚", "score": "1-0", "extraTimeScore": "1-0", "penaltyShootout": "6-5", "sourceUrl": "https://www.skysports.com/football/kairat-almaty-vs-omonia-nicosia/558241"},
+    {"matchId": "special-20260729-4", "matchNumStr": "传足26140-4", "league": "欧洲冠军联赛", "home": "波兹南莱赫", "away": "奥胡斯", "score": "0-3", "extraTimeScore": "1-4", "penaltyShootout": "3-4", "sourceUrl": "https://www.extratime.com/fixtures/202627-uefa-champions-league-second-qualifying-round/agf-aarhus-v-lech-poznan/95049/0/match-centre/"},
+    {"matchId": "special-20260729-05", "matchNumStr": "传足26140-5", "league": "巴西甲级联赛", "home": "国际", "away": "弗拉门戈", "score": "1-1", "extraTimeScore": null, "penaltyShootout": null, "sourceUrl": "https://www.soccerbase.com/matches/results.sd?date=2026-07-29"},
+    {"matchId": "special-20260729-06", "matchNumStr": "传足26140-6", "league": "巴西甲级联赛", "home": "弗鲁米嫩塞", "away": "巴伊亚", "score": "0-0", "extraTimeScore": null, "penaltyShootout": null, "sourceUrl": "https://www.cbf.com.br/futebol-brasileiro/jogos/campeonato-brasileiro/serie-a/2026/fluminense-x-bahia/832090"}
+  ]
+}
