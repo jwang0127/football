@@ -399,7 +399,14 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-1，半全场为胜/胜（2.65）；当前仅有排名信息未作为强制修正与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 2,
+        "status": "Finished",
+        "source": "manual public cross-check",
+        "extraTimeScore": null
+      }
     },
     {
       "id": "2040652",
@@ -711,7 +718,14 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注2-1 / 1-0 / 2-0，半全场为胜/胜（2.80）；当前仅有排名信息未作为强制修正与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 0,
+        "status": "Finished",
+        "source": "manual public cross-check",
+        "extraTimeScore": "4-0"
+      }
     },
     {
       "id": "2040653",
@@ -1023,7 +1037,14 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-0 / 1-1，半全场为胜/胜（3.25）；当前仅有排名信息未作为强制修正与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 3,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "manual public cross-check",
+        "extraTimeScore": null
+      }
     },
     {
       "id": "2040654",
@@ -1335,7 +1356,14 @@
       ],
       "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 0-2 / 1-1，半全场为负/负（3.05）；当前仅有排名信息未作为强制修正与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 2,
+        "status": "Finished",
+        "source": "manual public cross-check",
+        "extraTimeScore": null
+      }
     },
     {
       "id": "2040655",
@@ -1634,7 +1662,14 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注3-0 / 2-1 / 2-0，半全场为胜/胜（1.40）；当前仅有排名信息未作为强制修正与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "未开售胜平负；方向概率由官方比分矩阵归一化推导，不参与胜平负串关。"
+      "marketBasis": "未开售胜平负；方向概率由官方比分矩阵归一化推导，不参与胜平负串关。",
+      "result": {
+        "homeGoals": 5,
+        "awayGoals": 0,
+        "status": "Finished",
+        "source": "manual public cross-check",
+        "extraTimeScore": null
+      }
     },
     {
       "id": "2040656",
@@ -1945,7 +1980,14 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注1-0 / 2-1 / 0-0，半全场为胜/胜（2.65）；当前仅有[巴甲9]、[巴甲3]与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "status": "Finished",
+        "source": "manual public cross-check",
+        "extraTimeScore": null
+      }
     }
   ],
   "combos": [

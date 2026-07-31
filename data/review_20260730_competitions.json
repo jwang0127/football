@@ -1,0 +1,218 @@
+{
+  "reviewDate": "20260730",
+  "source": "manual public cross-check",
+  "reviews": [
+    {
+      "league": "欧罗巴联赛",
+      "results": [
+        {
+          "matchId": "2040651",
+          "matchNumStr": "周四001",
+          "league": "欧罗巴联赛",
+          "home": "中日德兰",
+          "away": "贝西克塔斯",
+          "score": "0-2",
+          "extraTimeScore": null,
+          "direction": "away",
+          "directionHit": false,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false
+        },
+        {
+          "matchId": "2040652",
+          "matchNumStr": "周四002",
+          "league": "欧罗巴联赛",
+          "home": "帕福斯",
+          "away": "斯普利特海杜克",
+          "score": "2-0",
+          "extraTimeScore": "4-0",
+          "direction": "home",
+          "directionHit": true,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": true
+        },
+        {
+          "matchId": "2040653",
+          "matchNumStr": "周四003",
+          "league": "欧罗巴联赛",
+          "home": "安德莱赫特",
+          "away": "哈马比",
+          "score": "3-1",
+          "extraTimeScore": null,
+          "direction": "home",
+          "directionHit": true,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false
+        },
+        {
+          "matchId": "2040654",
+          "matchNumStr": "周四004",
+          "league": "欧罗巴联赛",
+          "home": "费伦茨瓦罗斯",
+          "away": "特温特",
+          "score": "2-2",
+          "extraTimeScore": null,
+          "direction": "draw",
+          "directionHit": false,
+          "mainScore": "1-2",
+          "mainHit": false,
+          "poolHit": false
+        },
+        {
+          "matchId": "2040655",
+          "matchNumStr": "周四005",
+          "league": "欧罗巴联赛",
+          "home": "本菲卡",
+          "away": "圣加仑",
+          "score": "5-0",
+          "extraTimeScore": null,
+          "direction": "home",
+          "directionHit": true,
+          "mainScore": "3-0",
+          "mainHit": false,
+          "poolHit": false
+        }
+      ],
+      "summary": "方向命中 3/5；主比分命中 0/5；比分池命中 1/5。",
+      "modelAdjustment": "提高平局保护与强势方大比分尾部，保持小样本收缩；不把加时比分混入90分钟胜平负。"
+    },
+    {
+      "league": "巴西甲级联赛",
+      "results": [
+        {
+          "matchId": "2040656",
+          "matchNumStr": "周四006",
+          "league": "巴西甲级联赛",
+          "home": "科林蒂安",
+          "away": "巴拉纳竞技",
+          "score": "0-0",
+          "extraTimeScore": null,
+          "direction": "draw",
+          "directionHit": false,
+          "mainScore": "1-0",
+          "mainHit": false,
+          "poolHit": true
+        }
+      ],
+      "summary": "方向命中 0/1；主比分命中 0/1；比分池命中 1/1。",
+      "modelAdjustment": "提高平局保护与强势方大比分尾部，保持小样本收缩；不把加时比分混入90分钟胜平负。"
+    }
+  ],
+  "results": [
+    {
+      "matchId": "2040651",
+      "matchNumStr": "周四001",
+      "league": "欧罗巴联赛",
+      "home": "中日德兰",
+      "away": "贝西克塔斯",
+      "score": "0-2",
+      "extraTimeScore": null,
+      "direction": "away",
+      "directionHit": false,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false
+    },
+    {
+      "matchId": "2040652",
+      "matchNumStr": "周四002",
+      "league": "欧罗巴联赛",
+      "home": "帕福斯",
+      "away": "斯普利特海杜克",
+      "score": "2-0",
+      "extraTimeScore": "4-0",
+      "direction": "home",
+      "directionHit": true,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": true
+    },
+    {
+      "matchId": "2040653",
+      "matchNumStr": "周四003",
+      "league": "欧罗巴联赛",
+      "home": "安德莱赫特",
+      "away": "哈马比",
+      "score": "3-1",
+      "extraTimeScore": null,
+      "direction": "home",
+      "directionHit": true,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false
+    },
+    {
+      "matchId": "2040654",
+      "matchNumStr": "周四004",
+      "league": "欧罗巴联赛",
+      "home": "费伦茨瓦罗斯",
+      "away": "特温特",
+      "score": "2-2",
+      "extraTimeScore": null,
+      "direction": "draw",
+      "directionHit": false,
+      "mainScore": "1-2",
+      "mainHit": false,
+      "poolHit": false
+    },
+    {
+      "matchId": "2040655",
+      "matchNumStr": "周四005",
+      "league": "欧罗巴联赛",
+      "home": "本菲卡",
+      "away": "圣加仑",
+      "score": "5-0",
+      "extraTimeScore": null,
+      "direction": "home",
+      "directionHit": true,
+      "mainScore": "3-0",
+      "mainHit": false,
+      "poolHit": false
+    },
+    {
+      "matchId": "2040656",
+      "matchNumStr": "周四006",
+      "league": "巴西甲级联赛",
+      "home": "科林蒂安",
+      "away": "巴拉纳竞技",
+      "score": "0-0",
+      "extraTimeScore": null,
+      "direction": "draw",
+      "directionHit": false,
+      "mainScore": "1-0",
+      "mainHit": false,
+      "poolHit": true
+    }
+  ],
+  "summary": "方向命中 3/6；主比分命中 0/6；比分池命中 2/6。",
+  "modelAdjustment": "欧罗巴资格赛提高平局与强势方大比分尾部；巴甲维持低置信和平局保护；不把帕福斯加时4-0混入90分钟胜平负。",
+  "sources": [
+    {
+      "url": "https://www.skysports.com/football-scores-fixtures/2026-07-30",
+      "name": "周四001"
+    },
+    {
+      "url": "https://as.com/futbol/internacional/goldar-sostiene-al-pafos-en-europa-f202607-n/",
+      "name": "周四002"
+    },
+    {
+      "url": "https://www.skysports.com/football-scores-fixtures/2026-07-30",
+      "name": "周四003"
+    },
+    {
+      "url": "https://www.skysports.com/football-scores-fixtures/2026-07-30",
+      "name": "周四004"
+    },
+    {
+      "url": "https://www.skysports.com/football-scores-fixtures/2026-07-30",
+      "name": "周四005"
+    },
+    {
+      "url": "https://www.cbf.com.br/futebol-brasileiro/jogos/campeonato-brasileiro/serie-a/2026/corinthians-x-athletico-paranaense/832093",
+      "name": "周四006"
+    }
+  ]
+}

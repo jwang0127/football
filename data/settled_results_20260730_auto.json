@@ -1,0 +1,65 @@
+{
+  "settlementBasis": "90-minute result",
+  "results": [
+    {
+      "matchId": "2040651",
+      "matchNumStr": "周四001",
+      "league": "欧罗巴联赛",
+      "home": "中日德兰",
+      "away": "贝西克塔斯",
+      "score": "0-2",
+      "extraTimeScore": null,
+      "sourceUrl": "https://www.skysports.com/football-scores-fixtures/2026-07-30"
+    },
+    {
+      "matchId": "2040652",
+      "matchNumStr": "周四002",
+      "league": "欧罗巴联赛",
+      "home": "帕福斯",
+      "away": "斯普利特海杜克",
+      "score": "2-0",
+      "extraTimeScore": "4-0",
+      "sourceUrl": "https://as.com/futbol/internacional/goldar-sostiene-al-pafos-en-europa-f202607-n/"
+    },
+    {
+      "matchId": "2040653",
+      "matchNumStr": "周四003",
+      "league": "欧罗巴联赛",
+      "home": "安德莱赫特",
+      "away": "哈马比",
+      "score": "3-1",
+      "extraTimeScore": null,
+      "sourceUrl": "https://www.skysports.com/football-scores-fixtures/2026-07-30"
+    },
+    {
+      "matchId": "2040654",
+      "matchNumStr": "周四004",
+      "league": "欧罗巴联赛",
+      "home": "费伦茨瓦罗斯",
+      "away": "特温特",
+      "score": "2-2",
+      "extraTimeScore": null,
+      "sourceUrl": "https://www.skysports.com/football-scores-fixtures/2026-07-30"
+    },
+    {
+      "matchId": "2040655",
+      "matchNumStr": "周四005",
+      "league": "欧罗巴联赛",
+      "home": "本菲卡",
+      "away": "圣加仑",
+      "score": "5-0",
+      "extraTimeScore": null,
+      "sourceUrl": "https://www.skysports.com/football-scores-fixtures/2026-07-30"
+    },
+    {
+      "matchId": "2040656",
+      "matchNumStr": "周四006",
+      "league": "巴西甲级联赛",
+      "home": "科林蒂安",
+      "away": "巴拉纳竞技",
+      "score": "0-0",
+      "extraTimeScore": null,
+      "sourceUrl": "https://www.cbf.com.br/futebol-brasileiro/jogos/campeonato-brasileiro/serie-a/2026/corinthians-x-athletico-paranaense/832093"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "date": "20260731",
+  "source": "data\\predictions_20260731.json",
+  "disclaimer": "仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。",
+  "positive": [
+    {
+      "matchNumStr": "周五001",
+      "home": "瓦勒伦加",
+      "away": "汉坎",
+      "kickoff": "2026-08-01 01:00:00",
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "2-1",
+      "backupScores": [
+        "2-0",
+        "3-1"
+      ],
+      "probabilities": {
+        "home": 0.5959,
+        "draw": 0.2067,
+        "away": 0.1974
+      },
+      "risk": "常规",
+      "analysisCompleteness": 0.0,
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ]
+    },
+    {
+      "matchNumStr": "周五002",
+      "home": "博德闪耀",
+      "away": "利勒斯特罗姆",
+      "kickoff": "2026-08-01 03:00:00",
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "2-1",
+      "backupScores": [
+        "3-0",
+        "3-1"
+      ],
+      "probabilities": {
+        "home": 0.739,
+        "draw": 0.1466,
+        "away": 0.1145
+      },
+      "risk": "常规",
+      "analysisCompleteness": 0.0,
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ]
+    },
+    {
+      "matchNumStr": "周五003",
+      "home": "纽约城",
+      "away": "多伦多FC",
+      "kickoff": "2026-08-01 07:30:00",
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "2-1",
+      "backupScores": [
+        "2-0",
+        "1-0"
+      ],
+      "probabilities": {
+        "home": 0.5779,
+        "draw": 0.2215,
+        "away": 0.2006
+      },
+      "risk": "常规",
+      "analysisCompleteness": 0.0,
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ]
+    }
+  ],
+  "pureUpset": [
+    {
+      "matchNumStr": "周五001",
+      "home": "瓦勒伦加",
+      "away": "汉坎",
+      "kickoff": "2026-08-01 01:00:00",
+      "direction": "away",
+      "directionText": "客胜（纯爆冷）",
+      "mainScore": "0-1",
+      "backupScores": [
+        "1-1",
+        "2-2"
+      ],
+      "baseProbabilities": {
+        "home": 0.5959,
+        "draw": 0.2067,
+        "away": 0.1974
+      },
+      "basis": "反转基础模型方向，仅作尾部风险情景，不代表模型主判断"
+    },
+    {
+      "matchNumStr": "周五002",
+      "home": "博德闪耀",
+      "away": "利勒斯特罗姆",
+      "kickoff": "2026-08-01 03:00:00",
+      "direction": "away",
+      "directionText": "客胜（纯爆冷）",
+      "mainScore": "0-1",
+      "backupScores": [
+        "1-1",
+        "2-2"
+      ],
+      "baseProbabilities": {
+        "home": 0.739,
+        "draw": 0.1466,
+        "away": 0.1145
+      },
+      "basis": "反转基础模型方向，仅作尾部风险情景，不代表模型主判断"
+    },
+    {
+      "matchNumStr": "周五003",
+      "home": "纽约城",
+      "away": "多伦多FC",
+      "kickoff": "2026-08-01 07:30:00",
+      "direction": "away",
+      "directionText": "客胜（纯爆冷）",
+      "mainScore": "0-1",
+      "backupScores": [
+        "1-1",
+        "2-2"
+      ],
+      "baseProbabilities": {
+        "home": 0.5779,
+        "draw": 0.2215,
+        "away": 0.2006
+      },
+      "basis": "反转基础模型方向，仅作尾部风险情景，不代表模型主判断"
+    }
+  ]
+}
