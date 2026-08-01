@@ -14,15 +14,15 @@
       "lesson": "滚动13场90分钟结果：主/平/客 4/6/3；参数仅小幅收缩。"
     },
     "挪威超级联赛": {
-      "version": "eliteserien-v7-review-0726-auto-0730",
+      "version": "eliteserien-v7-review-0726-auto-0730-review0731",
       "review_sample": 13,
       "prior_probs": [
-        0.4642,
-        0.234,
-        0.3019
+        0.4659,
+        0.2229,
+        0.3113
       ],
       "goal_shift": 0.02,
-      "lesson": "滚动13场90分钟结果：主/平/客 7/2/4；参数仅小幅收缩。"
+      "lesson": "0731复盘：方向命中 1/2；保留强势方大比分尾部、低比分保护与平局路径，单日小样本仅轻量收缩。"
     },
     "巴西甲级联赛": {
       "version": "brasileirao-v8-review-0726-auto-0730-special0729-review0730-review0730",
@@ -77,6 +77,15 @@
       ],
       "goal_shift": -0.08,
       "lesson": "0730复盘：方向 3/5；增加平局保护、0-2/2-2与强势方大比分尾部，避免只押主方向。"
+    },
+    "美国职业大联盟": {
+      "prior_probs": [
+        0.3902,
+        0.3171,
+        0.2927
+      ],
+      "version": "rolling-review0731",
+      "lesson": "0731复盘：方向命中 0/1；保留强势方大比分尾部、低比分保护与平局路径，单日小样本仅轻量收缩。"
     }
   },
   "specialReview": {
@@ -142,5 +151,34 @@
       }
     },
     "generatedAt": "2026-07-31T10:54:36"
+  },
+  "review0731": {
+    "method": "verified 90-minute results; rolling conservative shrinkage",
+    "modelCounts": {
+      "挪威超级联赛": {
+        "counts": {
+          "away": 1,
+          "home": 1
+        },
+        "blend": 0.0476,
+        "prior_probs": [
+          0.4659,
+          0.2229,
+          0.3113
+        ]
+      },
+      "美国职业大联盟": {
+        "counts": {
+          "draw": 1
+        },
+        "blend": 0.0244,
+        "prior_probs": [
+          0.3902,
+          0.3171,
+          0.2927
+        ]
+      }
+    },
+    "generatedAt": "2026-08-01T11:16:02"
   }
 }

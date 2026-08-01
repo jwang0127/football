@@ -1,0 +1,27 @@
+{
+  "settlementBasis": "90-minute result",
+  "source": "ESPN/NFF public cross-check",
+  "results": [
+    {
+      "matchId": "2040667",
+      "matchNumStr": "周五001",
+      "league": "挪威超级联赛",
+      "score": "0-3",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260731"
+    },
+    {
+      "matchId": "2040668",
+      "matchNumStr": "周五002",
+      "league": "挪威超级联赛",
+      "score": "4-0",
+      "sourceUrl": "https://www.fotball.no/fotballdata/kamp/?fiksId=8986249"
+    },
+    {
+      "matchId": "2040669",
+      "matchNumStr": "周五003",
+      "league": "美国职业大联盟",
+      "score": "1-1",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260731"
+    }
+  ]
+}

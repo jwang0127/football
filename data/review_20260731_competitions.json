@@ -1,0 +1,115 @@
+{
+  "reviewDate": "20260731",
+  "source": "ESPN/NFF public cross-check",
+  "reviews": [
+    {
+      "league": "挪威超级联赛",
+      "results": [
+        {
+          "matchId": "2040667",
+          "matchNumStr": "周五001",
+          "league": "挪威超级联赛",
+          "home": "瓦勒伦加",
+          "away": "汉坎",
+          "score": "0-3",
+          "direction": "away",
+          "directionHit": false,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false
+        },
+        {
+          "matchId": "2040668",
+          "matchNumStr": "周五002",
+          "league": "挪威超级联赛",
+          "home": "博德闪耀",
+          "away": "利勒斯特罗姆",
+          "score": "4-0",
+          "direction": "home",
+          "directionHit": true,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false
+        }
+      ],
+      "summary": "方向命中 1/2；主比分命中 0/2；比分池命中 0/2。",
+      "modelAdjustment": "扩展强势方大比分尾部，同时保留0-0/1-1等低比分保护；不把单日大球机械外推到所有比赛。"
+    },
+    {
+      "league": "美国职业大联盟",
+      "results": [
+        {
+          "matchId": "2040669",
+          "matchNumStr": "周五003",
+          "league": "美国职业大联盟",
+          "home": "纽约城",
+          "away": "多伦多FC",
+          "score": "1-1",
+          "direction": "draw",
+          "directionHit": false,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false
+        }
+      ],
+      "summary": "方向命中 0/1；主比分命中 0/1；比分池命中 0/1。",
+      "modelAdjustment": "扩展强势方大比分尾部，同时保留0-0/1-1等低比分保护；不把单日大球机械外推到所有比赛。"
+    }
+  ],
+  "results": [
+    {
+      "matchId": "2040667",
+      "matchNumStr": "周五001",
+      "league": "挪威超级联赛",
+      "home": "瓦勒伦加",
+      "away": "汉坎",
+      "score": "0-3",
+      "direction": "away",
+      "directionHit": false,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false
+    },
+    {
+      "matchId": "2040668",
+      "matchNumStr": "周五002",
+      "league": "挪威超级联赛",
+      "home": "博德闪耀",
+      "away": "利勒斯特罗姆",
+      "score": "4-0",
+      "direction": "home",
+      "directionHit": true,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false
+    },
+    {
+      "matchId": "2040669",
+      "matchNumStr": "周五003",
+      "league": "美国职业大联盟",
+      "home": "纽约城",
+      "away": "多伦多FC",
+      "score": "1-1",
+      "direction": "draw",
+      "directionHit": false,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false
+    }
+  ],
+  "summary": "方向命中 1/3；主比分命中 0/3；比分池命中 0/3。",
+  "sources": [
+    {
+      "name": "周五001",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260731"
+    },
+    {
+      "name": "周五002",
+      "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=8986249"
+    },
+    {
+      "name": "周五003",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260731"
+    }
+  ]
+}

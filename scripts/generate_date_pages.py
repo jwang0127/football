@@ -597,7 +597,7 @@ def leg(match: dict[str, Any], market: str) -> dict[str, Any]:
     else:
         key, odds, probability = hafu_pick(match)
         pick = HAFU_TEXT[key]
-    return {"matchId": match["id"], "match": f"{match['matchNumStr']} {match['home']} vs {match['away']}", "market": market, "marketText": MARKET_TEXT[market], "pick": pick, "odds": odds, "probability": probability}
+    return {"matchId": match["id"], "league": match["league"], "match": f"{match['matchNumStr']} {match['home']} vs {match['away']}", "market": market, "marketText": MARKET_TEXT[market], "pick": pick, "odds": odds, "probability": probability}
 
 
 def combo(name: str, legs: tuple[dict[str, Any], ...] | list[dict[str, Any]], category: str) -> dict[str, Any]:
@@ -610,6 +610,9 @@ def combo(name: str, legs: tuple[dict[str, Any], ...] | list[dict[str, Any]], ca
 def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     all_legs = {market: [leg(m, market) for m in matches] for market in MARKET_TEXT}
+    korean_league = "韩国职业联赛"
+    def same_competition(selected: tuple[dict[str, Any], ...]) -> bool:
+        return len({x.get("league") for x in selected}) == 1
     # Pure HAD parlays are intentionally disabled: every displayed combo may contain at most one HAD leg.
     for market in ("ttg", "crs", "hafu"):
         candidates = all_legs[market]
@@ -617,6 +620,8 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
         pool = []
         for size in range(2, min(3, len(usable)) + 1):
             for selected in combinations(usable, size):
+                if not same_competition(selected):
+                    continue
                 item = combo(f"{MARKET_TEXT[market]}{size}串一", selected, market)
                 if item["productOdds"] >= MIN_COMBO_ODDS:
                     pool.append(item)
@@ -627,7 +632,7 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
     candidates = [x for legs in all_legs.values() for x in legs if x["odds"] and x["probability"]]
     for size in (2, 3, 4):
         for selected in combinations(candidates, size):
-            if len({x["matchId"] for x in selected}) != size or len({x["market"] for x in selected}) < 2:
+            if not same_competition(selected) or len({x["matchId"] for x in selected}) != size or len({x["market"] for x in selected}) < 2:
                 continue
             if sum(x["market"] == "had" for x in selected) > 1:
                 continue
@@ -635,12 +640,48 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
             if item["productOdds"] >= MIN_COMBO_ODDS:
                 mixed.append(item)
     rows.extend(sorted(mixed, key=lambda x: (-x["trustScore"], x["productOdds"]))[:8])
+    # Requested 6-8 leg parlays: goal-led and explicitly exclude K League.
+    non_korean = [x for legs in all_legs.values() for x in legs if x["odds"] and x["probability"] and x.get("league") != korean_league]
+    by_match: dict[str, list[dict[str, Any]]] = {}
+    for item in non_korean:
+        by_match.setdefault(item["matchId"], []).append(item)
+    preferred = [sorted(options, key=lambda x: (x["market"] != "ttg", x["market"] == "crs", -x["probability"]))[0] for options in by_match.values()]
+    preferred.sort(key=lambda x: -x["probability"])
+    for size in (6, 7, 8):
+        if len(preferred) >= size:
+            chosen = list(preferred[:size])
+            market = "ttg"
+            label = "进球主导"
+            if size in (6, 8):
+                extras = sorted([x for x in all_legs["had"] if x["odds"] and x["probability"] and x.get("league") != korean_league], key=lambda x: -x["probability"])
+                if extras:
+                    chosen[0] = extras[0]
+                    market, label = "mixed", "进球+胜负平"
+            elif size == 7:
+                extras = sorted([x for x in all_legs["hafu"] if x["odds"] and x["probability"] and x.get("league") != korean_league], key=lambda x: -x["probability"])
+                if extras:
+                    chosen[0] = extras[0]
+                    market, label = "mixed", "进球+半全场"
+            if len({x["matchId"] for x in chosen}) != size or sum(x["market"] == "had" for x in chosen) > 1:
+                chosen = list(preferred[:size])
+                market, label = "ttg", "进球主导"
+            item = combo(f"大串{size}串（{label}）", tuple(chosen), market)
+            if item["productOdds"] >= MIN_COMBO_ODDS:
+                rows.append(item)
     rows.sort(key=lambda x: (-x["trustScore"], len(x["legs"]), x["productOdds"]))
     high_odds = sorted(
         (row for row in rows if row["productOdds"] > HIGH_ODDS_THRESHOLD),
         key=lambda x: (-x["trustScore"], len(x["legs"]), x["productOdds"]),
     )[:HIGH_ODDS_SLOTS]
     selected = list(high_odds)
+    big_rows = [row for row in rows if len(row["legs"]) in {6, 7, 8} and row["name"].startswith("大串")]
+    for row in sorted(big_rows, key=lambda x: (-len(x["legs"]), -x["trustScore"], x["productOdds"]))[:3]:
+        if row not in selected:
+            selected.append(row)
+    korean_rows = [row for row in rows if all(item.get("league") == korean_league for item in row["legs"])]
+    for row in sorted(korean_rows, key=lambda x: (-x["trustScore"], x["productOdds"]))[:2]:
+        if row not in selected:
+            selected.append(row)
     selected_keys = {tuple((leg["matchId"], leg["market"], leg["pick"]) for leg in row["legs"]) for row in selected}
     for row in rows:
         key = tuple((leg["matchId"], leg["market"], leg["pick"]) for leg in row["legs"])
