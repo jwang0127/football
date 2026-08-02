@@ -15,7 +15,7 @@ import shutil
 import subprocess
 import sys
 from collections import defaultdict
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 import time
@@ -24,6 +24,11 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 HEADERS = {"User-Agent": "Mozilla/5.0 (football-prediction-daily-runner)"}
+try:
+    SHANGHAI_TZ = ZoneInfo("Asia/Shanghai")
+except Exception:
+    # Windows Python installations may omit the optional tzdata package.
+    SHANGHAI_TZ = timezone(timedelta(hours=8))
 LEAGUE_ENDPOINTS = {"韩国职业联赛": "kor.1", "瑞典超级联赛": "swe.1", "挪威超级联赛": "nor.1", "芬兰超级联赛": "fin.1", "巴西甲级联赛": "bra.1", "美国职业大联盟": "usa.1"}
 
 
@@ -187,7 +192,7 @@ def main() -> None:
     parser.add_argument("--yesterday", default="auto")
     parser.add_argument("--today", default="auto")
     args = parser.parse_args()
-    now = datetime.now(ZoneInfo("Asia/Shanghai"))
+    now = datetime.now(SHANGHAI_TZ)
     yesterday = (now - timedelta(days=1)).strftime("%Y%m%d") if args.yesterday == "auto" else args.yesterday
     today = now.strftime("%Y%m%d") if args.today == "auto" else args.today
     source_path = DATA / f"sporttery_{yesterday}_latest.json"
