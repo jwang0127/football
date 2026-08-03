@@ -1,0 +1,90 @@
+{
+  "settlementBasis": "90-minute result",
+  "source": "FotMob / ESPN public scoreboard cross-check",
+  "results": [
+    {
+      "matchId": "2040688",
+      "score": "3-1",
+      "sourceUrl": "https://www.fotmob.com/matches/ulsan-hd-fc-vs-fc-anyang/20w6nu1w",
+      "matchNumStr": "周日001",
+      "league": "韩国职业联赛"
+    },
+    {
+      "matchId": "2040689",
+      "score": "3-3",
+      "sourceUrl": "https://www.fotmob.com/matches/incheon-united-vs-jeju-sk/gh07y5f",
+      "matchNumStr": "周日002",
+      "league": "韩国职业联赛"
+    },
+    {
+      "matchId": "2040690",
+      "score": "2-0",
+      "sourceUrl": "https://www.fotmob.com/matches/daejeon-hana-citizen-vs-gwangju-fc/x4u63k4",
+      "matchNumStr": "周日003",
+      "league": "韩国职业联赛"
+    },
+    {
+      "matchId": "2040691",
+      "score": "2-1",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260802",
+      "matchNumStr": "周日004",
+      "league": "瑞典超级联赛"
+    },
+    {
+      "matchId": "2040692",
+      "score": "0-2",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260802",
+      "matchNumStr": "周日005",
+      "league": "瑞典超级联赛"
+    },
+    {
+      "matchId": "2040693",
+      "score": "0-1",
+      "sourceUrl": "https://www.fotmob.com/matches/fc-inter-turku-vs-sirius/1g81e4",
+      "matchNumStr": "周日006",
+      "league": "芬兰超级联赛"
+    },
+    {
+      "matchId": "2040694",
+      "score": "1-0",
+      "sourceUrl": "https://www.fotmob.com/matches/ac-oulu-vs-ilves/6di10jr",
+      "matchNumStr": "周日007",
+      "league": "芬兰超级联赛"
+    },
+    {
+      "matchId": "2040695",
+      "score": "3-0",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260802",
+      "matchNumStr": "周日008",
+      "league": "瑞典超级联赛"
+    },
+    {
+      "matchId": "2040696",
+      "score": "1-2",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260802",
+      "matchNumStr": "周日009",
+      "league": "挪威超级联赛"
+    },
+    {
+      "matchId": "2040697",
+      "score": "3-3",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260802",
+      "matchNumStr": "周日010",
+      "league": "挪威超级联赛"
+    },
+    {
+      "matchId": "2040698",
+      "score": "6-2",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260802",
+      "matchNumStr": "周日011",
+      "league": "挪威超级联赛"
+    },
+    {
+      "matchId": "2040699",
+      "score": "2-3",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260802",
+      "matchNumStr": "周日012",
+      "league": "挪威超级联赛"
+    }
+  ]
+}

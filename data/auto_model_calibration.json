@@ -1,184 +1,94 @@
 {
-  "generatedAt": "2026-07-30T11:48:55",
+  "generatedAt": "2026-08-03T11:03:56",
   "method": "rolling verified 90-minute results with conservative shrinkage",
   "competitions": {
     "瑞典超级联赛": {
-      "version": "allsvenskan-v10-review-0726-auto-0730",
-      "review_sample": 13,
+      "version": "allsvenskan-v10-review-0726-auto-0803",
+      "review_sample": 16,
       "prior_probs": [
-        0.3547,
-        0.3396,
-        0.3057
+        0.3712,
+        0.3187,
+        0.31
       ],
       "goal_shift": -0.04,
-      "lesson": "滚动13场90分钟结果：主/平/客 4/6/3；参数仅小幅收缩。"
+      "lesson": "滚动16场90分钟结果：主/平/客 6/6/4；参数仅小幅收缩。"
     },
     "挪威超级联赛": {
-      "version": "eliteserien-v7-review-0726-auto-0730-review0731",
-      "review_sample": 13,
+      "version": "eliteserien-v7-review-0726-auto-0803",
+      "review_sample": 19,
       "prior_probs": [
-        0.4659,
-        0.2229,
-        0.3113
+        0.4484,
+        0.2345,
+        0.3171
       ],
       "goal_shift": 0.02,
-      "lesson": "0731复盘：方向命中 1/2；保留强势方大比分尾部、低比分保护与平局路径，单日小样本仅轻量收缩。"
+      "lesson": "滚动19场90分钟结果：主/平/客 9/3/7；参数仅小幅收缩。"
     },
     "巴西甲级联赛": {
-      "version": "brasileirao-v8-review-0726-auto-0730-special0729-review0730-review0730",
-      "review_sample": 6,
+      "version": "brasileirao-v8-review-0726-auto-0803",
+      "review_sample": 7,
       "prior_probs": [
-        0.3878,
-        0.402,
-        0.21
+        0.4085,
+        0.3702,
+        0.2213
       ],
       "goal_shift": -0.08,
-      "lesson": "0730复盘：方向 0/1；增加平局保护、0-2/2-2与强势方大比分尾部，避免只押主方向。"
+      "lesson": "滚动7场90分钟结果：主/平/客 2/5/0；参数仅小幅收缩。"
     },
-    "韩国职业联赛": {
-      "version": "k-league-v8-review-0726-auto-0730",
-      "review_sample": 15,
-      "prior_probs": [
-        0.4117,
-        0.3175,
-        0.2708
-      ],
-      "goal_shift": -0.03,
-      "lesson": "滚动15场90分钟结果：主/平/客 4/6/5；参数仅小幅收缩。"
-    },
-    "芬兰超级联赛": {
-      "version": "veikkausliiga-v8-review-0726-auto-0730",
-      "review_sample": 9,
-      "prior_probs": [
-        0.3714,
-        0.2735,
-        0.3551
-      ],
-      "goal_shift": -0.25,
-      "lesson": "滚动9场90分钟结果：主/平/客 3/1/5；参数仅小幅收缩。"
-    },
-    "欧洲冠军联赛": {
-      "version": "ucl-qualifying-v6-review-0722-auto-0730-special0729",
+    "美国职业大联盟": {
+      "version": "mls-v6-review-0722-auto-0803",
       "review_sample": 3,
       "prior_probs": [
-        0.4371,
-        0.2453,
-        0.3176
+        0.4233,
+        0.2558,
+        0.3209
+      ],
+      "goal_shift": -0.05,
+      "lesson": "滚动3场90分钟结果：主/平/客 1/1/1；参数仅小幅收缩。"
+    },
+    "韩国职业联赛": {
+      "version": "k-league-v8-review-0726-auto-0803",
+      "review_sample": 18,
+      "prior_probs": [
+        0.4283,
+        0.3147,
+        0.2569
+      ],
+      "goal_shift": -0.03,
+      "lesson": "滚动18场90分钟结果：主/平/客 6/7/5；参数仅小幅收缩。"
+    },
+    "芬兰超级联赛": {
+      "version": "veikkausliiga-v8-review-0726-auto-0803",
+      "review_sample": 11,
+      "prior_probs": [
+        0.3765,
+        0.2627,
+        0.3608
+      ],
+      "goal_shift": -0.25,
+      "lesson": "滚动11场90分钟结果：主/平/客 4/1/6；参数仅小幅收缩。"
+    },
+    "欧洲冠军联赛": {
+      "version": "ucl-qualifying-v6-review-0722-auto-0803",
+      "review_sample": 3,
+      "prior_probs": [
+        0.4558,
+        0.2698,
+        0.2744
       ],
       "goal_shift": 0.1,
-      "lesson": "滚动3场90分钟结果：主/平/客 2/0/1；参数仅小幅收缩。；追加0729六场专项样本4场，主/平/客 1/0/3，保守收缩。"
+      "lesson": "滚动3场90分钟结果：主/平/客 2/0/1；参数仅小幅收缩。"
     },
     "欧罗巴联赛": {
-      "version": "uel-qualifying-v4-review-0723-review0730-review0730",
+      "version": "uel-qualifying-v4-review-0723-auto-0803",
+      "review_sample": 5,
       "prior_probs": [
         0.44,
         0.2889,
         0.2711
       ],
       "goal_shift": -0.08,
-      "lesson": "0730复盘：方向 3/5；增加平局保护、0-2/2-2与强势方大比分尾部，避免只押主方向。"
-    },
-    "美国职业大联盟": {
-      "prior_probs": [
-        0.3902,
-        0.3171,
-        0.2927
-      ],
-      "version": "rolling-review0731",
-      "lesson": "0731复盘：方向命中 0/1；保留强势方大比分尾部、低比分保护与平局路径，单日小样本仅轻量收缩。"
+      "lesson": "滚动5场90分钟结果：主/平/客 3/1/1；参数仅小幅收缩。"
     }
-  },
-  "specialReview": {
-    "date": "20260729",
-    "method": "90-minute outcomes only; extra time and penalties excluded from direction",
-    "adjustments": {
-      "欧洲冠军联赛": {
-        "sample": 4,
-        "counts": {
-          "home": 1,
-          "draw": 0,
-          "away": 3
-        },
-        "blend": 0.0909,
-        "prior_probs": [
-          0.4371,
-          0.2453,
-          0.3176
-        ]
-      },
-      "巴西甲级联赛": {
-        "sample": 2,
-        "counts": {
-          "home": 0,
-          "draw": 2,
-          "away": 0
-        },
-        "blend": 0.0476,
-        "prior_probs": [
-          0.3975,
-          0.3871,
-          0.2153
-        ]
-      }
-    }
-  },
-  "review0730": {
-    "method": "verified 90-minute results; extra time excluded from direction",
-    "modelCounts": {
-      "欧罗巴联赛": {
-        "counts": {
-          "away": 1,
-          "home": 3,
-          "draw": 1
-        },
-        "blend": 0.1111,
-        "prior_probs": [
-          0.44,
-          0.2889,
-          0.2711
-        ]
-      },
-      "巴西甲级联赛": {
-        "counts": {
-          "draw": 1
-        },
-        "blend": 0.0244,
-        "prior_probs": [
-          0.3878,
-          0.402,
-          0.21
-        ]
-      }
-    },
-    "generatedAt": "2026-07-31T10:54:36"
-  },
-  "review0731": {
-    "method": "verified 90-minute results; rolling conservative shrinkage",
-    "modelCounts": {
-      "挪威超级联赛": {
-        "counts": {
-          "away": 1,
-          "home": 1
-        },
-        "blend": 0.0476,
-        "prior_probs": [
-          0.4659,
-          0.2229,
-          0.3113
-        ]
-      },
-      "美国职业大联盟": {
-        "counts": {
-          "draw": 1
-        },
-        "blend": 0.0244,
-        "prior_probs": [
-          0.3902,
-          0.3171,
-          0.2927
-        ]
-      }
-    },
-    "generatedAt": "2026-08-01T11:16:02"
   }
 }

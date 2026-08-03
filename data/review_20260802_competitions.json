@@ -1,0 +1,399 @@
+{
+  "reviewDate": "20260802",
+  "source": "FotMob / ESPN public scoreboard cross-check",
+  "reviews": [
+    {
+      "league": "挪威超级联赛",
+      "results": [
+        {
+          "matchId": "2040696",
+          "matchNumStr": "周日009",
+          "league": "挪威超级联赛",
+          "home": "奥斯陆KFUM",
+          "away": "克里斯蒂安松",
+          "score": "1-2",
+          "direction": "away",
+          "directionHit": false,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false
+        },
+        {
+          "matchId": "2040697",
+          "matchNumStr": "周日010",
+          "league": "挪威超级联赛",
+          "home": "莫尔德",
+          "away": "萨尔普斯堡",
+          "score": "3-3",
+          "direction": "draw",
+          "directionHit": false,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false
+        },
+        {
+          "matchId": "2040698",
+          "matchNumStr": "周日011",
+          "league": "挪威超级联赛",
+          "home": "奥勒松",
+          "away": "特罗姆瑟",
+          "score": "6-2",
+          "direction": "home",
+          "directionHit": false,
+          "mainScore": "1-2",
+          "mainHit": false,
+          "poolHit": false
+        },
+        {
+          "matchId": "2040699",
+          "matchNumStr": "周日012",
+          "league": "挪威超级联赛",
+          "home": "布兰",
+          "away": "罗森博格",
+          "score": "2-3",
+          "direction": "away",
+          "directionHit": false,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false
+        }
+      ],
+      "summary": "方向命中 0/4；主比分命中 0/4；比分池命中 0/4。",
+      "modelAdjustment": "仅纳入滚动校准；继续保留强势方大比分尾部、平局保护和低比分路径，不因单日样本过度改参。"
+    },
+    {
+      "league": "瑞典超级联赛",
+      "results": [
+        {
+          "matchId": "2040691",
+          "matchNumStr": "周日004",
+          "league": "瑞典超级联赛",
+          "home": "布鲁马波卡纳",
+          "away": "马尔默",
+          "score": "2-1",
+          "direction": "home",
+          "directionHit": false,
+          "mainScore": "1-2",
+          "mainHit": false,
+          "poolHit": false
+        },
+        {
+          "matchId": "2040692",
+          "matchNumStr": "周日005",
+          "league": "瑞典超级联赛",
+          "home": "IFK哥德堡",
+          "away": "代格福什",
+          "score": "0-2",
+          "direction": "away",
+          "directionHit": false,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false
+        },
+        {
+          "matchId": "2040695",
+          "matchNumStr": "周日008",
+          "league": "瑞典超级联赛",
+          "home": "AIK索尔纳",
+          "away": "厄尔格里特",
+          "score": "3-0",
+          "direction": "home",
+          "directionHit": true,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": true
+        }
+      ],
+      "summary": "方向命中 1/3；主比分命中 0/3；比分池命中 1/3。",
+      "modelAdjustment": "仅纳入滚动校准；继续保留强势方大比分尾部、平局保护和低比分路径，不因单日样本过度改参。"
+    },
+    {
+      "league": "芬兰超级联赛",
+      "results": [
+        {
+          "matchId": "2040693",
+          "matchNumStr": "周日006",
+          "league": "芬兰超级联赛",
+          "home": "瓦萨",
+          "away": "国际图尔库",
+          "score": "0-1",
+          "direction": "away",
+          "directionHit": true,
+          "mainScore": "1-2",
+          "mainHit": false,
+          "poolHit": true
+        },
+        {
+          "matchId": "2040694",
+          "matchNumStr": "周日007",
+          "league": "芬兰超级联赛",
+          "home": "AC奥卢",
+          "away": "坦佩雷山猫",
+          "score": "1-0",
+          "direction": "home",
+          "directionHit": true,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": true
+        }
+      ],
+      "summary": "方向命中 2/2；主比分命中 0/2；比分池命中 2/2。",
+      "modelAdjustment": "仅纳入滚动校准；继续保留强势方大比分尾部、平局保护和低比分路径，不因单日样本过度改参。"
+    },
+    {
+      "league": "韩国职业联赛",
+      "results": [
+        {
+          "matchId": "2040688",
+          "matchNumStr": "周日001",
+          "league": "韩国职业联赛",
+          "home": "蔚山现代",
+          "away": "安养FC",
+          "score": "3-1",
+          "direction": "home",
+          "directionHit": true,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false
+        },
+        {
+          "matchId": "2040689",
+          "matchNumStr": "周日002",
+          "league": "韩国职业联赛",
+          "home": "济州SK",
+          "away": "仁川联",
+          "score": "3-3",
+          "direction": "draw",
+          "directionHit": false,
+          "mainScore": "0-1",
+          "mainHit": false,
+          "poolHit": false
+        },
+        {
+          "matchId": "2040690",
+          "matchNumStr": "周日003",
+          "league": "韩国职业联赛",
+          "home": "大田市民",
+          "away": "光州FC",
+          "score": "2-0",
+          "direction": "home",
+          "directionHit": true,
+          "mainScore": "2-0",
+          "mainHit": true,
+          "poolHit": true
+        }
+      ],
+      "summary": "方向命中 2/3；主比分命中 1/3；比分池命中 1/3。",
+      "modelAdjustment": "仅纳入滚动校准；继续保留强势方大比分尾部、平局保护和低比分路径，不因单日样本过度改参。"
+    }
+  ],
+  "results": [
+    {
+      "matchId": "2040688",
+      "matchNumStr": "周日001",
+      "league": "韩国职业联赛",
+      "home": "蔚山现代",
+      "away": "安养FC",
+      "score": "3-1",
+      "direction": "home",
+      "directionHit": true,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false
+    },
+    {
+      "matchId": "2040689",
+      "matchNumStr": "周日002",
+      "league": "韩国职业联赛",
+      "home": "济州SK",
+      "away": "仁川联",
+      "score": "3-3",
+      "direction": "draw",
+      "directionHit": false,
+      "mainScore": "0-1",
+      "mainHit": false,
+      "poolHit": false
+    },
+    {
+      "matchId": "2040690",
+      "matchNumStr": "周日003",
+      "league": "韩国职业联赛",
+      "home": "大田市民",
+      "away": "光州FC",
+      "score": "2-0",
+      "direction": "home",
+      "directionHit": true,
+      "mainScore": "2-0",
+      "mainHit": true,
+      "poolHit": true
+    },
+    {
+      "matchId": "2040691",
+      "matchNumStr": "周日004",
+      "league": "瑞典超级联赛",
+      "home": "布鲁马波卡纳",
+      "away": "马尔默",
+      "score": "2-1",
+      "direction": "home",
+      "directionHit": false,
+      "mainScore": "1-2",
+      "mainHit": false,
+      "poolHit": false
+    },
+    {
+      "matchId": "2040692",
+      "matchNumStr": "周日005",
+      "league": "瑞典超级联赛",
+      "home": "IFK哥德堡",
+      "away": "代格福什",
+      "score": "0-2",
+      "direction": "away",
+      "directionHit": false,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false
+    },
+    {
+      "matchId": "2040693",
+      "matchNumStr": "周日006",
+      "league": "芬兰超级联赛",
+      "home": "瓦萨",
+      "away": "国际图尔库",
+      "score": "0-1",
+      "direction": "away",
+      "directionHit": true,
+      "mainScore": "1-2",
+      "mainHit": false,
+      "poolHit": true
+    },
+    {
+      "matchId": "2040694",
+      "matchNumStr": "周日007",
+      "league": "芬兰超级联赛",
+      "home": "AC奥卢",
+      "away": "坦佩雷山猫",
+      "score": "1-0",
+      "direction": "home",
+      "directionHit": true,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": true
+    },
+    {
+      "matchId": "2040695",
+      "matchNumStr": "周日008",
+      "league": "瑞典超级联赛",
+      "home": "AIK索尔纳",
+      "away": "厄尔格里特",
+      "score": "3-0",
+      "direction": "home",
+      "directionHit": true,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": true
+    },
+    {
+      "matchId": "2040696",
+      "matchNumStr": "周日009",
+      "league": "挪威超级联赛",
+      "home": "奥斯陆KFUM",
+      "away": "克里斯蒂安松",
+      "score": "1-2",
+      "direction": "away",
+      "directionHit": false,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false
+    },
+    {
+      "matchId": "2040697",
+      "matchNumStr": "周日010",
+      "league": "挪威超级联赛",
+      "home": "莫尔德",
+      "away": "萨尔普斯堡",
+      "score": "3-3",
+      "direction": "draw",
+      "directionHit": false,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false
+    },
+    {
+      "matchId": "2040698",
+      "matchNumStr": "周日011",
+      "league": "挪威超级联赛",
+      "home": "奥勒松",
+      "away": "特罗姆瑟",
+      "score": "6-2",
+      "direction": "home",
+      "directionHit": false,
+      "mainScore": "1-2",
+      "mainHit": false,
+      "poolHit": false
+    },
+    {
+      "matchId": "2040699",
+      "matchNumStr": "周日012",
+      "league": "挪威超级联赛",
+      "home": "布兰",
+      "away": "罗森博格",
+      "score": "2-3",
+      "direction": "away",
+      "directionHit": false,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false
+    }
+  ],
+  "summary": "方向命中 5/12；主比分命中 1/12；比分池命中 4/12。",
+  "sources": [
+    {
+      "name": "2040688",
+      "url": "https://www.fotmob.com/matches/ulsan-hd-fc-vs-fc-anyang/20w6nu1w"
+    },
+    {
+      "name": "2040689",
+      "url": "https://www.fotmob.com/matches/incheon-united-vs-jeju-sk/gh07y5f"
+    },
+    {
+      "name": "2040690",
+      "url": "https://www.fotmob.com/matches/daejeon-hana-citizen-vs-gwangju-fc/x4u63k4"
+    },
+    {
+      "name": "2040691",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260802"
+    },
+    {
+      "name": "2040692",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260802"
+    },
+    {
+      "name": "2040693",
+      "url": "https://www.fotmob.com/matches/fc-inter-turku-vs-sirius/1g81e4"
+    },
+    {
+      "name": "2040694",
+      "url": "https://www.fotmob.com/matches/ac-oulu-vs-ilves/6di10jr"
+    },
+    {
+      "name": "2040695",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260802"
+    },
+    {
+      "name": "2040696",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260802"
+    },
+    {
+      "name": "2040697",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260802"
+    },
+    {
+      "name": "2040698",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260802"
+    },
+    {
+      "name": "2040699",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260802"
+    }
+  ]
+}

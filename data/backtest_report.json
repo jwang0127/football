@@ -1,15 +1,15 @@
 {
-  "settledResults": 103,
-  "evaluatedPredictions": 99,
+  "settledResults": 115,
+  "evaluatedPredictions": 111,
   "overall": {
-    "settled": 99,
-    "direction_rate": 0.4848,
-    "main_score_rate": 0.1313,
-    "score_pool_rate": 0.3636,
-    "total_goal_rate": 0.2929,
-    "goal_candidates_rate": 0.697,
-    "avg_brier": 0.63,
-    "avg_logloss": 1.0427
+    "settled": 111,
+    "direction_rate": 0.4775,
+    "main_score_rate": 0.1261,
+    "score_pool_rate": 0.3604,
+    "total_goal_rate": 0.2973,
+    "goal_candidates_rate": 0.6847,
+    "avg_brier": 0.6343,
+    "avg_logloss": 1.0488
   },
   "calibration": [
     {
@@ -20,21 +20,21 @@
     },
     {
       "bucket": "[0.35, 0.45)",
-      "matches": 27,
-      "claimed_mean": 0.4113,
-      "realised_rate": 0.4444
+      "matches": 31,
+      "claimed_mean": 0.4092,
+      "realised_rate": 0.4516
     },
     {
       "bucket": "[0.45, 0.55)",
-      "matches": 37,
-      "claimed_mean": 0.4941,
-      "realised_rate": 0.5405
+      "matches": 41,
+      "claimed_mean": 0.4935,
+      "realised_rate": 0.5122
     },
     {
       "bucket": "[0.55, 0.65)",
-      "matches": 19,
-      "claimed_mean": 0.5896,
-      "realised_rate": 0.4211
+      "matches": 23,
+      "claimed_mean": 0.5904,
+      "realised_rate": 0.4348
     },
     {
       "bucket": "[0.65, 1.00)",
@@ -55,14 +55,14 @@
       "avg_logloss": 1.1281
     },
     "挪威超级联赛": {
-      "settled": 18,
-      "direction_rate": 0.6111,
-      "main_score_rate": 0.2778,
-      "score_pool_rate": 0.3889,
-      "total_goal_rate": 0.4444,
-      "goal_candidates_rate": 0.6667,
-      "avg_brier": 0.5593,
-      "avg_logloss": 0.9571
+      "settled": 22,
+      "direction_rate": 0.5,
+      "main_score_rate": 0.2273,
+      "score_pool_rate": 0.3182,
+      "total_goal_rate": 0.4091,
+      "goal_candidates_rate": 0.5909,
+      "avg_brier": 0.6242,
+      "avg_logloss": 1.0437
     },
     "欧洲冠军联赛": {
       "settled": 4,
@@ -85,14 +85,14 @@
       "avg_logloss": 1.0802
     },
     "瑞典超级联赛": {
-      "settled": 16,
-      "direction_rate": 0.5625,
-      "main_score_rate": 0.1875,
-      "score_pool_rate": 0.375,
-      "total_goal_rate": 0.1875,
-      "goal_candidates_rate": 0.6875,
-      "avg_brier": 0.6396,
-      "avg_logloss": 1.0488
+      "settled": 19,
+      "direction_rate": 0.5263,
+      "main_score_rate": 0.1579,
+      "score_pool_rate": 0.3684,
+      "total_goal_rate": 0.2632,
+      "goal_candidates_rate": 0.7368,
+      "avg_brier": 0.6367,
+      "avg_logloss": 1.0477
     },
     "美国职业大联盟": {
       "settled": 6,
@@ -105,24 +105,24 @@
       "avg_logloss": 1.0107
     },
     "芬兰超级联赛": {
-      "settled": 12,
-      "direction_rate": 0.4167,
-      "main_score_rate": 0.0833,
-      "score_pool_rate": 0.4167,
-      "total_goal_rate": 0.1667,
-      "goal_candidates_rate": 0.75,
-      "avg_brier": 0.6427,
-      "avg_logloss": 1.0628
+      "settled": 14,
+      "direction_rate": 0.5,
+      "main_score_rate": 0.0714,
+      "score_pool_rate": 0.5,
+      "total_goal_rate": 0.1429,
+      "goal_candidates_rate": 0.7143,
+      "avg_brier": 0.6306,
+      "avg_logloss": 1.0449
     },
     "韩国职业联赛": {
-      "settled": 20,
-      "direction_rate": 0.35,
-      "main_score_rate": 0.1,
-      "score_pool_rate": 0.4,
-      "total_goal_rate": 0.35,
-      "goal_candidates_rate": 0.7,
-      "avg_brier": 0.6848,
-      "avg_logloss": 1.1213
+      "settled": 23,
+      "direction_rate": 0.3913,
+      "main_score_rate": 0.1304,
+      "score_pool_rate": 0.3913,
+      "total_goal_rate": 0.3478,
+      "goal_candidates_rate": 0.6957,
+      "avg_brier": 0.6559,
+      "avg_logloss": 1.0814
     }
   },
   "byDate": {
@@ -255,6 +255,16 @@
       "goal_candidates_rate": 1.0,
       "avg_brier": 0.7083,
       "avg_logloss": 1.1441
+    },
+    "20260802": {
+      "settled": 12,
+      "direction_rate": 0.4167,
+      "main_score_rate": 0.0833,
+      "score_pool_rate": 0.3333,
+      "total_goal_rate": 0.3333,
+      "goal_candidates_rate": 0.5833,
+      "avg_brier": 0.6694,
+      "avg_logloss": 1.0983
     }
   },
   "note": "avg_brier：三元Brier分，0完美、0.667为均匀基线；calibration把主方向声称概率分桶后对比实际命中频率，claimed_mean明显高于realised_rate说明该区间过度自信。"
