@@ -42,6 +42,24 @@
       "confidence_delta": -3,
       "lesson": "滚动16场90分钟结果：主/平/客 6/6/4；参数仅小幅收缩。",
       "review_strength": 0.5714
+    },
+    "巴西杯": {
+      "version": "copa-do-brasil-v1-market-baseline-0803",
+      "review_sample": 0,
+      "had": 0.4,
+      "crs": 0.45,
+      "prior": 0.15,
+      "prior_probs": [
+        0.5,
+        0.28,
+        0.22
+      ],
+      "goal_shift": -0.0,
+      "draw_boost": 1.0,
+      "clean_sheet_boost": 1.0,
+      "confidence_delta": 0,
+      "lesson": "杯赛暂无独立历史复盘样本；以官方赔率和比分矩阵为主，保留主胜、低比分与平局保护，降低置信度。",
+      "review_strength": 0.0
     }
   },
   "competitionReview": {
@@ -443,8 +461,8 @@
       }
     ]
   },
-  "generatedAt": "2026-08-03T11:05:24",
-  "oddsUpdatedAt": "2026-08-03 09:52:19",
+  "generatedAt": "2026-08-03T15:14:57",
+  "oddsUpdatedAt": "2026-08-03 11:03:37",
   "matches": [
     {
       "id": "2040701",
@@ -1378,13 +1396,374 @@
       "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 3-0，半全场为胜/胜（1.92）；当前仅有[瑞超4]、[瑞超6]与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
+    },
+    {
+      "id": "2040704",
+      "matchNumStr": "周一004",
+      "matchDate": "2026-08-04",
+      "kickoff": "2026-08-04 08:00:00",
+      "league": "巴西杯",
+      "leagueStyle": {
+        "class": "cdb",
+        "color": "#8b4f2f",
+        "label": "巴西杯"
+      },
+      "home": "巴拉纳竞技",
+      "away": "维多利亚",
+      "homeRank": "",
+      "awayRank": "",
+      "probabilities": {
+        "home": 0.6097,
+        "draw": 0.2306,
+        "away": 0.1597
+      },
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "2-0",
+      "backupScores": [
+        "2-1",
+        "1-0"
+      ],
+      "tailRiskScores": [
+        "0-0",
+        "2-2",
+        "1-3"
+      ],
+      "totalGoals": "2",
+      "goalCandidates": [
+        "2",
+        "3",
+        "1"
+      ],
+      "confidenceScore": 56,
+      "confidence": "中",
+      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
+      "odds": {
+        "had": {
+          "home": "1.48",
+          "draw": "3.70",
+          "away": "5.45",
+          "updatedAt": "2026-08-01 09:41:50"
+        },
+        "ttg": {
+          "s0": "10.00",
+          "s1": "4.40",
+          "s2": "3.25",
+          "s3": "3.55",
+          "s4": "5.75",
+          "s5": "11.00",
+          "s6": "22.00",
+          "s7": "36.00",
+          "updatedAt": "2026-08-03 11:02:37"
+        },
+        "hhad": {
+          "home": "2.63",
+          "draw": "3.20",
+          "away": "2.30",
+          "handicap": null,
+          "updatedAt": "2026-08-01 09:41:54"
+        },
+        "crs": {
+          "0-0": "10.00",
+          "0-1": "12.50",
+          "0-2": "30.00",
+          "0-3": "90.00",
+          "0-4": "350.0",
+          "0-5": "1000",
+          "1-0": "5.75",
+          "1-1": "7.25",
+          "1-2": "15.50",
+          "1-3": "55.00",
+          "1-4": "250.0",
+          "1-5": "650.0",
+          "2-0": "6.25",
+          "2-1": "6.75",
+          "2-2": "17.50",
+          "2-3": "55.00",
+          "2-4": "300.0",
+          "2-5": "750.0",
+          "3-0": "10.50",
+          "3-1": "12.00",
+          "3-2": "27.00",
+          "3-3": "90.00",
+          "4-0": "24.00",
+          "4-1": "25.00",
+          "4-2": "55.00",
+          "5-0": "55.00",
+          "5-1": "60.00",
+          "5-2": "150.0",
+          "homeOther": "50.00",
+          "drawOther": "550.0",
+          "awayOther": "300.0",
+          "updatedAt": "2026-08-03 11:03:37"
+        },
+        "hafu": {
+          "aa": "9.75",
+          "ad": "18.00",
+          "ah": "25.00",
+          "da": "12.00",
+          "dd": "6.00",
+          "dh": "3.90",
+          "ha": "55.00",
+          "hd": "18.00",
+          "hh": "2.10",
+          "updatedAt": "2026-08-01 09:41:52"
+        }
+      },
+      "goalProbabilities": {
+        "0": 0.0303,
+        "1": 0.1643,
+        "2": 0.3326,
+        "3": 0.3049,
+        "4": 0.1304,
+        "5": 0.0319,
+        "6": 0.005,
+        "7+": 0.0007
+      },
+      "scorePoolProbabilities": {
+        "0-0": 0.0737,
+        "0-1": 0.0578,
+        "0-2": 0.0219,
+        "0-3": 0.0061,
+        "0-4": 0.0013,
+        "0-5": 0.0003,
+        "1-0": 0.1365,
+        "1-1": 0.106,
+        "1-2": 0.0439,
+        "1-3": 0.0108,
+        "1-4": 0.002,
+        "1-5": 0.0005,
+        "2-0": 0.1234,
+        "2-1": 0.1088,
+        "2-2": 0.0386,
+        "2-3": 0.0104,
+        "2-4": 0.0017,
+        "2-5": 0.0005,
+        "3-0": 0.0699,
+        "3-1": 0.0587,
+        "3-2": 0.0234,
+        "3-3": 0.006,
+        "4-0": 0.0285,
+        "4-1": 0.0257,
+        "4-2": 0.0104,
+        "5-0": 0.0108,
+        "5-1": 0.0094,
+        "5-2": 0.0034
+      },
+      "halfFullProbabilities": {
+        "hh": 0.4059,
+        "hd": 0.0385,
+        "ha": 0.0097,
+        "dh": 0.2031,
+        "dd": 0.1369,
+        "da": 0.0618,
+        "ah": 0.0252,
+        "ad": 0.0385,
+        "aa": 0.0804
+      },
+      "scorelineFit": {
+        "lambdaHome": 1.786,
+        "lambdaAway": 0.799,
+        "rho": 0.002,
+        "klDivergence": 0.0033
+      },
+      "marketBaselineProbabilities": {
+        "home": 0.6097,
+        "draw": 0.2306,
+        "away": 0.1597
+      },
+      "modelProfile": {
+        "version": "copa-do-brasil-v1-market-baseline-0803",
+        "had": 0.4,
+        "crs": 0.45,
+        "prior": 0.15,
+        "goal_shift": -0.0,
+        "review_sample": 0,
+        "review_strength": 0.0,
+        "contextLayer": "evidence-chain-v2",
+        "scorelineLayer": "dixon-coles-market-blend-v1",
+        "reviewMethod": "12场中性先验收缩 + 多维证据闸门"
+      },
+      "modelLesson": "杯赛暂无独立历史复盘样本；以官方赔率和比分矩阵为主，保留主胜、低比分与平局保护，降低置信度。",
+      "contextFactors": {
+        "stage": "资料不足，保持中性",
+        "schedule": "资料不足，保持中性",
+        "motivation": "资料不足，保持中性",
+        "weather": "资料不足，保持中性",
+        "teamNews": "资料不足，保持中性",
+        "coach": "资料不足，保持中性",
+        "upsetPath": "资料不足，保持中性"
+      },
+      "contextSources": [],
+      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
+      "verifiedFactors": [],
+      "reasoningMethod": "evidence-chain-v2",
+      "reasoningContract": {
+        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
+        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
+        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
+        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
+        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-0，备选2-1/1-0；证据不足，置信度下调。",
+        "dimensionReport": {
+          "dimensions": {
+            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+            "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+            "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+          },
+          "missingDimensions": [
+            "schedule_load",
+            "rest_fatigue",
+            "travel_home_advantage",
+            "squad_availability",
+            "recent_performance",
+            "coach_tactics",
+            "motivation_competition",
+            "weather_pitch",
+            "set_piece_transition",
+            "market_contradiction"
+          ],
+          "completeness": 0.0,
+          "adjustmentGate": "blocked"
+        },
+        "evidenceGate": "blocked"
+      },
+      "analysisDimensions": {
+        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
+        "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
+        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
+        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
+        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
+        "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。"
+      },
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ],
+      "analysisCompleteness": 0.0,
+      "marketRiskLevel": "中高",
+      "marketRiskFactors": [
+        "杯赛/资格赛存在两回合策略和领先后控节奏路径",
+        "0至2球市场质量较高，保留0-0/1-0式受控比分"
+      ],
+      "marketRiskNote": "仅依据官方赔率、比分矩阵和总进球分布审计盘口分歧；无公开证据时不认定假球、故意输或故意平。",
+      "businessDate": "2026-08-03",
+      "halfFullKey": "hh",
+      "halfFullText": "胜/胜",
+      "halfFullOdds": 2.1,
+      "valueAudit": [
+        {
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.48,
+          "modelProbability": 0.6097,
+          "expectedValue": -0.0976
+        },
+        {
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.25,
+          "modelProbability": 0.3326,
+          "expectedValue": 0.081
+        },
+        {
+          "market": "crs",
+          "marketText": "比分",
+          "pick": "2-0",
+          "odds": 6.25,
+          "modelProbability": 0.1234,
+          "expectedValue": -0.2288
+        },
+        {
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.1,
+          "modelProbability": 0.4,
+          "expectedValue": -0.16
+        }
+      ],
+      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注2-0 / 2-1 / 1-0，半全场为胜/胜（2.10）；当前仅有排名信息未作为强制修正与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
+      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "marketBasis": "官方胜平负赔率"
     }
   ],
   "combos": [
     {
-      "name": "混合2串一",
+      "name": "混合3串一",
       "category": "mixed",
       "legs": [
+        {
+          "matchId": "2040703",
+          "league": "瑞典超级联赛",
+          "match": "周一003 佐加顿斯 vs 韦斯特罗斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.38,
+          "probability": 0.6132
+        },
+        {
+          "matchId": "2040701",
+          "league": "芬兰超级联赛",
+          "match": "周一001 塞伊奈约基 vs 赫尔辛基",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.344
+        },
+        {
+          "matchId": "2040704",
+          "league": "巴西杯",
+          "match": "周一004 巴拉纳竞技 vs 维多利亚",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.25,
+          "probability": 0.3326
+        }
+      ],
+      "productOdds": 15.25,
+      "trustScore": 36,
+      "rank": 1
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040703",
+          "league": "瑞典超级联赛",
+          "match": "周一003 佐加顿斯 vs 韦斯特罗斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.38,
+          "probability": 0.6132
+        },
         {
           "matchId": "2040702",
           "league": "瑞典超级联赛",
@@ -1396,24 +1775,83 @@
           "probability": 0.3261
         },
         {
+          "matchId": "2040704",
+          "league": "巴西杯",
+          "match": "周一004 巴拉纳竞技 vs 维多利亚",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "2",
+          "odds": 3.25,
+          "probability": 0.3326
+        }
+      ],
+      "productOdds": 16.15,
+      "trustScore": 36,
+      "rank": 2
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
           "matchId": "2040703",
           "league": "瑞典超级联赛",
           "match": "周一003 佐加顿斯 vs 韦斯特罗斯",
-          "market": "crs",
-          "marketText": "比分",
-          "pick": "2-1",
-          "odds": 6.75,
-          "probability": 0.1118
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.38,
+          "probability": 0.6132
+        },
+        {
+          "matchId": "2040701",
+          "league": "芬兰超级联赛",
+          "match": "周一001 塞伊奈约基 vs 赫尔辛基",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.344
+        },
+        {
+          "matchId": "2040702",
+          "league": "瑞典超级联赛",
+          "match": "周一002 哈尔姆斯塔德 vs 天狼星",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.6,
+          "probability": 0.3261
         }
       ],
-      "productOdds": 24.3,
-      "trustScore": 18,
-      "rank": 1
+      "productOdds": 16.89,
+      "trustScore": 36,
+      "rank": 3
     },
     {
-      "name": "混合2串一",
+      "name": "混合3串一",
       "category": "mixed",
       "legs": [
+        {
+          "matchId": "2040704",
+          "league": "巴西杯",
+          "match": "周一004 巴拉纳竞技 vs 维多利亚",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.48,
+          "probability": 0.6097
+        },
+        {
+          "matchId": "2040701",
+          "league": "芬兰超级联赛",
+          "match": "周一001 塞伊奈约基 vs 赫尔辛基",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.344
+        },
         {
           "matchId": "2040703",
           "league": "瑞典超级联赛",
@@ -1423,21 +1861,197 @@
           "pick": "3",
           "odds": 3.5,
           "probability": 0.3349
+        }
+      ],
+      "productOdds": 17.61,
+      "trustScore": 36,
+      "rank": 4
+    },
+    {
+      "name": "混合3串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040704",
+          "league": "巴西杯",
+          "match": "周一004 巴拉纳竞技 vs 维多利亚",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.48,
+          "probability": 0.6097
+        },
+        {
+          "matchId": "2040701",
+          "league": "芬兰超级联赛",
+          "match": "周一001 塞伊奈约基 vs 赫尔辛基",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.344
         },
         {
           "matchId": "2040702",
           "league": "瑞典超级联赛",
           "match": "周一002 哈尔姆斯塔德 vs 天狼星",
-          "market": "crs",
-          "marketText": "比分",
-          "pick": "1-2",
-          "odds": 7.0,
-          "probability": 0.1074
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.6,
+          "probability": 0.3261
         }
       ],
-      "productOdds": 24.5,
-      "trustScore": 18,
-      "rank": 2
+      "productOdds": 18.12,
+      "trustScore": 36,
+      "rank": 5
+    },
+    {
+      "name": "混合4串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040704",
+          "league": "巴西杯",
+          "match": "周一004 巴拉纳竞技 vs 维多利亚",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.48,
+          "probability": 0.6097
+        },
+        {
+          "matchId": "2040701",
+          "league": "芬兰超级联赛",
+          "match": "周一001 塞伊奈约基 vs 赫尔辛基",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.344
+        },
+        {
+          "matchId": "2040702",
+          "league": "瑞典超级联赛",
+          "match": "周一002 哈尔姆斯塔德 vs 天狼星",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "负/负",
+          "odds": 1.7,
+          "probability": 0.4
+        },
+        {
+          "matchId": "2040703",
+          "league": "瑞典超级联赛",
+          "match": "周一003 佐加顿斯 vs 韦斯特罗斯",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 1.92,
+          "probability": 0.4
+        }
+      ],
+      "productOdds": 16.42,
+      "trustScore": 36,
+      "rank": 6
+    },
+    {
+      "name": "混合4串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040703",
+          "league": "瑞典超级联赛",
+          "match": "周一003 佐加顿斯 vs 韦斯特罗斯",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "主胜",
+          "odds": 1.38,
+          "probability": 0.6132
+        },
+        {
+          "matchId": "2040701",
+          "league": "芬兰超级联赛",
+          "match": "周一001 塞伊奈约基 vs 赫尔辛基",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.344
+        },
+        {
+          "matchId": "2040702",
+          "league": "瑞典超级联赛",
+          "match": "周一002 哈尔姆斯塔德 vs 天狼星",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "负/负",
+          "odds": 1.7,
+          "probability": 0.4
+        },
+        {
+          "matchId": "2040704",
+          "league": "巴西杯",
+          "match": "周一004 巴拉纳竞技 vs 维多利亚",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.1,
+          "probability": 0.4
+        }
+      ],
+      "productOdds": 16.75,
+      "trustScore": 36,
+      "rank": 7
+    },
+    {
+      "name": "混合4串一",
+      "category": "mixed",
+      "legs": [
+        {
+          "matchId": "2040702",
+          "league": "瑞典超级联赛",
+          "match": "周一002 哈尔姆斯塔德 vs 天狼星",
+          "market": "had",
+          "marketText": "胜平负",
+          "pick": "客胜",
+          "odds": 1.25,
+          "probability": 0.6589
+        },
+        {
+          "matchId": "2040701",
+          "league": "芬兰超级联赛",
+          "match": "周一001 塞伊奈约基 vs 赫尔辛基",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.4,
+          "probability": 0.344
+        },
+        {
+          "matchId": "2040703",
+          "league": "瑞典超级联赛",
+          "match": "周一003 佐加顿斯 vs 韦斯特罗斯",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 1.92,
+          "probability": 0.4
+        },
+        {
+          "matchId": "2040704",
+          "league": "巴西杯",
+          "match": "周一004 巴拉纳竞技 vs 维多利亚",
+          "market": "hafu",
+          "marketText": "半全场",
+          "pick": "胜/胜",
+          "odds": 2.1,
+          "probability": 0.4
+        }
+      ],
+      "productOdds": 17.14,
+      "trustScore": 36,
+      "rank": 8
     },
     {
       "name": "比分2串一",
@@ -1466,7 +2080,7 @@
       ],
       "productOdds": 47.25,
       "trustScore": 10,
-      "rank": 3
+      "rank": 9
     }
   ],
   "scheduleWarnings": [],

@@ -28,7 +28,7 @@ ANALYSIS_DIMENSIONS = (
     "set_piece_transition", "market_contradiction",
 )
 MARKET_TEXT = {"had": "胜平负", "ttg": "总进球", "crs": "比分", "hafu": "半全场"}
-CUP_COMPETITIONS = {"欧洲冠军联赛", "欧罗巴联赛"}
+CUP_COMPETITIONS = {"欧洲冠军联赛", "欧罗巴联赛", "巴西杯"}
 # How much the fitted Dixon-Coles scoreline model contributes on top of the
 # de-vigged market when ranking scores/goals.  The market stays the anchor;
 # the model regularises noise in thin correct-score pools.
@@ -63,6 +63,10 @@ COMPETITION_MODELS: dict[str, dict[str, Any]] = {
                  "prior_probs": (.43, .31, .26), "goal_shift": -0.10, "draw_boost": 1.16,
                  "clean_sheet_boost": 1.09, "confidence_delta": -3,
                  "lesson": "07-21巴甲复盘：米内罗竞技1-1巴伊亚，主胜锚定未覆盖平局；单场样本仅轻量提升1-1与平局保护，继续小样本收缩。"},
+    "巴西杯": {"version": "copa-do-brasil-v1-market-baseline-0803", "review_sample": 0, "had": .34, "crs": .46, "prior": .20,
+                 "prior_probs": (.50, .28, .22), "goal_shift": -.08, "draw_boost": 1.12,
+                 "clean_sheet_boost": 1.08, "confidence_delta": -6,
+                 "lesson": "杯赛暂无独立历史复盘样本；以官方赔率和比分矩阵为主，保留主胜、低比分与平局保护，降低置信度。"},
     "美国职业大联盟": {"version": "mls-v6-review-0722", "review_sample": 3, "had": .41, "crs": .45, "prior": .14,
                  "prior_probs": (.43, .25, .32), "goal_shift": -0.05, "draw_boost": .98,
                  "clean_sheet_boost": 1.18, "confidence_delta": -3,
@@ -147,6 +151,7 @@ def load_base():
         "瑞典超级联赛": {"class": "swe", "color": "#176da3", "label": "瑞超"},
         "韩国职业联赛": {"class": "kor", "color": "#b33e5c", "label": "韩职"},
         "芬兰超级联赛": {"class": "fin", "color": "#16766c", "label": "芬超"},
+        "巴西杯": {"class": "cdb", "color": "#8b4f2f", "label": "巴西杯"},
     })
     return module
 
@@ -632,7 +637,10 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
     candidates = [x for legs in all_legs.values() for x in legs if x["odds"] and x["probability"]]
     for size in (2, 3, 4):
         for selected in combinations(candidates, size):
-            if not same_competition(selected) or len({x["matchId"] for x in selected}) != size or len({x["market"] for x in selected}) < 2:
+            # A four-match business-day board can legitimately contain four
+            # competitions.  Mixed parlays are the cross-competition bridge;
+            # pure market parlays remain competition-isolated above.
+            if len({x["matchId"] for x in selected}) != size or len({x["market"] for x in selected}) < 2:
                 continue
             if sum(x["market"] == "had" for x in selected) > 1:
                 continue
