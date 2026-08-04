@@ -1,0 +1,34 @@
+{
+  "settlementBasis": "90-minute result",
+  "source": "Sofascore / CBF public result cross-check",
+  "results": [
+    {
+      "matchId": "2040701",
+      "score": "3-0",
+      "sourceUrl": "https://www.sofascore.com/pt/football/match/sjk-hjk/RUsVXi",
+      "matchNumStr": "周一001",
+      "league": "芬兰超级联赛"
+    },
+    {
+      "matchId": "2040702",
+      "score": "0-2",
+      "sourceUrl": "https://www.sofascore.com/sv/football/match/ik-sirius-halmstads-bk/rKsTK",
+      "matchNumStr": "周一002",
+      "league": "瑞典超级联赛"
+    },
+    {
+      "matchId": "2040703",
+      "score": "6-0",
+      "sourceUrl": "https://www.sofascore.com/football/match/vasteras-sk-djurgardens-if/jKsAK",
+      "matchNumStr": "周一003",
+      "league": "瑞典超级联赛"
+    },
+    {
+      "matchId": "2040704",
+      "score": "2-0",
+      "sourceUrl": "https://www.cbf.com.br/futebol-brasileiro/jogos/copa-do-brasil/profissional/2026/athletico-paranaense-x-vitoria/834854",
+      "matchNumStr": "周一004",
+      "league": "巴西杯"
+    }
+  ]
+}

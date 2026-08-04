@@ -773,7 +773,13 @@
       ],
       "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 0-2 / 2-1，半全场为负/负（2.95）；当前仅有[芬超11]、[芬超4]与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 3,
+        "awayGoals": 0,
+        "status": "Finished",
+        "source": "Sofascore / CBF public result cross-check"
+      }
     },
     {
       "id": "2040702",
@@ -1084,7 +1090,13 @@
       ],
       "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 0-2 / 0-3，半全场为负/负（1.70）；当前仅有[瑞超16]、[瑞超1]与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 2,
+        "status": "Finished",
+        "source": "Sofascore / CBF public result cross-check"
+      }
     },
     {
       "id": "2040703",
@@ -1395,7 +1407,13 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 3-0，半全场为胜/胜（1.92）；当前仅有[瑞超4]、[瑞超6]与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 6,
+        "awayGoals": 0,
+        "status": "Finished",
+        "source": "Sofascore / CBF public result cross-check"
+      }
     },
     {
       "id": "2040704",
@@ -1707,7 +1725,13 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注2-0 / 2-1 / 1-0，半全场为胜/胜（2.10）；当前仅有排名信息未作为强制修正与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 0,
+        "status": "Finished",
+        "source": "Sofascore / CBF public result cross-check"
+      }
     }
   ],
   "combos": [
