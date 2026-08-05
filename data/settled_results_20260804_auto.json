@@ -1,0 +1,40 @@
+{
+  "settlementBasis": "90-minute result",
+  "results": [
+    {
+      "date": "20260804",
+      "matchId": "2040716",
+      "score": "0-1",
+      "source": "ESPN public scoreboard / Sporttery retained result",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer//scoreboard?dates=20260804"
+    },
+    {
+      "date": "20260804",
+      "matchId": "2040727",
+      "score": "1-2",
+      "source": "ESPN public scoreboard / Sporttery retained result",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer//scoreboard?dates=20260804"
+    },
+    {
+      "date": "20260804",
+      "matchId": "2040728",
+      "score": "0-0",
+      "source": "ESPN public scoreboard / Sporttery retained result",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer//scoreboard?dates=20260804"
+    },
+    {
+      "date": "20260804",
+      "matchId": "2040720",
+      "score": "3-3",
+      "source": "ESPN public scoreboard / Sporttery retained result",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer//scoreboard?dates=20260804"
+    },
+    {
+      "date": "20260804",
+      "matchId": "2040721",
+      "score": "2-1",
+      "source": "ESPN public scoreboard / Sporttery retained result",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer//scoreboard?dates=20260804"
+    }
+  ]
+}

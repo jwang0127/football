@@ -580,7 +580,13 @@
       ],
       "integratedAnalysis": "结论：客胜，总进球重点2球，比分关注0-1 / 1-2 / 0-0，半全场为负/负（3.85）；当前仅有排名信息未作为强制修正与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "verified daily runner"
+      }
     },
     {
       "id": "2040727",
@@ -892,7 +898,13 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注2-1 / 2-0 / 1-1，半全场为胜/胜（3.10）；当前仅有排名信息未作为强制修正与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 1,
+        "awayGoals": 2,
+        "status": "Finished",
+        "source": "verified daily runner"
+      }
     },
     {
       "id": "2040728",
@@ -1204,7 +1216,13 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-0 / 2-1 / 1-0，半全场为胜/胜（2.10）；当前仅有排名信息未作为强制修正与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "status": "Finished",
+        "source": "verified daily runner"
+      }
     },
     {
       "id": "2040720",
@@ -1516,7 +1534,13 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-1，半全场为胜/胜（3.40）；当前仅有排名信息未作为强制修正与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 3,
+        "awayGoals": 3,
+        "status": "Finished",
+        "source": "verified daily runner"
+      }
     },
     {
       "id": "2040721",
@@ -1828,7 +1852,13 @@
       ],
       "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 0-2 / 1-1，半全场为负/负（3.10）；当前仅有排名信息未作为强制修正与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 1,
+        "status": "Finished",
+        "source": "verified daily runner"
+      }
     }
   ],
   "combos": [

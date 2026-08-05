@@ -1,0 +1,26 @@
+{
+  "settlementBasis": "90-minute result",
+  "source": "public result cross-check",
+  "results": [
+    {
+      "matchId": "2040716",
+      "score": "0-1"
+    },
+    {
+      "matchId": "2040727",
+      "score": "1-2"
+    },
+    {
+      "matchId": "2040728",
+      "score": "0-0"
+    },
+    {
+      "matchId": "2040720",
+      "score": "3-3"
+    },
+    {
+      "matchId": "2040721",
+      "score": "2-1"
+    }
+  ]
+}
