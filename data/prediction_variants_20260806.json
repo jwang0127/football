@@ -1,0 +1,264 @@
+{
+  "date": "20260806",
+  "source": "data\\predictions_20260806.json",
+  "disclaimer": "仅为公开信息整理后的娱乐分析，不构成任何购彩建议，请理性参考。",
+  "positive": [
+    {
+      "matchNumStr": "周四001",
+      "home": "维多利亚",
+      "away": "巴拉纳竞技",
+      "kickoff": "2026-08-07 07:00:00",
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "1-0",
+      "backupScores": [
+        "2-1",
+        "1-1"
+      ],
+      "probabilities": {
+        "home": 0.421,
+        "draw": 0.2722,
+        "away": 0.3068
+      },
+      "risk": "中高",
+      "analysisCompleteness": 0.0,
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ]
+    },
+    {
+      "matchNumStr": "周四002",
+      "home": "库奥皮奥",
+      "away": "克拉约瓦大学",
+      "kickoff": "2026-08-06 23:00:00",
+      "direction": "away",
+      "directionText": "客胜",
+      "mainScore": "1-2",
+      "backupScores": [
+        "0-1",
+        "1-1"
+      ],
+      "probabilities": {
+        "home": 0.302,
+        "draw": 0.2763,
+        "away": 0.4217
+      },
+      "risk": "中高",
+      "analysisCompleteness": 0.0,
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ]
+    },
+    {
+      "matchNumStr": "周四003",
+      "home": "比亚韦斯托克",
+      "away": "格拉斯哥流浪者",
+      "kickoff": "2026-08-07 00:00:00",
+      "direction": "away",
+      "directionText": "客胜",
+      "mainScore": "1-2",
+      "backupScores": [
+        "0-1",
+        "1-1"
+      ],
+      "probabilities": {
+        "home": 0.3531,
+        "draw": 0.2768,
+        "away": 0.3701
+      },
+      "risk": "高",
+      "analysisCompleteness": 0.0,
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ]
+    },
+    {
+      "matchNumStr": "周四004",
+      "home": "塞萨洛尼基",
+      "away": "安德莱赫特",
+      "kickoff": "2026-08-07 01:45:00",
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "2-1",
+      "backupScores": [
+        "2-0",
+        "1-0"
+      ],
+      "probabilities": {
+        "home": 0.5884,
+        "draw": 0.2305,
+        "away": 0.1811
+      },
+      "risk": "中高",
+      "analysisCompleteness": 0.0,
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ]
+    },
+    {
+      "matchNumStr": "周四005",
+      "home": "本菲卡",
+      "away": "哈茨",
+      "kickoff": "2026-08-07 03:00:00",
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "3-0",
+      "backupScores": [
+        "2-1",
+        "2-0"
+      ],
+      "probabilities": {
+        "home": 0.7865,
+        "draw": 0.1306,
+        "away": 0.0828
+      },
+      "risk": "中高",
+      "analysisCompleteness": 0.0,
+      "missingAnalysisDimensions": [
+        "schedule_load",
+        "rest_fatigue",
+        "travel_home_advantage",
+        "squad_availability",
+        "recent_performance",
+        "coach_tactics",
+        "motivation_competition",
+        "weather_pitch",
+        "set_piece_transition",
+        "market_contradiction"
+      ]
+    }
+  ],
+  "pureUpset": [
+    {
+      "matchNumStr": "周四001",
+      "home": "维多利亚",
+      "away": "巴拉纳竞技",
+      "kickoff": "2026-08-07 07:00:00",
+      "direction": "away",
+      "directionText": "客胜（纯爆冷）",
+      "mainScore": "0-1",
+      "backupScores": [
+        "1-1",
+        "2-2"
+      ],
+      "baseProbabilities": {
+        "home": 0.421,
+        "draw": 0.2722,
+        "away": 0.3068
+      },
+      "basis": "反转基础模型方向，仅作尾部风险情景，不代表模型主判断"
+    },
+    {
+      "matchNumStr": "周四002",
+      "home": "库奥皮奥",
+      "away": "克拉约瓦大学",
+      "kickoff": "2026-08-06 23:00:00",
+      "direction": "home",
+      "directionText": "主胜（纯爆冷）",
+      "mainScore": "1-0",
+      "backupScores": [
+        "1-1",
+        "2-2"
+      ],
+      "baseProbabilities": {
+        "home": 0.302,
+        "draw": 0.2763,
+        "away": 0.4217
+      },
+      "basis": "反转基础模型方向，仅作尾部风险情景，不代表模型主判断"
+    },
+    {
+      "matchNumStr": "周四003",
+      "home": "比亚韦斯托克",
+      "away": "格拉斯哥流浪者",
+      "kickoff": "2026-08-07 00:00:00",
+      "direction": "home",
+      "directionText": "主胜（纯爆冷）",
+      "mainScore": "1-0",
+      "backupScores": [
+        "1-1",
+        "2-2"
+      ],
+      "baseProbabilities": {
+        "home": 0.3531,
+        "draw": 0.2768,
+        "away": 0.3701
+      },
+      "basis": "反转基础模型方向，仅作尾部风险情景，不代表模型主判断"
+    },
+    {
+      "matchNumStr": "周四004",
+      "home": "塞萨洛尼基",
+      "away": "安德莱赫特",
+      "kickoff": "2026-08-07 01:45:00",
+      "direction": "away",
+      "directionText": "客胜（纯爆冷）",
+      "mainScore": "0-1",
+      "backupScores": [
+        "1-1",
+        "2-2"
+      ],
+      "baseProbabilities": {
+        "home": 0.5884,
+        "draw": 0.2305,
+        "away": 0.1811
+      },
+      "basis": "反转基础模型方向，仅作尾部风险情景，不代表模型主判断"
+    },
+    {
+      "matchNumStr": "周四005",
+      "home": "本菲卡",
+      "away": "哈茨",
+      "kickoff": "2026-08-07 03:00:00",
+      "direction": "away",
+      "directionText": "客胜（纯爆冷）",
+      "mainScore": "0-1",
+      "backupScores": [
+        "1-1",
+        "2-2"
+      ],
+      "baseProbabilities": {
+        "home": 0.7865,
+        "draw": 0.1306,
+        "away": 0.0828
+      },
+      "basis": "反转基础模型方向，仅作尾部风险情景，不代表模型主判断"
+    }
+  ]
+}

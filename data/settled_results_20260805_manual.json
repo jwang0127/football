@@ -1,0 +1,9 @@
+{
+  "settlementBasis": "90-minute result",
+  "source": "CBF/UEFA and public post-match reports verified 2026-08-06",
+  "results": [
+    {"date":"20260805","matchId":"2040717","score":"1-3","source":"CBF fixture and post-match reports"},
+    {"date":"20260805","matchId":"2040722","score":"1-0","source":"UEFA qualifying result / public post-match report"},
+    {"date":"20260805","matchId":"2040723","score":"2-0","source":"public post-match report and match coverage"}
+  ]
+}
