@@ -79,6 +79,12 @@ COMPETITION_MODELS: dict[str, dict[str, Any]] = {
                  "prior_probs": (.44, .29, .27), "goal_shift": .10, "draw_boost": 1.06,
                  "clean_sheet_boost": 1.08, "confidence_delta": -4,
                  "lesson": "07-21欧冠资格赛复盘：1-0、1-4、4-0，方向2/3但总进球0/3；扩大4+球与强侧零封/强客4球路径，同时保留低比分控节奏分支。"},
+    "日本职业联赛": {"version": "j-league-generic-v1", "review_sample": 0, "had": .38, "crs": .45, "prior": .15, "prior_probs": (.43, .28, .29), "goal_shift": .02, "draw_boost": 1.04, "clean_sheet_boost": 1.08, "confidence_delta": -5, "lesson": "暂无本项目滚动复盘样本；使用官方市场基线，降低置信度并保留主客两侧与平局保护。"},
+    "德国乙级联赛": {"version": "bundesliga2-generic-v1", "review_sample": 0, "had": .38, "crs": .45, "prior": .15, "prior_probs": (.42, .29, .29), "goal_shift": .04, "draw_boost": 1.03, "clean_sheet_boost": 1.05, "confidence_delta": -5, "lesson": "暂无本项目滚动复盘样本；不把主场或低赔直接等同于稳场。"},
+    "英格兰联赛杯": {"version": "england-cup-generic-v1", "review_sample": 0, "had": .36, "crs": .44, "prior": .15, "prior_probs": (.45, .27, .28), "goal_shift": .06, "draw_boost": 1.02, "clean_sheet_boost": 1.06, "confidence_delta": -7, "lesson": "杯赛阵容轮换信息未核验；只使用市场基线，强侧尾部需等官方首发确认。"},
+    "荷兰甲级联赛": {"version": "eredivisie-generic-v1", "review_sample": 0, "had": .37, "crs": .45, "prior": .15, "prior_probs": (.46, .25, .29), "goal_shift": .12, "draw_boost": .98, "clean_sheet_boost": 1.03, "confidence_delta": -5, "lesson": "暂无本项目滚动复盘样本；保持较高进球基线但不追单一大比分。"},
+    "荷兰乙级联赛": {"version": "eredivisie2-generic-v1", "review_sample": 0, "had": .37, "crs": .45, "prior": .15, "prior_probs": (.43, .27, .30), "goal_shift": .10, "draw_boost": 1.00, "clean_sheet_boost": 1.03, "confidence_delta": -6, "lesson": "暂无本项目滚动复盘样本；双方进球与高比分尾部保持审计，不提前收窄。"},
+    "葡萄牙超级联赛": {"version": "primeira-generic-v1", "review_sample": 0, "had": .36, "crs": .44, "prior": .15, "prior_probs": (.48, .27, .25), "goal_shift": -.02, "draw_boost": 1.05, "clean_sheet_boost": 1.10, "confidence_delta": -5, "lesson": "暂无本项目滚动复盘样本；保留强侧零封和低比分路径，证据不足时下调置信度。"},
 }
 
 # 07-26 review overlay. Each active league receives only its own evidence;
@@ -152,6 +158,12 @@ def load_base():
         "韩国职业联赛": {"class": "kor", "color": "#b33e5c", "label": "韩职"},
         "芬兰超级联赛": {"class": "fin", "color": "#16766c", "label": "芬超"},
         "巴西杯": {"class": "cdb", "color": "#8b4f2f", "label": "巴西杯"},
+        "日本职业联赛": {"class": "jpn", "color": "#bd3b3b", "label": "日职"},
+        "德国乙级联赛": {"class": "ger", "color": "#4d6ea8", "label": "德乙"},
+        "英格兰联赛杯": {"class": "eng", "color": "#6a4ca0", "label": "英联杯"},
+        "荷兰甲级联赛": {"class": "ned", "color": "#d46d1d", "label": "荷甲"},
+        "荷兰乙级联赛": {"class": "ned2", "color": "#bf851c", "label": "荷乙"},
+        "葡萄牙超级联赛": {"class": "por", "color": "#1e7d52", "label": "葡超"},
     })
     return module
 
@@ -363,9 +375,27 @@ def competition_score_pool(match: dict[str, Any], probabilities: dict[str, float
             break
         if score not in backups:
             backups.append(score)
+    # Keep extreme outcomes visible in the audit layer.  They must not displace
+    # the three public scores, but a strong favourite plus a live 4+ goal market
+    # or a large "other" bucket is exactly where 4-0/5-0/6-1 can occur.
+    crs = match.get("odds", {}).get("crs") or {}
+    favourite = probabilities["home"] >= .58 or probabilities["away"] >= .58
+    four_plus = sum(goal_probs.get(str(goals), 0.0) for goals in range(4, 8))
+    other_key = "homeOther" if probabilities["home"] >= probabilities["away"] else "awayOther"
+    other_prob = devigged_score_market(match).get(other_key, 0.0)
+    extreme_enabled = favourite and (four_plus >= .16 or other_prob >= .08)
+    extreme = ("4-0", "4-1", "5-0", "5-1", "6-0", "6-1") if probabilities["home"] >= probabilities["away"] else ("0-4", "1-4", "0-5", "1-5", "0-6", "1-6")
+    tail_candidates = {"0-0", "0-3", "1-3", "1-4", "2-2", "3-0"}
+    if extreme_enabled:
+        tail_candidates.update(extreme)
     tails = [score for score, _ in ranked[6:]
-             if score in {"0-0", "0-3", "1-3", "1-4", "2-2", "3-0"}
-             and score not in {main, *backups}][:3]
+             if score in tail_candidates and score not in {main, *backups}][:5]
+    if extreme_enabled:
+        for score in extreme:
+            if score in crs and score not in {main, *backups, *tails}:
+                tails.append(score)
+                if len(tails) >= 5:
+                    break
     return main, backups, tails
 
 

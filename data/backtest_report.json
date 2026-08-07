@@ -1,15 +1,15 @@
 {
-  "settledResults": 127,
-  "evaluatedPredictions": 123,
+  "settledResults": 132,
+  "evaluatedPredictions": 128,
   "overall": {
-    "settled": 123,
-    "direction_rate": 0.4797,
-    "main_score_rate": 0.1382,
-    "score_pool_rate": 0.3659,
-    "total_goal_rate": 0.2927,
-    "goal_candidates_rate": 0.6748,
-    "avg_brier": 0.6273,
-    "avg_logloss": 1.0393
+    "settled": 128,
+    "direction_rate": 0.4766,
+    "main_score_rate": 0.1328,
+    "score_pool_rate": 0.3594,
+    "total_goal_rate": 0.2969,
+    "goal_candidates_rate": 0.6641,
+    "avg_brier": 0.6268,
+    "avg_logloss": 1.0389
   },
   "calibration": [
     {
@@ -20,9 +20,9 @@
     },
     {
       "bucket": "[0.35, 0.45)",
-      "matches": 33,
-      "claimed_mean": 0.4097,
-      "realised_rate": 0.4545
+      "matches": 36,
+      "claimed_mean": 0.4093,
+      "realised_rate": 0.4444
     },
     {
       "bucket": "[0.45, 0.55)",
@@ -32,27 +32,27 @@
     },
     {
       "bucket": "[0.55, 0.65)",
-      "matches": 27,
-      "claimed_mean": 0.5922,
-      "realised_rate": 0.4815
+      "matches": 28,
+      "claimed_mean": 0.5921,
+      "realised_rate": 0.4643
     },
     {
       "bucket": "[0.65, 1.00)",
-      "matches": 15,
-      "claimed_mean": 0.7127,
-      "realised_rate": 0.6667
+      "matches": 16,
+      "claimed_mean": 0.7173,
+      "realised_rate": 0.6875
     }
   ],
   "byCompetition": {
     "巴西杯": {
-      "settled": 3,
-      "direction_rate": 0.6667,
-      "main_score_rate": 0.6667,
-      "score_pool_rate": 0.6667,
-      "total_goal_rate": 0.3333,
-      "goal_candidates_rate": 0.6667,
-      "avg_brier": 0.5602,
-      "avg_logloss": 0.9615
+      "settled": 4,
+      "direction_rate": 0.75,
+      "main_score_rate": 0.5,
+      "score_pool_rate": 0.5,
+      "total_goal_rate": 0.25,
+      "goal_candidates_rate": 0.5,
+      "avg_brier": 0.546,
+      "avg_logloss": 0.9374
     },
     "巴西甲级联赛": {
       "settled": 13,
@@ -85,14 +85,14 @@
       "avg_logloss": 0.8975
     },
     "欧罗巴联赛": {
-      "settled": 10,
-      "direction_rate": 0.5,
+      "settled": 14,
+      "direction_rate": 0.4286,
       "main_score_rate": 0.0,
-      "score_pool_rate": 0.3,
-      "total_goal_rate": 0.4,
-      "goal_candidates_rate": 0.8,
-      "avg_brier": 0.6487,
-      "avg_logloss": 1.0802
+      "score_pool_rate": 0.2857,
+      "total_goal_rate": 0.4286,
+      "goal_candidates_rate": 0.7143,
+      "avg_brier": 0.6465,
+      "avg_logloss": 1.077
     },
     "瑞典超级联赛": {
       "settled": 21,
@@ -305,6 +305,16 @@
       "goal_candidates_rate": 0.3333,
       "avg_brier": 0.4321,
       "avg_logloss": 0.7846
+    },
+    "20260806": {
+      "settled": 5,
+      "direction_rate": 0.4,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.2,
+      "total_goal_rate": 0.4,
+      "goal_candidates_rate": 0.4,
+      "avg_brier": 0.6135,
+      "avg_logloss": 1.0283
     }
   },
   "note": "avg_brier：三元Brier分，0完美、0.667为均匀基线；calibration把主方向声称概率分桶后对比实际命中频率，claimed_mean明显高于realised_rate说明该区间过度自信。"
