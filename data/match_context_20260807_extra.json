@@ -1,6 +1,40 @@
 {
   "version": "match-brief-v1-20260807",
   "matches": {
+    "2040739": {
+      "stage": "芬兰超级联赛2026赛季赛程",
+      "schedule": "Veikkausliiga官方赛程/比赛页核对塞伊奈约基主场对赫尔辛基",
+      "motivation": "联赛积分赛；升级保级与欧战资格需结合官方实时排名，不以赔率代替",
+      "previousMatch": "双方上一场正式赛果未从可核验官方页面闭合",
+      "nextMatch": "双方下一场官方赛程未闭合",
+      "ranking": "双方赛前实时排名未闭合，暂不写具体名次",
+      "promotionRelegation": "联赛目标未闭合，保持中性",
+      "coverRisk": "芬超主客场与总进球先验可能支持主队，但让球穿盘尚需首发/盘口确认",
+      "upsetRisk": "赫尔辛基客胜及平局为反向路径",
+      "scheduleLoad": "赛程已按业务日核对，休息天数和赛后下一场未闭合",
+      "availability": "双方官方伤停和首发未闭合",
+      "sources": ["https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036959/"],
+      "verifiedFactors": ["stage", "schedule", "motivation"],
+      "confidenceDelta": -6,
+      "evidenceStatus": "赛程已核验；排名、上一场、下一场和阵容未闭合"
+    },
+    "2040740": {
+      "stage": "挪威超级联赛2026赛季赛程",
+      "schedule": "NFF官方Eliteserien赛程/结果页核对桑纳菲尤尔主场对KFUM奥斯陆",
+      "motivation": "联赛积分赛；保级/欧战目标需结合官方实时排名，不以赔率代替",
+      "previousMatch": "双方上一场正式赛果未从可核验官方页面闭合",
+      "nextMatch": "NFF官方下一场对手和间隔未闭合",
+      "ranking": "双方赛前实时排名未闭合，暂不写具体名次",
+      "promotionRelegation": "联赛目标未闭合，保持中性",
+      "coverRisk": "挪超进球与主场先验存在，但主胜穿盘受防守稳定性影响",
+      "upsetRisk": "KFUM客胜、平局和双方进球为反向路径",
+      "scheduleLoad": "赛程已按业务日核对，休息天数和赛后下一场未闭合",
+      "availability": "双方官方伤停和首发未闭合",
+      "sources": ["https://www.fotball.no/eliteserien/"],
+      "verifiedFactors": ["stage", "schedule", "motivation"],
+      "confidenceDelta": -6,
+      "evidenceStatus": "赛程已核验；排名、上一场、下一场和阵容未闭合"
+    },
     "2040737": {
       "previousMatch": "J1 2026新赛季首场；双方本季正式赛上一场未核验",
       "nextMatch": "J.League官方赛程显示下一轮安排需临场再次核对",

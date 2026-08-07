@@ -241,7 +241,7 @@
     ],
     "globalLesson": "AI收窄预测的主要问题不是不会选强弱方向，而是把比分分布压成一条最典型路径：一是没有把两回合追分动机和强弱差作为交互项，二是把总进球主选当成比分上限，三是尾部只展示固定模板。后续公开输出分为主选/备选/尾部审计三层；尾部由赔率矩阵中的4+球、其他比分桶、半全场强侧胜胜和已核验赛制情境共同触发。"
   },
-  "generatedAt": "2026-08-07T12:02:46",
+  "generatedAt": "2026-08-07T12:17:42",
   "oddsUpdatedAt": "2026-08-07 11:29:10",
   "matches": [
     {
@@ -260,9 +260,9 @@
       "homeRank": "[日职20]",
       "awayRank": "[日职6]",
       "probabilities": {
-        "home": 0.2491,
-        "draw": 0.2591,
-        "away": 0.4919
+        "home": 0.2541,
+        "draw": 0.2643,
+        "away": 0.4817
       },
       "direction": "away",
       "directionText": "客胜",
@@ -284,9 +284,9 @@
         "3",
         "1"
       ],
-      "confidenceScore": 49,
-      "confidence": "中低",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "confidenceScore": 53,
+      "confidence": "中",
+      "reason": "盘口、比分矩阵与总进球模型综合后主方向为客胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -436,34 +436,44 @@
       },
       "modelLesson": "首版独立日职模型：以J.League官方排名/赛程、主客场与市场矩阵建模；新赛季样本不足，保留平局与一球差保护。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
+        "stage": "日本J1新赛季开幕战",
+        "schedule": "J.League官方列为2026-08-07横滨水手主场对鹿岛",
+        "motivation": "开幕战；无即时保级积分压力，重点观察主客场与阵容磨合",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
+        "teamNews": "鹿岛樋口雄太、安西幸辉伤情已由J.League公告核验，最终可用性待官方首发；横滨最新完整伤停未核验",
+        "coach": "四队教练与球队资料来源已进入联赛档案；本场最新阵型未核验",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "https://www.jleague.jp/en/j1/standings/2026/",
+        "https://www.jleague.jp/sp/match/search/j1/20260807/",
+        "https://www.jleague.jp/news/article/34474/"
+      ],
+      "evidenceStatus": "部分比赛级证据已核验；伤停可用性待首发",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation",
+        "teamNews",
+        "injuries"
+      ],
       "reasoningMethod": "evidence-chain-v2",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-1/1-1；证据不足，置信度下调。",
+        "whyWin": "支持客队的可核验逻辑：四队教练与球队资料来源已进入联赛档案；本场最新阵型未核验",
+        "whyMustWin": "开幕战；无即时保级积分压力，重点观察主客场与阵容磨合",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：四队教练与球队资料来源已进入联赛档案；本场最新阵型未核验；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定客队，主比分1-2，备选0-1/1-1；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
-            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "schedule_load": "J.League官方列为2026-08-07横滨水手主场对鹿岛",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "鹿岛樋口雄太、安西幸辉伤情已由J.League公告核验，最终可用性待官方首发；横滨最新完整伤停未核验",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "coach_tactics": "四队教练与球队资料来源已进入联赛档案；本场最新阵型未核验",
+            "motivation_competition": "开幕战；无即时保级积分压力，重点观察主客场与阵容磨合",
             "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -475,21 +485,17 @@
             "upset_risk": "鹿岛客胜及低比分平局均为有效反向路径"
           },
           "missingDimensions": [
-            "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
-            "coach_tactics",
-            "motivation_competition",
             "weather_pitch",
             "set_piece_transition",
             "market_contradiction"
           ],
-          "completeness": 0.38,
-          "adjustmentGate": "blocked"
+          "completeness": 0.62,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "J1 2026新赛季首场；双方本季正式赛上一场未核验",
@@ -500,9 +506,9 @@
         "upsetRisk": "鹿岛客胜及低比分平局均为有效反向路径",
         "scheduleLoad": "开幕战；双方休息与后续赛程以官方赛程核对",
         "availability": "鹿岛樋口雄太、安西幸辉伤情线索已收集，能否出场仍需赛前名单确认",
-        "coachTactics": "未核验",
+        "coachTactics": "四队教练与球队资料来源已进入联赛档案；本场最新阵型未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.8,
+        "completeness": 0.9,
         "brief": "上一场：J1 2026新赛季首场；双方本季正式赛上一场未核验；下一场：J.League官方赛程显示下一轮安排需临场再次核对；排名：J.League官方赛前排名已收集；本场为新赛季样本，排名不单独强制改写方向；升级/保级/晋级动机：J1存在赛季排名压力，但开幕战没有即时保级结算；穿盘/大比分风险：横滨主场但鹿岛上季实力先验较强；主胜穿盘依赖横滨首发和进球效率；爆冷路径：鹿岛客胜及低比分平局均为有效反向路径；赛程与阵容：开幕战；双方休息与后续赛程以官方赛程核对 / 鹿岛樋口雄太、安西幸辉伤情线索已收集，能否出场仍需赛前名单确认。"
       },
       "previousMatch": "J1 2026新赛季首场；双方本季正式赛上一场未核验",
@@ -512,13 +518,13 @@
       "coverRisk": "横滨主场但鹿岛上季实力先验较强；主胜穿盘依赖横滨首发和进球效率",
       "upsetRisk": "鹿岛客胜及低比分平局均为有效反向路径",
       "analysisDimensions": {
-        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "schedule_load": "J.League官方列为2026-08-07横滨水手主场对鹿岛",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "鹿岛樋口雄太、安西幸辉伤情已由J.League公告核验，最终可用性待官方首发；横滨最新完整伤停未核验",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "coach_tactics": "四队教练与球队资料来源已进入联赛档案；本场最新阵型未核验",
+        "motivation_competition": "开幕战；无即时保级积分压力，重点观察主客场与阵容磨合",
         "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -530,18 +536,14 @@
         "upset_risk": "鹿岛客胜及低比分平局均为有效反向路径"
       },
       "missingAnalysisDimensions": [
-        "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
-        "coach_tactics",
-        "motivation_competition",
         "weather_pitch",
         "set_piece_transition",
         "market_contradiction"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.62,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -557,8 +559,8 @@
           "marketText": "胜平负",
           "pick": "客胜",
           "odds": 1.75,
-          "modelProbability": 0.4919,
-          "expectedValue": -0.1392
+          "modelProbability": 0.4817,
+          "expectedValue": -0.157
         },
         {
           "market": "ttg",
@@ -585,8 +587,8 @@
           "expectedValue": -0.1085
         }
       ],
-      "integratedAnalysis": "结论：客胜，总进球重点2球，比分关注1-2 / 0-1 / 1-1，半全场为负/负（2.80）；当前仅有[日职20]、[日职6]与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：客胜，总进球重点2球，比分关注1-2 / 0-1 / 1-1，半全场为负/负（2.80）；已核验stage、schedule、motivation、teamNews、injuries，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：鹿岛客胜及低比分平局均为有效反向路径。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -629,9 +631,9 @@
         "3",
         "1"
       ],
-      "confidenceScore": 37,
+      "confidenceScore": 39,
       "confidence": "中低",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -781,34 +783,41 @@
       },
       "modelLesson": "首版独立日职模型：以J.League官方排名/赛程、主客场与市场矩阵建模；新赛季样本不足，保留平局与一球差保护。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
+        "stage": "日本J1新赛季开幕战",
+        "schedule": "J.League官方列为G大阪主场对浦和",
+        "motivation": "开幕战；双方积分动机对称",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
+        "teamNews": "双方最新官方伤停和预计首发未核验",
+        "coach": "球队官方资料已核验球队存在与赛程，临场战术未核验",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "https://www.jleague.jp/sp/match/search/j1/20260807/",
+        "https://www.gamba-osaka.net/english/game/"
+      ],
+      "evidenceStatus": "赛程已核验；阵容和伤停未闭合",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation"
+      ],
       "reasoningMethod": "evidence-chain-v2",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/1-1；证据不足，置信度下调。",
+        "whyWin": "支持主队的可核验逻辑：球队官方资料已核验球队存在与赛程，临场战术未核验",
+        "whyMustWin": "开幕战；双方积分动机对称",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：球队官方资料已核验球队存在与赛程，临场战术未核验；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定主队，主比分2-1，备选1-0/1-1；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
-            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "schedule_load": "J.League官方列为G大阪主场对浦和",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "双方最新官方伤停和预计首发未核验",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "coach_tactics": "球队官方资料已核验球队存在与赛程，临场战术未核验",
+            "motivation_competition": "开幕战；双方积分动机对称",
             "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -820,21 +829,17 @@
             "upset_risk": "浦和客胜、1-1平局是主要爆冷/反向路径"
           },
           "missingDimensions": [
-            "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
-            "coach_tactics",
-            "motivation_competition",
             "weather_pitch",
             "set_piece_transition",
             "market_contradiction"
           ],
-          "completeness": 0.38,
-          "adjustmentGate": "blocked"
+          "completeness": 0.62,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "J1 2026新赛季首场；双方本季正式赛上一场未核验",
@@ -845,9 +850,9 @@
         "upsetRisk": "浦和客胜、1-1平局是主要爆冷/反向路径",
         "scheduleLoad": "开幕战；双方赛程密度和下一场优先级未闭合",
         "availability": "双方最终官方伤停与首发未核验",
-        "coachTactics": "未核验",
+        "coachTactics": "球队官方资料已核验球队存在与赛程，临场战术未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.8,
+        "completeness": 0.9,
         "brief": "上一场：J1 2026新赛季首场；双方本季正式赛上一场未核验；下一场：J.League官方后续赛程需赛前再次核对；排名：J.League官方排名资料已收集；开幕战不使用虚假的即时名次；升级/保级/晋级动机：J1赛季目标存在，但本场无即时升级/保级结算压力；穿盘/大比分风险：开幕战阵容和节奏不确定，主胜穿盘与大比分均不宜高估；爆冷路径：浦和客胜、1-1平局是主要爆冷/反向路径；赛程与阵容：开幕战；双方赛程密度和下一场优先级未闭合 / 双方最终官方伤停与首发未核验。"
       },
       "previousMatch": "J1 2026新赛季首场；双方本季正式赛上一场未核验",
@@ -857,13 +862,13 @@
       "coverRisk": "开幕战阵容和节奏不确定，主胜穿盘与大比分均不宜高估",
       "upsetRisk": "浦和客胜、1-1平局是主要爆冷/反向路径",
       "analysisDimensions": {
-        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "schedule_load": "J.League官方列为G大阪主场对浦和",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "双方最新官方伤停和预计首发未核验",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "coach_tactics": "球队官方资料已核验球队存在与赛程，临场战术未核验",
+        "motivation_competition": "开幕战；双方积分动机对称",
         "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -875,18 +880,14 @@
         "upset_risk": "浦和客胜、1-1平局是主要爆冷/反向路径"
       },
       "missingAnalysisDimensions": [
-        "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
-        "coach_tactics",
-        "motivation_competition",
         "weather_pitch",
         "set_piece_transition",
         "market_contradiction"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.62,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -930,8 +931,8 @@
           "expectedValue": -0.1128
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注2-1 / 1-0 / 1-1，半全场为胜/胜（3.95）；当前仅有[日职4]、[日职17]与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注2-1 / 1-0 / 1-1，半全场为胜/胜（3.95）；已核验stage、schedule、motivation，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：浦和客胜、1-1平局是主要爆冷/反向路径。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -974,9 +975,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 40,
+      "confidenceScore": 42,
       "confidence": "中低",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -1126,124 +1127,114 @@
       },
       "modelLesson": "滚动12场90分钟结果：主/平/客 5/1/6；参数仅小幅收缩。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
+        "stage": "芬兰超级联赛2026赛季赛程",
+        "schedule": "Veikkausliiga官方赛程/比赛页核对塞伊奈约基主场对赫尔辛基",
+        "motivation": "联赛积分赛；升级保级与欧战资格需结合官方实时排名，不以赔率代替",
         "weather": "资料不足，保持中性",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036959/"
+      ],
+      "evidenceStatus": "赛程已核验；排名、上一场、下一场和阵容未闭合",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation"
+      ],
       "reasoningMethod": "evidence-chain-v2",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/1-1；证据不足，置信度下调。",
+        "whyWin": "支持主队的可核验逻辑：联赛积分赛；升级保级与欧战资格需结合官方实时排名，不以赔率代替",
+        "whyMustWin": "联赛积分赛；升级保级与欧战资格需结合官方实时排名，不以赔率代替",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：联赛积分赛；升级保级与欧战资格需结合官方实时排名，不以赔率代替；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定主队，主比分2-1，备选2-0/1-1；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
-            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "schedule_load": "Veikkausliiga官方赛程/比赛页核对塞伊奈约基主场对赫尔辛基",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
             "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "motivation_competition": "联赛积分赛；升级保级与欧战资格需结合官方实时排名，不以赔率代替",
             "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
-            "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
-            "next_match": "未核验双方赛后下一场对手、间隔和赛程优先级。",
-            "ranking_table": "未核验双方当前联赛排名、积分和主客场排名。",
-            "promotion_relegation": "未核验升级、保级、欧战资格或杯赛晋级的实际压力。",
-            "cover_risk": "未核验让球穿盘条件；比分预测不等同于盘口必然穿盘。",
-            "upset_risk": "未核验爆冷路径；保留为市场与阵容不确定性审计。"
+            "previous_match": "双方上一场正式赛果未从可核验官方页面闭合",
+            "next_match": "双方下一场官方赛程未闭合",
+            "ranking_table": "双方赛前实时排名未闭合，暂不写具体名次",
+            "promotion_relegation": "联赛目标未闭合，保持中性",
+            "cover_risk": "芬超主客场与总进球先验可能支持主队，但让球穿盘尚需首发/盘口确认",
+            "upset_risk": "赫尔辛基客胜及平局为反向路径"
           },
           "missingDimensions": [
-            "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
             "squad_availability",
             "recent_performance",
             "coach_tactics",
-            "motivation_competition",
             "weather_pitch",
             "set_piece_transition",
-            "market_contradiction",
-            "previous_match",
-            "next_match",
-            "ranking_table",
-            "promotion_relegation",
-            "cover_risk",
-            "upset_risk"
+            "market_contradiction"
           ],
-          "completeness": 0.0,
-          "adjustmentGate": "blocked"
+          "completeness": 0.5,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
-        "previousMatch": "未核验",
-        "nextMatch": "未核验",
-        "ranking": "未核验",
-        "promotionRelegation": "未核验",
-        "coverRisk": "未核验；需结合实际让球、首发和比赛节奏判断",
-        "upsetRisk": "未核验；保留市场反向和阵容突变路径",
-        "scheduleLoad": "未核验",
-        "availability": "未核验",
+        "previousMatch": "双方上一场正式赛果未从可核验官方页面闭合",
+        "nextMatch": "双方下一场官方赛程未闭合",
+        "ranking": "双方赛前实时排名未闭合，暂不写具体名次",
+        "promotionRelegation": "联赛目标未闭合，保持中性",
+        "coverRisk": "芬超主客场与总进球先验可能支持主队，但让球穿盘尚需首发/盘口确认",
+        "upsetRisk": "赫尔辛基客胜及平局为反向路径",
+        "scheduleLoad": "赛程已按业务日核对，休息天数和赛后下一场未闭合",
+        "availability": "双方官方伤停和首发未闭合",
         "coachTactics": "未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.0,
-        "brief": "上一场：未核验；下一场：未核验；排名：未核验；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 未核验。"
+        "completeness": 0.8,
+        "brief": "上一场：双方上一场正式赛果未从可核验官方页面闭合；下一场：双方下一场官方赛程未闭合；排名：双方赛前实时排名未闭合，暂不写具体名次；升级/保级/晋级动机：联赛目标未闭合，保持中性；穿盘/大比分风险：芬超主客场与总进球先验可能支持主队，但让球穿盘尚需首发/盘口确认；爆冷路径：赫尔辛基客胜及平局为反向路径；赛程与阵容：赛程已按业务日核对，休息天数和赛后下一场未闭合 / 双方官方伤停和首发未闭合。"
       },
-      "previousMatch": "未核验",
-      "nextMatch": "未核验",
-      "rankingBrief": "未核验",
-      "promotionRelegationBrief": "未核验",
-      "coverRisk": "未核验；需结合实际让球、首发和比赛节奏判断",
-      "upsetRisk": "未核验；保留市场反向和阵容突变路径",
+      "previousMatch": "双方上一场正式赛果未从可核验官方页面闭合",
+      "nextMatch": "双方下一场官方赛程未闭合",
+      "rankingBrief": "双方赛前实时排名未闭合，暂不写具体名次",
+      "promotionRelegationBrief": "联赛目标未闭合，保持中性",
+      "coverRisk": "芬超主客场与总进球先验可能支持主队，但让球穿盘尚需首发/盘口确认",
+      "upsetRisk": "赫尔辛基客胜及平局为反向路径",
       "analysisDimensions": {
-        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "schedule_load": "Veikkausliiga官方赛程/比赛页核对塞伊奈约基主场对赫尔辛基",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
         "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "motivation_competition": "联赛积分赛；升级保级与欧战资格需结合官方实时排名，不以赔率代替",
         "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
-        "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
-        "next_match": "未核验双方赛后下一场对手、间隔和赛程优先级。",
-        "ranking_table": "未核验双方当前联赛排名、积分和主客场排名。",
-        "promotion_relegation": "未核验升级、保级、欧战资格或杯赛晋级的实际压力。",
-        "cover_risk": "未核验让球穿盘条件；比分预测不等同于盘口必然穿盘。",
-        "upset_risk": "未核验爆冷路径；保留为市场与阵容不确定性审计。"
+        "previous_match": "双方上一场正式赛果未从可核验官方页面闭合",
+        "next_match": "双方下一场官方赛程未闭合",
+        "ranking_table": "双方赛前实时排名未闭合，暂不写具体名次",
+        "promotion_relegation": "联赛目标未闭合，保持中性",
+        "cover_risk": "芬超主客场与总进球先验可能支持主队，但让球穿盘尚需首发/盘口确认",
+        "upset_risk": "赫尔辛基客胜及平局为反向路径"
       },
       "missingAnalysisDimensions": [
-        "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
         "squad_availability",
         "recent_performance",
         "coach_tactics",
-        "motivation_competition",
         "weather_pitch",
         "set_piece_transition",
-        "market_contradiction",
-        "previous_match",
-        "next_match",
-        "ranking_table",
-        "promotion_relegation",
-        "cover_risk",
-        "upset_risk"
+        "market_contradiction"
       ],
-      "analysisCompleteness": 0.0,
+      "analysisCompleteness": 0.5,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1287,8 +1278,8 @@
           "expectedValue": -0.107
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-1，半全场为胜/胜（3.30）；当前仅有[芬超10]、[芬超5]与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-1，半全场为胜/胜（3.30）；已核验stage、schedule、motivation，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：赫尔辛基客胜及平局为反向路径。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -1331,9 +1322,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 40,
+      "confidenceScore": 42,
       "confidence": "中低",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -1483,124 +1474,114 @@
       },
       "modelLesson": "滚动19场90分钟结果：主/平/客 9/3/7；参数仅小幅收缩。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
+        "stage": "挪威超级联赛2026赛季赛程",
+        "schedule": "NFF官方Eliteserien赛程/结果页核对桑纳菲尤尔主场对KFUM奥斯陆",
+        "motivation": "联赛积分赛；保级/欧战目标需结合官方实时排名，不以赔率代替",
         "weather": "资料不足，保持中性",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "https://www.fotball.no/eliteserien/"
+      ],
+      "evidenceStatus": "赛程已核验；排名、上一场、下一场和阵容未闭合",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation"
+      ],
       "reasoningMethod": "evidence-chain-v2",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/1-1；证据不足，置信度下调。",
+        "whyWin": "支持主队的可核验逻辑：联赛积分赛；保级/欧战目标需结合官方实时排名，不以赔率代替",
+        "whyMustWin": "联赛积分赛；保级/欧战目标需结合官方实时排名，不以赔率代替",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：联赛积分赛；保级/欧战目标需结合官方实时排名，不以赔率代替；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定主队，主比分2-1，备选1-0/1-1；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
-            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "schedule_load": "NFF官方Eliteserien赛程/结果页核对桑纳菲尤尔主场对KFUM奥斯陆",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
             "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "motivation_competition": "联赛积分赛；保级/欧战目标需结合官方实时排名，不以赔率代替",
             "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
-            "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
-            "next_match": "未核验双方赛后下一场对手、间隔和赛程优先级。",
-            "ranking_table": "未核验双方当前联赛排名、积分和主客场排名。",
-            "promotion_relegation": "未核验升级、保级、欧战资格或杯赛晋级的实际压力。",
-            "cover_risk": "未核验让球穿盘条件；比分预测不等同于盘口必然穿盘。",
-            "upset_risk": "未核验爆冷路径；保留为市场与阵容不确定性审计。"
+            "previous_match": "双方上一场正式赛果未从可核验官方页面闭合",
+            "next_match": "NFF官方下一场对手和间隔未闭合",
+            "ranking_table": "双方赛前实时排名未闭合，暂不写具体名次",
+            "promotion_relegation": "联赛目标未闭合，保持中性",
+            "cover_risk": "挪超进球与主场先验存在，但主胜穿盘受防守稳定性影响",
+            "upset_risk": "KFUM客胜、平局和双方进球为反向路径"
           },
           "missingDimensions": [
-            "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
             "squad_availability",
             "recent_performance",
             "coach_tactics",
-            "motivation_competition",
             "weather_pitch",
             "set_piece_transition",
-            "market_contradiction",
-            "previous_match",
-            "next_match",
-            "ranking_table",
-            "promotion_relegation",
-            "cover_risk",
-            "upset_risk"
+            "market_contradiction"
           ],
-          "completeness": 0.0,
-          "adjustmentGate": "blocked"
+          "completeness": 0.5,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
-        "previousMatch": "未核验",
-        "nextMatch": "未核验",
-        "ranking": "未核验",
-        "promotionRelegation": "未核验",
-        "coverRisk": "未核验；需结合实际让球、首发和比赛节奏判断",
-        "upsetRisk": "未核验；保留市场反向和阵容突变路径",
-        "scheduleLoad": "未核验",
-        "availability": "未核验",
+        "previousMatch": "双方上一场正式赛果未从可核验官方页面闭合",
+        "nextMatch": "NFF官方下一场对手和间隔未闭合",
+        "ranking": "双方赛前实时排名未闭合，暂不写具体名次",
+        "promotionRelegation": "联赛目标未闭合，保持中性",
+        "coverRisk": "挪超进球与主场先验存在，但主胜穿盘受防守稳定性影响",
+        "upsetRisk": "KFUM客胜、平局和双方进球为反向路径",
+        "scheduleLoad": "赛程已按业务日核对，休息天数和赛后下一场未闭合",
+        "availability": "双方官方伤停和首发未闭合",
         "coachTactics": "未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.0,
-        "brief": "上一场：未核验；下一场：未核验；排名：未核验；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 未核验。"
+        "completeness": 0.8,
+        "brief": "上一场：双方上一场正式赛果未从可核验官方页面闭合；下一场：NFF官方下一场对手和间隔未闭合；排名：双方赛前实时排名未闭合，暂不写具体名次；升级/保级/晋级动机：联赛目标未闭合，保持中性；穿盘/大比分风险：挪超进球与主场先验存在，但主胜穿盘受防守稳定性影响；爆冷路径：KFUM客胜、平局和双方进球为反向路径；赛程与阵容：赛程已按业务日核对，休息天数和赛后下一场未闭合 / 双方官方伤停和首发未闭合。"
       },
-      "previousMatch": "未核验",
-      "nextMatch": "未核验",
-      "rankingBrief": "未核验",
-      "promotionRelegationBrief": "未核验",
-      "coverRisk": "未核验；需结合实际让球、首发和比赛节奏判断",
-      "upsetRisk": "未核验；保留市场反向和阵容突变路径",
+      "previousMatch": "双方上一场正式赛果未从可核验官方页面闭合",
+      "nextMatch": "NFF官方下一场对手和间隔未闭合",
+      "rankingBrief": "双方赛前实时排名未闭合，暂不写具体名次",
+      "promotionRelegationBrief": "联赛目标未闭合，保持中性",
+      "coverRisk": "挪超进球与主场先验存在，但主胜穿盘受防守稳定性影响",
+      "upsetRisk": "KFUM客胜、平局和双方进球为反向路径",
       "analysisDimensions": {
-        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "schedule_load": "NFF官方Eliteserien赛程/结果页核对桑纳菲尤尔主场对KFUM奥斯陆",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
         "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "motivation_competition": "联赛积分赛；保级/欧战目标需结合官方实时排名，不以赔率代替",
         "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
-        "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
-        "next_match": "未核验双方赛后下一场对手、间隔和赛程优先级。",
-        "ranking_table": "未核验双方当前联赛排名、积分和主客场排名。",
-        "promotion_relegation": "未核验升级、保级、欧战资格或杯赛晋级的实际压力。",
-        "cover_risk": "未核验让球穿盘条件；比分预测不等同于盘口必然穿盘。",
-        "upset_risk": "未核验爆冷路径；保留为市场与阵容不确定性审计。"
+        "previous_match": "双方上一场正式赛果未从可核验官方页面闭合",
+        "next_match": "NFF官方下一场对手和间隔未闭合",
+        "ranking_table": "双方赛前实时排名未闭合，暂不写具体名次",
+        "promotion_relegation": "联赛目标未闭合，保持中性",
+        "cover_risk": "挪超进球与主场先验存在，但主胜穿盘受防守稳定性影响",
+        "upset_risk": "KFUM客胜、平局和双方进球为反向路径"
       },
       "missingAnalysisDimensions": [
-        "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
         "squad_availability",
         "recent_performance",
         "coach_tactics",
-        "motivation_competition",
         "weather_pitch",
         "set_piece_transition",
-        "market_contradiction",
-        "previous_match",
-        "next_match",
-        "ranking_table",
-        "promotion_relegation",
-        "cover_risk",
-        "upset_risk"
+        "market_contradiction"
       ],
-      "analysisCompleteness": 0.0,
+      "analysisCompleteness": 0.5,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1644,8 +1625,8 @@
           "expectedValue": -0.0928
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-0 / 1-1，半全场为胜/胜（3.35）；当前仅有[挪超12]、[挪超13]与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-0 / 1-1，半全场为胜/胜（3.35）；已核验stage、schedule、motivation，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：KFUM客胜、平局和双方进球为反向路径。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -1688,9 +1669,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 36,
+      "confidenceScore": 37,
       "confidence": "中低",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -1840,34 +1821,41 @@
       },
       "modelLesson": "首版独立荷甲模型：提高双方进球和高总进球先验，但由比分矩阵约束，不把联赛高进球等同于单一大比分。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
+        "stage": "荷甲2026/27第1轮",
+        "schedule": "KNVB官方确认坎布尔主场对SBV精英为新赛季首轮",
+        "motivation": "开幕战；无即时保级结算，升级/留级背景作为长期变量",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
+        "teamNews": "双方赛前官方伤停、教练和首发未核验",
+        "coach": "荷甲独立模型已建立，具体战术待俱乐部公告",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "https://www.knvb.nl/nieuws/betaald-voetbal/competitiezaken/71918",
+        "https://eredivisie.nl/nieuws/eerste-speelronde-2026-27/"
+      ],
+      "evidenceStatus": "赛程已核验；球队级伤停和首发未闭合",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation"
+      ],
       "reasoningMethod": "evidence-chain-v2",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/1-2；证据不足，置信度下调。",
+        "whyWin": "支持主队的可核验逻辑：荷甲独立模型已建立，具体战术待俱乐部公告",
+        "whyMustWin": "开幕战；无即时保级结算，升级/留级背景作为长期变量",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：荷甲独立模型已建立，具体战术待俱乐部公告；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定主队，主比分2-1，备选2-0/1-2；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
-            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "schedule_load": "KNVB官方确认坎布尔主场对SBV精英为新赛季首轮",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "双方赛前官方伤停、教练和首发未核验",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "coach_tactics": "荷甲独立模型已建立，具体战术待俱乐部公告",
+            "motivation_competition": "开幕战；无即时保级结算，升级/留级背景作为长期变量",
             "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -1879,21 +1867,17 @@
             "upset_risk": "SBV精英客胜或双方对攻导致总进球上修"
           },
           "missingDimensions": [
-            "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
-            "coach_tactics",
-            "motivation_competition",
             "weather_pitch",
             "set_piece_transition",
             "market_contradiction"
           ],
-          "completeness": 0.38,
-          "adjustmentGate": "blocked"
+          "completeness": 0.62,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "荷甲2026/27首轮；本季上一场正式联赛未发生",
@@ -1904,9 +1888,9 @@
         "upsetRisk": "SBV精英客胜或双方对攻导致总进球上修",
         "scheduleLoad": "新赛季首轮；赛后下一场对手和休息差待核对",
         "availability": "双方官方赛前统一伤停与首发未核验",
-        "coachTactics": "未核验",
+        "coachTactics": "荷甲独立模型已建立，具体战术待俱乐部公告",
         "weatherPitch": "未核验",
-        "completeness": 0.8,
+        "completeness": 0.9,
         "brief": "上一场：荷甲2026/27首轮；本季上一场正式联赛未发生；下一场：KNVB/联赛官方后续赛程待赛前核对；排名：本季积分均从0开始；上季层级仅作先验，不作为本场排名事实；升级/保级/晋级动机：首轮无即时保级结算；长期留在顶级联赛/赛季目标进入低权重先验；穿盘/大比分风险：新赛季阵容变化可能使主胜方向正确但让球不穿，2-1/1-2均需保留；爆冷路径：SBV精英客胜或双方对攻导致总进球上修；赛程与阵容：新赛季首轮；赛后下一场对手和休息差待核对 / 双方官方赛前统一伤停与首发未核验。"
       },
       "previousMatch": "荷甲2026/27首轮；本季上一场正式联赛未发生",
@@ -1916,13 +1900,13 @@
       "coverRisk": "新赛季阵容变化可能使主胜方向正确但让球不穿，2-1/1-2均需保留",
       "upsetRisk": "SBV精英客胜或双方对攻导致总进球上修",
       "analysisDimensions": {
-        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "schedule_load": "KNVB官方确认坎布尔主场对SBV精英为新赛季首轮",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "双方赛前官方伤停、教练和首发未核验",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "coach_tactics": "荷甲独立模型已建立，具体战术待俱乐部公告",
+        "motivation_competition": "开幕战；无即时保级结算，升级/留级背景作为长期变量",
         "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -1934,18 +1918,14 @@
         "upset_risk": "SBV精英客胜或双方对攻导致总进球上修"
       },
       "missingAnalysisDimensions": [
-        "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
-        "coach_tactics",
-        "motivation_competition",
         "weather_pitch",
         "set_piece_transition",
         "market_contradiction"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.62,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1989,8 +1969,8 @@
           "expectedValue": -0.1149
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-2，半全场为胜/胜（3.85）；当前仅有[荷甲4]、[荷甲5]与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-2，半全场为胜/胜（3.85）；已核验stage、schedule、motivation，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：SBV精英客胜或双方对攻导致总进球上修。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -2034,7 +2014,7 @@
       ],
       "confidenceScore": 55,
       "confidence": "中",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "盘口、比分矩阵与总进球模型综合后主方向为客胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -2184,34 +2164,40 @@
       },
       "modelLesson": "首版独立荷乙模型：加入升级/附加赛动机和开放比赛先验；球队级信息未充分核验，降低方向置信度。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
+        "stage": "荷乙2026/27第1轮",
+        "schedule": "KNVB官方确认TOP Oss主场对NAC Breda为开季比赛",
+        "motivation": "升级/附加赛目标是长期变量；首轮没有即时排名压力",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
+        "teamNews": "双方官方伤停和预计首发未核验",
+        "coach": "荷乙独立高进球模型，具体战术未核验",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "https://www.knvb.nl/nieuws/betaald-voetbal/competitiezaken/71918"
+      ],
+      "evidenceStatus": "赛程已核验；球队级资料不足",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation"
+      ],
       "reasoningMethod": "evidence-chain-v2",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-2/1-1；证据不足，置信度下调。",
+        "whyWin": "支持客队的可核验逻辑：荷乙独立高进球模型，具体战术未核验",
+        "whyMustWin": "升级/附加赛目标是长期变量；首轮没有即时排名压力",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：荷乙独立高进球模型，具体战术未核验；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定客队，主比分1-2，备选0-2/1-1；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
-            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "schedule_load": "KNVB官方确认TOP Oss主场对NAC Breda为开季比赛",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "双方官方伤停和预计首发未核验",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "coach_tactics": "荷乙独立高进球模型，具体战术未核验",
+            "motivation_competition": "升级/附加赛目标是长期变量；首轮没有即时排名压力",
             "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -2223,21 +2209,17 @@
             "upset_risk": "奥斯主场抢开局、平局和主胜尾部均保留"
           },
           "missingDimensions": [
-            "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
-            "coach_tactics",
-            "motivation_competition",
             "weather_pitch",
             "set_piece_transition",
             "market_contradiction"
           ],
-          "completeness": 0.38,
-          "adjustmentGate": "blocked"
+          "completeness": 0.62,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "荷乙2026/27首轮；本季上一场正式联赛未发生",
@@ -2248,9 +2230,9 @@
         "upsetRisk": "奥斯主场抢开局、平局和主胜尾部均保留",
         "scheduleLoad": "新赛季首轮；赛程密度和赛后下一场待核对",
         "availability": "双方完整官方伤停、教练和首发未核验",
-        "coachTactics": "未核验",
+        "coachTactics": "荷乙独立高进球模型，具体战术未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.8,
+        "completeness": 0.9,
         "brief": "上一场：荷乙2026/27首轮；本季上一场正式联赛未发生；下一场：KNVB/联赛官方后续赛程待赛前核对；排名：本季积分均为0；升级附加赛资格和上季排名仅作独立模型先验；升级/保级/晋级动机：荷乙升级/附加赛动机是长期变量，首轮不强行赋予必胜压力；穿盘/大比分风险：荷乙高进球分布下，客胜即使成立也有1-1和大球反向风险；爆冷路径：奥斯主场抢开局、平局和主胜尾部均保留；赛程与阵容：新赛季首轮；赛程密度和赛后下一场待核对 / 双方完整官方伤停、教练和首发未核验。"
       },
       "previousMatch": "荷乙2026/27首轮；本季上一场正式联赛未发生",
@@ -2260,13 +2242,13 @@
       "coverRisk": "荷乙高进球分布下，客胜即使成立也有1-1和大球反向风险",
       "upsetRisk": "奥斯主场抢开局、平局和主胜尾部均保留",
       "analysisDimensions": {
-        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "schedule_load": "KNVB官方确认TOP Oss主场对NAC Breda为开季比赛",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "双方官方伤停和预计首发未核验",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "coach_tactics": "荷乙独立高进球模型，具体战术未核验",
+        "motivation_competition": "升级/附加赛目标是长期变量；首轮没有即时排名压力",
         "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -2278,18 +2260,14 @@
         "upset_risk": "奥斯主场抢开局、平局和主胜尾部均保留"
       },
       "missingAnalysisDimensions": [
-        "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
-        "coach_tactics",
-        "motivation_competition",
         "weather_pitch",
         "set_piece_transition",
         "market_contradiction"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.62,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -2333,8 +2311,8 @@
           "expectedValue": -0.126
         }
       ],
-      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 0-2 / 1-1，半全场为负/负（2.30）；当前仅有[荷乙16]、[荷乙12]与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 0-2 / 1-1，半全场为负/负（2.30）；已核验stage、schedule、motivation，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：奥斯主场抢开局、平局和主胜尾部均保留。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -2379,7 +2357,7 @@
       ],
       "confidenceScore": 38,
       "confidence": "中低",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -2529,34 +2507,40 @@
       },
       "modelLesson": "首版独立荷乙模型：加入升级/附加赛动机和开放比赛先验；球队级信息未充分核验，降低方向置信度。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
+        "stage": "荷乙2026/27第1轮",
+        "schedule": "KNVB官方确认埃门主场对罗达JC为开季比赛",
+        "motivation": "升级/附加赛目标是长期变量；首轮没有即时排名压力",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
+        "teamNews": "双方官方伤停和预计首发未核验",
+        "coach": "荷乙独立高进球模型，具体战术未核验",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "https://www.knvb.nl/nieuws/betaald-voetbal/competitiezaken/71918"
+      ],
+      "evidenceStatus": "赛程已核验；球队级资料不足",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation"
+      ],
       "reasoningMethod": "evidence-chain-v2",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/1-2；证据不足，置信度下调。",
+        "whyWin": "支持主队的可核验逻辑：荷乙独立高进球模型，具体战术未核验",
+        "whyMustWin": "升级/附加赛目标是长期变量；首轮没有即时排名压力",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：荷乙独立高进球模型，具体战术未核验；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定主队，主比分2-1，备选2-0/1-2；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
-            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "schedule_load": "KNVB官方确认埃门主场对罗达JC为开季比赛",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "双方官方伤停和预计首发未核验",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "coach_tactics": "荷乙独立高进球模型，具体战术未核验",
+            "motivation_competition": "升级/附加赛目标是长期变量；首轮没有即时排名压力",
             "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -2568,21 +2552,17 @@
             "upset_risk": "罗达JC客胜是明确反向路径，荷乙高波动放大尾部风险"
           },
           "missingDimensions": [
-            "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
-            "coach_tactics",
-            "motivation_competition",
             "weather_pitch",
             "set_piece_transition",
             "market_contradiction"
           ],
-          "completeness": 0.38,
-          "adjustmentGate": "blocked"
+          "completeness": 0.62,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "荷乙2026/27首轮；本季上一场正式联赛未发生",
@@ -2593,9 +2573,9 @@
         "upsetRisk": "罗达JC客胜是明确反向路径，荷乙高波动放大尾部风险",
         "scheduleLoad": "新赛季首轮；双方下一场与休息情况待核验",
         "availability": "双方官方伤停和首发未核验",
-        "coachTactics": "未核验",
+        "coachTactics": "荷乙独立高进球模型，具体战术未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.8,
+        "completeness": 0.9,
         "brief": "上一场：荷乙2026/27首轮；本季上一场正式联赛未发生；下一场：KNVB/联赛官方后续赛程待赛前核对；排名：本季积分均为0；升级/附加赛目标暂不能等同于即时排名；升级/保级/晋级动机：荷乙升级和附加赛是长期动机；首轮主要使用进球先验与市场基线；穿盘/大比分风险：埃门主胜若先入球可能扩大比分，但1-2客胜和对攻路径不能排除；爆冷路径：罗达JC客胜是明确反向路径，荷乙高波动放大尾部风险；赛程与阵容：新赛季首轮；双方下一场与休息情况待核验 / 双方官方伤停和首发未核验。"
       },
       "previousMatch": "荷乙2026/27首轮；本季上一场正式联赛未发生",
@@ -2605,13 +2585,13 @@
       "coverRisk": "埃门主胜若先入球可能扩大比分，但1-2客胜和对攻路径不能排除",
       "upsetRisk": "罗达JC客胜是明确反向路径，荷乙高波动放大尾部风险",
       "analysisDimensions": {
-        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "schedule_load": "KNVB官方确认埃门主场对罗达JC为开季比赛",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "双方官方伤停和预计首发未核验",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "coach_tactics": "荷乙独立高进球模型，具体战术未核验",
+        "motivation_competition": "升级/附加赛目标是长期变量；首轮没有即时排名压力",
         "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -2623,18 +2603,14 @@
         "upset_risk": "罗达JC客胜是明确反向路径，荷乙高波动放大尾部风险"
       },
       "missingAnalysisDimensions": [
-        "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
-        "coach_tactics",
-        "motivation_competition",
         "weather_pitch",
         "set_piece_transition",
         "market_contradiction"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.62,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -2678,8 +2654,8 @@
           "expectedValue": -0.1026
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-2，半全场为胜/胜（3.75）；当前仅有[荷乙8]、[荷乙15]与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-2，半全场为胜/胜（3.75）；已核验stage、schedule、motivation，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：罗达JC客胜是明确反向路径，荷乙高波动放大尾部风险。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -2722,9 +2698,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 40,
+      "confidenceScore": 41,
       "confidence": "中低",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -2874,34 +2850,41 @@
       },
       "modelLesson": "首版独立德乙模型：新赛季首轮重点加入升级压力、主场和阵容连续性；开季资料不足，禁止高置信度收窄。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
+        "stage": "德国乙级联赛2026/27第1轮",
+        "schedule": "DFL官方赛程确认波鸿主场对柏林赫塔",
+        "motivation": "赛季开幕战；无本季积分排名，升级目标为长期变量",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
+        "teamNews": "双方赛前官方完整伤停和预计首发未核验",
+        "coach": "DFL球队/赛程资料已核验，最新阵型未核验",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "https://media.dfl.de/sites/3/2026/07/EN_uvW2SdCp_Bundesliga-2_Fixture-List_2026_27.pdf",
+        "https://www.bundesliga.com/en/2bundesliga/news/bochum-to-host-hertha-berlin-in-opening-bundesliga-2-game-of-2026-27-38049"
+      ],
+      "evidenceStatus": "赛程已核验；开季排名、伤停、首发未闭合",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation"
+      ],
       "reasoningMethod": "evidence-chain-v2",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/1-1；证据不足，置信度下调。",
+        "whyWin": "支持主队的可核验逻辑：DFL球队/赛程资料已核验，最新阵型未核验",
+        "whyMustWin": "赛季开幕战；无本季积分排名，升级目标为长期变量",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：DFL球队/赛程资料已核验，最新阵型未核验；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定主队，主比分2-1，备选2-0/1-1；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
-            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "schedule_load": "DFL官方赛程确认波鸿主场对柏林赫塔",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "双方赛前官方完整伤停和预计首发未核验",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "coach_tactics": "DFL球队/赛程资料已核验，最新阵型未核验",
+            "motivation_competition": "赛季开幕战；无本季积分排名，升级目标为长期变量",
             "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -2913,21 +2896,17 @@
             "upset_risk": "柏林赫塔客胜与平局为主要爆冷路径"
           },
           "missingDimensions": [
-            "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
-            "coach_tactics",
-            "motivation_competition",
             "weather_pitch",
             "set_piece_transition",
             "market_contradiction"
           ],
-          "completeness": 0.38,
-          "adjustmentGate": "blocked"
+          "completeness": 0.62,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "德乙2026/27首轮；本季上一场正式联赛未发生",
@@ -2938,9 +2917,9 @@
         "upsetRisk": "柏林赫塔客胜与平局为主要爆冷路径",
         "scheduleLoad": "新赛季揭幕战；赛程密度和后续优先级待核验",
         "availability": "双方赛前官方完整伤停与预计首发未核验",
-        "coachTactics": "未核验",
+        "coachTactics": "DFL球队/赛程资料已核验，最新阵型未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.8,
+        "completeness": 0.9,
         "brief": "上一场：德乙2026/27首轮；本季上一场正式联赛未发生；下一场：DFL官方赛程已建立，下一场具体对手和间隔仍需赛前复核；排名：新赛季排名均从0开始；上季表现只作为先验，不替代本季排名；升级/保级/晋级动机：德乙升级/保级目标是长期变量，首轮没有即时积分压力；穿盘/大比分风险：波鸿主场方向可能成立但开季轮换/磨合会造成不穿盘，2-1/1-1保护必要；爆冷路径：柏林赫塔客胜与平局为主要爆冷路径；赛程与阵容：新赛季揭幕战；赛程密度和后续优先级待核验 / 双方赛前官方完整伤停与预计首发未核验。"
       },
       "previousMatch": "德乙2026/27首轮；本季上一场正式联赛未发生",
@@ -2950,13 +2929,13 @@
       "coverRisk": "波鸿主场方向可能成立但开季轮换/磨合会造成不穿盘，2-1/1-1保护必要",
       "upsetRisk": "柏林赫塔客胜与平局为主要爆冷路径",
       "analysisDimensions": {
-        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "schedule_load": "DFL官方赛程确认波鸿主场对柏林赫塔",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "双方赛前官方完整伤停和预计首发未核验",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "coach_tactics": "DFL球队/赛程资料已核验，最新阵型未核验",
+        "motivation_competition": "赛季开幕战；无本季积分排名，升级目标为长期变量",
         "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -2968,18 +2947,14 @@
         "upset_risk": "柏林赫塔客胜与平局为主要爆冷路径"
       },
       "missingAnalysisDimensions": [
-        "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
-        "coach_tactics",
-        "motivation_competition",
         "weather_pitch",
         "set_piece_transition",
         "market_contradiction"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.62,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -3023,8 +2998,8 @@
           "expectedValue": -0.0997
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-1，半全场为胜/胜（3.55）；当前仅有[德乙2]、[德乙10]与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-1，半全场为胜/胜（3.55）；已核验stage、schedule、motivation，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：柏林赫塔客胜与平局为主要爆冷路径。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -3070,7 +3045,7 @@
       ],
       "confidenceScore": 58,
       "confidence": "中",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "盘口、比分矩阵与总进球模型综合后主方向为主胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -3220,34 +3195,41 @@
       },
       "modelLesson": "首版独立英联杯模型：单独处理轮换、晋级动机和点球/加时不确定性；未核验首发前只做低置信度90分钟预测。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
+        "stage": "英格兰联赛杯首轮",
+        "schedule": "赛前赛程资料确认米德尔斯堡主场对雷克斯汉姆",
+        "motivation": "杯赛晋级与联赛轮换存在取舍；只结算90分钟方向",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
+        "teamNews": "公开赛前线索提到Wrexham的Joseph、Jones、Bangura出场限制，但未全部由最终官方名单确认",
+        "coach": "首发和轮换计划未核验",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "https://www.fotmob.com/en-GB/matches/wrexham-middlesbrough/2soq1a",
+        "https://www.wrexhamafc.co.uk/news/2026/may/02/report---wrexham-2-2-middlesbrough/"
+      ],
+      "evidenceStatus": "赛程已核验；部分伤停线索未完成官方确认",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation"
+      ],
       "reasoningMethod": "evidence-chain-v2",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/1-0；证据不足，置信度下调。",
+        "whyWin": "支持主队的可核验逻辑：首发和轮换计划未核验",
+        "whyMustWin": "杯赛晋级与联赛轮换存在取舍；只结算90分钟方向",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：首发和轮换计划未核验；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定主队，主比分2-1，备选2-0/1-0；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
-            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "schedule_load": "赛前赛程资料确认米德尔斯堡主场对雷克斯汉姆",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "公开赛前线索提到Wrexham的Joseph、Jones、Bangura出场限制，但未全部由最终官方名单确认",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "coach_tactics": "首发和轮换计划未核验",
+            "motivation_competition": "杯赛晋级与联赛轮换存在取舍；只结算90分钟方向",
             "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -3259,21 +3241,17 @@
             "upset_risk": "Wrexham客胜、平局及低比分是主要爆冷路径；不把点球晋级混入90分钟预测"
           },
           "missingDimensions": [
-            "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
-            "coach_tactics",
-            "motivation_competition",
             "weather_pitch",
             "set_piece_transition",
             "market_contradiction"
           ],
-          "completeness": 0.38,
-          "adjustmentGate": "blocked"
+          "completeness": 0.62,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "公开赛程/赛前资料显示双方最近一次正式交手为2026-05-02 2-2；新赛季杯赛首轮",
@@ -3284,9 +3262,9 @@
         "upsetRisk": "Wrexham客胜、平局及低比分是主要爆冷路径；不把点球晋级混入90分钟预测",
         "scheduleLoad": "EFL Cup首轮；杯赛与联赛备战冲突显著",
         "availability": "公开线索提及Wrexham Joseph、Jones、Bangura等出场限制，但最终官方名单未确认",
-        "coachTactics": "未核验",
+        "coachTactics": "首发和轮换计划未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.8,
+        "completeness": 0.9,
         "brief": "上一场：公开赛程/赛前资料显示双方最近一次正式交手为2026-05-02 2-2；新赛季杯赛首轮；下一场：杯赛后联赛赛程优先级需结合官方赛程及首发轮换再核对；排名：杯赛不直接使用联赛排名结算；结合两队联赛层级和主场作先验；升级/保级/晋级动机：90分钟只结算杯赛方向；晋级动机与轮换取舍同时存在；穿盘/大比分风险：米德尔斯堡即使实力占优，杯赛轮换和Wrexham反击会增加不穿盘风险；爆冷路径：Wrexham客胜、平局及低比分是主要爆冷路径；不把点球晋级混入90分钟预测；赛程与阵容：EFL Cup首轮；杯赛与联赛备战冲突显著 / 公开线索提及Wrexham Joseph、Jones、Bangura等出场限制，但最终官方名单未确认。"
       },
       "previousMatch": "公开赛程/赛前资料显示双方最近一次正式交手为2026-05-02 2-2；新赛季杯赛首轮",
@@ -3296,13 +3274,13 @@
       "coverRisk": "米德尔斯堡即使实力占优，杯赛轮换和Wrexham反击会增加不穿盘风险",
       "upsetRisk": "Wrexham客胜、平局及低比分是主要爆冷路径；不把点球晋级混入90分钟预测",
       "analysisDimensions": {
-        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "schedule_load": "赛前赛程资料确认米德尔斯堡主场对雷克斯汉姆",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "公开赛前线索提到Wrexham的Joseph、Jones、Bangura出场限制，但未全部由最终官方名单确认",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "coach_tactics": "首发和轮换计划未核验",
+        "motivation_competition": "杯赛晋级与联赛轮换存在取舍；只结算90分钟方向",
         "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -3314,18 +3292,14 @@
         "upset_risk": "Wrexham客胜、平局及低比分是主要爆冷路径；不把点球晋级混入90分钟预测"
       },
       "missingAnalysisDimensions": [
-        "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
-        "coach_tactics",
-        "motivation_competition",
         "weather_pitch",
         "set_piece_transition",
         "market_contradiction"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.62,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -3369,8 +3343,8 @@
           "expectedValue": -0.14
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-0，半全场为胜/胜（2.15）；当前仅有排名信息未作为强制修正与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-0，半全场为胜/胜（2.15）；已核验stage、schedule、motivation，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：Wrexham客胜、平局及低比分是主要爆冷路径；不把点球晋级混入90分钟预测。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -3413,9 +3387,9 @@
         "3",
         "1"
       ],
-      "confidenceScore": 41,
+      "confidenceScore": 42,
       "confidence": "中低",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "盘口、比分矩阵与总进球模型综合后主方向为客胜；未核实的传闻不进入模型。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -3565,34 +3539,41 @@
       },
       "modelLesson": "首版独立葡超模型：强调强队零封、低比分与主客场实力差；开季样本不足，保留平局和一球差尾部。",
       "contextFactors": {
-        "stage": "资料不足，保持中性",
-        "schedule": "资料不足，保持中性",
-        "motivation": "资料不足，保持中性",
+        "stage": "葡超2026/27第1轮",
+        "schedule": "Liga Portugal官方确认埃斯托里尔主场对法马利康为揭幕战",
+        "motivation": "开幕战；无即时保级积分压力，重视阵容连续性和主客场",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
-        "coach": "资料不足，保持中性",
+        "teamNews": "双方赛前官方伤停、教练和预计首发未核验",
+        "coach": "葡超独立模型已建立，临场战术未核验",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "https://www.ligaportugal.pt/news/28234/estoril-praia-fc-famalicao-abre-liga-betclic-202627",
+        "https://estorilpraia.pt/calendario/equipa-principal"
+      ],
+      "evidenceStatus": "赛程已核验；伤停和首发未闭合",
+      "verifiedFactors": [
+        "stage",
+        "schedule",
+        "motivation"
+      ],
       "reasoningMethod": "evidence-chain-v2",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-1/1-1；证据不足，置信度下调。",
+        "whyWin": "支持客队的可核验逻辑：葡超独立模型已建立，临场战术未核验",
+        "whyMustWin": "开幕战；无即时保级积分压力，重视阵容连续性和主客场",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：葡超独立模型已建立，临场战术未核验；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定客队，主比分1-2，备选0-1/1-1；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
-            "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+            "schedule_load": "Liga Portugal官方确认埃斯托里尔主场对法马利康为揭幕战",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "双方赛前官方伤停、教练和预计首发未核验",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-            "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-            "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+            "coach_tactics": "葡超独立模型已建立，临场战术未核验",
+            "motivation_competition": "开幕战；无即时保级积分压力，重视阵容连续性和主客场",
             "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -3604,21 +3585,17 @@
             "upset_risk": "埃斯托里尔主场反向及平局为主要爆冷路径"
           },
           "missingDimensions": [
-            "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
-            "coach_tactics",
-            "motivation_competition",
             "weather_pitch",
             "set_piece_transition",
             "market_contradiction"
           ],
-          "completeness": 0.38,
-          "adjustmentGate": "blocked"
+          "completeness": 0.62,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "葡超2026/27揭幕战；本季上一场正式联赛未发生",
@@ -3629,9 +3606,9 @@
         "upsetRisk": "埃斯托里尔主场反向及平局为主要爆冷路径",
         "scheduleLoad": "新赛季揭幕战；休息、旅行和下一场优先级待赛前核验",
         "availability": "双方统一官方伤停、教练和预计首发未核验",
-        "coachTactics": "未核验",
+        "coachTactics": "葡超独立模型已建立，临场战术未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.8,
+        "completeness": 0.9,
         "brief": "上一场：葡超2026/27揭幕战；本季上一场正式联赛未发生；下一场：Liga Portugal官方赛程已收集，下一场对手与间隔需临场复核；排名：本季积分均从0开始；上季排名只用于实力先验，不作为当前排名；升级/保级/晋级动机：揭幕战无即时保级结算；赛季目标和阵容连续性为低权重动机；穿盘/大比分风险：葡超开局小比分先验较强，客胜方向存在1-1保护，穿盘需看首发；爆冷路径：埃斯托里尔主场反向及平局为主要爆冷路径；赛程与阵容：新赛季揭幕战；休息、旅行和下一场优先级待赛前核验 / 双方统一官方伤停、教练和预计首发未核验。"
       },
       "previousMatch": "葡超2026/27揭幕战；本季上一场正式联赛未发生",
@@ -3641,13 +3618,13 @@
       "coverRisk": "葡超开局小比分先验较强，客胜方向存在1-1保护，穿盘需看首发",
       "upsetRisk": "埃斯托里尔主场反向及平局为主要爆冷路径",
       "analysisDimensions": {
-        "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
+        "schedule_load": "Liga Portugal官方确认埃斯托里尔主场对法马利康为揭幕战",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "双方赛前官方伤停、教练和预计首发未核验",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
-        "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
-        "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
+        "coach_tactics": "葡超独立模型已建立，临场战术未核验",
+        "motivation_competition": "开幕战；无即时保级积分压力，重视阵容连续性和主客场",
         "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
@@ -3659,18 +3636,14 @@
         "upset_risk": "埃斯托里尔主场反向及平局为主要爆冷路径"
       },
       "missingAnalysisDimensions": [
-        "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
-        "coach_tactics",
-        "motivation_competition",
         "weather_pitch",
         "set_piece_transition",
         "market_contradiction"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.62,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -3714,8 +3687,8 @@
           "expectedValue": -0.0953
         }
       ],
-      "integratedAnalysis": "结论：客胜，总进球重点2球，比分关注1-2 / 0-1 / 1-1，半全场为负/负（3.60）；当前仅有[葡超6]、[葡超8]与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，故只作低置信基线，主要反向路径为平局及一球差。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：客胜，总进球重点2球，比分关注1-2 / 0-1 / 1-1，半全场为负/负（3.60）；已核验stage、schedule、motivation，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：埃斯托里尔主场反向及平局为主要爆冷路径。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     }
   ],

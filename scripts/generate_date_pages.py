@@ -638,7 +638,10 @@ def build_match_brief(match: dict[str, Any], context: dict[str, Any]) -> dict[st
     fields = {
         "previousMatch": context.get("previousMatch", "未核验"),
         "nextMatch": context.get("nextMatch", "未核验"),
-        "ranking": context.get("ranking", "未核验"),
+        "ranking": context.get("ranking") or (
+            f"{match.get('home')} {match.get('homeRank')}；{match.get('away')} {match.get('awayRank')}"
+            if match.get("homeRank") and match.get("awayRank") else "未核验"
+        ),
         "promotionRelegation": context.get("promotionRelegation", "未核验"),
         "coverRisk": context.get("coverRisk", "未核验；需结合实际让球、首发和比赛节奏判断"),
         "upsetRisk": context.get("upsetRisk") or context.get("upsetPath", "未核验；保留市场反向和阵容突变路径"),
@@ -839,11 +842,22 @@ def predict_with_market_fallback(base: Any, match: dict[str, Any], context: dict
     scores = " / ".join([predicted["mainScore"], *predicted["backupScores"]])
     ranks = "、".join(value for value in (predicted.get("homeRank"), predicted.get("awayRank")) if value) or "排名信息未作为强制修正"
     half_full_text = f"{predicted['halfFullText']}（{hodds:.2f}）" if hodds else predicted["halfFullText"]
-    default_analysis = (
-        f"结论：{predicted['directionText']}，总进球重点{predicted['totalGoals']}球，比分关注{scores}，"
-        f"半全场为{half_full_text}；当前仅有{ranks}与市场/比分矩阵支持，尚未取得足够的球队、赛程、阵容或战术证据，"
-        "故只作低置信基线，主要反向路径为平局及一球差。"
-    )
+    brief = predicted.get("matchBrief", {})
+    evidence = predicted.get("verifiedFactors", [])
+    gate = predicted.get("reasoningContract", {}).get("evidenceGate")
+    if gate == "passed":
+        evidence_text = "、".join(evidence) or "比赛级公开资料"
+        default_analysis = (
+            f"结论：{predicted['directionText']}，总进球重点{predicted['totalGoals']}球，比分关注{scores}，"
+            f"半全场为{half_full_text}；已核验{evidence_text}，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。"
+            f"主要反向路径：{brief.get('upsetRisk', '未核验')}。"
+        )
+    else:
+        default_analysis = (
+            f"结论：{predicted['directionText']}，总进球重点{predicted['totalGoals']}球，比分关注{scores}，"
+            f"半全场为{half_full_text}；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，"
+            f"不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：{brief.get('upsetRisk', '未核验')}。"
+        )
     # Web copy is intentionally one result paragraph. The full five-question
     # contract and ten causal dimensions remain in JSON for audit/backtesting.
     predicted["integratedAnalysis"] = " ".join(str(context.get("integratedAnalysis", default_analysis)).split())
@@ -914,11 +928,14 @@ def main() -> None:
     raw = json.loads((ROOT / args.source).read_text(encoding="utf-8-sig"))
     context_path = DATA / f"match_context_{args.date}.json"
     context_payload = json.loads(context_path.read_text(encoding="utf-8")) if context_path.exists() else {"matches": {}}
-    contexts = context_payload.get("matches", {})
+    contexts = dict(context_payload.get("matches", {}))
     extra_context_path = DATA / f"match_context_{args.date}_extra.json"
     if extra_context_path.exists():
         extra_context = json.loads(extra_context_path.read_text(encoding="utf-8"))
-        contexts.update(extra_context.get("matches", {}))
+        for match_id, extra in extra_context.get("matches", {}).items():
+            merged = dict(contexts.get(match_id, {}))
+            merged.update(extra)
+            contexts[match_id] = merged
     source_matches = list(raw["matches"])
     extra_config = EXTRA_MATCHES_BY_DATE.get(args.date)
     if extra_config:
