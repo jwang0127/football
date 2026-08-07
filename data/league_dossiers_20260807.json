@@ -1,0 +1,72 @@
+{
+  "date": "20260807",
+  "method": "独立联赛首版资料档案；赔率只作市场基线，未核验字段不进入方向性修正",
+  "leagues": {
+    "日本职业联赛": {
+      "modelVersion": "j-league-v1-dedicated-0807",
+      "competitionState": "2026 J1 100 YEAR VISION LEAGUE/新赛季赛程切换期；本轮为官方开幕比赛，暂无升级保级积分压力",
+      "ranking": "J.League官方排名显示鹿岛、G大阪、浦和、横滨水手处于不同排名层级；具体赛前排名以官方页面实时值为准",
+      "motivation": "开幕战，积分动机对双方对称；主场、阵容磨合和赛季目标比保级压力更重要",
+      "coachesTactics": "各队教练/阵型已列入球队官方页面核验清单；未取得四队统一的赛前首发与最新战术报告，因此不强行改方向",
+      "injuriesSuspensions": "J.League于2026-07-21公布鹿岛MF樋口雄太、DF安西幸辉伤情；能否出场需以俱乐部赛前名单确认。横滨、G大阪、浦和的最新完整伤停未取得可靠统一清单",
+      "formHomeAway": "使用Sporttery比分矩阵和官方赛程/排名作为首版基线；新赛季样本不足，主客场参数收缩",
+      "sources": ["https://www.jleague.jp/en/j1/standings/2026/", "https://www.jleague.jp/sp/match/search/j1/20260807/", "https://www.jleague.jp/news/article/34474/", "https://www.gamba-osaka.net/english/game/"],
+      "confidenceNote": "中低；伤停和新赛季样本未完全闭合"
+    },
+    "德国乙级联赛": {
+      "modelVersion": "bundesliga2-v1-dedicated-0807",
+      "competitionState": "2026/27赛季第1轮，Bochum主场对Hertha；新赛季开局，暂无本赛季积分排名",
+      "ranking": "开季排名均为0，不能把上季名次直接当作本场强弱；采用开季实力先验与市场矩阵",
+      "motivation": "开幕战，赛季目标和升级压力为长期变量，不能等同于当场必须赢",
+      "coachesTactics": "DFL/Bundesliga球队页和赛程页可核验比赛；首发阵型与临场战术未在可靠赛前来源闭合",
+      "injuriesSuspensions": "未取得双方赛前官方完整伤停名单；不将旧赛季伤病迁移到本场",
+      "formHomeAway": "首轮没有本季近期状态，主场与球队实力先验各自收缩",
+      "sources": ["https://media.dfl.de/sites/3/2026/07/EN_uvW2SdCp_Bundesliga-2_Fixture-List_2026_27.pdf", "https://www.bundesliga.com/en/2bundesliga/news/bochum-to-host-hertha-berlin-in-opening-bundesliga-2-game-of-2026-27-38049", "https://www.bundesliga.com/en/2bundesliga/clubs/vfl-bochum-1848"],
+      "confidenceNote": "低；开季无本季排名和完整伤停"
+    },
+    "英格兰联赛杯": {
+      "modelVersion": "efl-cup-v1-dedicated-0807",
+      "competitionState": "EFL Cup首轮，90分钟方向与晋级结果分开；若平局可能进入点球，页面只预测90分钟",
+      "ranking": "杯赛不使用联赛排名直接替代比赛强度；结合两队上季联赛层级、主场和官方市场",
+      "motivation": "首轮存在轮换与晋级取舍；Middlesbrough主场，Wrexham赛季目标和客场旅行纳入风险层",
+      "coachesTactics": "赛前报道提到Middlesbrough希望保持竞争力；具体首发和阵型待官方名单",
+      "injuriesSuspensions": "赛前公开线索提到Wrexham的Joseph、Jones、Bangura等伤情/出场限制，但未全部由俱乐部官方最终确认，暂不做强方向修正",
+      "formHomeAway": "使用上季交手/联赛层级、主场与市场矩阵；杯赛轮换使置信度下调",
+      "sources": ["https://www.fotmob.com/en-GB/matches/wrexham-middlesbrough/2soq1a", "https://www.wrexhamafc.co.uk/news/2026/may/02/report---wrexham-2-2-middlesbrough/", "https://www.reddit.com/r/Boro/comments/1vh5rzc/vs_wrexham_carabao_cup_august_7th/"],
+      "confidenceNote": "中低；首发和杯赛轮换是最大不确定性"
+    },
+    "荷兰甲级联赛": {
+      "modelVersion": "eredivisie-v1-dedicated-0807",
+      "competitionState": "2026/27赛季第1轮，Cambuur主场对Excelsior；KNVB确认新赛季揭幕战",
+      "ranking": "开季无本季积分；升级队/留在顶级联赛的赛季目标需要与上季最终名次分开处理",
+      "motivation": "开幕战无即时保级压力，长期升级/保级背景只作为先验，不强制改变胜平负",
+      "coachesTactics": "已纳入荷甲独立进球偏高与双方进球先验；双方主教练和首发战术待俱乐部赛前公告核验",
+      "injuriesSuspensions": "未取得双方赛前统一官方伤停名单，不填充传闻球员",
+      "formHomeAway": "使用KNVB官方赛程、上季联赛资料和当前赔率矩阵，开季样本收缩",
+      "sources": ["https://www.knvb.nl/nieuws/betaald-voetbal/competitiezaken/71918", "https://eredivisie.nl/nieuws/eerste-speelronde-2026-27/", "https://eredivisie.nl/competitie/stand/"],
+      "confidenceNote": "低；新赛季首轮，阵容变动和伤停未完全闭合"
+    },
+    "荷兰乙级联赛": {
+      "modelVersion": "keuken-kampioen-v1-dedicated-0807",
+      "competitionState": "2026/27 Keuken Kampioen Divisie第1轮，Emmen-Roda JC、TOP Oss-NAC Breda均为开季比赛",
+      "ranking": "开季积分为0；升级、附加赛和青年队资格规则作为联赛层变量单独记录",
+      "motivation": "首轮不存在即时保级结算，但升级目标、青年队波动和开放比赛风格是联赛专属先验",
+      "coachesTactics": "采用荷乙独立高进球/双方进球参数；具体教练、阵型和首发需要临场官方名单继续更新",
+      "injuriesSuspensions": "未取得双方完整官方伤停清单；保持中性",
+      "formHomeAway": "使用KNVB官方开季赛程和Sporttery市场矩阵，球队级状态从0开始滚动积累",
+      "sources": ["https://www.knvb.nl/nieuws/betaald-voetbal/competitiezaken/71918", "https://eredivisie.nl/nieuws/speeldagenkalender-betaald-voetbal-seizoen-2026-27-vastgesteld/"],
+      "confidenceNote": "低；首轮和球队层证据不足"
+    },
+    "葡萄牙超级联赛": {
+      "modelVersion": "primeira-liga-v1-dedicated-0807",
+      "competitionState": "2026/27 Liga Portugal Betclic第1轮，Estoril-Famalicão为官方揭幕战",
+      "ranking": "开季无本季积分；上季排名只作为实力先验，不作为本场动机结论",
+      "motivation": "开幕战双方没有即时升级保级压力；主场、赛季目标、阵容连续性和转会变动更重要",
+      "coachesTactics": "Liga Portugal官方赛程确认比赛；双方最新主教练、阵型和预计首发待俱乐部公告闭合",
+      "injuriesSuspensions": "未取得双方统一、可核验的赛前伤停清单；不把旧赛季伤病延续到新赛季",
+      "formHomeAway": "使用Liga Portugal官方赛程、上季结果背景和市场矩阵；首轮样本收缩并提高平局保护",
+      "sources": ["https://www.ligaportugal.pt/news/28234/estoril-praia-fc-famalicao-abre-liga-betclic-202627", "https://ligaportugalstorage.blob.core.windows.net/backoffice/assets/LP_Betclic2026_27_e11e5f17ed.pdf", "https://estorilpraia.pt/calendario/equipa-principal"],
+      "confidenceNote": "低；首轮、阵容变动和伤停仍需临场确认"
+    }
+  }
+}
