@@ -1,0 +1,32 @@
+{
+  "policy": "新联赛必须完成独立资料档案、独立参数和滚动回测后才能进入正式预测；资料不足时停用，不使用通用联赛模型。",
+  "requiredEvidence": [
+    "官方赛程、赛制与比赛阶段",
+    "积分排名、升级保级或晋级动机",
+    "近期至少一个完整可核验窗口的赛果、进失球与主客场拆分",
+    "伤停、停赛、预计首发与替补深度",
+    "主教练、阵型、战术变化与换帅记录",
+    "休息天数、旅行、天气、场地和赛程密度",
+    "官方赔率、比分矩阵、总进球与半全场市场",
+    "滚动回测、概率校准、比分池覆盖和失败案例复盘"
+  ],
+  "active": [
+    "韩国职业联赛",
+    "瑞典超级联赛",
+    "挪威超级联赛",
+    "芬兰超级联赛",
+    "巴西甲级联赛",
+    "巴西杯",
+    "美国职业大联盟",
+    "欧罗巴联赛",
+    "欧洲冠军联赛"
+  ],
+  "pending": {
+    "日本职业联赛": {"status": "blocked_until_dossier_and_backtest", "boardMatches": ["周五001", "周五002"]},
+    "德国乙级联赛": {"status": "blocked_until_dossier_and_backtest", "boardMatches": ["周五008"]},
+    "英格兰联赛杯": {"status": "blocked_until_dossier_and_backtest", "boardMatches": ["周五009"]},
+    "荷兰甲级联赛": {"status": "blocked_until_dossier_and_backtest", "boardMatches": ["周五010"]},
+    "荷兰乙级联赛": {"status": "blocked_until_dossier_and_backtest", "boardMatches": ["周五005", "周五007"]},
+    "葡萄牙超级联赛": {"status": "blocked_until_dossier_and_backtest", "boardMatches": ["周五003", "周五004", "周五006"]}
+  }
+}
