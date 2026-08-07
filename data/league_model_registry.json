@@ -21,12 +21,12 @@
     "欧罗巴联赛",
     "欧洲冠军联赛"
   ],
-  "pending": {
-    "日本职业联赛": {"status": "blocked_until_dossier_and_backtest", "boardMatches": ["周五001", "周五002"]},
-    "德国乙级联赛": {"status": "blocked_until_dossier_and_backtest", "boardMatches": ["周五008"]},
-    "英格兰联赛杯": {"status": "blocked_until_dossier_and_backtest", "boardMatches": ["周五009"]},
-    "荷兰甲级联赛": {"status": "blocked_until_dossier_and_backtest", "boardMatches": ["周五010"]},
-    "荷兰乙级联赛": {"status": "blocked_until_dossier_and_backtest", "boardMatches": ["周五005", "周五007"]},
-    "葡萄牙超级联赛": {"status": "blocked_until_dossier_and_backtest", "boardMatches": ["周五003", "周五004", "周五006"]}
+  "dedicatedNewModels": {
+    "日本职业联赛": {"status": "active_v1_low_confidence", "boardMatches": ["周五001", "周五002"]},
+    "德国乙级联赛": {"status": "active_v1_low_confidence", "boardMatches": ["周五008"]},
+    "英格兰联赛杯": {"status": "active_v1_low_confidence", "boardMatches": ["周五009"]},
+    "荷兰甲级联赛": {"status": "active_v1_low_confidence", "boardMatches": ["周五010"]},
+    "荷兰乙级联赛": {"status": "active_v1_low_confidence", "boardMatches": ["周五005", "周五007"]},
+    "葡萄牙超级联赛": {"status": "active_v1_low_confidence", "boardMatches": ["周五003", "周五004", "周五006"]}
   }
 }

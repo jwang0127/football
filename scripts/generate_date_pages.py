@@ -79,6 +79,24 @@ COMPETITION_MODELS: dict[str, dict[str, Any]] = {
                  "prior_probs": (.44, .29, .27), "goal_shift": .10, "draw_boost": 1.06,
                  "clean_sheet_boost": 1.08, "confidence_delta": -4,
                  "lesson": "07-21欧冠资格赛复盘：1-0、1-4、4-0，方向2/3但总进球0/3；扩大4+球与强侧零封/强客4球路径，同时保留低比分控节奏分支。"},
+    "日本职业联赛": {"version": "j-league-v1-dedicated-0807", "review_sample": 0, "had": .36, "crs": .43, "prior": .16,
+                 "prior_probs": (.43, .28, .29), "goal_shift": .02, "draw_boost": 1.08, "clean_sheet_boost": 1.06, "confidence_delta": -6,
+                 "lesson": "首版独立日职模型：以J.League官方排名/赛程、主客场与市场矩阵建模；新赛季样本不足，保留平局与一球差保护。"},
+    "德国乙级联赛": {"version": "bundesliga2-v1-dedicated-0807", "review_sample": 0, "had": .35, "crs": .43, "prior": .17,
+                 "prior_probs": (.42, .29, .29), "goal_shift": .04, "draw_boost": 1.05, "clean_sheet_boost": 1.04, "confidence_delta": -7,
+                 "lesson": "首版独立德乙模型：新赛季首轮重点加入升级压力、主场和阵容连续性；开季资料不足，禁止高置信度收窄。"},
+    "英格兰联赛杯": {"version": "efl-cup-v1-dedicated-0807", "review_sample": 0, "had": .34, "crs": .42, "prior": .18,
+                 "prior_probs": (.45, .27, .28), "goal_shift": .08, "draw_boost": 1.02, "clean_sheet_boost": 1.04, "confidence_delta": -9,
+                 "lesson": "首版独立英联杯模型：单独处理轮换、晋级动机和点球/加时不确定性；未核验首发前只做低置信度90分钟预测。"},
+    "荷兰甲级联赛": {"version": "eredivisie-v1-dedicated-0807", "review_sample": 0, "had": .35, "crs": .43, "prior": .15,
+                 "prior_probs": (.46, .25, .29), "goal_shift": .14, "draw_boost": 1.01, "clean_sheet_boost": 1.02, "confidence_delta": -6,
+                 "lesson": "首版独立荷甲模型：提高双方进球和高总进球先验，但由比分矩阵约束，不把联赛高进球等同于单一大比分。"},
+    "荷兰乙级联赛": {"version": "keuken-kampioen-v1-dedicated-0807", "review_sample": 0, "had": .34, "crs": .42, "prior": .16,
+                 "prior_probs": (.43, .27, .30), "goal_shift": .12, "draw_boost": 1.00, "clean_sheet_boost": 1.01, "confidence_delta": -8,
+                 "lesson": "首版独立荷乙模型：加入升级/附加赛动机和开放比赛先验；球队级信息未充分核验，降低方向置信度。"},
+    "葡萄牙超级联赛": {"version": "primeira-liga-v1-dedicated-0807", "review_sample": 0, "had": .34, "crs": .42, "prior": .14,
+                 "prior_probs": (.48, .27, .25), "goal_shift": -.02, "draw_boost": 1.07, "clean_sheet_boost": 1.08, "confidence_delta": -6,
+                 "lesson": "首版独立葡超模型：强调强队零封、低比分与主客场实力差；开季样本不足，保留平局和一球差尾部。"},
 }
 
 # 07-26 review overlay. Each active league receives only its own evidence;
@@ -152,6 +170,12 @@ def load_base():
         "韩国职业联赛": {"class": "kor", "color": "#b33e5c", "label": "韩职"},
         "芬兰超级联赛": {"class": "fin", "color": "#16766c", "label": "芬超"},
         "巴西杯": {"class": "cdb", "color": "#8b4f2f", "label": "巴西杯"},
+        "日本职业联赛": {"class": "jpn", "color": "#bd3b3b", "label": "日职"},
+        "德国乙级联赛": {"class": "ger", "color": "#4d6ea8", "label": "德乙"},
+        "英格兰联赛杯": {"class": "eng", "color": "#6a4ca0", "label": "英联杯"},
+        "荷兰甲级联赛": {"class": "ned", "color": "#d46d1d", "label": "荷甲"},
+        "荷兰乙级联赛": {"class": "ned2", "color": "#bf851c", "label": "荷乙"},
+        "葡萄牙超级联赛": {"class": "por", "color": "#1e7d52", "label": "葡超"},
     })
     return module
 
