@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-06T12:41:35",
+  "generatedAt": "2026-08-08T11:49:39",
   "method": "rolling verified 90-minute results with conservative shrinkage",
   "competitions": {
     "瑞典超级联赛": {
-      "version": "allsvenskan-v10-review-0726-auto-0806",
+      "version": "allsvenskan-v10-review-0726-auto-0808",
       "review_sample": 18,
       "prior_probs": [
         0.3747,
@@ -14,7 +14,7 @@
       "lesson": "滚动18场90分钟结果：主/平/客 7/6/5；参数仅小幅收缩。"
     },
     "挪威超级联赛": {
-      "version": "eliteserien-v7-review-0726-auto-0806",
+      "version": "eliteserien-v7-review-0726-auto-0808",
       "review_sample": 19,
       "prior_probs": [
         0.4484,
@@ -25,7 +25,7 @@
       "lesson": "滚动19场90分钟结果：主/平/客 9/3/7；参数仅小幅收缩。"
     },
     "巴西甲级联赛": {
-      "version": "brasileirao-v8-review-0726-auto-0806",
+      "version": "brasileirao-v8-review-0726-auto-0808",
       "review_sample": 7,
       "prior_probs": [
         0.4085,
@@ -36,7 +36,7 @@
       "lesson": "滚动7场90分钟结果：主/平/客 2/5/0；参数仅小幅收缩。"
     },
     "美国职业大联盟": {
-      "version": "mls-v6-review-0722-auto-0806",
+      "version": "mls-v6-review-0722-auto-0808",
       "review_sample": 3,
       "prior_probs": [
         0.4233,
@@ -47,7 +47,7 @@
       "lesson": "滚动3场90分钟结果：主/平/客 1/1/1；参数仅小幅收缩。"
     },
     "韩国职业联赛": {
-      "version": "k-league-v8-review-0726-auto-0806",
+      "version": "k-league-v8-review-0726-auto-0808",
       "review_sample": 18,
       "prior_probs": [
         0.4283,
@@ -58,7 +58,7 @@
       "lesson": "滚动18场90分钟结果：主/平/客 6/7/5；参数仅小幅收缩。"
     },
     "芬兰超级联赛": {
-      "version": "veikkausliiga-v8-review-0726-auto-0806",
+      "version": "veikkausliiga-v8-review-0726-auto-0808",
       "review_sample": 12,
       "prior_probs": [
         0.3885,
@@ -69,7 +69,7 @@
       "lesson": "滚动12场90分钟结果：主/平/客 5/1/6；参数仅小幅收缩。"
     },
     "欧洲冠军联赛": {
-      "version": "ucl-qualifying-v6-review-0722-auto-0806",
+      "version": "ucl-qualifying-v6-review-0722-auto-0808",
       "review_sample": 9,
       "prior_probs": [
         0.4612,
@@ -80,7 +80,7 @@
       "lesson": "滚动9场90分钟结果：主/平/客 5/2/2；参数仅小幅收缩。"
     },
     "欧罗巴联赛": {
-      "version": "uel-qualifying-v4-review-0723-auto-0806",
+      "version": "uel-qualifying-v4-review-0723-auto-0808",
       "review_sample": 5,
       "prior_probs": [
         0.44,
@@ -91,7 +91,7 @@
       "lesson": "滚动5场90分钟结果：主/平/客 3/1/1；参数仅小幅收缩。"
     },
     "巴西杯": {
-      "version": "copa-do-brasil-v1-market-baseline-0803-auto-0806",
+      "version": "copa-do-brasil-v1-market-baseline-0803-auto-0808",
       "review_sample": 3,
       "prior_probs": [
         0.4884,
