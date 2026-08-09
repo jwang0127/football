@@ -107,5 +107,14 @@ class CupModelTests(unittest.TestCase):
         self.assertIn("1-1", backups)
 
 
+class NewlySupportedCompetitionTests(unittest.TestCase):
+    def test_j2_has_an_isolated_conservative_profile(self):
+        profile = model_profile_for("日本乙级联赛")
+        self.assertEqual(profile["version"], "j2-league-v1-dedicated-0809")
+        self.assertEqual(profile["review_sample"], 0)
+        self.assertAlmostEqual(sum(profile["prior_probs"]), 1.0)
+        self.assertLessEqual(profile["confidence_delta"], -8)
+
+
 if __name__ == "__main__":
     unittest.main()
