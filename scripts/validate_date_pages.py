@@ -39,6 +39,12 @@ def main() -> None:
         profile = payload["competitionModels"][match["league"]]
         assert match["modelProfile"]["version"] == profile["version"]
         assert match["modelProfile"]["contextLayer"] == "evidence-chain-v2"
+        if match["league"] == "英格兰联赛杯":
+            # Regression guard: the EFL cup must use the dedicated rotation
+            # shrinkage profile after page generation, not only in source code.
+            assert match["modelProfile"].get("scorelineWeight", 1.0) <= 0.18
+            assert match["confidenceScore"] <= 64
+            assert match["marketRiskLevel"] in {"高", "中高"}
         assert set(match["reasoningContract"]) >= {"whyWin", "whyMustWin", "whyLose", "whyNotLose", "whyDraw", "dimensionReport"}
         assert set(match["analysisDimensions"]) == {"schedule_load", "rest_fatigue", "travel_home_advantage", "squad_availability", "recent_performance", "coach_tactics", "motivation_competition", "weather_pitch", "set_piece_transition", "market_contradiction", "previous_match", "next_match", "ranking_table", "promotion_relegation", "cover_risk", "upset_risk"}
         assert set(match["contextFactors"]) == {"stage", "schedule", "motivation", "weather", "teamNews", "coach", "upsetPath"}

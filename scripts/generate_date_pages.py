@@ -29,11 +29,42 @@ ANALYSIS_DIMENSIONS = (
     "ranking_table", "promotion_relegation", "cover_risk", "upset_risk",
 )
 MARKET_TEXT = {"had": "胜平负", "ttg": "总进球", "crs": "比分", "hafu": "半全场"}
-CUP_COMPETITIONS = {"欧洲冠军联赛", "欧罗巴联赛", "巴西杯"}
+CUP_COMPETITIONS = {"欧洲冠军联赛", "欧罗巴联赛", "巴西杯", "英格兰联赛杯"}
 # How much the fitted Dixon-Coles scoreline model contributes on top of the
 # de-vigged market when ranking scores/goals.  The market stays the anchor;
 # the model regularises noise in thin correct-score pools.
 SCORELINE_MODEL_WEIGHT = 0.30
+# Cup correct-score markets are especially sensitive to rotation, game-state
+# management and the fact that the settlement horizon is 90 minutes.  Keep the
+# market as the anchor and make the scoreline fit a smaller regulariser for
+# competitions with a dedicated cup profile.
+CUP_MODEL_TUNING: dict[str, dict[str, Any]] = {
+    "英格兰联赛杯": {
+        "scoreline_weight": 0.18,
+        "draw_threshold": 0.14,
+        "rotation_penalty": -4,
+        "confidence_cap": 64,
+        "structural_goal_shift": -0.04,
+    },
+    "欧洲冠军联赛": {
+        "scoreline_weight": 0.22,
+        "draw_threshold": 0.12,
+        "rotation_penalty": -3,
+        "confidence_cap": 68,
+    },
+    "欧罗巴联赛": {
+        "scoreline_weight": 0.22,
+        "draw_threshold": 0.14,
+        "rotation_penalty": -3,
+        "confidence_cap": 66,
+    },
+    "巴西杯": {
+        "scoreline_weight": 0.22,
+        "draw_threshold": 0.14,
+        "rotation_penalty": -3,
+        "confidence_cap": 66,
+    },
+}
 HAFU_TEXT = {"hh": "胜/胜", "hd": "胜/平", "ha": "胜/负", "dh": "平/胜", "dd": "平/平", "da": "平/负", "ah": "负/胜", "ad": "负/平", "aa": "负/负"}
 EXCLUDED_BY_DATE: dict[str, dict[str, str]] = {
     "20260718": {"法国|英格兰": ""}
@@ -150,7 +181,7 @@ def dynamic_calibration() -> dict[str, dict[str, Any]]:
 
 
 def model_profile_for(league: str) -> dict[str, Any]:
-    profile = {**COMPETITION_MODELS.get(league, {}), **POST_REVIEW_CALIBRATION.get(league, {})}
+    profile = {**COMPETITION_MODELS.get(league, {}), **POST_REVIEW_CALIBRATION.get(league, {}), **CUP_MODEL_TUNING.get(league, {})}
     profile.update(dynamic_calibration().get(league, {}))
     return profile
 
@@ -222,6 +253,19 @@ def shrink_review_profile(profile: dict[str, Any]) -> dict[str, Any]:
     effective["draw_boost"] = 1.0 + strength * (float(profile.get("draw_boost", 1.0)) - 1.0)
     effective["clean_sheet_boost"] = 1.0 + strength * (float(profile.get("clean_sheet_boost", 1.0)) - 1.0)
     effective["confidence_delta"] = round(strength * int(profile.get("confidence_delta", 0)))
+    # Structural cup controls are not learned from a single review window;
+    # retain them as explicit competition policy while still shrinking the
+    # empirical market adjustments above.
+    if "scoreline_weight" in profile:
+        effective["scoreline_weight"] = float(profile["scoreline_weight"])
+    if "draw_threshold" in profile:
+        effective["draw_threshold"] = float(profile["draw_threshold"])
+    if "rotation_penalty" in profile:
+        effective["rotation_penalty"] = int(profile["rotation_penalty"])
+    if "confidence_cap" in profile:
+        effective["confidence_cap"] = int(profile["confidence_cap"])
+    if "structural_goal_shift" in profile:
+        effective["structural_goal_shift"] = float(profile["structural_goal_shift"])
     effective["review_strength"] = round(strength, 4)
     return effective
 
@@ -273,7 +317,8 @@ def apply_match_context(probabilities: dict[str, float], context: dict[str, Any]
     return normalized(adjusted)
 
 
-def market_volatility_audit(match: dict[str, Any], probabilities: dict[str, float], goal_probs: dict[str, float]) -> dict[str, Any]:
+def market_volatility_audit(match: dict[str, Any], probabilities: dict[str, float], goal_probs: dict[str, float],
+                            context: dict[str, Any] | None = None, profile: dict[str, Any] | None = None) -> dict[str, Any]:
     """Describe measurable cup volatility without making misconduct allegations."""
     if match.get("league") not in CUP_COMPETITIONS:
         return {
@@ -282,11 +327,19 @@ def market_volatility_audit(match: dict[str, Any], probabilities: dict[str, floa
             "confidencePenalty": 0,
             "note": "未触发杯赛高波动附加层。",
         }
+    context = context or {}
+    profile = profile or {}
+    tuning = CUP_MODEL_TUNING.get(match.get("league", ""), {})
     ordered = sorted(probabilities.items(), key=lambda row: row[1], reverse=True)
     gap = ordered[0][1] - ordered[1][1]
     low_mass = sum(goal_probs.get(str(i), 0.0) for i in range(3))
     high_mass = sum(goal_probs.get(str(i), 0.0) for i in range(4, 7)) + goal_probs.get("7+", 0.0)
-    factors = ["杯赛/资格赛存在两回合策略和领先后控节奏路径"]
+    factors = ["杯赛/资格赛存在轮换、90分钟结算和领先后控节奏路径"]
+    confidence_penalty = int(tuning.get("rotation_penalty", -3))
+    verified = set(context.get("verifiedFactors", []))
+    if "squad_availability" not in verified and "teamNews" not in verified:
+        factors.append("未核实首发与轮换，禁止把强队名气直接等同于90分钟稳胜")
+        confidence_penalty += int(tuning.get("rotation_penalty", -3))
     if gap <= .10:
         factors.append("胜平负方向接近，意外结果风险按平局保护处理")
     if low_mass >= .42:
@@ -296,13 +349,16 @@ def market_volatility_audit(match: dict[str, Any], probabilities: dict[str, floa
     return {
         "level": "高" if gap <= .10 or (low_mass >= .42 and high_mass >= .24) else "中高",
         "factors": factors,
-        "confidencePenalty": -3 if gap <= .10 else -2,
+        "confidencePenalty": confidence_penalty + (-3 if gap <= .10 else -2),
+        "confidenceCap": int(tuning.get("confidence_cap", 72)),
+        "drawThreshold": float(tuning.get("draw_threshold", .14)),
         "note": "仅依据官方赔率、比分矩阵和总进球分布审计盘口分歧；无公开证据时不认定假球、故意输或故意平。",
     }
 
 
 def competition_goal_probabilities(match: dict[str, Any], profile: dict[str, Any], context: dict[str, Any],
-                                   model: ScorelineModel | None = None) -> dict[str, float]:
+                                   model: ScorelineModel | None = None,
+                                   scoreline_weight: float = SCORELINE_MODEL_WEIGHT) -> dict[str, float]:
     market = inverse_market(match.get("odds", {}).get("ttg") or {}, tuple(f"s{i}" for i in range(8)))
     if not market:
         if model:
@@ -313,10 +369,10 @@ def competition_goal_probabilities(match: dict[str, Any], profile: dict[str, Any
         # Blend the de-vigged totals market with the totals implied by the
         # fitted scoreline model so goals/scores/direction stay coherent.
         model_totals = model.total_goal_probabilities()
-        base = {key: (1 - SCORELINE_MODEL_WEIGHT) * value + SCORELINE_MODEL_WEIGHT * model_totals.get(key, 0.0)
+        base = {key: (1 - scoreline_weight) * value + scoreline_weight * model_totals.get(key, 0.0)
                 for key, value in base.items()}
     mean = sum((7 if key == "7+" else int(key)) * value for key, value in base.items())
-    target = mean + profile["goal_shift"] + float(context.get("goalShift", 0.0))
+    target = mean + profile["goal_shift"] + float(profile.get("structural_goal_shift", 0.0)) + float(context.get("goalShift", 0.0))
     adjusted = {}
     for key, value in base.items():
         goals = 7 if key == "7+" else int(key)
@@ -325,7 +381,8 @@ def competition_goal_probabilities(match: dict[str, Any], profile: dict[str, Any
 
 
 def competition_score_pool(match: dict[str, Any], probabilities: dict[str, float], goal_probs: dict[str, float], profile: dict[str, Any], context: dict[str, Any],
-                           model: ScorelineModel | None = None) -> tuple[str, list[str], list[str]]:
+                           model: ScorelineModel | None = None,
+                           scoreline_weight: float = SCORELINE_MODEL_WEIGHT) -> tuple[str, list[str], list[str]]:
     market_probs = {score: value for score, value in devigged_score_market(match).items() if "-" in score}
     model_probs = model.score_probabilities(list(market_probs)) if model and market_probs else {}
     ranked: list[tuple[str, float]] = []
@@ -336,7 +393,7 @@ def competition_score_pool(match: dict[str, Any], probabilities: dict[str, float
         goal_key = "7+" if goals >= 7 else str(goals)
         base = market_probability
         if model_probs:
-            base = (1 - SCORELINE_MODEL_WEIGHT) * market_probability + SCORELINE_MODEL_WEIGHT * model_probs.get(score, 0.0)
+            base = (1 - scoreline_weight) * market_probability + scoreline_weight * model_probs.get(score, 0.0)
         likelihood = base * (0.55 + probabilities[outcome]) * (0.55 + goal_probs.get(goal_key, 0))
         if home == 0 or away == 0:
             likelihood *= profile["clean_sheet_boost"]
@@ -371,6 +428,20 @@ def competition_score_pool(match: dict[str, Any], probabilities: dict[str, float
     low_goal_mass = sum(goal_probs.get(str(goals), 0.0) for goals in (0, 1))
     if probabilities.get("draw", 0.0) >= .29 and low_goal_mass >= .18 and "0-0" in ordered:
         backups.append("0-0")
+
+    # Cup ties need a draw hedge even when the favourite remains the model
+    # direction. This is conditional on a narrow probability gap; it does not
+    # turn every cup match into an automatic draw call.
+    cup_tuning = CUP_MODEL_TUNING.get(match.get("league", ""), {})
+    draw_threshold = float(cup_tuning.get("draw_threshold", .0))
+    if draw_threshold and direction != "draw":
+        top_non_draw = max(probabilities.get("home", 0.0), probabilities.get("away", 0.0))
+        if top_non_draw - probabilities.get("draw", 0.0) <= draw_threshold:
+            for hedge in ("1-1", "0-0"):
+                if hedge in ordered and hedge not in backups and hedge != main:
+                    backups.append(hedge)
+                    if len(backups) >= 2:
+                        break
 
     prefer_hedge = probabilities[direction] < .48
     if len(backups) < 2:
@@ -419,9 +490,10 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
     scoreline_model = scoreline_model_for(match)
     market_probabilities = competition_direction_probabilities(match, profile)
     probabilities = apply_match_context(market_probabilities, context)
-    goal_probs = competition_goal_probabilities(match, profile, context, scoreline_model)
-    volatility = market_volatility_audit(match, probabilities, goal_probs)
-    main, backups, tails = competition_score_pool(match, probabilities, goal_probs, profile, context, scoreline_model)
+    scoreline_weight = float(profile.get("scoreline_weight", SCORELINE_MODEL_WEIGHT))
+    goal_probs = competition_goal_probabilities(match, profile, context, scoreline_model, scoreline_weight)
+    volatility = market_volatility_audit(match, probabilities, goal_probs, context, profile)
+    main, backups, tails = competition_score_pool(match, probabilities, goal_probs, profile, context, scoreline_model, scoreline_weight)
     preferred_scores = [score for score in context.get("preferredScores", []) if num(match.get("odds", {}).get("crs", {}).get(score))]
     if len(preferred_scores) >= 3:
         main, backups = preferred_scores[0], preferred_scores[1:3]
@@ -429,7 +501,7 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
     market_scores = {score: value for score, value in devigged_score_market(match).items() if "-" in score}
     model_scores = scoreline_model.score_probabilities(list(market_scores)) if scoreline_model and market_scores else {}
     score_pool_probs = {
-        score: round((1 - SCORELINE_MODEL_WEIGHT) * value + SCORELINE_MODEL_WEIGHT * model_scores.get(score, 0.0), 4)
+        score: round((1 - scoreline_weight) * value + scoreline_weight * model_scores.get(score, 0.0), 4)
         if model_scores else round(value, 4)
         for score, value in market_scores.items()
     }
@@ -459,8 +531,8 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
         "halfFullProbabilities": half_full_probs,
         "scorelineFit": scoreline_model.summary() if scoreline_model else None,
         "marketBaselineProbabilities": {key: round(value, 4) for key, value in market_probabilities.items()},
-        "confidenceScore": max(25, min(82, predicted["confidenceScore"] + profile["confidence_delta"] + volatility["confidencePenalty"] + int(context.get("confidenceDelta", 0)))),
-        "modelProfile": {**{key: profile[key] for key in ("version", "had", "crs", "prior", "goal_shift", "review_sample", "review_strength")}, "contextLayer": "evidence-chain-v2", "scorelineLayer": "dixon-coles-market-blend-v1", "reviewMethod": "12场中性先验收缩 + 多维证据闸门"},
+        "confidenceScore": max(25, min(int(volatility.get("confidenceCap", profile.get("confidence_cap", 82))), predicted["confidenceScore"] + profile["confidence_delta"] + volatility["confidencePenalty"] + int(context.get("confidenceDelta", 0)))),
+        "modelProfile": {**{key: profile[key] for key in ("version", "had", "crs", "prior", "goal_shift", "review_sample", "review_strength")}, "scorelineWeight": scoreline_weight, "contextLayer": "evidence-chain-v2", "scorelineLayer": "dixon-coles-market-blend-v1", "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"},
         "modelLesson": source_profile["lesson"],
         "contextFactors": {key: context.get(key, "资料不足，保持中性") for key in ("stage", "schedule", "motivation", "weather", "teamNews", "coach", "upsetPath")},
         "contextSources": context.get("sources", []),

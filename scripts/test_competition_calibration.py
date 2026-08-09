@@ -1,6 +1,13 @@
 import unittest
 
-from generate_date_pages import build_dimension_report, competition_score_pool, context_for_match, shrink_review_profile
+from generate_date_pages import (
+    build_dimension_report,
+    competition_score_pool,
+    context_for_match,
+    market_volatility_audit,
+    model_profile_for,
+    shrink_review_profile,
+)
 
 
 class ReviewShrinkageTests(unittest.TestCase):
@@ -63,6 +70,41 @@ class DiverseScorePoolTests(unittest.TestCase):
         )
         self.assertIn("0-0", backups)
         self.assertNotIn("0-0", tails)
+
+
+class CupModelTests(unittest.TestCase):
+    def test_efl_cup_uses_rotation_cap_and_lower_scoreline_weight(self):
+        profile = model_profile_for("英格兰联赛杯")
+        self.assertEqual(profile["confidence_cap"], 64)
+        self.assertAlmostEqual(profile["scoreline_weight"], .18)
+        self.assertAlmostEqual(profile["structural_goal_shift"], -.04)
+
+    def test_efl_cup_penalizes_unknown_lineups_and_reports_draw_risk(self):
+        audit = market_volatility_audit(
+            {"league": "英格兰联赛杯"},
+            {"home": .44, "draw": .34, "away": .22},
+            {"0": .12, "1": .28, "2": .30, "3": .18, "4": .08, "5": .04, "6": 0.0, "7+": 0.0},
+            {"verifiedFactors": []},
+            model_profile_for("英格兰联赛杯"),
+        )
+        self.assertEqual(audit["confidenceCap"], 64)
+        self.assertLessEqual(audit["confidencePenalty"], -10)
+        self.assertTrue(any("轮换" in factor for factor in audit["factors"]))
+
+    def test_narrow_efl_cup_direction_keeps_draw_score_hedge(self):
+        main, backups, _ = competition_score_pool(
+            {"league": "英格兰联赛杯", "odds": {"crs": {
+                "0-0": "8.00", "1-0": "7.00", "2-0": "8.50", "2-1": "6.00",
+                "1-1": "6.50", "1-2": "9.00", "0-1": "10.00", "0-2": "14.00",
+            }}},
+            {"home": .44, "draw": .34, "away": .22},
+            {"0": .08, "1": .12, "2": .40, "3": .30, "4": .10},
+            {"clean_sheet_boost": 1.0},
+            {},
+            scoreline_weight=.18,
+        )
+        self.assertNotEqual(main, "1-1")
+        self.assertIn("1-1", backups)
 
 
 if __name__ == "__main__":
