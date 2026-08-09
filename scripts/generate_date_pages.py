@@ -459,6 +459,31 @@ def competition_score_pool(match: dict[str, Any], probabilities: dict[str, float
             backups.append(score)
             if len(backups) == 2:
                 break
+    # Prefer backups from different total-goal shapes. Repeating 2-1/3-1 is
+    # not meaningful diversification when a score ticket settles on exact
+    # score; keep a low-score control path and a distinct open-game path when
+    # the market actually supports both.
+    diversified: list[str] = []
+    used_shapes = {score_shape(main)}
+    if draw_threshold and "1-1" in ordered and probabilities.get("draw", 0.0) >= .28:
+        diversified.append("1-1")
+        used_shapes.add(score_shape("1-1"))
+    for score in backups + ordered:
+        if score == main or score in diversified:
+            continue
+        shape = score_shape(score)
+        if shape not in used_shapes:
+            diversified.append(score)
+            used_shapes.add(shape)
+        if len(diversified) == 2:
+            break
+    for score in backups + ordered:
+        if len(diversified) == 2:
+            break
+        if score != main and score not in diversified:
+            diversified.append(score)
+    backups = diversified[:2]
+
     for score in ordered:
         if len(backups) == 2:
             break
@@ -485,6 +510,12 @@ def competition_score_pool(match: dict[str, Any], probabilities: dict[str, float
                 tails.append(score)
                 if len(tails) >= 5:
                     break
+    upset = upset_attack_capability(match, probabilities)
+    upset_scores = ("0-3", "0-4", "0-5", "1-3", "1-4", "1-5") if upset["underdog"] == "away" else ("3-0", "4-0", "5-0", "3-1", "4-1", "5-1")
+    if not upset["viable"]:
+        tails = [score for score in tails if score not in upset_scores]
+    elif not upset["bigViable"]:
+        tails = [score for score in tails if score not in upset_scores]
     return main, backups, tails
 
 
@@ -509,6 +540,54 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
         score: round((1 - scoreline_weight) * value + scoreline_weight * model_scores.get(score, 0.0), 4)
         if model_scores else round(value, 4)
         for score, value in market_scores.items()
+    }
+
+
+def low_sample_controls(profile: dict[str, Any], league: str) -> dict[str, Any]:
+    """Cap trust for dedicated competitions without a usable review sample."""
+    sample = int(profile.get("review_sample", 0))
+    version = str(profile.get("version", ""))
+    dedicated = "dedicated" in version or "market-baseline" in version
+    if league in CUP_COMPETITIONS or not dedicated or sample >= 4:
+        return {"active": False, "penalty": 0, "cap": 82, "status": "有复盘样本或杯赛专属收缩"}
+    if sample == 0:
+        return {"active": True, "penalty": -8, "cap": 52, "status": "新联赛无复盘样本：禁止标记稳场"}
+    return {"active": True, "penalty": -5, "cap": 58, "status": f"复盘样本偏少（{sample}场）：降低信任"}
+
+
+def score_shape(score: str) -> str:
+    home, away = (int(value) for value in score.split("-"))
+    goals = home + away
+    if goals <= 1:
+        return "low"
+    if goals <= 3:
+        return "normal"
+    return "high"
+
+
+def upset_attack_capability(match: dict[str, Any], probabilities: dict[str, float]) -> dict[str, Any]:
+    """Require market evidence that the underdog can score before showing upset tails."""
+    market = devigged_score_market(match)
+    favourite = "home" if probabilities.get("home", 0.0) >= probabilities.get("away", 0.0) else "away"
+    underdog = "away" if favourite == "home" else "home"
+    scoring_mass = 0.0
+    two_goal_mass = 0.0
+    for score, probability in market.items():
+        if "-" not in score:
+            continue
+        home, away = (int(value) for value in score.split("-"))
+        goals = away if underdog == "away" else home
+        if goals >= 1:
+            scoring_mass += probability
+        if goals >= 2:
+            two_goal_mass += probability
+    return {
+        "favourite": favourite,
+        "underdog": underdog,
+        "scoringMass": round(scoring_mass, 4),
+        "twoGoalMass": round(two_goal_mass, 4),
+        "viable": scoring_mass >= .38,
+        "bigViable": two_goal_mass >= .16,
     }
     hafu_market = implied_probabilities(match.get("odds", {}).get("hafu") or {}, tuple(HAFU_TEXT))
     hafu_model = scoreline_model.half_full_probabilities() if scoreline_model else {}
@@ -561,6 +640,92 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
         "reason": context.get("judgement") or f"盘口、比分矩阵与总进球模型综合后主方向为{ {'home': '主胜', 'draw': '平', 'away': '客胜'}[direction] }；未核实的传闻不进入模型。",
     })
     predicted["confidence"] = "高" if predicted["confidenceScore"] >= 65 else "中" if predicted["confidenceScore"] >= 52 else "中低"
+    return predicted
+
+
+def fundamental_direction_probabilities(match: dict[str, Any], context: dict[str, Any]) -> dict[str, float] | None:
+    explicit = context.get("fundamentalProbabilities")
+    if isinstance(explicit, dict) and all(key in explicit for key in ("home", "draw", "away")):
+        return normalized({key: float(explicit[key]) for key in ("home", "draw", "away")})
+    multipliers = context.get("outcomeMultipliers", {})
+    evidence = set(context.get("verifiedFactors", []))
+    usable = evidence & {"ranking_table", "recent_performance", "home_away", "squad_availability", "coach_tactics", "schedule_load", "motivation_competition", "travel_home_advantage"}
+    if not usable and not multipliers:
+        return None
+    values = {"home": 1 / 3, "draw": 1 / 3, "away": 1 / 3}
+    for key in values:
+        values[key] *= max(.70, min(1.35, float(multipliers.get(key, 1.0))))
+    home_rank = num(context.get("homeRank", match.get("homeRank")))
+    away_rank = num(context.get("awayRank", match.get("awayRank")))
+    if home_rank is not None and away_rank is not None and abs(home_rank - away_rank) >= 2:
+        better = "home" if home_rank < away_rank else "away"
+        worse = "away" if better == "home" else "home"
+        values[better] *= 1.08
+        values[worse] *= .94
+    if "home_away" in usable or "travel_home_advantage" in usable:
+        values["home"] *= 1.04
+    return normalized(values)
+
+
+def blend_fundamental_and_market(market: dict[str, float], fundamental: dict[str, float] | None) -> dict[str, float]:
+    if not fundamental:
+        return market
+    return normalized({key: .58 * fundamental[key] + .42 * market[key] for key in ("home", "draw", "away")})
+
+
+def goal_selection_gate(match: dict[str, Any], goal_probs: dict[str, float]) -> dict[str, Any]:
+    crs = devigged_score_market(match)
+    attack = sum(p for score, p in crs.items() if "-" in score and (int(score.split("-")[0]) >= 2 or int(score.split("-")[1]) >= 2))
+    both_score = sum(p for score, p in crs.items() if "-" in score and min((int(v) for v in score.split("-"))) >= 1)
+    tempo = sum(p for key, p in goal_probs.items() if key == "7+" or int(key) >= 3)
+    viable = attack >= .34 and tempo >= .38 and both_score >= .26
+    return {"attackEfficiencyProxy": round(attack, 4), "tempoProxy": round(tempo, 4), "defensiveHoleProxy": round(both_score, 4), "viable": viable, "status": "big-goal conditions all supported" if viable else "attack/tempo/defensive-hole gate not fully supported"}
+
+
+def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, Any]) -> dict[str, Any]:
+    source_profile = model_profile_for(match["league"])
+    profile = shrink_review_profile(source_profile)
+    sample_control = low_sample_controls(profile, match["league"])
+    predicted = base.predict(match)
+    scoreline_model = scoreline_model_for(match)
+    market_baseline = competition_direction_probabilities(match, profile)
+    fundamental = fundamental_direction_probabilities(match, context)
+    probabilities = apply_match_context(blend_fundamental_and_market(market_baseline, fundamental), context)
+    scoreline_weight = float(profile.get("scoreline_weight", SCORELINE_MODEL_WEIGHT))
+    goal_probs = competition_goal_probabilities(match, profile, context, scoreline_model, scoreline_weight)
+    goal_gate = goal_selection_gate(match, goal_probs)
+    volatility = market_volatility_audit(match, probabilities, goal_probs, context, profile)
+    main, backups, tails = competition_score_pool(match, probabilities, goal_probs, profile, context, scoreline_model, scoreline_weight)
+    preferred_scores = [score for score in context.get("preferredScores", []) if num(match.get("odds", {}).get("crs", {}).get(score))]
+    if len(preferred_scores) >= 3:
+        main, backups = preferred_scores[0], preferred_scores[1:3]
+    direction = max(probabilities, key=probabilities.get)
+    market_direction = max(market_baseline, key=market_baseline.get)
+    fundamental_direction = max(fundamental, key=fundamental.get) if fundamental else None
+    market_contradiction = bool(fundamental and market_direction != fundamental_direction and abs(market_baseline[market_direction] - fundamental[market_direction]) >= .08)
+    market_scores = {score: value for score, value in devigged_score_market(match).items() if "-" in score}
+    model_scores = scoreline_model.score_probabilities(list(market_scores)) if scoreline_model and market_scores else {}
+    score_pool_probs = {score: round((1 - scoreline_weight) * value + scoreline_weight * model_scores.get(score, 0.0), 4) if model_scores else round(value, 4) for score, value in market_scores.items()}
+    hafu_market = implied_probabilities(match.get("odds", {}).get("hafu") or {}, tuple(HAFU_TEXT))
+    hafu_model = scoreline_model.half_full_probabilities() if scoreline_model else {}
+    half_full_probs = {key: round(0.5 * hafu_market.get(key, 0.0) + 0.5 * hafu_model.get(key, 0.0), 4) for key in HAFU_TEXT} if hafu_market and hafu_model else {key: round(value, 4) for key, value in (hafu_model or hafu_market).items()}
+    reasoning = build_reasoning_contract(match, direction, context, main, backups[:2])
+    match_brief = build_match_brief(match, context)
+    total_goals = max(goal_probs, key=goal_probs.get)
+    confidence_cap = min(int(volatility.get("confidenceCap", profile.get("confidence_cap", 82))), int(sample_control["cap"]))
+    confidence_score = max(25, min(confidence_cap, predicted["confidenceScore"] + profile["confidence_delta"] + volatility["confidencePenalty"] + sample_control["penalty"] + int(context.get("confidenceDelta", 0))))
+    predicted.update({
+        "probabilities": {key: round(value, 4) for key, value in probabilities.items()}, "direction": direction, "directionText": {"home": "主胜", "draw": "平", "away": "客胜"}[direction],
+        "mainScore": main, "backupScores": backups[:2], "tailRiskScores": tails, "totalGoals": total_goals, "goalCandidates": sorted(goal_probs, key=goal_probs.get, reverse=True)[:3], "goalProbabilities": {key: round(value, 4) for key, value in goal_probs.items()},
+        "scorePoolProbabilities": score_pool_probs, "halfFullProbabilities": half_full_probs, "scorelineFit": scoreline_model.summary() if scoreline_model else None, "marketBaselineProbabilities": {key: round(value, 4) for key, value in market_baseline.items()},
+        "fundamentalProbabilities": {key: round(value, 4) for key, value in fundamental.items()} if fundamental else None, "fundamentalFirst": True, "marketContradiction": market_contradiction, "goalSelectionGate": goal_gate, "upsetAttackCapability": upset_attack_capability(match, probabilities),
+        "goalPrediction": {"pick": total_goals, "probability": round(goal_probs[total_goals], 4), "type": "total_goals"}, "scorePrediction": {"pick": main, "probability": round(score_pool_probs.get(main, 0.0), 4), "type": "exact_score"}, "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
+        "confidenceScore": confidence_score, "modelProfile": {**{key: profile[key] for key in ("version", "had", "crs", "prior", "goal_shift", "review_sample", "review_strength")}, "scorelineWeight": scoreline_weight, "sampleControl": sample_control, "contextLayer": "fundamental-first-v3", "scorelineLayer": "dixon-coles-market-blend-v1"}, "modelLesson": source_profile["lesson"],
+        "contextFactors": {key: context.get(key, "资料不足，保持中性") for key in ("stage", "schedule", "motivation", "weather", "teamNews", "coach", "upsetPath")}, "contextSources": context.get("sources", []), "evidenceStatus": context.get("evidenceStatus", "比赛级公开证据不足；情境层保持中性"), "verifiedFactors": context.get("verifiedFactors", []), "reasoningMethod": "fundamental-first-v3", "reasoningContract": reasoning,
+        "matchBrief": match_brief, "previousMatch": match_brief["previousMatch"], "nextMatch": match_brief["nextMatch"], "rankingBrief": match_brief["ranking"], "promotionRelegationBrief": match_brief["promotionRelegation"], "coverRisk": match_brief["coverRisk"], "upsetRisk": match_brief["upsetRisk"], "analysisDimensions": reasoning["dimensionReport"]["dimensions"], "missingAnalysisDimensions": reasoning["dimensionReport"]["missingDimensions"], "analysisCompleteness": reasoning["dimensionReport"]["completeness"], "marketRiskLevel": volatility["level"], "marketRiskFactors": volatility["factors"], "marketRiskNote": volatility["note"],
+        "reason": context.get("judgement") or f"先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为{ {'home': '主胜', 'draw': '平', 'away': '客胜'}[direction] }。" + ("市场与基本面存在分歧，降低信任度。" if market_contradiction else "") + (f" {sample_control['status']}。" if sample_control["active"] else ""),
+    })
+    predicted["confidence"] = "高" if confidence_score >= 65 else "中" if confidence_score >= 52 else "中低"
     return predicted
 
 
@@ -780,8 +945,9 @@ def leg(match: dict[str, Any], market: str) -> dict[str, Any]:
 def combo(name: str, legs: tuple[dict[str, Any], ...] | list[dict[str, Any]], category: str) -> dict[str, Any]:
     product = math.prod(row["odds"] for row in legs)
     joint = math.prod(row["probability"] for row in legs)
-    trust = round(100 * joint ** (1 / len(legs)) * (0.94 ** (len(legs) - 1)))
-    return {"name": name, "category": category, "legs": list(legs), "productOdds": round(product, 2), "trustScore": max(1, min(88, trust))}
+    exact_score_legs = sum(row["market"] == "crs" for row in legs)
+    trust = round(100 * joint ** (1 / len(legs)) * (0.94 ** (len(legs) - 1)) * (0.82 ** exact_score_legs))
+    return {"name": name, "category": category, "legs": list(legs), "productOdds": round(product, 2), "trustScore": max(1, min(88, trust)), "exactScoreLegs": exact_score_legs, "settlementRisk": "高（含精确比分）" if exact_score_legs else "常规"}
 
 
 def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -795,7 +961,8 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
         candidates = all_legs[market]
         usable = [x for x in candidates if x["odds"] and x["probability"]]
         pool = []
-        for size in range(2, min(3, len(usable)) + 1):
+        max_size = 2 if market == "crs" else 3
+        for size in range(2, min(max_size, len(usable)) + 1):
             for selected in combinations(usable, size):
                 if not same_competition(selected):
                     continue
@@ -815,6 +982,8 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
             if len({x["matchId"] for x in selected}) != size or len({x["market"] for x in selected}) < 2:
                 continue
             if sum(x["market"] == "had" for x in selected) > 1:
+                continue
+            if size >= 3 and sum(x["market"] == "crs" for x in selected) > 1:
                 continue
             item = combo(f"混合{size}串一", selected, "mixed")
             if item["productOdds"] >= MIN_COMBO_ODDS:
@@ -990,7 +1159,7 @@ def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
     combos = []
     for c in payload["combos"]:
         legs = "".join(f'<tr><td>{esc(x["match"])}</td><td>{esc(x["marketText"])}</td><td>{esc(x["pick"])}</td><td>{x["odds"]:.2f}</td></tr>' for x in c["legs"])
-        combos.append(f'<section class="combo {c["category"]}"><h3>#{c["rank"]} {esc(c["name"])} <b>{c["trustScore"]}/100</b></h3><table>{legs}</table><p>理论组合赔率：<strong>{c["productOdds"]:.2f}</strong></p></section>')
+        combos.append(f'<section class="combo {c["category"]}"><h3>#{c["rank"]} {esc(c["name"])} <b>{c["trustScore"]}/100</b></h3><table>{legs}</table><p>理论组合赔率：<strong>{c["productOdds"]:.2f}</strong>；结算风险：{esc(c.get("settlementRisk", "常规"))}</p></section>')
     cards = []
     for m in payload["matches"]:
         p, had = m["probabilities"], m["odds"]["had"]
@@ -1012,7 +1181,8 @@ def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
         brief = m.get("matchBrief", {})
         brief_html = render_match_brief(brief)
         brief_section = f'<div class="factors"><p><b>赛前综合简报：</b></p>{brief_html}</div>' if brief_html else ''
-        cards.append(f'''<section class="match" style="--league:{m['leagueStyle']['color']}"><div class="title"><h3>{esc(m['matchNumStr'])} {esc(m['home'])} vs {esc(m['away'])}</h3><span>{esc(m['leagueStyle']['label'])}</span></div><p><b>北京时间：</b>{esc(m['kickoff'])}　<b>胜平负赔率：</b>{had.get('home','-')} / {had.get('draw','-')} / {had.get('away','-')}</p><p><b>独立模型：</b>{esc(m['modelProfile']['version'])} + 综合情境模拟层</p><div class="grid"><div><small>胜平负</small><strong>{esc(m['directionText'])}</strong></div><div><small>总进球</small><strong>{esc(m['totalGoals'])}</strong></div><div><small>主比分</small><strong>{esc(m['mainScore'])}</strong></div><div><small>半全场</small><strong>{esc(HAFU_TEXT[hkey])}</strong>{f'<small>赔率 {half_full_odds:.2f}</small>' if half_full_odds else ''}</div></div><p><b>三个比分（置信度从高到低）：</b>{esc(score_ranking)}</p>{brief_section}<div class="factors"><p><b>综合性分析：</b>{esc(m['integratedAnalysis'])}</p></div><p><b>分析口径：</b>{esc(m['analysisBasis'])}</p><p><b>盘口波动审计（{esc(m['marketRiskLevel'])}）：</b>{esc('；'.join(m['marketRiskFactors']))}。{esc(m['marketRiskNote'])}</p><p>尾部审计：{esc(' / '.join(m['tailRiskScores']) or '无额外尾部入选')}；总进球候选：{esc(' / '.join(m['goalCandidates']))}</p><p>情境修正后概率：主 {p['home']:.1%} / 平 {p['draw']:.1%} / 客 {p['away']:.1%}；模型信任度 {m['confidenceScore']}/100。</p>{model_audit_html}</section>''')
+        separation = f'<p><b>结算拆分：</b>总进球 {esc(str(m.get("goalPrediction", {}).get("pick", m["totalGoals"])))}（{m.get("goalPrediction", {}).get("probability", 0):.1%}）与精确比分 {esc(m["mainScore"])}（{m.get("scorePrediction", {}).get("probability", 0):.1%}）分别评估；总进球命中不等于比分命中。</p>'
+        cards.append(f'''<section class="match" style="--league:{m['leagueStyle']['color']}"><div class="title"><h3>{esc(m['matchNumStr'])} {esc(m['home'])} vs {esc(m['away'])}</h3><span>{esc(m['leagueStyle']['label'])}</span></div><p><b>北京时间：</b>{esc(m['kickoff'])}　<b>胜平负赔率：</b>{had.get('home','-')} / {had.get('draw','-')} / {had.get('away','-')}</p><p><b>独立模型：</b>{esc(m['modelProfile']['version'])} + 基本面先行综合层</p><div class="grid"><div><small>胜平负</small><strong>{esc(m['directionText'])}</strong></div><div><small>总进球</small><strong>{esc(m['totalGoals'])}</strong></div><div><small>主比分</small><strong>{esc(m['mainScore'])}</strong></div><div><small>半全场</small><strong>{esc(HAFU_TEXT[hkey])}</strong>{f'<small>赔率 {half_full_odds:.2f}</small>' if half_full_odds else ''}</div></div><p><b>三个比分（主选、低比分保护、尾部路径）：</b>{esc(score_ranking)}</p>{separation}{brief_section}<div class="factors"><p><b>综合性分析：</b>{esc(m['integratedAnalysis'])}</p></div><p><b>分析口径：</b>{esc(m['analysisBasis'])}</p><p><b>盘口波动审计（{esc(m['marketRiskLevel'])}）：</b>{esc('；'.join(m['marketRiskFactors']))}。{esc(m['marketRiskNote'])}</p><p>尾部审计：{esc(' / '.join(m['tailRiskScores']) or '无额外尾部入选')}；总进球候选：{esc(' / '.join(m['goalCandidates']))}</p><p>情境修正后概率：主 {p['home']:.1%} / 平 {p['draw']:.1%} / 客 {p['away']:.1%}；模型信任度 {m['confidenceScore']}/100。</p>{model_audit_html}</section>''')
     source_items = "".join(f'<li><a href="{esc(x["url"])}">{esc(x["name"])}</a></li>' for x in payload["sources"])
     return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#116b62"><title>2026-{label}足球预测</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef4f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:24px 16px}}nav a{{margin-right:10px}}h1{{font-size:clamp(30px,5vw,48px)}}.legend span{{display:inline-block;margin:5px;padding:6px 11px;border-left:7px solid var(--c);background:white;border-radius:7px}}.notice,.match,.combo{{background:white;border:1px solid #dce4ea;border-radius:14px;padding:18px;margin:15px 0;box-shadow:0 8px 26px #2336460f}}.notice{{overflow-x:auto}}.match{{border-left:10px solid var(--league);overflow-wrap:anywhere}}.title,.combo h3{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:white;padding:4px 11px;border-radius:99px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f5f8fa;padding:10px;border-radius:8px}}.factors{{background:#f5f8fa;border-radius:10px;padding:10px 14px;margin:12px 0}}.factors p{{margin:5px 0}}.sources{{font-size:13px;color:#657482}}small{{display:block;color:#657482}}strong{{font-size:21px}}.combo{{border-top:6px solid #287d70}}.combo.hafu{{border-top-color:#7a43b6}}.combo.crs{{border-top-color:#b35430}}.combo.ttg{{border-top-color:#355dc5}}.combo.mixed{{border-top-color:#c38b16}}table{{width:100%;border-collapse:collapse}}td{{padding:8px;border-bottom:1px solid #e7ecef}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style><link rel="stylesheet" href="../assets/site.css"></head><body><header><nav><a href="../index.html">日期首页</a><a href="../history/index.html">历史归档</a></nav><h1>{label}足球预测</h1><p>共 {len(payload['matches'])} 场 · 北京时间 · 赔率更新至 {esc(payload['oddsUpdatedAt'])}</p><div class="legend">{legends}</div></header><main>{review_html}{f'<section class="notice"><h2>赛程冲突提示</h2><ul>{warnings}</ul></section>' if warnings else ''}<section class="notice"><h2>模型方法</h2><p>每场只展示一段综合性分析，并明确给出胜平负、总进球、比分和半全场。赔率与比分矩阵是市场基线；赛程、积分动机、状态、伤停和战术只有在公开来源可核验时才进入情境层，证据不足则保持中性并降低信任度。杯赛额外检查平局保护、受控小比分与追分大比分，未经核验的信息不作为事实下结论。</p></section><section class="notice"><h2>精选n串一</h2><p>仅保留 {len(payload['combos'])} 组，全部理论组合赔率不低于 {MIN_COMBO_ODDS:.0f}，且每串最多一个胜平负选项；模型信任度高的优先排列，同时保留理论赔率超过 {HIGH_ODDS_THRESHOLD:.0f} 的高赔率组合。信任度仅用于模型横向比较，不等同于命中率。</p></section>{''.join(combos)}<h2>逐场预测</h2>{''.join(cards)}<section class="notice"><h2>赛程与赔率来源</h2><ul>{source_items}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
 

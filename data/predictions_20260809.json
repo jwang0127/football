@@ -259,7 +259,7 @@
     ],
     "globalLesson": "AI收窄预测的主要问题不是不会选强弱方向，而是把比分分布压成一条最典型路径：一是没有把两回合追分动机和强弱差作为交互项，二是把总进球主选当成比分上限，三是尾部只展示固定模板。后续公开输出分为主选/备选/尾部审计三层；尾部由赔率矩阵中的4+球、其他比分桶、半全场强侧胜胜和已核验赛制情境共同触发。"
   },
-  "generatedAt": "2026-08-09T15:10:21",
+  "generatedAt": "2026-08-09T16:10:58",
   "oddsUpdatedAt": "2026-08-08 18:48:03",
   "matches": [
     {
@@ -287,14 +287,14 @@
       "mainScore": "0-1",
       "backupScores": [
         "1-2",
-        "1-1"
+        "2-2"
       ],
       "tailRiskScores": [
         "0-0",
-        "2-2",
         "1-3",
         "0-3",
-        "3-0"
+        "3-0",
+        "1-4"
       ],
       "totalGoals": "2",
       "goalCandidates": [
@@ -302,7 +302,7 @@
         "3",
         "1"
       ],
-      "confidenceScore": 38,
+      "confidenceScore": 30,
       "confidence": "中低",
       "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -440,6 +440,35 @@
         "draw": 0.281,
         "away": 0.3804
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.5603,
+        "tempoProxy": 0.4278,
+        "defensiveHoleProxy": 0.5093,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "away",
+        "underdog": "home",
+        "scoringMass": 0.6869,
+        "twoGoalMass": 0.3109,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "2",
+        "probability": 0.3446,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "0-1",
+        "probability": 0.1141,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "j-league-v1-dedicated-0807",
         "had": 0.4,
@@ -449,9 +478,14 @@
         "review_sample": 0,
         "review_strength": 0.0,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": true,
+          "penalty": -8,
+          "cap": 52,
+          "status": "新联赛无复盘样本：禁止标记稳场"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "首版独立日职模型：以J.League官方排名/赛程、主客场与市场矩阵建模；新赛季样本不足，保留平局与一球差保护。",
       "contextFactors": {
@@ -466,14 +500,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "客队为市场与联赛基线下的暂定方向，主比分0-1，备选1-2/1-1；证据不足，置信度下调。",
+        "decision": "客队为市场与联赛基线下的暂定方向，主比分0-1，备选1-2/2-2；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -616,7 +650,7 @@
           "expectedValue": -0.1128
         }
       ],
-      "integratedAnalysis": "结论：客胜，总进球重点2球，比分关注0-1 / 1-2 / 1-1，半全场为负/负（3.90）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：客胜，总进球重点2球，比分关注0-1 / 1-2 / 2-2，半全场为负/负（3.90）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -645,14 +679,14 @@
       "mainScore": "1-2",
       "backupScores": [
         "0-1",
-        "1-1"
+        "2-2"
       ],
       "tailRiskScores": [
         "0-0",
-        "2-2",
         "0-3",
         "1-3",
-        "3-0"
+        "3-0",
+        "1-4"
       ],
       "totalGoals": "2",
       "goalCandidates": [
@@ -660,7 +694,7 @@
         "3",
         "1"
       ],
-      "confidenceScore": 40,
+      "confidenceScore": 32,
       "confidence": "中低",
       "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -798,6 +832,35 @@
         "draw": 0.2721,
         "away": 0.3978
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.5838,
+        "tempoProxy": 0.4589,
+        "defensiveHoleProxy": 0.5262,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "away",
+        "underdog": "home",
+        "scoringMass": 0.6931,
+        "twoGoalMass": 0.316,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "2",
+        "probability": 0.3354,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "1-2",
+        "probability": 0.0954,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "j-league-v1-dedicated-0807",
         "had": 0.4,
@@ -807,9 +870,14 @@
         "review_sample": 0,
         "review_strength": 0.0,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": true,
+          "penalty": -8,
+          "cap": 52,
+          "status": "新联赛无复盘样本：禁止标记稳场"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "首版独立日职模型：以J.League官方排名/赛程、主客场与市场矩阵建模；新赛季样本不足，保留平局与一球差保护。",
       "contextFactors": {
@@ -824,14 +892,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-1/1-1；证据不足，置信度下调。",
+        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-1/2-2；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -974,7 +1042,7 @@
           "expectedValue": -0.1113
         }
       ],
-      "integratedAnalysis": "结论：客胜，总进球重点2球，比分关注1-2 / 0-1 / 1-1，半全场为负/负（3.70）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：客胜，总进球重点2球，比分关注1-2 / 0-1 / 2-2，半全场为负/负（3.70）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -1003,14 +1071,14 @@
       "mainScore": "2-1",
       "backupScores": [
         "1-0",
-        "1-1"
+        "2-2"
       ],
       "tailRiskScores": [
         "0-0",
-        "2-2",
         "3-0",
         "1-3",
-        "0-3"
+        "0-3",
+        "1-4"
       ],
       "totalGoals": "2",
       "goalCandidates": [
@@ -1018,7 +1086,7 @@
         "3",
         "1"
       ],
-      "confidenceScore": 37,
+      "confidenceScore": 29,
       "confidence": "中低",
       "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -1156,6 +1224,35 @@
         "draw": 0.2648,
         "away": 0.3433
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.6201,
+        "tempoProxy": 0.502,
+        "defensiveHoleProxy": 0.5506,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.7251,
+        "twoGoalMass": 0.36,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "2",
+        "probability": 0.3175,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "2-1",
+        "probability": 0.0952,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "j2-league-v1-dedicated-0809",
         "had": 0.4,
@@ -1165,9 +1262,14 @@
         "review_sample": 0,
         "review_strength": 0.0,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": true,
+          "penalty": -8,
+          "cap": 52,
+          "status": "新联赛无复盘样本：禁止标记稳场"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "首版独立日乙模型：样本与比赛级证据不足，市场为主、平局和低比分保护为辅；不把日职先验直接迁移到日乙。",
       "contextFactors": {
@@ -1182,14 +1284,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/1-1；证据不足，置信度下调。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/2-2；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -1332,7 +1434,7 @@
           "expectedValue": -0.0993
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注2-1 / 1-0 / 1-1，半全场为胜/胜（4.05）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注2-1 / 1-0 / 2-2，半全场为胜/胜（4.05）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -1360,8 +1462,8 @@
       "directionText": "客胜",
       "mainScore": "1-2",
       "backupScores": [
-        "0-2",
-        "1-3"
+        "1-3",
+        "0-1"
       ],
       "tailRiskScores": [
         "2-2",
@@ -1375,8 +1477,8 @@
         "4",
         "2"
       ],
-      "confidenceScore": 55,
-      "confidence": "中",
+      "confidenceScore": 47,
+      "confidence": "中低",
       "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
@@ -1513,6 +1615,35 @@
         "draw": 0.217,
         "away": 0.5526
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.7011,
+        "tempoProxy": 0.6966,
+        "defensiveHoleProxy": 0.5839,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "away",
+        "underdog": "home",
+        "scoringMass": 0.663,
+        "twoGoalMass": 0.2862,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3397,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "1-2",
+        "probability": 0.1119,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "eredivisie-v1-dedicated-0807",
         "had": 0.4,
@@ -1522,9 +1653,14 @@
         "review_sample": 0,
         "review_strength": 0.0,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": true,
+          "penalty": -8,
+          "cap": 52,
+          "status": "新联赛无复盘样本：禁止标记稳场"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "首版独立荷甲模型：提高双方进球和高总进球先验，但由比分矩阵约束，不把联赛高进球等同于单一大比分。",
       "contextFactors": {
@@ -1539,14 +1675,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-2/1-3；证据不足，置信度下调。",
+        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选1-3/0-1；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -1689,7 +1825,7 @@
           "expectedValue": -0.0827
         }
       ],
-      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 0-2 / 1-3，半全场为负/负（2.45）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 1-3 / 0-1，半全场为负/负（2.45）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -1717,8 +1853,8 @@
       "directionText": "主胜",
       "mainScore": "2-1",
       "backupScores": [
-        "2-0",
-        "1-1"
+        "1-0",
+        "3-1"
       ],
       "tailRiskScores": [
         "2-2",
@@ -1733,8 +1869,8 @@
         "2",
         "4"
       ],
-      "confidenceScore": 52,
-      "confidence": "中",
+      "confidenceScore": 44,
+      "confidence": "中低",
       "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
@@ -1871,6 +2007,35 @@
         "draw": 0.234,
         "away": 0.2248
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.7051,
+        "tempoProxy": 0.6461,
+        "defensiveHoleProxy": 0.6046,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.6874,
+        "twoGoalMass": 0.3144,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3338,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "2-1",
+        "probability": 0.1149,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "bundesliga2-v1-dedicated-0807",
         "had": 0.4,
@@ -1880,9 +2045,14 @@
         "review_sample": 0,
         "review_strength": 0.0,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": true,
+          "penalty": -8,
+          "cap": 52,
+          "status": "新联赛无复盘样本：禁止标记稳场"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "首版独立德乙模型：新赛季首轮重点加入升级压力、主场和阵容连续性；开季资料不足，禁止高置信度收窄。",
       "contextFactors": {
@@ -1897,14 +2067,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/1-1；证据不足，置信度下调。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/3-1；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -2047,7 +2217,7 @@
           "expectedValue": -0.0881
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-1，半全场为胜/胜（2.65）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-0 / 3-1，半全场为胜/胜（2.65）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -2075,8 +2245,8 @@
       "directionText": "主胜",
       "mainScore": "2-1",
       "backupScores": [
-        "2-0",
-        "1-1"
+        "1-0",
+        "3-1"
       ],
       "tailRiskScores": [
         "2-2",
@@ -2091,7 +2261,7 @@
         "2",
         "4"
       ],
-      "confidenceScore": 43,
+      "confidenceScore": 35,
       "confidence": "中低",
       "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -2229,6 +2399,35 @@
         "draw": 0.2552,
         "away": 0.2923
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.6776,
+        "tempoProxy": 0.6048,
+        "defensiveHoleProxy": 0.6126,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.7348,
+        "twoGoalMass": 0.3652,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3363,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "2-1",
+        "probability": 0.1095,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "bundesliga2-v1-dedicated-0807",
         "had": 0.4,
@@ -2238,9 +2437,14 @@
         "review_sample": 0,
         "review_strength": 0.0,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": true,
+          "penalty": -8,
+          "cap": 52,
+          "status": "新联赛无复盘样本：禁止标记稳场"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "首版独立德乙模型：新赛季首轮重点加入升级压力、主场和阵容连续性；开季资料不足，禁止高置信度收窄。",
       "contextFactors": {
@@ -2255,14 +2459,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/1-1；证据不足，置信度下调。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/3-1；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -2405,7 +2609,7 @@
           "expectedValue": -0.0932
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-1，半全场为胜/胜（3.35）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-0 / 3-1，半全场为胜/胜（3.35）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -2433,8 +2637,8 @@
       "directionText": "主胜",
       "mainScore": "2-1",
       "backupScores": [
-        "2-0",
-        "3-1"
+        "3-1",
+        "1-0"
       ],
       "tailRiskScores": [
         "2-2",
@@ -2587,6 +2791,35 @@
         "draw": 0.2265,
         "away": 0.1985
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.7451,
+        "tempoProxy": 0.7868,
+        "defensiveHoleProxy": 0.6124,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.673,
+        "twoGoalMass": 0.3115,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3157,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "2-1",
+        "probability": 0.1059,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "allsvenskan-v10-review-0726-auto-0808",
         "had": 0.35800000000000004,
@@ -2596,9 +2829,14 @@
         "review_sample": 18,
         "review_strength": 0.6,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": false,
+          "penalty": 0,
+          "cap": 82,
+          "status": "有复盘样本或杯赛专属收缩"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "滚动18场90分钟结果：主/平/客 7/6/5；参数仅小幅收缩。",
       "contextFactors": {
@@ -2613,14 +2851,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/3-1；证据不足，置信度下调。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选3-1/1-0；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -2763,7 +3001,7 @@
           "expectedValue": -0.14
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 3-1，半全场为胜/胜（2.15）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 3-1 / 1-0，半全场为胜/胜（2.15）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -2791,8 +3029,8 @@
       "directionText": "主胜",
       "mainScore": "2-0",
       "backupScores": [
-        "2-1",
-        "3-0"
+        "1-0",
+        "3-1"
       ],
       "tailRiskScores": [
         "4-0",
@@ -2946,6 +3184,35 @@
         "draw": 0.1962,
         "away": 0.1626
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.721,
+        "tempoProxy": 0.6733,
+        "defensiveHoleProxy": 0.5305,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.5867,
+        "twoGoalMass": 0.2249,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3426,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "2-0",
+        "probability": 0.1129,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "veikkausliiga-v8-review-0726-auto-0808",
         "had": 0.37,
@@ -2955,9 +3222,14 @@
         "review_sample": 12,
         "review_strength": 0.5,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": false,
+          "penalty": 0,
+          "cap": 82,
+          "status": "有复盘样本或杯赛专属收缩"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "滚动12场90分钟结果：主/平/客 5/1/6；参数仅小幅收缩。",
       "contextFactors": {
@@ -2972,14 +3244,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-0，备选2-1/3-0；证据不足，置信度下调。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-0，备选1-0/3-1；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -3122,7 +3394,7 @@
           "expectedValue": -0.232
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-0 / 2-1 / 3-0，半全场为胜/胜（1.92）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-0 / 1-0 / 3-1，半全场为胜/胜（1.92）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -3150,8 +3422,8 @@
       "directionText": "客胜",
       "mainScore": "1-2",
       "backupScores": [
-        "0-2",
-        "1-3"
+        "1-3",
+        "0-1"
       ],
       "tailRiskScores": [
         "2-2",
@@ -3167,7 +3439,7 @@
         "4",
         "2"
       ],
-      "confidenceScore": 61,
+      "confidenceScore": 52,
       "confidence": "中",
       "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -3305,6 +3577,35 @@
         "draw": 0.1961,
         "away": 0.6038
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.7142,
+        "tempoProxy": 0.7202,
+        "defensiveHoleProxy": 0.5806,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "away",
+        "underdog": "home",
+        "scoringMass": 0.6484,
+        "twoGoalMass": 0.2703,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3344,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "1-2",
+        "probability": 0.1107,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "eredivisie-v1-dedicated-0807",
         "had": 0.4,
@@ -3314,9 +3615,14 @@
         "review_sample": 0,
         "review_strength": 0.0,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": true,
+          "penalty": -8,
+          "cap": 52,
+          "status": "新联赛无复盘样本：禁止标记稳场"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "首版独立荷甲模型：提高双方进球和高总进球先验，但由比分矩阵约束，不把联赛高进球等同于单一大比分。",
       "contextFactors": {
@@ -3331,14 +3637,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-2/1-3；证据不足，置信度下调。",
+        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选1-3/0-1；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -3481,7 +3787,7 @@
           "expectedValue": -0.176
         }
       ],
-      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 0-2 / 1-3，半全场为负/负（2.06）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 1-3 / 0-1，半全场为负/负（2.06）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -3510,14 +3816,14 @@
       "mainScore": "2-1",
       "backupScores": [
         "1-0",
-        "1-1"
+        "2-2"
       ],
       "tailRiskScores": [
-        "2-2",
         "3-0",
         "0-0",
         "1-3",
-        "0-3"
+        "0-3",
+        "1-4"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -3525,7 +3831,7 @@
         "2",
         "4"
       ],
-      "confidenceScore": 39,
+      "confidenceScore": 31,
       "confidence": "中低",
       "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -3663,6 +3969,35 @@
         "draw": 0.253,
         "away": 0.3277
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.6382,
+        "tempoProxy": 0.5521,
+        "defensiveHoleProxy": 0.5637,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.7253,
+        "twoGoalMass": 0.3631,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3273,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "2-1",
+        "probability": 0.0987,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "eredivisie-v1-dedicated-0807",
         "had": 0.4,
@@ -3672,9 +4007,14 @@
         "review_sample": 0,
         "review_strength": 0.0,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": true,
+          "penalty": -8,
+          "cap": 52,
+          "status": "新联赛无复盘样本：禁止标记稳场"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "首版独立荷甲模型：提高双方进球和高总进球先验，但由比分矩阵约束，不把联赛高进球等同于单一大比分。",
       "contextFactors": {
@@ -3689,14 +4029,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/1-1；证据不足，置信度下调。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/2-2；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -3839,7 +4179,7 @@
           "expectedValue": -0.1193
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-0 / 1-1，半全场为胜/胜（3.65）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-0 / 2-2，半全场为胜/胜（3.65）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -3867,8 +4207,8 @@
       "directionText": "主胜",
       "mainScore": "2-1",
       "backupScores": [
-        "2-0",
-        "1-1"
+        "1-0",
+        "2-2"
       ],
       "tailRiskScores": [
         "3-0",
@@ -4021,6 +4361,35 @@
         "draw": 0.2482,
         "away": 0.3306
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.6943,
+        "tempoProxy": 0.6783,
+        "defensiveHoleProxy": 0.6223,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.7605,
+        "twoGoalMass": 0.4083,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3428,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "2-1",
+        "probability": 0.1027,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "eliteserien-v7-review-0726-auto-0808",
         "had": 0.387741935483871,
@@ -4030,9 +4399,14 @@
         "review_sample": 19,
         "review_strength": 0.6129,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": false,
+          "penalty": 0,
+          "cap": 82,
+          "status": "有复盘样本或杯赛专属收缩"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "滚动19场90分钟结果：主/平/客 9/3/7；参数仅小幅收缩。",
       "contextFactors": {
@@ -4047,14 +4421,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/1-1；证据不足，置信度下调。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/2-2；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -4197,7 +4571,7 @@
           "expectedValue": -0.1156
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-1，半全场为胜/胜（3.50）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-0 / 2-2，半全场为胜/胜（3.50）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -4225,8 +4599,8 @@
       "directionText": "主胜",
       "mainScore": "2-0",
       "backupScores": [
-        "2-1",
-        "1-0"
+        "1-0",
+        "3-1"
       ],
       "tailRiskScores": [
         "0-0",
@@ -4379,6 +4753,35 @@
         "draw": 0.2478,
         "away": 0.2104
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.6323,
+        "tempoProxy": 0.4856,
+        "defensiveHoleProxy": 0.5061,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.6058,
+        "twoGoalMass": 0.234,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "2",
+        "probability": 0.3252,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "2-0",
+        "probability": 0.1069,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "veikkausliiga-v8-review-0726-auto-0808",
         "had": 0.37,
@@ -4388,9 +4791,14 @@
         "review_sample": 12,
         "review_strength": 0.5,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": false,
+          "penalty": 0,
+          "cap": 82,
+          "status": "有复盘样本或杯赛专属收缩"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "滚动12场90分钟结果：主/平/客 5/1/6；参数仅小幅收缩。",
       "contextFactors": {
@@ -4405,14 +4813,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-0，备选2-1/1-0；证据不足，置信度下调。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-0，备选1-0/3-1；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -4555,7 +4963,7 @@
           "expectedValue": -0.108
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注2-0 / 2-1 / 1-0，半全场为胜/胜（2.50）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注2-0 / 1-0 / 3-1，半全场为胜/胜（2.50）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -4583,8 +4991,8 @@
       "directionText": "客胜",
       "mainScore": "0-2",
       "backupScores": [
-        "1-2",
-        "0-1"
+        "0-1",
+        "1-3"
       ],
       "tailRiskScores": [
         "2-2",
@@ -4736,6 +5144,35 @@
         "draw": 0.2429,
         "away": 0.5632
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.68,
+        "tempoProxy": 0.59,
+        "defensiveHoleProxy": 0.5242,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "away",
+        "underdog": "home",
+        "scoringMass": 0.6017,
+        "twoGoalMass": 0.2239,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3311,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "0-2",
+        "probability": 0.1131,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "allsvenskan-v10-review-0726-auto-0808",
         "had": 0.35800000000000004,
@@ -4745,9 +5182,14 @@
         "review_sample": 18,
         "review_strength": 0.6,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": false,
+          "penalty": 0,
+          "cap": 82,
+          "status": "有复盘样本或杯赛专属收缩"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "滚动18场90分钟结果：主/平/客 7/6/5；参数仅小幅收缩。",
       "contextFactors": {
@@ -4762,14 +5204,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "客队为市场与联赛基线下的暂定方向，主比分0-2，备选1-2/0-1；证据不足，置信度下调。",
+        "decision": "客队为市场与联赛基线下的暂定方向，主比分0-2，备选0-1/1-3；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -4912,7 +5354,7 @@
           "expectedValue": -0.12
         }
       ],
-      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注0-2 / 1-2 / 0-1，半全场为负/负（2.20）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注0-2 / 0-1 / 1-3，半全场为负/负（2.20）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -4940,15 +5382,15 @@
       "directionText": "主胜",
       "mainScore": "2-1",
       "backupScores": [
-        "2-0",
-        "1-1"
+        "1-0",
+        "2-2"
       ],
       "tailRiskScores": [
-        "2-2",
         "3-0",
         "1-3",
         "0-0",
-        "0-3"
+        "0-3",
+        "1-4"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -5094,6 +5536,35 @@
         "draw": 0.277,
         "away": 0.3412
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.6744,
+        "tempoProxy": 0.6097,
+        "defensiveHoleProxy": 0.6022,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.7561,
+        "twoGoalMass": 0.413,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3358,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "2-1",
+        "probability": 0.0964,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "allsvenskan-v10-review-0726-auto-0808",
         "had": 0.35800000000000004,
@@ -5103,9 +5574,14 @@
         "review_sample": 18,
         "review_strength": 0.6,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": false,
+          "penalty": 0,
+          "cap": 82,
+          "status": "有复盘样本或杯赛专属收缩"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "滚动18场90分钟结果：主/平/客 7/6/5；参数仅小幅收缩。",
       "contextFactors": {
@@ -5120,14 +5596,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/1-1；证据不足，置信度下调。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/2-2；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -5270,7 +5746,7 @@
           "expectedValue": -0.1073
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-1，半全场为胜/胜（3.90）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-0 / 2-2，半全场为胜/胜（3.90）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -5298,8 +5774,8 @@
       "directionText": "客胜",
       "mainScore": "1-2",
       "backupScores": [
-        "0-2",
-        "2-1"
+        "1-3",
+        "0-1"
       ],
       "tailRiskScores": [
         "0-3",
@@ -5313,7 +5789,7 @@
         "4",
         "2"
       ],
-      "confidenceScore": 41,
+      "confidenceScore": 33,
       "confidence": "中低",
       "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -5451,6 +5927,35 @@
         "draw": 0.2371,
         "away": 0.4132
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.6991,
+        "tempoProxy": 0.6949,
+        "defensiveHoleProxy": 0.6247,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "away",
+        "underdog": "home",
+        "scoringMass": 0.7572,
+        "twoGoalMass": 0.404,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3398,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "1-2",
+        "probability": 0.1006,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "eredivisie-v1-dedicated-0807",
         "had": 0.4,
@@ -5460,9 +5965,14 @@
         "review_sample": 0,
         "review_strength": 0.0,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": true,
+          "penalty": -8,
+          "cap": 52,
+          "status": "新联赛无复盘样本：禁止标记稳场"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "首版独立荷甲模型：提高双方进球和高总进球先验，但由比分矩阵约束，不把联赛高进球等同于单一大比分。",
       "contextFactors": {
@@ -5477,14 +5987,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-2/2-1；证据不足，置信度下调。",
+        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选1-3/0-1；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -5627,7 +6137,7 @@
           "expectedValue": -0.0963
         }
       ],
-      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 0-2 / 2-1，半全场为负/负（3.50）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 1-3 / 0-1，半全场为负/负（3.50）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -5655,8 +6165,8 @@
       "directionText": "主胜",
       "mainScore": "2-1",
       "backupScores": [
-        "2-0",
-        "1-1"
+        "1-0",
+        "3-1"
       ],
       "tailRiskScores": [
         "2-2",
@@ -5809,6 +6319,35 @@
         "draw": 0.2415,
         "away": 0.2937
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.7005,
+        "tempoProxy": 0.6889,
+        "defensiveHoleProxy": 0.6226,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.7384,
+        "twoGoalMass": 0.3762,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3423,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "2-1",
+        "probability": 0.1101,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "eliteserien-v7-review-0726-auto-0808",
         "had": 0.387741935483871,
@@ -5818,9 +6357,14 @@
         "review_sample": 19,
         "review_strength": 0.6129,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": false,
+          "penalty": 0,
+          "cap": 82,
+          "status": "有复盘样本或杯赛专属收缩"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "滚动19场90分钟结果：主/平/客 9/3/7；参数仅小幅收缩。",
       "contextFactors": {
@@ -5835,14 +6379,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选2-0/1-1；证据不足，置信度下调。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/3-1；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -5985,7 +6529,7 @@
           "expectedValue": -0.1084
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 2-0 / 1-1，半全场为胜/胜（3.10）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-0 / 3-1，半全场为胜/胜（3.10）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -6013,11 +6557,10 @@
       "directionText": "客胜",
       "mainScore": "1-2",
       "backupScores": [
-        "0-2",
-        "1-1"
+        "0-1",
+        "1-3"
       ],
       "tailRiskScores": [
-        "1-3",
         "2-2",
         "0-0",
         "1-4",
@@ -6167,6 +6710,35 @@
         "draw": 0.2533,
         "away": 0.4667
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.6754,
+        "tempoProxy": 0.5991,
+        "defensiveHoleProxy": 0.5859,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "away",
+        "underdog": "home",
+        "scoringMass": 0.6987,
+        "twoGoalMass": 0.3401,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3371,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "1-2",
+        "probability": 0.1076,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "veikkausliiga-v8-review-0726-auto-0808",
         "had": 0.37,
@@ -6176,9 +6748,14 @@
         "review_sample": 12,
         "review_strength": 0.5,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": false,
+          "penalty": 0,
+          "cap": 82,
+          "status": "有复盘样本或杯赛专属收缩"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "滚动12场90分钟结果：主/平/客 5/1/6；参数仅小幅收缩。",
       "contextFactors": {
@@ -6193,14 +6770,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-2/1-1；证据不足，置信度下调。",
+        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-1/1-3；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -6343,7 +6920,7 @@
           "expectedValue": -0.1079
         }
       ],
-      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 0-2 / 1-1，半全场为负/负（2.95）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 0-1 / 1-3，半全场为负/负（2.95）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -6371,16 +6948,15 @@
       "directionText": "主胜",
       "mainScore": "2-0",
       "backupScores": [
-        "2-1",
-        "3-0"
+        "1-0",
+        "4-0"
       ],
       "tailRiskScores": [
         "4-1",
         "5-0",
         "0-0",
         "5-1",
-        "2-2",
-        "4-0"
+        "2-2"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -6388,8 +6964,8 @@
         "2",
         "4"
       ],
-      "confidenceScore": 78,
-      "confidence": "高",
+      "confidenceScore": 52,
+      "confidence": "中",
       "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。 未开售胜平负；方向概率由官方比分矩阵归一化推导，不参与胜平负串关。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
@@ -6521,6 +7097,35 @@
         "draw": 0.1446,
         "away": 0.0769
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.7091,
+        "tempoProxy": 0.6605,
+        "defensiveHoleProxy": 0.3585,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.3848,
+        "twoGoalMass": 0.0805,
+        "viable": true,
+        "bigViable": false
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3373,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "2-0",
+        "probability": 0.1561,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "primeira-liga-v1-dedicated-0807",
         "had": 0.4,
@@ -6530,9 +7135,14 @@
         "review_sample": 0,
         "review_strength": 0.0,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": true,
+          "penalty": -8,
+          "cap": 52,
+          "status": "新联赛无复盘样本：禁止标记稳场"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "首版独立葡超模型：强调强队零封、低比分与主客场实力差；开季样本不足，保留平局和一球差尾部。",
       "contextFactors": {
@@ -6547,14 +7157,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-0，备选2-1/3-0；证据不足，置信度下调。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-0，备选1-0/4-0；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -6689,7 +7299,7 @@
           "expectedValue": -0.4
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-0 / 2-1 / 3-0，半全场为胜/胜（1.50）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-0 / 1-0 / 4-0，半全场为胜/胜（1.50）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "未开售胜平负；方向概率由官方比分矩阵归一化推导，不参与胜平负串关。"
     },
@@ -6717,8 +7327,8 @@
       "directionText": "客胜",
       "mainScore": "1-2",
       "backupScores": [
-        "0-2",
-        "1-3"
+        "1-3",
+        "0-1"
       ],
       "tailRiskScores": [
         "2-2",
@@ -6870,6 +7480,35 @@
         "draw": 0.2198,
         "away": 0.5305
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.7181,
+        "tempoProxy": 0.7338,
+        "defensiveHoleProxy": 0.614,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "away",
+        "underdog": "home",
+        "scoringMass": 0.6961,
+        "twoGoalMass": 0.3299,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3332,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "1-2",
+        "probability": 0.1117,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "eliteserien-v7-review-0726-auto-0808",
         "had": 0.387741935483871,
@@ -6879,9 +7518,14 @@
         "review_sample": 19,
         "review_strength": 0.6129,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": false,
+          "penalty": 0,
+          "cap": 82,
+          "status": "有复盘样本或杯赛专属收缩"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "滚动19场90分钟结果：主/平/客 9/3/7；参数仅小幅收缩。",
       "contextFactors": {
@@ -6896,14 +7540,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选0-2/1-3；证据不足，置信度下调。",
+        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选1-3/0-1；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -7046,7 +7690,7 @@
           "expectedValue": -0.1015
         }
       ],
-      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 0-2 / 1-3，半全场为负/负（2.50）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 1-3 / 0-1，半全场为负/负（2.50）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -7074,16 +7718,15 @@
       "directionText": "主胜",
       "mainScore": "3-0",
       "backupScores": [
-        "2-1",
-        "2-0"
+        "4-0",
+        "1-0"
       ],
       "tailRiskScores": [
         "5-0",
         "4-1",
         "5-1",
         "2-2",
-        "0-0",
-        "4-0"
+        "0-0"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -7091,8 +7734,8 @@
         "4",
         "2"
       ],
-      "confidenceScore": 80,
-      "confidence": "高",
+      "confidenceScore": 52,
+      "confidence": "中",
       "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。 未开售胜平负；方向概率由官方比分矩阵归一化推导，不参与胜平负串关。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
@@ -7224,6 +7867,35 @@
         "draw": 0.122,
         "away": 0.0705
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.7396,
+        "tempoProxy": 0.7672,
+        "defensiveHoleProxy": 0.3768,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.3957,
+        "twoGoalMass": 0.0856,
+        "viable": true,
+        "bigViable": false
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3191,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "3-0",
+        "probability": 0.1317,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "primeira-liga-v1-dedicated-0807",
         "had": 0.4,
@@ -7233,9 +7905,14 @@
         "review_sample": 0,
         "review_strength": 0.0,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": true,
+          "penalty": -8,
+          "cap": 52,
+          "status": "新联赛无复盘样本：禁止标记稳场"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "首版独立葡超模型：强调强队零封、低比分与主客场实力差；开季样本不足，保留平局和一球差尾部。",
       "contextFactors": {
@@ -7250,14 +7927,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分3-0，备选2-1/2-0；证据不足，置信度下调。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分3-0，备选4-0/1-0；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -7392,7 +8069,7 @@
           "expectedValue": -0.456
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注3-0 / 2-1 / 2-0，半全场为胜/胜（1.36）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注3-0 / 4-0 / 1-0，半全场为胜/胜（1.36）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "未开售胜平负；方向概率由官方比分矩阵归一化推导，不参与胜平负串关。"
     },
@@ -7421,7 +8098,7 @@
       "mainScore": "2-1",
       "backupScores": [
         "1-0",
-        "2-0"
+        "3-1"
       ],
       "tailRiskScores": [
         "0-0",
@@ -7436,7 +8113,7 @@
         "3",
         "1"
       ],
-      "confidenceScore": 51,
+      "confidenceScore": 43,
       "confidence": "中低",
       "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
@@ -7574,6 +8251,35 @@
         "draw": 0.2576,
         "away": 0.2108
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.5945,
+        "tempoProxy": 0.4504,
+        "defensiveHoleProxy": 0.5016,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.6136,
+        "twoGoalMass": 0.2289,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "2",
+        "probability": 0.3423,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "2-1",
+        "probability": 0.1088,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "primeira-liga-v1-dedicated-0807",
         "had": 0.4,
@@ -7583,9 +8289,14 @@
         "review_sample": 0,
         "review_strength": 0.0,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": true,
+          "penalty": -8,
+          "cap": 52,
+          "status": "新联赛无复盘样本：禁止标记稳场"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "首版独立葡超模型：强调强队零封、低比分与主客场实力差；开季样本不足，保留平局和一球差尾部。",
       "contextFactors": {
@@ -7600,14 +8311,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/2-0；证据不足，置信度下调。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/3-1；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -7750,7 +8461,7 @@
           "expectedValue": -0.097
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注2-1 / 1-0 / 2-0，半全场为胜/胜（2.80）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注2-1 / 1-0 / 3-1，半全场为胜/胜（2.80）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -7778,8 +8489,8 @@
       "directionText": "客胜",
       "mainScore": "0-2",
       "backupScores": [
-        "1-2",
-        "0-1"
+        "0-1",
+        "1-3"
       ],
       "tailRiskScores": [
         "0-0",
@@ -7793,8 +8504,8 @@
         "3",
         "1"
       ],
-      "confidenceScore": 54,
-      "confidence": "中",
+      "confidenceScore": 46,
+      "confidence": "中低",
       "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
@@ -7931,6 +8642,35 @@
         "draw": 0.2451,
         "away": 0.5321
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.6021,
+        "tempoProxy": 0.4754,
+        "defensiveHoleProxy": 0.4981,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "away",
+        "underdog": "home",
+        "scoringMass": 0.5952,
+        "twoGoalMass": 0.209,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "2",
+        "probability": 0.3332,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "0-2",
+        "probability": 0.107,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "primeira-liga-v1-dedicated-0807",
         "had": 0.4,
@@ -7940,9 +8680,14 @@
         "review_sample": 0,
         "review_strength": 0.0,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": true,
+          "penalty": -8,
+          "cap": 52,
+          "status": "新联赛无复盘样本：禁止标记稳场"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "首版独立葡超模型：强调强队零封、低比分与主客场实力差；开季样本不足，保留平局和一球差尾部。",
       "contextFactors": {
@@ -7957,14 +8702,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "客队为市场与联赛基线下的暂定方向，主比分0-2，备选1-2/0-1；证据不足，置信度下调。",
+        "decision": "客队为市场与联赛基线下的暂定方向，主比分0-2，备选0-1/1-3；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -8107,7 +8852,7 @@
           "expectedValue": -0.0926
         }
       ],
-      "integratedAnalysis": "结论：客胜，总进球重点2球，比分关注0-2 / 1-2 / 0-1，半全场为负/负（2.60）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：客胜，总进球重点2球，比分关注0-2 / 0-1 / 1-3，半全场为负/负（2.60）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -8136,11 +8881,10 @@
       "mainScore": "1-0",
       "backupScores": [
         "2-1",
-        "0-0"
+        "2-2"
       ],
       "tailRiskScores": [
         "3-0",
-        "2-2",
         "1-3",
         "0-3",
         "1-4"
@@ -8289,6 +9033,35 @@
         "draw": 0.3174,
         "away": 0.2503
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.5652,
+        "tempoProxy": 0.4002,
+        "defensiveHoleProxy": 0.4983,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.6476,
+        "twoGoalMass": 0.2698,
+        "viable": true,
+        "bigViable": true
+      },
+      "goalPrediction": {
+        "pick": "2",
+        "probability": 0.3582,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "1-0",
+        "probability": 0.1235,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "brasileirao-v8-review-0726-auto-0808",
         "had": 0.3705263157894737,
@@ -8298,9 +9071,14 @@
         "review_sample": 7,
         "review_strength": 0.3684,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": false,
+          "penalty": 0,
+          "cap": 82,
+          "status": "有复盘样本或杯赛专属收缩"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "滚动7场90分钟结果：主/平/客 2/5/0；参数仅小幅收缩。",
       "contextFactors": {
@@ -8315,14 +9093,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分1-0，备选2-1/0-0；证据不足，置信度下调。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分1-0，备选2-1/2-2；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -8465,7 +9243,7 @@
           "expectedValue": -0.0921
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注1-0 / 2-1 / 0-0，半全场为胜/胜（3.50）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注1-0 / 2-1 / 2-2，半全场为胜/胜（3.50）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     },
@@ -8493,8 +9271,8 @@
       "directionText": "主胜",
       "mainScore": "2-0",
       "backupScores": [
-        "2-1",
-        "3-0"
+        "1-0",
+        "3-1"
       ],
       "tailRiskScores": [
         "4-1",
@@ -8648,6 +9426,35 @@
         "draw": 0.1797,
         "away": 0.0898
       },
+      "fundamentalProbabilities": null,
+      "fundamentalFirst": true,
+      "marketContradiction": false,
+      "goalSelectionGate": {
+        "attackEfficiencyProxy": 0.7225,
+        "tempoProxy": 0.6888,
+        "defensiveHoleProxy": 0.4255,
+        "viable": true,
+        "status": "big-goal conditions all supported"
+      },
+      "upsetAttackCapability": {
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.4593,
+        "twoGoalMass": 0.1324,
+        "viable": true,
+        "bigViable": false
+      },
+      "goalPrediction": {
+        "pick": "3",
+        "probability": 0.3399,
+        "type": "total_goals"
+      },
+      "scorePrediction": {
+        "pick": "2-0",
+        "probability": 0.1392,
+        "type": "exact_score"
+      },
+      "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
       "modelProfile": {
         "version": "brasileirao-v8-review-0726-auto-0808",
         "had": 0.3705263157894737,
@@ -8657,9 +9464,14 @@
         "review_sample": 7,
         "review_strength": 0.3684,
         "scorelineWeight": 0.3,
-        "contextLayer": "evidence-chain-v2",
-        "scorelineLayer": "dixon-coles-market-blend-v1",
-        "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"
+        "sampleControl": {
+          "active": false,
+          "penalty": 0,
+          "cap": 82,
+          "status": "有复盘样本或杯赛专属收缩"
+        },
+        "contextLayer": "fundamental-first-v3",
+        "scorelineLayer": "dixon-coles-market-blend-v1"
       },
       "modelLesson": "滚动7场90分钟结果：主/平/客 2/5/0；参数仅小幅收缩。",
       "contextFactors": {
@@ -8674,14 +9486,14 @@
       "contextSources": [],
       "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
       "verifiedFactors": [],
-      "reasoningMethod": "evidence-chain-v2",
+      "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
         "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
         "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
         "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
         "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
         "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-0，备选2-1/3-0；证据不足，置信度下调。",
+        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-0，备选1-0/3-1；证据不足，置信度下调。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
@@ -8824,7 +9636,7 @@
           "expectedValue": -0.38
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-0 / 2-1 / 3-0，半全场为胜/胜（1.55）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-0 / 1-0 / 3-1，半全场为胜/胜（1.55）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
       "marketBasis": "官方胜平负赔率"
     }
@@ -8867,6 +9679,8 @@
       ],
       "productOdds": 15.11,
       "trustScore": 39,
+      "exactScoreLegs": 0,
+      "settlementRisk": "常规",
       "rank": 1
     },
     {
@@ -8906,6 +9720,8 @@
       ],
       "productOdds": 15.11,
       "trustScore": 39,
+      "exactScoreLegs": 0,
+      "settlementRisk": "常规",
       "rank": 2
     },
     {
@@ -8945,6 +9761,8 @@
       ],
       "productOdds": 40.35,
       "trustScore": 30,
+      "exactScoreLegs": 0,
+      "settlementRisk": "常规",
       "rank": 3
     },
     {
@@ -8984,6 +9802,8 @@
       ],
       "productOdds": 43.48,
       "trustScore": 30,
+      "exactScoreLegs": 0,
+      "settlementRisk": "常规",
       "rank": 4
     },
     {
@@ -9023,6 +9843,8 @@
       ],
       "productOdds": 46.0,
       "trustScore": 30,
+      "exactScoreLegs": 0,
+      "settlementRisk": "常规",
       "rank": 5
     },
     {
@@ -9062,6 +9884,8 @@
       ],
       "productOdds": 46.66,
       "trustScore": 30,
+      "exactScoreLegs": 0,
+      "settlementRisk": "常规",
       "rank": 6
     },
     {
@@ -9101,6 +9925,8 @@
       ],
       "productOdds": 47.3,
       "trustScore": 30,
+      "exactScoreLegs": 0,
+      "settlementRisk": "常规",
       "rank": 7
     },
     {
@@ -9170,6 +9996,8 @@
       ],
       "productOdds": 560.29,
       "trustScore": 29,
+      "exactScoreLegs": 0,
+      "settlementRisk": "常规",
       "rank": 8
     },
     {
@@ -9249,6 +10077,8 @@
       ],
       "productOdds": 3770.98,
       "trustScore": 24,
+      "exactScoreLegs": 0,
+      "settlementRisk": "常规",
       "rank": 9
     },
     {
@@ -9338,6 +10168,8 @@
       ],
       "productOdds": 19889.71,
       "trustScore": 22,
+      "exactScoreLegs": 0,
+      "settlementRisk": "常规",
       "rank": 10
     }
   ],

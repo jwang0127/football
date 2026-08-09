@@ -38,7 +38,7 @@ def main() -> None:
     for match in matches:
         profile = payload["competitionModels"][match["league"]]
         assert match["modelProfile"]["version"] == profile["version"]
-        assert match["modelProfile"]["contextLayer"] == "evidence-chain-v2"
+        assert match["modelProfile"]["contextLayer"] == "fundamental-first-v3"
         if match["league"] == "英格兰联赛杯":
             # Regression guard: the EFL cup must use the dedicated rotation
             # shrinkage profile after page generation, not only in source code.
@@ -49,6 +49,12 @@ def main() -> None:
         assert set(match["analysisDimensions"]) == {"schedule_load", "rest_fatigue", "travel_home_advantage", "squad_availability", "recent_performance", "coach_tactics", "motivation_competition", "weather_pitch", "set_piece_transition", "market_contradiction", "previous_match", "next_match", "ranking_table", "promotion_relegation", "cover_risk", "upset_risk"}
         assert set(match["contextFactors"]) == {"stage", "schedule", "motivation", "weather", "teamNews", "coach", "upsetPath"}
         assert set(match["marketBaselineProbabilities"]) == {"home", "draw", "away"}
+        assert match["fundamentalFirst"] is True
+        assert set(match["goalPrediction"]) >= {"pick", "probability", "type"}
+        assert set(match["scorePrediction"]) >= {"pick", "probability", "type"}
+        assert match["goalScoreSeparation"]
+        assert set(match["goalSelectionGate"]) >= {"attackEfficiencyProxy", "tempoProxy", "defensiveHoleProxy", "viable"}
+        assert set(match["upsetAttackCapability"]) >= {"scoringMass", "twoGoalMass", "viable", "bigViable"}
         assert match["modelLesson"] not in html
         assert len(match["backupScores"]) == 2
         assert len({match["mainScore"], *match["backupScores"]}) == 3
@@ -59,6 +65,8 @@ def main() -> None:
         assert len(ids) == len(set(ids))
         assert set(ids) <= match_ids
         assert sum(leg["market"] == "had" for leg in combo["legs"]) <= 1
+        assert combo["exactScoreLegs"] == sum(leg["market"] == "crs" for leg in combo["legs"])
+        assert combo["exactScoreLegs"] <= 2
         assert combo["productOdds"] >= 10.0
         assert abs(combo["productOdds"] - round(math.prod(leg["odds"] for leg in combo["legs"]), 2)) <= 0.01
     print(f"{args.date}: {len(matches)} matches, {len(payload['competitionModels'])} competition models, "
