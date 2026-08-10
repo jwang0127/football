@@ -851,7 +851,7 @@
     "summary": "方向命中 10/24；主比分命中 3/24；比分池命中 6/24。",
     "globalLesson": "昨日最主要的问题不是完全看错强弱，而是把市场主路径过早收缩成单一精确比分：平局与主客反转尾部覆盖不足，且德乙、芬超、挪超的实际低比分/客胜路径被主选压掉。模型只按滚动样本轻量收缩，并提高基本面核验、平局保护和比分池分散度；不因一天的赛果大幅改参数。"
   },
-  "generatedAt": "2026-08-10T10:31:13",
+  "generatedAt": "2026-08-10T10:36:57",
   "oddsUpdatedAt": "2026-08-09 21:48:54",
   "matches": [
     {
@@ -2044,7 +2044,9 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.73,
-          "probability": 0.5223
+          "probability": 0.5223,
+          "confidenceScore": 48,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040794",
@@ -2054,7 +2056,9 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.85,
-          "probability": 0.3151
+          "probability": 0.3151,
+          "confidenceScore": 64,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040795",
@@ -2064,13 +2068,16 @@
           "marketText": "半全场",
           "pick": "负/负",
           "odds": 2.55,
-          "probability": 0.3496
+          "probability": 0.3496,
+          "confidenceScore": 49,
+          "evidenceGate": "blocked"
         }
       ],
       "productOdds": 16.98,
       "trustScore": 34,
       "exactScoreLegs": 0,
-      "settlementRisk": "常规",
+      "settlementRisk": "常规但不代表稳中",
+      "selectionRule": "方向/进球分开评估；赔率仅作市场基线",
       "rank": 1
     },
     {
@@ -2085,7 +2092,9 @@
           "marketText": "胜平负",
           "pick": "客胜",
           "odds": 1.64,
-          "probability": 0.5046
+          "probability": 0.5046,
+          "confidenceScore": 49,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040794",
@@ -2095,7 +2104,9 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.85,
-          "probability": 0.3151
+          "probability": 0.3151,
+          "confidenceScore": 64,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040796",
@@ -2105,13 +2116,16 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.25,
-          "probability": 0.3541
+          "probability": 0.3541,
+          "confidenceScore": 48,
+          "evidenceGate": "blocked"
         }
       ],
       "productOdds": 20.52,
       "trustScore": 34,
       "exactScoreLegs": 0,
-      "settlementRisk": "常规",
+      "settlementRisk": "常规但不代表稳中",
+      "selectionRule": "方向/进球分开评估；赔率仅作市场基线",
       "rank": 2
     },
     {
@@ -2126,7 +2140,9 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.73,
-          "probability": 0.5223
+          "probability": 0.5223,
+          "confidenceScore": 48,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040794",
@@ -2136,7 +2152,9 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.85,
-          "probability": 0.3151
+          "probability": 0.3151,
+          "confidenceScore": 64,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040795",
@@ -2146,13 +2164,16 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.65,
-          "probability": 0.3368
+          "probability": 0.3368,
+          "confidenceScore": 49,
+          "evidenceGate": "blocked"
         }
       ],
       "productOdds": 24.31,
       "trustScore": 34,
       "exactScoreLegs": 0,
-      "settlementRisk": "常规",
+      "settlementRisk": "常规但不代表稳中",
+      "selectionRule": "方向/进球分开评估；赔率仅作市场基线",
       "rank": 3
     },
     {
@@ -2167,7 +2188,9 @@
           "marketText": "胜平负",
           "pick": "客胜",
           "odds": 1.64,
-          "probability": 0.5046
+          "probability": 0.5046,
+          "confidenceScore": 49,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040794",
@@ -2177,7 +2200,9 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.85,
-          "probability": 0.3151
+          "probability": 0.3151,
+          "confidenceScore": 64,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040796",
@@ -2187,13 +2212,16 @@
           "marketText": "半全场",
           "pick": "胜/胜",
           "odds": 2.8,
-          "probability": 0.317
+          "probability": 0.317,
+          "confidenceScore": 48,
+          "evidenceGate": "blocked"
         }
       ],
       "productOdds": 17.68,
       "trustScore": 33,
       "exactScoreLegs": 0,
-      "settlementRisk": "常规",
+      "settlementRisk": "常规但不代表稳中",
+      "selectionRule": "方向/进球分开评估；赔率仅作市场基线",
       "rank": 4
     },
     {
@@ -2208,7 +2236,9 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.65,
-          "probability": 0.3368
+          "probability": 0.3368,
+          "confidenceScore": 49,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040796",
@@ -2218,7 +2248,9 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.25,
-          "probability": 0.3541
+          "probability": 0.3541,
+          "confidenceScore": 48,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040794",
@@ -2228,13 +2260,16 @@
           "marketText": "半全场",
           "pick": "胜/胜",
           "odds": 1.74,
-          "probability": 0.4
+          "probability": 0.4,
+          "confidenceScore": 64,
+          "evidenceGate": "blocked"
         }
       ],
       "productOdds": 20.64,
       "trustScore": 32,
       "exactScoreLegs": 0,
-      "settlementRisk": "常规",
+      "settlementRisk": "常规但不代表稳中",
+      "selectionRule": "方向/进球分开评估；赔率仅作市场基线",
       "rank": 5
     },
     {
@@ -2249,7 +2284,9 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.65,
-          "probability": 0.3368
+          "probability": 0.3368,
+          "confidenceScore": 49,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040794",
@@ -2259,7 +2296,9 @@
           "marketText": "半全场",
           "pick": "胜/胜",
           "odds": 1.74,
-          "probability": 0.4
+          "probability": 0.4,
+          "confidenceScore": 64,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040796",
@@ -2269,13 +2308,16 @@
           "marketText": "半全场",
           "pick": "胜/胜",
           "odds": 2.8,
-          "probability": 0.317
+          "probability": 0.317,
+          "confidenceScore": 48,
+          "evidenceGate": "blocked"
         }
       ],
       "productOdds": 17.78,
       "trustScore": 31,
       "exactScoreLegs": 0,
-      "settlementRisk": "常规",
+      "settlementRisk": "常规但不代表稳中",
+      "selectionRule": "方向/进球分开评估；赔率仅作市场基线",
       "rank": 6
     },
     {
@@ -2290,7 +2332,9 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.85,
-          "probability": 0.3151
+          "probability": 0.3151,
+          "confidenceScore": 64,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040796",
@@ -2300,7 +2344,9 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.25,
-          "probability": 0.3541
+          "probability": 0.3541,
+          "confidenceScore": 48,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040795",
@@ -2310,13 +2356,16 @@
           "marketText": "半全场",
           "pick": "负/负",
           "odds": 2.55,
-          "probability": 0.3496
+          "probability": 0.3496,
+          "confidenceScore": 49,
+          "evidenceGate": "blocked"
         }
       ],
       "productOdds": 31.91,
       "trustScore": 30,
       "exactScoreLegs": 0,
-      "settlementRisk": "常规",
+      "settlementRisk": "常规但不代表稳中",
+      "selectionRule": "方向/进球分开评估；赔率仅作市场基线",
       "rank": 7
     },
     {
@@ -2331,7 +2380,9 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.85,
-          "probability": 0.3151
+          "probability": 0.3151,
+          "confidenceScore": 64,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040795",
@@ -2341,7 +2392,9 @@
           "marketText": "半全场",
           "pick": "负/负",
           "odds": 2.55,
-          "probability": 0.3496
+          "probability": 0.3496,
+          "confidenceScore": 49,
+          "evidenceGate": "blocked"
         },
         {
           "matchId": "2040796",
@@ -2351,45 +2404,17 @@
           "marketText": "半全场",
           "pick": "胜/胜",
           "odds": 2.8,
-          "probability": 0.317
+          "probability": 0.317,
+          "confidenceScore": 48,
+          "evidenceGate": "blocked"
         }
       ],
       "productOdds": 27.49,
       "trustScore": 29,
       "exactScoreLegs": 0,
-      "settlementRisk": "常规",
+      "settlementRisk": "常规但不代表稳中",
+      "selectionRule": "方向/进球分开评估；赔率仅作市场基线",
       "rank": 8
-    },
-    {
-      "name": "比分2串一",
-      "category": "crs",
-      "legs": [
-        {
-          "matchId": "2040794",
-          "league": "瑞典超级联赛",
-          "match": "周一001 天狼星 vs 布鲁马波卡纳",
-          "market": "crs",
-          "marketText": "比分",
-          "pick": "2-1",
-          "odds": 7.5,
-          "probability": 0.105
-        },
-        {
-          "matchId": "2040795",
-          "league": "瑞典超级联赛",
-          "match": "周一002 韦斯特罗斯 vs 佐加顿斯",
-          "market": "crs",
-          "marketText": "比分",
-          "pick": "1-2",
-          "odds": 7.0,
-          "probability": 0.1117
-        }
-      ],
-      "productOdds": 52.5,
-      "trustScore": 7,
-      "exactScoreLegs": 2,
-      "settlementRisk": "高（含精确比分）",
-      "rank": 9
     }
   ],
   "scheduleWarnings": [],

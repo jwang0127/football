@@ -939,7 +939,31 @@ def leg(match: dict[str, Any], market: str) -> dict[str, Any]:
     else:
         key, odds, probability = hafu_pick(match)
         pick = HAFU_TEXT[key]
-    return {"matchId": match["id"], "league": match["league"], "match": f"{match['matchNumStr']} {match['home']} vs {match['away']}", "market": market, "marketText": MARKET_TEXT[market], "pick": pick, "odds": odds, "probability": probability}
+    return {"matchId": match["id"], "league": match["league"], "match": f"{match['matchNumStr']} {match['home']} vs {match['away']}", "market": market, "marketText": MARKET_TEXT[market], "pick": pick, "odds": odds, "probability": probability, "confidenceScore": match.get("confidenceScore", 0), "evidenceGate": (match.get("reasoningContract") or {}).get("evidenceGate", "blocked")}
+
+
+def score_leg_eligible(row: dict[str, Any]) -> bool:
+    """Exact-score legs need match-level evidence, not only a market price."""
+    if row.get("market") != "crs":
+        return True
+    return row.get("evidenceGate") == "passed" and float(row.get("confidenceScore", 0)) >= 55
+
+
+def score_shapes_are_distinct(selected: tuple[dict[str, Any], ...] | list[dict[str, Any]]) -> bool:
+    """Avoid repeating one 2-1/1-2 template across an exact-score parlay."""
+    shapes = []
+    for row in selected:
+        if row.get("market") != "crs":
+            continue
+        pick = str(row.get("pick", ""))
+        if "-" not in pick:
+            continue
+        home, away = (int(value) for value in pick.split("-"))
+        # Orientation is deliberately ignored: 1-2 and 2-1 are the same
+        # one-goal, three-goal template for diversification purposes.
+        shape = (min(home, away), max(home, away), home == 0 or away == 0)
+        shapes.append(shape)
+    return len(shapes) == len(set(shapes))
 
 
 def combo(name: str, legs: tuple[dict[str, Any], ...] | list[dict[str, Any]], category: str) -> dict[str, Any]:
@@ -947,7 +971,10 @@ def combo(name: str, legs: tuple[dict[str, Any], ...] | list[dict[str, Any]], ca
     joint = math.prod(row["probability"] for row in legs)
     exact_score_legs = sum(row["market"] == "crs" for row in legs)
     trust = round(100 * joint ** (1 / len(legs)) * (0.94 ** (len(legs) - 1)) * (0.82 ** exact_score_legs))
-    return {"name": name, "category": category, "legs": list(legs), "productOdds": round(product, 2), "trustScore": max(1, min(88, trust)), "exactScoreLegs": exact_score_legs, "settlementRisk": "高（含精确比分）" if exact_score_legs else "常规"}
+    rule = "方向/进球分开评估；赔率仅作市场基线"
+    if exact_score_legs:
+        rule = "精确比分必须通过比赛级证据闸门，且比分形态不得重复；比分命中与方向、总进球分开结算"
+    return {"name": name, "category": category, "legs": list(legs), "productOdds": round(product, 2), "trustScore": max(1, min(88, trust)), "exactScoreLegs": exact_score_legs, "settlementRisk": "极高（含精确比分，任一比分错则整串失败）" if exact_score_legs else "常规但不代表稳中", "selectionRule": rule}
 
 
 def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -965,6 +992,8 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
         for size in range(2, min(max_size, len(usable)) + 1):
             for selected in combinations(usable, size):
                 if not same_competition(selected):
+                    continue
+                if market == "crs" and (not all(score_leg_eligible(item) for item in selected) or not score_shapes_are_distinct(selected)):
                     continue
                 item = combo(f"{MARKET_TEXT[market]}{size}串一", selected, market)
                 if item["productOdds"] >= MIN_COMBO_ODDS:
@@ -985,6 +1014,8 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 continue
             if size >= 3 and sum(x["market"] == "crs" for x in selected) > 1:
                 continue
+            if not all(score_leg_eligible(item) for item in selected) or not score_shapes_are_distinct(selected):
+                continue
             item = combo(f"混合{size}串一", selected, "mixed")
             if item["productOdds"] >= MIN_COMBO_ODDS:
                 mixed.append(item)
@@ -994,7 +1025,7 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
     by_match: dict[str, list[dict[str, Any]]] = {}
     for item in non_korean:
         by_match.setdefault(item["matchId"], []).append(item)
-    preferred = [sorted(options, key=lambda x: (x["market"] != "ttg", x["market"] == "crs", -x["probability"]))[0] for options in by_match.values()]
+    preferred = [sorted((item for item in options if score_leg_eligible(item)), key=lambda x: (x["market"] != "ttg", x["market"] == "crs", -x["probability"]))[0] for options in by_match.values() if any(score_leg_eligible(item) for item in options)]
     preferred.sort(key=lambda x: -x["probability"])
     for size in (6, 7, 8):
         if len(preferred) >= size:
@@ -1159,7 +1190,7 @@ def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
     combos = []
     for c in payload["combos"]:
         legs = "".join(f'<tr><td>{esc(x["match"])}</td><td>{esc(x["marketText"])}</td><td>{esc(x["pick"])}</td><td>{x["odds"]:.2f}</td></tr>' for x in c["legs"])
-        combos.append(f'<section class="combo {c["category"]}"><h3>#{c["rank"]} {esc(c["name"])} <b>{c["trustScore"]}/100</b></h3><table>{legs}</table><p>理论组合赔率：<strong>{c["productOdds"]:.2f}</strong>；结算风险：{esc(c.get("settlementRisk", "常规"))}</p></section>')
+        combos.append(f'<section class="combo {c["category"]}"><h3>#{c["rank"]} {esc(c["name"])} <b>{c["trustScore"]}/100</b></h3><table>{legs}</table><p>理论组合赔率：<strong>{c["productOdds"]:.2f}</strong>；结算风险：{esc(c.get("settlementRisk", "常规"))}；筛选规则：{esc(c.get("selectionRule", "方向/进球分开评估；赔率仅作市场基线"))}</p></section>')
     cards = []
     for m in payload["matches"]:
         p, had = m["probabilities"], m["odds"]["had"]
