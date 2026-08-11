@@ -75,6 +75,14 @@ EXCLUDED_LEAGUES = {"世界杯"}
 # here (rather than hidden in one global predictor) so a review changes only the
 # competition that produced the evidence.
 COMPETITION_MODELS: dict[str, dict[str, Any]] = {
+    "亚洲冠军精英联赛": {"version": "acl-elite-v1-market-baseline", "review_sample": 0, "had": .34, "crs": .44, "prior": .22,
+                 "prior_probs": (.42, .29, .29), "goal_shift": .00, "draw_boost": 1.05,
+                 "clean_sheet_boost": 1.04, "confidence_delta": -8,
+                 "lesson": "独立亚洲赛事样本不足，采用市场基线并降低置信度，不把其他联赛经验直接迁移。"},
+    "南美解放者杯": {"version": "libertadores-v1-market-baseline", "review_sample": 0, "had": .34, "crs": .44, "prior": .22,
+                 "prior_probs": (.42, .29, .29), "goal_shift": -.04, "draw_boost": 1.06,
+                 "clean_sheet_boost": 1.05, "confidence_delta": -8,
+                 "lesson": "独立南美杯赛样本不足，采用市场基线并降低置信度，不把其他联赛经验直接迁移。"},
     "韩国职业联赛": {"version": "k-league-v7-review-0722", "review_sample": 12, "had": .30, "crs": .47, "prior": .23,
                  "prior_probs": (.46, .29, .25), "goal_shift": .00, "draw_boost": 1.06,
                  "clean_sheet_boost": 1.08, "confidence_delta": -2,
@@ -202,6 +210,8 @@ def load_base():
     assert spec.loader
     spec.loader.exec_module(module)
     module.LEAGUE_STYLES.update({
+        "亚洲冠军精英联赛": {"class": "acl", "color": "#1f6f9f", "label": "亚冠精英"},
+        "南美解放者杯": {"class": "lib", "color": "#9a5b2d", "label": "解放者杯"},
         "瑞典超级联赛": {"class": "swe", "color": "#176da3", "label": "瑞超"},
         "韩国职业联赛": {"class": "kor", "color": "#b33e5c", "label": "韩职"},
         "芬兰超级联赛": {"class": "fin", "color": "#16766c", "label": "芬超"},
