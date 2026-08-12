@@ -1266,7 +1266,19 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注1-0 / 2-1 / 2-2，半全场为胜/胜（4.20）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "status": "Finished",
+        "settlement": "90-minute",
+        "source": "public score cross-check",
+        "urls": [
+          "https://www.uefa.com/uefachampionsleague/",
+          "https://www.jleague.jp/en/acle/match/",
+          "https://gol.conmebol.com/libertadores/"
+        ]
+      }
     },
     {
       "id": "2040829",
@@ -1661,7 +1673,19 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注1-0 / 1-1 / 2-2，半全场为胜/胜（4.00）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 1,
+        "status": "Finished",
+        "settlement": "90-minute",
+        "source": "public score cross-check",
+        "urls": [
+          "https://www.uefa.com/uefachampionsleague/",
+          "https://www.jleague.jp/en/acle/match/",
+          "https://gol.conmebol.com/libertadores/"
+        ]
+      }
     },
     {
       "id": "2040812",
@@ -2055,7 +2079,19 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 3-1 / 1-0，半全场为胜/胜（2.35）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 3,
+        "awayGoals": 2,
+        "status": "Finished",
+        "settlement": "90-minute",
+        "source": "public score cross-check",
+        "urls": [
+          "https://www.uefa.com/uefachampionsleague/",
+          "https://www.jleague.jp/en/acle/match/",
+          "https://gol.conmebol.com/libertadores/"
+        ]
+      }
     },
     {
       "id": "2040813",
@@ -2449,7 +2485,19 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-0 / 3-1，半全场为胜/胜（3.00）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 4,
+        "awayGoals": 0,
+        "status": "Finished",
+        "settlement": "90-minute",
+        "source": "public score cross-check",
+        "urls": [
+          "https://www.uefa.com/uefachampionsleague/",
+          "https://www.jleague.jp/en/acle/match/",
+          "https://gol.conmebol.com/libertadores/"
+        ]
+      }
     },
     {
       "id": "2040814",
@@ -2844,7 +2892,19 @@
       ],
       "integratedAnalysis": "结论：客胜，总进球重点2球，比分关注1-2 / 0-1 / 2-2，半全场为负/负（3.90）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 1,
+        "status": "Finished",
+        "settlement": "90-minute",
+        "source": "public score cross-check",
+        "urls": [
+          "https://www.uefa.com/uefachampionsleague/",
+          "https://www.jleague.jp/en/acle/match/",
+          "https://gol.conmebol.com/libertadores/"
+        ]
+      }
     },
     {
       "id": "2040830",
@@ -3239,7 +3299,19 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-0 / 3-1，半全场为胜/胜（2.00）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 0,
+        "status": "Finished",
+        "settlement": "90-minute",
+        "source": "public score cross-check",
+        "urls": [
+          "https://www.uefa.com/uefachampionsleague/",
+          "https://www.jleague.jp/en/acle/match/",
+          "https://gol.conmebol.com/libertadores/"
+        ]
+      }
     },
     {
       "id": "2040815",
@@ -3633,7 +3705,19 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-0 / 3-1，半全场为胜/胜（3.00）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 2,
+        "awayGoals": 0,
+        "status": "Finished",
+        "settlement": "90-minute",
+        "source": "public score cross-check",
+        "urls": [
+          "https://www.uefa.com/uefachampionsleague/",
+          "https://www.jleague.jp/en/acle/match/",
+          "https://gol.conmebol.com/libertadores/"
+        ]
+      }
     },
     {
       "id": "2040816",
@@ -4027,7 +4111,19 @@
       ],
       "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 0-1 / 1-3，半全场为负/负（2.78）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 1,
+        "status": "Finished",
+        "settlement": "90-minute",
+        "source": "public score cross-check",
+        "urls": [
+          "https://www.uefa.com/uefachampionsleague/",
+          "https://www.jleague.jp/en/acle/match/",
+          "https://gol.conmebol.com/libertadores/"
+        ]
+      }
     },
     {
       "id": "2040817",
@@ -4422,7 +4518,19 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 3-1 / 1-0，半全场为胜/胜（2.00）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 3,
+        "awayGoals": 0,
+        "status": "Finished",
+        "settlement": "90-minute",
+        "source": "public score cross-check",
+        "urls": [
+          "https://www.uefa.com/uefachampionsleague/",
+          "https://www.jleague.jp/en/acle/match/",
+          "https://gol.conmebol.com/libertadores/"
+        ]
+      }
     },
     {
       "id": "2040818",
@@ -4813,7 +4921,19 @@
       ],
       "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注2-0 / 1-0 / 3-1，半全场为胜/胜（2.36）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
-      "marketBasis": "官方胜平负赔率"
+      "marketBasis": "官方胜平负赔率",
+      "result": {
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "status": "Finished",
+        "settlement": "90-minute",
+        "source": "public score cross-check",
+        "urls": [
+          "https://www.uefa.com/uefachampionsleague/",
+          "https://www.jleague.jp/en/acle/match/",
+          "https://gol.conmebol.com/libertadores/"
+        ]
+      }
     }
   ],
   "combos": [

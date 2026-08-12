@@ -29,7 +29,7 @@ ANALYSIS_DIMENSIONS = (
     "ranking_table", "promotion_relegation", "cover_risk", "upset_risk",
 )
 MARKET_TEXT = {"had": "胜平负", "ttg": "总进球", "crs": "比分", "hafu": "半全场"}
-CUP_COMPETITIONS = {"欧洲冠军联赛", "欧罗巴联赛", "巴西杯", "英格兰联赛杯"}
+CUP_COMPETITIONS = {"欧洲超级杯", "欧洲冠军联赛", "欧罗巴联赛", "巴西杯", "英格兰联赛杯"}
 # How much the fitted Dixon-Coles scoreline model contributes on top of the
 # de-vigged market when ranking scores/goals.  The market stays the anchor;
 # the model regularises noise in thin correct-score pools.
@@ -39,6 +39,24 @@ SCORELINE_MODEL_WEIGHT = 0.30
 # market as the anchor and make the scoreline fit a smaller regulariser for
 # competitions with a dedicated cup profile.
 CUP_MODEL_TUNING: dict[str, dict[str, Any]] = {
+    "欧洲超级杯": {
+        "version": "uefa-super-cup-v1-dedicated-0812",
+        "review_sample": 0,
+        "had": .36,
+        "crs": .44,
+        "prior": .20,
+        "prior_probs": (.40, .30, .30),
+        "goal_shift": -.04,
+        "draw_boost": 1.08,
+        "clean_sheet_boost": 1.06,
+        "confidence_delta": -8,
+        "lesson": "欧洲超级杯单场决赛：以市场基线为主，保留90分钟平局与低比分保护；不把加时或点球晋级混入90分钟方向。",
+        "scoreline_weight": 0.18,
+        "draw_threshold": 0.12,
+        "rotation_penalty": -3,
+        "confidence_cap": 64,
+        "structural_goal_shift": -0.04,
+    },
     "英格兰联赛杯": {
         "scoreline_weight": 0.18,
         "draw_threshold": 0.14,
@@ -210,6 +228,7 @@ def load_base():
     assert spec.loader
     spec.loader.exec_module(module)
     module.LEAGUE_STYLES.update({
+        "欧洲超级杯": {"class": "supercup", "color": "#7a43b6", "label": "欧洲超级杯"},
         "亚洲冠军精英联赛": {"class": "acl", "color": "#1f6f9f", "label": "亚冠精英"},
         "南美解放者杯": {"class": "lib", "color": "#9a5b2d", "label": "解放者杯"},
         "瑞典超级联赛": {"class": "swe", "color": "#176da3", "label": "瑞超"},
