@@ -351,6 +351,20 @@ def apply_match_context(probabilities: dict[str, float], context: dict[str, Any]
     return normalized(adjusted)
 
 
+def apply_cross_market_conflict(probabilities: dict[str, float], match: dict[str, Any], profile: dict[str, Any]) -> tuple[dict[str, float], bool]:
+    """Protect draws when HAD and HHAD point to opposite favourites."""
+    had = inverse_market(match.get("odds", {}).get("had") or {}, ("home", "draw", "away"))
+    hhad = inverse_market(match.get("odds", {}).get("hhad") or {}, ("home", "draw", "away"))
+    if len(had) != 3 or len(hhad) != 3:
+        return probabilities, False
+    if max(had, key=had.get) == max(hhad, key=hhad.get):
+        return probabilities, False
+    adjusted = dict(probabilities)
+    adjusted["draw"] *= float(profile.get("cross_market_draw_boost", 1.16))
+    adjusted[max(had, key=had.get)] *= float(profile.get("cross_market_favorite_penalty", .92))
+    return normalized(adjusted), True
+
+
 def market_volatility_audit(match: dict[str, Any], probabilities: dict[str, float], goal_probs: dict[str, float],
                             context: dict[str, Any] | None = None, profile: dict[str, Any] | None = None) -> dict[str, Any]:
     """Describe measurable cup volatility without making misconduct allegations."""
@@ -718,6 +732,7 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
     predicted = base.predict(match)
     scoreline_model = scoreline_model_for(match)
     market_baseline = competition_direction_probabilities(match, profile)
+    market_baseline, cross_market_conflict = apply_cross_market_conflict(market_baseline, match, profile)
     fundamental = fundamental_direction_probabilities(match, context)
     probabilities = apply_match_context(blend_fundamental_and_market(market_baseline, fundamental), context)
     scoreline_weight = float(profile.get("scoreline_weight", SCORELINE_MODEL_WEIGHT))
@@ -731,7 +746,7 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
     direction = max(probabilities, key=probabilities.get)
     market_direction = max(market_baseline, key=market_baseline.get)
     fundamental_direction = max(fundamental, key=fundamental.get) if fundamental else None
-    market_contradiction = bool(fundamental and market_direction != fundamental_direction and abs(market_baseline[market_direction] - fundamental[market_direction]) >= .08)
+    market_contradiction = cross_market_conflict or bool(fundamental and market_direction != fundamental_direction and abs(market_baseline[market_direction] - fundamental[market_direction]) >= .08)
     market_scores = {score: value for score, value in devigged_score_market(match).items() if "-" in score}
     model_scores = scoreline_model.score_probabilities(list(market_scores)) if scoreline_model and market_scores else {}
     score_pool_probs = {score: round((1 - scoreline_weight) * value + scoreline_weight * model_scores.get(score, 0.0), 4) if model_scores else round(value, 4) for score, value in market_scores.items()}
