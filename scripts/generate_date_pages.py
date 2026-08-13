@@ -1009,6 +1009,8 @@ def combo(name: str, legs: tuple[dict[str, Any], ...] | list[dict[str, Any]], ca
 def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     all_legs = {market: [leg(m, market) for m in matches] for market in MARKET_TEXT}
+    # HAD is shown on match cards but excluded from every parlay by request.
+    all_legs["had"] = []
     korean_league = "韩国职业联赛"
     def same_competition(selected: tuple[dict[str, Any], ...]) -> bool:
         return len({x.get("league") for x in selected}) == 1
@@ -1017,8 +1019,10 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
         candidates = all_legs[market]
         usable = [x for x in candidates if x["odds"] and x["probability"]]
         pool = []
-        max_size = 2 if market == "crs" else 3
+        max_size = 4
         for size in range(2, min(max_size, len(usable)) + 1):
+            if size < 3:
+                continue
             for selected in combinations(usable, size):
                 if not same_competition(selected):
                     continue
@@ -1039,7 +1043,7 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
             # pure market parlays remain competition-isolated above.
             if len({x["matchId"] for x in selected}) != size or len({x["market"] for x in selected}) < 2:
                 continue
-            if sum(x["market"] == "had" for x in selected) > 1:
+            if any(x["market"] == "had" for x in selected):
                 continue
             if size >= 3 and sum(x["market"] == "crs" for x in selected) > 1:
                 continue
@@ -1056,10 +1060,10 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
         by_match.setdefault(item["matchId"], []).append(item)
     preferred = [sorted((item for item in options if score_leg_eligible(item)), key=lambda x: (x["market"] != "ttg", x["market"] == "crs", -x["probability"]))[0] for options in by_match.values() if any(score_leg_eligible(item) for item in options)]
     preferred.sort(key=lambda x: -x["probability"])
-    for size in (6, 7, 8):
+    for size in (5, 6):
         if len(preferred) >= size:
             chosen = list(preferred[:size])
-            market = "ttg"
+            market = "mixed"
             label = "进球主导"
             if size in (6, 8):
                 extras = sorted([x for x in all_legs["had"] if x["odds"] and x["probability"] and x.get("league") != korean_league], key=lambda x: -x["probability"])
@@ -1071,7 +1075,7 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 if extras:
                     chosen[0] = extras[0]
                     market, label = "mixed", "进球+半全场"
-            if len({x["matchId"] for x in chosen}) != size or sum(x["market"] == "had" for x in chosen) > 1:
+            if len({x["matchId"] for x in chosen}) != size or any(x["market"] == "had" for x in chosen):
                 chosen = list(preferred[:size])
                 market, label = "ttg", "进球主导"
             item = combo(f"大串{size}串（{label}）", tuple(chosen), market)

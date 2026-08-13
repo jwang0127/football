@@ -1,0 +1,129 @@
+{
+  "reviewDate": "20260812",
+  "source": "public score cross-check",
+  "sources": [
+    {
+      "name": "UEFA match centre",
+      "url": "https://www.uefa.com/uefasupercup/match/2048319--paris-vs-aston-villa/"
+    },
+    {
+      "name": "FBref daily results cross-check",
+      "url": "https://fbref.com/en/matches/2026-08-12"
+    },
+    {
+      "name": "Public match-thread score cross-check",
+      "url": "https://www.reddit.com/r/futebol/comments/1vm293c/match_hub_jogos_do_dia_12_de_agosto/"
+    }
+  ],
+  "settlementBasis": "90-minute result; extra time and penalties excluded",
+  "results": [
+    {
+      "matchId": "2040831",
+      "matchNumStr": "周三001",
+      "league": "欧洲超级杯",
+      "home": "巴黎圣日尔曼",
+      "away": "阿斯顿维拉",
+      "score": "2-1",
+      "predictedDirection": "home",
+      "direction": "home",
+      "directionHit": true,
+      "mainScore": "2-1",
+      "mainHit": true,
+      "poolHit": true,
+      "assessment": "方向命中，比分未命中"
+    },
+    {
+      "matchId": "2040819",
+      "matchNumStr": "周三002",
+      "league": "南美解放者杯",
+      "home": "普拉滕斯",
+      "away": "科金博联",
+      "score": "1-1",
+      "predictedDirection": "home",
+      "direction": "draw",
+      "directionHit": false,
+      "mainScore": "1-0",
+      "mainHit": false,
+      "poolHit": false,
+      "assessment": "方向未命中"
+    },
+    {
+      "matchId": "2040820",
+      "matchNumStr": "周三003",
+      "league": "南美解放者杯",
+      "home": "帕尔梅拉斯",
+      "away": "波特诺山丘",
+      "score": "1-1",
+      "predictedDirection": "home",
+      "direction": "draw",
+      "directionHit": false,
+      "mainScore": "2-0",
+      "mainHit": false,
+      "poolHit": false,
+      "assessment": "方向未命中"
+    }
+  ],
+  "reviews": [
+    {
+      "league": "欧洲超级杯",
+      "results": [
+        {
+          "matchId": "2040831",
+          "matchNumStr": "周三001",
+          "league": "欧洲超级杯",
+          "home": "巴黎圣日尔曼",
+          "away": "阿斯顿维拉",
+          "score": "2-1",
+          "predictedDirection": "home",
+          "direction": "home",
+          "directionHit": true,
+          "mainScore": "2-1",
+          "mainHit": true,
+          "poolHit": true,
+          "assessment": "方向命中，比分未命中"
+        }
+      ],
+      "summary": "方向命中 1/1；主比分命中 1/1；比分池命中 1/1",
+      "modelAdjustment": "首回合杯赛：不把强势主胜直接等同于90分钟稳胜；提高平局与1-1/0-0保护，保留强队1球小胜和次回合追分尾部。样本仅3场，采用保守收缩，不跨赛事迁移。"
+    },
+    {
+      "league": "南美解放者杯",
+      "results": [
+        {
+          "matchId": "2040819",
+          "matchNumStr": "周三002",
+          "league": "南美解放者杯",
+          "home": "普拉滕斯",
+          "away": "科金博联",
+          "score": "1-1",
+          "predictedDirection": "home",
+          "direction": "draw",
+          "directionHit": false,
+          "mainScore": "1-0",
+          "mainHit": false,
+          "poolHit": false,
+          "assessment": "方向未命中"
+        },
+        {
+          "matchId": "2040820",
+          "matchNumStr": "周三003",
+          "league": "南美解放者杯",
+          "home": "帕尔梅拉斯",
+          "away": "波特诺山丘",
+          "score": "1-1",
+          "predictedDirection": "home",
+          "direction": "draw",
+          "directionHit": false,
+          "mainScore": "2-0",
+          "mainHit": false,
+          "poolHit": false,
+          "assessment": "方向未命中"
+        }
+      ],
+      "summary": "方向命中 0/2；主比分命中 0/2；比分池命中 0/2",
+      "modelAdjustment": "首回合杯赛：不把强势主胜直接等同于90分钟稳胜；提高平局与1-1/0-0保护，保留强队1球小胜和次回合追分尾部。样本仅3场，采用保守收缩，不跨赛事迁移。"
+    }
+  ],
+  "summary": "方向命中 1/3；主比分命中 1/3；比分池命中 1/3",
+  "globalLesson": "昨日未命中核心是杯赛首回合的平局保护不足：两场解放者杯均为1-1，市场主胜方向正确但比分模板过度偏向主队零封/小胜。后续杯赛模型下调主胜置信度、提高平局和低比分分支；巴黎比赛的2-1命中方向但主比分仍未命中，说明单场决赛不宜提高比分确定性。"
+}

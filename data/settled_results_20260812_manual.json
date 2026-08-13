@@ -1,0 +1,50 @@
+{
+  "settlementBasis": "90-minute result; extra time and penalties excluded",
+  "results": [
+    {
+      "matchId": "2040831",
+      "matchNumStr": "周三001",
+      "league": "欧洲超级杯",
+      "home": "巴黎圣日尔曼",
+      "away": "阿斯顿维拉",
+      "score": "2-1",
+      "predictedDirection": "home",
+      "direction": "home",
+      "directionHit": true,
+      "mainScore": "2-1",
+      "mainHit": true,
+      "poolHit": true,
+      "assessment": "方向命中，比分未命中"
+    },
+    {
+      "matchId": "2040819",
+      "matchNumStr": "周三002",
+      "league": "南美解放者杯",
+      "home": "普拉滕斯",
+      "away": "科金博联",
+      "score": "1-1",
+      "predictedDirection": "home",
+      "direction": "draw",
+      "directionHit": false,
+      "mainScore": "1-0",
+      "mainHit": false,
+      "poolHit": false,
+      "assessment": "方向未命中"
+    },
+    {
+      "matchId": "2040820",
+      "matchNumStr": "周三003",
+      "league": "南美解放者杯",
+      "home": "帕尔梅拉斯",
+      "away": "波特诺山丘",
+      "score": "1-1",
+      "predictedDirection": "home",
+      "direction": "draw",
+      "directionHit": false,
+      "mainScore": "2-0",
+      "mainHit": false,
+      "poolHit": false,
+      "assessment": "方向未命中"
+    }
+  ]
+}
