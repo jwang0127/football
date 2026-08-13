@@ -5,7 +5,7 @@
     "2026-08-13"
   ],
   "modelVersion": "competition-specific-evidence-chain-20260813-v10",
-  "contextVersion": "evidence-chain-v2",
+  "contextVersion": "user-injury-image-v1-20260813",
   "competitionModels": {
     "欧罗巴联赛": {
       "version": "uel-qualifying-v4-review-0723-auto-0810",
@@ -177,7 +177,7 @@
     "summary": "方向命中 1/3；主比分命中 1/3；比分池命中 1/3",
     "globalLesson": "昨日未命中核心是杯赛首回合的平局保护不足：两场解放者杯均为1-1，市场主胜方向正确但比分模板过度偏向主队零封/小胜。后续杯赛模型下调主胜置信度、提高平局和低比分分支；巴黎比赛的2-1命中方向但主比分仍未命中，说明单场决赛不宜提高比分确定性。"
   },
-  "generatedAt": "2026-08-13T14:43:22",
+  "generatedAt": "2026-08-13T14:46:38",
   "oddsUpdatedAt": "2026-08-13 14:24:33",
   "matches": [
     {
@@ -196,34 +196,33 @@
       "homeRank": "",
       "awayRank": "",
       "probabilities": {
-        "home": 0.6572,
-        "draw": 0.2076,
-        "away": 0.1352
+        "home": 0.4298,
+        "draw": 0.3034,
+        "away": 0.2668
       },
       "direction": "home",
       "directionText": "主胜",
       "mainScore": "2-0",
       "backupScores": [
-        "1-0",
-        "3-1"
+        "1-1",
+        "1-0"
       ],
       "tailRiskScores": [
-        "4-0",
         "0-0",
-        "4-1",
         "2-2",
-        "5-0",
-        "5-1"
+        "1-3",
+        "0-3",
+        "1-4"
       ],
-      "totalGoals": "3",
+      "totalGoals": "2",
       "goalCandidates": [
-        "3",
         "2",
-        "4"
+        "3",
+        "1"
       ],
-      "confidenceScore": 55,
+      "confidenceScore": 60,
       "confidence": "中",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为主胜。市场与基本面存在分歧，降低信任度。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -298,14 +297,14 @@
         }
       },
       "goalProbabilities": {
-        "0": 0.0218,
-        "1": 0.138,
-        "2": 0.3212,
-        "3": 0.3254,
-        "4": 0.1467,
-        "5": 0.0396,
-        "6": 0.0064,
-        "7+": 0.0009
+        "0": 0.0235,
+        "1": 0.1444,
+        "2": 0.3265,
+        "3": 0.3214,
+        "4": 0.1408,
+        "5": 0.0369,
+        "6": 0.0058,
+        "7+": 0.0008
       },
       "scorePoolProbabilities": {
         "0-0": 0.0583,
@@ -359,12 +358,16 @@
         "draw": 0.2076,
         "away": 0.1352
       },
-      "fundamentalProbabilities": null,
+      "fundamentalProbabilities": {
+        "home": 0.3102,
+        "draw": 0.3465,
+        "away": 0.3432
+      },
       "fundamentalFirst": true,
-      "marketContradiction": false,
+      "marketContradiction": true,
       "goalSelectionGate": {
         "attackEfficiencyProxy": 0.6644,
-        "tempoProxy": 0.519,
+        "tempoProxy": 0.5056,
         "defensiveHoleProxy": 0.4572,
         "viable": true,
         "status": "big-goal conditions all supported"
@@ -378,8 +381,8 @@
         "bigViable": true
       },
       "goalPrediction": {
-        "pick": "3",
-        "probability": 0.3254,
+        "pick": "2",
+        "probability": 0.3265,
         "type": "total_goals"
       },
       "scorePrediction": {
@@ -412,27 +415,31 @@
         "schedule": "资料不足，保持中性",
         "motivation": "资料不足，保持中性",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
+        "teamNews": "未核实资料显示双方均有后场伤停：克拉约瓦大学涉及门将/后卫，库奥皮奥涉及左后卫。",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "C:/Users/Administrator/AppData/Local/Temp/codex-clipboard-299dd315-acf2-456b-9e5d-aa842f84df41.png"
+      ],
+      "evidenceStatus": "用户提供伤停图，未完成官方逐条核验",
+      "verifiedFactors": [
+        "squad_availability"
+      ],
       "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-0，备选1-0/3-1；证据不足，置信度下调。",
+        "whyWin": "支持主队的可核验逻辑：未核实资料显示双方均有后场伤停：克拉约瓦大学涉及门将/后卫，库奥皮奥涉及左后卫。",
+        "whyMustWin": "来源未确认必须赢的赛制或积分条件，因此只作弱动机处理。",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：双方比赛目标与风险控制存在拉扯；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定主队，主比分2-0，备选1-1/1-0；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "未核实资料显示双方均有后场伤停：克拉约瓦大学涉及门将/后卫，库奥皮奥涉及左后卫。",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -450,7 +457,6 @@
             "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
             "coach_tactics",
             "motivation_competition",
@@ -464,10 +470,10 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.0,
-          "adjustmentGate": "blocked"
+          "completeness": 0.06,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "未核验",
@@ -477,11 +483,11 @@
         "coverRisk": "未核验；需结合实际让球、首发和比赛节奏判断",
         "upsetRisk": "未核验；保留市场反向和阵容突变路径",
         "scheduleLoad": "未核验",
-        "availability": "未核验",
+        "availability": "主队门将与后卫伤停信息未完全清晰；客队左后卫肌肉类伤情。",
         "coachTactics": "未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.0,
-        "brief": "上一场：未核验；下一场：未核验；排名：未核验；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 未核验。"
+        "completeness": 0.1,
+        "brief": "上一场：未核验；下一场：未核验；排名：未核验；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 主队门将与后卫伤停信息未完全清晰；客队左后卫肌肉类伤情。。"
       },
       "previousMatch": "未核验",
       "nextMatch": "未核验",
@@ -493,7 +499,7 @@
         "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "未核实资料显示双方均有后场伤停：克拉约瓦大学涉及门将/后卫，库奥皮奥涉及左后卫。",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -511,7 +517,6 @@
         "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
         "coach_tactics",
         "motivation_competition",
@@ -525,11 +530,10 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.0,
+      "analysisCompleteness": 0.06,
       "marketRiskLevel": "中高",
       "marketRiskFactors": [
         "杯赛/资格赛存在轮换、90分钟结算和领先后控节奏路径",
-        "未核实首发与轮换，禁止把强队名气直接等同于90分钟稳胜",
         "0至2球市场质量较高，保留0-0/1-0式受控比分"
       ],
       "marketRiskNote": "仅依据官方赔率、比分矩阵和总进球分布审计盘口分歧；无公开证据时不认定假球、故意输或故意平。",
@@ -543,16 +547,16 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.32,
-          "modelProbability": 0.6572,
-          "expectedValue": -0.1325
+          "modelProbability": 0.4298,
+          "expectedValue": -0.4327
         },
         {
           "market": "ttg",
           "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.5,
-          "modelProbability": 0.3254,
-          "expectedValue": 0.1389
+          "pick": "2",
+          "odds": 3.35,
+          "modelProbability": 0.3265,
+          "expectedValue": 0.0938
         },
         {
           "market": "crs",
@@ -571,8 +575,8 @@
           "expectedValue": -0.208
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-0 / 1-0 / 3-1，半全场为胜/胜（1.98）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注2-0 / 1-1 / 1-0，半全场为胜/胜（1.98）；已核验squad_availability，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -591,23 +595,23 @@
       "homeRank": "",
       "awayRank": "",
       "probabilities": {
-        "home": 0.3046,
-        "draw": 0.2971,
-        "away": 0.3983
+        "home": 0.3129,
+        "draw": 0.3815,
+        "away": 0.3055
       },
-      "direction": "away",
-      "directionText": "客胜",
-      "mainScore": "1-2",
+      "direction": "draw",
+      "directionText": "平",
+      "mainScore": "1-1",
       "backupScores": [
-        "1-1",
-        "0-1"
+        "0-1",
+        "2-2"
       ],
       "tailRiskScores": [
         "1-3",
         "0-3",
         "0-0",
-        "1-4",
-        "3-0"
+        "3-0",
+        "1-4"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -615,9 +619,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 34,
+      "confidenceScore": 35,
       "confidence": "中低",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为平。市场与基本面存在分歧，降低信任度。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -692,14 +696,14 @@
         }
       },
       "goalProbabilities": {
-        "0": 0.0138,
-        "1": 0.1026,
-        "2": 0.2688,
-        "3": 0.3399,
-        "4": 0.1949,
-        "5": 0.0652,
-        "6": 0.0126,
-        "7+": 0.0023
+        "0": 0.0153,
+        "1": 0.1096,
+        "2": 0.2769,
+        "3": 0.3378,
+        "4": 0.1869,
+        "5": 0.0603,
+        "6": 0.0112,
+        "7+": 0.0019
       },
       "scorePoolProbabilities": {
         "0-0": 0.0474,
@@ -753,32 +757,36 @@
         "draw": 0.2971,
         "away": 0.3983
       },
-      "fundamentalProbabilities": null,
+      "fundamentalProbabilities": {
+        "home": 0.328,
+        "draw": 0.373,
+        "away": 0.299
+      },
       "fundamentalFirst": true,
       "marketContradiction": true,
       "goalSelectionGate": {
         "attackEfficiencyProxy": 0.681,
-        "tempoProxy": 0.6148,
+        "tempoProxy": 0.5982,
         "defensiveHoleProxy": 0.6008,
         "viable": true,
         "status": "big-goal conditions all supported"
       },
       "upsetAttackCapability": {
-        "favourite": "away",
-        "underdog": "home",
-        "scoringMass": 0.7204,
-        "twoGoalMass": 0.3628,
+        "favourite": "home",
+        "underdog": "away",
+        "scoringMass": 0.8101,
+        "twoGoalMass": 0.4977,
         "viable": true,
         "bigViable": true
       },
       "goalPrediction": {
         "pick": "3",
-        "probability": 0.3399,
+        "probability": 0.3378,
         "type": "total_goals"
       },
       "scorePrediction": {
-        "pick": "1-2",
-        "probability": 0.1063,
+        "pick": "1-1",
+        "probability": 0.1087,
         "type": "exact_score"
       },
       "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
@@ -806,27 +814,31 @@
         "schedule": "资料不足，保持中性",
         "motivation": "资料不足，保持中性",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
+        "teamNews": "未核实资料显示帕福斯后场/中场有伤停，萨尔茨堡后场与中场也有多人缺阵或未知伤情。",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "C:/Users/Administrator/AppData/Local/Temp/codex-clipboard-299dd315-acf2-456b-9e5d-aa842f84df41.png"
+      ],
+      "evidenceStatus": "用户提供伤停图，未完成官方逐条核验；双方伤停方向相互抵消",
+      "verifiedFactors": [
+        "squad_availability"
+      ],
       "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选1-1/0-1；证据不足，置信度下调。",
+        "whyWin": "支持平局的可核验逻辑：未核实资料显示帕福斯后场/中场有伤停，萨尔茨堡后场与中场也有多人缺阵或未知伤情。",
+        "whyMustWin": "来源未确认必须赢的赛制或积分条件，因此只作弱动机处理。",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：双方比赛目标与风险控制存在拉扯；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定平局，主比分1-1，备选0-1/2-2；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "未核实资料显示帕福斯后场/中场有伤停，萨尔茨堡后场与中场也有多人缺阵或未知伤情。",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -844,7 +856,6 @@
             "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
             "coach_tactics",
             "motivation_competition",
@@ -858,10 +869,10 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.0,
-          "adjustmentGate": "blocked"
+          "completeness": 0.06,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "未核验",
@@ -871,11 +882,11 @@
         "coverRisk": "未核验；需结合实际让球、首发和比赛节奏判断",
         "upsetRisk": "未核验；保留市场反向和阵容突变路径",
         "scheduleLoad": "未核验",
-        "availability": "未核验",
+        "availability": "双方均非完整阵容；客队后场伤停较集中，主队亦有门将/后卫与中场风险。",
         "coachTactics": "未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.0,
-        "brief": "上一场：未核验；下一场：未核验；排名：未核验；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 未核验。"
+        "completeness": 0.1,
+        "brief": "上一场：未核验；下一场：未核验；排名：未核验；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 双方均非完整阵容；客队后场伤停较集中，主队亦有门将/后卫与中场风险。。"
       },
       "previousMatch": "未核验",
       "nextMatch": "未核验",
@@ -887,7 +898,7 @@
         "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "未核实资料显示帕福斯后场/中场有伤停，萨尔茨堡后场与中场也有多人缺阵或未知伤情。",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -905,7 +916,6 @@
         "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
         "coach_tactics",
         "motivation_competition",
@@ -919,55 +929,54 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.0,
+      "analysisCompleteness": 0.06,
       "marketRiskLevel": "高",
       "marketRiskFactors": [
         "杯赛/资格赛存在轮换、90分钟结算和领先后控节奏路径",
-        "未核实首发与轮换，禁止把强队名气直接等同于90分钟稳胜",
         "胜平负方向接近，意外结果风险按平局保护处理",
         "4球以上尾部不可忽略，保留追分导致的大比分路径"
       ],
       "marketRiskNote": "仅依据官方赔率、比分矩阵和总进球分布审计盘口分歧；无公开证据时不认定假球、故意输或故意平。",
       "businessDate": "2026-08-13",
-      "halfFullKey": "aa",
-      "halfFullText": "负/负",
-      "halfFullOdds": 3.2,
+      "halfFullKey": "dd",
+      "halfFullText": "平/平",
+      "halfFullOdds": 6.0,
       "valueAudit": [
         {
           "market": "had",
           "marketText": "胜平负",
-          "pick": "客胜",
-          "odds": 1.96,
-          "modelProbability": 0.3983,
-          "expectedValue": -0.2193
+          "pick": "平",
+          "odds": 3.45,
+          "modelProbability": 0.3815,
+          "expectedValue": 0.3162
         },
         {
           "market": "ttg",
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.55,
-          "modelProbability": 0.3399,
-          "expectedValue": 0.2066
+          "modelProbability": 0.3378,
+          "expectedValue": 0.1992
         },
         {
           "market": "crs",
           "marketText": "比分",
-          "pick": "1-2",
-          "odds": 7.4,
-          "modelProbability": 0.1063,
-          "expectedValue": -0.2134
+          "pick": "1-1",
+          "odds": 7.5,
+          "modelProbability": 0.1087,
+          "expectedValue": -0.1847
         },
         {
           "market": "hafu",
           "marketText": "半全场",
-          "pick": "负/负",
-          "odds": 3.2,
-          "modelProbability": 0.2822,
-          "expectedValue": -0.097
+          "pick": "平/平",
+          "odds": 6.0,
+          "modelProbability": 0.1355,
+          "expectedValue": -0.187
         }
       ],
-      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 1-1 / 0-1，半全场为负/负（3.20）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：平，总进球重点3球，比分关注1-1 / 0-1 / 2-2，半全场为平/平（6.00）；已核验squad_availability，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -986,16 +995,16 @@
       "homeRank": "",
       "awayRank": "",
       "probabilities": {
-        "home": 0.3639,
-        "draw": 0.2862,
-        "away": 0.3499
+        "home": 0.3223,
+        "draw": 0.3406,
+        "away": 0.3371
       },
-      "direction": "home",
-      "directionText": "主胜",
-      "mainScore": "2-1",
+      "direction": "draw",
+      "directionText": "平",
+      "mainScore": "1-1",
       "backupScores": [
-        "1-1",
-        "2-2"
+        "2-2",
+        "1-0"
       ],
       "tailRiskScores": [
         "1-3",
@@ -1010,9 +1019,9 @@
         "4",
         "2"
       ],
-      "confidenceScore": 27,
+      "confidenceScore": 30,
       "confidence": "中低",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为平。市场与基本面存在分歧，降低信任度。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -1087,14 +1096,14 @@
         }
       },
       "goalProbabilities": {
-        "0": 0.0073,
-        "1": 0.071,
-        "2": 0.2148,
-        "3": 0.3371,
-        "4": 0.2409,
-        "5": 0.0997,
-        "6": 0.0237,
-        "7+": 0.0054
+        "0": 0.0071,
+        "1": 0.0699,
+        "2": 0.213,
+        "3": 0.3367,
+        "4": 0.2424,
+        "5": 0.101,
+        "6": 0.0242,
+        "7+": 0.0056
       },
       "scorePoolProbabilities": {
         "0-0": 0.034,
@@ -1148,32 +1157,36 @@
         "draw": 0.2862,
         "away": 0.3499
       },
-      "fundamentalProbabilities": null,
+      "fundamentalProbabilities": {
+        "home": 0.3182,
+        "draw": 0.3506,
+        "away": 0.3312
+      },
       "fundamentalFirst": true,
       "marketContradiction": true,
       "goalSelectionGate": {
         "attackEfficiencyProxy": 0.7087,
-        "tempoProxy": 0.7068,
+        "tempoProxy": 0.7099,
         "defensiveHoleProxy": 0.637,
         "viable": true,
         "status": "big-goal conditions all supported"
       },
       "upsetAttackCapability": {
-        "favourite": "home",
-        "underdog": "away",
-        "scoringMass": 0.7783,
-        "twoGoalMass": 0.454,
+        "favourite": "away",
+        "underdog": "home",
+        "scoringMass": 0.7886,
+        "twoGoalMass": 0.4701,
         "viable": true,
         "bigViable": true
       },
       "goalPrediction": {
         "pick": "3",
-        "probability": 0.3371,
+        "probability": 0.3367,
         "type": "total_goals"
       },
       "scorePrediction": {
-        "pick": "2-1",
-        "probability": 0.0948,
+        "pick": "1-1",
+        "probability": 0.1015,
         "type": "exact_score"
       },
       "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
@@ -1201,27 +1214,31 @@
         "schedule": "资料不足，保持中性",
         "motivation": "资料不足，保持中性",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
+        "teamNews": "未核实资料显示雷克雅未克维京人门将/后卫有伤停，图恩后场与中场存在多名伤停或未知伤情。",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "C:/Users/Administrator/AppData/Local/Temp/codex-clipboard-299dd315-acf2-456b-9e5d-aa842f84df41.png"
+      ],
+      "evidenceStatus": "用户提供伤停图，未完成官方逐条核验",
+      "verifiedFactors": [
+        "squad_availability"
+      ],
       "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-1/2-2；证据不足，置信度下调。",
+        "whyWin": "支持平局的可核验逻辑：未核实资料显示雷克雅未克维京人门将/后卫有伤停，图恩后场与中场存在多名伤停或未知伤情。",
+        "whyMustWin": "来源未确认必须赢的赛制或积分条件，因此只作弱动机处理。",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：双方比赛目标与风险控制存在拉扯；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定平局，主比分1-1，备选2-2/1-0；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "未核实资料显示雷克雅未克维京人门将/后卫有伤停，图恩后场与中场存在多名伤停或未知伤情。",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -1239,7 +1256,6 @@
             "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
             "coach_tactics",
             "motivation_competition",
@@ -1253,10 +1269,10 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.0,
-          "adjustmentGate": "blocked"
+          "completeness": 0.06,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "未核验",
@@ -1266,11 +1282,11 @@
         "coverRisk": "未核验；需结合实际让球、首发和比赛节奏判断",
         "upsetRisk": "未核验；保留市场反向和阵容突变路径",
         "scheduleLoad": "未核验",
-        "availability": "未核验",
+        "availability": "双方防线完整度均存疑，主场优势仍在，但零封判断下调。",
         "coachTactics": "未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.0,
-        "brief": "上一场：未核验；下一场：未核验；排名：未核验；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 未核验。"
+        "completeness": 0.1,
+        "brief": "上一场：未核验；下一场：未核验；排名：未核验；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 双方防线完整度均存疑，主场优势仍在，但零封判断下调。。"
       },
       "previousMatch": "未核验",
       "nextMatch": "未核验",
@@ -1282,7 +1298,7 @@
         "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "未核实资料显示雷克雅未克维京人门将/后卫有伤停，图恩后场与中场存在多名伤停或未知伤情。",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -1300,7 +1316,6 @@
         "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
         "coach_tactics",
         "motivation_competition",
@@ -1314,55 +1329,54 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.0,
+      "analysisCompleteness": 0.06,
       "marketRiskLevel": "高",
       "marketRiskFactors": [
         "杯赛/资格赛存在轮换、90分钟结算和领先后控节奏路径",
-        "未核实首发与轮换，禁止把强队名气直接等同于90分钟稳胜",
         "胜平负方向接近，意外结果风险按平局保护处理",
         "4球以上尾部不可忽略，保留追分导致的大比分路径"
       ],
       "marketRiskNote": "仅依据官方赔率、比分矩阵和总进球分布审计盘口分歧；无公开证据时不认定假球、故意输或故意平。",
       "businessDate": "2026-08-13",
-      "halfFullKey": "hh",
-      "halfFullText": "胜/胜",
-      "halfFullOdds": 3.85,
+      "halfFullKey": "dd",
+      "halfFullText": "平/平",
+      "halfFullOdds": 6.3,
       "valueAudit": [
         {
           "market": "had",
           "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 2.28,
-          "modelProbability": 0.3639,
-          "expectedValue": -0.1703
+          "pick": "平",
+          "odds": 3.65,
+          "modelProbability": 0.3406,
+          "expectedValue": 0.2432
         },
         {
           "market": "ttg",
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.65,
-          "modelProbability": 0.3371,
-          "expectedValue": 0.2304
+          "modelProbability": 0.3367,
+          "expectedValue": 0.229
         },
         {
           "market": "crs",
           "marketText": "比分",
-          "pick": "2-1",
-          "odds": 8.3,
-          "modelProbability": 0.0948,
-          "expectedValue": -0.2132
+          "pick": "1-1",
+          "odds": 8.0,
+          "modelProbability": 0.1015,
+          "expectedValue": -0.188
         },
         {
           "market": "hafu",
           "marketText": "半全场",
-          "pick": "胜/胜",
-          "odds": 3.85,
-          "modelProbability": 0.2329,
-          "expectedValue": -0.1033
+          "pick": "平/平",
+          "odds": 6.3,
+          "modelProbability": 0.1266,
+          "expectedValue": -0.2024
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-1 / 2-2，半全场为胜/胜（3.85）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：平，总进球重点3球，比分关注1-1 / 2-2 / 1-0，半全场为平/平（6.30）；已核验squad_availability，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -1381,16 +1395,16 @@
       "homeRank": "",
       "awayRank": "",
       "probabilities": {
-        "home": 0.5291,
-        "draw": 0.2672,
-        "away": 0.2038
+        "home": 0.393,
+        "draw": 0.3365,
+        "away": 0.2705
       },
       "direction": "home",
       "directionText": "主胜",
       "mainScore": "2-1",
       "backupScores": [
-        "1-0",
-        "3-1"
+        "1-1",
+        "1-0"
       ],
       "tailRiskScores": [
         "2-2",
@@ -1405,9 +1419,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 46,
+      "confidenceScore": 49,
       "confidence": "中低",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为主胜。市场与基本面存在分歧，降低信任度。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -1482,14 +1496,14 @@
         }
       },
       "goalProbabilities": {
-        "0": 0.0143,
-        "1": 0.1107,
-        "2": 0.281,
-        "3": 0.3335,
-        "4": 0.1868,
-        "5": 0.0604,
-        "6": 0.0112,
-        "7+": 0.002
+        "0": 0.0149,
+        "1": 0.1136,
+        "2": 0.2842,
+        "3": 0.3325,
+        "4": 0.1836,
+        "5": 0.0585,
+        "6": 0.0107,
+        "7+": 0.0019
       },
       "scorePoolProbabilities": {
         "0-0": 0.047,
@@ -1543,12 +1557,16 @@
         "draw": 0.2672,
         "away": 0.2038
       },
-      "fundamentalProbabilities": null,
+      "fundamentalProbabilities": {
+        "home": 0.3203,
+        "draw": 0.3529,
+        "away": 0.3268
+      },
       "fundamentalFirst": true,
       "marketContradiction": true,
       "goalSelectionGate": {
         "attackEfficiencyProxy": 0.6838,
-        "tempoProxy": 0.5939,
+        "tempoProxy": 0.5872,
         "defensiveHoleProxy": 0.5489,
         "viable": true,
         "status": "big-goal conditions all supported"
@@ -1563,7 +1581,7 @@
       },
       "goalPrediction": {
         "pick": "3",
-        "probability": 0.3335,
+        "probability": 0.3325,
         "type": "total_goals"
       },
       "scorePrediction": {
@@ -1596,27 +1614,31 @@
         "schedule": "资料不足，保持中性",
         "motivation": "资料不足，保持中性",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
+        "teamNews": "未核实资料显示流浪者前场/中场有伤停，比亚韦斯托克后场有肌肉伤情。",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "C:/Users/Administrator/AppData/Local/Temp/codex-clipboard-299dd315-acf2-456b-9e5d-aa842f84df41.png"
+      ],
+      "evidenceStatus": "用户提供伤停图，未完成官方逐条核验",
+      "verifiedFactors": [
+        "squad_availability"
+      ],
       "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分2-1，备选1-0/3-1；证据不足，置信度下调。",
+        "whyWin": "支持主队的可核验逻辑：未核实资料显示流浪者前场/中场有伤停，比亚韦斯托克后场有肌肉伤情。",
+        "whyMustWin": "来源未确认必须赢的赛制或积分条件，因此只作弱动机处理。",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：双方比赛目标与风险控制存在拉扯；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定主队，主比分2-1，备选1-1/1-0；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "未核实资料显示流浪者前场/中场有伤停，比亚韦斯托克后场有肌肉伤情。",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -1634,7 +1656,6 @@
             "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
             "coach_tactics",
             "motivation_competition",
@@ -1648,10 +1669,10 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.0,
-          "adjustmentGate": "blocked"
+          "completeness": 0.06,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "未核验",
@@ -1661,11 +1682,11 @@
         "coverRisk": "未核验；需结合实际让球、首发和比赛节奏判断",
         "upsetRisk": "未核验；保留市场反向和阵容突变路径",
         "scheduleLoad": "未核验",
-        "availability": "未核验",
+        "availability": "主队进攻端轮换风险与客队防线伤停同时存在，强行扩大主胜不合适。",
         "coachTactics": "未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.0,
-        "brief": "上一场：未核验；下一场：未核验；排名：未核验；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 未核验。"
+        "completeness": 0.1,
+        "brief": "上一场：未核验；下一场：未核验；排名：未核验；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 主队进攻端轮换风险与客队防线伤停同时存在，强行扩大主胜不合适。。"
       },
       "previousMatch": "未核验",
       "nextMatch": "未核验",
@@ -1677,7 +1698,7 @@
         "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "未核实资料显示流浪者前场/中场有伤停，比亚韦斯托克后场有肌肉伤情。",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -1695,7 +1716,6 @@
         "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
         "coach_tactics",
         "motivation_competition",
@@ -1709,11 +1729,11 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.0,
-      "marketRiskLevel": "中高",
+      "analysisCompleteness": 0.06,
+      "marketRiskLevel": "高",
       "marketRiskFactors": [
         "杯赛/资格赛存在轮换、90分钟结算和领先后控节奏路径",
-        "未核实首发与轮换，禁止把强队名气直接等同于90分钟稳胜",
+        "胜平负方向接近，意外结果风险按平局保护处理",
         "4球以上尾部不可忽略，保留追分导致的大比分路径"
       ],
       "marketRiskNote": "仅依据官方赔率、比分矩阵和总进球分布审计盘口分歧；无公开证据时不认定假球、故意输或故意平。",
@@ -1727,16 +1747,16 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.54,
-          "modelProbability": 0.5291,
-          "expectedValue": -0.1852
+          "modelProbability": 0.393,
+          "expectedValue": -0.3948
         },
         {
           "market": "ttg",
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.6,
-          "modelProbability": 0.3335,
-          "expectedValue": 0.2006
+          "modelProbability": 0.3325,
+          "expectedValue": 0.197
         },
         {
           "market": "crs",
@@ -1755,8 +1775,8 @@
           "expectedValue": -0.1159
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-0 / 3-1，半全场为胜/胜（2.35）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：主胜，总进球重点3球，比分关注2-1 / 1-1 / 1-0，半全场为胜/胜（2.35）；已核验squad_availability，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -1775,23 +1795,23 @@
       "homeRank": "",
       "awayRank": "",
       "probabilities": {
-        "home": 0.3381,
-        "draw": 0.3076,
-        "away": 0.3543
+        "home": 0.2984,
+        "draw": 0.3667,
+        "away": 0.3349
       },
-      "direction": "away",
-      "directionText": "客胜",
-      "mainScore": "1-2",
+      "direction": "draw",
+      "directionText": "平",
+      "mainScore": "1-1",
       "backupScores": [
-        "1-1",
-        "0-1"
+        "0-1",
+        "2-2"
       ],
       "tailRiskScores": [
-        "2-2",
         "0-0",
         "1-3",
         "0-3",
-        "3-0"
+        "3-0",
+        "1-4"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -1799,9 +1819,9 @@
         "2",
         "4"
       ],
-      "confidenceScore": 30,
+      "confidenceScore": 33,
       "confidence": "中低",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为平。市场与基本面存在分歧，降低信任度。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -1876,14 +1896,14 @@
         }
       },
       "goalProbabilities": {
-        "0": 0.021,
-        "1": 0.1366,
-        "2": 0.2999,
-        "3": 0.3307,
-        "4": 0.1567,
-        "5": 0.0455,
-        "6": 0.0083,
-        "7+": 0.0012
+        "0": 0.0206,
+        "1": 0.135,
+        "2": 0.2985,
+        "3": 0.3316,
+        "4": 0.1582,
+        "5": 0.0463,
+        "6": 0.0085,
+        "7+": 0.0013
       },
       "scorePoolProbabilities": {
         "0-0": 0.059,
@@ -1937,12 +1957,16 @@
         "draw": 0.3076,
         "away": 0.3543
       },
-      "fundamentalProbabilities": null,
+      "fundamentalProbabilities": {
+        "home": 0.3097,
+        "draw": 0.3613,
+        "away": 0.329
+      },
       "fundamentalFirst": true,
       "marketContradiction": true,
       "goalSelectionGate": {
         "attackEfficiencyProxy": 0.629,
-        "tempoProxy": 0.5425,
+        "tempoProxy": 0.5459,
         "defensiveHoleProxy": 0.5638,
         "viable": true,
         "status": "big-goal conditions all supported"
@@ -1957,12 +1981,12 @@
       },
       "goalPrediction": {
         "pick": "3",
-        "probability": 0.3307,
+        "probability": 0.3316,
         "type": "total_goals"
       },
       "scorePrediction": {
-        "pick": "1-2",
-        "probability": 0.0974,
+        "pick": "1-1",
+        "probability": 0.1202,
         "type": "exact_score"
       },
       "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
@@ -1990,27 +2014,31 @@
         "schedule": "资料不足，保持中性",
         "motivation": "资料不足，保持中性",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
+        "teamNews": "未核实资料显示安德莱赫特后场有伤停，塞萨洛尼基后场/中场亦有伤停或未知伤情。",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "C:/Users/Administrator/AppData/Local/Temp/codex-clipboard-299dd315-acf2-456b-9e5d-aa842f84df41.png"
+      ],
+      "evidenceStatus": "用户提供伤停图，未完成官方逐条核验",
+      "verifiedFactors": [
+        "squad_availability"
+      ],
       "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选1-1/0-1；证据不足，置信度下调。",
+        "whyWin": "支持平局的可核验逻辑：未核实资料显示安德莱赫特后场有伤停，塞萨洛尼基后场/中场亦有伤停或未知伤情。",
+        "whyMustWin": "来源未确认必须赢的赛制或积分条件，因此只作弱动机处理。",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：双方比赛目标与风险控制存在拉扯；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定平局，主比分1-1，备选0-1/2-2；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "未核实资料显示安德莱赫特后场有伤停，塞萨洛尼基后场/中场亦有伤停或未知伤情。",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -2028,7 +2056,6 @@
             "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
             "coach_tactics",
             "motivation_competition",
@@ -2042,10 +2069,10 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.0,
-          "adjustmentGate": "blocked"
+          "completeness": 0.06,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "未核验",
@@ -2055,11 +2082,11 @@
         "coverRisk": "未核验；需结合实际让球、首发和比赛节奏判断",
         "upsetRisk": "未核验；保留市场反向和阵容突变路径",
         "scheduleLoad": "未核验",
-        "availability": "未核验",
+        "availability": "双方后场均不完整，主胜零封路径削弱，平局和双方进球保护上调。",
         "coachTactics": "未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.0,
-        "brief": "上一场：未核验；下一场：未核验；排名：未核验；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 未核验。"
+        "completeness": 0.1,
+        "brief": "上一场：未核验；下一场：未核验；排名：未核验；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 双方后场均不完整，主胜零封路径削弱，平局和双方进球保护上调。。"
       },
       "previousMatch": "未核验",
       "nextMatch": "未核验",
@@ -2071,7 +2098,7 @@
         "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "未核实资料显示安德莱赫特后场有伤停，塞萨洛尼基后场/中场亦有伤停或未知伤情。",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -2089,7 +2116,6 @@
         "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
         "coach_tactics",
         "motivation_competition",
@@ -2103,55 +2129,54 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.0,
+      "analysisCompleteness": 0.06,
       "marketRiskLevel": "高",
       "marketRiskFactors": [
         "杯赛/资格赛存在轮换、90分钟结算和领先后控节奏路径",
-        "未核实首发与轮换，禁止把强队名气直接等同于90分钟稳胜",
         "胜平负方向接近，意外结果风险按平局保护处理",
         "0至2球市场质量较高，保留0-0/1-0式受控比分"
       ],
       "marketRiskNote": "仅依据官方赔率、比分矩阵和总进球分布审计盘口分歧；无公开证据时不认定假球、故意输或故意平。",
       "businessDate": "2026-08-13",
-      "halfFullKey": "aa",
-      "halfFullText": "负/负",
-      "halfFullOdds": 3.75,
+      "halfFullKey": "dd",
+      "halfFullText": "平/平",
+      "halfFullOdds": 5.4,
       "valueAudit": [
         {
           "market": "had",
           "marketText": "胜平负",
-          "pick": "客胜",
-          "odds": 2.17,
-          "modelProbability": 0.3543,
-          "expectedValue": -0.2312
+          "pick": "平",
+          "odds": 3.3,
+          "modelProbability": 0.3667,
+          "expectedValue": 0.2101
         },
         {
           "market": "ttg",
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.55,
-          "modelProbability": 0.3307,
-          "expectedValue": 0.174
+          "modelProbability": 0.3316,
+          "expectedValue": 0.1772
         },
         {
           "market": "crs",
           "marketText": "比分",
-          "pick": "1-2",
-          "odds": 8.0,
-          "modelProbability": 0.0974,
-          "expectedValue": -0.2208
+          "pick": "1-1",
+          "odds": 6.75,
+          "modelProbability": 0.1202,
+          "expectedValue": -0.1886
         },
         {
           "market": "hafu",
           "marketText": "半全场",
-          "pick": "负/负",
-          "odds": 3.75,
-          "modelProbability": 0.2393,
-          "expectedValue": -0.1026
+          "pick": "平/平",
+          "odds": 5.4,
+          "modelProbability": 0.1524,
+          "expectedValue": -0.177
         }
       ],
-      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 1-1 / 0-1，半全场为负/负（3.75）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：平，总进球重点3球，比分关注1-1 / 0-1 / 2-2，半全场为平/平（5.40）；已核验squad_availability，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -2170,24 +2195,22 @@
       "homeRank": "",
       "awayRank": "",
       "probabilities": {
-        "home": 0.1869,
-        "draw": 0.1923,
-        "away": 0.6209
+        "home": 0.2515,
+        "draw": 0.3101,
+        "away": 0.4384
       },
       "direction": "away",
       "directionText": "客胜",
       "mainScore": "1-2",
       "backupScores": [
-        "1-3",
-        "0-1"
+        "1-1",
+        "1-3"
       ],
       "tailRiskScores": [
-        "0-4",
         "2-2",
         "1-4",
         "0-0",
-        "0-5",
-        "1-5"
+        "3-0"
       ],
       "totalGoals": "3",
       "goalCandidates": [
@@ -2195,9 +2218,9 @@
         "4",
         "2"
       ],
-      "confidenceScore": 54,
+      "confidenceScore": 58,
       "confidence": "中",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为客胜。市场与基本面存在分歧，降低信任度。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -2272,14 +2295,14 @@
         }
       },
       "goalProbabilities": {
-        "0": 0.0067,
-        "1": 0.0669,
-        "2": 0.2056,
-        "3": 0.3456,
-        "4": 0.2454,
-        "5": 0.1008,
-        "6": 0.0235,
-        "7+": 0.0055
+        "0": 0.007,
+        "1": 0.069,
+        "2": 0.2091,
+        "3": 0.3465,
+        "4": 0.2425,
+        "5": 0.0982,
+        "6": 0.0225,
+        "7+": 0.0052
       },
       "scorePoolProbabilities": {
         "0-0": 0.0319,
@@ -2333,12 +2356,16 @@
         "draw": 0.1923,
         "away": 0.6209
       },
-      "fundamentalProbabilities": null,
+      "fundamentalProbabilities": {
+        "home": 0.3179,
+        "draw": 0.3576,
+        "away": 0.3245
+      },
       "fundamentalFirst": true,
-      "marketContradiction": false,
+      "marketContradiction": true,
       "goalSelectionGate": {
         "attackEfficiencyProxy": 0.7269,
-        "tempoProxy": 0.7209,
+        "tempoProxy": 0.7149,
         "defensiveHoleProxy": 0.5561,
         "viable": true,
         "status": "big-goal conditions all supported"
@@ -2353,7 +2380,7 @@
       },
       "goalPrediction": {
         "pick": "3",
-        "probability": 0.3456,
+        "probability": 0.3465,
         "type": "total_goals"
       },
       "scorePrediction": {
@@ -2386,27 +2413,31 @@
         "schedule": "资料不足，保持中性",
         "motivation": "资料不足，保持中性",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
+        "teamNews": "未核实资料显示哈茨中场有伤停，本菲卡中场有伤停信息。",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "C:/Users/Administrator/AppData/Local/Temp/codex-clipboard-299dd315-acf2-456b-9e5d-aa842f84df41.png"
+      ],
+      "evidenceStatus": "用户提供伤停图，未完成官方逐条核验",
+      "verifiedFactors": [
+        "squad_availability"
+      ],
       "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "客队为市场与联赛基线下的暂定方向，主比分1-2，备选1-3/0-1；证据不足，置信度下调。",
+        "whyWin": "支持客队的可核验逻辑：未核实资料显示哈茨中场有伤停，本菲卡中场有伤停信息。",
+        "whyMustWin": "来源未确认必须赢的赛制或积分条件，因此只作弱动机处理。",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：双方比赛目标与风险控制存在拉扯；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定客队，主比分1-2，备选1-1/1-3；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "未核实资料显示哈茨中场有伤停，本菲卡中场有伤停信息。",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -2424,7 +2455,6 @@
             "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
             "coach_tactics",
             "motivation_competition",
@@ -2438,10 +2468,10 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.0,
-          "adjustmentGate": "blocked"
+          "completeness": 0.06,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "未核验",
@@ -2451,11 +2481,11 @@
         "coverRisk": "未核验；需结合实际让球、首发和比赛节奏判断",
         "upsetRisk": "未核验；保留市场反向和阵容突变路径",
         "scheduleLoad": "未核验",
-        "availability": "未核验",
+        "availability": "哈茨中场完整度下降，本菲卡整体实力优势仍在，但客胜置信度不再上调。",
         "coachTactics": "未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.0,
-        "brief": "上一场：未核验；下一场：未核验；排名：未核验；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 未核验。"
+        "completeness": 0.1,
+        "brief": "上一场：未核验；下一场：未核验；排名：未核验；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 哈茨中场完整度下降，本菲卡整体实力优势仍在，但客胜置信度不再上调。。"
       },
       "previousMatch": "未核验",
       "nextMatch": "未核验",
@@ -2467,7 +2497,7 @@
         "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "未核实资料显示哈茨中场有伤停，本菲卡中场有伤停信息。",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -2485,7 +2515,6 @@
         "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
         "coach_tactics",
         "motivation_competition",
@@ -2499,11 +2528,10 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.0,
+      "analysisCompleteness": 0.06,
       "marketRiskLevel": "中高",
       "marketRiskFactors": [
         "杯赛/资格赛存在轮换、90分钟结算和领先后控节奏路径",
-        "未核实首发与轮换，禁止把强队名气直接等同于90分钟稳胜",
         "4球以上尾部不可忽略，保留追分导致的大比分路径"
       ],
       "marketRiskNote": "仅依据官方赔率、比分矩阵和总进球分布审计盘口分歧；无公开证据时不认定假球、故意输或故意平。",
@@ -2517,16 +2545,16 @@
           "marketText": "胜平负",
           "pick": "客胜",
           "odds": 1.33,
-          "modelProbability": 0.6209,
-          "expectedValue": -0.1742
+          "modelProbability": 0.4384,
+          "expectedValue": -0.4169
         },
         {
           "market": "ttg",
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.5,
-          "modelProbability": 0.3456,
-          "expectedValue": 0.2096
+          "modelProbability": 0.3465,
+          "expectedValue": 0.2127
         },
         {
           "market": "crs",
@@ -2545,8 +2573,8 @@
           "expectedValue": -0.224
         }
       ],
-      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 1-3 / 0-1，半全场为负/负（1.94）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：客胜，总进球重点3球，比分关注1-2 / 1-1 / 1-3，半全场为负/负（1.94）；已核验squad_availability，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -2565,9 +2593,9 @@
       "homeRank": "[解放者杯2]",
       "awayRank": "[解放者杯1]",
       "probabilities": {
-        "home": 0.5415,
-        "draw": 0.2884,
-        "away": 0.1701
+        "home": 0.394,
+        "draw": 0.3524,
+        "away": 0.2535
       },
       "direction": "home",
       "directionText": "主胜",
@@ -2590,7 +2618,7 @@
       ],
       "confidenceScore": 48,
       "confidence": "中低",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为主胜。市场与基本面存在分歧，降低信任度。 新联赛无复盘样本：禁止标记稳场。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -2665,14 +2693,14 @@
         }
       },
       "goalProbabilities": {
-        "0": 0.0424,
-        "1": 0.2151,
-        "2": 0.3491,
-        "3": 0.2716,
-        "4": 0.0975,
-        "5": 0.0209,
-        "6": 0.003,
-        "7+": 0.0004
+        "0": 0.0459,
+        "1": 0.2248,
+        "2": 0.3519,
+        "3": 0.2641,
+        "4": 0.0915,
+        "5": 0.0189,
+        "6": 0.0026,
+        "7+": 0.0003
       },
       "scorePoolProbabilities": {
         "0-0": 0.0866,
@@ -2726,15 +2754,19 @@
         "draw": 0.2884,
         "away": 0.1701
       },
-      "fundamentalProbabilities": null,
+      "fundamentalProbabilities": {
+        "home": 0.3182,
+        "draw": 0.3571,
+        "away": 0.3247
+      },
       "fundamentalFirst": true,
       "marketContradiction": true,
       "goalSelectionGate": {
         "attackEfficiencyProxy": 0.5725,
-        "tempoProxy": 0.3934,
+        "tempoProxy": 0.3774,
         "defensiveHoleProxy": 0.4195,
-        "viable": true,
-        "status": "big-goal conditions all supported"
+        "viable": false,
+        "status": "attack/tempo/defensive-hole gate not fully supported"
       },
       "upsetAttackCapability": {
         "favourite": "home",
@@ -2746,7 +2778,7 @@
       },
       "goalPrediction": {
         "pick": "2",
-        "probability": 0.3491,
+        "probability": 0.3519,
         "type": "total_goals"
       },
       "scorePrediction": {
@@ -2779,27 +2811,31 @@
         "schedule": "资料不足，保持中性",
         "motivation": "资料不足，保持中性",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
+        "teamNews": "未核实资料显示米拉索尔前锋/后卫有伤停，基多体育大学前锋与中场有伤停。",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "C:/Users/Administrator/AppData/Local/Temp/codex-clipboard-299dd315-acf2-456b-9e5d-aa842f84df41.png"
+      ],
+      "evidenceStatus": "用户提供伤停图，未完成官方逐条核验",
+      "verifiedFactors": [
+        "squad_availability"
+      ],
       "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分1-0，备选2-1/3-1；证据不足，置信度下调。",
+        "whyWin": "支持主队的可核验逻辑：未核实资料显示米拉索尔前锋/后卫有伤停，基多体育大学前锋与中场有伤停。",
+        "whyMustWin": "来源未确认必须赢的赛制或积分条件，因此只作弱动机处理。",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：双方比赛目标与风险控制存在拉扯；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定主队，主比分1-0，备选2-1/3-1；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "未核实资料显示米拉索尔前锋/后卫有伤停，基多体育大学前锋与中场有伤停。",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -2817,7 +2853,6 @@
             "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
             "coach_tactics",
             "motivation_competition",
@@ -2831,10 +2866,10 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.0,
-          "adjustmentGate": "blocked"
+          "completeness": 0.06,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "未核验",
@@ -2844,11 +2879,11 @@
         "coverRisk": "未核验；需结合实际让球、首发和比赛节奏判断",
         "upsetRisk": "未核验；保留市场反向和阵容突变路径",
         "scheduleLoad": "未核验",
-        "availability": "未核验",
+        "availability": "双方均有进攻端缺口，主场方的轻微优势保留，但总进球预期收缩。",
         "coachTactics": "未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.1,
-        "brief": "上一场：未核验；下一场：未核验；排名：米拉索尔 [解放者杯2]；基多体育大学 [解放者杯1]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 未核验。"
+        "completeness": 0.2,
+        "brief": "上一场：未核验；下一场：未核验；排名：米拉索尔 [解放者杯2]；基多体育大学 [解放者杯1]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 双方均有进攻端缺口，主场方的轻微优势保留，但总进球预期收缩。。"
       },
       "previousMatch": "未核验",
       "nextMatch": "未核验",
@@ -2860,7 +2895,7 @@
         "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "未核实资料显示米拉索尔前锋/后卫有伤停，基多体育大学前锋与中场有伤停。",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -2878,7 +2913,6 @@
         "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
         "coach_tactics",
         "motivation_competition",
@@ -2892,7 +2926,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.0,
+      "analysisCompleteness": 0.06,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -2908,16 +2942,16 @@
           "marketText": "胜平负",
           "pick": "主胜",
           "odds": 1.52,
-          "modelProbability": 0.5415,
-          "expectedValue": -0.1769
+          "modelProbability": 0.394,
+          "expectedValue": -0.4011
         },
         {
           "market": "ttg",
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.25,
-          "modelProbability": 0.3491,
-          "expectedValue": 0.1346
+          "modelProbability": 0.3519,
+          "expectedValue": 0.1437
         },
         {
           "market": "crs",
@@ -2936,8 +2970,8 @@
           "expectedValue": -0.1217
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注1-0 / 2-1 / 3-1，半全场为胜/胜（2.28）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注1-0 / 2-1 / 3-1，半全场为胜/胜（2.28）；已核验squad_availability，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     },
     {
@@ -2956,20 +2990,19 @@
       "homeRank": "[解放者杯2]",
       "awayRank": "[解放者杯1]",
       "probabilities": {
-        "home": 0.4097,
-        "draw": 0.3549,
-        "away": 0.2354
+        "home": 0.3362,
+        "draw": 0.3877,
+        "away": 0.276
       },
-      "direction": "home",
-      "directionText": "主胜",
-      "mainScore": "1-0",
+      "direction": "draw",
+      "directionText": "平",
+      "mainScore": "1-1",
       "backupScores": [
-        "2-1",
-        "3-1"
+        "0-0",
+        "2-2"
       ],
       "tailRiskScores": [
         "3-0",
-        "2-2",
         "1-3",
         "0-3",
         "1-4"
@@ -2982,7 +3015,7 @@
       ],
       "confidenceScore": 36,
       "confidence": "中低",
-      "reason": "先用市场与比分矩阵给出基线，等待官方首发、球队公告或可交叉验证的赛前资料后再更新。",
+      "reason": "先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为平。市场与基本面存在分歧，降低信任度。 新联赛无复盘样本：禁止标记稳场。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "had": {
@@ -3118,7 +3151,11 @@
         "draw": 0.3549,
         "away": 0.2354
       },
-      "fundamentalProbabilities": null,
+      "fundamentalProbabilities": {
+        "home": 0.3161,
+        "draw": 0.3613,
+        "away": 0.3226
+      },
       "fundamentalFirst": true,
       "marketContradiction": true,
       "goalSelectionGate": {
@@ -3142,8 +3179,8 @@
         "type": "total_goals"
       },
       "scorePrediction": {
-        "pick": "1-0",
-        "probability": 0.1631,
+        "pick": "1-1",
+        "probability": 0.1296,
         "type": "exact_score"
       },
       "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
@@ -3171,27 +3208,31 @@
         "schedule": "资料不足，保持中性",
         "motivation": "资料不足，保持中性",
         "weather": "资料不足，保持中性",
-        "teamNews": "资料不足，保持中性",
+        "teamNews": "未核实资料显示罗萨里奥中央右后卫/中场有伤停，科林蒂安后场与中场有伤停或未知伤情。",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
       },
-      "contextSources": [],
-      "evidenceStatus": "比赛级公开证据不足；情境层保持中性",
-      "verifiedFactors": [],
+      "contextSources": [
+        "C:/Users/Administrator/AppData/Local/Temp/codex-clipboard-299dd315-acf2-456b-9e5d-aa842f84df41.png"
+      ],
+      "evidenceStatus": "用户提供伤停图，未完成官方逐条核验",
+      "verifiedFactors": [
+        "squad_availability"
+      ],
       "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
-        "whyWin": "未取得足够比赛级公开证据；不把赔率排序改写成球队原因，等待官方赛程、球队公告、近期状态或首发信息交叉核验。",
-        "whyMustWin": "未核验积分、赛制或晋级压力，不能声称任何一方必须赢。",
-        "whyLose": "未知；没有足够的球队、教练、阵容和比赛计划证据支持具体输球叙事。",
-        "whyNotLose": "仅保留比分矩阵中的低比分、平局和一球差保护，不把它们宣称为已验证事实。",
-        "whyDraw": "未知；平局只作为结构性保护路径，不是由赔率低赔直接推导。",
-        "decision": "主队为市场与联赛基线下的暂定方向，主比分1-0，备选2-1/3-1；证据不足，置信度下调。",
+        "whyWin": "支持平局的可核验逻辑：未核实资料显示罗萨里奥中央右后卫/中场有伤停，科林蒂安后场与中场有伤停或未知伤情。",
+        "whyMustWin": "来源未确认必须赢的赛制或积分条件，因此只作弱动机处理。",
+        "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
+        "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
+        "whyDraw": "平局机制：双方比赛目标与风险控制存在拉扯；对应比分池保留低比分平局。",
+        "decision": "综合证据后暂定平局，主比分1-1，备选0-0/2-2；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
             "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
             "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-            "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+            "squad_availability": "未核实资料显示罗萨里奥中央右后卫/中场有伤停，科林蒂安后场与中场有伤停或未知伤情。",
             "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -3209,7 +3250,6 @@
             "schedule_load",
             "rest_fatigue",
             "travel_home_advantage",
-            "squad_availability",
             "recent_performance",
             "coach_tactics",
             "motivation_competition",
@@ -3223,10 +3263,10 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.0,
-          "adjustmentGate": "blocked"
+          "completeness": 0.06,
+          "adjustmentGate": "passed"
         },
-        "evidenceGate": "blocked"
+        "evidenceGate": "passed"
       },
       "matchBrief": {
         "previousMatch": "未核验",
@@ -3236,11 +3276,11 @@
         "coverRisk": "未核验；需结合实际让球、首发和比赛节奏判断",
         "upsetRisk": "未核验；保留市场反向和阵容突变路径",
         "scheduleLoad": "未核验",
-        "availability": "未核验",
+        "availability": "双方防守与中场均有缺口，主场优势保留但平局保护提高，避免过度相信1-0零封。",
         "coachTactics": "未核验",
         "weatherPitch": "未核验",
-        "completeness": 0.1,
-        "brief": "上一场：未核验；下一场：未核验；排名：罗萨里奥中央 [解放者杯2]；科林蒂安 [解放者杯1]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 未核验。"
+        "completeness": 0.2,
+        "brief": "上一场：未核验；下一场：未核验；排名：罗萨里奥中央 [解放者杯2]；科林蒂安 [解放者杯1]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：未核验 / 双方防守与中场均有缺口，主场优势保留但平局保护提高，避免过度相信1-0零封。。"
       },
       "previousMatch": "未核验",
       "nextMatch": "未核验",
@@ -3252,7 +3292,7 @@
         "schedule_load": "未核验上场比赛时间、赛程密度与下一场任务。",
         "rest_fatigue": "未核验双方实际休息天数、加时赛和高强度出场时间。",
         "travel_home_advantage": "未核验旅行距离、时区、主客场连续性与场地适应。",
-        "squad_availability": "未核验官方伤停、停赛、首发和轮换信息。",
+        "squad_availability": "未核实资料显示罗萨里奥中央右后卫/中场有伤停，科林蒂安后场与中场有伤停或未知伤情。",
         "recent_performance": "未核验近期机会质量、失球方式、零封和进攻转化，不能只用胜负串替代。",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "未核验积分、保级、晋级、两回合策略或必须抢分条件。",
@@ -3270,7 +3310,6 @@
         "schedule_load",
         "rest_fatigue",
         "travel_home_advantage",
-        "squad_availability",
         "recent_performance",
         "coach_tactics",
         "motivation_competition",
@@ -3284,24 +3323,24 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.0,
+      "analysisCompleteness": 0.06,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
       ],
       "marketRiskNote": "未触发杯赛高波动附加层。",
       "businessDate": "2026-08-13",
-      "halfFullKey": "hh",
-      "halfFullText": "胜/胜",
-      "halfFullOdds": 3.45,
+      "halfFullKey": "dd",
+      "halfFullText": "平/平",
+      "halfFullOdds": 3.8,
       "valueAudit": [
         {
           "market": "had",
           "marketText": "胜平负",
-          "pick": "主胜",
-          "odds": 2.02,
-          "modelProbability": 0.4097,
-          "expectedValue": -0.1724
+          "pick": "平",
+          "odds": 2.7,
+          "modelProbability": 0.3877,
+          "expectedValue": 0.0468
         },
         {
           "market": "ttg",
@@ -3314,22 +3353,22 @@
         {
           "market": "crs",
           "marketText": "比分",
-          "pick": "1-0",
-          "odds": 5.0,
-          "modelProbability": 0.1631,
-          "expectedValue": -0.1845
+          "pick": "1-1",
+          "odds": 6.2,
+          "modelProbability": 0.1296,
+          "expectedValue": -0.1965
         },
         {
           "market": "hafu",
           "marketText": "半全场",
-          "pick": "胜/胜",
-          "odds": 3.45,
-          "modelProbability": 0.2604,
-          "expectedValue": -0.1016
+          "pick": "平/平",
+          "odds": 3.8,
+          "modelProbability": 0.2204,
+          "expectedValue": -0.1625
         }
       ],
-      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注1-0 / 2-1 / 3-1，半全场为胜/胜（3.45）；证据闸门未通过，当前仅使用市场/比分矩阵和联赛先验，不把未核验的球队、赛程、阵容或战术写成原因。主要反向路径：未核验；保留市场反向和阵容突变路径。",
-      "analysisBasis": "Sporttery赔率、比分矩阵与联赛模型为基线；未取得足够比赛级公开证据，未对动机、伤停、轮换或战术作方向性修正。",
+      "integratedAnalysis": "结论：平，总进球重点2球，比分关注1-1 / 0-0 / 2-2，半全场为平/平（3.80）；已核验squad_availability，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "analysisBasis": "Sporttery赔率与比分矩阵为市场基线；赛程、积分动机、状态、伤停或战术因素仅在公开来源可核验时进入情境层。",
       "marketBasis": "官方胜平负赔率"
     }
   ],
@@ -3346,9 +3385,9 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.25,
-          "probability": 0.3491,
+          "probability": 0.3519,
           "confidenceScore": 48,
-          "evidenceGate": "blocked"
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040821",
@@ -3359,8 +3398,8 @@
           "pick": "胜/胜",
           "odds": 1.98,
           "probability": 0.4,
-          "confidenceScore": 55,
-          "evidenceGate": "blocked"
+          "confidenceScore": 60,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040824",
@@ -3371,8 +3410,8 @@
           "pick": "胜/胜",
           "odds": 2.35,
           "probability": 0.3762,
-          "confidenceScore": 46,
-          "evidenceGate": "blocked"
+          "confidenceScore": 49,
+          "evidenceGate": "passed"
         }
       ],
       "productOdds": 15.12,
@@ -3387,16 +3426,16 @@
       "category": "mixed",
       "legs": [
         {
-          "matchId": "2040821",
+          "matchId": "2040822",
           "league": "欧罗巴联赛",
-          "match": "周四002 克拉约瓦大学 vs 库奥皮奥",
+          "match": "周四003 帕福斯 vs 萨尔茨堡",
           "market": "ttg",
           "marketText": "总进球",
           "pick": "3",
-          "odds": 3.5,
-          "probability": 0.3254,
-          "confidenceScore": 55,
-          "evidenceGate": "blocked"
+          "odds": 3.55,
+          "probability": 0.3378,
+          "confidenceScore": 35,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040826",
@@ -3407,8 +3446,8 @@
           "pick": "负/负",
           "odds": 1.94,
           "probability": 0.4,
-          "confidenceScore": 54,
-          "evidenceGate": "blocked"
+          "confidenceScore": 58,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040827",
@@ -3420,10 +3459,10 @@
           "odds": 2.28,
           "probability": 0.3852,
           "confidenceScore": 48,
-          "evidenceGate": "blocked"
+          "evidenceGate": "passed"
         }
       ],
-      "productOdds": 15.48,
+      "productOdds": 15.7,
       "trustScore": 33,
       "exactScoreLegs": 0,
       "settlementRisk": "常规但不代表稳中",
@@ -3435,16 +3474,16 @@
       "category": "mixed",
       "legs": [
         {
-          "matchId": "2040822",
+          "matchId": "2040825",
           "league": "欧罗巴联赛",
-          "match": "周四003 帕福斯 vs 萨尔茨堡",
+          "match": "周四007 安德莱赫特 vs 塞萨洛尼基",
           "market": "ttg",
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.55,
-          "probability": 0.3399,
-          "confidenceScore": 34,
-          "evidenceGate": "blocked"
+          "probability": 0.3316,
+          "confidenceScore": 33,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040826",
@@ -3455,8 +3494,8 @@
           "pick": "负/负",
           "odds": 1.94,
           "probability": 0.4,
-          "confidenceScore": 54,
-          "evidenceGate": "blocked"
+          "confidenceScore": 58,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040827",
@@ -3468,7 +3507,7 @@
           "odds": 2.28,
           "probability": 0.3852,
           "confidenceScore": 48,
-          "evidenceGate": "blocked"
+          "evidenceGate": "passed"
         }
       ],
       "productOdds": 15.7,
@@ -3483,28 +3522,28 @@
       "category": "mixed",
       "legs": [
         {
-          "matchId": "2040825",
-          "league": "欧罗巴联赛",
-          "match": "周四007 安德莱赫特 vs 塞萨洛尼基",
-          "market": "ttg",
-          "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.55,
-          "probability": 0.3307,
-          "confidenceScore": 30,
-          "evidenceGate": "blocked"
-        },
-        {
           "matchId": "2040826",
           "league": "欧罗巴联赛",
           "match": "周四008 哈茨 vs 本菲卡",
+          "market": "ttg",
+          "marketText": "总进球",
+          "pick": "3",
+          "odds": 3.5,
+          "probability": 0.3465,
+          "confidenceScore": 58,
+          "evidenceGate": "passed"
+        },
+        {
+          "matchId": "2040821",
+          "league": "欧罗巴联赛",
+          "match": "周四002 克拉约瓦大学 vs 库奥皮奥",
           "market": "hafu",
           "marketText": "半全场",
-          "pick": "负/负",
-          "odds": 1.94,
+          "pick": "胜/胜",
+          "odds": 1.98,
           "probability": 0.4,
-          "confidenceScore": 54,
-          "evidenceGate": "blocked"
+          "confidenceScore": 60,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040827",
@@ -3516,10 +3555,10 @@
           "odds": 2.28,
           "probability": 0.3852,
           "confidenceScore": 48,
-          "evidenceGate": "blocked"
+          "evidenceGate": "passed"
         }
       ],
-      "productOdds": 15.7,
+      "productOdds": 15.8,
       "trustScore": 33,
       "exactScoreLegs": 0,
       "settlementRisk": "常规但不代表稳中",
@@ -3536,11 +3575,11 @@
           "match": "周四002 克拉约瓦大学 vs 库奥皮奥",
           "market": "ttg",
           "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.5,
-          "probability": 0.3254,
-          "confidenceScore": 55,
-          "evidenceGate": "blocked"
+          "pick": "2",
+          "odds": 3.35,
+          "probability": 0.3265,
+          "confidenceScore": 60,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040822",
@@ -3550,9 +3589,9 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.55,
-          "probability": 0.3399,
-          "confidenceScore": 34,
-          "evidenceGate": "blocked"
+          "probability": 0.3378,
+          "confidenceScore": 35,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040826",
@@ -3562,12 +3601,12 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.5,
-          "probability": 0.3456,
-          "confidenceScore": 54,
-          "evidenceGate": "blocked"
+          "probability": 0.3465,
+          "confidenceScore": 58,
+          "evidenceGate": "passed"
         }
       ],
-      "productOdds": 43.49,
+      "productOdds": 41.62,
       "trustScore": 30,
       "exactScoreLegs": 0,
       "settlementRisk": "常规但不代表稳中",
@@ -3584,23 +3623,23 @@
           "match": "周四002 克拉约瓦大学 vs 库奥皮奥",
           "market": "ttg",
           "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.5,
-          "probability": 0.3254,
-          "confidenceScore": 55,
-          "evidenceGate": "blocked"
+          "pick": "2",
+          "odds": 3.35,
+          "probability": 0.3265,
+          "confidenceScore": 60,
+          "evidenceGate": "passed"
         },
         {
-          "matchId": "2040824",
+          "matchId": "2040825",
           "league": "欧罗巴联赛",
-          "match": "周四006 格拉斯哥流浪者 vs 比亚韦斯托克",
+          "match": "周四007 安德莱赫特 vs 塞萨洛尼基",
           "market": "ttg",
           "marketText": "总进球",
           "pick": "3",
-          "odds": 3.6,
-          "probability": 0.3335,
-          "confidenceScore": 46,
-          "evidenceGate": "blocked"
+          "odds": 3.55,
+          "probability": 0.3316,
+          "confidenceScore": 33,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040826",
@@ -3610,12 +3649,12 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.5,
-          "probability": 0.3456,
-          "confidenceScore": 54,
-          "evidenceGate": "blocked"
+          "probability": 0.3465,
+          "confidenceScore": 58,
+          "evidenceGate": "passed"
         }
       ],
-      "productOdds": 44.1,
+      "productOdds": 41.62,
       "trustScore": 30,
       "exactScoreLegs": 0,
       "settlementRisk": "常规但不代表稳中",
@@ -3627,28 +3666,28 @@
       "category": "ttg",
       "legs": [
         {
-          "matchId": "2040822",
+          "matchId": "2040821",
           "league": "欧罗巴联赛",
-          "match": "周四003 帕福斯 vs 萨尔茨堡",
+          "match": "周四002 克拉约瓦大学 vs 库奥皮奥",
           "market": "ttg",
           "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.55,
-          "probability": 0.3399,
-          "confidenceScore": 34,
-          "evidenceGate": "blocked"
+          "pick": "2",
+          "odds": 3.35,
+          "probability": 0.3265,
+          "confidenceScore": 60,
+          "evidenceGate": "passed"
         },
         {
-          "matchId": "2040825",
+          "matchId": "2040824",
           "league": "欧罗巴联赛",
-          "match": "周四007 安德莱赫特 vs 塞萨洛尼基",
+          "match": "周四006 格拉斯哥流浪者 vs 比亚韦斯托克",
           "market": "ttg",
           "marketText": "总进球",
           "pick": "3",
-          "odds": 3.55,
-          "probability": 0.3307,
-          "confidenceScore": 30,
-          "evidenceGate": "blocked"
+          "odds": 3.6,
+          "probability": 0.3325,
+          "confidenceScore": 49,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040826",
@@ -3658,12 +3697,12 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.5,
-          "probability": 0.3456,
-          "confidenceScore": 54,
-          "evidenceGate": "blocked"
+          "probability": 0.3465,
+          "confidenceScore": 58,
+          "evidenceGate": "passed"
         }
       ],
-      "productOdds": 44.11,
+      "productOdds": 42.21,
       "trustScore": 30,
       "exactScoreLegs": 0,
       "settlementRisk": "常规但不代表稳中",
@@ -3680,11 +3719,11 @@
           "match": "周四002 克拉约瓦大学 vs 库奥皮奥",
           "market": "ttg",
           "marketText": "总进球",
-          "pick": "3",
-          "odds": 3.5,
-          "probability": 0.3254,
-          "confidenceScore": 55,
-          "evidenceGate": "blocked"
+          "pick": "2",
+          "odds": 3.35,
+          "probability": 0.3265,
+          "confidenceScore": 60,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040833",
@@ -3694,9 +3733,9 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.65,
-          "probability": 0.3371,
-          "confidenceScore": 27,
-          "evidenceGate": "blocked"
+          "probability": 0.3367,
+          "confidenceScore": 30,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040826",
@@ -3706,12 +3745,12 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.5,
-          "probability": 0.3456,
-          "confidenceScore": 54,
-          "evidenceGate": "blocked"
+          "probability": 0.3465,
+          "confidenceScore": 58,
+          "evidenceGate": "passed"
         }
       ],
-      "productOdds": 44.71,
+      "productOdds": 42.8,
       "trustScore": 30,
       "exactScoreLegs": 0,
       "settlementRisk": "常规但不代表稳中",
@@ -3730,21 +3769,21 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.55,
-          "probability": 0.3399,
-          "confidenceScore": 34,
-          "evidenceGate": "blocked"
+          "probability": 0.3378,
+          "confidenceScore": 35,
+          "evidenceGate": "passed"
         },
         {
-          "matchId": "2040824",
+          "matchId": "2040825",
           "league": "欧罗巴联赛",
-          "match": "周四006 格拉斯哥流浪者 vs 比亚韦斯托克",
+          "match": "周四007 安德莱赫特 vs 塞萨洛尼基",
           "market": "ttg",
           "marketText": "总进球",
           "pick": "3",
-          "odds": 3.6,
-          "probability": 0.3335,
-          "confidenceScore": 46,
-          "evidenceGate": "blocked"
+          "odds": 3.55,
+          "probability": 0.3316,
+          "confidenceScore": 33,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040826",
@@ -3754,12 +3793,12 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.5,
-          "probability": 0.3456,
-          "confidenceScore": 54,
-          "evidenceGate": "blocked"
+          "probability": 0.3465,
+          "confidenceScore": 58,
+          "evidenceGate": "passed"
         }
       ],
-      "productOdds": 44.73,
+      "productOdds": 44.11,
       "trustScore": 30,
       "exactScoreLegs": 0,
       "settlementRisk": "常规但不代表稳中",
@@ -3780,7 +3819,7 @@
           "odds": 3.1,
           "probability": 0.3632,
           "confidenceScore": 36,
-          "evidenceGate": "blocked"
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040827",
@@ -3790,9 +3829,9 @@
           "marketText": "总进球",
           "pick": "2",
           "odds": 3.25,
-          "probability": 0.3491,
+          "probability": 0.3519,
           "confidenceScore": 48,
-          "evidenceGate": "blocked"
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040826",
@@ -3802,9 +3841,9 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.5,
-          "probability": 0.3456,
-          "confidenceScore": 54,
-          "evidenceGate": "blocked"
+          "probability": 0.3465,
+          "confidenceScore": 58,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040822",
@@ -3814,9 +3853,9 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.55,
-          "probability": 0.3399,
-          "confidenceScore": 34,
-          "evidenceGate": "blocked"
+          "probability": 0.3378,
+          "confidenceScore": 35,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040833",
@@ -3826,9 +3865,9 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.65,
-          "probability": 0.3371,
-          "confidenceScore": 27,
-          "evidenceGate": "blocked"
+          "probability": 0.3367,
+          "confidenceScore": 30,
+          "evidenceGate": "passed"
         },
         {
           "matchId": "2040824",
@@ -3838,9 +3877,9 @@
           "marketText": "总进球",
           "pick": "3",
           "odds": 3.6,
-          "probability": 0.3335,
-          "confidenceScore": 46,
-          "evidenceGate": "blocked"
+          "probability": 0.3325,
+          "confidenceScore": 49,
+          "evidenceGate": "passed"
         }
       ],
       "productOdds": 1644.89,
