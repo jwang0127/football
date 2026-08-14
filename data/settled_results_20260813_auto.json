@@ -1,0 +1,66 @@
+{
+  "settlementBasis": "90-minute result",
+  "source": "LiveScore.mobi daily scoreboard, cross-checked with FOX Sports/UEFA where available",
+  "results": [
+    {
+      "date": "20260813",
+      "matchId": "2040832",
+      "score": "1-2",
+      "source": "LiveScore.mobi daily scoreboard, cross-checked with FOX Sports/UEFA where available"
+    },
+    {
+      "date": "20260813",
+      "matchId": "2040821",
+      "score": "2-1",
+      "source": "LiveScore.mobi daily scoreboard, cross-checked with FOX Sports/UEFA where available"
+    },
+    {
+      "date": "20260813",
+      "matchId": "2040822",
+      "score": "3-3",
+      "source": "LiveScore.mobi daily scoreboard, cross-checked with FOX Sports/UEFA where available"
+    },
+    {
+      "date": "20260813",
+      "matchId": "2040833",
+      "score": "3-2",
+      "source": "LiveScore.mobi daily scoreboard, cross-checked with FOX Sports/UEFA where available"
+    },
+    {
+      "date": "20260813",
+      "matchId": "2040823",
+      "score": "1-3",
+      "source": "LiveScore.mobi daily scoreboard, cross-checked with FOX Sports/UEFA where available"
+    },
+    {
+      "date": "20260813",
+      "matchId": "2040824",
+      "score": "1-1",
+      "source": "LiveScore.mobi daily scoreboard, cross-checked with FOX Sports/UEFA where available"
+    },
+    {
+      "date": "20260813",
+      "matchId": "2040825",
+      "score": "1-1",
+      "source": "LiveScore.mobi daily scoreboard, cross-checked with FOX Sports/UEFA where available"
+    },
+    {
+      "date": "20260813",
+      "matchId": "2040826",
+      "score": "1-1",
+      "source": "LiveScore.mobi daily scoreboard, cross-checked with FOX Sports/UEFA where available"
+    },
+    {
+      "date": "20260813",
+      "matchId": "2040827",
+      "score": "1-1",
+      "source": "LiveScore.mobi daily scoreboard, cross-checked with FOX Sports/UEFA where available"
+    },
+    {
+      "date": "20260813",
+      "matchId": "2040828",
+      "score": "0-0",
+      "source": "LiveScore.mobi daily scoreboard, cross-checked with FOX Sports/UEFA where available"
+    }
+  ]
+}
