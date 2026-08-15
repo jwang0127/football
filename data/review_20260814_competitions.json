@@ -1,0 +1,496 @@
+{
+  "reviewDate": "20260814",
+  "source": "LiveScore public scoreboard cross-check",
+  "settlementBasis": "90-minute result",
+  "allBoardResults": [
+    {
+      "date": "20260814",
+      "matchId": "2040843",
+      "score": "1-3",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040844",
+      "score": "1-3",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040845",
+      "score": "0-1",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040846",
+      "score": "2-2",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040847",
+      "score": "2-1",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040848",
+      "score": "3-0",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040849",
+      "score": "2-1",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040850",
+      "score": "4-2",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040858",
+      "score": "4-2",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040851",
+      "score": "1-3",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040852",
+      "score": "0-1",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040853",
+      "score": "2-0",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040854",
+      "score": "0-0",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040855",
+      "score": "1-0",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040856",
+      "score": "3-1",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040859",
+      "score": "2-2",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    },
+    {
+      "date": "20260814",
+      "matchId": "2040857",
+      "score": "1-3",
+      "source": "public scoreboard cross-check",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    }
+  ],
+  "results": [
+    {
+      "matchId": "2040843",
+      "matchNumStr": "周五001",
+      "home": "东京绿茵",
+      "away": "柏太阳神",
+      "score": "1-3",
+      "direction": "away",
+      "directionHit": true,
+      "totalGoals": "4",
+      "totalGoalsHit": false,
+      "mainScore": "0-1",
+      "mainHit": false,
+      "poolHit": true,
+      "whyMissed": "比分池覆盖"
+    },
+    {
+      "matchId": "2040844",
+      "matchNumStr": "周五002",
+      "home": "瓦萨",
+      "away": "TPS图尔库",
+      "score": "1-3",
+      "direction": "away",
+      "directionHit": false,
+      "totalGoals": "4",
+      "totalGoalsHit": false,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false,
+      "whyMissed": "爆冷/大球或低比分尾部未进入主线"
+    },
+    {
+      "matchId": "2040845",
+      "matchNumStr": "周五003",
+      "home": "基尔",
+      "away": "圣保利",
+      "score": "0-1",
+      "direction": "away",
+      "directionHit": false,
+      "totalGoals": "1",
+      "totalGoalsHit": false,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false,
+      "whyMissed": "爆冷/大球或低比分尾部未进入主线"
+    },
+    {
+      "matchId": "2040846",
+      "matchNumStr": "周五004",
+      "home": "不伦瑞克",
+      "away": "波鸿",
+      "score": "2-2",
+      "direction": "draw",
+      "directionHit": false,
+      "totalGoals": "4",
+      "totalGoalsHit": false,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": true,
+      "whyMissed": "比分池覆盖"
+    },
+    {
+      "matchId": "2040848",
+      "matchNumStr": "周五006",
+      "home": "埃尔夫斯堡",
+      "away": "韦斯特罗斯",
+      "score": "3-0",
+      "direction": "home",
+      "directionHit": true,
+      "totalGoals": "3",
+      "totalGoalsHit": true,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false,
+      "whyMissed": "爆冷/大球或低比分尾部未进入主线"
+    },
+    {
+      "matchId": "2040849",
+      "matchNumStr": "周五007",
+      "home": "罗森博格",
+      "away": "维京",
+      "score": "2-1",
+      "direction": "home",
+      "directionHit": true,
+      "totalGoals": "3",
+      "totalGoalsHit": true,
+      "mainScore": "2-1",
+      "mainHit": true,
+      "poolHit": true,
+      "whyMissed": "比分池覆盖"
+    },
+    {
+      "matchId": "2040851",
+      "matchNumStr": "周五010",
+      "home": "特尔斯达",
+      "away": "鹿特丹斯巴达",
+      "score": "1-3",
+      "direction": "away",
+      "directionHit": false,
+      "totalGoals": "4",
+      "totalGoalsHit": false,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false,
+      "whyMissed": "爆冷/大球或低比分尾部未进入主线"
+    },
+    {
+      "matchId": "2040852",
+      "matchNumStr": "周五011",
+      "home": "瓦尔韦克",
+      "away": "多德勒支",
+      "score": "0-1",
+      "direction": "away",
+      "directionHit": false,
+      "totalGoals": "1",
+      "totalGoalsHit": false,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false,
+      "whyMissed": "爆冷/大球或低比分尾部未进入主线"
+    },
+    {
+      "matchId": "2040853",
+      "matchNumStr": "周五012",
+      "home": "赫拉克勒斯",
+      "away": "登博思",
+      "score": "2-0",
+      "direction": "home",
+      "directionHit": true,
+      "totalGoals": "2",
+      "totalGoalsHit": false,
+      "mainScore": "2-1",
+      "mainHit": false,
+      "poolHit": false,
+      "whyMissed": "爆冷/大球或低比分尾部未进入主线"
+    },
+    {
+      "matchId": "2040857",
+      "matchNumStr": "周五017",
+      "home": "里斯本竞技",
+      "away": "吉马良斯",
+      "score": "1-3",
+      "direction": "away",
+      "directionHit": false,
+      "totalGoals": "4",
+      "totalGoalsHit": false,
+      "mainScore": "2-0",
+      "mainHit": false,
+      "poolHit": false,
+      "whyMissed": "爆冷/大球或低比分尾部未进入主线"
+    }
+  ],
+  "reviews": [
+    {
+      "league": "德国乙级联赛",
+      "results": [
+        {
+          "matchId": "2040845",
+          "matchNumStr": "周五003",
+          "home": "基尔",
+          "away": "圣保利",
+          "score": "0-1",
+          "direction": "away",
+          "directionHit": false,
+          "totalGoals": "1",
+          "totalGoalsHit": false,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false,
+          "whyMissed": "爆冷/大球或低比分尾部未进入主线"
+        },
+        {
+          "matchId": "2040846",
+          "matchNumStr": "周五004",
+          "home": "不伦瑞克",
+          "away": "波鸿",
+          "score": "2-2",
+          "direction": "draw",
+          "directionHit": false,
+          "totalGoals": "4",
+          "totalGoalsHit": false,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": true,
+          "whyMissed": "比分池覆盖"
+        }
+      ],
+      "summary": "方向 0/2；总进球 0/2；主比分 0/2；比分池 1/2",
+      "modelAdjustment": "低置信场次不再重复堆入串关；总进球主线必须保留2球/3球保护，爆冷只作独立尾部，不与多个高波动腿叠加。"
+    },
+    {
+      "league": "挪威超级联赛",
+      "results": [
+        {
+          "matchId": "2040849",
+          "matchNumStr": "周五007",
+          "home": "罗森博格",
+          "away": "维京",
+          "score": "2-1",
+          "direction": "home",
+          "directionHit": true,
+          "totalGoals": "3",
+          "totalGoalsHit": true,
+          "mainScore": "2-1",
+          "mainHit": true,
+          "poolHit": true,
+          "whyMissed": "比分池覆盖"
+        }
+      ],
+      "summary": "方向 1/1；总进球 1/1；主比分 1/1；比分池 1/1",
+      "modelAdjustment": "低置信场次不再重复堆入串关；总进球主线必须保留2球/3球保护，爆冷只作独立尾部，不与多个高波动腿叠加。"
+    },
+    {
+      "league": "日本职业联赛",
+      "results": [
+        {
+          "matchId": "2040843",
+          "matchNumStr": "周五001",
+          "home": "东京绿茵",
+          "away": "柏太阳神",
+          "score": "1-3",
+          "direction": "away",
+          "directionHit": true,
+          "totalGoals": "4",
+          "totalGoalsHit": false,
+          "mainScore": "0-1",
+          "mainHit": false,
+          "poolHit": true,
+          "whyMissed": "比分池覆盖"
+        }
+      ],
+      "summary": "方向 1/1；总进球 0/1；主比分 0/1；比分池 1/1",
+      "modelAdjustment": "低置信场次不再重复堆入串关；总进球主线必须保留2球/3球保护，爆冷只作独立尾部，不与多个高波动腿叠加。"
+    },
+    {
+      "league": "瑞典超级联赛",
+      "results": [
+        {
+          "matchId": "2040848",
+          "matchNumStr": "周五006",
+          "home": "埃尔夫斯堡",
+          "away": "韦斯特罗斯",
+          "score": "3-0",
+          "direction": "home",
+          "directionHit": true,
+          "totalGoals": "3",
+          "totalGoalsHit": true,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false,
+          "whyMissed": "爆冷/大球或低比分尾部未进入主线"
+        }
+      ],
+      "summary": "方向 1/1；总进球 1/1；主比分 0/1；比分池 0/1",
+      "modelAdjustment": "低置信场次不再重复堆入串关；总进球主线必须保留2球/3球保护，爆冷只作独立尾部，不与多个高波动腿叠加。"
+    },
+    {
+      "league": "芬兰超级联赛",
+      "results": [
+        {
+          "matchId": "2040844",
+          "matchNumStr": "周五002",
+          "home": "瓦萨",
+          "away": "TPS图尔库",
+          "score": "1-3",
+          "direction": "away",
+          "directionHit": false,
+          "totalGoals": "4",
+          "totalGoalsHit": false,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false,
+          "whyMissed": "爆冷/大球或低比分尾部未进入主线"
+        }
+      ],
+      "summary": "方向 0/1；总进球 0/1；主比分 0/1；比分池 0/1",
+      "modelAdjustment": "低置信场次不再重复堆入串关；总进球主线必须保留2球/3球保护，爆冷只作独立尾部，不与多个高波动腿叠加。"
+    },
+    {
+      "league": "荷兰乙级联赛",
+      "results": [
+        {
+          "matchId": "2040852",
+          "matchNumStr": "周五011",
+          "home": "瓦尔韦克",
+          "away": "多德勒支",
+          "score": "0-1",
+          "direction": "away",
+          "directionHit": false,
+          "totalGoals": "1",
+          "totalGoalsHit": false,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false,
+          "whyMissed": "爆冷/大球或低比分尾部未进入主线"
+        },
+        {
+          "matchId": "2040853",
+          "matchNumStr": "周五012",
+          "home": "赫拉克勒斯",
+          "away": "登博思",
+          "score": "2-0",
+          "direction": "home",
+          "directionHit": true,
+          "totalGoals": "2",
+          "totalGoalsHit": false,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false,
+          "whyMissed": "爆冷/大球或低比分尾部未进入主线"
+        }
+      ],
+      "summary": "方向 1/2；总进球 0/2；主比分 0/2；比分池 0/2",
+      "modelAdjustment": "低置信场次不再重复堆入串关；总进球主线必须保留2球/3球保护，爆冷只作独立尾部，不与多个高波动腿叠加。"
+    },
+    {
+      "league": "荷兰甲级联赛",
+      "results": [
+        {
+          "matchId": "2040851",
+          "matchNumStr": "周五010",
+          "home": "特尔斯达",
+          "away": "鹿特丹斯巴达",
+          "score": "1-3",
+          "direction": "away",
+          "directionHit": false,
+          "totalGoals": "4",
+          "totalGoalsHit": false,
+          "mainScore": "2-1",
+          "mainHit": false,
+          "poolHit": false,
+          "whyMissed": "爆冷/大球或低比分尾部未进入主线"
+        }
+      ],
+      "summary": "方向 0/1；总进球 0/1；主比分 0/1；比分池 0/1",
+      "modelAdjustment": "低置信场次不再重复堆入串关；总进球主线必须保留2球/3球保护，爆冷只作独立尾部，不与多个高波动腿叠加。"
+    },
+    {
+      "league": "葡萄牙超级联赛",
+      "results": [
+        {
+          "matchId": "2040857",
+          "matchNumStr": "周五017",
+          "home": "里斯本竞技",
+          "away": "吉马良斯",
+          "score": "1-3",
+          "direction": "away",
+          "directionHit": false,
+          "totalGoals": "4",
+          "totalGoalsHit": false,
+          "mainScore": "2-0",
+          "mainHit": false,
+          "poolHit": false,
+          "whyMissed": "爆冷/大球或低比分尾部未进入主线"
+        }
+      ],
+      "summary": "方向 0/1；总进球 0/1；主比分 0/1；比分池 0/1",
+      "modelAdjustment": "低置信场次不再重复堆入串关；总进球主线必须保留2球/3球保护，爆冷只作独立尾部，不与多个高波动腿叠加。"
+    }
+  ],
+  "summary": "看板覆盖 10/17 场；方向 4/10；总进球 2/10；主比分 1/10；比分池 3/10。",
+  "parlayFailure": "昨日串关反复使用芬超/荷甲/瑞超等低置信总进球和半全场腿，且多腿共享同一市场偏差；证据门禁已标记blocked但未阻止展示，导致正常大球与爆冷路径同时失效。修正为按独立证据筛选，最多保留一条爆冷腿，混合串不把高赔率当作信心。",
+  "modelAdjustment": "滚动校准采用保守收缩；扩大强队小胜与2-2/1-1保护，保留大球尾部但不追随单日大球；组合选择增加evidenceGate与最低概率约束。",
+  "sources": [
+    {
+      "name": "LiveScore 2026-08-14 results",
+      "url": "https://www.livescore.mobi/football/2026-08-14/?tz=2"
+    }
+  ],
+  "generatedAt": "2026-08-15T12:07:01"
+}

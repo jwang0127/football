@@ -993,6 +993,15 @@ def score_leg_eligible(row: dict[str, Any]) -> bool:
     return row.get("evidenceGate") == "passed" and float(row.get("confidenceScore", 0)) >= 55
 
 
+def combo_leg_eligible(row: dict[str, Any]) -> bool:
+    """Do not let a high theoretical price turn a blocked, low-confidence leg into a featured combo."""
+    if row.get("market") == "crs":
+        return score_leg_eligible(row)
+    return row.get("evidenceGate") == "passed" or (
+        float(row.get("probability", 0)) >= 0.34 and float(row.get("confidenceScore", 0)) >= 45
+    )
+
+
 def score_shapes_are_distinct(selected: tuple[dict[str, Any], ...] | list[dict[str, Any]]) -> bool:
     """Avoid repeating one 2-1/1-2 template across an exact-score parlay."""
     shapes = []
@@ -1032,7 +1041,7 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
     # Pure HAD parlays are intentionally disabled: every displayed combo may contain at most one HAD leg.
     for market in ("ttg", "crs", "hafu"):
         candidates = all_legs[market]
-        usable = [x for x in candidates if x["odds"] and x["probability"]]
+        usable = [x for x in candidates if x["odds"] and x["probability"] and combo_leg_eligible(x)]
         pool = []
         max_size = 4
         for size in range(2, min(max_size, len(usable)) + 1):
@@ -1050,7 +1059,7 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
         rows.extend(sorted(pool, key=lambda x: (-x["trustScore"], x["productOdds"]))[:keep])
 
     mixed = []
-    candidates = [x for legs in all_legs.values() for x in legs if x["odds"] and x["probability"]]
+    candidates = [x for legs in all_legs.values() for x in legs if x["odds"] and x["probability"] and combo_leg_eligible(x)]
     for size in (2, 3, 4):
         for selected in combinations(candidates, size):
             # A four-match business-day board can legitimately contain four
@@ -1069,7 +1078,7 @@ def build_combos(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 mixed.append(item)
     rows.extend(sorted(mixed, key=lambda x: (-x["trustScore"], x["productOdds"]))[:8])
     # Requested 6-8 leg parlays: goal-led and explicitly exclude K League.
-    non_korean = [x for legs in all_legs.values() for x in legs if x["odds"] and x["probability"] and x.get("league") != korean_league]
+    non_korean = [x for legs in all_legs.values() for x in legs if x["odds"] and x["probability"] and combo_leg_eligible(x) and x.get("league") != korean_league]
     by_match: dict[str, list[dict[str, Any]]] = {}
     for item in non_korean:
         by_match.setdefault(item["matchId"], []).append(item)
