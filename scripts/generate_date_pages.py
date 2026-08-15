@@ -13,6 +13,7 @@ from typing import Any
 
 from generate_homepage import generate_homepage
 from market_model import ScorelineModel, expected_value, fit_scoreline_model, implied_probabilities
+from market_movement import load_market_movement
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -763,7 +764,7 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
         "mainScore": main, "backupScores": backups[:2], "tailRiskScores": tails, "totalGoals": total_goals, "goalCandidates": sorted(goal_probs, key=goal_probs.get, reverse=True)[:3], "goalProbabilities": {key: round(value, 4) for key, value in goal_probs.items()},
         "scorePoolProbabilities": score_pool_probs, "halfFullProbabilities": half_full_probs, "scorelineFit": scoreline_model.summary() if scoreline_model else None, "marketBaselineProbabilities": {key: round(value, 4) for key, value in market_baseline.items()},
         "fundamentalProbabilities": {key: round(value, 4) for key, value in fundamental.items()} if fundamental else None, "fundamentalFirst": True, "marketContradiction": market_contradiction, "goalSelectionGate": goal_gate, "upsetAttackCapability": upset_attack_capability(match, probabilities),
-        "goalPrediction": {"pick": total_goals, "probability": round(goal_probs[total_goals], 4), "type": "total_goals"}, "scorePrediction": {"pick": main, "probability": round(score_pool_probs.get(main, 0.0), 4), "type": "exact_score"}, "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
+        "goalPrediction": {"pick": total_goals, "probability": round(goal_probs[total_goals], 4), "type": "total_goals"}, "scorePrediction": {"pick": main, "probability": round(score_pool_probs.get(main, 0.0), 4), "type": "exact_score"}, "goalScoreSeparation": "总进球命中与精确比分命中分开统计", "marketMovement": match.get("marketMovement"),
         "confidenceScore": confidence_score, "modelProfile": {**{key: profile[key] for key in ("version", "had", "crs", "prior", "goal_shift", "review_sample", "review_strength")}, "scorelineWeight": scoreline_weight, "sampleControl": sample_control, "contextLayer": "fundamental-first-v3", "scorelineLayer": "dixon-coles-market-blend-v1"}, "modelLesson": source_profile["lesson"],
         "contextFactors": {key: context.get(key, "资料不足，保持中性") for key in ("stage", "schedule", "motivation", "weather", "teamNews", "coach", "upsetPath")}, "contextSources": context.get("sources", []), "evidenceStatus": context.get("evidenceStatus", "比赛级公开证据不足；情境层保持中性"), "verifiedFactors": context.get("verifiedFactors", []), "reasoningMethod": "fundamental-first-v3", "reasoningContract": reasoning,
         "matchBrief": match_brief, "previousMatch": match_brief["previousMatch"], "nextMatch": match_brief["nextMatch"], "rankingBrief": match_brief["ranking"], "promotionRelegationBrief": match_brief["promotionRelegation"], "coverRisk": match_brief["coverRisk"], "upsetRisk": match_brief["upsetRisk"], "analysisDimensions": reasoning["dimensionReport"]["dimensions"], "missingAnalysisDimensions": reasoning["dimensionReport"]["missingDimensions"], "analysisCompleteness": reasoning["dimensionReport"]["completeness"], "marketRiskLevel": volatility["level"], "marketRiskFactors": volatility["factors"], "marketRiskNote": volatility["note"],
@@ -1287,6 +1288,7 @@ def main() -> None:
     context_path = DATA / f"match_context_{args.date}.json"
     context_payload = json.loads(context_path.read_text(encoding="utf-8")) if context_path.exists() else {"matches": {}}
     contexts = dict(context_payload.get("matches", {}))
+    market_movements = load_market_movement(ROOT, args.date)
     extra_context_path = DATA / f"match_context_{args.date}_extra.json"
     if extra_context_path.exists():
         extra_context = json.loads(extra_context_path.read_text(encoding="utf-8"))
@@ -1315,6 +1317,10 @@ def main() -> None:
             matches.append(existing)
         else:
             match_context = context_for_match(match, contexts.get(str(match.get("matchId")), {}))
+            movement = market_movements.get(str(match.get("matchId")))
+            if movement:
+                match = dict(match)
+                match["marketMovement"] = movement
             matches.append(predict_with_market_fallback(base, match, match_context))
     if not matches:
         raise SystemExit("No verified matches available")
@@ -1327,7 +1333,7 @@ def main() -> None:
         {"name": "K League官方赛程", "url": "https://tv.kleague.com/en-int/schedule"},
     ]
     competition_review = latest_competition_review(args.date)
-    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日；07-18页面按用户此前要求并入07-19两场韩职" if args.date == "20260718" else "Sporttery竞彩业务日", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"competition-specific-evidence-chain-{args.date}-v10", "contextVersion": context_payload.get("version", "evidence-chain-v2"), "competitionModels": {league: shrink_review_profile(model_profile_for(league)) for league in dict.fromkeys(m["league"] for m in matches)}, "competitionReview": competition_review, "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
+    payload = {"date": args.date, "dateBasis": "Sporttery竞彩业务日", "includedBusinessDates": sorted(set(m.get("businessDate", "") for m in matches)), "modelVersion": f"competition-specific-evidence-chain-{args.date}-v11-market-movement-public-context", "contextVersion": context_payload.get("version", "evidence-chain-v2"), "marketMovementVersion": "opening-latest-snapshot-v1", "competitionModels": {league: shrink_review_profile(model_profile_for(league)) for league in dict.fromkeys(m["league"] for m in matches)}, "competitionReview": competition_review, "generatedAt": datetime.now().isoformat(timespec="seconds"), "oddsUpdatedAt": updated, "matches": matches, "combos": build_combos(matches), "scheduleWarnings": [reason for reason in excluded.values() if reason], "sources": sources, "disclaimer": DISCLAIMER}
     out_root = Path(args.output_root).resolve() if args.output_root else ROOT
     out_data = out_root / "data"
     out_data.mkdir(parents=True, exist_ok=True)

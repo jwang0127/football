@@ -1,0 +1,358 @@
+{
+  "version": "public-context-v1",
+  "generatedAt": "2026-08-15T23:41:59",
+  "matches": {
+    "2040874": {
+      "ranking": "玛丽港 [芬超12]；塞伊奈约基 [芬超10]",
+      "homeRank": 12,
+      "awayRank": 10,
+      "recentForm": "主队近1场 D；客队近2场 WL",
+      "motivation": "积分/晋级战意未从公开积分榜核验，不作方向性修正",
+      "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
+      "schedule": "已检查公开历史赛果；具体联赛轮次与下一场优先级仍需官方赛程确认",
+      "outcomeMultipliers": {
+        "home": 1.0,
+        "draw": 1.0,
+        "away": 1.0
+      },
+      "confidenceDelta": -2,
+      "verifiedFactors": [
+        "ranking_table",
+        "recent_performance"
+      ],
+      "evidenceStatus": "已接入公开赛果与竞彩赛程字段；伤停、轮次/战意缺少可核验来源时保持中性",
+      "sources": [
+        {
+          "name": "Sporttery公开赛程/赔率接口",
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+        }
+      ]
+    },
+    "2040875": {
+      "ranking": "布赖代合作 [沙职9]；赛哈特海湾 [沙职11]",
+      "homeRank": 9,
+      "awayRank": 11,
+      "recentForm": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
+      "motivation": "积分/晋级战意未从公开积分榜核验，不作方向性修正",
+      "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
+      "schedule": "已检查公开历史赛果；具体联赛轮次与下一场优先级仍需官方赛程确认",
+      "outcomeMultipliers": {
+        "home": 1.0,
+        "draw": 1.0,
+        "away": 1.0
+      },
+      "confidenceDelta": -2,
+      "verifiedFactors": [
+        "ranking_table"
+      ],
+      "evidenceStatus": "已接入公开赛果与竞彩赛程字段；伤停、轮次/战意缺少可核验来源时保持中性",
+      "sources": [
+        {
+          "name": "Sporttery公开赛程/赔率接口",
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+        }
+      ]
+    },
+    "2040876": {
+      "ranking": "谢菲尔德联 [英冠16]；伯明翰 [英冠4]",
+      "homeRank": 16,
+      "awayRank": 4,
+      "recentForm": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
+      "motivation": "积分/晋级战意未从公开积分榜核验，不作方向性修正",
+      "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
+      "schedule": "已检查公开历史赛果；具体联赛轮次与下一场优先级仍需官方赛程确认",
+      "outcomeMultipliers": {
+        "home": 1.0,
+        "draw": 1.0,
+        "away": 1.0
+      },
+      "confidenceDelta": -2,
+      "verifiedFactors": [
+        "ranking_table"
+      ],
+      "evidenceStatus": "已接入公开赛果与竞彩赛程字段；伤停、轮次/战意缺少可核验来源时保持中性",
+      "sources": [
+        {
+          "name": "Sporttery公开赛程/赔率接口",
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+        }
+      ]
+    },
+    "2040877": {
+      "ranking": "乌德勒支 [荷甲13]；阿尔克马尔 [荷甲3]",
+      "homeRank": 13,
+      "awayRank": 3,
+      "recentForm": "主队近1场 W；客队近0场 暂无已核验赛果",
+      "motivation": "积分/晋级战意未从公开积分榜核验，不作方向性修正",
+      "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
+      "schedule": "已检查公开历史赛果；具体联赛轮次与下一场优先级仍需官方赛程确认",
+      "outcomeMultipliers": {
+        "home": 1.0,
+        "draw": 1.0,
+        "away": 1.0
+      },
+      "confidenceDelta": -2,
+      "verifiedFactors": [
+        "ranking_table"
+      ],
+      "evidenceStatus": "已接入公开赛果与竞彩赛程字段；伤停、轮次/战意缺少可核验来源时保持中性",
+      "sources": [
+        {
+          "name": "Sporttery公开赛程/赔率接口",
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+        }
+      ]
+    },
+    "2040878": {
+      "ranking": "维塞乌 [葡超6]；圣克拉拉 [葡超10]",
+      "homeRank": 6,
+      "awayRank": 10,
+      "recentForm": "主队近1场 D；客队近0场 暂无已核验赛果",
+      "motivation": "积分/晋级战意未从公开积分榜核验，不作方向性修正",
+      "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
+      "schedule": "已检查公开历史赛果；具体联赛轮次与下一场优先级仍需官方赛程确认",
+      "outcomeMultipliers": {
+        "home": 1.0,
+        "draw": 1.0,
+        "away": 1.0
+      },
+      "confidenceDelta": -2,
+      "verifiedFactors": [
+        "ranking_table"
+      ],
+      "evidenceStatus": "已接入公开赛果与竞彩赛程字段；伤停、轮次/战意缺少可核验来源时保持中性",
+      "sources": [
+        {
+          "name": "Sporttery公开赛程/赔率接口",
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+        }
+      ]
+    },
+    "2040879": {
+      "ranking": "阿拉维斯 [西甲1]；赫塔费 [西甲9]",
+      "homeRank": 1,
+      "awayRank": 9,
+      "recentForm": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
+      "motivation": "积分/晋级战意未从公开积分榜核验，不作方向性修正",
+      "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
+      "schedule": "已检查公开历史赛果；具体联赛轮次与下一场优先级仍需官方赛程确认",
+      "outcomeMultipliers": {
+        "home": 1.0,
+        "draw": 1.0,
+        "away": 1.0
+      },
+      "confidenceDelta": -2,
+      "verifiedFactors": [
+        "ranking_table"
+      ],
+      "evidenceStatus": "已接入公开赛果与竞彩赛程字段；伤停、轮次/战意缺少可核验来源时保持中性",
+      "sources": [
+        {
+          "name": "Sporttery公开赛程/赔率接口",
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+        }
+      ]
+    },
+    "2040880": {
+      "ranking": "吉达联合 [沙职8]；拉斯永恒 [沙职12]",
+      "homeRank": 8,
+      "awayRank": 12,
+      "recentForm": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
+      "motivation": "积分/晋级战意未从公开积分榜核验，不作方向性修正",
+      "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
+      "schedule": "已检查公开历史赛果；具体联赛轮次与下一场优先级仍需官方赛程确认",
+      "outcomeMultipliers": {
+        "home": 1.0,
+        "draw": 1.0,
+        "away": 1.0
+      },
+      "confidenceDelta": -2,
+      "verifiedFactors": [
+        "ranking_table"
+      ],
+      "evidenceStatus": "已接入公开赛果与竞彩赛程字段；伤停、轮次/战意缺少可核验来源时保持中性",
+      "sources": [
+        {
+          "name": "Sporttery公开赛程/赔率接口",
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+        }
+      ]
+    },
+    "2040881": {
+      "ranking": "利雅得胜利 [沙职7]；穆拜赖兹征服 [沙职10]",
+      "homeRank": 7,
+      "awayRank": 10,
+      "recentForm": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
+      "motivation": "积分/晋级战意未从公开积分榜核验，不作方向性修正",
+      "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
+      "schedule": "已检查公开历史赛果；具体联赛轮次与下一场优先级仍需官方赛程确认",
+      "outcomeMultipliers": {
+        "home": 1.0,
+        "draw": 1.0,
+        "away": 1.0
+      },
+      "confidenceDelta": -2,
+      "verifiedFactors": [
+        "ranking_table"
+      ],
+      "evidenceStatus": "已接入公开赛果与竞彩赛程字段；伤停、轮次/战意缺少可核验来源时保持中性",
+      "sources": [
+        {
+          "name": "Sporttery公开赛程/赔率接口",
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+        }
+      ]
+    },
+    "2040882": {
+      "ranking": "SBV精英 [荷甲1]；PSV埃因霍温 [荷甲11]",
+      "homeRank": 1,
+      "awayRank": 11,
+      "recentForm": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
+      "motivation": "积分/晋级战意未从公开积分榜核验，不作方向性修正",
+      "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
+      "schedule": "已检查公开历史赛果；具体联赛轮次与下一场优先级仍需官方赛程确认",
+      "outcomeMultipliers": {
+        "home": 1.0,
+        "draw": 1.0,
+        "away": 1.0
+      },
+      "confidenceDelta": -2,
+      "verifiedFactors": [
+        "ranking_table"
+      ],
+      "evidenceStatus": "已接入公开赛果与竞彩赛程字段；伤停、轮次/战意缺少可核验来源时保持中性",
+      "sources": [
+        {
+          "name": "Sporttery公开赛程/赔率接口",
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+        }
+      ]
+    },
+    "2040883": {
+      "ranking": "福图纳锡塔德 [荷甲10]；坎布尔 [荷甲18]",
+      "homeRank": 10,
+      "awayRank": 18,
+      "recentForm": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
+      "motivation": "积分/晋级战意未从公开积分榜核验，不作方向性修正",
+      "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
+      "schedule": "已检查公开历史赛果；具体联赛轮次与下一场优先级仍需官方赛程确认",
+      "outcomeMultipliers": {
+        "home": 1.0,
+        "draw": 1.0,
+        "away": 1.0
+      },
+      "confidenceDelta": -2,
+      "verifiedFactors": [
+        "ranking_table"
+      ],
+      "evidenceStatus": "已接入公开赛果与竞彩赛程字段；伤停、轮次/战意缺少可核验来源时保持中性",
+      "sources": [
+        {
+          "name": "Sporttery公开赛程/赔率接口",
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+        }
+      ]
+    },
+    "2040884": {
+      "ranking": "塞维利亚 [西甲18]；巴列卡诺 [西甲14]",
+      "homeRank": 18,
+      "awayRank": 14,
+      "recentForm": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
+      "motivation": "积分/晋级战意未从公开积分榜核验，不作方向性修正",
+      "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
+      "schedule": "已检查公开历史赛果；具体联赛轮次与下一场优先级仍需官方赛程确认",
+      "outcomeMultipliers": {
+        "home": 1.0,
+        "draw": 1.0,
+        "away": 1.0
+      },
+      "confidenceDelta": -2,
+      "verifiedFactors": [
+        "ranking_table"
+      ],
+      "evidenceStatus": "已接入公开赛果与竞彩赛程字段；伤停、轮次/战意缺少可核验来源时保持中性",
+      "sources": [
+        {
+          "name": "Sporttery公开赛程/赔率接口",
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+        }
+      ]
+    },
+    "2040885": {
+      "ranking": "里奥阿维 [葡超16]；波尔图 [葡超2]",
+      "homeRank": 16,
+      "awayRank": 2,
+      "recentForm": "主队近1场 L；客队近1场 W",
+      "motivation": "积分/晋级战意未从公开积分榜核验，不作方向性修正",
+      "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
+      "schedule": "已检查公开历史赛果；具体联赛轮次与下一场优先级仍需官方赛程确认",
+      "outcomeMultipliers": {
+        "home": 1.0,
+        "draw": 1.0,
+        "away": 1.0
+      },
+      "confidenceDelta": -2,
+      "verifiedFactors": [
+        "ranking_table",
+        "recent_performance"
+      ],
+      "evidenceStatus": "已接入公开赛果与竞彩赛程字段；伤停、轮次/战意缺少可核验来源时保持中性",
+      "sources": [
+        {
+          "name": "Sporttery公开赛程/赔率接口",
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+        }
+      ]
+    },
+    "2040886": {
+      "ranking": "弗鲁米嫩塞 [巴甲4]；帕尔梅拉斯 [巴甲1]",
+      "homeRank": 4,
+      "awayRank": 1,
+      "recentForm": "主队近2场 DD；客队近0场 暂无已核验赛果",
+      "motivation": "积分/晋级战意未从公开积分榜核验，不作方向性修正",
+      "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
+      "schedule": "已检查公开历史赛果；具体联赛轮次与下一场优先级仍需官方赛程确认",
+      "outcomeMultipliers": {
+        "home": 1.0,
+        "draw": 1.0,
+        "away": 1.0
+      },
+      "confidenceDelta": -2,
+      "verifiedFactors": [
+        "ranking_table"
+      ],
+      "evidenceStatus": "已接入公开赛果与竞彩赛程字段；伤停、轮次/战意缺少可核验来源时保持中性",
+      "sources": [
+        {
+          "name": "Sporttery公开赛程/赔率接口",
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+        }
+      ]
+    },
+    "2040887": {
+      "ranking": "皇家盐湖城 [美职5]；明尼苏达联 [美职10]",
+      "homeRank": 5,
+      "awayRank": 10,
+      "recentForm": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
+      "motivation": "积分/晋级战意未从公开积分榜核验，不作方向性修正",
+      "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
+      "schedule": "已检查公开历史赛果；具体联赛轮次与下一场优先级仍需官方赛程确认",
+      "outcomeMultipliers": {
+        "home": 1.0,
+        "draw": 1.0,
+        "away": 1.0
+      },
+      "confidenceDelta": -2,
+      "verifiedFactors": [
+        "ranking_table"
+      ],
+      "evidenceStatus": "已接入公开赛果与竞彩赛程字段；伤停、轮次/战意缺少可核验来源时保持中性",
+      "sources": [
+        {
+          "name": "Sporttery公开赛程/赔率接口",
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+        }
+      ]
+    }
+  }
+}

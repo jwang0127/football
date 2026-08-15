@@ -3,11 +3,12 @@ param(
   [string]$OutFile = "",
   [string]$PoolCode = "ttg,had,hhad,crs,hafu",
   [ValidateSet("MatchDate", "BusinessDate")]
-  [string]$DateMode = "MatchDate",
+  [string]$DateMode = "BusinessDate",
   [string[]]$ExcludedLeagues = @(),
   [switch]$Force,
   [switch]$MergeExisting,
-  [switch]$RefreshPredictions
+  [switch]$RefreshPredictions,
+  [string]$SnapshotDir = ""
 )
 
 $ErrorActionPreference = "Stop"
@@ -750,6 +751,7 @@ $output = [ordered]@{
   dateText = $targetDate
   source = "sporttery-live-api"
   fetchedAt = (Get-Date).ToString("s")
+  capturedAt = (Get-Date).ToString("o")
   lastUpdateTime = $apiPayload.value.lastUpdateTime
   apiPoolCode = $PoolCode
   matches = @($matchList.ToArray())
@@ -762,3 +764,9 @@ if (-not (Test-Path $outDir)) {
 
 [pscustomobject]$output | ConvertTo-Json -Depth 12 | Set-Content -Encoding UTF8 $OutFile
 Write-Host "Saved Sporttery data to $OutFile"
+
+if (-not $SnapshotDir) { $SnapshotDir = Join-Path (Get-RootDir) ("data\odds_snapshots\{0}" -f $Date) }
+if (-not (Test-Path $SnapshotDir)) { New-Item -ItemType Directory -Force -Path $SnapshotDir | Out-Null }
+$snapshotPath = Join-Path $SnapshotDir ("{0}_{1}.json" -f $Date, (Get-Date).ToString("HHmmssfff"))
+Copy-Item -LiteralPath $OutFile -Destination $snapshotPath -Force
+Write-Host "Saved immutable odds snapshot to $snapshotPath"
