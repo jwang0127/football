@@ -1,0 +1,161 @@
+{
+  "version": "match-evidence-v1",
+  "date": "20260817",
+  "generatedAt": "2026-08-16T23:31:12",
+  "providers": {
+    "espn": {
+      "provider": "ESPN",
+      "leagues": {
+        "巴西甲级联赛": {
+          "status": "ok",
+          "http": 200,
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260519-20260817&limit=1000"
+        },
+        "瑞典超级联赛": {
+          "status": "ok",
+          "http": 200,
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260519-20260817&limit=1000"
+        },
+        "芬兰超级联赛": {
+          "status": "ok",
+          "http": 200,
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fin.1/scoreboard?dates=20260519-20260817&limit=1000"
+        },
+        "英格兰冠军联赛": {
+          "status": "ok",
+          "http": 200,
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20260519-20260817&limit=1000"
+        },
+        "葡萄牙超级联赛": {
+          "status": "ok",
+          "http": 200,
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/scoreboard?dates=20260519-20260817&limit=1000"
+        },
+        "西班牙甲级联赛": {
+          "status": "ok",
+          "http": 200,
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260519-20260817&limit=1000"
+        }
+      }
+    },
+    "sofascore": {
+      "provider": "SofaScore",
+      "state": {
+        "status": "error",
+        "url": "https://api.sofascore.com/api/v1/sport/football/scheduled-events/2026-08-17/inverse",
+        "error": "HTTPError: HTTP Error 403: Forbidden"
+      }
+    },
+    "footballData": {
+      "provider": "football-data.org",
+      "leagues": {
+        "巴西甲级联赛": {
+          "status": "ok",
+          "http": 200,
+          "url": "https://api.football-data.org/v4/competitions/BSA/matches?dateFrom=2026-05-19&dateTo=2026-08-17"
+        }
+      }
+    },
+    "openMeteo": {
+      "docs": "https://open-meteo.com/en/docs"
+    }
+  },
+  "matches": {
+    "2040914": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040915": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040916": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040922": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040917": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040918": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    }
+  }
+}
