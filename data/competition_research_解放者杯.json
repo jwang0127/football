@@ -1,0 +1,40 @@
+{
+  "competition": "南美解放者杯",
+  "localMatchCount": 5,
+  "verifiedResultCount": 3,
+  "teamsObserved": [
+    "基多体育大学",
+    "帕尔梅拉斯",
+    "弗鲁米嫩塞",
+    "普拉滕斯",
+    "波特诺山丘",
+    "科林蒂安",
+    "科金博联",
+    "米拉索尔",
+    "罗萨里奥中央",
+    "里瓦达维亚独立"
+  ],
+  "dateRange": [
+    "2026-08-12",
+    "2026-08-14"
+  ],
+  "outcomes": {
+    "draw": 3
+  },
+  "outcomePriorWithShrinkage": {
+    "home": 0.2222,
+    "draw": 0.5556,
+    "away": 0.2222
+  },
+  "averageTotalGoals": 0.667,
+  "officialSources": [
+    "https://www.conmebol.com/libertadores/"
+  ],
+  "missingDimensions": [
+    "official_stage_and_tie_format",
+    "official_lineups_and_injuries",
+    "travel_weather_pitch"
+  ],
+  "researchCompleteness": 0.425,
+  "status": "research_pack_ready_but_needs_matchday_refresh"
+}

@@ -1,0 +1,32 @@
+{
+  "competition": "亚洲冠军精英联赛",
+  "localMatchCount": 1,
+  "verifiedResultCount": 1,
+  "teamsObserved": [
+    "大阪钢巴",
+    "江原FC"
+  ],
+  "dateRange": [
+    "2026-08-11",
+    "2026-08-11"
+  ],
+  "outcomes": {
+    "draw": 1
+  },
+  "outcomePriorWithShrinkage": {
+    "home": 0.2857,
+    "draw": 0.4286,
+    "away": 0.2857
+  },
+  "averageTotalGoals": 0.0,
+  "officialSources": [
+    "https://www.the-afc.com/en/club/afc_champions_league_elite/fixtures__standings.html"
+  ],
+  "missingDimensions": [
+    "official_stage_and_tie_format",
+    "official_lineups_and_injuries",
+    "travel_weather_pitch"
+  ],
+  "researchCompleteness": 0.375,
+  "status": "research_pack_ready_but_needs_matchday_refresh"
+}

@@ -1,0 +1,88 @@
+{
+  "competition": "美国职业大联盟",
+  "localMatchCount": 14,
+  "verifiedResultCount": 283,
+  "externalResultCount": 279,
+  "teamsObserved": [
+    "Atlanta United FC",
+    "Austin FC",
+    "CF Montréal",
+    "Charlotte FC",
+    "Chicago Fire FC",
+    "Colorado Rapids",
+    "Columbus Crew",
+    "D.C. United",
+    "FC Cincinnati",
+    "FC Dallas",
+    "Houston Dynamo FC",
+    "Inter Miami CF",
+    "LA Galaxy",
+    "LAFC",
+    "Liga MX All-Stars",
+    "MLS All-Stars",
+    "Minnesota United FC",
+    "Nashville SC",
+    "New England Revolution",
+    "New York City FC",
+    "Orlando City SC",
+    "Philadelphia Union",
+    "Portland Timbers",
+    "Real Salt Lake",
+    "Red Bull New York",
+    "San Diego FC",
+    "San Jose Earthquakes",
+    "Seattle Sounders FC",
+    "Sporting Kansas City",
+    "St. Louis CITY SC",
+    "Toronto FC",
+    "Vancouver Whitecaps",
+    "亚特兰大联",
+    "哥伦布机员",
+    "圣何塞地震",
+    "圣路易斯城",
+    "圣迭戈FC",
+    "夏洛特FC",
+    "多伦多FC",
+    "明尼苏达联",
+    "波特兰伐木工",
+    "洛杉矶FC",
+    "洛杉矶银河",
+    "温哥华白帽",
+    "皇家盐湖城",
+    "纳什维尔",
+    "纽约城",
+    "芝加哥火焰",
+    "西雅图海湾人",
+    "达拉斯FC",
+    "迈阿密国际"
+  ],
+  "dateRange": [
+    "2026-02-21",
+    "2026-08-16"
+  ],
+  "outcomes": {
+    "home": 140,
+    "away": 75,
+    "draw": 68
+  },
+  "outcomePriorWithShrinkage": {
+    "home": 0.4913,
+    "draw": 0.2422,
+    "away": 0.2664
+  },
+  "averageTotalGoals": 3.205,
+  "officialSources": [
+    "https://www.mlssoccer.com/news/mls-announces-2026-regular-season-schedule",
+    "https://www.mlssoccer.com/league-reports/competition-guidelines/"
+  ],
+  "externalSources": [
+    "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260730-20260816&limit=1000"
+  ],
+  "missingDimensions": [
+    "official_stage_and_tie_format",
+    "official_lineups_and_injuries",
+    "travel_weather_pitch"
+  ],
+  "researchCompleteness": 0.75,
+  "status": "research_pack_ready_but_needs_matchday_refresh"
+}

@@ -1,0 +1,461 @@
+{
+  "settledResults": 196,
+  "evaluatedPredictions": 183,
+  "overall": {
+    "settled": 183,
+    "direction_rate": 0.4699,
+    "main_score_rate": 0.1257,
+    "score_pool_rate": 0.3333,
+    "total_goal_rate": 0.2842,
+    "goal_candidates_rate": 0.6831,
+    "avg_brier": 0.631,
+    "avg_logloss": 1.0453
+  },
+  "calibration": [
+    {
+      "bucket": "[0.00, 0.35)",
+      "matches": 5,
+      "claimed_mean": 0.3419,
+      "realised_rate": 0.0
+    },
+    {
+      "bucket": "[0.35, 0.45)",
+      "matches": 58,
+      "claimed_mean": 0.4042,
+      "realised_rate": 0.4138
+    },
+    {
+      "bucket": "[0.45, 0.55)",
+      "matches": 60,
+      "claimed_mean": 0.4928,
+      "realised_rate": 0.4667
+    },
+    {
+      "bucket": "[0.55, 0.65)",
+      "matches": 39,
+      "claimed_mean": 0.591,
+      "realised_rate": 0.5385
+    },
+    {
+      "bucket": "[0.65, 1.00)",
+      "matches": 21,
+      "claimed_mean": 0.7261,
+      "realised_rate": 0.619
+    }
+  ],
+  "byCompetition": {
+    "亚洲冠军精英联赛": {
+      "settled": 1,
+      "direction_rate": 0.0,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.0,
+      "total_goal_rate": 0.0,
+      "goal_candidates_rate": 0.0,
+      "avg_brier": 0.7623,
+      "avg_logloss": 1.2465
+    },
+    "南美解放者杯": {
+      "settled": 5,
+      "direction_rate": 0.2,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.2,
+      "total_goal_rate": 0.6,
+      "goal_candidates_rate": 0.6,
+      "avg_brier": 0.8316,
+      "avg_logloss": 1.2738
+    },
+    "巴西杯": {
+      "settled": 4,
+      "direction_rate": 0.75,
+      "main_score_rate": 0.5,
+      "score_pool_rate": 0.5,
+      "total_goal_rate": 0.25,
+      "goal_candidates_rate": 0.5,
+      "avg_brier": 0.546,
+      "avg_logloss": 0.9374
+    },
+    "巴西甲级联赛": {
+      "settled": 15,
+      "direction_rate": 0.3333,
+      "main_score_rate": 0.1333,
+      "score_pool_rate": 0.3333,
+      "total_goal_rate": 0.3333,
+      "goal_candidates_rate": 0.8667,
+      "avg_brier": 0.6782,
+      "avg_logloss": 1.091
+    },
+    "德国乙级联赛": {
+      "settled": 4,
+      "direction_rate": 0.25,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.25,
+      "total_goal_rate": 0.25,
+      "goal_candidates_rate": 0.75,
+      "avg_brier": 0.6918,
+      "avg_logloss": 1.1305
+    },
+    "挪威超级联赛": {
+      "settled": 26,
+      "direction_rate": 0.4615,
+      "main_score_rate": 0.2308,
+      "score_pool_rate": 0.3077,
+      "total_goal_rate": 0.4231,
+      "goal_candidates_rate": 0.6538,
+      "avg_brier": 0.6456,
+      "avg_logloss": 1.0719
+    },
+    "日本乙级联赛": {
+      "settled": 1,
+      "direction_rate": 1.0,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.0,
+      "total_goal_rate": 1.0,
+      "goal_candidates_rate": 1.0,
+      "avg_brier": 0.5578,
+      "avg_logloss": 0.9367
+    },
+    "日本职业联赛": {
+      "settled": 3,
+      "direction_rate": 0.3333,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.3333,
+      "total_goal_rate": 0.3333,
+      "goal_candidates_rate": 0.6667,
+      "avg_brier": 0.6518,
+      "avg_logloss": 1.0779
+    },
+    "欧洲冠军联赛": {
+      "settled": 18,
+      "direction_rate": 0.6667,
+      "main_score_rate": 0.1111,
+      "score_pool_rate": 0.2778,
+      "total_goal_rate": 0.1111,
+      "goal_candidates_rate": 0.5556,
+      "avg_brier": 0.4687,
+      "avg_logloss": 0.8206
+    },
+    "欧洲超级杯": {
+      "settled": 1,
+      "direction_rate": 1.0,
+      "main_score_rate": 1.0,
+      "score_pool_rate": 1.0,
+      "total_goal_rate": 1.0,
+      "goal_candidates_rate": 1.0,
+      "avg_brier": 0.2854,
+      "avg_logloss": 0.5716
+    },
+    "欧罗巴联赛": {
+      "settled": 20,
+      "direction_rate": 0.45,
+      "main_score_rate": 0.05,
+      "score_pool_rate": 0.35,
+      "total_goal_rate": 0.3,
+      "goal_candidates_rate": 0.7,
+      "avg_brier": 0.6402,
+      "avg_logloss": 1.0641
+    },
+    "瑞典超级联赛": {
+      "settled": 25,
+      "direction_rate": 0.64,
+      "main_score_rate": 0.16,
+      "score_pool_rate": 0.36,
+      "total_goal_rate": 0.28,
+      "goal_candidates_rate": 0.72,
+      "avg_brier": 0.5618,
+      "avg_logloss": 0.9458
+    },
+    "美国职业大联盟": {
+      "settled": 6,
+      "direction_rate": 0.5,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.1667,
+      "total_goal_rate": 0.1667,
+      "goal_candidates_rate": 0.5,
+      "avg_brier": 0.6083,
+      "avg_logloss": 1.0107
+    },
+    "芬兰超级联赛": {
+      "settled": 19,
+      "direction_rate": 0.4211,
+      "main_score_rate": 0.0526,
+      "score_pool_rate": 0.4211,
+      "total_goal_rate": 0.1579,
+      "goal_candidates_rate": 0.6842,
+      "avg_brier": 0.6811,
+      "avg_logloss": 1.1131
+    },
+    "荷兰乙级联赛": {
+      "settled": 2,
+      "direction_rate": 0.5,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.0,
+      "total_goal_rate": 0.0,
+      "goal_candidates_rate": 0.5,
+      "avg_brier": 0.5765,
+      "avg_logloss": 0.9814
+    },
+    "荷兰甲级联赛": {
+      "settled": 5,
+      "direction_rate": 0.2,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.2,
+      "total_goal_rate": 0.2,
+      "goal_candidates_rate": 0.8,
+      "avg_brier": 0.7201,
+      "avg_logloss": 1.1766
+    },
+    "葡萄牙超级联赛": {
+      "settled": 5,
+      "direction_rate": 0.4,
+      "main_score_rate": 0.2,
+      "score_pool_rate": 0.4,
+      "total_goal_rate": 0.0,
+      "goal_candidates_rate": 0.8,
+      "avg_brier": 0.8254,
+      "avg_logloss": 1.3585
+    },
+    "韩国职业联赛": {
+      "settled": 23,
+      "direction_rate": 0.3913,
+      "main_score_rate": 0.1304,
+      "score_pool_rate": 0.3913,
+      "total_goal_rate": 0.3478,
+      "goal_candidates_rate": 0.6957,
+      "avg_brier": 0.6559,
+      "avg_logloss": 1.0814
+    }
+  },
+  "byDate": {
+    "20260717": {
+      "settled": 8,
+      "direction_rate": 0.75,
+      "main_score_rate": 0.25,
+      "score_pool_rate": 0.75,
+      "total_goal_rate": 0.375,
+      "goal_candidates_rate": 0.625,
+      "avg_brier": 0.4207,
+      "avg_logloss": 0.7438
+    },
+    "20260718": {
+      "settled": 16,
+      "direction_rate": 0.5625,
+      "main_score_rate": 0.25,
+      "score_pool_rate": 0.6875,
+      "total_goal_rate": 0.375,
+      "goal_candidates_rate": 0.8125,
+      "avg_brier": 0.5628,
+      "avg_logloss": 0.949
+    },
+    "20260719": {
+      "settled": 6,
+      "direction_rate": 0.8333,
+      "main_score_rate": 0.1667,
+      "score_pool_rate": 0.3333,
+      "total_goal_rate": 0.1667,
+      "goal_candidates_rate": 0.6667,
+      "avg_brier": 0.4826,
+      "avg_logloss": 0.8316
+    },
+    "20260720": {
+      "settled": 4,
+      "direction_rate": 0.25,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.25,
+      "total_goal_rate": 0.0,
+      "goal_candidates_rate": 0.75,
+      "avg_brier": 0.6565,
+      "avg_logloss": 1.0789
+    },
+    "20260721": {
+      "settled": 7,
+      "direction_rate": 0.4286,
+      "main_score_rate": 0.1429,
+      "score_pool_rate": 0.2857,
+      "total_goal_rate": 0.1429,
+      "goal_candidates_rate": 0.5714,
+      "avg_brier": 0.6094,
+      "avg_logloss": 1.0159
+    },
+    "20260722": {
+      "settled": 9,
+      "direction_rate": 0.7778,
+      "main_score_rate": 0.2222,
+      "score_pool_rate": 0.3333,
+      "total_goal_rate": 0.2222,
+      "goal_candidates_rate": 0.5556,
+      "avg_brier": 0.4643,
+      "avg_logloss": 0.8134
+    },
+    "20260723": {
+      "settled": 7,
+      "direction_rate": 0.4286,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.2857,
+      "total_goal_rate": 0.5714,
+      "goal_candidates_rate": 0.7143,
+      "avg_brier": 0.703,
+      "avg_logloss": 1.1551
+    },
+    "20260724": {
+      "settled": 2,
+      "direction_rate": 0.5,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.5,
+      "total_goal_rate": 0.5,
+      "goal_candidates_rate": 1.0,
+      "avg_brier": 0.5267,
+      "avg_logloss": 0.8982
+    },
+    "20260725": {
+      "settled": 11,
+      "direction_rate": 0.2727,
+      "main_score_rate": 0.1818,
+      "score_pool_rate": 0.2727,
+      "total_goal_rate": 0.3636,
+      "goal_candidates_rate": 0.7273,
+      "avg_brier": 0.7431,
+      "avg_logloss": 1.1947
+    },
+    "20260726": {
+      "settled": 18,
+      "direction_rate": 0.2778,
+      "main_score_rate": 0.0556,
+      "score_pool_rate": 0.1667,
+      "total_goal_rate": 0.2222,
+      "goal_candidates_rate": 0.6667,
+      "avg_brier": 0.8408,
+      "avg_logloss": 1.3417
+    },
+    "20260727": {
+      "settled": 2,
+      "direction_rate": 0.5,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.0,
+      "total_goal_rate": 0.0,
+      "goal_candidates_rate": 0.5,
+      "avg_brier": 0.5752,
+      "avg_logloss": 0.9771
+    },
+    "20260730": {
+      "settled": 6,
+      "direction_rate": 0.5,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.3333,
+      "total_goal_rate": 0.1667,
+      "goal_candidates_rate": 0.6667,
+      "avg_brier": 0.579,
+      "avg_logloss": 0.9666
+    },
+    "20260731": {
+      "settled": 3,
+      "direction_rate": 0.3333,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.0,
+      "total_goal_rate": 0.6667,
+      "goal_candidates_rate": 1.0,
+      "avg_brier": 0.7083,
+      "avg_logloss": 1.1441
+    },
+    "20260802": {
+      "settled": 12,
+      "direction_rate": 0.4167,
+      "main_score_rate": 0.0833,
+      "score_pool_rate": 0.3333,
+      "total_goal_rate": 0.3333,
+      "goal_candidates_rate": 0.5833,
+      "avg_brier": 0.6694,
+      "avg_logloss": 1.0983
+    },
+    "20260803": {
+      "settled": 4,
+      "direction_rate": 0.75,
+      "main_score_rate": 0.25,
+      "score_pool_rate": 0.5,
+      "total_goal_rate": 0.5,
+      "goal_candidates_rate": 0.75,
+      "avg_brier": 0.3415,
+      "avg_logloss": 0.6423
+    },
+    "20260804": {
+      "settled": 5,
+      "direction_rate": 0.2,
+      "main_score_rate": 0.2,
+      "score_pool_rate": 0.2,
+      "total_goal_rate": 0.2,
+      "goal_candidates_rate": 0.6,
+      "avg_brier": 0.8187,
+      "avg_logloss": 1.2998
+    },
+    "20260805": {
+      "settled": 3,
+      "direction_rate": 0.6667,
+      "main_score_rate": 0.3333,
+      "score_pool_rate": 0.6667,
+      "total_goal_rate": 0.0,
+      "goal_candidates_rate": 0.3333,
+      "avg_brier": 0.4321,
+      "avg_logloss": 0.7846
+    },
+    "20260806": {
+      "settled": 5,
+      "direction_rate": 0.4,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.2,
+      "total_goal_rate": 0.4,
+      "goal_candidates_rate": 0.4,
+      "avg_brier": 0.6135,
+      "avg_logloss": 1.0283
+    },
+    "20260809": {
+      "settled": 24,
+      "direction_rate": 0.4167,
+      "main_score_rate": 0.125,
+      "score_pool_rate": 0.25,
+      "total_goal_rate": 0.2917,
+      "goal_candidates_rate": 0.7917,
+      "avg_brier": 0.6671,
+      "avg_logloss": 1.0917
+    },
+    "20260811": {
+      "settled": 10,
+      "direction_rate": 0.6,
+      "main_score_rate": 0.0,
+      "score_pool_rate": 0.1,
+      "total_goal_rate": 0.1,
+      "goal_candidates_rate": 0.6,
+      "avg_brier": 0.4888,
+      "avg_logloss": 0.8448
+    },
+    "20260812": {
+      "settled": 3,
+      "direction_rate": 0.3333,
+      "main_score_rate": 0.3333,
+      "score_pool_rate": 0.3333,
+      "total_goal_rate": 1.0,
+      "goal_candidates_rate": 1.0,
+      "avg_brier": 0.7661,
+      "avg_logloss": 1.1818
+    },
+    "20260813": {
+      "settled": 8,
+      "direction_rate": 0.5,
+      "main_score_rate": 0.125,
+      "score_pool_rate": 0.5,
+      "total_goal_rate": 0.125,
+      "goal_candidates_rate": 0.625,
+      "avg_brier": 0.6194,
+      "avg_logloss": 1.0243
+    },
+    "20260814": {
+      "settled": 10,
+      "direction_rate": 0.4,
+      "main_score_rate": 0.1,
+      "score_pool_rate": 0.3,
+      "total_goal_rate": 0.2,
+      "goal_candidates_rate": 0.7,
+      "avg_brier": 0.7092,
+      "avg_logloss": 1.1922
+    }
+  },
+  "note": "avg_brier：三元Brier分，0完美、0.667为均匀基线；calibration把主方向声称概率分桶后对比实际命中频率，claimed_mean明显高于realised_rate说明该区间过度自信。"
+}

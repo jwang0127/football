@@ -1,0 +1,68 @@
+{
+  "competition": "日本职业联赛",
+  "localMatchCount": 6,
+  "verifiedResultCount": 223,
+  "externalResultCount": 220,
+  "teamsObserved": [
+    "Avispa Fukuoka",
+    "Cerezo Osaka",
+    "FC Tokyo",
+    "Fagiano Okayama",
+    "Gamba Osaka",
+    "JEF United Ichihara-Chiba",
+    "Kashima Antlers",
+    "Kashiwa Reysol",
+    "Kawasaki Frontale",
+    "Kyoto Sanga",
+    "Machida Zelvia",
+    "Mito Hollyhock",
+    "Nagoya Grampus",
+    "Sanfrecce Hiroshima",
+    "Shimizu S-Pulse",
+    "Tokyo Verdy 1969",
+    "Urawa Red Diamonds",
+    "V-Varen Nagasaki",
+    "Vissel Kobe",
+    "Yokohama F. Marinos",
+    "东京绿茵",
+    "京都不死鸟",
+    "冈山绿雉",
+    "大阪樱花",
+    "大阪钢巴",
+    "川崎前锋",
+    "柏太阳神",
+    "横滨水手",
+    "浦和红钻",
+    "长崎航海",
+    "鹿岛鹿角"
+  ],
+  "dateRange": [
+    "2026-02-06",
+    "2026-08-15"
+  ],
+  "outcomes": {
+    "draw": 62,
+    "home": 87,
+    "away": 74
+  },
+  "outcomePriorWithShrinkage": {
+    "home": 0.3886,
+    "draw": 0.2795,
+    "away": 0.3319
+  },
+  "averageTotalGoals": 2.726,
+  "officialSources": [
+    "https://www.jleague.jp/j1/standings/2026/",
+    "https://www.jleague.jp/en/j1/match/"
+  ],
+  "externalSources": [
+    "https://site.api.espn.com/apis/site/v2/sports/soccer/jpn.1/scoreboard?dates=20260730-20260816&limit=1000"
+  ],
+  "missingDimensions": [
+    "official_stage_and_tie_format",
+    "official_lineups_and_injuries",
+    "travel_weather_pitch"
+  ],
+  "researchCompleteness": 0.75,
+  "status": "research_pack_ready_but_needs_matchday_refresh"
+}

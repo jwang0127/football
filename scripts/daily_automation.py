@@ -29,7 +29,7 @@ try:
 except Exception:
     # Windows Python installations may omit the optional tzdata package.
     SHANGHAI_TZ = timezone(timedelta(hours=8))
-LEAGUE_ENDPOINTS = {"韩国职业联赛": "kor.1", "瑞典超级联赛": "swe.1", "挪威超级联赛": "nor.1", "芬兰超级联赛": "fin.1", "巴西甲级联赛": "bra.1", "美国职业大联盟": "usa.1"}
+LEAGUE_ENDPOINTS = {"韩国职业联赛": "kor.1", "瑞典超级联赛": "swe.1", "挪威超级联赛": "nor.1", "芬兰超级联赛": "fin.1", "巴西甲级联赛": "bra.1", "日本职业联赛": "jpn.1", "美国职业大联盟": "usa.1"}
 
 
 def read(path: Path) -> dict:
@@ -155,8 +155,31 @@ def build_review(date: str, source: dict, results: dict[str, dict]) -> dict:
 
 
 def optimize_models() -> None:
-    from generate_date_pages import COMPETITION_MODELS, POST_REVIEW_CALIBRATION
+    from generate_date_pages import model_profile_for
     grouped = defaultdict(list)
+    seen = set()
+    # Use every verified result in retained Sporttery boards, not only matches
+    # that previously appeared in a prediction page. This makes the historical
+    # foundation representative of the competition rather than the board
+    # selection policy.
+    for path in sorted(DATA.glob("sporttery_*_latest.json")):
+        try:
+            payload = read(path)
+        except (OSError, json.JSONDecodeError):
+            continue
+        board_date = str(payload.get("date", ""))[:8]
+        for match in payload.get("matches", []):
+            result = match.get("result") or {}
+            if result.get("homeGoals") is None or result.get("awayGoals") is None:
+                continue
+            match_id = str(match.get("matchId") or match.get("id"))
+            key = (match.get("league", "未知赛事"), match_id)
+            if key in seen:
+                continue
+            seen.add(key)
+            grouped[key[0]].append((board_date, match, (int(result["homeGoals"]), int(result["awayGoals"]))))
+    # Keep manually settled matches useful when an old board did not retain a
+    # result field, while still preventing duplicates.
     index = result_index()
     for path in sorted(DATA.glob("predictions_*.json")):
         date_match = re.search(r"(\d{8})", path.name)
@@ -164,21 +187,50 @@ def optimize_models() -> None:
             continue
         for match in read(path).get("matches", []):
             match_id = str(match.get("id") or match.get("matchId"))
-            if match_id in index:
-                grouped[match.get("league", "未知赛事")].append((date_match.group(1), match, index[match_id]))
+            result = index.get(match_id)
+            key = (match.get("league", "未知赛事"), match_id)
+            if result and key not in seen:
+                seen.add(key)
+                grouped[key[0]].append((date_match.group(1), match, result))
+    external_path = DATA / "external_league_history_2026.json"
+    if external_path.exists():
+        try:
+            external = read(external_path).get("competitions", {})
+        except (OSError, json.JSONDecodeError):
+            external = {}
+        for league, payload in external.items():
+            for row in payload.get("matches", []):
+                match_id = f"external-{payload.get('endpoint', league)}-{row.get('eventId')}"
+                key = (league, match_id)
+                if key in seen:
+                    continue
+                seen.add(key)
+                grouped[league].append((str(row.get("date", ""))[:8], {"league": league, "matchId": match_id}, (int(row["homeGoals"]), int(row["awayGoals"]))))
     output = {"generatedAt": datetime.now().isoformat(timespec="seconds"), "method": "rolling verified 90-minute results with conservative shrinkage", "competitions": {}}
     for league, rows in grouped.items():
-        rows = sorted(rows, key=lambda row: row[0])[-60:]
-        if len(rows) < 3 or league not in COMPETITION_MODELS:
+        rows = sorted(rows, key=lambda row: row[0])
+        if len(rows) < 1:
             continue
-        base = {**COMPETITION_MODELS[league], **POST_REVIEW_CALIBRATION.get(league, {})}
+        base = model_profile_for(league)
         counts = {key: 0 for key in ("home", "draw", "away")}
         for _, _, (home, away) in rows:
             counts["home" if home > away else "away" if home < away else "draw"] += 1
         empirical = [counts["home"] / len(rows), counts["draw"] / len(rows), counts["away"] / len(rows)]
         blend = min(.25, len(rows) / (len(rows) + 40))
         adjusted = [(1 - blend) * old + blend * new for old, new in zip(base["prior_probs"], empirical)]
-        output["competitions"][league] = {"version": f"{base['version']}-auto-{datetime.now():%m%d}", "review_sample": len(rows), "prior_probs": tuple(round(value, 4) for value in adjusted), "goal_shift": base.get("goal_shift", 0), "lesson": f"滚动{len(rows)}场90分钟结果：主/平/客 {counts['home']}/{counts['draw']}/{counts['away']}；参数仅小幅收缩。"}
+        total_goals = [home + away for _, _, (home, away) in rows]
+        avg_goals = sum(total_goals) / len(total_goals)
+        observed_goal_shift = max(-.18, min(.18, (avg_goals - 2.5) * .12))
+        base_version = str(base.get("version", "competition-model")).split("-auto-")[0]
+        output["competitions"][league] = {
+            "version": f"{base_version}-auto-{datetime.now():%m%d}",
+            "review_sample": len(rows),
+            "prior_probs": tuple(round(value, 4) for value in adjusted),
+            "goal_shift": round(.70 * base.get("goal_shift", 0) + .30 * observed_goal_shift, 4),
+            "average_total_goals": round(avg_goals, 3),
+            "allHistoricalMatches": len(rows),
+            "lesson": f"使用本赛事全部已核验历史赛果{len(rows)}场：主/平/客 {counts['home']}/{counts['draw']}/{counts['away']}，平均总进球{avg_goals:.2f}；参数做保守收缩。",
+        }
     write(DATA / "auto_model_calibration.json", output)
 
 

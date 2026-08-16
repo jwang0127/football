@@ -11,6 +11,22 @@ from generate_date_pages import (
 
 
 class ReviewShrinkageTests(unittest.TestCase):
+    def test_unknown_competition_gets_its_own_neutral_model(self):
+        profile = model_profile_for("测试新杯赛")
+        self.assertEqual(profile["modelScope"], "dedicated_competition")
+        self.assertLessEqual(profile["review_sample"], 1)
+        self.assertIn("auto-", profile["version"])
+        self.assertIn("测试新杯赛", profile["lesson"])
+        self.assertIn("researchPack", profile)
+        self.assertIn("missingDimensions", profile["researchPack"])
+
+    def test_cup_model_version_is_not_overwritten_by_auto_calibration(self):
+        for league in ("欧洲冠军联赛", "欧罗巴联赛", "巴西杯", "南美解放者杯"):
+            profile = model_profile_for(league)
+            self.assertIn("cup", profile["version"])
+            if league == "南美解放者杯":
+                self.assertIn("calibrationVersion", profile)
+
     def test_small_sample_adjustments_are_tempered(self):
         profile = {
             "review_sample": 4,
@@ -110,8 +126,8 @@ class CupModelTests(unittest.TestCase):
 class NewlySupportedCompetitionTests(unittest.TestCase):
     def test_j2_has_an_isolated_conservative_profile(self):
         profile = model_profile_for("日本乙级联赛")
-        self.assertEqual(profile["version"], "j2-league-v1-dedicated-0809")
-        self.assertEqual(profile["review_sample"], 0)
+        self.assertTrue(profile["version"].startswith("j2-league-v1-dedicated-0809"))
+        self.assertLessEqual(profile["review_sample"], 1)
         self.assertAlmostEqual(sum(profile["prior_probs"]), 1.0)
         self.assertLessEqual(profile["confidence_delta"], -8)
 

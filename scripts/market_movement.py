@@ -29,13 +29,23 @@ def _movement(opening: dict[str, Any], latest: dict[str, Any]) -> dict[str, Any]
             if before is not None and after is not None and key not in ("updatedAt", "handicap"):
                 delta[key] = round(after - before, 3)
         result["delta"][pool] = delta
-    for keys, name in [(('home', 'draw', 'away'), 'had'), (('s0', 's1', 's2', 's3', 's4', 's5', 's6', 's7'), 'ttg')]:
+    for keys, name in [
+        (('home', 'draw', 'away'), 'had'),
+        (('home', 'draw', 'away'), 'hhad'),
+        (('s0', 's1', 's2', 's3', 's4', 's5', 's6', 's7'), 'ttg'),
+    ]:
         before, after = _prob(opening.get(name) or {}, keys), _prob(latest.get(name) or {}, keys)
         result["probabilityDelta"][name] = {key: round(after.get(key, 0) - before.get(key, 0), 4) for key in set(before) | set(after)}
     had = result["probabilityDelta"].get("had", {})
     strongest = max(had, key=had.get) if had else None
     result["directionalSignal"] = strongest
-    result["interpretation"] = "临场方向与初盘一致" if strongest and had[strongest] > .015 else "变盘不足以形成方向信号"
+    hhad = result["probabilityDelta"].get("hhad", {})
+    handicap_signal = max(hhad, key=hhad.get) if hhad else None
+    result["handicapSignal"] = handicap_signal
+    result["interpretation"] = "胜平负与让球方向同步" if strongest and handicap_signal and had.get(strongest, 0) > .015 and hhad.get(handicap_signal, 0) > .015 and strongest == handicap_signal else (
+        "让球盘出现独立变化，需结合基本面和比分矩阵复核" if handicap_signal and hhad.get(handicap_signal, 0) > .015 else
+        "临场方向与初盘一致" if strongest and had[strongest] > .015 else "变盘不足以形成方向信号"
+    )
     return result
 
 

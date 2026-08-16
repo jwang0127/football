@@ -1,0 +1,41 @@
+{
+  "competition": "巴西杯",
+  "localMatchCount": 7,
+  "verifiedResultCount": 3,
+  "teamsObserved": [
+    "巴拉纳竞技",
+    "巴西国际",
+    "弗鲁米嫩塞",
+    "格雷米奥",
+    "桑托斯",
+    "瓦斯科达伽马",
+    "科林蒂安",
+    "米拉索尔",
+    "维多利亚",
+    "里莫"
+  ],
+  "dateRange": [
+    "2026-08-04",
+    "2026-08-07"
+  ],
+  "outcomes": {
+    "home": 2,
+    "away": 1
+  },
+  "outcomePriorWithShrinkage": {
+    "home": 0.4444,
+    "draw": 0.2222,
+    "away": 0.3333
+  },
+  "averageTotalGoals": 2.333,
+  "officialSources": [
+    "https://www.cbf.com.br/futebol-brasileiro/tabelas/copa-do-brasil/profissional/2026"
+  ],
+  "missingDimensions": [
+    "official_stage_and_tie_format",
+    "official_lineups_and_injuries",
+    "travel_weather_pitch"
+  ],
+  "researchCompleteness": 0.425,
+  "status": "research_pack_ready_but_needs_matchday_refresh"
+}

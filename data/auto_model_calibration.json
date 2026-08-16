@@ -1,160 +1,279 @@
 {
-  "generatedAt": "2026-08-15T12:07:08",
+  "generatedAt": "2026-08-16T12:37:23",
   "method": "rolling verified 90-minute results with conservative shrinkage",
   "competitions": {
-    "瑞典超级联赛": {
-      "version": "allsvenskan-v10-review-0726-auto-0815",
-      "review_sample": 22,
+    "韩国职业联赛": {
+      "version": "k-league-v8-review-0726-auto-0816",
+      "review_sample": 21,
       "prior_probs": [
-        0.3911,
-        0.2932,
-        0.3157
+        0.4009,
+        0.3255,
+        0.2736
       ],
-      "goal_shift": -0.04,
-      "lesson": "滚动22场90分钟结果：主/平/客 10/6/6；参数仅小幅收缩。"
+      "goal_shift": 0.0291,
+      "average_total_goals": 3.0,
+      "allHistoricalMatches": 21,
+      "lesson": "使用本赛事全部已核验历史赛果21场：主/平/客 8/7/6，平均总进球3.00；参数做保守收缩。"
     },
     "挪威超级联赛": {
-      "version": "eliteserien-v7-review-0726-auto-0815",
-      "review_sample": 23,
+      "version": "eliteserien-v7-review-0726-auto-0816",
+      "review_sample": 26,
       "prior_probs": [
-        0.4496,
-        0.2385,
-        0.312
+        0.4788,
+        0.1895,
+        0.3317
       ],
-      "goal_shift": 0.02,
-      "lesson": "滚动23场90分钟结果：主/平/客 11/4/8；参数仅小幅收缩。"
-    },
-    "巴西甲级联赛": {
-      "version": "brasileirao-v8-review-0726-auto-0815",
-      "review_sample": 9,
-      "prior_probs": [
-        0.4122,
-        0.3551,
-        0.2327
-      ],
-      "goal_shift": -0.08,
-      "lesson": "滚动9场90分钟结果：主/平/客 3/5/1；参数仅小幅收缩。"
+      "goal_shift": 0.0736,
+      "average_total_goals": 3.346,
+      "allHistoricalMatches": 26,
+      "lesson": "使用本赛事全部已核验历史赛果26场：主/平/客 13/4/9，平均总进球3.35；参数做保守收缩。"
     },
     "美国职业大联盟": {
-      "version": "mls-v6-review-0722-auto-0815",
-      "review_sample": 3,
+      "version": "mls-v6-review-0722-auto-0816",
+      "review_sample": 285,
       "prior_probs": [
-        0.4233,
-        0.2558,
-        0.3209
+        0.4583,
+        0.2686,
+        0.2731
       ],
-      "goal_shift": -0.05,
-      "lesson": "滚动3场90分钟结果：主/平/客 1/1/1；参数仅小幅收缩。"
+      "goal_shift": 0.0117,
+      "average_total_goals": 3.196,
+      "allHistoricalMatches": 285,
+      "lesson": "使用本赛事全部已核验历史赛果285场：主/平/客 141/68/76，平均总进球3.20；参数做保守收缩。"
     },
-    "韩国职业联赛": {
-      "version": "k-league-v8-review-0726-auto-0815",
-      "review_sample": 18,
+    "巴西甲级联赛": {
+      "version": "brasileirao-v8-review-0726-auto-0816",
+      "review_sample": 15,
       "prior_probs": [
-        0.4283,
-        0.3147,
-        0.2569
+        0.328,
+        0.4196,
+        0.2524
       ],
-      "goal_shift": -0.03,
-      "lesson": "滚动18场90分钟结果：主/平/客 6/7/5；参数仅小幅收缩。"
-    },
-    "芬兰超级联赛": {
-      "version": "veikkausliiga-v8-review-0726-auto-0815",
-      "review_sample": 16,
-      "prior_probs": [
-        0.3631,
-        0.2794,
-        0.3575
-      ],
-      "goal_shift": -0.25,
-      "lesson": "滚动16场90分钟结果：主/平/客 5/3/8；参数仅小幅收缩。"
+      "goal_shift": -0.0511,
+      "average_total_goals": 2.2,
+      "allHistoricalMatches": 15,
+      "lesson": "使用本赛事全部已核验历史赛果15场：主/平/客 4/7/4，平均总进球2.20；参数做保守收缩。"
     },
     "欧洲冠军联赛": {
-      "version": "ucl-qualifying-v6-review-0722-auto-0815",
-      "review_sample": 9,
+      "version": "ucl-qualifying-v2-fundamental-cup-0816-auto-0816",
+      "review_sample": 18,
       "prior_probs": [
-        0.4612,
-        0.2776,
-        0.2612
+        0.58,
+        0.1814,
+        0.2387
       ],
-      "goal_shift": 0.1,
-      "lesson": "滚动9场90分钟结果：主/平/客 5/2/2；参数仅小幅收缩。"
+      "goal_shift": 0.0431,
+      "average_total_goals": 2.611,
+      "allHistoricalMatches": 18,
+      "lesson": "使用本赛事全部已核验历史赛果18场：主/平/客 12/2/4，平均总进球2.61；参数做保守收缩。"
     },
     "欧罗巴联赛": {
-      "version": "uel-qualifying-v4-review-0723-auto-0815",
-      "review_sample": 11,
+      "version": "uel-qualifying-v2-fundamental-cup-0816-auto-0816",
+      "review_sample": 20,
       "prior_probs": [
-        0.4275,
-        0.3333,
-        0.2392
+        0.4694,
+        0.3429,
+        0.1877
       ],
-      "goal_shift": -0.08,
-      "lesson": "滚动11场90分钟结果：主/平/客 5/5/1；参数仅小幅收缩。"
+      "goal_shift": 0.0159,
+      "average_total_goals": 3.05,
+      "allHistoricalMatches": 20,
+      "lesson": "使用本赛事全部已核验历史赛果20场：主/平/客 10/7/3，平均总进球3.05；参数做保守收缩。"
+    },
+    "芬兰超级联赛": {
+      "version": "veikkausliiga-v8-review-0726-auto-0816",
+      "review_sample": 19,
+      "prior_probs": [
+        0.3357,
+        0.2396,
+        0.4246
+      ],
+      "goal_shift": -0.1252,
+      "average_total_goals": 2.0,
+      "allHistoricalMatches": 19,
+      "lesson": "使用本赛事全部已核验历史赛果19场：主/平/客 6/4/9，平均总进球2.00；参数做保守收缩。"
+    },
+    "瑞典超级联赛": {
+      "version": "allsvenskan-v10-review-0726-auto-0816",
+      "review_sample": 25,
+      "prior_probs": [
+        0.4425,
+        0.2624,
+        0.2951
+      ],
+      "goal_shift": -0.0027,
+      "average_total_goals": 2.64,
+      "allHistoricalMatches": 25,
+      "lesson": "使用本赛事全部已核验历史赛果25场：主/平/客 12/6/7，平均总进球2.64；参数做保守收缩。"
     },
     "巴西杯": {
-      "version": "copa-do-brasil-v1-market-baseline-0803-auto-0815",
-      "review_sample": 3,
+      "version": "copa-do-brasil-v2-fundamental-cup-0816-auto-0816",
+      "review_sample": 4,
       "prior_probs": [
-        0.4884,
-        0.2605,
-        0.2512
+        0.4914,
+        0.1957,
+        0.3131
       ],
-      "goal_shift": -0.08,
-      "lesson": "滚动3场90分钟结果：主/平/客 1/0/2；参数仅小幅收缩。"
+      "goal_shift": -0.0077,
+      "average_total_goals": 2.75,
+      "allHistoricalMatches": 4,
+      "lesson": "使用本赛事全部已核验历史赛果4场：主/平/客 2/0/2，平均总进球2.75；参数做保守收缩。"
     },
     "日本职业联赛": {
-      "version": "j-league-v1-dedicated-0807-auto-0815",
-      "review_sample": 3,
+      "version": "j-league-v1-dedicated-0807-auto-0816",
+      "review_sample": 223,
       "prior_probs": [
-        0.4233,
-        0.2837,
-        0.293
+        0.4008,
+        0.2717,
+        0.3275
       ],
-      "goal_shift": 0.02,
-      "lesson": "滚动3场90分钟结果：主/平/客 1/1/1；参数仅小幅收缩。"
+      "goal_shift": 0.0419,
+      "average_total_goals": 2.726,
+      "allHistoricalMatches": 223,
+      "lesson": "使用本赛事全部已核验历史赛果223场：主/平/客 87/62/74，平均总进球2.73；参数做保守收缩。"
+    },
+    "日本乙级联赛": {
+      "version": "j2-league-v1-dedicated-0809-auto-0816",
+      "review_sample": 1,
+      "prior_probs": [
+        0.4336,
+        0.2786,
+        0.2878
+      ],
+      "goal_shift": -0.0669,
+      "average_total_goals": 2.0,
+      "allHistoricalMatches": 1,
+      "lesson": "使用本赛事全部已核验历史赛果1场：主/平/客 1/0/0，平均总进球2.00；参数做保守收缩。"
     },
     "荷兰甲级联赛": {
-      "version": "eredivisie-v1-dedicated-0807-auto-0815",
+      "version": "eredivisie-v1-dedicated-0807-auto-0816",
       "review_sample": 5,
       "prior_probs": [
-        0.4311,
-        0.2444,
-        0.3244
+        0.3623,
+        0.2312,
+        0.4064
       ],
-      "goal_shift": 0.14,
-      "lesson": "滚动5场90分钟结果：主/平/客 1/1/3；参数仅小幅收缩。"
+      "goal_shift": 0.0717,
+      "average_total_goals": 2.8,
+      "allHistoricalMatches": 5,
+      "lesson": "使用本赛事全部已核验历史赛果5场：主/平/客 1/1/3，平均总进球2.80；参数做保守收缩。"
     },
     "德国乙级联赛": {
-      "version": "bundesliga2-v1-dedicated-0807-auto-0815",
+      "version": "bundesliga2-v1-dedicated-0807-auto-0816",
       "review_sample": 4,
       "prior_probs": [
-        0.4045,
-        0.3091,
-        0.2864
+        0.3661,
+        0.3566,
+        0.2774
       ],
-      "goal_shift": 0.04,
-      "lesson": "滚动4场90分钟结果：主/平/客 1/2/1；参数仅小幅收缩。"
+      "goal_shift": 0.0137,
+      "average_total_goals": 2.5,
+      "allHistoricalMatches": 4,
+      "lesson": "使用本赛事全部已核验历史赛果4场：主/平/客 1/2/1，平均总进球2.50；参数做保守收缩。"
     },
     "葡萄牙超级联赛": {
-      "version": "primeira-liga-v1-dedicated-0807-auto-0815",
+      "version": "primeira-liga-v1-dedicated-0807-auto-0816",
       "review_sample": 5,
       "prior_probs": [
-        0.4711,
-        0.2844,
-        0.2444
+        0.45,
+        0.3188,
+        0.2312
       ],
-      "goal_shift": -0.02,
-      "lesson": "滚动5场90分钟结果：主/平/客 2/2/1；参数仅小幅收缩。"
+      "goal_shift": 0.0326,
+      "average_total_goals": 3.0,
+      "allHistoricalMatches": 5,
+      "lesson": "使用本赛事全部已核验历史赛果5场：主/平/客 2/2/1，平均总进球3.00；参数做保守收缩。"
+    },
+    "亚洲冠军精英联赛": {
+      "version": "acl-elite-v2-fundamental-cup-0816-auto-0816",
+      "review_sample": 1,
+      "prior_probs": [
+        0.39,
+        0.3407,
+        0.2693
+      ],
+      "goal_shift": -0.1183,
+      "average_total_goals": 0.0,
+      "allHistoricalMatches": 1,
+      "lesson": "使用本赛事全部已核验历史赛果1场：主/平/客 0/1/0，平均总进球0.00；参数做保守收缩。"
     },
     "南美解放者杯": {
-      "version": "libertadores-v1-market-baseline-auto-0815",
-      "review_sample": 4,
+      "version": "libertadores-v2-fundamental-cup-0816-auto-0816",
+      "review_sample": 5,
       "prior_probs": [
-        0.3818,
-        0.3545,
-        0.2636
+        0.2682,
+        0.5467,
+        0.1852
       ],
-      "goal_shift": -0.04,
-      "lesson": "滚动4场90分钟结果：主/平/客 0/4/0；参数仅小幅收缩。"
+      "goal_shift": -0.1162,
+      "average_total_goals": 1.2,
+      "allHistoricalMatches": 5,
+      "lesson": "使用本赛事全部已核验历史赛果5场：主/平/客 0/5/0，平均总进球1.20；参数做保守收缩。"
+    },
+    "沙特职业联赛": {
+      "version": "auto-e8a69e54b2-competition-v1-auto-0816",
+      "review_sample": 5,
+      "prior_probs": [
+        0.4979,
+        0.1276,
+        0.3744
+      ],
+      "goal_shift": 0.18,
+      "average_total_goals": 4.4,
+      "allHistoricalMatches": 5,
+      "lesson": "使用本赛事全部已核验历史赛果5场：主/平/客 3/0/2，平均总进球4.40；参数做保守收缩。"
+    },
+    "荷兰乙级联赛": {
+      "version": "keuken-kampioen-v1-dedicated-0807-auto-0816",
+      "review_sample": 2,
+      "prior_probs": [
+        0.4395,
+        0.2332,
+        0.3272
+      ],
+      "goal_shift": -0.0377,
+      "average_total_goals": 1.5,
+      "allHistoricalMatches": 2,
+      "lesson": "使用本赛事全部已核验历史赛果2场：主/平/客 1/0/1，平均总进球1.50；参数做保守收缩。"
+    },
+    "法国乙级联赛": {
+      "version": "auto-bbe6dddeaf-competition-v1-auto-0816",
+      "review_sample": 3,
+      "prior_probs": [
+        0.4877,
+        0.3333,
+        0.1789
+      ],
+      "goal_shift": -0.1,
+      "average_total_goals": 1.667,
+      "allHistoricalMatches": 3,
+      "lesson": "使用本赛事全部已核验历史赛果3场：主/平/客 2/1/0，平均总进球1.67；参数做保守收缩。"
+    },
+    "英格兰冠军联赛": {
+      "version": "auto-a091768c53-competition-v1-auto-0816",
+      "review_sample": 1,
+      "prior_probs": [
+        0.2653,
+        0.4694,
+        0.2653
+      ],
+      "goal_shift": 0.18,
+      "average_total_goals": 4.0,
+      "allHistoricalMatches": 1,
+      "lesson": "使用本赛事全部已核验历史赛果1场：主/平/客 0/1/0，平均总进球4.00；参数做保守收缩。"
+    },
+    "欧洲超级杯": {
+      "version": "uefa-super-cup-v1-dedicated-0812-auto-0816",
+      "review_sample": 1,
+      "prior_probs": [
+        0.4428,
+        0.2786,
+        0.2786
+      ],
+      "goal_shift": 0.0257,
+      "average_total_goals": 3.0,
+      "allHistoricalMatches": 1,
+      "lesson": "使用本赛事全部已核验历史赛果1场：主/平/客 1/0/0，平均总进球3.00；参数做保守收缩。"
     }
   }
 }

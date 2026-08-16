@@ -1,0 +1,31 @@
+{
+  "competition": "欧洲超级杯",
+  "localMatchCount": 1,
+  "verifiedResultCount": 0,
+  "teamsObserved": [
+    "巴黎圣日尔曼",
+    "阿斯顿维拉"
+  ],
+  "dateRange": [
+    null,
+    null
+  ],
+  "outcomes": {},
+  "outcomePriorWithShrinkage": {
+    "home": 0.3333,
+    "draw": 0.3333,
+    "away": 0.3333
+  },
+  "averageTotalGoals": null,
+  "officialSources": [
+    "https://www.uefa.com/uefasupercup/"
+  ],
+  "missingDimensions": [
+    "official_stage_and_tie_format",
+    "official_lineups_and_injuries",
+    "team_strength_and_standings",
+    "travel_weather_pitch"
+  ],
+  "researchCompleteness": 0.35,
+  "status": "no_verified_local_results_neutral_start"
+}

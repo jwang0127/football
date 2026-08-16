@@ -1,0 +1,56 @@
+{
+  "competition": "欧洲冠军联赛",
+  "localMatchCount": 20,
+  "verifiedResultCount": 13,
+  "teamsObserved": [
+    "亚拉腊",
+    "克拉克斯维克",
+    "博德闪耀",
+    "哈茨",
+    "圣吉尔联合",
+    "奈梅亨",
+    "奥林匹亚科斯",
+    "奥胡斯",
+    "奥莫尼亚",
+    "布拉格斯巴达",
+    "布拉迪斯拉发",
+    "库奥皮奥",
+    "格拉茨风暴",
+    "比森阿泰尔",
+    "波兹南莱赫",
+    "米亚尔比",
+    "索菲亚列夫斯基",
+    "苏捷斯卡",
+    "萨巴赫",
+    "费内巴切",
+    "采列",
+    "里昂",
+    "阿拉木图凯拉特"
+  ],
+  "dateRange": [
+    "2026-07-23",
+    "2026-08-12"
+  ],
+  "outcomes": {
+    "home": 8,
+    "away": 3,
+    "draw": 2
+  },
+  "outcomePriorWithShrinkage": {
+    "home": 0.5263,
+    "draw": 0.2105,
+    "away": 0.2632
+  },
+  "averageTotalGoals": 2.615,
+  "officialSources": [
+    "https://www.uefa.com/uefachampionsleague/",
+    "https://www.uefa.com/uefachampionsleague/fixtures-results/"
+  ],
+  "missingDimensions": [
+    "official_stage_and_tie_format",
+    "official_lineups_and_injuries",
+    "travel_weather_pitch"
+  ],
+  "researchCompleteness": 0.675,
+  "status": "research_pack_ready_but_needs_matchday_refresh"
+}

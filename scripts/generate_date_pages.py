@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import importlib.util
 import json
@@ -14,6 +15,7 @@ from typing import Any
 from generate_homepage import generate_homepage
 from market_model import ScorelineModel, expected_value, fit_scoreline_model, implied_probabilities
 from market_movement import load_market_movement
+from research_competition import collect_research_pack
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -30,7 +32,7 @@ ANALYSIS_DIMENSIONS = (
     "ranking_table", "promotion_relegation", "cover_risk", "upset_risk",
 )
 MARKET_TEXT = {"had": "胜平负", "ttg": "总进球", "crs": "比分", "hafu": "半全场"}
-CUP_COMPETITIONS = {"欧洲超级杯", "欧洲冠军联赛", "欧罗巴联赛", "巴西杯", "英格兰联赛杯"}
+CUP_COMPETITIONS = {"欧洲超级杯", "欧洲冠军联赛", "欧罗巴联赛", "巴西杯", "英格兰联赛杯", "英格兰社区盾杯", "亚洲冠军精英联赛", "南美解放者杯"}
 # How much the fitted Dixon-Coles scoreline model contributes on top of the
 # de-vigged market when ranking scores/goals.  The market stays the anchor;
 # the model regularises noise in thin correct-score pools.
@@ -59,29 +61,60 @@ CUP_MODEL_TUNING: dict[str, dict[str, Any]] = {
         "structural_goal_shift": -0.04,
     },
     "英格兰联赛杯": {
+        "version": "efl-cup-v2-fundamental-cup-0816",
         "scoreline_weight": 0.18,
         "draw_threshold": 0.14,
         "rotation_penalty": -4,
         "confidence_cap": 64,
         "structural_goal_shift": -0.04,
     },
+    "英格兰社区盾杯": {
+        "version": "community-shield-v1-dedicated-0816",
+        "scoreline_weight": 0.18,
+        "draw_threshold": 0.14,
+        "rotation_penalty": -3,
+        "confidence_cap": 60,
+        "fundamental_weight": 0.58,
+        "structural_goal_shift": -0.04,
+    },
     "欧洲冠军联赛": {
+        "version": "ucl-qualifying-v2-fundamental-cup-0816",
         "scoreline_weight": 0.22,
         "draw_threshold": 0.12,
         "rotation_penalty": -3,
         "confidence_cap": 68,
     },
     "欧罗巴联赛": {
+        "version": "uel-qualifying-v2-fundamental-cup-0816",
         "scoreline_weight": 0.22,
         "draw_threshold": 0.14,
         "rotation_penalty": -3,
         "confidence_cap": 66,
     },
     "巴西杯": {
+        "version": "copa-do-brasil-v2-fundamental-cup-0816",
         "scoreline_weight": 0.22,
         "draw_threshold": 0.14,
         "rotation_penalty": -3,
         "confidence_cap": 66,
+    },
+    "亚洲冠军精英联赛": {
+        "version": "acl-elite-v2-fundamental-cup-0816",
+        "scoreline_weight": 0.24,
+        "draw_threshold": 0.14,
+        "rotation_penalty": -4,
+        "confidence_cap": 64,
+        "fundamental_weight": 0.58,
+        "structural_goal_shift": 0.02,
+    },
+    "南美解放者杯": {
+        "version": "libertadores-v2-fundamental-cup-0816",
+        "scoreline_weight": 0.24,
+        "draw_threshold": 0.16,
+        "rotation_penalty": -4,
+        "confidence_cap": 64,
+        "fundamental_weight": 0.60,
+        "structural_goal_shift": -0.02,
     },
 }
 HAFU_TEXT = {"hh": "胜/胜", "hd": "胜/平", "ha": "胜/负", "dh": "平/胜", "dd": "平/平", "da": "平/负", "ah": "负/胜", "ad": "负/平", "aa": "负/负"}
@@ -211,9 +244,57 @@ def dynamic_calibration() -> dict[str, dict[str, Any]]:
     return rows if isinstance(rows, dict) else {}
 
 
+GENERATED_COMPETITION_MODELS: dict[str, dict[str, Any]] = {}
+
+
+def generated_competition_model(competition: str) -> dict[str, Any]:
+    """Create a deterministic neutral model for a previously unseen competition.
+
+    A new competition must start from a conservative neutral prior of its own;
+    it must never silently inherit another league's calibration.
+    """
+    if competition not in GENERATED_COMPETITION_MODELS:
+        token = hashlib.sha1(competition.encode("utf-8")).hexdigest()[:10]
+        research = collect_research_pack(competition)
+        sample = int(research.get("verifiedResultCount", 0))
+        prior = research.get("outcomePriorWithShrinkage", {"home": .42, "draw": .29, "away": .29})
+        average_total = research.get("averageTotalGoals")
+        goal_shift = max(-.18, min(.18, (float(average_total) - 2.5) * .12)) if average_total is not None else 0.0
+        GENERATED_COMPETITION_MODELS[competition] = {
+            "version": f"auto-{token}-competition-v1",
+            "modelScope": "dedicated_competition",
+            "review_sample": sample,
+            "had": .34,
+            "crs": .44,
+            "prior": .22,
+            "prior_probs": (prior["home"], prior["draw"], prior["away"]),
+            "goal_shift": goal_shift,
+            "draw_boost": 1.05,
+            "clean_sheet_boost": 1.04,
+            "confidence_delta": -12,
+            "lesson": f"新赛事{competition}先完成赛事专属研究包：本地已核验{sample}场，观察到{len(research.get('teamsObserved', []))}支球队；只使用本赛事收缩先验，缺失维度仍需赛前补齐。",
+            "scoreline_weight": .20,
+            "draw_threshold": .14,
+            "rotation_penalty": -3,
+            "confidence_cap": 58,
+            "fundamental_weight": .58,
+            "researchPack": research,
+        }
+    return dict(GENERATED_COMPETITION_MODELS[competition])
+
+
 def model_profile_for(league: str) -> dict[str, Any]:
-    profile = {**COMPETITION_MODELS.get(league, {}), **POST_REVIEW_CALIBRATION.get(league, {}), **CUP_MODEL_TUNING.get(league, {})}
-    profile.update(dynamic_calibration().get(league, {}))
+    base = COMPETITION_MODELS.get(league) or generated_competition_model(league)
+    profile = {**base, **POST_REVIEW_CALIBRATION.get(league, {}), **CUP_MODEL_TUNING.get(league, {})}
+    dynamic = dynamic_calibration().get(league, {})
+    profile.update(dynamic)
+    cup_version = CUP_MODEL_TUNING.get(league, {}).get("version")
+    if league in CUP_COMPETITIONS and cup_version:
+        if dynamic.get("version"):
+            profile["calibrationVersion"] = dynamic["version"]
+        profile["version"] = cup_version
+    profile.setdefault("modelScope", "dedicated_competition")
+    profile["competition"] = league
     return profile
 
 
@@ -563,30 +644,6 @@ def competition_score_pool(match: dict[str, Any], probabilities: dict[str, float
     return main, backups, tails
 
 
-def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, Any]) -> dict[str, Any]:
-    source_profile = model_profile_for(match["league"])
-    profile = shrink_review_profile(source_profile)
-    predicted = base.predict(match)
-    scoreline_model = scoreline_model_for(match)
-    market_probabilities = competition_direction_probabilities(match, profile)
-    probabilities = apply_match_context(market_probabilities, context)
-    scoreline_weight = float(profile.get("scoreline_weight", SCORELINE_MODEL_WEIGHT))
-    goal_probs = competition_goal_probabilities(match, profile, context, scoreline_model, scoreline_weight)
-    volatility = market_volatility_audit(match, probabilities, goal_probs, context, profile)
-    main, backups, tails = competition_score_pool(match, probabilities, goal_probs, profile, context, scoreline_model, scoreline_weight)
-    preferred_scores = [score for score in context.get("preferredScores", []) if num(match.get("odds", {}).get("crs", {}).get(score))]
-    if len(preferred_scores) >= 3:
-        main, backups = preferred_scores[0], preferred_scores[1:3]
-    direction = max(probabilities, key=probabilities.get)
-    market_scores = {score: value for score, value in devigged_score_market(match).items() if "-" in score}
-    model_scores = scoreline_model.score_probabilities(list(market_scores)) if scoreline_model and market_scores else {}
-    score_pool_probs = {
-        score: round((1 - scoreline_weight) * value + scoreline_weight * model_scores.get(score, 0.0), 4)
-        if model_scores else round(value, 4)
-        for score, value in market_scores.items()
-    }
-
-
 def low_sample_controls(profile: dict[str, Any], league: str) -> dict[str, Any]:
     """Cap trust for dedicated competitions without a usable review sample."""
     sample = int(profile.get("review_sample", 0))
@@ -660,7 +717,7 @@ def upset_attack_capability(match: dict[str, Any], probabilities: dict[str, floa
         "scorelineFit": scoreline_model.summary() if scoreline_model else None,
         "marketBaselineProbabilities": {key: round(value, 4) for key, value in market_probabilities.items()},
         "confidenceScore": max(25, min(int(volatility.get("confidenceCap", profile.get("confidence_cap", 82))), predicted["confidenceScore"] + profile["confidence_delta"] + volatility["confidencePenalty"] + int(context.get("confidenceDelta", 0)))),
-        "modelProfile": {**{key: profile[key] for key in ("version", "had", "crs", "prior", "goal_shift", "review_sample", "review_strength")}, "scorelineWeight": scoreline_weight, "contextLayer": "evidence-chain-v2", "scorelineLayer": "dixon-coles-market-blend-v1", "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"},
+        "modelProfile": {**{key: profile[key] for key in ("version", "had", "crs", "prior", "goal_shift", "review_sample", "review_strength")}, "historicalMatchCount": profile.get("allHistoricalMatches", profile.get("review_sample", 0)), "averageHistoricalGoals": profile.get("average_total_goals"), "competition": profile.get("competition", match.get("league")), "modelScope": profile.get("modelScope", "dedicated_competition"), "calibrationVersion": profile.get("calibrationVersion"), "researchCompleteness": profile.get("researchPack", {}).get("researchCompleteness"), "researchPack": profile.get("researchPack"), "scorelineWeight": scoreline_weight, "contextLayer": "evidence-chain-v2", "scorelineLayer": "dixon-coles-market-blend-v1", "reviewMethod": "12场中性先验收缩 + 多维证据闸门 + 杯赛轮换收缩"},
         "modelLesson": source_profile["lesson"],
         "contextFactors": {key: context.get(key, "资料不足，保持中性") for key in ("stage", "schedule", "motivation", "weather", "teamNews", "coach", "upsetPath")},
         "contextSources": context.get("sources", []),
@@ -711,10 +768,11 @@ def fundamental_direction_probabilities(match: dict[str, Any], context: dict[str
     return normalized(values)
 
 
-def blend_fundamental_and_market(market: dict[str, float], fundamental: dict[str, float] | None) -> dict[str, float]:
+def blend_fundamental_and_market(market: dict[str, float], fundamental: dict[str, float] | None, fundamental_weight: float = .58) -> dict[str, float]:
     if not fundamental:
         return market
-    return normalized({key: .58 * fundamental[key] + .42 * market[key] for key in ("home", "draw", "away")})
+    weight = max(.35, min(.75, float(fundamental_weight)))
+    return normalized({key: weight * fundamental[key] + (1 - weight) * market[key] for key in ("home", "draw", "away")})
 
 
 def goal_selection_gate(match: dict[str, Any], goal_probs: dict[str, float]) -> dict[str, Any]:
@@ -735,7 +793,7 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
     market_baseline = competition_direction_probabilities(match, profile)
     market_baseline, cross_market_conflict = apply_cross_market_conflict(market_baseline, match, profile)
     fundamental = fundamental_direction_probabilities(match, context)
-    probabilities = apply_match_context(blend_fundamental_and_market(market_baseline, fundamental), context)
+    probabilities = apply_match_context(blend_fundamental_and_market(market_baseline, fundamental, profile.get("fundamental_weight", .58)), context)
     scoreline_weight = float(profile.get("scoreline_weight", SCORELINE_MODEL_WEIGHT))
     goal_probs = competition_goal_probabilities(match, profile, context, scoreline_model, scoreline_weight)
     goal_gate = goal_selection_gate(match, goal_probs)
@@ -763,9 +821,9 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
         "probabilities": {key: round(value, 4) for key, value in probabilities.items()}, "direction": direction, "directionText": {"home": "主胜", "draw": "平", "away": "客胜"}[direction],
         "mainScore": main, "backupScores": backups[:2], "tailRiskScores": tails, "totalGoals": total_goals, "goalCandidates": sorted(goal_probs, key=goal_probs.get, reverse=True)[:3], "goalProbabilities": {key: round(value, 4) for key, value in goal_probs.items()},
         "scorePoolProbabilities": score_pool_probs, "halfFullProbabilities": half_full_probs, "scorelineFit": scoreline_model.summary() if scoreline_model else None, "marketBaselineProbabilities": {key: round(value, 4) for key, value in market_baseline.items()},
-        "fundamentalProbabilities": {key: round(value, 4) for key, value in fundamental.items()} if fundamental else None, "fundamentalFirst": True, "marketContradiction": market_contradiction, "goalSelectionGate": goal_gate, "upsetAttackCapability": upset_attack_capability(match, probabilities),
+        "fundamentalProbabilities": {key: round(value, 4) for key, value in fundamental.items()} if fundamental else None, "fundamentalFirst": True, "marketContradiction": market_contradiction, "goalSelectionGate": goal_gate, "upsetAttackCapability": upset_attack_capability(match, probabilities), "fundamentalStats": context.get("fundamentalStats", {}), "fundamentalSummary": context.get("fundamentalSummary", "基本面数据不足，保持中性"), "upsetTriggers": context.get("upsetTriggers", "未核验弱侧进球与追分条件"), "headToHead": context.get("headToHead", {"sample": 0, "summary": "暂无可核验的双方历史交手"}), "headToHeadSummary": context.get("headToHeadSummary", "暂无可核验的双方历史交手"), "cupModelInputs": context.get("cupModelInputs"),
         "goalPrediction": {"pick": total_goals, "probability": round(goal_probs[total_goals], 4), "type": "total_goals"}, "scorePrediction": {"pick": main, "probability": round(score_pool_probs.get(main, 0.0), 4), "type": "exact_score"}, "goalScoreSeparation": "总进球命中与精确比分命中分开统计", "marketMovement": match.get("marketMovement"),
-        "confidenceScore": confidence_score, "modelProfile": {**{key: profile[key] for key in ("version", "had", "crs", "prior", "goal_shift", "review_sample", "review_strength")}, "scorelineWeight": scoreline_weight, "sampleControl": sample_control, "contextLayer": "fundamental-first-v3", "scorelineLayer": "dixon-coles-market-blend-v1"}, "modelLesson": source_profile["lesson"],
+        "confidenceScore": confidence_score, "modelProfile": {**{key: profile[key] for key in ("version", "had", "crs", "prior", "goal_shift", "review_sample", "review_strength")}, "historicalMatchCount": profile.get("allHistoricalMatches", profile.get("review_sample", 0)), "averageHistoricalGoals": profile.get("average_total_goals"), "competition": profile.get("competition", match.get("league")), "modelScope": profile.get("modelScope", "dedicated_competition"), "calibrationVersion": profile.get("calibrationVersion"), "researchCompleteness": profile.get("researchPack", {}).get("researchCompleteness"), "researchPack": profile.get("researchPack"), "scorelineWeight": scoreline_weight, "sampleControl": sample_control, "contextLayer": "fundamental-first-v3", "scorelineLayer": "dixon-coles-market-blend-v1"}, "modelLesson": source_profile["lesson"],
         "contextFactors": {key: context.get(key, "资料不足，保持中性") for key in ("stage", "schedule", "motivation", "weather", "teamNews", "coach", "upsetPath")}, "contextSources": context.get("sources", []), "evidenceStatus": context.get("evidenceStatus", "比赛级公开证据不足；情境层保持中性"), "verifiedFactors": context.get("verifiedFactors", []), "reasoningMethod": "fundamental-first-v3", "reasoningContract": reasoning,
         "matchBrief": match_brief, "previousMatch": match_brief["previousMatch"], "nextMatch": match_brief["nextMatch"], "rankingBrief": match_brief["ranking"], "promotionRelegationBrief": match_brief["promotionRelegation"], "coverRisk": match_brief["coverRisk"], "upsetRisk": match_brief["upsetRisk"], "analysisDimensions": reasoning["dimensionReport"]["dimensions"], "missingAnalysisDimensions": reasoning["dimensionReport"]["missingDimensions"], "analysisCompleteness": reasoning["dimensionReport"]["completeness"], "marketRiskLevel": volatility["level"], "marketRiskFactors": volatility["factors"], "marketRiskNote": volatility["note"],
         "reason": context.get("judgement") or f"先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为{ {'home': '主胜', 'draw': '平', 'away': '客胜'}[direction] }。" + ("市场与基本面存在分歧，降低信任度。" if market_contradiction else "") + (f" {sample_control['status']}。" if sample_control["active"] else ""),
@@ -1156,7 +1214,23 @@ def render_match_brief(brief: dict[str, Any]) -> str:
         ("scheduleLoad", "赛程"), ("availability", "伤停/阵容"),
         ("coachTactics", "教练/战术"), ("weatherPitch", "天气/场地"),
     )
-    rows = [f"<p><b>{label}：</b>{esc(brief[key])}</p>" for key, label in labels if displayable_brief_value(brief.get(key))]
+    fallback = {
+        "上一场": "暂无已核验的上一场比赛，暂不做状态传导。",
+        "下一场": "暂无已核验的下一场赛程，暂不做轮换优先级修正。",
+        "排名": "暂无可核验排名，排名不进入方向性修正。",
+        "升级/保级/晋级动机": "暂无官方动机文件，战意不进入方向性修正。",
+        "穿盘/大比分风险": "暂无独立穿盘证据，保持市场与基本面分离评估。",
+        "爆冷路径": "暂无已核验爆冷路径，弱侧尾部不主动放大。",
+        "赛程": "暂无完整赛程负荷资料，休息天数不做硬修正。",
+        "伤停/阵容": "暂无官方伤停或首发，阵容影响不做硬修正。",
+        "教练/战术": "暂无可核验战术资料，不进入方向性修正。",
+        "天气/场地": "暂无比赛地天气和场地资料，不进入方向性修正。",
+    }
+    rows = []
+    for key, label in labels:
+        value = brief.get(key)
+        text = str(value).strip() if displayable_brief_value(value) else fallback[label]
+        rows.append(f"<p><b>{label}：</b>{esc(text)}</p>")
     return "".join(rows)
 
 
@@ -1270,8 +1344,15 @@ def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
         brief = m.get("matchBrief", {})
         brief_html = render_match_brief(brief)
         brief_section = f'<div class="factors"><p><b>赛前综合简报：</b></p>{brief_html}</div>' if brief_html else ''
+        fundamental_section = f'<div class="factors"><p><b>基本面层：</b>{esc(m.get("fundamentalSummary", "基本面数据不足，保持中性"))}</p><p><b>大球/爆冷触发器：</b>{esc(m.get("upsetTriggers", "未核验弱侧进球与追分条件"))}</p></div>'
+        h2h = m.get("headToHead") or {}
+        h2h_section = f'<div class="factors"><p><b>历史交锋：</b>{esc(m.get("headToHeadSummary", "暂无可核验的双方历史交手"))}</p><p><b>交锋样本：</b>{h2h.get("sample", 0)} 场；最近交手仅作为背景证据，不单独覆盖当前实力、阵容和盘口。</p></div>'
+        missing = m.get("missingAnalysisDimensions") or []
+        coverage_text = "；".join(str(x) for x in missing) if missing else "主要分析维度已有数据或已通过证据闸门"
+        coverage_section = f'<div class="factors"><p><b>数据覆盖与缺口：</b>{esc(coverage_text)}</p><p><b>处理方式：</b>缺失字段不会留白；当前仅降低对应分析层权重，不把缺失信息当成利好或利空。</p></div>'
+        h2h_section += coverage_section
         separation = f'<p><b>结算拆分：</b>总进球 {esc(str(m.get("goalPrediction", {}).get("pick", m["totalGoals"])))}（{m.get("goalPrediction", {}).get("probability", 0):.1%}）与精确比分 {esc(m["mainScore"])}（{m.get("scorePrediction", {}).get("probability", 0):.1%}）分别评估；总进球命中不等于比分命中。</p>'
-        cards.append(f'''<section class="match" style="--league:{m['leagueStyle']['color']}"><div class="title"><h3>{esc(m['matchNumStr'])} {esc(m['home'])} vs {esc(m['away'])}</h3><span>{esc(m['leagueStyle']['label'])}</span></div><p><b>北京时间：</b>{esc(m['kickoff'])}　<b>胜平负赔率：</b>{had.get('home','-')} / {had.get('draw','-')} / {had.get('away','-')}</p><p><b>独立模型：</b>{esc(m['modelProfile']['version'])} + 基本面先行综合层</p><div class="grid"><div><small>胜平负</small><strong>{esc(m['directionText'])}</strong></div><div><small>总进球</small><strong>{esc(m['totalGoals'])}</strong></div><div><small>主比分</small><strong>{esc(m['mainScore'])}</strong></div><div><small>半全场</small><strong>{esc(HAFU_TEXT[hkey])}</strong>{f'<small>赔率 {half_full_odds:.2f}</small>' if half_full_odds else ''}</div></div><p><b>三个比分（主选、低比分保护、尾部路径）：</b>{esc(score_ranking)}</p>{separation}{brief_section}<div class="factors"><p><b>综合性分析：</b>{esc(m['integratedAnalysis'])}</p></div><p><b>分析口径：</b>{esc(m['analysisBasis'])}</p><p><b>盘口波动审计（{esc(m['marketRiskLevel'])}）：</b>{esc('；'.join(m['marketRiskFactors']))}。{esc(m['marketRiskNote'])}</p><p>尾部审计：{esc(' / '.join(m['tailRiskScores']) or '无额外尾部入选')}；总进球候选：{esc(' / '.join(m['goalCandidates']))}</p><p>情境修正后概率：主 {p['home']:.1%} / 平 {p['draw']:.1%} / 客 {p['away']:.1%}；模型信任度 {m['confidenceScore']}/100。</p>{model_audit_html}</section>''')
+        cards.append(f'''<section class="match" style="--league:{m['leagueStyle']['color']}"><div class="title"><h3>{esc(m['matchNumStr'])} {esc(m['home'])} vs {esc(m['away'])}</h3><span>{esc(m['leagueStyle']['label'])}</span></div><p><b>北京时间：</b>{esc(m['kickoff'])}　<b>胜平负赔率：</b>{had.get('home','-')} / {had.get('draw','-')} / {had.get('away','-')}</p><p><b>独立模型：</b>{esc(m['modelProfile']['version'])} + 基本面先行综合层</p><div class="grid"><div><small>胜平负</small><strong>{esc(m['directionText'])}</strong></div><div><small>总进球</small><strong>{esc(m['totalGoals'])}</strong></div><div><small>主比分</small><strong>{esc(m['mainScore'])}</strong></div><div><small>半全场</small><strong>{esc(HAFU_TEXT[hkey])}</strong>{f'<small>赔率 {half_full_odds:.2f}</small>' if half_full_odds else ''}</div></div><p><b>三个比分（主选、低比分保护、尾部路径）：</b>{esc(score_ranking)}</p>{separation}{h2h_section}{fundamental_section}{brief_section}<div class="factors"><p><b>综合性分析：</b>{esc(m['integratedAnalysis'])}</p></div><p><b>分析口径：</b>{esc(m['analysisBasis'])}</p><p><b>盘口波动审计（{esc(m['marketRiskLevel'])}）：</b>{esc('；'.join(m['marketRiskFactors']))}。{esc(m['marketRiskNote'])}</p><p>尾部审计：{esc(' / '.join(m['tailRiskScores']) or '无额外尾部入选')}；总进球候选：{esc(' / '.join(m['goalCandidates']))}</p><p>情境修正后概率：主 {p['home']:.1%} / 平 {p['draw']:.1%} / 客 {p['away']:.1%}；模型信任度 {m['confidenceScore']}/100。</p>{model_audit_html}</section>''')
     source_items = "".join(f'<li><a href="{esc(x["url"])}">{esc(x["name"])}</a></li>' for x in payload["sources"])
     return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#116b62"><title>2026-{label}足球预测</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#eef4f6;color:#17212b;font-family:"Microsoft YaHei",Arial,sans-serif;line-height:1.65}}header,main{{max-width:1180px;margin:auto;padding:24px 16px}}nav a{{margin-right:10px}}h1{{font-size:clamp(30px,5vw,48px)}}.legend span{{display:inline-block;margin:5px;padding:6px 11px;border-left:7px solid var(--c);background:white;border-radius:7px}}.notice,.match,.combo{{background:white;border:1px solid #dce4ea;border-radius:14px;padding:18px;margin:15px 0;box-shadow:0 8px 26px #2336460f}}.notice{{overflow-x:auto}}.match{{border-left:10px solid var(--league);overflow-wrap:anywhere}}.title,.combo h3{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}}.title span{{background:var(--league);color:white;padding:4px 11px;border-radius:99px}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}}.grid div{{background:#f5f8fa;padding:10px;border-radius:8px}}.factors{{background:#f5f8fa;border-radius:10px;padding:10px 14px;margin:12px 0}}.factors p{{margin:5px 0}}.sources{{font-size:13px;color:#657482}}small{{display:block;color:#657482}}strong{{font-size:21px}}.combo{{border-top:6px solid #287d70}}.combo.hafu{{border-top-color:#7a43b6}}.combo.crs{{border-top-color:#b35430}}.combo.ttg{{border-top-color:#355dc5}}.combo.mixed{{border-top-color:#c38b16}}table{{width:100%;border-collapse:collapse}}td{{padding:8px;border-bottom:1px solid #e7ecef}}@media(max-width:700px){{.grid{{grid-template-columns:1fr 1fr}}.combo{{overflow:auto}}}}</style><link rel="stylesheet" href="../assets/site.css"></head><body><header><nav><a href="../index.html">日期首页</a><a href="../history/index.html">历史归档</a></nav><h1>{label}足球预测</h1><p>共 {len(payload['matches'])} 场 · 北京时间 · 赔率更新至 {esc(payload['oddsUpdatedAt'])}</p><div class="legend">{legends}</div></header><main>{review_html}{f'<section class="notice"><h2>赛程冲突提示</h2><ul>{warnings}</ul></section>' if warnings else ''}<section class="notice"><h2>模型方法</h2><p>每场只展示一段综合性分析，并明确给出胜平负、总进球、比分和半全场。赔率与比分矩阵是市场基线；赛程、积分动机、状态、伤停和战术只有在公开来源可核验时才进入情境层，证据不足则保持中性并降低信任度。杯赛额外检查平局保护、受控小比分与追分大比分，未经核验的信息不作为事实下结论。</p></section><section class="notice"><h2>精选n串一</h2><p>仅保留 {len(payload['combos'])} 组，全部理论组合赔率不低于 {MIN_COMBO_ODDS:.0f}，且每串最多一个胜平负选项；模型信任度高的优先排列，同时保留理论赔率超过 {HIGH_ODDS_THRESHOLD:.0f} 的高赔率组合。信任度仅用于模型横向比较，不等同于命中率。</p></section>{''.join(combos)}<h2>逐场预测</h2>{''.join(cards)}<section class="notice"><h2>赛程与赔率来源</h2><ul>{source_items}</ul><p>{DISCLAIMER}</p></section></main></body></html>'''
 
@@ -1296,14 +1377,29 @@ def main() -> None:
             merged = dict(contexts.get(match_id, {}))
             merged.update(extra)
             contexts[match_id] = merged
+    user_evidence_path = DATA / f"match_context_{args.date}_user_evidence.json"
+    if user_evidence_path.exists():
+        user_evidence = json.loads(user_evidence_path.read_text(encoding="utf-8"))
+        for match_id, evidence in user_evidence.get("matches", {}).items():
+            merged = dict(contexts.get(match_id, {}))
+            merged.update(evidence)
+            merged["evidenceSource"] = user_evidence.get("source", user_evidence.get("version", "user_evidence"))
+            contexts[match_id] = merged
     source_matches = list(raw["matches"])
     extra_config = EXTRA_MATCHES_BY_DATE.get(args.date)
     if extra_config:
         extra_path, extra_league = extra_config
         extra_raw = json.loads((ROOT / extra_path).read_text(encoding="utf-8-sig"))
         source_matches.extend(m for m in extra_raw["matches"] if m.get("league") == extra_league)
+    # Never silently drop a newly appearing competition from the board. Give
+    # it a deterministic visual style and let model_profile_for create its
+    # dedicated research-first model.
+    for league in {m.get("league", "未知赛事") for m in source_matches}:
+        if league not in base.LEAGUE_STYLES:
+            token = hashlib.sha1(str(league).encode("utf-8")).hexdigest()
+            base.LEAGUE_STYLES[league] = {"class": f"auto-{token[:8]}", "color": f"#{token[:6]}", "label": league}
     excluded = EXCLUDED_BY_DATE.get(args.date, {})
-    supported = set(base.LEAGUE_STYLES)
+    supported = set(base.LEAGUE_STYLES) | {m.get("league", "未知赛事") for m in source_matches}
     eligible = [m for m in source_matches if m.get("league") in supported and m.get("league") not in EXCLUDED_LEAGUES and f"{m.get('home')}|{m.get('away')}" not in excluded]
     existing_path = DATA / f"predictions_{args.date}.json"
     existing_by_id: dict[str, dict[str, Any]] = {}

@@ -1,0 +1,52 @@
+{
+  "competition": "欧罗巴联赛",
+  "localMatchCount": 20,
+  "verifiedResultCount": 20,
+  "teamsObserved": [
+    "中日德兰",
+    "克拉约瓦大学",
+    "哈茨",
+    "哈马比",
+    "图恩",
+    "圣加仑",
+    "塞萨洛尼基",
+    "安德莱赫特",
+    "帕福斯",
+    "库奥皮奥",
+    "斯普利特海杜克",
+    "本菲卡",
+    "格拉斯哥流浪者",
+    "比亚韦斯托克",
+    "特温特",
+    "萨尔茨堡",
+    "贝西克塔斯",
+    "费伦茨瓦罗斯",
+    "雷克雅未克维京人"
+  ],
+  "dateRange": [
+    "2026-07-24",
+    "2026-08-14"
+  ],
+  "outcomes": {
+    "draw": 7,
+    "home": 10,
+    "away": 3
+  },
+  "outcomePriorWithShrinkage": {
+    "home": 0.4615,
+    "draw": 0.3462,
+    "away": 0.1923
+  },
+  "averageTotalGoals": 3.05,
+  "officialSources": [
+    "https://www.uefa.com/uefaeuropaleague/",
+    "https://www.uefa.com/uefaeuropaleague/fixtures-results/"
+  ],
+  "missingDimensions": [
+    "official_stage_and_tie_format",
+    "official_lineups_and_injuries",
+    "travel_weather_pitch"
+  ],
+  "researchCompleteness": 0.75,
+  "status": "research_pack_ready_but_needs_matchday_refresh"
+}

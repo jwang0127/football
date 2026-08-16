@@ -1,0 +1,37 @@
+{
+  "competition": "英格兰联赛杯",
+  "localMatchCount": 4,
+  "verifiedResultCount": 0,
+  "teamsObserved": [
+    "伯明翰",
+    "女王公园巡游者",
+    "斯旺西",
+    "朴次茅斯",
+    "米尔沃尔",
+    "米德尔斯堡",
+    "西汉姆联",
+    "雷克斯汉姆"
+  ],
+  "dateRange": [
+    null,
+    null
+  ],
+  "outcomes": {},
+  "outcomePriorWithShrinkage": {
+    "home": 0.3333,
+    "draw": 0.3333,
+    "away": 0.3333
+  },
+  "averageTotalGoals": null,
+  "officialSources": [
+    "https://www.efl.com/competitions/carabao-cup/"
+  ],
+  "missingDimensions": [
+    "official_stage_and_tie_format",
+    "official_lineups_and_injuries",
+    "team_strength_and_standings",
+    "travel_weather_pitch"
+  ],
+  "researchCompleteness": 0.35,
+  "status": "no_verified_local_results_neutral_start"
+}
