@@ -887,7 +887,7 @@
     ],
     "generatedAt": "2026-08-15T12:07:01"
   },
-  "generatedAt": "2026-08-16T13:01:20",
+  "generatedAt": "2026-08-16T13:50:05",
   "oddsUpdatedAt": "2026-08-16 12:49:22",
   "matches": [
     {
@@ -1187,7 +1187,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -1195,10 +1195,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table"
       ],
@@ -1222,7 +1222,7 @@
             "recent_performance": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -1235,7 +1235,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -1244,7 +1243,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -1259,8 +1258,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：德岛漩涡 [日乙20]；鸟栖沙岩 [日乙6]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -1280,7 +1279,7 @@
         "recent_performance": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -1293,7 +1292,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -1302,7 +1300,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -1647,7 +1645,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -1655,10 +1653,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "schedule_load"
@@ -1683,7 +1681,7 @@
             "recent_performance": "主队近0场 暂无已核验赛果；客队近1场 L",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -1696,7 +1694,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -1705,7 +1702,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -1720,8 +1717,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：海牙 [荷甲14]；格罗宁根 [荷甲6]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -1741,7 +1738,7 @@
         "recent_performance": "主队近0场 暂无已核验赛果；客队近1场 L",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -1754,7 +1751,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -1763,7 +1759,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -2107,7 +2103,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -2115,10 +2111,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -2145,7 +2141,7 @@
             "recent_performance": "主队近2场 DL；客队近3场 WDL",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -2158,7 +2154,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -2167,7 +2162,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -2182,8 +2177,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：富川FC [韩职11]；全北现代 [韩职3]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -2203,7 +2198,7 @@
         "recent_performance": "主队近2场 DL；客队近3场 WDL",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -2216,7 +2211,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -2225,7 +2219,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -2570,7 +2564,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -2578,10 +2572,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -2608,7 +2602,7 @@
             "recent_performance": "主队近4场 DDWW；客队近3场 WDL",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -2621,7 +2615,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -2630,7 +2623,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -2645,8 +2638,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：仁川联 [韩职8]；金泉尚武 [韩职10]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -2666,7 +2659,7 @@
         "recent_performance": "主队近4场 DDWW；客队近3场 WDL",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -2679,7 +2672,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -2688,7 +2680,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -3033,7 +3025,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -3041,10 +3033,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -3071,7 +3063,7 @@
             "recent_performance": "主队近2场 WD；客队近2场 LL",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -3084,7 +3076,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -3093,7 +3084,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -3108,8 +3099,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：布鲁马波卡纳 [瑞超13]；厄尔格里特 [瑞超15]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -3129,7 +3120,7 @@
         "recent_performance": "主队近2场 WD；客队近2场 LL",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -3142,7 +3133,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -3151,7 +3141,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -3514,7 +3504,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -3522,10 +3512,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -3552,7 +3542,7 @@
             "recent_performance": "主队近2场 WL；客队近3场 WLW",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -3565,7 +3555,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -3574,7 +3563,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -3589,8 +3578,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：代格福什 [瑞超14]；IFK哥德堡 [瑞超11]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -3610,7 +3599,7 @@
         "recent_performance": "主队近2场 WL；客队近3场 WLW",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -3623,7 +3612,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -3632,7 +3620,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -3977,7 +3965,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -3985,10 +3973,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -4015,7 +4003,7 @@
             "recent_performance": "主队近2场 WW；客队近2场 WD",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -4028,7 +4016,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -4037,7 +4024,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -4052,8 +4039,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：佐加顿斯 [瑞超4]；AIK索尔纳 [瑞超6]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -4073,7 +4060,7 @@
         "recent_performance": "主队近2场 WW；客队近2场 WD",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -4086,7 +4073,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -4095,7 +4081,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -4440,7 +4426,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -4448,10 +4434,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -4477,7 +4463,7 @@
             "recent_performance": "主队近3场 DDL；客队近1场 W",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -4490,7 +4476,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -4499,7 +4484,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -4514,8 +4499,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：特温特 [荷甲13]；兹沃勒 [荷甲15]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -4535,7 +4520,7 @@
         "recent_performance": "主队近3场 DDL；客队近1场 W",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -4548,7 +4533,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -4557,7 +4541,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -4902,7 +4886,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -4910,10 +4894,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "schedule_load"
@@ -4938,7 +4922,7 @@
             "recent_performance": "主队近1场 W；客队近0场 暂无已核验赛果",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -4951,7 +4935,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -4960,7 +4943,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -4975,8 +4958,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：费耶诺德 [荷甲7]；前进之鹰 [荷甲4]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -4996,7 +4979,7 @@
         "recent_performance": "主队近1场 W；客队近0场 暂无已核验赛果",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -5009,7 +4992,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -5018,7 +5000,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -5362,7 +5344,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -5370,10 +5352,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -5400,7 +5382,7 @@
             "recent_performance": "主队近3场 DWD；客队近2场 LL",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -5413,7 +5395,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -5422,7 +5403,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -5437,8 +5418,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：奥勒松 [挪超15]；瓦勒伦加 [挪超10]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -5458,7 +5439,7 @@
         "recent_performance": "主队近3场 DWD；客队近2场 LL",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -5471,7 +5452,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -5480,7 +5460,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -5863,7 +5843,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -5871,10 +5851,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [],
       "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
@@ -5896,7 +5876,7 @@
             "recent_performance": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -5909,7 +5889,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -5918,7 +5897,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "blocked"
         },
         "evidenceGate": "blocked"
@@ -5933,8 +5912,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：阿森纳 未提供；曼彻斯特城 未提供；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -5954,7 +5933,7 @@
         "recent_performance": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -5967,7 +5946,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -5976,7 +5954,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "高",
       "marketRiskFactors": [
         "杯赛/资格赛存在轮换、90分钟结算和领先后控节奏路径",
@@ -6324,7 +6302,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -6332,10 +6310,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -6362,7 +6340,7 @@
             "recent_performance": "主队近3场 LWD；客队近3场 DWL",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -6375,7 +6353,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -6384,7 +6361,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -6399,8 +6376,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：AC奥卢 [芬超5]；国际图尔库 [芬超2]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -6420,7 +6397,7 @@
         "recent_performance": "主队近3场 LWD；客队近3场 DWL",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -6433,7 +6410,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -6442,7 +6418,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -6787,7 +6763,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -6795,10 +6771,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table"
       ],
@@ -6822,7 +6798,7 @@
             "recent_performance": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -6835,7 +6811,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -6844,7 +6819,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -6859,8 +6834,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：葡萄牙国民 [葡超14]；埃斯托里尔 [葡超11]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -6880,7 +6855,7 @@
         "recent_performance": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -6893,7 +6868,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -6902,7 +6876,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -7246,7 +7220,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -7254,10 +7228,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -7284,7 +7258,7 @@
             "recent_performance": "主队近2场 LW；客队近4场 WLDD",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -7297,7 +7271,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -7306,7 +7279,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -7321,8 +7294,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：卡尔马 [瑞超12]；哈马比 [瑞超2]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -7342,7 +7315,7 @@
         "recent_performance": "主队近2场 LW；客队近4场 WLDD",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -7355,7 +7328,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -7364,7 +7336,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -7709,7 +7681,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -7717,10 +7689,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -7747,7 +7719,7 @@
             "recent_performance": "主队近2场 WD；客队近2场 LW",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -7760,7 +7732,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -7769,7 +7740,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -7784,8 +7755,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：哥德堡盖斯 [瑞超8]；马尔默 [瑞超9]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -7805,7 +7776,7 @@
         "recent_performance": "主队近2场 WD；客队近2场 LW",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -7818,7 +7789,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -7827,7 +7797,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -8172,7 +8142,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -8180,10 +8150,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -8209,7 +8179,7 @@
             "recent_performance": "主队近1场 L；客队近1场 D",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -8222,7 +8192,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -8231,7 +8200,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -8246,8 +8215,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：阿贾克斯 [荷甲5]；海伦芬 [荷甲8]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -8267,7 +8236,7 @@
         "recent_performance": "主队近1场 L；客队近1场 D",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -8280,7 +8249,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -8289,7 +8257,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -8675,7 +8643,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -8683,10 +8651,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table"
       ],
@@ -8710,7 +8678,7 @@
             "recent_performance": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -8723,7 +8691,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -8732,7 +8699,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -8747,8 +8714,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：伯恩利 [英冠12]；西汉姆联 [英冠15]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -8768,7 +8735,7 @@
         "recent_performance": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -8781,7 +8748,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -8790,7 +8756,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -9171,7 +9137,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -9179,10 +9145,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table"
       ],
@@ -9206,7 +9172,7 @@
             "recent_performance": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -9219,7 +9185,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -9228,7 +9193,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -9243,8 +9208,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：桑坦德竞技 [西甲13]；比利亚雷亚尔 [西甲18]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -9264,7 +9229,7 @@
         "recent_performance": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -9277,7 +9242,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -9286,7 +9250,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -9631,7 +9595,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -9639,10 +9603,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -9669,7 +9633,7 @@
             "recent_performance": "主队近3场 LDL；客队近1场 L",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -9682,7 +9646,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -9691,7 +9654,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -9706,8 +9669,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：莫尔德 [挪超5]；特罗姆瑟 [挪超3]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -9727,7 +9690,7 @@
         "recent_performance": "主队近3场 LDL；客队近1场 L",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -9740,7 +9703,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -9749,7 +9711,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -10094,7 +10056,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -10102,10 +10064,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -10132,7 +10094,7 @@
             "recent_performance": "主队近2场 LW；客队近4场 DWWL",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -10145,7 +10107,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -10154,7 +10115,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -10169,8 +10130,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：布兰 [挪超7]；汉坎 [挪超9]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -10190,7 +10151,7 @@
         "recent_performance": "主队近2场 LW；客队近4场 DWWL",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -10203,7 +10164,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -10212,7 +10172,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -10557,7 +10517,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -10565,10 +10525,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -10594,7 +10554,7 @@
             "recent_performance": "主队近2场 DL；客队近1场 W",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -10607,7 +10567,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -10616,7 +10575,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -10631,8 +10590,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：萨尔普斯堡 [挪超8]；桑纳菲尤尔 [挪超13]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -10652,7 +10611,7 @@
         "recent_performance": "主队近2场 DL；客队近1场 W",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -10665,7 +10624,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -10674,7 +10632,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -11055,7 +11013,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -11063,10 +11021,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table"
       ],
@@ -11090,7 +11048,7 @@
             "recent_performance": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -11103,7 +11061,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -11112,7 +11069,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -11127,8 +11084,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：西班牙人 [西甲9]；莱万特 [西甲10]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -11148,7 +11105,7 @@
         "recent_performance": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -11161,7 +11118,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -11170,7 +11126,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -11515,7 +11471,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -11523,10 +11479,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "schedule_load"
@@ -11551,7 +11507,7 @@
             "recent_performance": "主队近0场 暂无已核验赛果；客队近1场 D",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -11564,7 +11520,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -11573,7 +11528,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -11588,8 +11543,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：阿罗卡 [葡超4]；摩雷伦斯 [葡超9]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -11609,7 +11564,7 @@
         "recent_performance": "主队近0场 暂无已核验赛果；客队近1场 D",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -11622,7 +11577,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -11631,7 +11585,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -11976,7 +11930,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -11984,10 +11938,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -12013,7 +11967,7 @@
             "recent_performance": "主队近1场 L；客队近3场 WWW",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -12026,7 +11980,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -12035,7 +11988,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -12050,8 +12003,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：腓特烈斯塔 [挪超11]；克里斯蒂安松 [挪超14]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -12071,7 +12024,7 @@
         "recent_performance": "主队近1场 L；客队近3场 WWW",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -12084,7 +12037,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -12093,7 +12045,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -12438,7 +12390,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -12446,10 +12398,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "schedule_load"
@@ -12474,7 +12426,7 @@
             "recent_performance": "主队近0场 暂无已核验赛果；客队近3场 LWD",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -12487,7 +12439,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -12496,7 +12447,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -12511,8 +12462,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：瓦斯科达伽马 [巴甲18]；桑托斯 [巴甲17]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -12532,7 +12483,7 @@
         "recent_performance": "主队近0场 暂无已核验赛果；客队近3场 LWD",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -12545,7 +12496,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -12554,7 +12504,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -12898,7 +12848,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -12906,10 +12856,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table"
       ],
@@ -12933,7 +12883,7 @@
             "recent_performance": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -12946,7 +12896,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -12955,7 +12904,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -12970,8 +12919,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：法马利康 [葡超12]；马里迪莫 [葡超6]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -12991,7 +12940,7 @@
         "recent_performance": "主队近0场 暂无已核验赛果；客队近0场 暂无已核验赛果",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -13004,7 +12953,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -13013,7 +12961,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -13358,7 +13306,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -13366,10 +13314,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "recent_performance",
@@ -13395,7 +13343,7 @@
             "recent_performance": "主队近1场 D；客队近1场 W",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -13408,7 +13356,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -13417,7 +13364,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -13432,8 +13379,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：布拉加 [葡超10]；吉维森特 [葡超5]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -13453,7 +13400,7 @@
         "recent_performance": "主队近1场 D；客队近1场 W",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -13466,7 +13413,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -13475,7 +13421,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"
@@ -13820,7 +13766,7 @@
         "stage": "资料不足，保持中性",
         "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather": "资料不足，保持中性",
+        "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "teamNews": "资料不足，保持中性",
         "coach": "资料不足，保持中性",
         "upsetPath": "资料不足，保持中性"
@@ -13828,10 +13774,10 @@
       "contextSources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
       "verifiedFactors": [
         "ranking_table",
         "schedule_load"
@@ -13856,7 +13802,7 @@
             "recent_performance": "主队近1场 D；客队近0场 暂无已核验赛果",
             "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
             "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-            "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+            "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
             "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
             "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
             "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -13869,7 +13815,6 @@
           "missingDimensions": [
             "travel_home_advantage",
             "coach_tactics",
-            "weather_pitch",
             "set_piece_transition",
             "market_contradiction",
             "previous_match",
@@ -13878,7 +13823,7 @@
             "cover_risk",
             "upset_risk"
           ],
-          "completeness": 0.38,
+          "completeness": 0.44,
           "adjustmentGate": "passed"
         },
         "evidenceGate": "passed"
@@ -13893,8 +13838,8 @@
         "scheduleLoad": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
         "availability": "未找到可核验的官方伤停或首发来源，不作方向性修正",
         "coachTactics": "未核验",
-        "weatherPitch": "未核验",
-        "completeness": 0.3,
+        "weatherPitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
+        "completeness": 0.4,
         "brief": "上一场：未核验；下一场：未核验；排名：纽约城 [美职7]；费城联合 [美职14]；升级/保级/晋级动机：未核验；穿盘/大比分风险：未核验；需结合实际让球、首发和比赛节奏判断；爆冷路径：未核验；保留市场反向和阵容突变路径；赛程与阵容：已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认 / 未找到可核验的官方伤停或首发来源，不作方向性修正。"
       },
       "previousMatch": "未核验",
@@ -13914,7 +13859,7 @@
         "recent_performance": "主队近1场 D；客队近0场 暂无已核验赛果",
         "coach_tactics": "未核验教练近期阵型、压迫/退防和针对性部署。",
         "motivation_competition": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
-        "weather_pitch": "未核验当地天气、草皮和比赛时段对节奏的影响。",
+        "weather_pitch": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
         "set_piece_transition": "未核验定位球、反击、边路防守和转换攻防的具体相克关系。",
         "market_contradiction": "未核验市场方向与球队真实表现是否冲突；不把低赔当作因果。",
         "previous_match": "未核验双方上一场正式比赛赛果、对手强弱与消耗情况。",
@@ -13927,7 +13872,6 @@
       "missingAnalysisDimensions": [
         "travel_home_advantage",
         "coach_tactics",
-        "weather_pitch",
         "set_piece_transition",
         "market_contradiction",
         "previous_match",
@@ -13936,7 +13880,7 @@
         "cover_risk",
         "upset_risk"
       ],
-      "analysisCompleteness": 0.38,
+      "analysisCompleteness": 0.44,
       "marketRiskLevel": "常规",
       "marketRiskFactors": [
         "联赛模型按常规盘口与比分矩阵校准"

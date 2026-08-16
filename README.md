@@ -36,6 +36,10 @@ python scripts/generate_date_pages.py --date 20260727 --source data/sporttery_20
 # 3. 校验页面与数据一致性
 python scripts/validate_date_pages.py --date 20260727 --expected-matches <N>
 
+# 3.5 采集比赛级外部证据（赛果/赛程/天气；失败会写入来源状态，不会伪造数据）
+python scripts/fetch_match_evidence.py --date 20260727 --source data/sporttery_20260727_latest.json
+python scripts/build_public_context.py --date 20260727 --source data/sporttery_20260727_latest.json
+
 # 4. 赛后：写入已核实赛果与分联赛复盘（参照 scripts/apply_20260725_review.py）
 #    然后重建未来页并刷新首页
 python scripts/update_review_and_future.py --review-date 20260727
@@ -65,6 +69,7 @@ python -m unittest test_market_model test_competition_calibration test_score_poo
 ## 目录约定
 
 - `data/sporttery_<date>_latest.json`：官方赔率快照（结算后复制为 `data/<date>.json` 并写入赛果）
+- `data/external_context_<date>.json`：逐场外部接口证据缓存，包含 provider 状态、匹配记录、天气响应和缺口原因
 - `data/predictions_<date>.json` 与 `<date>/index.html`：冻结的当日预测（发布后不回填修改）
 - `data/review_<date>_competitions.json`：分联赛复盘
 - `data/settled_results_*.json`（含 `*_extra.json`）：已核实赛果

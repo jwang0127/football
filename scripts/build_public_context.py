@@ -213,6 +213,13 @@ def main():
     args = parser.parse_args()
     source = read(ROOT / args.source)
     current = {str(m.get("matchId")): m for m in source.get("matches", [])}
+    external_context = {}
+    external_context_path = DATA / f"external_context_{args.date}.json"
+    if external_context_path.exists():
+        try:
+            external_context = read(external_context_path).get("matches", {})
+        except (OSError, json.JSONDecodeError):
+            external_context = {}
     history = []
     for path in sorted(DATA.glob("sporttery_*_latest.json")) + sorted(DATA.glob("20????????.json")):
         try:
@@ -251,6 +258,7 @@ def main():
                                                                   "venue": side, "opponent": opponent, "league": league, "source": row.get("sourceUrl")})
     contexts = {}
     for key, match in current.items():
+        external = external_context.get(key, {})
         home_code, away_code = str(match.get("homeCode", "")), str(match.get("awayCode", ""))
         rows = {}
         for code in (home_code, away_code):
@@ -269,20 +277,39 @@ def main():
             away_points = fundamental["fundamentalStats"]["away"]["points"]
             if home_points - away_points >= 1.0: multipliers.update(home=1.04, away=.98)
             elif away_points - home_points >= 1.0: multipliers.update(home=.98, away=1.04)
+        external_rows = external.get("scheduleResults", [])
+        if external_rows and "schedule_load" not in factors:
+            factors.append("schedule_load")
+        if external.get("weather") and "weather_pitch" not in factors:
+            factors.append("weather_pitch")
+        external_sources = [url for url in external.get("sources", []) if url]
+        weather = external.get("weather")
+        schedule_text = "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认"
+        if external_rows:
+            schedule_text = f"已由外部公开赛程/赛果接口匹配到{len(external_rows)}条比赛级记录；具体赛制和下一场优先级仍需官方文件确认"
+        weather_text = "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正"
+        if weather and weather.get("hourly"):
+            weather_text = "已取得Open-Meteo比赛日逐小时天气数据；仅作为节奏和场地风险参考"
+        sources = [{"name": "Sporttery公开赛程/赔率接口", "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"}]
+        sources.extend({"name": "外部公开赛果/赛程接口", "url": url} for url in external_sources if url not in {row["url"] for row in sources})
+        if weather:
+            sources.append({"name": "Open-Meteo天气接口", "url": "https://api.open-meteo.com/v1/forecast"})
         context = {
             "ranking": f"{match.get('home')} {match.get('homeRank') or '未提供'}；{match.get('away')} {match.get('awayRank') or '未提供'}",
             "homeRank": rank(match.get("homeRank")), "awayRank": rank(match.get("awayRank")),
             "recentForm": f"主队近{len(home_form)}场 {form(home_form)}；客队近{len(away_form)}场 {form(away_form)}",
             "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
             "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
-            "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+            "schedule": schedule_text,
+            "weather": weather_text,
             "outcomeMultipliers": multipliers, "confidenceDelta": -2,
             **fundamental,
             "headToHead": h2h,
             "headToHeadSummary": h2h.get("summary", "暂无可核验的双方历史交手"),
-            "verifiedFactors": factors, "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+            "verifiedFactors": factors, "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+            "externalEvidence": {"scheduleResults": external_rows, "weather": weather, "providerStatus": external.get("providerStatus", {}), "missing": external.get("missing", [])},
             "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
-            "sources": [{"name": "Sporttery公开赛程/赔率接口", "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"}],
+            "sources": sources,
         }
         contexts[key] = context
     output = {"version": "public-context-v1", "generatedAt": datetime.now().isoformat(timespec="seconds"), "matches": contexts}

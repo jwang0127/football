@@ -1,6 +1,6 @@
 {
   "version": "public-context-v1",
-  "generatedAt": "2026-08-16T12:59:59",
+  "generatedAt": "2026-08-16T13:50:05",
   "matches": {
     "2040888": {
       "ranking": "德岛漩涡 [日乙20]；鸟栖沙岩 [日乙6]",
@@ -10,6 +10,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -85,12 +86,27 @@
       "verifiedFactors": [
         "ranking_table"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -102,6 +118,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -178,12 +195,27 @@
         "ranking_table",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -195,6 +227,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -273,12 +306,27 @@
         "home_away",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -290,6 +338,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -373,12 +422,27 @@
         "home_away",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -390,6 +454,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.04,
         "draw": 1.0,
@@ -468,12 +533,27 @@
         "home_away",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -485,6 +565,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -581,12 +662,27 @@
         "home_away",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -598,6 +694,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.04,
         "draw": 1.0,
@@ -679,12 +776,27 @@
         "home_away",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -696,6 +808,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 0.98,
         "draw": 1.0,
@@ -773,12 +886,27 @@
         "recent_performance",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -790,6 +918,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -866,12 +995,27 @@
         "ranking_table",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -883,6 +1027,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.04,
         "draw": 1.0,
@@ -968,12 +1113,27 @@
         "home_away",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -985,6 +1145,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -1064,12 +1225,27 @@
       },
       "headToHeadSummary": "暂无可核验的双方历史交手",
       "verifiedFactors": [],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": "比赛将在英国-加的夫举行"
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -1081,6 +1257,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -1159,12 +1336,27 @@
         "home_away",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -1176,6 +1368,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -1251,12 +1444,27 @@
       "verifiedFactors": [
         "ranking_table"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -1268,6 +1476,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -1353,12 +1562,27 @@
         "home_away",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -1370,6 +1594,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -1453,12 +1678,27 @@
         "home_away",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -1470,6 +1710,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 0.98,
         "draw": 1.0,
@@ -1547,12 +1788,27 @@
         "recent_performance",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -1564,6 +1820,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -1645,12 +1902,27 @@
       "verifiedFactors": [
         "ranking_table"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -1662,6 +1934,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -1737,12 +2010,27 @@
       "verifiedFactors": [
         "ranking_table"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -1754,6 +2042,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -1839,12 +2128,27 @@
         "home_away",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -1856,6 +2160,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -1941,12 +2246,27 @@
         "home_away",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -1958,6 +2278,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 0.98,
         "draw": 1.0,
@@ -2043,12 +2364,27 @@
         "recent_performance",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -2060,6 +2396,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -2135,12 +2472,27 @@
       "verifiedFactors": [
         "ranking_table"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -2152,6 +2504,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -2228,12 +2581,27 @@
         "ranking_table",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -2245,6 +2613,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 0.98,
         "draw": 1.0,
@@ -2328,12 +2697,27 @@
         "recent_performance",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -2345,6 +2729,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -2421,12 +2806,27 @@
         "ranking_table",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -2438,6 +2838,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -2513,12 +2914,27 @@
       "verifiedFactors": [
         "ranking_table"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -2530,6 +2946,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 0.98,
         "draw": 1.0,
@@ -2607,12 +3024,27 @@
         "recent_performance",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     },
@@ -2624,6 +3056,7 @@
       "motivation": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
       "injuries": "未找到可核验的官方伤停或首发来源，不作方向性修正",
       "schedule": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
+      "weather": "暂无场地坐标，天气接口未能建立比赛场地映射，不作方向性修正",
       "outcomeMultipliers": {
         "home": 1.0,
         "draw": 1.0,
@@ -2700,12 +3133,27 @@
         "ranking_table",
         "schedule_load"
       ],
-      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "evidenceStatus": "已接入排名、近5场进失球、主客场拆分与休息间隔；外部赛程/赛果和天气按本场匹配结果写入；伤停、首发、战术和杯赛战意仍保持证据闸门",
+      "externalEvidence": {
+        "scheduleResults": [],
+        "weather": null,
+        "providerStatus": {
+          "weather": {
+            "status": "missing_coordinates",
+            "reason": "Sporttery did not provide stadium coordinates",
+            "venue": ""
+          }
+        },
+        "missing": [
+          "recent_results_and_schedule",
+          "weather"
+        ]
+      },
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "sources": [
         {
           "name": "Sporttery公开赛程/赔率接口",
-          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhad,crs,hafu"
+          "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
       ]
     }

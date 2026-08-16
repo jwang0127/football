@@ -1,0 +1,503 @@
+{
+  "version": "match-evidence-v1",
+  "date": "20260816",
+  "generatedAt": "2026-08-16T13:44:20",
+  "providers": {
+    "espn": {
+      "provider": "ESPN",
+      "leagues": {
+        "巴西甲级联赛": {
+          "status": "ok",
+          "http": 200,
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260518-20260816&limit=1000"
+        },
+        "挪威超级联赛": {
+          "status": "ok",
+          "http": 200,
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260518-20260816&limit=1000"
+        },
+        "瑞典超级联赛": {
+          "status": "ok",
+          "http": 200,
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260518-20260816&limit=1000"
+        },
+        "美国职业大联盟": {
+          "status": "ok",
+          "http": 200,
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260518-20260816&limit=1000"
+        },
+        "芬兰超级联赛": {
+          "status": "ok",
+          "http": 200,
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fin.1/scoreboard?dates=20260518-20260816&limit=1000"
+        },
+        "韩国职业联赛": {
+          "status": "error",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/kor.1/scoreboard?dates=20260518-20260816&limit=1000",
+          "error": "HTTPError: HTTP Error 400: Bad Request"
+        }
+      }
+    },
+    "sofascore": {
+      "provider": "SofaScore",
+      "state": {
+        "status": "error",
+        "url": "https://api.sofascore.com/api/v1/sport/football/scheduled-events/2026-08-16/inverse",
+        "error": "HTTPError: HTTP Error 403: Forbidden"
+      }
+    },
+    "openMeteo": {
+      "docs": "https://open-meteo.com/en/docs"
+    }
+  },
+  "matches": {
+    "2040888": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040889": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040890": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040891": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040892": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040893": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040894": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040895": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040896": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040897": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040898": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": "比赛将在英国-加的夫举行"
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040899": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040900": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040901": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040902": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040903": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040920": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040921": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040904": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040905": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040906": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040907": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040908": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040909": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040910": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040911": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040912": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    },
+    "2040913": {
+      "scheduleResults": [],
+      "weather": null,
+      "sources": [],
+      "providerStatus": {
+        "weather": {
+          "status": "missing_coordinates",
+          "reason": "Sporttery did not provide stadium coordinates",
+          "venue": ""
+        }
+      },
+      "missing": [
+        "recent_results_and_schedule",
+        "weather"
+      ]
+    }
+  }
+}
