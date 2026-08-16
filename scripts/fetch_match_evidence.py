@@ -8,7 +8,7 @@ ordered by coverage and cost:
 * ESPN and SofaScore are public scoreboard fallbacks for results and schedules.
 * Open-Meteo is keyless weather/geocoding support when a venue or coordinates
   are available.
-* football-data.org and API-Football are optional, token-based enrichments.
+* football-data.org is an optional, token-based enrichment.
 
 The output is a cache consumed by build_public_context.py and is safe to commit
 as an input snapshot for a generated page.
