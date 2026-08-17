@@ -6,6 +6,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
+NEXT_MATCHES = {
+    "2040914": {"text": "2026-08-23 15:00：HJK 主场 vs IF Gnistan", "source": "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain"},
+    "2040915": {"text": "2026-08-21 19:00：IK Sirius 主场 vs BK Häcken", "source": "https://allsvenskan.se/nyheter/sa-spelas-omgang-18-23-av-allsvenskan/"},
+    "2040916": {"text": "2026-08-22：Cardiff City 主场 vs Derby County", "source": "https://www.cardiffcity-mad.co.uk/news/tmnw/championship_fixtures_2026_27_989234/index.shtml"},
+    "2040922": {"text": "2026-08-24 19:30：Málaga CF 主场 vs RC Deportivo", "source": "https://www.laliga.com/es-NG/clubes/rc-deportivo/proximos-partidos"},
+    "2040917": {"text": "2026-08-23：Gil Vicente FC 主场 vs Casa Pia AC", "source": "https://www.casapiaac.pt/calendario.php"},
+}
 PROVIDERS = [
     {"name":"体彩 Sporttery", "role":"业务日、场次、赔率、竞彩编号", "status":"active", "url":"https://www.sporttery.cn/"},
     {"name":"ESPN / SofaScore", "role":"赛果与赛程兜底", "status":"fallback", "url":"https://www.sofascore.com/"},
@@ -33,28 +40,38 @@ def probs(odds):
     except (KeyError, TypeError, ValueError, ZeroDivisionError):
         return None
 
-def build(source, contexts, external):
+def build(source, contexts, external, enrichment):
     rows = []
     for m in source.get("matches", []):
         mid = str(m.get("matchId") or m.get("id"))
         c = contexts.get("matches", {}).get(mid, {})
         e = external.get("matches", {}).get(mid, {})
+        api = enrichment.get("matches", {}).get(mid, {})
         injuries = confirmed(c.get("injuries"), "暂无已确认的官方伤停或首发信息")
-        next_match = confirmed(c.get("nextMatch"), "暂无已确认的本场赛后下一场赛程")
+        if api.get("status") == "ok":
+            if api.get("injuryCount"):
+                names = [f"{x.get('player')}（{x.get('status') or '状态记录'}）" for x in api.get("injuries", []) if x.get("player")]
+                injuries = "API-Football 已返回 " + str(api.get("injuryCount")) + " 条伤停记录：" + "、".join(names[:8])
+            else:
+                injuries = "API-Football 本场伤停接口返回 0 条记录"
+        api_evidence = (f"API-Football fixture {api.get('fixtureId')}；赛事轮次：{api.get('round') or '暂无'}；比赛状态：{((api.get('fixture') or {}).get('status') or {}).get('long') or '暂无'}" if api.get("status") == "ok" else "")
+        next_override = NEXT_MATCHES.get(mid)
+        next_match = next_override["text"] if next_override else confirmed(c.get("nextMatch"), "暂无已确认的本场赛后下一场赛程")
         rows.append({
             "id":mid, "lotteryNo":m.get("matchNumStr") or m.get("lotteryCode"), "league":m.get("league"),
             "kickoff":m.get("kickoff"), "home":m.get("home"), "away":m.get("away"),
             "homeRank":rank(m.get("homeRank")) or c.get("homeRank"), "awayRank":rank(m.get("awayRank")) or c.get("awayRank"),
             "prediction":m.get("prediction") or {}, "probabilities":probs((m.get("odds") or {}).get("had")),
             "oddsUpdatedAt":((m.get("odds") or {}).get("had") or {}).get("updatedAt"),
-            "injuries":{"confirmed":not injuries.startswith("暂无"), "text":injuries},
+            "injuries":{"confirmed":bool(api.get("injuryCount")) or (api.get("status") != "ok" and not injuries.startswith("暂无")), "text":injuries},
             "rest":c.get("restDays") or {},
-            "standings":confirmed(c.get("ranking"), "暂无已确认的积分榜位置"),
+            "standings":(confirmed(c.get("ranking"), "暂无已确认的积分榜位置") + ("；" + api_evidence if api_evidence else "")),
             "competition":confirmed(c.get("motivation"), "暂无已确认的积分/晋级信息"),
             "stage":confirmed(c.get("stage"), "暂无已确认的赛事阶段"),
+            "fixtureEvidence": {"provider": "API-Football" if api.get("status") == "ok" else "", "fixtureId": api.get("fixtureId"), "round": api.get("round"), "venue": (api.get("fixture") or {}).get("venue"), "referee": (api.get("fixture") or {}).get("referee"), "status": ((api.get("fixture") or {}).get("status") or {}).get("long")},
             "previous":confirmed(c.get("schedule"), "暂无已确认的上一场与休息间隔"),
             "next":{"confirmed":not next_match.startswith("暂无"), "text":next_match},
-            "sources":list(dict.fromkeys([*e.get("sources", []), "https://www.sporttery.cn/"]))
+            "sources":list(dict.fromkeys([*e.get("sources", []), "https://www.sporttery.cn/", *([next_override["source"]] if next_override else [])]))
         })
     return {"version":"match-radar-v1", "generatedAt":datetime.now().isoformat(timespec="seconds"), "date":source.get("date"), "dateText":source.get("dateText"), "providers":PROVIDERS, "matches":rows, "disclaimer":"以上为已确认公开信息整理后的比赛环境雷达，不构成任何购彩建议；信息会随官方更新而变化。"}
 
@@ -74,7 +91,7 @@ def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--date", default=datetime.now().strftime("%Y%m%d")); a=ap.parse_args()
     source=read(DATA/f"sporttery_{a.date}_latest.json")
     if not source: raise SystemExit("missing Sporttery snapshot")
-    payload=build(source, read(DATA/f"match_context_{a.date}.json"), read(DATA/f"external_context_{a.date}.json"))
+    payload=build(source, read(DATA/f"match_context_{a.date}.json"), read(DATA/f"external_context_{a.date}.json"), read(DATA/f"match_radar_enrichment_{a.date}.json"))
     (DATA/f"match_radar_{a.date}.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
     out=ROOT/"radar"/"index.html"; out.parent.mkdir(exist_ok=True); out.write_text(page(payload),encoding="utf-8")
     print(json.dumps({"date":a.date,"matches":len(payload["matches"]),"html":str(out)},ensure_ascii=False))

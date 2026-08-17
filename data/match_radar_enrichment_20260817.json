@@ -1,0 +1,569 @@
+{
+  "version": "api-football-enrichment-v1",
+  "date": "20260817",
+  "provider": "API-Football",
+  "matches": {
+    "2040914": {
+      "status": "ok",
+      "fixtureId": 1495762,
+      "sourceUrl": "https://v3.football.api-sports.io/fixtures?id=1495762",
+      "league": {
+        "id": 244,
+        "name": "Veikkausliiga",
+        "country": "Finland",
+        "logo": "https://media.api-sports.io/football/leagues/244.png",
+        "flag": "https://media.api-sports.io/flags/fi.svg",
+        "season": 2026,
+        "round": "Regular Season - 20",
+        "standings": true
+      },
+      "round": "Regular Season - 20",
+      "season": 2026,
+      "teams": {
+        "home": {
+          "id": 2082,
+          "name": "Gnistan",
+          "logo": "https://media.api-sports.io/football/teams/2082.png",
+          "winner": null
+        },
+        "away": {
+          "id": 1163,
+          "name": "Ilves",
+          "logo": "https://media.api-sports.io/football/teams/1163.png",
+          "winner": null
+        }
+      },
+      "fixture": {
+        "date": "2026-08-17T15:00:00+00:00",
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        },
+        "venue": {
+          "id": 2698,
+          "name": "Markku.fi Areena",
+          "city": "Helsinki"
+        },
+        "referee": null
+      },
+      "injuries": [],
+      "injuryCount": 0,
+      "injuryApiErrors": []
+    },
+    "2040915": {
+      "status": "ok",
+      "fixtureId": 1494246,
+      "sourceUrl": "https://v3.football.api-sports.io/fixtures?id=1494246",
+      "league": {
+        "id": 113,
+        "name": "Allsvenskan",
+        "country": "Sweden",
+        "logo": "https://media.api-sports.io/football/leagues/113.png",
+        "flag": "https://media.api-sports.io/flags/se.svg",
+        "season": 2026,
+        "round": "Regular Season - 17",
+        "standings": true
+      },
+      "round": "Regular Season - 17",
+      "season": 2026,
+      "teams": {
+        "home": {
+          "id": 367,
+          "name": "BK Hacken",
+          "logo": "https://media.api-sports.io/football/teams/367.png",
+          "winner": null
+        },
+        "away": {
+          "id": 766,
+          "name": "Halmstad",
+          "logo": "https://media.api-sports.io/football/teams/766.png",
+          "winner": null
+        }
+      },
+      "fixture": {
+        "date": "2026-08-17T17:00:00+00:00",
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Nordic Wellness Arena",
+          "city": null
+        },
+        "referee": "A. Aganovic"
+      },
+      "injuries": [
+        {
+          "team": "BK Hacken",
+          "player": "B. Engdahl",
+          "status": "Missing Fixture",
+          "reason": "Injury"
+        },
+        {
+          "team": "BK Hacken",
+          "player": "F. Ohman",
+          "status": "Missing Fixture",
+          "reason": "Shoulder Injury"
+        },
+        {
+          "team": "BK Hacken",
+          "player": "B. Engdahl",
+          "status": "Missing Fixture",
+          "reason": "Injury"
+        },
+        {
+          "team": "BK Hacken",
+          "player": "F. Ohman",
+          "status": "Missing Fixture",
+          "reason": "Shoulder Injury"
+        }
+      ],
+      "injuryCount": 4,
+      "injuryApiErrors": []
+    },
+    "2040916": {
+      "status": "ok",
+      "fixtureId": 1563094,
+      "sourceUrl": "https://v3.football.api-sports.io/fixtures?id=1563094",
+      "league": {
+        "id": 40,
+        "name": "Championship",
+        "country": "England",
+        "logo": "https://media.api-sports.io/football/leagues/40.png",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "round": "Regular Season - 1",
+      "season": 2026,
+      "teams": {
+        "home": {
+          "id": 43,
+          "name": "Cardiff",
+          "logo": "https://media.api-sports.io/football/teams/43.png",
+          "winner": null
+        },
+        "away": {
+          "id": 1837,
+          "name": "Wrexham",
+          "logo": "https://media.api-sports.io/football/teams/1837.png",
+          "winner": null
+        }
+      },
+      "fixture": {
+        "date": "2026-08-17T19:00:00+00:00",
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Cardiff City Stadium",
+          "city": "Cardiff"
+        },
+        "referee": "A. Kitchen"
+      },
+      "injuries": [
+        {
+          "team": "Cardiff",
+          "player": "D. Lawlor",
+          "status": "Questionable",
+          "reason": "Injury"
+        },
+        {
+          "team": "Wrexham",
+          "player": "S. Revan",
+          "status": "Questionable",
+          "reason": "Hamstring Injury"
+        },
+        {
+          "team": "Cardiff",
+          "player": "D. Lawlor",
+          "status": "Questionable",
+          "reason": "Injury"
+        },
+        {
+          "team": "Wrexham",
+          "player": "S. Revan",
+          "status": "Questionable",
+          "reason": "Hamstring Injury"
+        }
+      ],
+      "injuryCount": 4,
+      "injuryApiErrors": []
+    },
+    "2040922": {
+      "status": "ok",
+      "fixtureId": 1570337,
+      "sourceUrl": "https://v3.football.api-sports.io/fixtures?id=1570337",
+      "league": {
+        "id": 140,
+        "name": "La Liga",
+        "country": "Spain",
+        "logo": "https://media.api-sports.io/football/leagues/140.png",
+        "flag": "https://media.api-sports.io/flags/es.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "round": "Regular Season - 1",
+      "season": 2026,
+      "teams": {
+        "home": {
+          "id": 544,
+          "name": "Deportivo La Coruna",
+          "logo": "https://media.api-sports.io/football/teams/544.png",
+          "winner": null
+        },
+        "away": {
+          "id": 797,
+          "name": "Elche",
+          "logo": "https://media.api-sports.io/football/teams/797.png",
+          "winner": null
+        }
+      },
+      "fixture": {
+        "date": "2026-08-17T19:00:00+00:00",
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Estadio Municipal de Riazor",
+          "city": null
+        },
+        "referee": null
+      },
+      "injuries": [
+        {
+          "team": "Deportivo La Coruna",
+          "player": "N. Carrillo",
+          "status": "Missing Fixture",
+          "reason": "Injury"
+        },
+        {
+          "team": "Deportivo La Coruna",
+          "player": "Y. Hernandez",
+          "status": "Missing Fixture",
+          "reason": "Groin Injury"
+        },
+        {
+          "team": "Deportivo La Coruna",
+          "player": "A. Altimira",
+          "status": "Questionable",
+          "reason": "Knee Injury"
+        },
+        {
+          "team": "Deportivo La Coruna",
+          "player": "J. Asp",
+          "status": "Questionable",
+          "reason": "Injury"
+        },
+        {
+          "team": "Elche",
+          "player": "G. Diangana",
+          "status": "Missing Fixture",
+          "reason": "Knee Injury"
+        },
+        {
+          "team": "Elche",
+          "player": "A. Osorio",
+          "status": "Missing Fixture",
+          "reason": "Muscle Injury"
+        },
+        {
+          "team": "Elche",
+          "player": "Y. Santiago",
+          "status": "Missing Fixture",
+          "reason": "Knee Injury"
+        },
+        {
+          "team": "Elche",
+          "player": "A. Boayar",
+          "status": "Questionable",
+          "reason": "Muscle Injury"
+        },
+        {
+          "team": "Deportivo La Coruna",
+          "player": "N. Carrillo",
+          "status": "Missing Fixture",
+          "reason": "Injury"
+        },
+        {
+          "team": "Deportivo La Coruna",
+          "player": "Y. Hernandez",
+          "status": "Missing Fixture",
+          "reason": "Groin Injury"
+        },
+        {
+          "team": "Deportivo La Coruna",
+          "player": "A. Altimira",
+          "status": "Questionable",
+          "reason": "Knee Injury"
+        },
+        {
+          "team": "Deportivo La Coruna",
+          "player": "J. Asp",
+          "status": "Questionable",
+          "reason": "Injury"
+        },
+        {
+          "team": "Elche",
+          "player": "G. Diangana",
+          "status": "Missing Fixture",
+          "reason": "Knee Injury"
+        },
+        {
+          "team": "Elche",
+          "player": "A. Osorio",
+          "status": "Missing Fixture",
+          "reason": "Muscle Injury"
+        },
+        {
+          "team": "Elche",
+          "player": "Y. Santiago",
+          "status": "Missing Fixture",
+          "reason": "Knee Injury"
+        },
+        {
+          "team": "Elche",
+          "player": "A. Boayar",
+          "status": "Questionable",
+          "reason": "Muscle Injury"
+        }
+      ],
+      "injuryCount": 16,
+      "injuryApiErrors": []
+    },
+    "2040917": {
+      "status": "ok",
+      "fixtureId": 1575459,
+      "sourceUrl": "https://v3.football.api-sports.io/fixtures?id=1575459",
+      "league": {
+        "id": 94,
+        "name": "Primeira Liga",
+        "country": "Portugal",
+        "logo": "https://media.api-sports.io/football/leagues/94.png",
+        "flag": "https://media.api-sports.io/flags/pt.svg",
+        "season": 2026,
+        "round": "Regular Season - 2",
+        "standings": true
+      },
+      "round": "Regular Season - 2",
+      "season": 2026,
+      "teams": {
+        "home": {
+          "id": 4716,
+          "name": "Casa Pia",
+          "logo": "https://media.api-sports.io/football/teams/4716.png",
+          "winner": null
+        },
+        "away": {
+          "id": 211,
+          "name": "Benfica",
+          "logo": "https://media.api-sports.io/football/teams/211.png",
+          "winner": null
+        }
+      },
+      "fixture": {
+        "date": "2026-08-17T19:15:00+00:00",
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": "Rio Maior"
+        },
+        "referee": "J. Pinheiro"
+      },
+      "injuries": [],
+      "injuryCount": 0,
+      "injuryApiErrors": []
+    },
+    "2040918": {
+      "status": "ok",
+      "fixtureId": 1492335,
+      "sourceUrl": "https://v3.football.api-sports.io/fixtures?id=1492335",
+      "league": {
+        "id": 71,
+        "name": "Serie A",
+        "country": "Brazil",
+        "logo": "https://media.api-sports.io/football/leagues/71.png",
+        "flag": "https://media.api-sports.io/flags/br.svg",
+        "season": 2026,
+        "round": "Regular Season - 23",
+        "standings": true
+      },
+      "round": "Regular Season - 23",
+      "season": 2026,
+      "teams": {
+        "home": {
+          "id": 119,
+          "name": "Internacional",
+          "logo": "https://media.api-sports.io/football/teams/119.png",
+          "winner": null
+        },
+        "away": {
+          "id": 1198,
+          "name": "Remo",
+          "logo": "https://media.api-sports.io/football/teams/1198.png",
+          "winner": null
+        }
+      },
+      "fixture": {
+        "date": "2026-08-17T23:00:00+00:00",
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": "Porto Alegre"
+        },
+        "referee": "E. Batista"
+      },
+      "injuries": [
+        {
+          "team": "Internacional",
+          "player": "B. Arhin",
+          "status": "Missing Fixture",
+          "reason": "Hamstring Injury"
+        },
+        {
+          "team": "Internacional",
+          "player": "Joao Victor",
+          "status": "Missing Fixture",
+          "reason": "Muscle Injury"
+        },
+        {
+          "team": "Internacional",
+          "player": "Kayky",
+          "status": "Missing Fixture",
+          "reason": "Ankle Injury"
+        },
+        {
+          "team": "Internacional",
+          "player": "S. Rochet",
+          "status": "Missing Fixture",
+          "reason": "Lower Back Injury"
+        },
+        {
+          "team": "Internacional",
+          "player": "Thiago Maia",
+          "status": "Missing Fixture",
+          "reason": "Hamstring Injury"
+        },
+        {
+          "team": "Internacional",
+          "player": "R. Villagra",
+          "status": "Missing Fixture",
+          "reason": "Injury"
+        },
+        {
+          "team": "Remo",
+          "player": "Marcelinho",
+          "status": "Missing Fixture",
+          "reason": "Inactive"
+        },
+        {
+          "team": "Remo",
+          "player": "D. Tchamba",
+          "status": "Missing Fixture",
+          "reason": "Injury"
+        },
+        {
+          "team": "Remo",
+          "player": "Joao Lucas",
+          "status": "Questionable",
+          "reason": "Knee Injury"
+        },
+        {
+          "team": "Remo",
+          "player": "Mayk",
+          "status": "Questionable",
+          "reason": "Injury"
+        },
+        {
+          "team": "Internacional",
+          "player": "B. Arhin",
+          "status": "Missing Fixture",
+          "reason": "Hamstring Injury"
+        },
+        {
+          "team": "Internacional",
+          "player": "Joao Victor",
+          "status": "Missing Fixture",
+          "reason": "Muscle Injury"
+        },
+        {
+          "team": "Internacional",
+          "player": "Kayky",
+          "status": "Missing Fixture",
+          "reason": "Ankle Injury"
+        },
+        {
+          "team": "Internacional",
+          "player": "S. Rochet",
+          "status": "Missing Fixture",
+          "reason": "Lower Back Injury"
+        },
+        {
+          "team": "Internacional",
+          "player": "Thiago Maia",
+          "status": "Missing Fixture",
+          "reason": "Hamstring Injury"
+        },
+        {
+          "team": "Internacional",
+          "player": "R. Villagra",
+          "status": "Missing Fixture",
+          "reason": "Injury"
+        },
+        {
+          "team": "Remo",
+          "player": "Marcelinho",
+          "status": "Missing Fixture",
+          "reason": "Inactive"
+        },
+        {
+          "team": "Remo",
+          "player": "D. Tchamba",
+          "status": "Missing Fixture",
+          "reason": "Injury"
+        },
+        {
+          "team": "Remo",
+          "player": "Joao Lucas",
+          "status": "Questionable",
+          "reason": "Knee Injury"
+        },
+        {
+          "team": "Remo",
+          "player": "Mayk",
+          "status": "Questionable",
+          "reason": "Injury"
+        }
+      ],
+      "injuryCount": 20,
+      "injuryApiErrors": []
+    }
+  }
+}

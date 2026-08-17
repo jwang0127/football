@@ -1,6 +1,6 @@
 {
   "version": "match-radar-v1",
-  "generatedAt": "2026-08-17T11:18:00",
+  "generatedAt": "2026-08-17T11:37:05",
   "date": "20260817",
   "dateText": "2026-08-17",
   "providers": [
@@ -61,22 +61,35 @@
       "oddsUpdatedAt": "2026-08-15 09:45:59",
       "injuries": {
         "confirmed": false,
-        "text": "暂无已确认的官方伤停或首发信息"
+        "text": "API-Football 本场伤停接口返回 0 条记录"
       },
       "rest": {
         "home": 22,
         "away": 15
       },
-      "standings": "赫尔辛基火花 [芬超6]；坦佩雷山猫 [芬超9]",
+      "standings": "赫尔辛基火花 [芬超6]；坦佩雷山猫 [芬超9]；API-Football fixture 1495762；赛事轮次：Regular Season - 20；比赛状态：Not Started",
       "competition": "暂无已确认的积分/晋级信息",
       "stage": "暂无已确认的赛事阶段",
+      "fixtureEvidence": {
+        "provider": "API-Football",
+        "fixtureId": 1495762,
+        "round": "Regular Season - 20",
+        "venue": {
+          "id": 2698,
+          "name": "Markku.fi Areena",
+          "city": "Helsinki"
+        },
+        "referee": null,
+        "status": "Not Started"
+      },
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
-        "confirmed": false,
-        "text": "暂无已确认的本场赛后下一场赛程"
+        "confirmed": true,
+        "text": "2026-08-23 15:00：HJK 主场 vs IF Gnistan"
       },
       "sources": [
-        "https://www.sporttery.cn/"
+        "https://www.sporttery.cn/",
+        "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain"
       ]
     },
     {
@@ -109,23 +122,36 @@
       },
       "oddsUpdatedAt": "2026-08-15 09:45:59",
       "injuries": {
-        "confirmed": false,
-        "text": "暂无已确认的官方伤停或首发信息"
+        "confirmed": true,
+        "text": "API-Football 已返回 4 条伤停记录：B. Engdahl（Missing Fixture）、F. Ohman（Missing Fixture）、B. Engdahl（Missing Fixture）、F. Ohman（Missing Fixture）"
       },
       "rest": {
         "home": 8,
         "away": 8
       },
-      "standings": "赫根 [瑞超5]；哈尔姆斯塔德 [瑞超16]",
+      "standings": "赫根 [瑞超5]；哈尔姆斯塔德 [瑞超16]；API-Football fixture 1494246；赛事轮次：Regular Season - 17；比赛状态：Not Started",
       "competition": "暂无已确认的积分/晋级信息",
       "stage": "暂无已确认的赛事阶段",
+      "fixtureEvidence": {
+        "provider": "API-Football",
+        "fixtureId": 1494246,
+        "round": "Regular Season - 17",
+        "venue": {
+          "id": null,
+          "name": "Nordic Wellness Arena",
+          "city": null
+        },
+        "referee": "A. Aganovic",
+        "status": "Not Started"
+      },
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
-        "confirmed": false,
-        "text": "暂无已确认的本场赛后下一场赛程"
+        "confirmed": true,
+        "text": "2026-08-21 19:00：IK Sirius 主场 vs BK Häcken"
       },
       "sources": [
-        "https://www.sporttery.cn/"
+        "https://www.sporttery.cn/",
+        "https://allsvenskan.se/nyheter/sa-spelas-omgang-18-23-av-allsvenskan/"
       ]
     },
     {
@@ -158,23 +184,36 @@
       },
       "oddsUpdatedAt": "2026-08-15 09:45:59",
       "injuries": {
-        "confirmed": false,
-        "text": "暂无已确认的官方伤停或首发信息"
+        "confirmed": true,
+        "text": "API-Football 已返回 4 条伤停记录：D. Lawlor（Questionable）、S. Revan（Questionable）、D. Lawlor（Questionable）、S. Revan（Questionable）"
       },
       "rest": {
         "home": null,
         "away": null
       },
-      "standings": "加的夫城 [英冠13]；雷克斯汉姆 [英冠16]",
+      "standings": "加的夫城 [英冠13]；雷克斯汉姆 [英冠16]；API-Football fixture 1563094；赛事轮次：Regular Season - 1；比赛状态：Not Started",
       "competition": "暂无已确认的积分/晋级信息",
       "stage": "暂无已确认的赛事阶段",
+      "fixtureEvidence": {
+        "provider": "API-Football",
+        "fixtureId": 1563094,
+        "round": "Regular Season - 1",
+        "venue": {
+          "id": null,
+          "name": "Cardiff City Stadium",
+          "city": "Cardiff"
+        },
+        "referee": "A. Kitchen",
+        "status": "Not Started"
+      },
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
-        "confirmed": false,
-        "text": "暂无已确认的本场赛后下一场赛程"
+        "confirmed": true,
+        "text": "2026-08-22：Cardiff City 主场 vs Derby County"
       },
       "sources": [
-        "https://www.sporttery.cn/"
+        "https://www.sporttery.cn/",
+        "https://www.cardiffcity-mad.co.uk/news/tmnw/championship_fixtures_2026_27_989234/index.shtml"
       ]
     },
     {
@@ -207,23 +246,36 @@
       },
       "oddsUpdatedAt": "2026-08-15 09:45:59",
       "injuries": {
-        "confirmed": false,
-        "text": "暂无已确认的官方伤停或首发信息"
+        "confirmed": true,
+        "text": "API-Football 已返回 16 条伤停记录：N. Carrillo（Missing Fixture）、Y. Hernandez（Missing Fixture）、A. Altimira（Questionable）、J. Asp（Questionable）、G. Diangana（Missing Fixture）、A. Osorio（Missing Fixture）、Y. Santiago（Missing Fixture）、A. Boayar（Questionable）"
       },
       "rest": {
         "home": null,
         "away": null
       },
-      "standings": "拉科鲁尼亚 [西甲7]；埃尔切 [西甲8]",
+      "standings": "拉科鲁尼亚 [西甲7]；埃尔切 [西甲8]；API-Football fixture 1570337；赛事轮次：Regular Season - 1；比赛状态：Not Started",
       "competition": "暂无已确认的积分/晋级信息",
       "stage": "暂无已确认的赛事阶段",
+      "fixtureEvidence": {
+        "provider": "API-Football",
+        "fixtureId": 1570337,
+        "round": "Regular Season - 1",
+        "venue": {
+          "id": null,
+          "name": "Estadio Municipal de Riazor",
+          "city": null
+        },
+        "referee": null,
+        "status": "Not Started"
+      },
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
-        "confirmed": false,
-        "text": "暂无已确认的本场赛后下一场赛程"
+        "confirmed": true,
+        "text": "2026-08-24 19:30：Málaga CF 主场 vs RC Deportivo"
       },
       "sources": [
-        "https://www.sporttery.cn/"
+        "https://www.sporttery.cn/",
+        "https://www.laliga.com/es-NG/clubes/rc-deportivo/proximos-partidos"
       ]
     },
     {
@@ -253,22 +305,35 @@
       "oddsUpdatedAt": " ",
       "injuries": {
         "confirmed": false,
-        "text": "暂无已确认的官方伤停或首发信息"
+        "text": "API-Football 本场伤停接口返回 0 条记录"
       },
       "rest": {
         "home": null,
         "away": 3
       },
-      "standings": "卡萨皮亚 [葡超16]；本菲卡 [葡超8]",
+      "standings": "卡萨皮亚 [葡超16]；本菲卡 [葡超8]；API-Football fixture 1575459；赛事轮次：Regular Season - 2；比赛状态：Not Started",
       "competition": "暂无已确认的积分/晋级信息",
       "stage": "暂无已确认的赛事阶段",
+      "fixtureEvidence": {
+        "provider": "API-Football",
+        "fixtureId": 1575459,
+        "round": "Regular Season - 2",
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": "Rio Maior"
+        },
+        "referee": "J. Pinheiro",
+        "status": "Not Started"
+      },
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
-        "confirmed": false,
-        "text": "暂无已确认的本场赛后下一场赛程"
+        "confirmed": true,
+        "text": "2026-08-23：Gil Vicente FC 主场 vs Casa Pia AC"
       },
       "sources": [
-        "https://www.sporttery.cn/"
+        "https://www.sporttery.cn/",
+        "https://www.casapiaac.pt/calendario.php"
       ]
     },
     {
@@ -301,16 +366,28 @@
       },
       "oddsUpdatedAt": "2026-08-15 09:45:59",
       "injuries": {
-        "confirmed": false,
-        "text": "暂无已确认的官方伤停或首发信息"
+        "confirmed": true,
+        "text": "API-Football 已返回 20 条伤停记录：B. Arhin（Missing Fixture）、Joao Victor（Missing Fixture）、Kayky（Missing Fixture）、S. Rochet（Missing Fixture）、Thiago Maia（Missing Fixture）、R. Villagra（Missing Fixture）、Marcelinho（Missing Fixture）、D. Tchamba（Missing Fixture）"
       },
       "rest": {
         "home": 22,
         "away": 12
       },
-      "standings": "巴西国际 [巴甲16]；里莫 [巴甲19]",
+      "standings": "巴西国际 [巴甲16]；里莫 [巴甲19]；API-Football fixture 1492335；赛事轮次：Regular Season - 23；比赛状态：Not Started",
       "competition": "暂无已确认的积分/晋级信息",
       "stage": "暂无已确认的赛事阶段",
+      "fixtureEvidence": {
+        "provider": "API-Football",
+        "fixtureId": 1492335,
+        "round": "Regular Season - 23",
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": "Porto Alegre"
+        },
+        "referee": "E. Batista",
+        "status": "Not Started"
+      },
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": false,
