@@ -209,7 +209,7 @@ function readableCard(m,i){
   const market=m.marketOdds||{};
   const oddsText=(market.home&&market.draw&&market.away)?('参考水位：'+esc(market.home)+' / '+esc(market.draw)+' / '+esc(market.away)):'参考水位：暂无';
   const injuryList=(rows)=>rows&&rows.length?'<ul class="injury-list">'+rows.map(x=>'<li><strong>'+esc(x.player)+'</strong><span>'+esc(x.position)+' · '+esc(x.status)+' · '+esc(x.reason)+'</span></li>').join('')+'</ul>':'<p class="quiet">暂无已确认记录</p>';
-  const history=m.h2h&&m.h2h.length?'<div class="history-list">'+m.h2h.slice(-5).reverse().map(x=>{const hg=Number(x.homeGoals),ag=Number(x.awayGoals),result=hg===ag?'平':(hg>ag?'主胜':'客胜'),score=hg===ag?hg+'–'+ag:(hg>ag?'<strong>'+hg+'</strong>–'+ag:hg+'–<strong>'+ag+'</strong>');return '<span>'+esc(x.date)+' · '+result+' '+score+'</span>';}).join('')+'</div>':'<p class="quiet">暂无已取得交手记录</p>';
+   const history=m.h2h&&m.h2h.length?'<div class="history-list">'+m.h2h.slice(-5).reverse().map(x=>{const hg=Number(x.homeGoals),ag=Number(x.awayGoals),score=hg===ag?hg+'–'+ag:(hg>ag?'<strong>'+hg+'</strong>–'+ag:hg+'–<strong>'+ag+'</strong>');return '<span>'+esc(x.date)+' · '+esc(x.home)+' vs '+esc(x.away)+' · '+score+'</span>';}).join('')+'</div>':'<p class="quiet">暂无已取得交手记录</p>';
   const nextItem=(label,item)=>item?'<div><b>'+label+'</b><strong>'+esc(item.text)+'</strong><span>时间：'+esc(item.date)+'</span></div>':'<div><b>'+label+'</b><span>暂无已核验赛程</span></div>';
   const fixtureStatus={"Not Started":"未开赛","First Half":"上半场","Second Half":"下半场","Match Finished":"已结束","Postponed":"延期","Cancelled":"取消"};
   const fixtureLine=ev.fixtureId ? '比赛状态：'+(fixtureStatus[ev.status]||'待更新') : '比赛状态待更新';
