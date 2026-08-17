@@ -1,6 +1,6 @@
 {
   "version": "match-radar-v1",
-  "generatedAt": "2026-08-17T14:08:04",
+  "generatedAt": "2026-08-17T14:20:32",
   "date": "20260817",
   "dateText": "2026-08-17",
   "providers": [
@@ -67,8 +67,9 @@
       "oddsUpdatedAt": "2026-08-15 09:45:59",
       "injuries": {
         "confirmed": false,
-        "text": "本场暂无伤停记录",
-        "note": "当前伤停接口未返回本场条目；这只表示暂无可展示记录，不等同于确认阵容完整。",
+        "reviewed": true,
+        "text": "已复核：暂无公开可核验的具体伤停名单",
+        "note": "芬兰官方比赛页面说明首发通常在开赛前约 1 小时公布；当前未列出具体伤停，不能把未进名单直接等同于伤停。",
         "home": [],
         "away": []
       },
@@ -187,7 +188,8 @@
       ],
       "sources": [
         "https://www.sporttery.cn/",
-        "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain"
+        "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain",
+        "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036971/kokoonpanot/"
       ]
     },
     {
@@ -227,6 +229,7 @@
       "oddsUpdatedAt": "2026-08-15 09:45:59",
       "injuries": {
         "confirmed": true,
+        "reviewed": false,
         "text": "已记录 2 名伤停球员",
         "note": "",
         "home": [
@@ -448,8 +451,9 @@
       "oddsUpdatedAt": "2026-08-15 09:45:59",
       "injuries": {
         "confirmed": false,
-        "text": "本场暂无伤停记录",
-        "note": "当前伤停接口未返回本场条目；这只表示暂无可展示记录，不等同于确认阵容完整。",
+        "reviewed": true,
+        "text": "已复核：暂无公开可核验的具体伤停名单",
+        "note": "截至本次抓取，双方官方渠道未发布本场具体伤停名单；等待赛前球队公告或官方首发后再更新，暂不作阵容完整判断。",
         "home": [],
         "away": []
       },
@@ -487,7 +491,8 @@
       "h2h": [],
       "sources": [
         "https://www.sporttery.cn/",
-        "https://www.cardiffcity-mad.co.uk/news/tmnw/championship_fixtures_2026_27_989234/index.shtml"
+        "https://www.cardiffcity-mad.co.uk/news/tmnw/championship_fixtures_2026_27_989234/index.shtml",
+        "https://www.cardiffcityfc.co.uk/"
       ]
     },
     {
@@ -527,6 +532,7 @@
       "oddsUpdatedAt": "2026-08-15 09:45:59",
       "injuries": {
         "confirmed": true,
+        "reviewed": false,
         "text": "已记录 8 名伤停球员",
         "note": "",
         "home": [
@@ -721,8 +727,9 @@
       "oddsUpdatedAt": " ",
       "injuries": {
         "confirmed": false,
-        "text": "本场暂无伤停记录",
-        "note": "当前伤停接口未返回本场条目；这只表示暂无可展示记录，不等同于确认阵容完整。",
+        "reviewed": true,
+        "text": "已复核：暂无公开可核验的具体伤停名单",
+        "note": "卡萨皮亚官方赛程已确认本场，但当前页面未发布具体伤停名单；未获得球员级证据前不填入推测记录。",
         "home": [],
         "away": []
       },
@@ -825,7 +832,8 @@
       ],
       "sources": [
         "https://www.sporttery.cn/",
-        "https://www.casapiaac.pt/calendario.php"
+        "https://www.casapiaac.pt/calendario.php",
+        "https://www.casapiaac.pt/"
       ]
     },
     {
@@ -865,6 +873,7 @@
       "oddsUpdatedAt": "2026-08-15 09:45:59",
       "injuries": {
         "confirmed": true,
+        "reviewed": false,
         "text": "已记录 10 名伤停球员",
         "note": "",
         "home": [
