@@ -7,11 +7,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 NEXT_MATCHES = {
-    "2040914": {"text": "2026-08-23 15:00：HJK 主场 vs IF Gnistan", "source": "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain"},
-    "2040915": {"text": "2026-08-21 19:00：IK Sirius 主场 vs BK Häcken", "source": "https://allsvenskan.se/nyheter/sa-spelas-omgang-18-23-av-allsvenskan/"},
-    "2040916": {"text": "2026-08-22：Cardiff City 主场 vs Derby County", "source": "https://www.cardiffcity-mad.co.uk/news/tmnw/championship_fixtures_2026_27_989234/index.shtml"},
-    "2040922": {"text": "2026-08-24 19:30：Málaga CF 主场 vs RC Deportivo", "source": "https://www.laliga.com/es-NG/clubes/rc-deportivo/proximos-partidos"},
-    "2040917": {"text": "2026-08-23：Gil Vicente FC 主场 vs Casa Pia AC", "source": "https://www.casapiaac.pt/calendario.php"},
+    "2040914": {"text": "HJK vs IF Gnistan", "source": "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain"},
+    "2040915": {"text": "IK Sirius vs BK Häcken", "source": "https://allsvenskan.se/nyheter/sa-spelas-omgang-18-23-av-allsvenskan/"},
+    "2040916": {"text": "Cardiff City vs Derby County", "source": "https://www.cardiffcity-mad.co.uk/news/tmnw/championship_fixtures_2026_27_989234/index.shtml"},
+    "2040922": {"text": "Málaga CF vs RC Deportivo", "source": "https://www.laliga.com/es-NG/clubes/rc-deportivo/proximos-partidos"},
+    "2040917": {"text": "Gil Vicente FC vs Casa Pia AC", "source": "https://www.casapiaac.pt/calendario.php"},
 }
 PROVIDERS = [
     {"name":"体彩 Sporttery", "role":"业务日、场次、赔率、竞彩编号", "status":"active", "url":"https://www.sporttery.cn/"},
@@ -72,19 +72,23 @@ def build(source, contexts, external, enrichment):
                 side = "home" if item.get("teamId") == home_api else "away"
                 injury_rows[side].append({"player": item.get("player"), "position": position_zh(item.get("position")), "status": status_zh(item.get("status")), "reason": item.get("reason") or "原因未记录"})
         api_odds = api.get("marketOdds") or {}
+        injury_note = "当前伤停接口未返回本场条目；这只表示暂无可展示记录，不等同于确认阵容完整。" if not api.get("injuryCount") else ""
         next_override = NEXT_MATCHES.get(mid)
         next_match = next_override["text"] if next_override else confirmed(c.get("nextMatch"), "暂无已确认的本场赛后下一场赛程")
+        home_rank = rank(m.get("homeRank")) or rank(c.get("homeRank"))
+        away_rank = rank(m.get("awayRank")) or rank(c.get("awayRank"))
         rows.append({
             "id":mid, "lotteryNo":m.get("matchNumStr") or m.get("lotteryCode"), "league":m.get("league"),
             "kickoff":m.get("kickoff"), "home":m.get("home"), "away":m.get("away"),
-            "homeRank":rank(m.get("homeRank")) or c.get("homeRank"), "awayRank":rank(m.get("awayRank")) or c.get("awayRank"),
+            "homeRank":home_rank, "awayRank":away_rank,
             "prediction":m.get("prediction") or {}, "probabilities":probs((m.get("odds") or {}).get("had"), probs((m.get("odds") or {}).get("hhad"))),
             "marketOdds":{"bookmaker":api_odds.get("bookmaker"), "home":api_odds.get("home"), "draw":api_odds.get("draw"), "away":api_odds.get("away")},
             "oddsUpdatedAt":((m.get("odds") or {}).get("had") or {}).get("updatedAt"),
-            "injuries":{"confirmed":bool(api.get("injuryCount")) or (api.get("status") != "ok" and not injuries.startswith("暂无")), "text":injuries, "home":injury_rows["home"], "away":injury_rows["away"]},
+            "injuries":{"confirmed":bool(api.get("injuryCount")) or (api.get("status") != "ok" and not injuries.startswith("暂无")), "text":injuries, "note":injury_note, "home":injury_rows["home"], "away":injury_rows["away"]},
             "rest":c.get("restDays") or {},
             "standings":confirmed(c.get("ranking"), "暂无已确认的积分榜位置"),
-            "standingsBrief":{"home":m.get("homeRank") or c.get("homeRank"), "away":m.get("awayRank") or c.get("awayRank")},
+            "standingsBrief":{"home":home_rank, "away":away_rank},
+            "rankText":f"当前联赛排名：主队第{home_rank or '—'}名 · 客队第{away_rank or '—'}名",
             "competition":confirmed(c.get("motivation"), "暂无已确认的积分/晋级信息"),
             "competitionBrief":round_zh(api.get("round")) + (" · 未开赛" if api.get("status") == "ok" else ""),
             "competitionPath":"杯赛走向：本场为常规联赛，不产生杯赛晋级路径" if "杯" not in str(m.get("league")) else "杯赛走向：赛后按晋级结果读取下一轮对阵",
@@ -124,16 +128,16 @@ function readableCard(m,i){
   const market=m.marketOdds||{};
   const oddsText=(market.home&&market.draw&&market.away)?('参考水位：'+esc(market.home)+' / '+esc(market.draw)+' / '+esc(market.away)):'参考水位：暂无';
   const injuryList=(rows)=>rows&&rows.length?'<ul class="injury-list">'+rows.map(x=>'<li><strong>'+esc(x.player)+'</strong><span>'+esc(x.position)+' · '+esc(x.status)+' · '+esc(x.reason)+'</span></li>').join('')+'</ul>':'<p class="quiet">暂无已确认记录</p>';
-  const history=m.h2h&&m.h2h.length?'<div class="history-list">'+m.h2h.slice(-5).reverse().map(x=>'<span>'+esc(x.date)+' · '+esc(x.home)+' '+esc(x.homeGoals)+'-'+esc(x.awayGoals)+' '+esc(x.away)+'</span>').join('')+'</div>':'<p class="quiet">暂无已取得交手记录</p>';
+  const history=m.h2h&&m.h2h.length?'<div class="history-list">'+m.h2h.slice(-5).reverse().map(x=>{const hg=Number(x.homeGoals),ag=Number(x.awayGoals),result=hg===ag?'平':(hg>ag?'主胜':'客胜'),score=hg===ag?hg+'–'+ag:(hg>ag?'<strong>'+hg+'</strong>–'+ag:hg+'–<strong>'+ag+'</strong>');return '<span>'+esc(x.date)+' · '+result+' '+score+'</span>';}).join('')+'</div>':'<p class="quiet">暂无已取得交手记录</p>';
   const fixtureLine=ev.fixtureId ? '比赛状态：'+(ev.status==='Not Started'?'未开赛':esc(ev.status||'待更新')) : '比赛状态待更新';
   return '<article class="radar-card" data-league="'+esc(m.league)+'" data-teams="'+esc(m.home+' '+m.away)+'">'
    +'<button class="card-toggle" aria-expanded="'+(i===0)+'" data-target="r2-'+m.id+'"><span class="match-index">'+String(i+1).padStart(2,'0')+'</span><span class="fixture"><small>'+esc(m.lotteryNo)+' · '+esc(m.league)+'</small><strong>'+esc(m.home)+' <em>vs</em> '+esc(m.away)+'</strong><time>'+esc(m.kickoff||'时间待确认')+'</time></span><span class="signal"><b>'+esc(p.totalGoals||'—')+'</b><small>模型总进球</small></span><span class="chevron">⌄</span></button>'
    +'<div id="r2-'+m.id+'" class="card-body" '+(i===0?'':'hidden')+'><div class="radar-columns">'
    +'<div class="radar-block primary"><p class="eyebrow">赛前信号</p><h3>'+esc((p.scores||[]).join(' / ')||'暂无比分池')+' <small>'+esc(p.confidence||'未定')+'</small></h3><p>'+esc(pct(m.probabilities))+'</p><p class="odds-line">'+oddsText+'</p><p class="quiet">竞彩快照：'+esc(m.oddsUpdatedAt||'暂无记录')+'</p></div>'
-   +'<div class="radar-block injury-block"><p class="eyebrow">伤停 · 主客分栏</p><h3>'+injuryLabel+'</h3><div class="injury-sides"><div><b>主队 · '+esc(m.home)+'</b>'+injuryList(m.injuries.home)+'</div><div><b>客队 · '+esc(m.away)+'</b>'+injuryList(m.injuries.away)+'</div></div></div>'
-   +'<div class="radar-block"><p class="eyebrow">积分 / 赛事</p><h3>'+esc(m.home)+' '+esc(m.standingsBrief.home||'')+' <span class="vs-dot">·</span> '+esc(m.away)+' '+esc(m.standingsBrief.away||'')+'</h3><p>'+esc(m.competition)+'</p><p class="quiet">'+fixtureLine+' · '+esc(m.competitionBrief||'赛事阶段待确认')+'</p><p class="quiet">'+esc(m.competitionPath||'')+'</p></div></div>'
+   +'<div class="radar-block injury-block"><p class="eyebrow">伤停 · 主客分栏</p><h3>'+injuryLabel+'</h3><div class="injury-sides"><div><b>主队 · '+esc(m.home)+'</b>'+injuryList(m.injuries.home)+'</div><div><b>客队 · '+esc(m.away)+'</b>'+injuryList(m.injuries.away)+'</div></div>'+(m.injuries.note?'<p class="quiet injury-note">'+esc(m.injuries.note)+'</p>':'')+'</div>'
+   +'<div class="radar-block"><p class="eyebrow">积分 / 赛事</p><h3>'+esc(m.rankText||'排名待确认')+'</h3><p>'+esc(m.competition)+'</p><p class="quiet">'+fixtureLine+' · '+esc(m.competitionBrief||'赛事阶段待确认')+'</p><p class="quiet">'+esc(m.competitionPath||'')+'</p></div></div>'
    +'<div class="radar-columns secondary"><div class="radar-block"><p class="eyebrow">上一场与休息</p><p>'+esc(m.previous)+'</p><p class="rest-display">'+radarRestText(m.rest)+'</p></div>'
-   +'<div class="radar-block next-block"><p class="eyebrow">赛后下一站</p><h3>'+(m.next.confirmed?'已取得赛程':'暂无已确认赛程')+'</h3><p>'+n+'</p><div class="outcome-row"><span><b>主胜</b>'+n+'</span><span><b>平局</b>'+n+'</span><span><b>客胜</b>'+n+'</span></div></div></div>'
+   +'<div class="radar-block next-block"><p class="eyebrow">赛后下一站</p><h3>'+(m.next.confirmed?'已取得赛程':'暂无已确认赛程')+'</h3><p class="next-match-name">'+n+'</p></div></div>'
    +'<div class="radar-block history-block"><p class="eyebrow">历史交手 · 最近 5 次</p>'+history+'</div><details><summary>展开来源</summary><p class="sources">'+(m.sources.length?m.sources.map(u=>'<a href="'+esc(u)+'" target="_blank" rel="noreferrer">打开</a>').join(' · '):'暂无已确认来源')+'</p></details></div></article>';
 }
 card=readableCard; render();

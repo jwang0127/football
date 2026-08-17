@@ -1,6 +1,6 @@
 {
   "version": "match-radar-v1",
-  "generatedAt": "2026-08-17T13:55:13",
+  "generatedAt": "2026-08-17T14:08:04",
   "date": "20260817",
   "dateText": "2026-08-17",
   "providers": [
@@ -68,6 +68,7 @@
       "injuries": {
         "confirmed": false,
         "text": "本场暂无伤停记录",
+        "note": "当前伤停接口未返回本场条目；这只表示暂无可展示记录，不等同于确认阵容完整。",
         "home": [],
         "away": []
       },
@@ -77,9 +78,10 @@
       },
       "standings": "赫尔辛基火花 [芬超6]；坦佩雷山猫 [芬超9]",
       "standingsBrief": {
-        "home": "[芬超6]",
-        "away": "[芬超9]"
+        "home": 6,
+        "away": 9
       },
+      "rankText": "当前联赛排名：主队第6名 · 客队第9名",
       "competition": "暂无已确认的积分/晋级信息",
       "competitionBrief": "第 20 轮 · 未开赛",
       "competitionPath": "杯赛走向：本场为常规联赛，不产生杯赛晋级路径",
@@ -99,7 +101,7 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": true,
-        "text": "2026-08-23 15:00：HJK 主场 vs IF Gnistan"
+        "text": "HJK vs IF Gnistan"
       },
       "h2h": [
         {
@@ -226,6 +228,7 @@
       "injuries": {
         "confirmed": true,
         "text": "已记录 2 名伤停球员",
+        "note": "",
         "home": [
           {
             "player": "B. Engdahl",
@@ -248,9 +251,10 @@
       },
       "standings": "赫根 [瑞超5]；哈尔姆斯塔德 [瑞超16]",
       "standingsBrief": {
-        "home": "[瑞超5]",
-        "away": "[瑞超16]"
+        "home": 5,
+        "away": 16
       },
+      "rankText": "当前联赛排名：主队第5名 · 客队第16名",
       "competition": "暂无已确认的积分/晋级信息",
       "competitionBrief": "第 17 轮 · 未开赛",
       "competitionPath": "杯赛走向：本场为常规联赛，不产生杯赛晋级路径",
@@ -270,7 +274,7 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": true,
-        "text": "2026-08-21 19:00：IK Sirius 主场 vs BK Häcken"
+        "text": "IK Sirius vs BK Häcken"
       },
       "h2h": [
         {
@@ -445,6 +449,7 @@
       "injuries": {
         "confirmed": false,
         "text": "本场暂无伤停记录",
+        "note": "当前伤停接口未返回本场条目；这只表示暂无可展示记录，不等同于确认阵容完整。",
         "home": [],
         "away": []
       },
@@ -454,9 +459,10 @@
       },
       "standings": "加的夫城 [英冠13]；雷克斯汉姆 [英冠16]",
       "standingsBrief": {
-        "home": "[英冠13]",
-        "away": "[英冠16]"
+        "home": 13,
+        "away": 16
       },
+      "rankText": "当前联赛排名：主队第13名 · 客队第16名",
       "competition": "暂无已确认的积分/晋级信息",
       "competitionBrief": "第 1 轮 · 未开赛",
       "competitionPath": "杯赛走向：本场为常规联赛，不产生杯赛晋级路径",
@@ -476,7 +482,7 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": true,
-        "text": "2026-08-22：Cardiff City 主场 vs Derby County"
+        "text": "Cardiff City vs Derby County"
       },
       "h2h": [],
       "sources": [
@@ -522,6 +528,7 @@
       "injuries": {
         "confirmed": true,
         "text": "已记录 8 名伤停球员",
+        "note": "",
         "home": [
           {
             "player": "N. Carrillo",
@@ -581,9 +588,10 @@
       },
       "standings": "拉科鲁尼亚 [西甲7]；埃尔切 [西甲8]",
       "standingsBrief": {
-        "home": "[西甲7]",
-        "away": "[西甲8]"
+        "home": 7,
+        "away": 8
       },
+      "rankText": "当前联赛排名：主队第7名 · 客队第8名",
       "competition": "暂无已确认的积分/晋级信息",
       "competitionBrief": "第 1 轮 · 未开赛",
       "competitionPath": "杯赛走向：本场为常规联赛，不产生杯赛晋级路径",
@@ -603,7 +611,7 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": true,
-        "text": "2026-08-24 19:30：Málaga CF 主场 vs RC Deportivo"
+        "text": "Málaga CF vs RC Deportivo"
       },
       "h2h": [
         {
@@ -714,6 +722,7 @@
       "injuries": {
         "confirmed": false,
         "text": "本场暂无伤停记录",
+        "note": "当前伤停接口未返回本场条目；这只表示暂无可展示记录，不等同于确认阵容完整。",
         "home": [],
         "away": []
       },
@@ -723,9 +732,10 @@
       },
       "standings": "卡萨皮亚 [葡超16]；本菲卡 [葡超8]",
       "standingsBrief": {
-        "home": "[葡超16]",
-        "away": "[葡超8]"
+        "home": 16,
+        "away": 8
       },
+      "rankText": "当前联赛排名：主队第16名 · 客队第8名",
       "competition": "暂无已确认的积分/晋级信息",
       "competitionBrief": "第 2 轮 · 未开赛",
       "competitionPath": "杯赛走向：本场为常规联赛，不产生杯赛晋级路径",
@@ -745,7 +755,7 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": true,
-        "text": "2026-08-23：Gil Vicente FC 主场 vs Casa Pia AC"
+        "text": "Gil Vicente FC vs Casa Pia AC"
       },
       "h2h": [
         {
@@ -856,6 +866,7 @@
       "injuries": {
         "confirmed": true,
         "text": "已记录 10 名伤停球员",
+        "note": "",
         "home": [
           {
             "player": "B. Arhin",
@@ -927,9 +938,10 @@
       },
       "standings": "巴西国际 [巴甲16]；里莫 [巴甲19]",
       "standingsBrief": {
-        "home": "[巴甲16]",
-        "away": "[巴甲19]"
+        "home": 16,
+        "away": 19
       },
+      "rankText": "当前联赛排名：主队第16名 · 客队第19名",
       "competition": "暂无已确认的积分/晋级信息",
       "competitionBrief": "第 23 轮 · 未开赛",
       "competitionPath": "杯赛走向：本场为常规联赛，不产生杯赛晋级路径",

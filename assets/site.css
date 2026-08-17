@@ -129,7 +129,7 @@ tr:hover td { background: rgba(17, 107, 98, .035); }
 }
 
 /* Match radar */
-.radar-html { color-scheme: dark; }
+.radar-html { color-scheme: light; }
 .radar-page .skip-link { position: absolute; left: -9999px; top: 10px; z-index: 10; padding: 8px 12px; color: #071820; background: #f0b34e; border-radius: 8px; }
 .radar-page .skip-link:focus-visible { left: 12px; }
 .radar-page { --radar-ink: #f4fbf8; --radar-muted: #d7e7e2; --radar-line: #31535b; --radar-accent: #f0b34e; background: #071820 !important; color: #f4fbf8 !important; }
@@ -202,3 +202,31 @@ tr:hover td { background: rgba(17, 107, 98, .035); }
 .radar-disclaimer { padding: 22px 0 40px; color: var(--radar-muted) !important; font-size: 12px; }
 .empty-state { padding: 30px; color: var(--radar-muted); background: #102a32; border: 1px solid var(--radar-line); border-radius: 15px; }
 @media (max-width: 760px) { .radar-intro, .provider-panel, .radar-columns, .radar-columns.secondary, .injury-sides { grid-template-columns: 1fr; } .card-toggle { grid-template-columns: 30px 1fr 50px 16px; gap: 8px; padding-inline: 12px; } .card-body { padding-inline: 12px; } .signal b { font-size: 24px; } .coverage-grid { gap: 6px; } .coverage-grid div { padding: 10px 8px; } }
+
+/* Radar light editorial theme: strong contrast on a warm paper background. */
+.radar-html { color-scheme: light; }
+.radar-page { --radar-ink: #182f35; --radar-muted: #42606a; --radar-line: #d6e1dc; --radar-accent: #b66412; background: #f5f2eb !important; color: #182f35 !important; }
+.radar-page .radar-hero { background: transparent !important; }
+.radar-page .radar-hero h1, .radar-page .radar-intro h2 { color: #182f35 !important; }
+.radar-page .radar-hero nav a, .radar-page .radar-meta span { color: #22434a !important; background: #fffdf8 !important; border-color: #cbdad4 !important; }
+.radar-page .radar-deck, .radar-page .radar-meta { color: #42606a !important; }
+.radar-page .radar-intro, .radar-page .radar-card, .radar-page .radar-block, .radar-page .radar-toolbar label, .radar-page .radar-toolbar button { background: #fffdf8 !important; border-color: #d6e1dc !important; color: #182f35 !important; box-shadow: 0 12px 30px rgba(36,70,74,.08) !important; }
+.radar-page .card-body { border-color: #d6e1dc !important; }
+.radar-page .fixture strong, .radar-page .fixture time, .radar-page .fixture small, .radar-page .radar-block h3, .radar-page .card-toggle { color: #182f35 !important; }
+.radar-page .radar-block p, .radar-page .quiet, .radar-page .radar-block .muted, .radar-page .sources { color: #42606a !important; }
+.radar-page .odds-line, .radar-page .rest-display, .radar-page .eyebrow, .radar-page .injury-sides b, .radar-page .history-list strong { color: #b66412 !important; }
+.radar-page .injury-sides > div, .radar-page .history-list span { background: #f4f7f3 !important; border: 1px solid #e1ebe6; color: #22434a !important; }
+.radar-page .injury-list li { border-color: #d6e1dc; }
+.radar-page .injury-list strong { color: #182f35 !important; }
+.radar-page .injury-list span { color: #42606a !important; }
+.radar-page .radar-toolbar select, .radar-page .radar-toolbar input { color: #182f35 !important; background: #fffdf8 !important; }
+.radar-page .radar-toolbar input::placeholder { color: #6a8088 !important; }
+.radar-page .provider-panel { display: none !important; }
+.radar-page .next-match-name { font-size: 20px; font-weight: 800; color: #182f35 !important; }
+.radar-page .history-block { margin-top: 12px; min-height: 0; padding: 12px 16px !important; }
+.radar-page .history-list { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 6px; }
+.radar-page .history-list span { font-size: 13px; }
+.radar-page .coverage-grid div { background: #f4f7f3; border-color: #e1ebe6; }
+.radar-page .coverage-grid span { color: #42606a !important; }
+.radar-page .signal b, .radar-page .match-index { color: #b66412 !important; }
+.radar-page .chevron { color: #42606a !important; }
