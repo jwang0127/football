@@ -7,11 +7,26 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 NEXT_MATCHES = {
-    "2040914": {"text": "HJK vs IF Gnistan", "source": "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain"},
-    "2040915": {"text": "IK Sirius vs BK Häcken", "source": "https://allsvenskan.se/nyheter/sa-spelas-omgang-18-23-av-allsvenskan/"},
-    "2040916": {"text": "Cardiff City vs Derby County", "source": "https://www.cardiffcity-mad.co.uk/news/tmnw/championship_fixtures_2026_27_989234/index.shtml"},
-    "2040922": {"text": "Málaga CF vs RC Deportivo", "source": "https://www.laliga.com/es-NG/clubes/rc-deportivo/proximos-partidos"},
-    "2040917": {"text": "Gil Vicente FC vs Casa Pia AC", "source": "https://www.casapiaac.pt/calendario.php"},
+    "2040914": {"text": "赫尔辛基 vs 赫尔辛基格尼斯坦", "source": "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain"},
+    "2040915": {"text": "天狼星 vs 赫根", "source": "https://allsvenskan.se/nyheter/sa-spelas-omgang-18-23-av-allsvenskan/"},
+    "2040916": {"text": "加的夫城 vs 德比郡", "source": "https://www.cardiffcity-mad.co.uk/news/tmnw/championship_fixtures_2026_27_989234/index.shtml"},
+    "2040922": {"text": "马拉加 vs 拉科鲁尼亚", "source": "https://www.laliga.com/es-NG/clubes/rc-deportivo/proximos-partidos"},
+    "2040917": {"text": "吉维森特 vs 卡萨皮亚", "source": "https://www.casapiaac.pt/calendario.php"},
+}
+TEAM_ZH = {
+    "Ilves": "伊尔维斯", "Gnistan": "格尼斯坦", "Halmstad": "哈尔姆斯塔德", "BK Hacken": "赫根",
+    "Deportivo La Coruna": "拉科鲁尼亚", "Elche": "埃尔切", "Casa Pia": "卡萨皮亚", "Benfica": "本菲卡",
+    "Remo": "里莫", "Internacional": "巴西国际",
+}
+REASON_ZH = {
+    "Injury": "伤病", "Shoulder Injury": "肩部伤病", "Groin Injury": "腹股沟伤病", "Knee Injury": "膝部伤病",
+    "Muscle Injury": "肌肉伤病", "Hamstring Injury": "大腿后侧肌肉伤病", "Ankle Injury": "脚踝伤病",
+    "Lower Back Injury": "下背部伤病", "Inactive": "未激活",
+}
+LEAGUE_ZH = {
+    "Veikkausliiga": "芬兰超级联赛", "Friendlies Clubs": "俱乐部友谊赛", "Suomen Cup": "芬兰杯",
+    "Allsvenskan": "瑞典超级联赛", "Svenska Cupen": "瑞典杯", "Segunda División": "西乙",
+    "La Liga": "西甲", "Primeira Liga": "葡萄牙超级联赛", "Copa Do Brasil": "巴西杯", "Serie A": "巴西甲",
 }
 INJURY_REVIEWS = {
     "2040914": {
@@ -63,6 +78,18 @@ def position_zh(value):
 def status_zh(value):
     return {"Missing Fixture":"缺席", "Questionable":"出场存疑", "Suspended":"停赛"}.get(value, value or "状态记录")
 
+def name_zh(value):
+    return TEAM_ZH.get(value, value or "球队待确认")
+
+def reason_zh(value):
+    return REASON_ZH.get(value, value or "原因未记录")
+
+def confidence_zh(value):
+    return {"high":"高", "medium":"中", "low":"低"}.get(value, value or "未定")
+
+def league_zh(value):
+    return LEAGUE_ZH.get(value, value or "赛事待确认")
+
 def round_zh(value):
     text = str(value or "").replace("Regular Season - ", "第 ").replace(" - ", " · ")
     return (text + " 轮") if text.startswith("第 ") else (text or "赛事阶段待确认")
@@ -87,7 +114,7 @@ def build(source, contexts, external, enrichment):
             home_api = ((api.get("teams") or {}).get("home") or {}).get("id")
             for item in api.get("injuries", []):
                 side = "home" if item.get("teamId") == home_api else "away"
-                injury_rows[side].append({"player": item.get("player"), "position": position_zh(item.get("position")), "status": status_zh(item.get("status")), "reason": item.get("reason") or "原因未记录"})
+                injury_rows[side].append({"player": item.get("player"), "position": position_zh(item.get("position")), "status": status_zh(item.get("status")), "reason": reason_zh(item.get("reason"))})
         api_odds = api.get("marketOdds") or {}
         injury_review = INJURY_REVIEWS.get(mid, {})
         injury_note = injury_review.get("note") if not api.get("injuryCount") and injury_review else ("当前伤停接口未返回本场条目；这只表示暂无可展示记录，不等同于确认阵容完整。" if not api.get("injuryCount") else "")
@@ -101,7 +128,7 @@ def build(source, contexts, external, enrichment):
             "id":mid, "lotteryNo":m.get("matchNumStr") or m.get("lotteryCode"), "league":m.get("league"),
             "kickoff":m.get("kickoff"), "home":m.get("home"), "away":m.get("away"),
             "homeRank":home_rank, "awayRank":away_rank,
-            "prediction":m.get("prediction") or {}, "probabilities":probs((m.get("odds") or {}).get("had"), probs((m.get("odds") or {}).get("hhad"))),
+            "prediction":{**(m.get("prediction") or {}), "confidence":confidence_zh((m.get("prediction") or {}).get("confidence"))}, "probabilities":probs((m.get("odds") or {}).get("had"), probs((m.get("odds") or {}).get("hhad"))),
             "marketOdds":{"bookmaker":api_odds.get("bookmaker"), "home":api_odds.get("home"), "draw":api_odds.get("draw"), "away":api_odds.get("away")},
             "oddsUpdatedAt":((m.get("odds") or {}).get("had") or {}).get("updatedAt"),
             "injuries":{"confirmed":bool(api.get("injuryCount")), "reviewed":bool(injury_review), "text":injuries, "note":injury_note, "home":injury_rows["home"], "away":injury_rows["away"]},
@@ -116,7 +143,7 @@ def build(source, contexts, external, enrichment):
             "fixtureEvidence": {"provider": "API-Football" if api.get("status") == "ok" else "", "fixtureId": api.get("fixtureId"), "round": api.get("round"), "venue": (api.get("fixture") or {}).get("venue"), "referee": (api.get("fixture") or {}).get("referee"), "status": ((api.get("fixture") or {}).get("status") or {}).get("long")},
             "previous":confirmed(c.get("schedule"), "暂无已确认的上一场与休息间隔"),
             "next":{"confirmed":not next_match.startswith("暂无"), "text":next_match},
-            "h2h":[x for x in api.get("h2h", []) if x.get("homeGoals") is not None and x.get("awayGoals") is not None],
+            "h2h":[{**x, "home":name_zh(x.get("home")), "away":name_zh(x.get("away")), "league":league_zh(x.get("league"))} for x in api.get("h2h", []) if x.get("homeGoals") is not None and x.get("awayGoals") is not None],
             "sources":list(dict.fromkeys([*e.get("sources", []), "https://www.sporttery.cn/", *([next_override["source"]] if next_override else []), *([injury_review["source"]] if injury_review else [])]))
         })
     return {"version":"match-radar-v1", "generatedAt":datetime.now().isoformat(timespec="seconds"), "date":source.get("date"), "dateText":source.get("dateText"), "providers":PROVIDERS, "matches":rows, "disclaimer":"以上为已确认公开信息整理后的比赛环境雷达，不构成任何购彩建议；信息会随官方更新而变化。"}
@@ -132,6 +159,7 @@ function render(){const f=document.getElementById('leagueFilter').value,q=docume
     values = {"__DATE__":payload.get("date") or "", "__DATE_TEXT__":payload.get("dateText") or "", "__COUNT__":len(payload["matches"]), "__GENERATED__":payload["generatedAt"], "__STANDINGS__":sum(bool(m["homeRank"] and m["awayRank"]) for m in payload["matches"]), "__INJURIES__":sum(bool(m["injuries"]["confirmed"] or m["injuries"].get("reviewed")) for m in payload["matches"]), "__NEXT__":sum(m["next"]["confirmed"] for m in payload["matches"]), "__DISCLAIMER__":payload["disclaimer"], "__DATA__":data}
     for key, value in values.items(): template = template.replace(key, str(value))
     template = template.replace('content="#0b1f2a"', 'content="#f5f2eb"')
+    template = template.replace('SPORTTERY MATCH RADAR', '体彩比赛雷达')
     template = template.replace('<html lang="zh-CN">', '<html lang="zh-CN" class="radar-html">')
     template = template.replace('<span>已有伤停</span>', '<span>伤停状态已核验</span>')
     template = template.replace('<body class="radar-page">', '<body class="radar-page"><a class="skip-link" href="#matchList">跳到比赛列表</a>')
@@ -151,7 +179,8 @@ function readableCard(m,i){
   const oddsText=(market.home&&market.draw&&market.away)?('参考水位：'+esc(market.home)+' / '+esc(market.draw)+' / '+esc(market.away)):'参考水位：暂无';
   const injuryList=(rows)=>rows&&rows.length?'<ul class="injury-list">'+rows.map(x=>'<li><strong>'+esc(x.player)+'</strong><span>'+esc(x.position)+' · '+esc(x.status)+' · '+esc(x.reason)+'</span></li>').join('')+'</ul>':'<p class="quiet">暂无已确认记录</p>';
   const history=m.h2h&&m.h2h.length?'<div class="history-list">'+m.h2h.slice(-5).reverse().map(x=>{const hg=Number(x.homeGoals),ag=Number(x.awayGoals),result=hg===ag?'平':(hg>ag?'主胜':'客胜'),score=hg===ag?hg+'–'+ag:(hg>ag?'<strong>'+hg+'</strong>–'+ag:hg+'–<strong>'+ag+'</strong>');return '<span>'+esc(x.date)+' · '+result+' '+score+'</span>';}).join('')+'</div>':'<p class="quiet">暂无已取得交手记录</p>';
-  const fixtureLine=ev.fixtureId ? '比赛状态：'+(ev.status==='Not Started'?'未开赛':esc(ev.status||'待更新')) : '比赛状态待更新';
+  const fixtureStatus={"Not Started":"未开赛","First Half":"上半场","Second Half":"下半场","Match Finished":"已结束","Postponed":"延期","Cancelled":"取消"};
+  const fixtureLine=ev.fixtureId ? '比赛状态：'+(fixtureStatus[ev.status]||'待更新') : '比赛状态待更新';
   return '<article class="radar-card" data-league="'+esc(m.league)+'" data-teams="'+esc(m.home+' '+m.away)+'">'
    +'<button class="card-toggle" aria-expanded="'+(i===0)+'" data-target="r2-'+m.id+'"><span class="match-index">'+String(i+1).padStart(2,'0')+'</span><span class="fixture"><small>'+esc(m.lotteryNo)+' · '+esc(m.league)+'</small><strong>'+esc(m.home)+' <em>vs</em> '+esc(m.away)+'</strong><time>'+esc(m.kickoff||'时间待确认')+'</time></span><span class="signal"><b>'+esc(p.totalGoals||'—')+'</b><small>模型总进球</small></span><span class="chevron">⌄</span></button>'
    +'<div id="r2-'+m.id+'" class="card-body" '+(i===0?'':'hidden')+'><div class="radar-columns">'

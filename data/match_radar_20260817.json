@@ -1,6 +1,6 @@
 {
   "version": "match-radar-v1",
-  "generatedAt": "2026-08-17T14:20:32",
+  "generatedAt": "2026-08-17T14:23:13",
   "date": "20260817",
   "dateText": "2026-08-17",
   "providers": [
@@ -46,7 +46,7 @@
           "2:0"
         ],
         "upset": "1:2",
-        "confidence": "medium",
+        "confidence": "中",
         "candidates": [
           "3",
           "2",
@@ -102,88 +102,88 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": true,
-        "text": "HJK vs IF Gnistan"
+        "text": "赫尔辛基 vs 赫尔辛基格尼斯坦"
       },
       "h2h": [
         {
           "date": "2024-04-13",
-          "home": "Ilves",
-          "away": "Gnistan",
+          "home": "伊尔维斯",
+          "away": "格尼斯坦",
           "homeGoals": 4,
           "awayGoals": 6,
-          "league": "Veikkausliiga"
+          "league": "芬兰超级联赛"
         },
         {
           "date": "2025-08-04",
-          "home": "Ilves",
-          "away": "Gnistan",
+          "home": "伊尔维斯",
+          "away": "格尼斯坦",
           "homeGoals": 2,
           "awayGoals": 2,
-          "league": "Veikkausliiga"
+          "league": "芬兰超级联赛"
         },
         {
           "date": "2025-03-28",
-          "home": "Ilves",
-          "away": "Gnistan",
+          "home": "伊尔维斯",
+          "away": "格尼斯坦",
           "homeGoals": 4,
           "awayGoals": 0,
-          "league": "Friendlies Clubs"
+          "league": "俱乐部友谊赛"
         },
         {
           "date": "2025-09-23",
-          "home": "Ilves",
-          "away": "Gnistan",
+          "home": "伊尔维斯",
+          "away": "格尼斯坦",
           "homeGoals": 3,
           "awayGoals": 2,
-          "league": "Veikkausliiga"
+          "league": "芬兰超级联赛"
         },
         {
           "date": "2026-05-23",
-          "home": "Ilves",
-          "away": "Gnistan",
+          "home": "伊尔维斯",
+          "away": "格尼斯坦",
           "homeGoals": 2,
           "awayGoals": 0,
-          "league": "Veikkausliiga"
+          "league": "芬兰超级联赛"
         },
         {
           "date": "2026-01-24",
-          "home": "Ilves",
-          "away": "Gnistan",
+          "home": "伊尔维斯",
+          "away": "格尼斯坦",
           "homeGoals": 1,
           "awayGoals": 0,
-          "league": "Friendlies Clubs"
+          "league": "俱乐部友谊赛"
         },
         {
           "date": "2024-09-01",
-          "home": "Gnistan",
-          "away": "Ilves",
+          "home": "格尼斯坦",
+          "away": "伊尔维斯",
           "homeGoals": 1,
           "awayGoals": 1,
-          "league": "Veikkausliiga"
+          "league": "芬兰超级联赛"
         },
         {
           "date": "2025-06-01",
-          "home": "Gnistan",
-          "away": "Ilves",
+          "home": "格尼斯坦",
+          "away": "伊尔维斯",
           "homeGoals": 0,
           "awayGoals": 2,
-          "league": "Veikkausliiga"
+          "league": "芬兰超级联赛"
         },
         {
           "date": "2025-05-28",
-          "home": "Gnistan",
-          "away": "Ilves",
+          "home": "格尼斯坦",
+          "away": "伊尔维斯",
           "homeGoals": 3,
           "awayGoals": 0,
-          "league": "Suomen Cup"
+          "league": "芬兰杯"
         },
         {
           "date": "2025-10-25",
-          "home": "Gnistan",
-          "away": "Ilves",
+          "home": "格尼斯坦",
+          "away": "伊尔维斯",
           "homeGoals": 1,
           "awayGoals": 3,
-          "league": "Veikkausliiga"
+          "league": "芬兰超级联赛"
         }
       ],
       "sources": [
@@ -208,7 +208,7 @@
           "3:0"
         ],
         "upset": "1:1",
-        "confidence": "high",
+        "confidence": "高",
         "candidates": [
           "3",
           "4",
@@ -237,13 +237,13 @@
             "player": "B. Engdahl",
             "position": "后卫",
             "status": "缺席",
-            "reason": "Injury"
+            "reason": "伤病"
           },
           {
             "player": "F. Ohman",
             "position": "后卫",
             "status": "缺席",
-            "reason": "Shoulder Injury"
+            "reason": "肩部伤病"
           }
         ],
         "away": []
@@ -277,136 +277,136 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": true,
-        "text": "IK Sirius vs BK Häcken"
+        "text": "天狼星 vs 赫根"
       },
       "h2h": [
         {
           "date": "2017-09-10",
-          "home": "Halmstad",
-          "away": "BK Hacken",
+          "home": "哈尔姆斯塔德",
+          "away": "赫根",
           "homeGoals": 0,
           "awayGoals": 3,
-          "league": "Allsvenskan"
+          "league": "瑞典超级联赛"
         },
         {
           "date": "2021-04-11",
-          "home": "Halmstad",
-          "away": "BK Hacken",
+          "home": "哈尔姆斯塔德",
+          "away": "赫根",
           "homeGoals": 1,
           "awayGoals": 0,
-          "league": "Allsvenskan"
+          "league": "瑞典超级联赛"
         },
         {
           "date": "2023-05-07",
-          "home": "Halmstad",
-          "away": "BK Hacken",
+          "home": "哈尔姆斯塔德",
+          "away": "赫根",
           "homeGoals": 1,
           "awayGoals": 0,
-          "league": "Allsvenskan"
+          "league": "瑞典超级联赛"
         },
         {
           "date": "2024-05-15",
-          "home": "Halmstad",
-          "away": "BK Hacken",
+          "home": "哈尔姆斯塔德",
+          "away": "赫根",
           "homeGoals": 3,
           "awayGoals": 0,
-          "league": "Allsvenskan"
+          "league": "瑞典超级联赛"
         },
         {
           "date": "2025-07-20",
-          "home": "Halmstad",
-          "away": "BK Hacken",
+          "home": "哈尔姆斯塔德",
+          "away": "赫根",
           "homeGoals": 0,
           "awayGoals": 0,
-          "league": "Allsvenskan"
+          "league": "瑞典超级联赛"
         },
         {
           "date": "2026-07-19",
-          "home": "Halmstad",
-          "away": "BK Hacken",
+          "home": "哈尔姆斯塔德",
+          "away": "赫根",
           "homeGoals": 0,
           "awayGoals": 2,
-          "league": "Allsvenskan"
+          "league": "瑞典超级联赛"
         },
         {
           "date": "2017-05-17",
-          "home": "BK Hacken",
-          "away": "Halmstad",
+          "home": "赫根",
+          "away": "哈尔姆斯塔德",
           "homeGoals": 2,
           "awayGoals": 1,
-          "league": "Allsvenskan"
+          "league": "瑞典超级联赛"
         },
         {
           "date": "2021-10-23",
-          "home": "BK Hacken",
-          "away": "Halmstad",
+          "home": "赫根",
+          "away": "哈尔姆斯塔德",
           "homeGoals": 2,
           "awayGoals": 3,
-          "league": "Allsvenskan"
+          "league": "瑞典超级联赛"
         },
         {
           "date": "2021-06-28",
-          "home": "BK Hacken",
-          "away": "Halmstad",
+          "home": "赫根",
+          "away": "哈尔姆斯塔德",
           "homeGoals": 0,
           "awayGoals": 2,
-          "league": "Friendlies Clubs"
+          "league": "俱乐部友谊赛"
         },
         {
           "date": "2022-06-16",
-          "home": "BK Hacken",
-          "away": "Halmstad",
+          "home": "赫根",
+          "away": "哈尔姆斯塔德",
           "homeGoals": 2,
           "awayGoals": 0,
-          "league": "Friendlies Clubs"
+          "league": "俱乐部友谊赛"
         },
         {
           "date": "2023-03-04",
-          "home": "BK Hacken",
-          "away": "Halmstad",
+          "home": "赫根",
+          "away": "哈尔姆斯塔德",
           "homeGoals": 2,
           "awayGoals": 1,
-          "league": "Svenska Cupen"
+          "league": "瑞典杯"
         },
         {
           "date": "2023-09-17",
-          "home": "BK Hacken",
-          "away": "Halmstad",
+          "home": "赫根",
+          "away": "哈尔姆斯塔德",
           "homeGoals": 3,
           "awayGoals": 2,
-          "league": "Allsvenskan"
+          "league": "瑞典超级联赛"
         },
         {
           "date": "2024-10-27",
-          "home": "BK Hacken",
-          "away": "Halmstad",
+          "home": "赫根",
+          "away": "哈尔姆斯塔德",
           "homeGoals": 0,
           "awayGoals": 1,
-          "league": "Allsvenskan"
+          "league": "瑞典超级联赛"
         },
         {
           "date": "2024-06-30",
-          "home": "BK Hacken",
-          "away": "Halmstad",
+          "home": "赫根",
+          "away": "哈尔姆斯塔德",
           "homeGoals": 4,
           "awayGoals": 2,
-          "league": "Friendlies Clubs"
+          "league": "俱乐部友谊赛"
         },
         {
           "date": "2025-07-13",
-          "home": "BK Hacken",
-          "away": "Halmstad",
+          "home": "赫根",
+          "away": "哈尔姆斯塔德",
           "homeGoals": 4,
           "awayGoals": 1,
-          "league": "Allsvenskan"
+          "league": "瑞典超级联赛"
         },
         {
           "date": "2026-03-21",
-          "home": "BK Hacken",
-          "away": "Halmstad",
+          "home": "赫根",
+          "away": "哈尔姆斯塔德",
           "homeGoals": 4,
           "awayGoals": 0,
-          "league": "Friendlies Clubs"
+          "league": "俱乐部友谊赛"
         }
       ],
       "sources": [
@@ -430,7 +430,7 @@
           "2:1"
         ],
         "upset": "0:1",
-        "confidence": "low",
+        "confidence": "低",
         "candidates": [
           "3",
           "2",
@@ -486,7 +486,7 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": true,
-        "text": "Cardiff City vs Derby County"
+        "text": "加的夫城 vs 德比郡"
       },
       "h2h": [],
       "sources": [
@@ -511,7 +511,7 @@
           "1:0"
         ],
         "upset": "0:1",
-        "confidence": "high",
+        "confidence": "高",
         "candidates": [
           "2",
           "3",
@@ -540,25 +540,25 @@
             "player": "N. Carrillo",
             "position": "中场",
             "status": "缺席",
-            "reason": "Injury"
+            "reason": "伤病"
           },
           {
             "player": "Y. Hernandez",
             "position": "前锋",
             "status": "缺席",
-            "reason": "Groin Injury"
+            "reason": "腹股沟伤病"
           },
           {
             "player": "A. Altimira",
             "position": "后卫",
             "status": "出场存疑",
-            "reason": "Knee Injury"
+            "reason": "膝部伤病"
           },
           {
             "player": "J. Asp",
             "position": "中场",
             "status": "出场存疑",
-            "reason": "Injury"
+            "reason": "伤病"
           }
         ],
         "away": [
@@ -566,25 +566,25 @@
             "player": "G. Diangana",
             "position": "中场",
             "status": "缺席",
-            "reason": "Knee Injury"
+            "reason": "膝部伤病"
           },
           {
             "player": "A. Osorio",
             "position": "位置待确认",
             "status": "缺席",
-            "reason": "Muscle Injury"
+            "reason": "肌肉伤病"
           },
           {
             "player": "Y. Santiago",
             "position": "前锋",
             "status": "缺席",
-            "reason": "Knee Injury"
+            "reason": "膝部伤病"
           },
           {
             "player": "A. Boayar",
             "position": "前锋",
             "status": "出场存疑",
-            "reason": "Muscle Injury"
+            "reason": "肌肉伤病"
           }
         ]
       },
@@ -617,72 +617,72 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": true,
-        "text": "Málaga CF vs RC Deportivo"
+        "text": "马拉加 vs 拉科鲁尼亚"
       },
       "h2h": [
         {
           "date": "2018-10-12",
-          "home": "Deportivo La Coruna",
-          "away": "Elche",
+          "home": "拉科鲁尼亚",
+          "away": "埃尔切",
           "homeGoals": 4,
           "awayGoals": 0,
-          "league": "Segunda División"
+          "league": "西乙"
         },
         {
           "date": "2014-12-15",
-          "home": "Deportivo La Coruna",
-          "away": "Elche",
+          "home": "拉科鲁尼亚",
+          "away": "埃尔切",
           "homeGoals": 1,
           "awayGoals": 0,
-          "league": "La Liga"
+          "league": "西甲"
         },
         {
           "date": "2019-11-10",
-          "home": "Deportivo La Coruna",
-          "away": "Elche",
+          "home": "拉科鲁尼亚",
+          "away": "埃尔切",
           "homeGoals": 1,
           "awayGoals": 3,
-          "league": "Segunda División"
+          "league": "西乙"
         },
         {
           "date": "2025-06-01",
-          "home": "Deportivo La Coruna",
-          "away": "Elche",
+          "home": "拉科鲁尼亚",
+          "away": "埃尔切",
           "homeGoals": 0,
           "awayGoals": 4,
-          "league": "Segunda División"
+          "league": "西乙"
         },
         {
           "date": "2019-06-04",
-          "home": "Elche",
-          "away": "Deportivo La Coruna",
+          "home": "埃尔切",
+          "away": "拉科鲁尼亚",
           "homeGoals": 0,
           "awayGoals": 0,
-          "league": "Segunda División"
+          "league": "西乙"
         },
         {
           "date": "2015-04-29",
-          "home": "Elche",
-          "away": "Deportivo La Coruna",
+          "home": "埃尔切",
+          "away": "拉科鲁尼亚",
           "homeGoals": 4,
           "awayGoals": 0,
-          "league": "La Liga"
+          "league": "西甲"
         },
         {
           "date": "2020-06-23",
-          "home": "Elche",
-          "away": "Deportivo La Coruna",
+          "home": "埃尔切",
+          "away": "拉科鲁尼亚",
           "homeGoals": 0,
           "awayGoals": 1,
-          "league": "Segunda División"
+          "league": "西乙"
         },
         {
           "date": "2024-10-13",
-          "home": "Elche",
-          "away": "Deportivo La Coruna",
+          "home": "埃尔切",
+          "away": "拉科鲁尼亚",
           "homeGoals": 0,
           "awayGoals": 0,
-          "league": "Segunda División"
+          "league": "西乙"
         }
       ],
       "sources": [
@@ -706,7 +706,7 @@
           "2:0"
         ],
         "upset": "1:2",
-        "confidence": "medium",
+        "confidence": "中",
         "candidates": [
           "3",
           "2",
@@ -762,72 +762,72 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": true,
-        "text": "Gil Vicente FC vs Casa Pia AC"
+        "text": "吉维森特 vs 卡萨皮亚"
       },
       "h2h": [
         {
           "date": "2022-08-13",
-          "home": "Casa Pia",
-          "away": "Benfica",
+          "home": "卡萨皮亚",
+          "away": "本菲卡",
           "homeGoals": 0,
           "awayGoals": 1,
-          "league": "Primeira Liga"
+          "league": "葡萄牙超级联赛"
         },
         {
           "date": "2024-03-17",
-          "home": "Casa Pia",
-          "away": "Benfica",
+          "home": "卡萨皮亚",
+          "away": "本菲卡",
           "homeGoals": 0,
           "awayGoals": 1,
-          "league": "Primeira Liga"
+          "league": "葡萄牙超级联赛"
         },
         {
           "date": "2025-01-25",
-          "home": "Casa Pia",
-          "away": "Benfica",
+          "home": "卡萨皮亚",
+          "away": "本菲卡",
           "homeGoals": 3,
           "awayGoals": 1,
-          "league": "Primeira Liga"
+          "league": "葡萄牙超级联赛"
         },
         {
           "date": "2026-04-06",
-          "home": "Casa Pia",
-          "away": "Benfica",
+          "home": "卡萨皮亚",
+          "away": "本菲卡",
           "homeGoals": 1,
           "awayGoals": 1,
-          "league": "Primeira Liga"
+          "league": "葡萄牙超级联赛"
         },
         {
           "date": "2023-02-04",
-          "home": "Benfica",
-          "away": "Casa Pia",
+          "home": "本菲卡",
+          "away": "卡萨皮亚",
           "homeGoals": 3,
           "awayGoals": 0,
-          "league": "Primeira Liga"
+          "league": "葡萄牙超级联赛"
         },
         {
           "date": "2023-10-28",
-          "home": "Benfica",
-          "away": "Casa Pia",
+          "home": "本菲卡",
+          "away": "卡萨皮亚",
           "homeGoals": 1,
           "awayGoals": 1,
-          "league": "Primeira Liga"
+          "league": "葡萄牙超级联赛"
         },
         {
           "date": "2024-08-17",
-          "home": "Benfica",
-          "away": "Casa Pia",
+          "home": "本菲卡",
+          "away": "卡萨皮亚",
           "homeGoals": 3,
           "awayGoals": 0,
-          "league": "Primeira Liga"
+          "league": "葡萄牙超级联赛"
         },
         {
           "date": "2025-11-09",
-          "home": "Benfica",
-          "away": "Casa Pia",
+          "home": "本菲卡",
+          "away": "卡萨皮亚",
           "homeGoals": 2,
           "awayGoals": 2,
-          "league": "Primeira Liga"
+          "league": "葡萄牙超级联赛"
         }
       ],
       "sources": [
@@ -852,7 +852,7 @@
           "3:0"
         ],
         "upset": "1:1",
-        "confidence": "low",
+        "confidence": "低",
         "candidates": [
           "2",
           "3",
@@ -881,37 +881,37 @@
             "player": "B. Arhin",
             "position": "中场",
             "status": "缺席",
-            "reason": "Hamstring Injury"
+            "reason": "大腿后侧肌肉伤病"
           },
           {
             "player": "Joao Victor",
             "position": "前锋",
             "status": "缺席",
-            "reason": "Muscle Injury"
+            "reason": "肌肉伤病"
           },
           {
             "player": "Kayky",
             "position": "前锋",
             "status": "缺席",
-            "reason": "Ankle Injury"
+            "reason": "脚踝伤病"
           },
           {
             "player": "S. Rochet",
             "position": "门将",
             "status": "缺席",
-            "reason": "Lower Back Injury"
+            "reason": "下背部伤病"
           },
           {
             "player": "Thiago Maia",
             "position": "中场",
             "status": "缺席",
-            "reason": "Hamstring Injury"
+            "reason": "大腿后侧肌肉伤病"
           },
           {
             "player": "R. Villagra",
             "position": "中场",
             "status": "缺席",
-            "reason": "Injury"
+            "reason": "伤病"
           }
         ],
         "away": [
@@ -919,25 +919,25 @@
             "player": "Marcelinho",
             "position": "后卫",
             "status": "缺席",
-            "reason": "Inactive"
+            "reason": "未激活"
           },
           {
             "player": "D. Tchamba",
             "position": "后卫",
             "status": "缺席",
-            "reason": "Injury"
+            "reason": "伤病"
           },
           {
             "player": "Joao Lucas",
             "position": "后卫",
             "status": "出场存疑",
-            "reason": "Knee Injury"
+            "reason": "膝部伤病"
           },
           {
             "player": "Mayk",
             "position": "后卫",
             "status": "出场存疑",
-            "reason": "Injury"
+            "reason": "伤病"
           }
         ]
       },
@@ -975,19 +975,19 @@
       "h2h": [
         {
           "date": "2018-02-21",
-          "home": "Remo",
-          "away": "Internacional",
+          "home": "里莫",
+          "away": "巴西国际",
           "homeGoals": 1,
           "awayGoals": 2,
-          "league": "Copa Do Brasil"
+          "league": "巴西杯"
         },
         {
           "date": "2026-02-25",
-          "home": "Remo",
-          "away": "Internacional",
+          "home": "里莫",
+          "away": "巴西国际",
           "homeGoals": 1,
           "awayGoals": 1,
-          "league": "Serie A"
+          "league": "巴西甲"
         }
       ],
       "sources": [
