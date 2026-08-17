@@ -1,7 +1,7 @@
 """Build a confirmed-facts-only match radar page from daily Sporttery data."""
 from __future__ import annotations
 import argparse, json, re
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,7 +16,14 @@ NEXT_MATCHES = {
 TEAM_ZH = {
     "Ilves": "伊尔维斯", "Gnistan": "格尼斯坦", "Halmstad": "哈尔姆斯塔德", "BK Hacken": "赫根",
     "Deportivo La Coruna": "拉科鲁尼亚", "Elche": "埃尔切", "Casa Pia": "卡萨皮亚", "Benfica": "本菲卡",
-    "Remo": "里莫", "Internacional": "巴西国际",
+    "Remo": "里莫", "Internacional": "巴西国际", "HJK Helsinki": "赫尔辛基", "Gnistan Helsinki": "格尼斯坦",
+    "Ilves Tampere": "伊尔维斯", "Vaasa VPS": "瓦萨", "Halmstads": "哈尔姆斯塔德", "Hacken": "赫根",
+    "IK Sirius": "天狼星", "Sirius": "天狼星", "Orgryte IS": "奥尔格里特", "Örgryte IS": "奥尔格里特",
+    "Cardiff City": "加的夫城", "Sheffield United": "谢菲尔德联", "Wrexham": "雷克瑟姆", "Watford": "沃特福德",
+    "Malaga CF": "马拉加", "Málaga CF": "马拉加", "RC Deportivo": "拉科鲁尼亚", "Barcelona": "巴塞罗那",
+    "Gil Vicente FC": "吉维森特", "Moreirense": "莫雷伦斯",
+    "Internacional - RS": "巴西国际", "Atlético Mineiro - MG": "米内罗竞技", "Fluminense - RJ": "弗鲁米嫩塞", "Remo - PA": "里莫",
+    "Vitoria Guimaraes": "吉马良斯", "Levante": "莱万特", "Villarreal CF": "比利亚雷亚尔",
 }
 REASON_ZH = {
     "Injury": "伤病", "Shoulder Injury": "肩部伤病", "Groin Injury": "腹股沟伤病", "Knee Injury": "膝部伤病",
@@ -99,6 +106,16 @@ def importance_text(rank_value):
         return f"常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 {rank_value}，争取保持上半区位置。"
     return f"常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 {rank_value}，争取提升排名。"
 
+def sportscore_next_zh(value):
+    if not value or not value.get("time"):
+        return None
+    try:
+        dt = datetime.fromisoformat(value["time"].replace("Z", "+00:00")).astimezone(timezone(timedelta(hours=8)))
+        date_text = dt.strftime("%Y-%m-%d %H:%M")
+    except (TypeError, ValueError):
+        date_text = "时间待确认"
+    return {"text":f"{name_zh(value.get('home'))} vs {name_zh(value.get('away'))}", "date":date_text, "source":value.get("source")}
+
 def round_zh(value):
     text = str(value or "").replace("Regular Season - ", "第 ").replace(" - ", " · ")
     return (text + " 轮") if text.startswith("第 ") else (text or "赛事阶段待确认")
@@ -131,6 +148,11 @@ def build(source, contexts, external, enrichment):
             injuries = injury_review["text"]
         next_override = NEXT_MATCHES.get(mid)
         next_match = (next_override.get("homeNext", {}).get("text") if next_override else confirmed(c.get("nextMatch"), "暂无已确认的本场赛后下一场赛程"))
+        sportscore_data = api.get("sportscoreNext") or {}
+        sport_home_next = sportscore_next_zh(sportscore_data.get("home"))
+        sport_away_next = sportscore_next_zh(sportscore_data.get("away"))
+        home_next = ((next_override or {}).get("homeNext")) or sport_home_next
+        away_next = ((next_override or {}).get("awayNext")) or sport_away_next
         home_rank = rank(m.get("homeRank")) or rank(c.get("homeRank"))
         away_rank = rank(m.get("awayRank")) or rank(c.get("awayRank"))
         rows.append({
@@ -151,15 +173,15 @@ def build(source, contexts, external, enrichment):
             "stage":confirmed(c.get("stage"), "暂无已确认的赛事阶段"),
             "fixtureEvidence": {"provider": "API-Football" if api.get("status") == "ok" else "", "fixtureId": api.get("fixtureId"), "round": api.get("round"), "venue": (api.get("fixture") or {}).get("venue"), "referee": (api.get("fixture") or {}).get("referee"), "status": ((api.get("fixture") or {}).get("status") or {}).get("long")},
             "previous":confirmed(c.get("schedule"), "暂无已确认的上一场与休息间隔"),
-            "next":{"confirmed":bool(next_override), "text":next_match, "home":(next_override or {}).get("homeNext"), "away":(next_override or {}).get("awayNext"), "homeImportance":importance_text(home_rank), "awayImportance":importance_text(away_rank)},
+            "next":{"confirmed":bool(home_next or away_next), "text":(home_next or {}).get("text") if home_next else next_match, "home":home_next, "away":away_next, "homeImportance":importance_text(home_rank), "awayImportance":importance_text(away_rank)},
             "h2h":[{**x, "home":name_zh(x.get("home")), "away":name_zh(x.get("away")), "league":league_zh(x.get("league"))} for x in api.get("h2h", []) if x.get("homeGoals") is not None and x.get("awayGoals") is not None],
-            "sources":list(dict.fromkeys([*e.get("sources", []), "https://www.sporttery.cn/", *([next_override["source"]] if next_override else []), *([injury_review["source"]] if injury_review else [])]))
+            "sources":list(dict.fromkeys([*e.get("sources", []), "https://www.sporttery.cn/", *([next_override["source"]] if next_override else []), *([injury_review["source"]] if injury_review else []), *(["https://sportscore.com/developers/"] if sport_home_next or sport_away_next else [])]))
         })
     return {"version":"match-radar-v1", "generatedAt":datetime.now().isoformat(timespec="seconds"), "date":source.get("date"), "dateText":source.get("dateText"), "providers":PROVIDERS, "matches":rows, "disclaimer":"以上为已确认公开信息整理后的比赛环境雷达，不构成任何购彩建议；信息会随官方更新而变化。"}
 
 def page(payload):
     data = json.dumps(payload, ensure_ascii=False).replace("</", "<\\/")
-    template = """<!doctype html><html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta name=\"theme-color\" content=\"#0b1f2a\"><title>比赛雷达 · __DATE__</title><link rel=\"stylesheet\" href=\"../assets/site.css\"></head><body class=\"radar-page\"><header class=\"radar-hero\"><nav><a href=\"../index.html\">← 返回预测首页</a></nav><p class=\"radar-kicker\">SPORTTERY MATCH RADAR / __DATE__</p><h1>比赛雷达</h1><p class=\"radar-deck\">一场一张事实卡：伤停、赛程负荷、积分与赛果后的下一站，只展示已经落实的公开信息。</p><div class=\"radar-meta\"><span>__COUNT__ 场</span><span>体彩业务日 __DATE_TEXT__</span><span>生成 __GENERATED__</span></div></header><main><section class=\"radar-intro\"><div><p class=\"eyebrow\">确认制数据</p><h2>先看今天的比赛，再打开每场详情</h2></div><div class=\"coverage-grid\"><div><strong>__STANDINGS__</strong><span>已有排名</span></div><div><strong>__INJURIES__</strong><span>已有伤停</span></div><div><strong>__NEXT__</strong><span>已有下一场</span></div></div></section><section class=\"radar-toolbar\"><label>筛选赛事 <select id=\"leagueFilter\"><option value=\"all\">全部赛事</option></select></label><label>检索球队 <input id=\"teamSearch\" type=\"search\" placeholder=\"主队或客队\"></label><button id=\"expandAll\" type=\"button\">展开全部</button></section><section id=\"matchList\" class=\"radar-list\"></section><section class=\"provider-panel\"><div><p class=\"eyebrow\">接口地图</p><h2>数据来源</h2><p>体彩接口作为场次主表；伤停、下一场和杯赛阶段必须由外部 provider 返回可靠记录后才进入卡片。</p></div><div id=\"providerList\" class=\"provider-list\"></div></section><p class=\"radar-disclaimer\">__DISCLAIMER__</p></main><script>const RADAR=__DATA__;</script><script>
+    template = """<!doctype html><html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta name=\"theme-color\" content=\"#0b1f2a\"><title>比赛雷达 · __DATE__</title><link rel=\"stylesheet\" href=\"../assets/site.css\"></head><body class=\"radar-page\"><header class=\"radar-hero\"><nav><a href=\"../index.html\">← 返回预测首页</a></nav><p class=\"radar-kicker\">SPORTTERY MATCH RADAR / __DATE__</p><h1>比赛雷达</h1><p class=\"radar-deck\">一场一张事实卡：伤停、赛程负荷、积分与赛果后的下一站，只展示已经落实的公开信息。</p><div class=\"radar-meta\"><span>__COUNT__ 场</span><span>体彩业务日 __DATE_TEXT__</span><span>生成 __GENERATED__</span></div></header><main><section class=\"radar-intro\"><div><p class=\"eyebrow\">确认制数据</p><h2>先看今天的比赛，再打开每场详情</h2></div><div class=\"coverage-grid\"><div><strong>__STANDINGS__</strong><span>已有排名</span></div><div><strong>__INJURIES__</strong><span>已有伤停</span></div><div><strong>__NEXT__</strong><span>已有下一场</span></div></div></section><section class=\"radar-toolbar\"><label>筛选赛事 <select id=\"leagueFilter\"><option value=\"all\">全部赛事</option></select></label><label>检索球队 <input id=\"teamSearch\" type=\"search\" placeholder=\"主队或客队\"></label><button id=\"expandAll\" type=\"button\">展开全部</button></section><section id=\"matchList\" class=\"radar-list\"></section><section class=\"provider-panel\"><div><p class=\"eyebrow\">接口地图</p><h2>数据来源</h2><p>体彩接口作为场次主表；伤停、下一场和杯赛阶段必须由外部 provider 返回可靠记录后才进入卡片。</p></div><div id=\"providerList\" class=\"provider-list\"></div></section><p class=\"sportscore-credit\">赛程补充数据由 <a href=\"https://sportscore.com/\" target=\"_blank\" rel=\"noreferrer\">SportScore</a> 提供。</p><p class=\"radar-disclaimer\">__DISCLAIMER__</p></main><script>const RADAR=__DATA__;</script><script>
 const esc=v=>String(v??'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
 const pct=p=>p?'主 '+p.home+'% · 平 '+p.draw+'% · 客 '+p.away+'%':'胜平负概率：暂无';
 function card(m,i){const p=m.prediction||{},n=esc(m.next.text);return '<article class=\"radar-card\" data-league=\"'+esc(m.league)+'\" data-teams=\"'+esc(m.home+' '+m.away)+'\"><button class=\"card-toggle\" aria-expanded=\"'+(i===0)+'\" data-target=\"r-'+m.id+'\"><span class=\"match-index\">'+String(i+1).padStart(2,'0')+'</span><span class=\"fixture\"><small>'+esc(m.lotteryNo)+' · '+esc(m.league)+'</small><strong>'+esc(m.home)+' <em>vs</em> '+esc(m.away)+'</strong><time>'+esc(m.kickoff||'时间待确认')+'</time></span><span class=\"signal\"><b>'+esc(p.totalGoals||'—')+'</b><small>模型总进球</small></span><span class=\"chevron\">⌄</span></button><div id=\"r-'+m.id+'\" class=\"card-body\" '+(i===0?'':'hidden')+'><div class=\"radar-columns\"><div class=\"radar-block primary\"><p class=\"eyebrow\">赛前信号</p><h3>'+esc((p.scores||[]).join(' / ')||'暂无比分池')+' <small>'+esc(p.confidence||'未定')+'</small></h3><p>'+esc(pct(m.probabilities))+'</p><p class=\"muted\">赔率快照：'+esc(m.oddsUpdatedAt||'暂无记录')+'</p></div><div class=\"radar-block\"><p class=\"eyebrow\">阵容健康</p><h3>'+(m.injuries.confirmed?'已取得记录':'暂无已确认记录')+'</h3><p>'+esc(m.injuries.text)+'</p></div><div class=\"radar-block\"><p class=\"eyebrow\">积分 / 杯赛</p><h3>'+esc(m.standings)+'</h3><p>'+esc(m.competition)+'</p><p class=\"muted\">阶段：'+esc(m.stage)+'</p></div></div><div class=\"radar-columns secondary\"><div class=\"radar-block\"><p class=\"eyebrow\">上一场与休息</p><p>'+esc(m.previous)+'</p><p class=\"muted\">休息天数：'+esc(JSON.stringify(m.rest)||'暂无已确认记录')+'</p></div><div class=\"radar-block next-block\"><p class=\"eyebrow\">赛后下一站</p><h3>'+(m.next.confirmed?'已取得赛程':'暂无已确认赛程')+'</h3><p>'+n+'</p><div class=\"outcome-row\"><span><b>主胜</b>'+n+'</span><span><b>平局</b>'+n+'</span><span><b>客胜</b>'+n+'</span></div></div></div><details><summary>已采集来源</summary><p class=\"sources\">'+(m.sources.length?m.sources.map(u=>'<a href=\"'+esc(u)+'\" target=\"_blank\" rel=\"noreferrer\">来源</a>').join(' · '):'暂无已确认来源')+'</p></details></div></article>'}

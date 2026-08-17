@@ -1,6 +1,6 @@
 {
   "version": "match-radar-v1",
-  "generatedAt": "2026-08-17T14:32:28",
+  "generatedAt": "2026-08-17T14:48:45",
   "date": "20260817",
   "dateText": "2026-08-17",
   "providers": [
@@ -199,7 +199,8 @@
       "sources": [
         "https://www.sporttery.cn/",
         "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain",
-        "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036971/kokoonpanot/"
+        "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4036971/kokoonpanot/",
+        "https://sportscore.com/developers/"
       ]
     },
     {
@@ -431,7 +432,8 @@
       ],
       "sources": [
         "https://www.sporttery.cn/",
-        "https://allsvenskan.se/nyheter/sa-spelas-omgang-18-23-av-allsvenskan/"
+        "https://allsvenskan.se/nyheter/sa-spelas-omgang-18-23-av-allsvenskan/",
+        "https://sportscore.com/developers/"
       ]
     },
     {
@@ -522,7 +524,8 @@
       "sources": [
         "https://www.sporttery.cn/",
         "https://www.wrexhamafc.co.uk/",
-        "https://www.cardiffcityfc.co.uk/"
+        "https://www.cardiffcityfc.co.uk/",
+        "https://sportscore.com/developers/"
       ]
     },
     {
@@ -727,7 +730,8 @@
       ],
       "sources": [
         "https://www.sporttery.cn/",
-        "https://www.laliga.com/es-CO/clubes/rc-deportivo/proximos-partidos"
+        "https://www.laliga.com/es-CO/clubes/rc-deportivo/proximos-partidos",
+        "https://sportscore.com/developers/"
       ]
     },
     {
@@ -883,7 +887,8 @@
       "sources": [
         "https://www.sporttery.cn/",
         "https://www.casapiaac.pt/calendario.php",
-        "https://www.casapiaac.pt/"
+        "https://www.casapiaac.pt/",
+        "https://sportscore.com/developers/"
       ]
     },
     {
@@ -1019,10 +1024,18 @@
       },
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
-        "confirmed": false,
-        "text": "暂无已确认的本场赛后下一场赛程",
-        "home": null,
-        "away": null,
+        "confirmed": true,
+        "text": "巴西国际 vs 米内罗竞技",
+        "home": {
+          "text": "巴西国际 vs 米内罗竞技",
+          "date": "2026-08-23 05:30",
+          "source": "https://sportscore.com/developers/"
+        },
+        "away": {
+          "text": "弗鲁米嫩塞 vs 里莫",
+          "date": "2026-08-23 03:00",
+          "source": "https://sportscore.com/developers/"
+        },
         "homeImportance": "常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 16，需要积分摆脱下游。",
         "awayImportance": "常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 19，需要积分摆脱下游。"
       },
@@ -1045,7 +1058,8 @@
         }
       ],
       "sources": [
-        "https://www.sporttery.cn/"
+        "https://www.sporttery.cn/",
+        "https://sportscore.com/developers/"
       ]
     }
   ],
