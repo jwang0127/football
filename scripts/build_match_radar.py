@@ -99,12 +99,12 @@ def league_zh(value):
 
 def importance_text(rank_value):
     if not rank_value:
-        return "常规联赛：胜得 3 分、平得 1 分、负得 0 分；排名影响待积分榜更新。"
+        return "当前排名待更新，比赛结果将影响后续联赛形势。"
     if rank_value >= 13:
-        return f"常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 {rank_value}，需要积分摆脱下游。"
+        return f"当前第 {rank_value}，需要积分摆脱下游。"
     if rank_value <= 6:
-        return f"常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 {rank_value}，争取保持上半区位置。"
-    return f"常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 {rank_value}，争取提升排名。"
+        return f"当前第 {rank_value}，争取保持上半区位置。"
+    return f"当前第 {rank_value}，争取提升排名。"
 
 def sportscore_next_zh(value):
     if not value or not value.get("time"):
@@ -221,7 +221,7 @@ function readableCard(m,i){
    +'<div class="radar-block"><p class="eyebrow">积分 / 赛事</p><h3>'+esc(m.rankText||'排名待确认')+'</h3><p>'+esc(m.competition)+'</p><p class="quiet">'+fixtureLine+' · '+esc(m.competitionBrief||'赛事阶段待确认')+'</p><p class="quiet">'+esc(m.competitionPath||'')+'</p></div></div>'
    +'<div class="radar-columns secondary"><div class="radar-block"><p class="eyebrow">上一场与休息</p><p>'+esc(m.previous)+'</p><p class="rest-display">'+radarRestText(m.rest)+'</p></div>'
    +'<div class="radar-block next-block"><p class="eyebrow">赛后下一站</p><h3>'+(m.next.confirmed?'主客队分别的下一场':'暂无已确认赛程')+'</h3><div class="next-sides">'+nextItem('主队 · '+m.home,m.next.home)+' '+nextItem('客队 · '+m.away,m.next.away)+'</div></div></div>'
-   +'<div class="radar-block importance-block"><p class="eyebrow">本场积分意义</p><div class="importance-sides"><div><b>主队 · '+esc(m.home)+'</b><span>'+esc(m.next.homeImportance||'常规联赛：胜 3 分、平 1 分、负 0 分。')+'</span></div><div><b>客队 · '+esc(m.away)+'</b><span>'+esc(m.next.awayImportance||'常规联赛：胜 3 分、平 1 分、负 0 分。')+'</span></div></div></div>'
+   +'<div class="radar-block importance-block"><p class="eyebrow">本场积分意义</p><div class="importance-sides"><div><b>主队 · '+esc(m.home)+'</b><span>'+esc(m.next.homeImportance||'比赛结果将影响后续联赛形势。')+'</span></div><div><b>客队 · '+esc(m.away)+'</b><span>'+esc(m.next.awayImportance||'比赛结果将影响后续联赛形势。')+'</span></div></div></div>'
    +'<div class="radar-block history-block"><p class="eyebrow">历史交手 · 最近 5 次</p>'+history+'</div><details><summary>展开来源</summary><p class="sources">'+(m.sources.length?m.sources.map(u=>'<a href="'+esc(u)+'" target="_blank" rel="noreferrer">打开</a>').join(' · '):'暂无已确认来源')+'</p></details></div></article>';
 }
 card=readableCard; render();
