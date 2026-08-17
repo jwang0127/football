@@ -32,13 +32,23 @@ def confirmed(value, fallback):
     bad = ("未找到", "未核验", "待", "仍需", "无法", "不能", "未取得", "不作")
     return fallback if not text or any(x in text for x in bad) else text
 
-def probs(odds):
+def probs(odds, fallback=None):
     try:
         values = [1 / float(odds[k]) for k in ("home", "draw", "away")]
         total = sum(values)
         return {k: round(v / total * 100, 1) for k, v in zip(("home", "draw", "away"), values)}
     except (KeyError, TypeError, ValueError, ZeroDivisionError):
-        return None
+        return fallback
+
+def position_zh(value):
+    return {"Goalkeeper":"门将", "Defender":"后卫", "Midfielder":"中场", "Attacker":"前锋"}.get(value, value or "位置待确认")
+
+def status_zh(value):
+    return {"Missing Fixture":"缺席", "Questionable":"出场存疑", "Suspended":"停赛"}.get(value, value or "状态记录")
+
+def round_zh(value):
+    text = str(value or "").replace("Regular Season - ", "第 ").replace(" - ", " · ")
+    return (text + " 轮") if text.startswith("第 ") else (text or "赛事阶段待确认")
 
 def build(source, contexts, external, enrichment):
     rows = []
@@ -51,26 +61,38 @@ def build(source, contexts, external, enrichment):
         if api.get("status") == "ok":
             if api.get("injuryCount"):
                 names = [f"{x.get('player')}（{x.get('status') or '状态记录'}）" for x in api.get("injuries", []) if x.get("player")]
-                injuries = "API-Football 已返回 " + str(api.get("injuryCount")) + " 条伤停记录：" + "、".join(names[:8])
+                injuries = "已记录 " + str(api.get("injuryCount")) + " 名伤停球员"
             else:
-                injuries = "API-Football 本场伤停接口返回 0 条记录"
-        api_evidence = (f"API-Football fixture {api.get('fixtureId')}；赛事轮次：{api.get('round') or '暂无'}；比赛状态：{((api.get('fixture') or {}).get('status') or {}).get('long') or '暂无'}" if api.get("status") == "ok" else "")
+                injuries = "本场暂无伤停记录"
+        api_evidence = (f"{api.get('round') or '赛事轮次待确认'} · {((api.get('fixture') or {}).get('status') or {}).get('long') or '状态待更新'}" if api.get("status") == "ok" else "")
+        injury_rows = {"home": [], "away": []}
+        if api.get("status") == "ok":
+            home_api = ((api.get("teams") or {}).get("home") or {}).get("id")
+            for item in api.get("injuries", []):
+                side = "home" if item.get("teamId") == home_api else "away"
+                injury_rows[side].append({"player": item.get("player"), "position": position_zh(item.get("position")), "status": status_zh(item.get("status")), "reason": item.get("reason") or "原因未记录"})
+        api_odds = api.get("marketOdds") or {}
         next_override = NEXT_MATCHES.get(mid)
         next_match = next_override["text"] if next_override else confirmed(c.get("nextMatch"), "暂无已确认的本场赛后下一场赛程")
         rows.append({
             "id":mid, "lotteryNo":m.get("matchNumStr") or m.get("lotteryCode"), "league":m.get("league"),
             "kickoff":m.get("kickoff"), "home":m.get("home"), "away":m.get("away"),
             "homeRank":rank(m.get("homeRank")) or c.get("homeRank"), "awayRank":rank(m.get("awayRank")) or c.get("awayRank"),
-            "prediction":m.get("prediction") or {}, "probabilities":probs((m.get("odds") or {}).get("had")),
+            "prediction":m.get("prediction") or {}, "probabilities":probs((m.get("odds") or {}).get("had"), probs((m.get("odds") or {}).get("hhad"))),
+            "marketOdds":{"bookmaker":api_odds.get("bookmaker"), "home":api_odds.get("home"), "draw":api_odds.get("draw"), "away":api_odds.get("away")},
             "oddsUpdatedAt":((m.get("odds") or {}).get("had") or {}).get("updatedAt"),
-            "injuries":{"confirmed":bool(api.get("injuryCount")) or (api.get("status") != "ok" and not injuries.startswith("暂无")), "text":injuries},
+            "injuries":{"confirmed":bool(api.get("injuryCount")) or (api.get("status") != "ok" and not injuries.startswith("暂无")), "text":injuries, "home":injury_rows["home"], "away":injury_rows["away"]},
             "rest":c.get("restDays") or {},
-            "standings":(confirmed(c.get("ranking"), "暂无已确认的积分榜位置") + ("；" + api_evidence if api_evidence else "")),
+            "standings":confirmed(c.get("ranking"), "暂无已确认的积分榜位置"),
+            "standingsBrief":{"home":m.get("homeRank") or c.get("homeRank"), "away":m.get("awayRank") or c.get("awayRank")},
             "competition":confirmed(c.get("motivation"), "暂无已确认的积分/晋级信息"),
+            "competitionBrief":round_zh(api.get("round")) + (" · 未开赛" if api.get("status") == "ok" else ""),
+            "competitionPath":"杯赛走向：本场为常规联赛，不产生杯赛晋级路径" if "杯" not in str(m.get("league")) else "杯赛走向：赛后按晋级结果读取下一轮对阵",
             "stage":confirmed(c.get("stage"), "暂无已确认的赛事阶段"),
             "fixtureEvidence": {"provider": "API-Football" if api.get("status") == "ok" else "", "fixtureId": api.get("fixtureId"), "round": api.get("round"), "venue": (api.get("fixture") or {}).get("venue"), "referee": (api.get("fixture") or {}).get("referee"), "status": ((api.get("fixture") or {}).get("status") or {}).get("long")},
             "previous":confirmed(c.get("schedule"), "暂无已确认的上一场与休息间隔"),
             "next":{"confirmed":not next_match.startswith("暂无"), "text":next_match},
+            "h2h":[x for x in api.get("h2h", []) if x.get("homeGoals") is not None and x.get("awayGoals") is not None],
             "sources":list(dict.fromkeys([*e.get("sources", []), "https://www.sporttery.cn/", *([next_override["source"]] if next_override else [])]))
         })
     return {"version":"match-radar-v1", "generatedAt":datetime.now().isoformat(timespec="seconds"), "date":source.get("date"), "dateText":source.get("dateText"), "providers":PROVIDERS, "matches":rows, "disclaimer":"以上为已确认公开信息整理后的比赛环境雷达，不构成任何购彩建议；信息会随官方更新而变化。"}
@@ -85,6 +107,10 @@ function render(){const f=document.getElementById('leagueFilter').value,q=docume
 [...new Set(RADAR.matches.map(m=>m.league))].forEach(x=>document.getElementById('leagueFilter').insertAdjacentHTML('beforeend','<option>'+esc(x)+'</option>'));document.getElementById('leagueFilter').addEventListener('change',render);document.getElementById('teamSearch').addEventListener('input',render);document.getElementById('expandAll').addEventListener('click',()=>document.querySelectorAll('.card-body').forEach(x=>x.hidden=false));document.getElementById('providerList').innerHTML=RADAR.providers.map(p=>'<div class=\"provider\"><span class=\"dot '+p.status+'\"></span><div><b>'+esc(p.name)+'</b><small>'+esc(p.role)+'</small></div><a href=\"'+esc(p.url)+'\" target=\"_blank\">文档 ↗</a></div>').join('');render();</script></body></html>"""
     values = {"__DATE__":payload.get("date") or "", "__DATE_TEXT__":payload.get("dateText") or "", "__COUNT__":len(payload["matches"]), "__GENERATED__":payload["generatedAt"], "__STANDINGS__":sum(bool(m["homeRank"] and m["awayRank"]) for m in payload["matches"]), "__INJURIES__":sum(m["injuries"]["confirmed"] for m in payload["matches"]), "__NEXT__":sum(m["next"]["confirmed"] for m in payload["matches"]), "__DISCLAIMER__":payload["disclaimer"], "__DATA__":data}
     for key, value in values.items(): template = template.replace(key, str(value))
+    template = template.replace('<html lang="zh-CN">', '<html lang="zh-CN" class="radar-html">')
+    template = template.replace('<body class="radar-page">', '<body class="radar-page"><a class="skip-link" href="#matchList">跳到比赛列表</a>')
+    template = template.replace('id="teamSearch" type="search" placeholder="主队或客队"', 'id="teamSearch" name="team" type="search" autocomplete="off" aria-label="检索球队" placeholder="例如：本菲卡…"')
+    template = template.replace('<section class="provider-panel">', '<section class="provider-panel" aria-hidden="true">')
     readable_script = r'''<script>
 function radarRestText(rest){
   if(!rest || typeof rest !== 'object') return '暂无已确认记录';
@@ -94,17 +120,21 @@ function radarRestText(rest){
 }
 function readableCard(m,i){
   const p=m.prediction||{}, n=esc(m.next.text), ev=m.fixtureEvidence||{};
-  const injuryLabel=m.injuries.confirmed?'已取得 API 记录':'暂无已确认记录';
-  const fixtureLine=ev.fixtureId ? 'Fixture '+esc(ev.fixtureId)+' · '+esc(ev.status||'比赛状态待更新') : '暂无接口比赛记录';
+  const injuryLabel=m.injuries.confirmed?'已取得记录':'暂无已确认记录';
+  const market=m.marketOdds||{};
+  const oddsText=(market.home&&market.draw&&market.away)?('参考水位：'+esc(market.home)+' / '+esc(market.draw)+' / '+esc(market.away)):'参考水位：暂无';
+  const injuryList=(rows)=>rows&&rows.length?'<ul class="injury-list">'+rows.map(x=>'<li><strong>'+esc(x.player)+'</strong><span>'+esc(x.position)+' · '+esc(x.status)+' · '+esc(x.reason)+'</span></li>').join('')+'</ul>':'<p class="quiet">暂无已确认记录</p>';
+  const history=m.h2h&&m.h2h.length?'<div class="history-list">'+m.h2h.slice(-5).reverse().map(x=>'<span>'+esc(x.date)+' · '+esc(x.home)+' '+esc(x.homeGoals)+'-'+esc(x.awayGoals)+' '+esc(x.away)+'</span>').join('')+'</div>':'<p class="quiet">暂无已取得交手记录</p>';
+  const fixtureLine=ev.fixtureId ? '比赛状态：'+(ev.status==='Not Started'?'未开赛':esc(ev.status||'待更新')) : '比赛状态待更新';
   return '<article class="radar-card" data-league="'+esc(m.league)+'" data-teams="'+esc(m.home+' '+m.away)+'">'
    +'<button class="card-toggle" aria-expanded="'+(i===0)+'" data-target="r2-'+m.id+'"><span class="match-index">'+String(i+1).padStart(2,'0')+'</span><span class="fixture"><small>'+esc(m.lotteryNo)+' · '+esc(m.league)+'</small><strong>'+esc(m.home)+' <em>vs</em> '+esc(m.away)+'</strong><time>'+esc(m.kickoff||'时间待确认')+'</time></span><span class="signal"><b>'+esc(p.totalGoals||'—')+'</b><small>模型总进球</small></span><span class="chevron">⌄</span></button>'
    +'<div id="r2-'+m.id+'" class="card-body" '+(i===0?'':'hidden')+'><div class="radar-columns">'
-   +'<div class="radar-block primary"><p class="eyebrow">赛前信号</p><h3>'+esc((p.scores||[]).join(' / ')||'暂无比分池')+' <small>'+esc(p.confidence||'未定')+'</small></h3><p>'+esc(pct(m.probabilities))+'</p><p class="muted">赔率快照：'+esc(m.oddsUpdatedAt||'暂无记录')+'</p></div>'
-   +'<div class="radar-block"><p class="eyebrow">阵容健康</p><h3>'+injuryLabel+'</h3><p>'+esc(m.injuries.text)+'</p><p class="muted">数据接口：API-Football fixture injuries</p></div>'
-   +'<div class="radar-block"><p class="eyebrow">积分 / 赛事</p><h3>'+esc(m.standings)+'</h3><p>'+esc(m.competition)+'</p><p class="muted">'+fixtureLine+' · 轮次：'+esc(ev.round||'暂无')+'</p></div></div>'
+   +'<div class="radar-block primary"><p class="eyebrow">赛前信号</p><h3>'+esc((p.scores||[]).join(' / ')||'暂无比分池')+' <small>'+esc(p.confidence||'未定')+'</small></h3><p>'+esc(pct(m.probabilities))+'</p><p class="odds-line">'+oddsText+'</p><p class="quiet">竞彩快照：'+esc(m.oddsUpdatedAt||'暂无记录')+'</p></div>'
+   +'<div class="radar-block injury-block"><p class="eyebrow">伤停 · 主客分栏</p><h3>'+injuryLabel+'</h3><div class="injury-sides"><div><b>主队 · '+esc(m.home)+'</b>'+injuryList(m.injuries.home)+'</div><div><b>客队 · '+esc(m.away)+'</b>'+injuryList(m.injuries.away)+'</div></div></div>'
+   +'<div class="radar-block"><p class="eyebrow">积分 / 赛事</p><h3>'+esc(m.home)+' '+esc(m.standingsBrief.home||'')+' <span class="vs-dot">·</span> '+esc(m.away)+' '+esc(m.standingsBrief.away||'')+'</h3><p>'+esc(m.competition)+'</p><p class="quiet">'+fixtureLine+' · '+esc(m.competitionBrief||'赛事阶段待确认')+'</p><p class="quiet">'+esc(m.competitionPath||'')+'</p></div></div>'
    +'<div class="radar-columns secondary"><div class="radar-block"><p class="eyebrow">上一场与休息</p><p>'+esc(m.previous)+'</p><p class="rest-display">'+radarRestText(m.rest)+'</p></div>'
    +'<div class="radar-block next-block"><p class="eyebrow">赛后下一站</p><h3>'+(m.next.confirmed?'已取得赛程':'暂无已确认赛程')+'</h3><p>'+n+'</p><div class="outcome-row"><span><b>主胜</b>'+n+'</span><span><b>平局</b>'+n+'</span><span><b>客胜</b>'+n+'</span></div></div></div>'
-   +'<details><summary>已采集来源</summary><p class="sources">'+(m.sources.length?m.sources.map(u=>'<a href="'+esc(u)+'" target="_blank" rel="noreferrer">打开来源</a>').join(' · '):'暂无已确认来源')+'</p></details></div></article>';
+   +'<div class="radar-block history-block"><p class="eyebrow">历史交手 · 最近 5 次</p>'+history+'</div><details><summary>展开来源</summary><p class="sources">'+(m.sources.length?m.sources.map(u=>'<a href="'+esc(u)+'" target="_blank" rel="noreferrer">打开</a>').join(' · '):'暂无已确认来源')+'</p></details></div></article>';
 }
 card=readableCard; render();
 </script></body></html>'''

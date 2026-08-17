@@ -1,6 +1,6 @@
 {
   "version": "match-radar-v1",
-  "generatedAt": "2026-08-17T11:39:38",
+  "generatedAt": "2026-08-17T13:55:13",
   "date": "20260817",
   "dateText": "2026-08-17",
   "providers": [
@@ -58,17 +58,31 @@
         "draw": 26.4,
         "away": 34.1
       },
+      "marketOdds": {
+        "bookmaker": "10Bet",
+        "home": "2.40",
+        "draw": "3.55",
+        "away": "2.56"
+      },
       "oddsUpdatedAt": "2026-08-15 09:45:59",
       "injuries": {
         "confirmed": false,
-        "text": "API-Football 本场伤停接口返回 0 条记录"
+        "text": "本场暂无伤停记录",
+        "home": [],
+        "away": []
       },
       "rest": {
         "home": 22,
         "away": 15
       },
-      "standings": "赫尔辛基火花 [芬超6]；坦佩雷山猫 [芬超9]；API-Football fixture 1495762；赛事轮次：Regular Season - 20；比赛状态：Not Started",
+      "standings": "赫尔辛基火花 [芬超6]；坦佩雷山猫 [芬超9]",
+      "standingsBrief": {
+        "home": "[芬超6]",
+        "away": "[芬超9]"
+      },
       "competition": "暂无已确认的积分/晋级信息",
+      "competitionBrief": "第 20 轮 · 未开赛",
+      "competitionPath": "杯赛走向：本场为常规联赛，不产生杯赛晋级路径",
       "stage": "暂无已确认的赛事阶段",
       "fixtureEvidence": {
         "provider": "API-Football",
@@ -87,6 +101,88 @@
         "confirmed": true,
         "text": "2026-08-23 15:00：HJK 主场 vs IF Gnistan"
       },
+      "h2h": [
+        {
+          "date": "2024-04-13",
+          "home": "Ilves",
+          "away": "Gnistan",
+          "homeGoals": 4,
+          "awayGoals": 6,
+          "league": "Veikkausliiga"
+        },
+        {
+          "date": "2025-08-04",
+          "home": "Ilves",
+          "away": "Gnistan",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "league": "Veikkausliiga"
+        },
+        {
+          "date": "2025-03-28",
+          "home": "Ilves",
+          "away": "Gnistan",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "league": "Friendlies Clubs"
+        },
+        {
+          "date": "2025-09-23",
+          "home": "Ilves",
+          "away": "Gnistan",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "league": "Veikkausliiga"
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Ilves",
+          "away": "Gnistan",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "league": "Veikkausliiga"
+        },
+        {
+          "date": "2026-01-24",
+          "home": "Ilves",
+          "away": "Gnistan",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "league": "Friendlies Clubs"
+        },
+        {
+          "date": "2024-09-01",
+          "home": "Gnistan",
+          "away": "Ilves",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "league": "Veikkausliiga"
+        },
+        {
+          "date": "2025-06-01",
+          "home": "Gnistan",
+          "away": "Ilves",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "league": "Veikkausliiga"
+        },
+        {
+          "date": "2025-05-28",
+          "home": "Gnistan",
+          "away": "Ilves",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "league": "Suomen Cup"
+        },
+        {
+          "date": "2025-10-25",
+          "home": "Gnistan",
+          "away": "Ilves",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "league": "Veikkausliiga"
+        }
+      ],
       "sources": [
         "https://www.sporttery.cn/",
         "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain"
@@ -120,17 +216,44 @@
         "draw": 15.8,
         "away": 11.0
       },
+      "marketOdds": {
+        "bookmaker": "10Bet",
+        "home": "1.30",
+        "draw": "5.20",
+        "away": "9.00"
+      },
       "oddsUpdatedAt": "2026-08-15 09:45:59",
       "injuries": {
         "confirmed": true,
-        "text": "API-Football 已返回 4 条伤停记录：B. Engdahl（Missing Fixture）、F. Ohman（Missing Fixture）、B. Engdahl（Missing Fixture）、F. Ohman（Missing Fixture）"
+        "text": "已记录 2 名伤停球员",
+        "home": [
+          {
+            "player": "B. Engdahl",
+            "position": "后卫",
+            "status": "缺席",
+            "reason": "Injury"
+          },
+          {
+            "player": "F. Ohman",
+            "position": "后卫",
+            "status": "缺席",
+            "reason": "Shoulder Injury"
+          }
+        ],
+        "away": []
       },
       "rest": {
         "home": 8,
         "away": 8
       },
-      "standings": "赫根 [瑞超5]；哈尔姆斯塔德 [瑞超16]；API-Football fixture 1494246；赛事轮次：Regular Season - 17；比赛状态：Not Started",
+      "standings": "赫根 [瑞超5]；哈尔姆斯塔德 [瑞超16]",
+      "standingsBrief": {
+        "home": "[瑞超5]",
+        "away": "[瑞超16]"
+      },
       "competition": "暂无已确认的积分/晋级信息",
+      "competitionBrief": "第 17 轮 · 未开赛",
+      "competitionPath": "杯赛走向：本场为常规联赛，不产生杯赛晋级路径",
       "stage": "暂无已确认的赛事阶段",
       "fixtureEvidence": {
         "provider": "API-Football",
@@ -149,6 +272,136 @@
         "confirmed": true,
         "text": "2026-08-21 19:00：IK Sirius 主场 vs BK Häcken"
       },
+      "h2h": [
+        {
+          "date": "2017-09-10",
+          "home": "Halmstad",
+          "away": "BK Hacken",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "league": "Allsvenskan"
+        },
+        {
+          "date": "2021-04-11",
+          "home": "Halmstad",
+          "away": "BK Hacken",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "league": "Allsvenskan"
+        },
+        {
+          "date": "2023-05-07",
+          "home": "Halmstad",
+          "away": "BK Hacken",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "league": "Allsvenskan"
+        },
+        {
+          "date": "2024-05-15",
+          "home": "Halmstad",
+          "away": "BK Hacken",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "league": "Allsvenskan"
+        },
+        {
+          "date": "2025-07-20",
+          "home": "Halmstad",
+          "away": "BK Hacken",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "league": "Allsvenskan"
+        },
+        {
+          "date": "2026-07-19",
+          "home": "Halmstad",
+          "away": "BK Hacken",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "league": "Allsvenskan"
+        },
+        {
+          "date": "2017-05-17",
+          "home": "BK Hacken",
+          "away": "Halmstad",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "league": "Allsvenskan"
+        },
+        {
+          "date": "2021-10-23",
+          "home": "BK Hacken",
+          "away": "Halmstad",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "league": "Allsvenskan"
+        },
+        {
+          "date": "2021-06-28",
+          "home": "BK Hacken",
+          "away": "Halmstad",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "league": "Friendlies Clubs"
+        },
+        {
+          "date": "2022-06-16",
+          "home": "BK Hacken",
+          "away": "Halmstad",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "league": "Friendlies Clubs"
+        },
+        {
+          "date": "2023-03-04",
+          "home": "BK Hacken",
+          "away": "Halmstad",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "league": "Svenska Cupen"
+        },
+        {
+          "date": "2023-09-17",
+          "home": "BK Hacken",
+          "away": "Halmstad",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "league": "Allsvenskan"
+        },
+        {
+          "date": "2024-10-27",
+          "home": "BK Hacken",
+          "away": "Halmstad",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "league": "Allsvenskan"
+        },
+        {
+          "date": "2024-06-30",
+          "home": "BK Hacken",
+          "away": "Halmstad",
+          "homeGoals": 4,
+          "awayGoals": 2,
+          "league": "Friendlies Clubs"
+        },
+        {
+          "date": "2025-07-13",
+          "home": "BK Hacken",
+          "away": "Halmstad",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "league": "Allsvenskan"
+        },
+        {
+          "date": "2026-03-21",
+          "home": "BK Hacken",
+          "away": "Halmstad",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "league": "Friendlies Clubs"
+        }
+      ],
       "sources": [
         "https://www.sporttery.cn/",
         "https://allsvenskan.se/nyheter/sa-spelas-omgang-18-23-av-allsvenskan/"
@@ -182,17 +435,31 @@
         "draw": 26.8,
         "away": 34.2
       },
+      "marketOdds": {
+        "bookmaker": null,
+        "home": null,
+        "draw": null,
+        "away": null
+      },
       "oddsUpdatedAt": "2026-08-15 09:45:59",
       "injuries": {
-        "confirmed": true,
-        "text": "API-Football 已返回 4 条伤停记录：D. Lawlor（Questionable）、S. Revan（Questionable）、D. Lawlor（Questionable）、S. Revan（Questionable）"
+        "confirmed": false,
+        "text": "本场暂无伤停记录",
+        "home": [],
+        "away": []
       },
       "rest": {
         "home": null,
         "away": null
       },
-      "standings": "加的夫城 [英冠13]；雷克斯汉姆 [英冠16]；API-Football fixture 1563094；赛事轮次：Regular Season - 1；比赛状态：Not Started",
+      "standings": "加的夫城 [英冠13]；雷克斯汉姆 [英冠16]",
+      "standingsBrief": {
+        "home": "[英冠13]",
+        "away": "[英冠16]"
+      },
       "competition": "暂无已确认的积分/晋级信息",
+      "competitionBrief": "第 1 轮 · 未开赛",
+      "competitionPath": "杯赛走向：本场为常规联赛，不产生杯赛晋级路径",
       "stage": "暂无已确认的赛事阶段",
       "fixtureEvidence": {
         "provider": "API-Football",
@@ -211,6 +478,7 @@
         "confirmed": true,
         "text": "2026-08-22：Cardiff City 主场 vs Derby County"
       },
+      "h2h": [],
       "sources": [
         "https://www.sporttery.cn/",
         "https://www.cardiffcity-mad.co.uk/news/tmnw/championship_fixtures_2026_27_989234/index.shtml"
@@ -244,17 +512,81 @@
         "draw": 30.0,
         "away": 29.0
       },
+      "marketOdds": {
+        "bookmaker": "10Bet",
+        "home": "2.28",
+        "draw": "3.00",
+        "away": "3.35"
+      },
       "oddsUpdatedAt": "2026-08-15 09:45:59",
       "injuries": {
         "confirmed": true,
-        "text": "API-Football 已返回 16 条伤停记录：N. Carrillo（Missing Fixture）、Y. Hernandez（Missing Fixture）、A. Altimira（Questionable）、J. Asp（Questionable）、G. Diangana（Missing Fixture）、A. Osorio（Missing Fixture）、Y. Santiago（Missing Fixture）、A. Boayar（Questionable）"
+        "text": "已记录 8 名伤停球员",
+        "home": [
+          {
+            "player": "N. Carrillo",
+            "position": "中场",
+            "status": "缺席",
+            "reason": "Injury"
+          },
+          {
+            "player": "Y. Hernandez",
+            "position": "前锋",
+            "status": "缺席",
+            "reason": "Groin Injury"
+          },
+          {
+            "player": "A. Altimira",
+            "position": "后卫",
+            "status": "出场存疑",
+            "reason": "Knee Injury"
+          },
+          {
+            "player": "J. Asp",
+            "position": "中场",
+            "status": "出场存疑",
+            "reason": "Injury"
+          }
+        ],
+        "away": [
+          {
+            "player": "G. Diangana",
+            "position": "中场",
+            "status": "缺席",
+            "reason": "Knee Injury"
+          },
+          {
+            "player": "A. Osorio",
+            "position": "位置待确认",
+            "status": "缺席",
+            "reason": "Muscle Injury"
+          },
+          {
+            "player": "Y. Santiago",
+            "position": "前锋",
+            "status": "缺席",
+            "reason": "Knee Injury"
+          },
+          {
+            "player": "A. Boayar",
+            "position": "前锋",
+            "status": "出场存疑",
+            "reason": "Muscle Injury"
+          }
+        ]
       },
       "rest": {
         "home": null,
         "away": null
       },
-      "standings": "拉科鲁尼亚 [西甲7]；埃尔切 [西甲8]；API-Football fixture 1570337；赛事轮次：Regular Season - 1；比赛状态：Not Started",
+      "standings": "拉科鲁尼亚 [西甲7]；埃尔切 [西甲8]",
+      "standingsBrief": {
+        "home": "[西甲7]",
+        "away": "[西甲8]"
+      },
       "competition": "暂无已确认的积分/晋级信息",
+      "competitionBrief": "第 1 轮 · 未开赛",
+      "competitionPath": "杯赛走向：本场为常规联赛，不产生杯赛晋级路径",
       "stage": "暂无已确认的赛事阶段",
       "fixtureEvidence": {
         "provider": "API-Football",
@@ -273,6 +605,72 @@
         "confirmed": true,
         "text": "2026-08-24 19:30：Málaga CF 主场 vs RC Deportivo"
       },
+      "h2h": [
+        {
+          "date": "2018-10-12",
+          "home": "Deportivo La Coruna",
+          "away": "Elche",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "league": "Segunda División"
+        },
+        {
+          "date": "2014-12-15",
+          "home": "Deportivo La Coruna",
+          "away": "Elche",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "league": "La Liga"
+        },
+        {
+          "date": "2019-11-10",
+          "home": "Deportivo La Coruna",
+          "away": "Elche",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "league": "Segunda División"
+        },
+        {
+          "date": "2025-06-01",
+          "home": "Deportivo La Coruna",
+          "away": "Elche",
+          "homeGoals": 0,
+          "awayGoals": 4,
+          "league": "Segunda División"
+        },
+        {
+          "date": "2019-06-04",
+          "home": "Elche",
+          "away": "Deportivo La Coruna",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "league": "Segunda División"
+        },
+        {
+          "date": "2015-04-29",
+          "home": "Elche",
+          "away": "Deportivo La Coruna",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "league": "La Liga"
+        },
+        {
+          "date": "2020-06-23",
+          "home": "Elche",
+          "away": "Deportivo La Coruna",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "league": "Segunda División"
+        },
+        {
+          "date": "2024-10-13",
+          "home": "Elche",
+          "away": "Deportivo La Coruna",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "league": "Segunda División"
+        }
+      ],
       "sources": [
         "https://www.sporttery.cn/",
         "https://www.laliga.com/es-NG/clubes/rc-deportivo/proximos-partidos"
@@ -301,18 +699,36 @@
           "4"
         ]
       },
-      "probabilities": null,
+      "probabilities": {
+        "home": 41.4,
+        "draw": 22.7,
+        "away": 35.9
+      },
+      "marketOdds": {
+        "bookmaker": "10Bet",
+        "home": "14.00",
+        "draw": "5.60",
+        "away": "1.22"
+      },
       "oddsUpdatedAt": " ",
       "injuries": {
         "confirmed": false,
-        "text": "API-Football 本场伤停接口返回 0 条记录"
+        "text": "本场暂无伤停记录",
+        "home": [],
+        "away": []
       },
       "rest": {
         "home": null,
         "away": 3
       },
-      "standings": "卡萨皮亚 [葡超16]；本菲卡 [葡超8]；API-Football fixture 1575459；赛事轮次：Regular Season - 2；比赛状态：Not Started",
+      "standings": "卡萨皮亚 [葡超16]；本菲卡 [葡超8]",
+      "standingsBrief": {
+        "home": "[葡超16]",
+        "away": "[葡超8]"
+      },
       "competition": "暂无已确认的积分/晋级信息",
+      "competitionBrief": "第 2 轮 · 未开赛",
+      "competitionPath": "杯赛走向：本场为常规联赛，不产生杯赛晋级路径",
       "stage": "暂无已确认的赛事阶段",
       "fixtureEvidence": {
         "provider": "API-Football",
@@ -331,6 +747,72 @@
         "confirmed": true,
         "text": "2026-08-23：Gil Vicente FC 主场 vs Casa Pia AC"
       },
+      "h2h": [
+        {
+          "date": "2022-08-13",
+          "home": "Casa Pia",
+          "away": "Benfica",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "league": "Primeira Liga"
+        },
+        {
+          "date": "2024-03-17",
+          "home": "Casa Pia",
+          "away": "Benfica",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "league": "Primeira Liga"
+        },
+        {
+          "date": "2025-01-25",
+          "home": "Casa Pia",
+          "away": "Benfica",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "league": "Primeira Liga"
+        },
+        {
+          "date": "2026-04-06",
+          "home": "Casa Pia",
+          "away": "Benfica",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "league": "Primeira Liga"
+        },
+        {
+          "date": "2023-02-04",
+          "home": "Benfica",
+          "away": "Casa Pia",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "league": "Primeira Liga"
+        },
+        {
+          "date": "2023-10-28",
+          "home": "Benfica",
+          "away": "Casa Pia",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "league": "Primeira Liga"
+        },
+        {
+          "date": "2024-08-17",
+          "home": "Benfica",
+          "away": "Casa Pia",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "league": "Primeira Liga"
+        },
+        {
+          "date": "2025-11-09",
+          "home": "Benfica",
+          "away": "Casa Pia",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "league": "Primeira Liga"
+        }
+      ],
       "sources": [
         "https://www.sporttery.cn/",
         "https://www.casapiaac.pt/calendario.php"
@@ -364,17 +846,93 @@
         "draw": 23.3,
         "away": 15.5
       },
+      "marketOdds": {
+        "bookmaker": "10Bet",
+        "home": "1.52",
+        "draw": "3.95",
+        "away": "6.25"
+      },
       "oddsUpdatedAt": "2026-08-15 09:45:59",
       "injuries": {
         "confirmed": true,
-        "text": "API-Football 已返回 20 条伤停记录：B. Arhin（Missing Fixture）、Joao Victor（Missing Fixture）、Kayky（Missing Fixture）、S. Rochet（Missing Fixture）、Thiago Maia（Missing Fixture）、R. Villagra（Missing Fixture）、Marcelinho（Missing Fixture）、D. Tchamba（Missing Fixture）"
+        "text": "已记录 10 名伤停球员",
+        "home": [
+          {
+            "player": "B. Arhin",
+            "position": "中场",
+            "status": "缺席",
+            "reason": "Hamstring Injury"
+          },
+          {
+            "player": "Joao Victor",
+            "position": "前锋",
+            "status": "缺席",
+            "reason": "Muscle Injury"
+          },
+          {
+            "player": "Kayky",
+            "position": "前锋",
+            "status": "缺席",
+            "reason": "Ankle Injury"
+          },
+          {
+            "player": "S. Rochet",
+            "position": "门将",
+            "status": "缺席",
+            "reason": "Lower Back Injury"
+          },
+          {
+            "player": "Thiago Maia",
+            "position": "中场",
+            "status": "缺席",
+            "reason": "Hamstring Injury"
+          },
+          {
+            "player": "R. Villagra",
+            "position": "中场",
+            "status": "缺席",
+            "reason": "Injury"
+          }
+        ],
+        "away": [
+          {
+            "player": "Marcelinho",
+            "position": "后卫",
+            "status": "缺席",
+            "reason": "Inactive"
+          },
+          {
+            "player": "D. Tchamba",
+            "position": "后卫",
+            "status": "缺席",
+            "reason": "Injury"
+          },
+          {
+            "player": "Joao Lucas",
+            "position": "后卫",
+            "status": "出场存疑",
+            "reason": "Knee Injury"
+          },
+          {
+            "player": "Mayk",
+            "position": "后卫",
+            "status": "出场存疑",
+            "reason": "Injury"
+          }
+        ]
       },
       "rest": {
         "home": 22,
         "away": 12
       },
-      "standings": "巴西国际 [巴甲16]；里莫 [巴甲19]；API-Football fixture 1492335；赛事轮次：Regular Season - 23；比赛状态：Not Started",
+      "standings": "巴西国际 [巴甲16]；里莫 [巴甲19]",
+      "standingsBrief": {
+        "home": "[巴甲16]",
+        "away": "[巴甲19]"
+      },
       "competition": "暂无已确认的积分/晋级信息",
+      "competitionBrief": "第 23 轮 · 未开赛",
+      "competitionPath": "杯赛走向：本场为常规联赛，不产生杯赛晋级路径",
       "stage": "暂无已确认的赛事阶段",
       "fixtureEvidence": {
         "provider": "API-Football",
@@ -393,6 +951,24 @@
         "confirmed": false,
         "text": "暂无已确认的本场赛后下一场赛程"
       },
+      "h2h": [
+        {
+          "date": "2018-02-21",
+          "home": "Remo",
+          "away": "Internacional",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "league": "Copa Do Brasil"
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Remo",
+          "away": "Internacional",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "league": "Serie A"
+        }
+      ],
       "sources": [
         "https://www.sporttery.cn/"
       ]
