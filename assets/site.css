@@ -201,7 +201,7 @@ tr:hover td { background: rgba(17, 107, 98, .035); }
 .dot.active { background: #67d2ad; }.dot.fallback { background: var(--radar-accent); }.dot.optional { background: #7f9690; }
 .radar-disclaimer { padding: 22px 0 40px; color: var(--radar-muted) !important; font-size: 12px; }
 .empty-state { padding: 30px; color: var(--radar-muted); background: #102a32; border: 1px solid var(--radar-line); border-radius: 15px; }
-@media (max-width: 760px) { .radar-intro, .provider-panel, .radar-columns, .radar-columns.secondary, .injury-sides { grid-template-columns: 1fr; } .card-toggle { grid-template-columns: 30px 1fr 50px 16px; gap: 8px; padding-inline: 12px; } .card-body { padding-inline: 12px; } .signal b { font-size: 24px; } .coverage-grid { gap: 6px; } .coverage-grid div { padding: 10px 8px; } }
+@media (max-width: 760px) { .radar-intro, .provider-panel, .radar-columns, .radar-columns.secondary, .injury-sides, .next-sides, .importance-sides { grid-template-columns: 1fr; } .card-toggle { grid-template-columns: 30px 1fr 50px 16px; gap: 8px; padding-inline: 12px; } .card-body { padding-inline: 12px; } .signal b { font-size: 24px; } .coverage-grid { gap: 6px; } .coverage-grid div { padding: 10px 8px; } }
 
 /* Radar light editorial theme: strong contrast on a warm paper background. */
 .radar-html { color-scheme: light; }
@@ -223,6 +223,12 @@ tr:hover td { background: rgba(17, 107, 98, .035); }
 .radar-page .radar-toolbar input::placeholder { color: #6a8088 !important; }
 .radar-page .provider-panel { display: none !important; }
 .radar-page .next-match-name { font-size: 20px; font-weight: 800; color: #182f35 !important; }
+.radar-page .next-sides, .radar-page .importance-sides { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.radar-page .next-sides > div, .radar-page .importance-sides > div { display: grid; gap: 4px; padding: 11px; background: #f4f7f3; border: 1px solid #e1ebe6; border-radius: 10px; }
+.radar-page .next-sides b, .radar-page .importance-sides b { color: #b66412 !important; font-size: 13px; }
+.radar-page .next-sides strong { color: #182f35 !important; font-size: 15px; }
+.radar-page .next-sides span, .radar-page .importance-sides span { color: #42606a !important; font-size: 13px; line-height: 1.45; }
+.radar-page .importance-block { min-height: 0; }
 .radar-page .history-block { margin-top: 12px; min-height: 0; padding: 12px 16px !important; }
 .radar-page .history-list { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 6px; }
 .radar-page .history-list span { font-size: 13px; }

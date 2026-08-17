@@ -1,6 +1,6 @@
 {
   "version": "match-radar-v1",
-  "generatedAt": "2026-08-17T14:23:13",
+  "generatedAt": "2026-08-17T14:32:28",
   "date": "20260817",
   "dateText": "2026-08-17",
   "providers": [
@@ -102,7 +102,17 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": true,
-        "text": "赫尔辛基 vs 赫尔辛基格尼斯坦"
+        "text": "赫尔辛基 vs 格尼斯坦",
+        "home": {
+          "text": "赫尔辛基 vs 格尼斯坦",
+          "date": "2026-08-23 15:00"
+        },
+        "away": {
+          "text": "伊尔维斯 vs 瓦萨",
+          "date": "2026-08-22 17:00"
+        },
+        "homeImportance": "常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 6，争取保持上半区位置。",
+        "awayImportance": "常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 9，争取提升排名。"
       },
       "h2h": [
         {
@@ -277,7 +287,17 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": true,
-        "text": "天狼星 vs 赫根"
+        "text": "天狼星 vs 赫根",
+        "home": {
+          "text": "天狼星 vs 赫根",
+          "date": "2026-08-21 19:00"
+        },
+        "away": {
+          "text": "奥尔格里特 vs 哈尔姆斯塔德",
+          "date": "2026-08-22 15:00"
+        },
+        "homeImportance": "常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 5，争取保持上半区位置。",
+        "awayImportance": "常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 16，需要积分摆脱下游。"
       },
       "h2h": [
         {
@@ -486,12 +506,22 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": true,
-        "text": "加的夫城 vs 德比郡"
+        "text": "加的夫城 vs 谢菲尔德联",
+        "home": {
+          "text": "加的夫城 vs 谢菲尔德联",
+          "date": "2026-08-29 15:00"
+        },
+        "away": {
+          "text": "雷克瑟姆 vs 沃特福德",
+          "date": "2026-08-22 14:00"
+        },
+        "homeImportance": "常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 13，需要积分摆脱下游。",
+        "awayImportance": "常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 16，需要积分摆脱下游。"
       },
       "h2h": [],
       "sources": [
         "https://www.sporttery.cn/",
-        "https://www.cardiffcity-mad.co.uk/news/tmnw/championship_fixtures_2026_27_989234/index.shtml",
+        "https://www.wrexhamafc.co.uk/",
         "https://www.cardiffcityfc.co.uk/"
       ]
     },
@@ -617,7 +647,17 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": true,
-        "text": "马拉加 vs 拉科鲁尼亚"
+        "text": "马拉加 vs 拉科鲁尼亚",
+        "home": {
+          "text": "马拉加 vs 拉科鲁尼亚",
+          "date": "2026-08-24 19:30"
+        },
+        "away": {
+          "text": "埃尔切 vs 巴塞罗那",
+          "date": "2026-08-23 21:30"
+        },
+        "homeImportance": "常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 7，争取提升排名。",
+        "awayImportance": "常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 8，争取提升排名。"
       },
       "h2h": [
         {
@@ -687,7 +727,7 @@
       ],
       "sources": [
         "https://www.sporttery.cn/",
-        "https://www.laliga.com/es-NG/clubes/rc-deportivo/proximos-partidos"
+        "https://www.laliga.com/es-CO/clubes/rc-deportivo/proximos-partidos"
       ]
     },
     {
@@ -762,7 +802,17 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": true,
-        "text": "吉维森特 vs 卡萨皮亚"
+        "text": "吉维森特 vs 卡萨皮亚",
+        "home": {
+          "text": "吉维森特 vs 卡萨皮亚",
+          "date": "2026-08-23 时间待官方公布"
+        },
+        "away": {
+          "text": "莫雷伦斯 vs 本菲卡",
+          "date": "2026-08-23 17:00"
+        },
+        "homeImportance": "常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 16，需要积分摆脱下游。",
+        "awayImportance": "常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 8，争取提升排名。"
       },
       "h2h": [
         {
@@ -970,7 +1020,11 @@
       "previous": "暂无已确认的上一场与休息间隔",
       "next": {
         "confirmed": false,
-        "text": "暂无已确认的本场赛后下一场赛程"
+        "text": "暂无已确认的本场赛后下一场赛程",
+        "home": null,
+        "away": null,
+        "homeImportance": "常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 16，需要积分摆脱下游。",
+        "awayImportance": "常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 19，需要积分摆脱下游。"
       },
       "h2h": [
         {

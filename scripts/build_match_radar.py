@@ -7,11 +7,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 NEXT_MATCHES = {
-    "2040914": {"text": "赫尔辛基 vs 赫尔辛基格尼斯坦", "source": "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain"},
-    "2040915": {"text": "天狼星 vs 赫根", "source": "https://allsvenskan.se/nyheter/sa-spelas-omgang-18-23-av-allsvenskan/"},
-    "2040916": {"text": "加的夫城 vs 德比郡", "source": "https://www.cardiffcity-mad.co.uk/news/tmnw/championship_fixtures_2026_27_989234/index.shtml"},
-    "2040922": {"text": "马拉加 vs 拉科鲁尼亚", "source": "https://www.laliga.com/es-NG/clubes/rc-deportivo/proximos-partidos"},
-    "2040917": {"text": "吉维森特 vs 卡萨皮亚", "source": "https://www.casapiaac.pt/calendario.php"},
+    "2040914": {"homeNext": {"text": "赫尔辛基 vs 格尼斯坦", "date": "2026-08-23 15:00"}, "awayNext": {"text": "伊尔维斯 vs 瓦萨", "date": "2026-08-22 17:00"}, "source": "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain"},
+    "2040915": {"homeNext": {"text": "天狼星 vs 赫根", "date": "2026-08-21 19:00"}, "awayNext": {"text": "奥尔格里特 vs 哈尔姆斯塔德", "date": "2026-08-22 15:00"}, "source": "https://allsvenskan.se/nyheter/sa-spelas-omgang-18-23-av-allsvenskan/"},
+    "2040916": {"homeNext": {"text": "加的夫城 vs 谢菲尔德联", "date": "2026-08-29 15:00"}, "awayNext": {"text": "雷克瑟姆 vs 沃特福德", "date": "2026-08-22 14:00"}, "source": "https://www.wrexhamafc.co.uk/"},
+    "2040922": {"homeNext": {"text": "马拉加 vs 拉科鲁尼亚", "date": "2026-08-24 19:30"}, "awayNext": {"text": "埃尔切 vs 巴塞罗那", "date": "2026-08-23 21:30"}, "source": "https://www.laliga.com/es-CO/clubes/rc-deportivo/proximos-partidos"},
+    "2040917": {"homeNext": {"text": "吉维森特 vs 卡萨皮亚", "date": "2026-08-23 时间待官方公布"}, "awayNext": {"text": "莫雷伦斯 vs 本菲卡", "date": "2026-08-23 17:00"}, "source": "https://www.casapiaac.pt/calendario.php"},
 }
 TEAM_ZH = {
     "Ilves": "伊尔维斯", "Gnistan": "格尼斯坦", "Halmstad": "哈尔姆斯塔德", "BK Hacken": "赫根",
@@ -90,6 +90,15 @@ def confidence_zh(value):
 def league_zh(value):
     return LEAGUE_ZH.get(value, value or "赛事待确认")
 
+def importance_text(rank_value):
+    if not rank_value:
+        return "常规联赛：胜得 3 分、平得 1 分、负得 0 分；排名影响待积分榜更新。"
+    if rank_value >= 13:
+        return f"常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 {rank_value}，需要积分摆脱下游。"
+    if rank_value <= 6:
+        return f"常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 {rank_value}，争取保持上半区位置。"
+    return f"常规联赛：胜得 3 分、平得 1 分、负得 0 分；当前第 {rank_value}，争取提升排名。"
+
 def round_zh(value):
     text = str(value or "").replace("Regular Season - ", "第 ").replace(" - ", " · ")
     return (text + " 轮") if text.startswith("第 ") else (text or "赛事阶段待确认")
@@ -121,7 +130,7 @@ def build(source, contexts, external, enrichment):
         if not api.get("injuryCount") and injury_review:
             injuries = injury_review["text"]
         next_override = NEXT_MATCHES.get(mid)
-        next_match = next_override["text"] if next_override else confirmed(c.get("nextMatch"), "暂无已确认的本场赛后下一场赛程")
+        next_match = (next_override.get("homeNext", {}).get("text") if next_override else confirmed(c.get("nextMatch"), "暂无已确认的本场赛后下一场赛程"))
         home_rank = rank(m.get("homeRank")) or rank(c.get("homeRank"))
         away_rank = rank(m.get("awayRank")) or rank(c.get("awayRank"))
         rows.append({
@@ -142,7 +151,7 @@ def build(source, contexts, external, enrichment):
             "stage":confirmed(c.get("stage"), "暂无已确认的赛事阶段"),
             "fixtureEvidence": {"provider": "API-Football" if api.get("status") == "ok" else "", "fixtureId": api.get("fixtureId"), "round": api.get("round"), "venue": (api.get("fixture") or {}).get("venue"), "referee": (api.get("fixture") or {}).get("referee"), "status": ((api.get("fixture") or {}).get("status") or {}).get("long")},
             "previous":confirmed(c.get("schedule"), "暂无已确认的上一场与休息间隔"),
-            "next":{"confirmed":not next_match.startswith("暂无"), "text":next_match},
+            "next":{"confirmed":bool(next_override), "text":next_match, "home":(next_override or {}).get("homeNext"), "away":(next_override or {}).get("awayNext"), "homeImportance":importance_text(home_rank), "awayImportance":importance_text(away_rank)},
             "h2h":[{**x, "home":name_zh(x.get("home")), "away":name_zh(x.get("away")), "league":league_zh(x.get("league"))} for x in api.get("h2h", []) if x.get("homeGoals") is not None and x.get("awayGoals") is not None],
             "sources":list(dict.fromkeys([*e.get("sources", []), "https://www.sporttery.cn/", *([next_override["source"]] if next_override else []), *([injury_review["source"]] if injury_review else [])]))
         })
@@ -179,6 +188,7 @@ function readableCard(m,i){
   const oddsText=(market.home&&market.draw&&market.away)?('参考水位：'+esc(market.home)+' / '+esc(market.draw)+' / '+esc(market.away)):'参考水位：暂无';
   const injuryList=(rows)=>rows&&rows.length?'<ul class="injury-list">'+rows.map(x=>'<li><strong>'+esc(x.player)+'</strong><span>'+esc(x.position)+' · '+esc(x.status)+' · '+esc(x.reason)+'</span></li>').join('')+'</ul>':'<p class="quiet">暂无已确认记录</p>';
   const history=m.h2h&&m.h2h.length?'<div class="history-list">'+m.h2h.slice(-5).reverse().map(x=>{const hg=Number(x.homeGoals),ag=Number(x.awayGoals),result=hg===ag?'平':(hg>ag?'主胜':'客胜'),score=hg===ag?hg+'–'+ag:(hg>ag?'<strong>'+hg+'</strong>–'+ag:hg+'–<strong>'+ag+'</strong>');return '<span>'+esc(x.date)+' · '+result+' '+score+'</span>';}).join('')+'</div>':'<p class="quiet">暂无已取得交手记录</p>';
+  const nextItem=(label,item)=>item?'<div><b>'+label+'</b><strong>'+esc(item.text)+'</strong><span>时间：'+esc(item.date)+'</span></div>':'<div><b>'+label+'</b><span>暂无已核验赛程</span></div>';
   const fixtureStatus={"Not Started":"未开赛","First Half":"上半场","Second Half":"下半场","Match Finished":"已结束","Postponed":"延期","Cancelled":"取消"};
   const fixtureLine=ev.fixtureId ? '比赛状态：'+(fixtureStatus[ev.status]||'待更新') : '比赛状态待更新';
   return '<article class="radar-card" data-league="'+esc(m.league)+'" data-teams="'+esc(m.home+' '+m.away)+'">'
@@ -188,7 +198,8 @@ function readableCard(m,i){
    +'<div class="radar-block injury-block"><p class="eyebrow">伤停 · 主客分栏</p><h3>'+injuryLabel+'</h3><div class="injury-sides"><div><b>主队 · '+esc(m.home)+'</b>'+injuryList(m.injuries.home)+'</div><div><b>客队 · '+esc(m.away)+'</b>'+injuryList(m.injuries.away)+'</div></div>'+(m.injuries.note?'<p class="quiet injury-note">'+esc(m.injuries.note)+'</p>':'')+'</div>'
    +'<div class="radar-block"><p class="eyebrow">积分 / 赛事</p><h3>'+esc(m.rankText||'排名待确认')+'</h3><p>'+esc(m.competition)+'</p><p class="quiet">'+fixtureLine+' · '+esc(m.competitionBrief||'赛事阶段待确认')+'</p><p class="quiet">'+esc(m.competitionPath||'')+'</p></div></div>'
    +'<div class="radar-columns secondary"><div class="radar-block"><p class="eyebrow">上一场与休息</p><p>'+esc(m.previous)+'</p><p class="rest-display">'+radarRestText(m.rest)+'</p></div>'
-   +'<div class="radar-block next-block"><p class="eyebrow">赛后下一站</p><h3>'+(m.next.confirmed?'已取得赛程':'暂无已确认赛程')+'</h3><p class="next-match-name">'+n+'</p></div></div>'
+   +'<div class="radar-block next-block"><p class="eyebrow">赛后下一站</p><h3>'+(m.next.confirmed?'主客队分别的下一场':'暂无已确认赛程')+'</h3><div class="next-sides">'+nextItem('主队 · '+m.home,m.next.home)+' '+nextItem('客队 · '+m.away,m.next.away)+'</div></div></div>'
+   +'<div class="radar-block importance-block"><p class="eyebrow">本场积分意义</p><div class="importance-sides"><div><b>主队 · '+esc(m.home)+'</b><span>'+esc(m.next.homeImportance||'常规联赛：胜 3 分、平 1 分、负 0 分。')+'</span></div><div><b>客队 · '+esc(m.away)+'</b><span>'+esc(m.next.awayImportance||'常规联赛：胜 3 分、平 1 分、负 0 分。')+'</span></div></div></div>'
    +'<div class="radar-block history-block"><p class="eyebrow">历史交手 · 最近 5 次</p>'+history+'</div><details><summary>展开来源</summary><p class="sources">'+(m.sources.length?m.sources.map(u=>'<a href="'+esc(u)+'" target="_blank" rel="noreferrer">打开</a>').join(' · '):'暂无已确认来源')+'</p></details></div></article>';
 }
 card=readableCard; render();
