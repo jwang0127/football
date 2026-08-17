@@ -85,7 +85,30 @@ function render(){const f=document.getElementById('leagueFilter').value,q=docume
 [...new Set(RADAR.matches.map(m=>m.league))].forEach(x=>document.getElementById('leagueFilter').insertAdjacentHTML('beforeend','<option>'+esc(x)+'</option>'));document.getElementById('leagueFilter').addEventListener('change',render);document.getElementById('teamSearch').addEventListener('input',render);document.getElementById('expandAll').addEventListener('click',()=>document.querySelectorAll('.card-body').forEach(x=>x.hidden=false));document.getElementById('providerList').innerHTML=RADAR.providers.map(p=>'<div class=\"provider\"><span class=\"dot '+p.status+'\"></span><div><b>'+esc(p.name)+'</b><small>'+esc(p.role)+'</small></div><a href=\"'+esc(p.url)+'\" target=\"_blank\">文档 ↗</a></div>').join('');render();</script></body></html>"""
     values = {"__DATE__":payload.get("date") or "", "__DATE_TEXT__":payload.get("dateText") or "", "__COUNT__":len(payload["matches"]), "__GENERATED__":payload["generatedAt"], "__STANDINGS__":sum(bool(m["homeRank"] and m["awayRank"]) for m in payload["matches"]), "__INJURIES__":sum(m["injuries"]["confirmed"] for m in payload["matches"]), "__NEXT__":sum(m["next"]["confirmed"] for m in payload["matches"]), "__DISCLAIMER__":payload["disclaimer"], "__DATA__":data}
     for key, value in values.items(): template = template.replace(key, str(value))
-    return template
+    readable_script = r'''<script>
+function radarRestText(rest){
+  if(!rest || typeof rest !== 'object') return '暂无已确认记录';
+  const h = rest.home != null ? '主队 '+rest.home+' 天' : '';
+  const a = rest.away != null ? '客队 '+rest.away+' 天' : '';
+  return [h,a].filter(Boolean).join(' · ') || '暂无已确认记录';
+}
+function readableCard(m,i){
+  const p=m.prediction||{}, n=esc(m.next.text), ev=m.fixtureEvidence||{};
+  const injuryLabel=m.injuries.confirmed?'已取得 API 记录':'暂无已确认记录';
+  const fixtureLine=ev.fixtureId ? 'Fixture '+esc(ev.fixtureId)+' · '+esc(ev.status||'比赛状态待更新') : '暂无接口比赛记录';
+  return '<article class="radar-card" data-league="'+esc(m.league)+'" data-teams="'+esc(m.home+' '+m.away)+'">'
+   +'<button class="card-toggle" aria-expanded="'+(i===0)+'" data-target="r2-'+m.id+'"><span class="match-index">'+String(i+1).padStart(2,'0')+'</span><span class="fixture"><small>'+esc(m.lotteryNo)+' · '+esc(m.league)+'</small><strong>'+esc(m.home)+' <em>vs</em> '+esc(m.away)+'</strong><time>'+esc(m.kickoff||'时间待确认')+'</time></span><span class="signal"><b>'+esc(p.totalGoals||'—')+'</b><small>模型总进球</small></span><span class="chevron">⌄</span></button>'
+   +'<div id="r2-'+m.id+'" class="card-body" '+(i===0?'':'hidden')+'><div class="radar-columns">'
+   +'<div class="radar-block primary"><p class="eyebrow">赛前信号</p><h3>'+esc((p.scores||[]).join(' / ')||'暂无比分池')+' <small>'+esc(p.confidence||'未定')+'</small></h3><p>'+esc(pct(m.probabilities))+'</p><p class="muted">赔率快照：'+esc(m.oddsUpdatedAt||'暂无记录')+'</p></div>'
+   +'<div class="radar-block"><p class="eyebrow">阵容健康</p><h3>'+injuryLabel+'</h3><p>'+esc(m.injuries.text)+'</p><p class="muted">数据接口：API-Football fixture injuries</p></div>'
+   +'<div class="radar-block"><p class="eyebrow">积分 / 赛事</p><h3>'+esc(m.standings)+'</h3><p>'+esc(m.competition)+'</p><p class="muted">'+fixtureLine+' · 轮次：'+esc(ev.round||'暂无')+'</p></div></div>'
+   +'<div class="radar-columns secondary"><div class="radar-block"><p class="eyebrow">上一场与休息</p><p>'+esc(m.previous)+'</p><p class="rest-display">'+radarRestText(m.rest)+'</p></div>'
+   +'<div class="radar-block next-block"><p class="eyebrow">赛后下一站</p><h3>'+(m.next.confirmed?'已取得赛程':'暂无已确认赛程')+'</h3><p>'+n+'</p><div class="outcome-row"><span><b>主胜</b>'+n+'</span><span><b>平局</b>'+n+'</span><span><b>客胜</b>'+n+'</span></div></div></div>'
+   +'<details><summary>已采集来源</summary><p class="sources">'+(m.sources.length?m.sources.map(u=>'<a href="'+esc(u)+'" target="_blank" rel="noreferrer">打开来源</a>').join(' · '):'暂无已确认来源')+'</p></details></div></article>';
+}
+card=readableCard; render();
+</script></body></html>'''
+    return template.replace('</body></html>', readable_script)
 
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--date", default=datetime.now().strftime("%Y%m%d")); a=ap.parse_args()
