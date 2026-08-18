@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse, json, os, time
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,17 +16,31 @@ TEAM_ALIASES = {
     ("DEP", "CFE"): ("Deportivo La Coruna", "Elche"),
     ("CAP", "BEN"): ("Casa Pia", "Benfica"),
     ("INT", "CBM"): ("Internacional", "Remo"),
+    ("IND", "FLU"): ("Independ. Rivadavia", "Fluminense"),
+    ("LEV", "AEK"): ("Levski Sofia", "AEK Athens FC"),
+    ("DIN", "VIK"): ("Dinamo Zagreb", "Viking"),
+    ("FEN", "LYO"): ("Fenerbahçe", "Lyon"),
 }
 SPORTSCORE_TEAM_SLUGS = {
     "Gnistan": "gnistan-helsinki", "Ilves": "ilves-tampere", "BK Hacken": "hacken", "Halmstad": "halmstads",
     "Cardiff": "cardiff-city", "Wrexham": "wrexham", "Deportivo La Coruna": "deportivo-la-coruna", "Elche": "elche",
     "Casa Pia": "casa-pia", "Benfica": "benfica", "Internacional": "internacional", "Remo": "remo",
+    "Independ. Rivadavia": "independiente-rivadavia", "Fluminense": "fluminense",
+    "Levski Sofia": "levski-sofia", "AEK Athens FC": "aek-athens",
+    "Dinamo Zagreb": "dinamo-zagreb", "Viking": "viking-fk",
+    "Fenerbahçe": "fenerbahce", "Lyon": "lyon",
 }
 
 def api(path: str, key: str):
-    req = Request("https://v3.football.api-sports.io/" + path, headers={"x-apisports-key": key, "User-Agent": "Mozilla/5.0"})
-    with urlopen(req, timeout=45) as response:
-        return json.loads(response.read())
+    for attempt in range(4):
+        req = Request("https://v3.football.api-sports.io/" + path, headers={"x-apisports-key": key, "User-Agent": "Mozilla/5.0"})
+        try:
+            with urlopen(req, timeout=45) as response:
+                return json.loads(response.read())
+        except HTTPError as exc:
+            if exc.code != 429 or attempt == 3:
+                raise
+            time.sleep(5 * (attempt + 1))
 
 def sportscore_team(slug: str):
     url = f"https://sportscore.com/api/widget/team/?sport=football&slug={slug}&limit=30&src=football-monitor"

@@ -24,6 +24,11 @@ TEAM_ZH = {
     "Gil Vicente FC": "吉维森特", "Moreirense": "莫雷伦斯",
     "Internacional - RS": "巴西国际", "Atlético Mineiro - MG": "米内罗竞技", "Fluminense - RJ": "弗鲁米嫩塞", "Remo - PA": "里莫",
     "Vitoria Guimaraes": "吉马良斯", "Levante": "莱万特", "Villarreal CF": "比利亚雷亚尔",
+    "Independ. Rivadavia": "里独立", "Fluminense": "弗鲁米嫩塞", "Levski Sofia": "索列夫",
+    "AEK Athens FC": "雅典AEK", "Dinamo Zagreb": "萨格勒布迪纳摩", "Viking": "维京",
+    "Fenerbahçe": "费内巴切", "Fenerbahce": "费内巴切", "Lyon": "里昂", "CA Independiente": "独立队",
+    "AEK Athens": "雅典AEK", "NK Osijek": "奥西耶克", "Brodd": "布罗德", "Spartak Varna": "瓦尔纳斯巴达",
+    "Iraklis": "伊拉克里斯", "Gaziantep Futbol Kulübü": "加济安泰普",
 }
 REASON_ZH = {
     "Injury": "伤病", "Shoulder Injury": "肩部伤病", "Groin Injury": "腹股沟伤病", "Knee Injury": "膝部伤病",
@@ -34,6 +39,8 @@ LEAGUE_ZH = {
     "Veikkausliiga": "芬兰超级联赛", "Friendlies Clubs": "俱乐部友谊赛", "Suomen Cup": "芬兰杯",
     "Allsvenskan": "瑞典超级联赛", "Svenska Cupen": "瑞典杯", "Segunda División": "西乙",
     "La Liga": "西甲", "Primeira Liga": "葡萄牙超级联赛", "Copa Do Brasil": "巴西杯", "Serie A": "巴西甲",
+    "CONMEBOL Libertadores": "解放者杯", "UEFA Champions League": "欧冠",
+    "CONMEBOL Libertadores": "解放者杯", "UEFA Champions League": "欧冠",
 }
 INJURY_REVIEWS = {
     "2040914": {
@@ -106,6 +113,11 @@ def importance_text(rank_value):
         return f"当前第 {rank_value}，争取保持上半区位置。"
     return f"当前第 {rank_value}，争取提升排名。"
 
+def competition_text(league, round_value):
+    if league in ("欧冠", "解放者杯"):
+        return f"{league}{round_zh(round_value)}，本场结果将影响后续晋级形势。"
+    return "暂无已确认的积分/晋级信息"
+
 def sportscore_next_zh(value):
     if not value or not value.get("time"):
         return None
@@ -159,7 +171,7 @@ def build(source, contexts, external, enrichment):
             "id":mid, "lotteryNo":m.get("matchNumStr") or m.get("lotteryCode"), "league":m.get("league"),
             "kickoff":m.get("kickoff"), "home":m.get("home"), "away":m.get("away"),
             "homeRank":home_rank, "awayRank":away_rank,
-            "prediction":{**(m.get("prediction") or {}), "confidence":confidence_zh((m.get("prediction") or {}).get("confidence"))}, "probabilities":probs((m.get("odds") or {}).get("had"), probs((m.get("odds") or {}).get("hhad"))),
+            "prediction":{**(m.get("prediction") or {}), "confidence":confidence_zh((m.get("prediction") or {}).get("confidence"))}, "probabilities":probs((m.get("odds") or {}).get("had") or api_odds, probs((m.get("odds") or {}).get("hhad") or api_odds)),
             "marketOdds":{"bookmaker":api_odds.get("bookmaker"), "home":api_odds.get("home"), "draw":api_odds.get("draw"), "away":api_odds.get("away")},
             "oddsUpdatedAt":((m.get("odds") or {}).get("had") or {}).get("updatedAt"),
             "injuries":{"confirmed":bool(api.get("injuryCount")), "reviewed":bool(injury_review), "text":injuries, "note":injury_note, "home":injury_rows["home"], "away":injury_rows["away"]},
@@ -167,9 +179,9 @@ def build(source, contexts, external, enrichment):
             "standings":confirmed(c.get("ranking"), "暂无已确认的积分榜位置"),
             "standingsBrief":{"home":home_rank, "away":away_rank},
             "rankText":f"当前联赛排名：主队第{home_rank or '—'}名 · 客队第{away_rank or '—'}名",
-            "competition":confirmed(c.get("motivation"), "暂无已确认的积分/晋级信息"),
+            "competition":confirmed(c.get("motivation"), competition_text(m.get("league"), api.get("round"))),
             "competitionBrief":round_zh(api.get("round")) + (" · 未开赛" if api.get("status") == "ok" else ""),
-            "competitionPath":"杯赛走向：本场为常规联赛，不产生杯赛晋级路径" if "杯" not in str(m.get("league")) else "杯赛走向：赛后按晋级结果读取下一轮对阵",
+            "competitionPath":"杯赛走向：赛后按晋级结果读取下一轮对阵" if m.get("league") in ("欧冠", "解放者杯") or "杯" in str(m.get("league")) else "杯赛走向：本场为常规联赛，不产生杯赛晋级路径",
             "stage":confirmed(c.get("stage"), "暂无已确认的赛事阶段"),
             "fixtureEvidence": {"provider": "API-Football" if api.get("status") == "ok" else "", "fixtureId": api.get("fixtureId"), "round": api.get("round"), "venue": (api.get("fixture") or {}).get("venue"), "referee": (api.get("fixture") or {}).get("referee"), "status": ((api.get("fixture") or {}).get("status") or {}).get("long")},
             "previous":confirmed(c.get("schedule"), "暂无已确认的上一场与休息间隔"),

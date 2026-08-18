@@ -1,0 +1,116 @@
+{
+  "version": "sporttery-schedule-snapshot-v1",
+  "date": "20260818",
+  "dateText": "2026-08-18",
+  "businessDate": "2026-08-18",
+  "sourceNote": "体彩场次、编号、赛事和北京时间根据用户提供的中国体育彩票竞彩截图核对；官方接口当时未返回场次列表。",
+  "matches": [
+    {
+      "id": "tue001",
+      "lotteryCode": "001",
+      "matchNumStr": "周二001",
+      "matchId": "tue001",
+      "businessDate": "2026-08-18",
+      "league": "解放者杯",
+      "leagueCode": "",
+      "leagueId": 0,
+      "kickoff": "2026-08-19 06:00:00",
+      "matchDate": "2026-08-19",
+      "matchTime": "06:00:00",
+      "matchStatus": "Selling",
+      "sellStatus": 2,
+      "home": "里独立",
+      "homeCode": "IND",
+      "homeRank": "",
+      "away": "弗鲁米嫩塞",
+      "awayCode": "FLU",
+      "awayRank": "",
+      "prediction": {},
+      "odds": {},
+      "sources": [
+        "https://www.sporttery.cn/"
+      ]
+    },
+    {
+      "id": "tue002",
+      "lotteryCode": "002",
+      "matchNumStr": "周二002",
+      "matchId": "tue002",
+      "businessDate": "2026-08-18",
+      "league": "欧冠",
+      "leagueCode": "",
+      "leagueId": 0,
+      "kickoff": "2026-08-19 03:00:00",
+      "matchDate": "2026-08-19",
+      "matchTime": "03:00:00",
+      "matchStatus": "Selling",
+      "sellStatus": 2,
+      "home": "索列夫",
+      "homeCode": "LEV",
+      "homeRank": "",
+      "away": "雅典AEK",
+      "awayCode": "AEK",
+      "awayRank": "",
+      "prediction": {},
+      "odds": {},
+      "sources": [
+        "https://www.sporttery.cn/"
+      ]
+    },
+    {
+      "id": "tue003",
+      "lotteryCode": "003",
+      "matchNumStr": "周二003",
+      "matchId": "tue003",
+      "businessDate": "2026-08-18",
+      "league": "欧冠",
+      "leagueCode": "",
+      "leagueId": 0,
+      "kickoff": "2026-08-19 03:00:00",
+      "matchDate": "2026-08-19",
+      "matchTime": "03:00:00",
+      "matchStatus": "Selling",
+      "sellStatus": 2,
+      "home": "萨格勒布迪纳摩",
+      "homeCode": "DIN",
+      "homeRank": "",
+      "away": "维京",
+      "awayCode": "VIK",
+      "awayRank": "",
+      "prediction": {},
+      "odds": {},
+      "sources": [
+        "https://www.sporttery.cn/"
+      ]
+    },
+    {
+      "id": "tue004",
+      "lotteryCode": "004",
+      "matchNumStr": "周二004",
+      "matchId": "tue004",
+      "businessDate": "2026-08-18",
+      "league": "欧冠",
+      "leagueCode": "",
+      "leagueId": 0,
+      "kickoff": "2026-08-19 03:00:00",
+      "matchDate": "2026-08-19",
+      "matchTime": "03:00:00",
+      "matchStatus": "Selling",
+      "sellStatus": 2,
+      "home": "费内巴切",
+      "homeCode": "FEN",
+      "homeRank": "",
+      "away": "里昂",
+      "awayCode": "LYO",
+      "awayRank": "",
+      "prediction": {},
+      "odds": {},
+      "sources": [
+        "https://www.sporttery.cn/"
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.sporttery.cn/"
+  ]
+}

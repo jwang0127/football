@@ -1,0 +1,511 @@
+{
+  "version": "api-football-enrichment-v1",
+  "date": "20260818",
+  "provider": "API-Football",
+  "matches": {
+    "tue001": {
+      "status": "ok",
+      "fixtureId": 1547770,
+      "sourceUrl": "https://v3.football.api-sports.io/fixtures?id=1547770",
+      "league": {
+        "id": 13,
+        "name": "CONMEBOL Libertadores",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/13.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Round of 16",
+        "standings": true
+      },
+      "round": "Round of 16",
+      "season": 2026,
+      "teams": {
+        "home": {
+          "id": 473,
+          "name": "Independ. Rivadavia",
+          "logo": "https://media.api-sports.io/football/teams/473.png",
+          "winner": null
+        },
+        "away": {
+          "id": 124,
+          "name": "Fluminense",
+          "logo": "https://media.api-sports.io/football/teams/124.png",
+          "winner": null
+        }
+      },
+      "fixture": {
+        "date": "2026-08-18T22:00:00+00:00",
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Estadio Malvinas Argentinas",
+          "city": "Mendoza"
+        },
+        "referee": "A. Rojas"
+      },
+      "injuries": [],
+      "injuryCount": 0,
+      "injuryApiErrors": [],
+      "marketOdds": {
+        "bookmaker": "10Bet",
+        "home": "2.35",
+        "draw": "2.98",
+        "away": "3.25"
+      },
+      "h2h": [
+        {
+          "date": "2026-05-07",
+          "home": "Independ. Rivadavia",
+          "away": "Fluminense",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "league": "CONMEBOL Libertadores"
+        },
+        {
+          "date": "2026-04-16",
+          "home": "Fluminense",
+          "away": "Independ. Rivadavia",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "league": "CONMEBOL Libertadores"
+        },
+        {
+          "date": "2026-08-11",
+          "home": "Fluminense",
+          "away": "Independ. Rivadavia",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "league": "CONMEBOL Libertadores"
+        }
+      ],
+      "sportscoreNext": {
+        "home": {
+          "home": "CA Independiente",
+          "away": "Independiente Rivadavia",
+          "time": "2026-08-22T21:30:00+00:00",
+          "competition": "Argentine Division 1",
+          "source": "https://sportscore.com/developers/"
+        },
+        "away": {
+          "home": "Fluminense - RJ",
+          "away": "Remo - PA",
+          "time": "2026-08-22T19:00:00+00:00",
+          "competition": "Brazilian Serie A",
+          "source": "https://sportscore.com/developers/"
+        }
+      }
+    },
+    "tue002": {
+      "status": "ok",
+      "fixtureId": 1622622,
+      "sourceUrl": "https://v3.football.api-sports.io/fixtures?id=1622622",
+      "league": {
+        "id": 2,
+        "name": "UEFA Champions League",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/2.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Play-offs",
+        "standings": false
+      },
+      "round": "Play-offs",
+      "season": 2026,
+      "teams": {
+        "home": {
+          "id": 646,
+          "name": "Levski Sofia",
+          "logo": "https://media.api-sports.io/football/teams/646.png",
+          "winner": null
+        },
+        "away": {
+          "id": 575,
+          "name": "AEK Athens FC",
+          "logo": "https://media.api-sports.io/football/teams/575.png",
+          "winner": null
+        }
+      },
+      "fixture": {
+        "date": "2026-08-18T19:00:00+00:00",
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        },
+        "venue": {
+          "id": null,
+          "name": "National Stadium Vasil Levski",
+          "city": "Sofia"
+        },
+        "referee": "G. Nyberg"
+      },
+      "injuries": [],
+      "injuryCount": 0,
+      "injuryApiErrors": [],
+      "marketOdds": {
+        "bookmaker": "10Bet",
+        "home": "2.88",
+        "draw": "3.20",
+        "away": "2.44"
+      },
+      "h2h": [],
+      "sportscoreNext": {
+        "home": {
+          "home": "Levski Sofia",
+          "away": "Spartak Varna",
+          "time": "2026-08-22T18:15:00+00:00",
+          "competition": "Bulgarian First League",
+          "source": "https://sportscore.com/developers/"
+        },
+        "away": {
+          "home": "AEK Athens",
+          "away": "Iraklis",
+          "time": "2026-08-22T17:00:00+00:00",
+          "competition": "Greek Super League",
+          "source": "https://sportscore.com/developers/"
+        }
+      }
+    },
+    "tue003": {
+      "status": "ok",
+      "fixtureId": 1622620,
+      "sourceUrl": "https://v3.football.api-sports.io/fixtures?id=1622620",
+      "league": {
+        "id": 2,
+        "name": "UEFA Champions League",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/2.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Play-offs",
+        "standings": false
+      },
+      "round": "Play-offs",
+      "season": 2026,
+      "teams": {
+        "home": {
+          "id": 620,
+          "name": "Dinamo Zagreb",
+          "logo": "https://media.api-sports.io/football/teams/620.png",
+          "winner": null
+        },
+        "away": {
+          "id": 759,
+          "name": "Viking",
+          "logo": "https://media.api-sports.io/football/teams/759.png",
+          "winner": null
+        }
+      },
+      "fixture": {
+        "date": "2026-08-18T19:00:00+00:00",
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Stadion Maksimir",
+          "city": "Zagreb"
+        },
+        "referee": "S. Gozubuyuk"
+      },
+      "injuries": [
+        {
+          "teamId": 620,
+          "team": "Dinamo Zagreb",
+          "playerId": 14406,
+          "player": "I. Filipovic",
+          "status": "Missing Fixture",
+          "reason": "Red Card",
+          "position": "Goalkeeper"
+        },
+        {
+          "teamId": 620,
+          "team": "Dinamo Zagreb",
+          "playerId": 1316,
+          "player": "K. Theophile-Catherine",
+          "status": "Missing Fixture",
+          "reason": "Inactive",
+          "position": "Defender"
+        },
+        {
+          "teamId": 759,
+          "team": "Viking",
+          "playerId": 15712,
+          "player": "A. Baertelsen",
+          "status": "Missing Fixture",
+          "reason": "Foot Injury",
+          "position": "Defender"
+        },
+        {
+          "teamId": 759,
+          "team": "Viking",
+          "playerId": 39220,
+          "player": "V. Berisha",
+          "status": "Missing Fixture",
+          "reason": "Thigh Injury",
+          "position": "Attacker"
+        },
+        {
+          "teamId": 759,
+          "team": "Viking",
+          "playerId": 57436,
+          "player": "M. Roseth",
+          "status": "Missing Fixture",
+          "reason": "Knee Injury",
+          "position": ""
+        }
+      ],
+      "injuryCount": 5,
+      "injuryApiErrors": [],
+      "marketOdds": {
+        "bookmaker": "10Bet",
+        "home": "1.75",
+        "draw": "3.90",
+        "away": "4.10"
+      },
+      "h2h": [],
+      "sportscoreNext": {
+        "home": {
+          "home": "NK Osijek",
+          "away": "Dinamo Zagreb",
+          "time": "2026-09-12T15:00:00+00:00",
+          "competition": "Croatian Football League",
+          "source": "https://sportscore.com/developers/"
+        },
+        "away": {
+          "home": "Brodd",
+          "away": "Viking",
+          "time": "2026-08-22T16:00:00+00:00",
+          "competition": "Norwegian SAS Braathens Cup",
+          "source": "https://sportscore.com/developers/"
+        }
+      }
+    },
+    "tue004": {
+      "status": "ok",
+      "fixtureId": 1622621,
+      "sourceUrl": "https://v3.football.api-sports.io/fixtures?id=1622621",
+      "league": {
+        "id": 2,
+        "name": "UEFA Champions League",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/2.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Play-offs",
+        "standings": false
+      },
+      "round": "Play-offs",
+      "season": 2026,
+      "teams": {
+        "home": {
+          "id": 611,
+          "name": "Fenerbahçe",
+          "logo": "https://media.api-sports.io/football/teams/611.png",
+          "winner": null
+        },
+        "away": {
+          "id": 80,
+          "name": "Lyon",
+          "logo": "https://media.api-sports.io/football/teams/80.png",
+          "winner": null
+        }
+      },
+      "fixture": {
+        "date": "2026-08-18T19:00:00+00:00",
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Chobani Stadium Fenerbahce Sukru Saracoglu",
+          "city": "Istanbul"
+        },
+        "referee": "S. Jablonski"
+      },
+      "injuries": [
+        {
+          "teamId": 611,
+          "team": "Fenerbahçe",
+          "playerId": 50129,
+          "player": "E. Demir",
+          "status": "Missing Fixture",
+          "reason": "Inactive",
+          "position": "Midfielder"
+        },
+        {
+          "teamId": 611,
+          "team": "Fenerbahçe",
+          "playerId": 21090,
+          "player": "Diego Carlos",
+          "status": "Missing Fixture",
+          "reason": "Inactive",
+          "position": ""
+        },
+        {
+          "teamId": 611,
+          "team": "Fenerbahçe",
+          "playerId": 417861,
+          "player": "A. Diouf",
+          "status": "Missing Fixture",
+          "reason": "Lacking Match Fitness",
+          "position": "Attacker"
+        },
+        {
+          "teamId": 611,
+          "team": "Fenerbahçe",
+          "playerId": 381812,
+          "player": "O. Fayed",
+          "status": "Missing Fixture",
+          "reason": "Inactive",
+          "position": "Defender"
+        },
+        {
+          "teamId": 611,
+          "team": "Fenerbahçe",
+          "playerId": 340727,
+          "player": "O. Mimovic",
+          "status": "Missing Fixture",
+          "reason": "Inactive",
+          "position": "Defender"
+        },
+        {
+          "teamId": 611,
+          "team": "Fenerbahçe",
+          "playerId": 37380,
+          "player": "A. Musaba",
+          "status": "Missing Fixture",
+          "reason": "Injury",
+          "position": "Attacker"
+        },
+        {
+          "teamId": 611,
+          "team": "Fenerbahçe",
+          "playerId": 272721,
+          "player": "J. Oosterwolde",
+          "status": "Missing Fixture",
+          "reason": "Achilles Tendon Injury",
+          "position": "Defender"
+        },
+        {
+          "teamId": 611,
+          "team": "Fenerbahçe",
+          "playerId": 829,
+          "player": "Rodrigo Becao",
+          "status": "Missing Fixture",
+          "reason": "Inactive",
+          "position": "Defender"
+        },
+        {
+          "teamId": 611,
+          "team": "Fenerbahçe",
+          "playerId": 785,
+          "player": "C. Under",
+          "status": "Missing Fixture",
+          "reason": "Inactive",
+          "position": "Attacker"
+        },
+        {
+          "teamId": 611,
+          "team": "Fenerbahçe",
+          "playerId": 50097,
+          "player": "M. Yandas",
+          "status": "Missing Fixture",
+          "reason": "Inactive",
+          "position": ""
+        },
+        {
+          "teamId": 611,
+          "team": "Fenerbahçe",
+          "playerId": 633187,
+          "player": "A. Yesilyurt",
+          "status": "Missing Fixture",
+          "reason": "Inactive",
+          "position": ""
+        },
+        {
+          "teamId": 611,
+          "team": "Fenerbahçe",
+          "playerId": 49837,
+          "player": "M. Gunok",
+          "status": "Questionable",
+          "reason": "Muscle Injury",
+          "position": "Goalkeeper"
+        },
+        {
+          "teamId": 611,
+          "team": "Fenerbahçe",
+          "playerId": 18776,
+          "player": "C. Soyuncu",
+          "status": "Questionable",
+          "reason": "Injury",
+          "position": "Defender"
+        },
+        {
+          "teamId": 80,
+          "team": "Lyon",
+          "playerId": 519664,
+          "player": "K. Merah",
+          "status": "Missing Fixture",
+          "reason": "Ankle Injury",
+          "position": "Midfielder"
+        },
+        {
+          "teamId": 80,
+          "team": "Lyon",
+          "playerId": 66387,
+          "player": "P. Sulc",
+          "status": "Missing Fixture",
+          "reason": "Knee Injury",
+          "position": "Midfielder"
+        }
+      ],
+      "injuryCount": 15,
+      "injuryApiErrors": [],
+      "marketOdds": {
+        "bookmaker": "10Bet",
+        "home": "2.08",
+        "draw": "3.70",
+        "away": "3.15"
+      },
+      "h2h": [
+        {
+          "date": "2025-01-23",
+          "home": "Fenerbahçe",
+          "away": "Lyon",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "league": "UEFA Europa League"
+        }
+      ],
+      "sportscoreNext": {
+        "home": {
+          "home": "Gaziantep Futbol Kulübü",
+          "away": "Fenerbahce",
+          "time": "2026-09-13T12:00:00+00:00",
+          "competition": "Turkish Super League",
+          "source": "https://sportscore.com/developers/"
+        },
+        "away": {
+          "home": "Lyon",
+          "away": "Fenerbahce",
+          "time": "2026-08-26T19:00:00+00:00",
+          "competition": "UEFA Champions League",
+          "source": "https://sportscore.com/developers/"
+        }
+      }
+    }
+  }
+}

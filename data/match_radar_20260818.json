@@ -1,0 +1,517 @@
+{
+  "version": "match-radar-v1",
+  "generatedAt": "2026-08-18T09:52:02",
+  "date": "20260818",
+  "dateText": "2026-08-18",
+  "providers": [
+    {
+      "name": "体彩 Sporttery",
+      "role": "业务日、场次、赔率、竞彩编号",
+      "status": "active",
+      "url": "https://www.sporttery.cn/"
+    },
+    {
+      "name": "ESPN / SofaScore",
+      "role": "赛果与赛程兜底",
+      "status": "fallback",
+      "url": "https://www.sofascore.com/"
+    },
+    {
+      "name": "API-Football",
+      "role": "伤停、停赛、积分、未来赛程（需 key）",
+      "status": "optional",
+      "url": "https://www.api-football.com/documentation-v3"
+    },
+    {
+      "name": "SportMonks",
+      "role": "杯赛阶段、积分、伤停与赛程（需 token）",
+      "status": "optional",
+      "url": "https://docs.sportmonks.com/v3/"
+    }
+  ],
+  "matches": [
+    {
+      "id": "tue001",
+      "lotteryNo": "周二001",
+      "league": "解放者杯",
+      "kickoff": "2026-08-19 06:00:00",
+      "home": "里独立",
+      "away": "弗鲁米嫩塞",
+      "homeRank": null,
+      "awayRank": null,
+      "prediction": {
+        "confidence": "未定"
+      },
+      "probabilities": {
+        "home": 39.8,
+        "draw": 31.4,
+        "away": 28.8
+      },
+      "marketOdds": {
+        "bookmaker": "10Bet",
+        "home": "2.35",
+        "draw": "2.98",
+        "away": "3.25"
+      },
+      "oddsUpdatedAt": null,
+      "injuries": {
+        "confirmed": false,
+        "reviewed": false,
+        "text": "本场暂无伤停记录",
+        "note": "当前伤停接口未返回本场条目；这只表示暂无可展示记录，不等同于确认阵容完整。",
+        "home": [],
+        "away": []
+      },
+      "rest": {
+        "home": null,
+        "away": 6
+      },
+      "standings": "里独立 未提供；弗鲁米嫩塞 未提供",
+      "standingsBrief": {
+        "home": null,
+        "away": null
+      },
+      "rankText": "当前联赛排名：主队第—名 · 客队第—名",
+      "competition": "解放者杯Round of 16，本场结果将影响后续晋级形势。",
+      "competitionBrief": "Round of 16 · 未开赛",
+      "competitionPath": "杯赛走向：赛后按晋级结果读取下一轮对阵",
+      "stage": "暂无已确认的赛事阶段",
+      "fixtureEvidence": {
+        "provider": "API-Football",
+        "fixtureId": 1547770,
+        "round": "Round of 16",
+        "venue": {
+          "id": null,
+          "name": "Estadio Malvinas Argentinas",
+          "city": "Mendoza"
+        },
+        "referee": "A. Rojas",
+        "status": "Not Started"
+      },
+      "previous": "暂无已确认的上一场与休息间隔",
+      "next": {
+        "confirmed": true,
+        "text": "独立队 vs Independiente Rivadavia",
+        "home": {
+          "text": "独立队 vs Independiente Rivadavia",
+          "date": "2026-08-23 05:30",
+          "source": "https://sportscore.com/developers/"
+        },
+        "away": {
+          "text": "弗鲁米嫩塞 vs 里莫",
+          "date": "2026-08-23 03:00",
+          "source": "https://sportscore.com/developers/"
+        },
+        "homeImportance": "当前排名待更新，比赛结果将影响后续联赛形势。",
+        "awayImportance": "当前排名待更新，比赛结果将影响后续联赛形势。"
+      },
+      "h2h": [
+        {
+          "date": "2026-05-07",
+          "home": "里独立",
+          "away": "弗鲁米嫩塞",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "league": "解放者杯"
+        },
+        {
+          "date": "2026-04-16",
+          "home": "弗鲁米嫩塞",
+          "away": "里独立",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "league": "解放者杯"
+        },
+        {
+          "date": "2026-08-11",
+          "home": "弗鲁米嫩塞",
+          "away": "里独立",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "league": "解放者杯"
+        }
+      ],
+      "sources": [
+        "https://www.sporttery.cn/",
+        "https://sportscore.com/developers/"
+      ]
+    },
+    {
+      "id": "tue002",
+      "lotteryNo": "周二002",
+      "league": "欧冠",
+      "kickoff": "2026-08-19 03:00:00",
+      "home": "索列夫",
+      "away": "雅典AEK",
+      "homeRank": null,
+      "awayRank": null,
+      "prediction": {
+        "confidence": "未定"
+      },
+      "probabilities": {
+        "home": 32.5,
+        "draw": 29.2,
+        "away": 38.3
+      },
+      "marketOdds": {
+        "bookmaker": "10Bet",
+        "home": "2.88",
+        "draw": "3.20",
+        "away": "2.44"
+      },
+      "oddsUpdatedAt": null,
+      "injuries": {
+        "confirmed": false,
+        "reviewed": false,
+        "text": "本场暂无伤停记录",
+        "note": "当前伤停接口未返回本场条目；这只表示暂无可展示记录，不等同于确认阵容完整。",
+        "home": [],
+        "away": []
+      },
+      "rest": {
+        "home": null,
+        "away": null
+      },
+      "standings": "索列夫 未提供；雅典AEK 未提供",
+      "standingsBrief": {
+        "home": null,
+        "away": null
+      },
+      "rankText": "当前联赛排名：主队第—名 · 客队第—名",
+      "competition": "欧冠Play-offs，本场结果将影响后续晋级形势。",
+      "competitionBrief": "Play-offs · 未开赛",
+      "competitionPath": "杯赛走向：赛后按晋级结果读取下一轮对阵",
+      "stage": "暂无已确认的赛事阶段",
+      "fixtureEvidence": {
+        "provider": "API-Football",
+        "fixtureId": 1622622,
+        "round": "Play-offs",
+        "venue": {
+          "id": null,
+          "name": "National Stadium Vasil Levski",
+          "city": "Sofia"
+        },
+        "referee": "G. Nyberg",
+        "status": "Not Started"
+      },
+      "previous": "暂无已确认的上一场与休息间隔",
+      "next": {
+        "confirmed": true,
+        "text": "索列夫 vs 瓦尔纳斯巴达",
+        "home": {
+          "text": "索列夫 vs 瓦尔纳斯巴达",
+          "date": "2026-08-23 02:15",
+          "source": "https://sportscore.com/developers/"
+        },
+        "away": {
+          "text": "雅典AEK vs 伊拉克里斯",
+          "date": "2026-08-23 01:00",
+          "source": "https://sportscore.com/developers/"
+        },
+        "homeImportance": "当前排名待更新，比赛结果将影响后续联赛形势。",
+        "awayImportance": "当前排名待更新，比赛结果将影响后续联赛形势。"
+      },
+      "h2h": [],
+      "sources": [
+        "https://www.sporttery.cn/",
+        "https://sportscore.com/developers/"
+      ]
+    },
+    {
+      "id": "tue003",
+      "lotteryNo": "周二003",
+      "league": "欧冠",
+      "kickoff": "2026-08-19 03:00:00",
+      "home": "萨格勒布迪纳摩",
+      "away": "维京",
+      "homeRank": null,
+      "awayRank": null,
+      "prediction": {
+        "confidence": "未定"
+      },
+      "probabilities": {
+        "home": 53.3,
+        "draw": 23.9,
+        "away": 22.8
+      },
+      "marketOdds": {
+        "bookmaker": "10Bet",
+        "home": "1.75",
+        "draw": "3.90",
+        "away": "4.10"
+      },
+      "oddsUpdatedAt": null,
+      "injuries": {
+        "confirmed": true,
+        "reviewed": false,
+        "text": "已记录 5 名伤停球员",
+        "note": "",
+        "home": [
+          {
+            "player": "I. Filipovic",
+            "position": "门将",
+            "status": "缺席",
+            "reason": "Red Card"
+          },
+          {
+            "player": "K. Theophile-Catherine",
+            "position": "后卫",
+            "status": "缺席",
+            "reason": "未激活"
+          }
+        ],
+        "away": [
+          {
+            "player": "A. Baertelsen",
+            "position": "后卫",
+            "status": "缺席",
+            "reason": "Foot Injury"
+          },
+          {
+            "player": "V. Berisha",
+            "position": "前锋",
+            "status": "缺席",
+            "reason": "Thigh Injury"
+          },
+          {
+            "player": "M. Roseth",
+            "position": "位置待确认",
+            "status": "缺席",
+            "reason": "膝部伤病"
+          }
+        ]
+      },
+      "rest": {
+        "home": null,
+        "away": 3
+      },
+      "standings": "萨格勒布迪纳摩 未提供；维京 未提供",
+      "standingsBrief": {
+        "home": null,
+        "away": null
+      },
+      "rankText": "当前联赛排名：主队第—名 · 客队第—名",
+      "competition": "欧冠Play-offs，本场结果将影响后续晋级形势。",
+      "competitionBrief": "Play-offs · 未开赛",
+      "competitionPath": "杯赛走向：赛后按晋级结果读取下一轮对阵",
+      "stage": "暂无已确认的赛事阶段",
+      "fixtureEvidence": {
+        "provider": "API-Football",
+        "fixtureId": 1622620,
+        "round": "Play-offs",
+        "venue": {
+          "id": null,
+          "name": "Stadion Maksimir",
+          "city": "Zagreb"
+        },
+        "referee": "S. Gozubuyuk",
+        "status": "Not Started"
+      },
+      "previous": "暂无已确认的上一场与休息间隔",
+      "next": {
+        "confirmed": true,
+        "text": "奥西耶克 vs 萨格勒布迪纳摩",
+        "home": {
+          "text": "奥西耶克 vs 萨格勒布迪纳摩",
+          "date": "2026-09-12 23:00",
+          "source": "https://sportscore.com/developers/"
+        },
+        "away": {
+          "text": "布罗德 vs 维京",
+          "date": "2026-08-23 00:00",
+          "source": "https://sportscore.com/developers/"
+        },
+        "homeImportance": "当前排名待更新，比赛结果将影响后续联赛形势。",
+        "awayImportance": "当前排名待更新，比赛结果将影响后续联赛形势。"
+      },
+      "h2h": [],
+      "sources": [
+        "https://www.sporttery.cn/",
+        "https://sportscore.com/developers/"
+      ]
+    },
+    {
+      "id": "tue004",
+      "lotteryNo": "周二004",
+      "league": "欧冠",
+      "kickoff": "2026-08-19 03:00:00",
+      "home": "费内巴切",
+      "away": "里昂",
+      "homeRank": null,
+      "awayRank": null,
+      "prediction": {
+        "confidence": "未定"
+      },
+      "probabilities": {
+        "home": 45.0,
+        "draw": 25.3,
+        "away": 29.7
+      },
+      "marketOdds": {
+        "bookmaker": "10Bet",
+        "home": "2.08",
+        "draw": "3.70",
+        "away": "3.15"
+      },
+      "oddsUpdatedAt": null,
+      "injuries": {
+        "confirmed": true,
+        "reviewed": false,
+        "text": "已记录 15 名伤停球员",
+        "note": "",
+        "home": [
+          {
+            "player": "E. Demir",
+            "position": "中场",
+            "status": "缺席",
+            "reason": "未激活"
+          },
+          {
+            "player": "Diego Carlos",
+            "position": "位置待确认",
+            "status": "缺席",
+            "reason": "未激活"
+          },
+          {
+            "player": "A. Diouf",
+            "position": "前锋",
+            "status": "缺席",
+            "reason": "Lacking Match Fitness"
+          },
+          {
+            "player": "O. Fayed",
+            "position": "后卫",
+            "status": "缺席",
+            "reason": "未激活"
+          },
+          {
+            "player": "O. Mimovic",
+            "position": "后卫",
+            "status": "缺席",
+            "reason": "未激活"
+          },
+          {
+            "player": "A. Musaba",
+            "position": "前锋",
+            "status": "缺席",
+            "reason": "伤病"
+          },
+          {
+            "player": "J. Oosterwolde",
+            "position": "后卫",
+            "status": "缺席",
+            "reason": "Achilles Tendon Injury"
+          },
+          {
+            "player": "Rodrigo Becao",
+            "position": "后卫",
+            "status": "缺席",
+            "reason": "未激活"
+          },
+          {
+            "player": "C. Under",
+            "position": "前锋",
+            "status": "缺席",
+            "reason": "未激活"
+          },
+          {
+            "player": "M. Yandas",
+            "position": "位置待确认",
+            "status": "缺席",
+            "reason": "未激活"
+          },
+          {
+            "player": "A. Yesilyurt",
+            "position": "位置待确认",
+            "status": "缺席",
+            "reason": "未激活"
+          },
+          {
+            "player": "M. Gunok",
+            "position": "门将",
+            "status": "出场存疑",
+            "reason": "肌肉伤病"
+          },
+          {
+            "player": "C. Soyuncu",
+            "position": "后卫",
+            "status": "出场存疑",
+            "reason": "伤病"
+          }
+        ],
+        "away": [
+          {
+            "player": "K. Merah",
+            "position": "中场",
+            "status": "缺席",
+            "reason": "脚踝伤病"
+          },
+          {
+            "player": "P. Sulc",
+            "position": "中场",
+            "status": "缺席",
+            "reason": "膝部伤病"
+          }
+        ]
+      },
+      "rest": {
+        "home": 6,
+        "away": 6
+      },
+      "standings": "费内巴切 未提供；里昂 未提供",
+      "standingsBrief": {
+        "home": null,
+        "away": null
+      },
+      "rankText": "当前联赛排名：主队第—名 · 客队第—名",
+      "competition": "欧冠Play-offs，本场结果将影响后续晋级形势。",
+      "competitionBrief": "Play-offs · 未开赛",
+      "competitionPath": "杯赛走向：赛后按晋级结果读取下一轮对阵",
+      "stage": "暂无已确认的赛事阶段",
+      "fixtureEvidence": {
+        "provider": "API-Football",
+        "fixtureId": 1622621,
+        "round": "Play-offs",
+        "venue": {
+          "id": null,
+          "name": "Chobani Stadium Fenerbahce Sukru Saracoglu",
+          "city": "Istanbul"
+        },
+        "referee": "S. Jablonski",
+        "status": "Not Started"
+      },
+      "previous": "暂无已确认的上一场与休息间隔",
+      "next": {
+        "confirmed": true,
+        "text": "加济安泰普 vs 费内巴切",
+        "home": {
+          "text": "加济安泰普 vs 费内巴切",
+          "date": "2026-09-13 20:00",
+          "source": "https://sportscore.com/developers/"
+        },
+        "away": {
+          "text": "里昂 vs 费内巴切",
+          "date": "2026-08-27 03:00",
+          "source": "https://sportscore.com/developers/"
+        },
+        "homeImportance": "当前排名待更新，比赛结果将影响后续联赛形势。",
+        "awayImportance": "当前排名待更新，比赛结果将影响后续联赛形势。"
+      },
+      "h2h": [
+        {
+          "date": "2025-01-23",
+          "home": "费内巴切",
+          "away": "里昂",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "league": "UEFA Europa League"
+        }
+      ],
+      "sources": [
+        "https://www.sporttery.cn/",
+        "https://sportscore.com/developers/"
+      ]
+    }
+  ],
+  "disclaimer": "以上为已确认公开信息整理后的比赛环境雷达，不构成任何购彩建议；信息会随官方更新而变化。"
+}
