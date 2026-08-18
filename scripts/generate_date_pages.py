@@ -246,6 +246,12 @@ def dynamic_calibration() -> dict[str, dict[str, Any]]:
 
 GENERATED_COMPETITION_MODELS: dict[str, dict[str, Any]] = {}
 
+COMPETITION_MODEL_ALIASES = {
+    "解放者杯": "南美解放者杯",
+    "欧冠": "欧洲冠军联赛",
+    "欧罗巴": "欧罗巴联赛",
+}
+
 
 def generated_competition_model(competition: str) -> dict[str, Any]:
     """Create a deterministic neutral model for a previously unseen competition.
@@ -284,17 +290,18 @@ def generated_competition_model(competition: str) -> dict[str, Any]:
 
 
 def model_profile_for(league: str) -> dict[str, Any]:
-    base = COMPETITION_MODELS.get(league) or generated_competition_model(league)
-    profile = {**base, **POST_REVIEW_CALIBRATION.get(league, {}), **CUP_MODEL_TUNING.get(league, {})}
-    dynamic = dynamic_calibration().get(league, {})
+    model_league = COMPETITION_MODEL_ALIASES.get(league, league)
+    base = COMPETITION_MODELS.get(model_league) or generated_competition_model(model_league)
+    profile = {**base, **POST_REVIEW_CALIBRATION.get(model_league, {}), **CUP_MODEL_TUNING.get(model_league, {})}
+    dynamic = dynamic_calibration().get(model_league, {})
     profile.update(dynamic)
-    cup_version = CUP_MODEL_TUNING.get(league, {}).get("version")
-    if league in CUP_COMPETITIONS and cup_version:
+    cup_version = CUP_MODEL_TUNING.get(model_league, {}).get("version")
+    if model_league in CUP_COMPETITIONS and cup_version:
         if dynamic.get("version"):
             profile["calibrationVersion"] = dynamic["version"]
         profile["version"] = cup_version
     profile.setdefault("modelScope", "dedicated_competition")
-    profile["competition"] = league
+    profile["competition"] = model_league
     return profile
 
 
@@ -1237,6 +1244,7 @@ def render_match_brief(brief: dict[str, Any]) -> str:
 def predict_with_market_fallback(base: Any, match: dict[str, Any], context: dict[str, Any]) -> dict[str, Any]:
     """Use the score matrix only for model probabilities when HAD is not offered."""
     cloned = json.loads(json.dumps(match, ensure_ascii=False))
+    model_only = False
     had = cloned.get("odds", {}).get("had") or {}
     has_had = all(num(had.get(key)) for key in ("home", "draw", "away"))
     if not has_had:
@@ -1248,8 +1256,30 @@ def predict_with_market_fallback(base: Any, match: dict[str, Any], context: dict
                 home, away = (int(x) for x in score.split("-"))
                 totals["home" if home > away else "away" if home < away else "draw"] += probability
         if not sum(totals.values()):
-            raise ValueError(f"No HAD or score-matrix direction basis for {match.get('matchNumStr')}")
-        cloned["odds"]["had"] = {key: round(1 / value, 3) for key, value in totals.items() if value}
+            # Official odds can be unavailable while the user still needs the
+            # dedicated competition model output. Build a private Poisson
+            # prior as computational input only; it is removed before publish.
+            model_only = True
+            profile = shrink_review_profile(model_profile_for(match.get("league", "未知赛事")))
+            prior_home, prior_draw, prior_away = profile["prior_probs"]
+            total_lambda = max(1.65, min(3.25, 2.25 + float(profile.get("goal_shift", 0.0))))
+            home_lambda = total_lambda * (0.58 + 0.32 * prior_home)
+            away_lambda = max(0.45, total_lambda - home_lambda)
+            def poisson(value: int, rate: float) -> float:
+                return math.exp(-rate) * rate ** value / math.factorial(value)
+            scores = {(f"{home}-{away}"): poisson(home, home_lambda) * poisson(away, away_lambda)
+                      for home in range(7) for away in range(7)}
+            cloned["odds"]["crs"] = {score: round(1 / probability, 4) for score, probability in scores.items() if probability}
+            totals_by_goals = {f"s{goals}": sum(probability for score, probability in scores.items()
+                                                if sum(int(part) for part in score.split("-")) == goals)
+                               for goals in range(7)}
+            totals_by_goals["s7"] = sum(probability for score, probability in scores.items()
+                                         if sum(int(part) for part in score.split("-")) >= 7)
+            cloned["odds"]["ttg"] = {key: round(1 / probability, 4) for key, probability in totals_by_goals.items() if probability}
+            cloned["odds"]["hafu"] = {}
+            cloned["odds"]["had"] = {"home": round(1 / prior_home, 4), "draw": round(1 / prior_draw, 4), "away": round(1 / prior_away, 4)}
+        else:
+            cloned["odds"]["had"] = {key: round(1 / value, 3) for key, value in totals.items() if value}
     predicted = predict_by_competition(base, cloned, context)
     predicted["businessDate"] = match.get("businessDate", "")
     hkey, hodds, _ = hafu_pick(predicted)
@@ -1292,9 +1322,14 @@ def predict_with_market_fallback(base: Any, match: dict[str, Any], context: dict
     # contract and ten causal dimensions remain in JSON for audit/backtesting.
     predicted["integratedAnalysis"] = " ".join(str(context.get("integratedAnalysis", default_analysis)).split())
     predicted["analysisBasis"] = context.get("analysisBasis", "体彩官方赔率、比分矩阵与总进球分布的综合模拟；没有把未核实的阵容传闻当作事实。")
-    if not has_had:
+    if not has_had or model_only:
         predicted["odds"]["had"] = {}
-        predicted["marketBasis"] = "未开售胜平负；方向概率由官方比分矩阵归一化推导，不参与胜平负串关。"
+        predicted["odds"]["crs"] = {}
+        predicted["odds"]["ttg"] = {}
+        predicted["odds"]["hafu"] = {}
+        predicted["marketBasis"] = ("官方胜平负、比分、总进球和半全场赔率均未取得；方向与比分由对应赛事模型先验生成，"
+                                     "不参与赔率价值审计或胜平负串关。" if model_only else
+                                     "未开售胜平负；方向概率由官方比分矩阵归一化推导，不参与胜平负串关。")
         predicted["reason"] += " " + predicted["marketBasis"]
     else:
         predicted["marketBasis"] = "官方胜平负赔率"

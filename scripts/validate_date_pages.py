@@ -31,8 +31,19 @@ def main() -> None:
     # combinations without reusing the same legs excessively.  Keep the
     # historical five-combo minimum for normal boards, but scale it down to
     # the number of available matches when fewer than five are published.
-    assert max(1, min(5, len(matches))) <= len(payload["combos"]) <= 10
-    assert any(combo["productOdds"] > 20 for combo in payload["combos"])
+    # A screenshot-only/model-only board has no official odds and therefore
+    # must not manufacture parlays. Keep the normal 1-10 combo contract when
+    # at least one published match offers a usable market basis.
+    has_market_basis = any(
+        all(str(match.get("odds", {}).get("had", {}).get(key, "")).strip() for key in ("home", "draw", "away"))
+        for match in matches
+    )
+    if has_market_basis:
+        assert max(1, min(5, len(matches))) <= len(payload["combos"]) <= 10
+    else:
+        assert len(payload["combos"]) == 0
+    if has_market_basis:
+        assert any(combo["productOdds"] > 20 for combo in payload["combos"])
     assert [combo["trustScore"] for combo in payload["combos"]] == sorted((combo["trustScore"] for combo in payload["combos"]), reverse=True)
     match_ids = {match["id"] for match in matches}
     for match in matches:
@@ -69,8 +80,9 @@ def main() -> None:
         assert combo["exactScoreLegs"] <= 2
         assert combo["productOdds"] >= 10.0
         assert abs(combo["productOdds"] - round(math.prod(leg["odds"] for leg in combo["legs"]), 2)) <= 0.01
+    min_odds = min((row["productOdds"] for row in payload["combos"]), default=0.0)
     print(f"{args.date}: {len(matches)} matches, {len(payload['competitionModels'])} competition models, "
-          f"{len(payload['combos'])} parlays, min odds {min(row['productOdds'] for row in payload['combos']):.2f}, OK")
+          f"{len(payload['combos'])} parlays, min odds {min_odds:.2f}, OK")
 
 
 if __name__ == "__main__":
