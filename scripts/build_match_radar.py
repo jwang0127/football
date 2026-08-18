@@ -134,28 +134,34 @@ def round_zh(value):
 
 def build(source, contexts, external, enrichment):
     rows = []
+    supplement = read(DATA / f"match_radar_supplement_{source.get('date')}.json")
     for m in source.get("matches", []):
         mid = str(m.get("matchId") or m.get("id"))
         c = contexts.get("matches", {}).get(mid, {})
         e = external.get("matches", {}).get(mid, {})
         api = enrichment.get("matches", {}).get(mid, {})
+        supp = (supplement.get("matches") or {}).get(mid, {})
+        supp_count = len(supp.get("home", [])) + len(supp.get("away", []))
         injuries = confirmed(c.get("injuries"), "暂无已确认的官方伤停或首发信息")
         if api.get("status") == "ok":
             if api.get("injuryCount"):
-                names = [f"{x.get('player')}（{x.get('status') or '状态记录'}）" for x in api.get("injuries", []) if x.get("player")]
-                injuries = "已记录 " + str(api.get("injuryCount")) + " 名伤停球员"
+                injuries = "API已取得 " + str(api.get("injuryCount")) + " 条记录"
             else:
                 injuries = "本场暂无伤停记录"
+        if supp_count:
+            injuries = (injuries + "；另有 " + str(supp_count) + " 条第三方赛前记录") if api.get("injuryCount") else ("已收集 " + str(supp_count) + " 条第三方赛前记录，待官方确认")
         api_evidence = (f"{api.get('round') or '赛事轮次待确认'} · {((api.get('fixture') or {}).get('status') or {}).get('long') or '状态待更新'}" if api.get("status") == "ok" else "")
-        injury_rows = {"home": [], "away": []}
+        injury_rows = {"home": list(supp.get("home", [])), "away": list(supp.get("away", []))}
         if api.get("status") == "ok":
             home_api = ((api.get("teams") or {}).get("home") or {}).get("id")
             for item in api.get("injuries", []):
                 side = "home" if item.get("teamId") == home_api else "away"
-                injury_rows[side].append({"player": item.get("player"), "position": position_zh(item.get("position")), "status": status_zh(item.get("status")), "reason": reason_zh(item.get("reason"))})
+                row = {"player": item.get("player"), "position": position_zh(item.get("position")), "status": status_zh(item.get("status")), "reason": reason_zh(item.get("reason"))}
+                if not any(x.get("player") == row.get("player") for x in injury_rows[side]):
+                    injury_rows[side].append(row)
         api_odds = api.get("marketOdds") or {}
         injury_review = INJURY_REVIEWS.get(mid, {})
-        injury_note = injury_review.get("note") if not api.get("injuryCount") and injury_review else ("当前伤停接口未返回本场条目；这只表示暂无可展示记录，不等同于确认阵容完整。" if not api.get("injuryCount") else "")
+        injury_note = (supplement.get("sourceLabel") + "；图片记录不等同于官方最终确认。") if supp_count else (injury_review.get("note") if not api.get("injuryCount") and injury_review else ("当前伤停接口未返回本场条目；这只表示暂无可展示记录，不等同于确认阵容完整。" if not api.get("injuryCount") else ""))
         if not api.get("injuryCount") and injury_review:
             injuries = injury_review["text"]
         next_override = NEXT_MATCHES.get(mid)
@@ -174,7 +180,7 @@ def build(source, contexts, external, enrichment):
             "prediction":{**(m.get("prediction") or {}), "confidence":confidence_zh((m.get("prediction") or {}).get("confidence"))}, "probabilities":probs((m.get("odds") or {}).get("had") or api_odds, probs((m.get("odds") or {}).get("hhad") or api_odds)),
             "marketOdds":{"bookmaker":api_odds.get("bookmaker"), "home":api_odds.get("home"), "draw":api_odds.get("draw"), "away":api_odds.get("away")},
             "oddsUpdatedAt":((m.get("odds") or {}).get("had") or {}).get("updatedAt"),
-            "injuries":{"confirmed":bool(api.get("injuryCount")), "reviewed":bool(injury_review), "text":injuries, "note":injury_note, "home":injury_rows["home"], "away":injury_rows["away"]},
+            "injuries":{"confirmed":bool(api.get("injuryCount")), "reviewed":bool(injury_review or supp_count), "text":injuries, "note":injury_note, "home":injury_rows["home"], "away":injury_rows["away"]},
             "rest":c.get("restDays") or {},
             "standings":confirmed(c.get("ranking"), "暂无已确认的积分榜位置"),
             "standingsBrief":{"home":home_rank, "away":away_rank},
@@ -217,7 +223,7 @@ function radarRestText(rest){
 }
 function readableCard(m,i){
   const p=m.prediction||{}, n=esc(m.next.text), ev=m.fixtureEvidence||{};
-  const injuryLabel=m.injuries.confirmed?'已取得记录':(m.injuries.reviewed?'已复核，暂无公开名单':'暂无已确认记录');
+  const injuryLabel=m.injuries.confirmed?'已取得 API 记录':(m.injuries.reviewed?'已收集第三方记录，待官方确认':'暂无已确认记录');
   const market=m.marketOdds||{};
   const oddsText=(market.home&&market.draw&&market.away)?('参考水位：'+esc(market.home)+' / '+esc(market.draw)+' / '+esc(market.away)):'参考水位：暂无';
   const injuryList=(rows)=>rows&&rows.length?'<ul class="injury-list">'+rows.map(x=>'<li><strong>'+esc(x.player)+'</strong><span>'+esc(x.position)+' · '+esc(x.status)+' · '+esc(x.reason)+'</span></li>').join('')+'</ul>':'<p class="quiet">暂无已确认记录</p>';
