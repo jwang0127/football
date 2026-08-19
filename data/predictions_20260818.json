@@ -561,7 +561,7 @@
     ],
     "generatedAt": "2026-08-15T12:07:01"
   },
-  "generatedAt": "2026-08-18T11:56:56",
+  "generatedAt": "2026-08-19T09:40:40",
   "oddsUpdatedAt": "",
   "matches": [
     {
@@ -580,15 +580,15 @@
       "homeRank": "",
       "awayRank": "",
       "probabilities": {
-        "home": 0.348,
-        "draw": 0.37,
-        "away": 0.282
+        "home": 0.4045,
+        "draw": 0.3409,
+        "away": 0.2546
       },
-      "direction": "draw",
-      "directionText": "平",
-      "mainScore": "1-1",
+      "direction": "home",
+      "directionText": "主胜",
+      "mainScore": "1-0",
       "backupScores": [
-        "0-0",
+        "2-1",
         "3-1"
       ],
       "tailRiskScores": [
@@ -604,9 +604,9 @@
         "1",
         "3"
       ],
-      "confidenceScore": 47,
+      "confidenceScore": 36,
       "confidence": "中低",
-      "reason": "先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为平。市场与基本面存在分歧，降低信任度。 官方胜平负、比分、总进球和半全场赔率均未取得；方向与比分由对应赛事模型先验生成，不参与赔率价值审计或胜平负串关。",
+      "reason": "先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为主胜。市场与基本面存在分歧，降低信任度。 官方胜平负、比分、总进球和半全场赔率均未取得；方向与比分由对应赛事模型先验生成，不参与赔率价值审计或胜平负串关。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "crs": {},
@@ -698,9 +698,9 @@
         "away": 0.185
       },
       "fundamentalProbabilities": {
-        "home": 0.32,
-        "draw": 0.3333,
-        "away": 0.3467
+        "home": 0.4143,
+        "draw": 0.2847,
+        "away": 0.301
       },
       "fundamentalFirst": true,
       "marketContradiction": true,
@@ -780,14 +780,111 @@
         "tieFormat": "当前数据未核验单回合/两回合及首回合比分",
         "varianceRule": "双方进球率、追分和首发确认后再放大4+球或爆冷尾部"
       },
+      "threeLayerModel": {
+        "enabled": true,
+        "version": "three-layer-v1-evidence-first",
+        "weights": {
+          "hardStrength": 0.4,
+          "tacticalMatchup": 0.35,
+          "psychologicalState": 0.25
+        },
+        "itemScores": {
+          "hardStrength": {
+            "home": {
+              "leagueRanking": 50.0,
+              "squadValue": 50.0,
+              "recentForm": 50.0,
+              "venueAttribute": 50.0
+            },
+            "away": {
+              "leagueRanking": 50.0,
+              "squadValue": 50.0,
+              "recentForm": 50.0,
+              "venueAttribute": 50.0
+            }
+          },
+          "tacticalMatchup": {
+            "home": {
+              "styleMatchup": 50.0,
+              "headToHead": 50.0,
+              "coreAvailability": 50.0
+            },
+            "away": {
+              "styleMatchup": 50.0,
+              "headToHead": 50.0,
+              "coreAvailability": 50.0
+            }
+          },
+          "psychologicalState": {
+            "home": {
+              "lastResult": 50.0,
+              "scheduleFitness": 50.0,
+              "motivation": 50.0
+            },
+            "away": {
+              "lastResult": 52.0,
+              "scheduleFitness": 50.0,
+              "motivation": 50.0
+            }
+          }
+        },
+        "layerScores": {
+          "hardStrength": {
+            "home": 50.0,
+            "away": 50.0
+          },
+          "tacticalMatchup": {
+            "home": 50.0,
+            "away": 50.0
+          },
+          "psychologicalState": {
+            "home": 50.0,
+            "away": 50.67
+          }
+        },
+        "totalScores": {
+          "home": 50.0,
+          "away": 50.17
+        },
+        "probabilities": {
+          "home": 0.4143,
+          "draw": 0.2847,
+          "away": 0.301
+        },
+        "dataCompleteness": 0.05,
+        "confidencePenalty": -11,
+        "missingItems": [
+          "hardStrength.home.leagueRanking",
+          "hardStrength.home.squadValue",
+          "hardStrength.home.recentForm",
+          "hardStrength.home.venueAttribute",
+          "hardStrength.away.leagueRanking",
+          "hardStrength.away.squadValue",
+          "hardStrength.away.recentForm",
+          "hardStrength.away.venueAttribute",
+          "tacticalMatchup.home.styleMatchup",
+          "tacticalMatchup.home.headToHead",
+          "tacticalMatchup.home.coreAvailability",
+          "tacticalMatchup.away.styleMatchup",
+          "tacticalMatchup.away.headToHead",
+          "tacticalMatchup.away.coreAvailability",
+          "psychologicalState.home.lastResult",
+          "psychologicalState.home.scheduleFitness",
+          "psychologicalState.home.motivation",
+          "psychologicalState.away.scheduleFitness",
+          "psychologicalState.away.motivation"
+        ],
+        "drawCaution": 0.0,
+        "method": "hard strength 40% + tactical matchup 35% + psychological state 25%; missing items use neutral 50"
+      },
       "goalPrediction": {
         "pick": "2",
         "probability": 0.3559,
         "type": "total_goals"
       },
       "scorePrediction": {
-        "pick": "1-1",
-        "probability": 0.1193,
+        "pick": "1-0",
+        "probability": 0.1611,
         "type": "exact_score"
       },
       "goalScoreSeparation": "总进球命中与精确比分命中分开统计",
@@ -839,12 +936,12 @@
       ],
       "reasoningMethod": "fundamental-first-v3",
       "reasoningContract": {
-        "whyWin": "支持平局的可核验逻辑：积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
+        "whyWin": "支持主队的可核验逻辑：积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
         "whyMustWin": "积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正",
         "whyLose": "若对手先取得进球、比赛节奏被拉高或已核验的阵容因素失效，主方向会进入输球路径。",
         "whyNotLose": "保留主方向不败的一球差和低比分路径，但不把保护路径当成事实。",
         "whyDraw": "平局机制：积分/晋级战意与杯赛轮次未从官方竞赛文件完整核验，不作硬性方向修正；对应比分池保留低比分平局。",
-        "decision": "综合证据后暂定平局，主比分1-1，备选0-0/3-1；同时保留反向路径。",
+        "decision": "综合证据后暂定主队，主比分1-0，备选2-1/3-1；同时保留反向路径。",
         "dimensionReport": {
           "dimensions": {
             "schedule_load": "已从历史赛果计算最近比赛与休息间隔；具体杯赛轮次、首回合比分和下一场优先级仍需官方赛程确认",
@@ -957,13 +1054,13 @@
         {
           "market": "crs",
           "marketText": "比分",
-          "pick": "1-1",
-          "odds": 8.393,
-          "modelProbability": 0.1193,
-          "expectedValue": 0.0013
+          "pick": "1-0",
+          "odds": 6.2148,
+          "modelProbability": 0.1611,
+          "expectedValue": 0.0012
         }
       ],
-      "integratedAnalysis": "结论：平，总进球重点2球，比分关注1-1 / 0-0 / 3-1，半全场为平/平；已核验schedule_load，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：未核验；保留市场反向和阵容突变路径。",
+      "integratedAnalysis": "结论：主胜，总进球重点2球，比分关注1-0 / 2-1 / 3-1，半全场为平/平；已核验schedule_load，仅将这些已核验因素按情境层进入模型；未列出的阵容、天气和战术仍不作方向性修正。主要反向路径：未核验；保留市场反向和阵容突变路径。",
       "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
       "marketBasis": "官方胜平负、比分、总进球和半全场赔率均未取得；方向与比分由对应赛事模型先验生成，不参与赔率价值审计或胜平负串关。"
     },
@@ -983,9 +1080,9 @@
       "homeRank": "",
       "awayRank": "",
       "probabilities": {
-        "home": 0.4516,
-        "draw": 0.2797,
-        "away": 0.2687
+        "home": 0.5002,
+        "draw": 0.2511,
+        "away": 0.2487
       },
       "direction": "home",
       "directionText": "主胜",
@@ -1003,8 +1100,8 @@
         "3",
         "1"
       ],
-      "confidenceScore": 59,
-      "confidence": "中",
+      "confidenceScore": 47,
+      "confidence": "中低",
       "reason": "先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为主胜。 官方胜平负、比分、总进球和半全场赔率均未取得；方向与比分由对应赛事模型先验生成，不参与赔率价值审计或胜平负串关。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
@@ -1097,9 +1194,9 @@
         "away": 0.1794
       },
       "fundamentalProbabilities": {
-        "home": 0.3333,
-        "draw": 0.3333,
-        "away": 0.3333
+        "home": 0.4171,
+        "draw": 0.284,
+        "away": 0.2989
       },
       "fundamentalFirst": true,
       "marketContradiction": false,
@@ -1173,6 +1270,104 @@
       },
       "headToHeadSummary": "暂无可核验的双方历史交手",
       "cupModelInputs": null,
+      "threeLayerModel": {
+        "enabled": true,
+        "version": "three-layer-v1-evidence-first",
+        "weights": {
+          "hardStrength": 0.4,
+          "tacticalMatchup": 0.35,
+          "psychologicalState": 0.25
+        },
+        "itemScores": {
+          "hardStrength": {
+            "home": {
+              "leagueRanking": 50.0,
+              "squadValue": 50.0,
+              "recentForm": 50.0,
+              "venueAttribute": 50.0
+            },
+            "away": {
+              "leagueRanking": 50.0,
+              "squadValue": 50.0,
+              "recentForm": 50.0,
+              "venueAttribute": 50.0
+            }
+          },
+          "tacticalMatchup": {
+            "home": {
+              "styleMatchup": 50.0,
+              "headToHead": 50.0,
+              "coreAvailability": 50.0
+            },
+            "away": {
+              "styleMatchup": 50.0,
+              "headToHead": 50.0,
+              "coreAvailability": 50.0
+            }
+          },
+          "psychologicalState": {
+            "home": {
+              "lastResult": 50.0,
+              "scheduleFitness": 50.0,
+              "motivation": 50.0
+            },
+            "away": {
+              "lastResult": 50.0,
+              "scheduleFitness": 50.0,
+              "motivation": 50.0
+            }
+          }
+        },
+        "layerScores": {
+          "hardStrength": {
+            "home": 50.0,
+            "away": 50.0
+          },
+          "tacticalMatchup": {
+            "home": 50.0,
+            "away": 50.0
+          },
+          "psychologicalState": {
+            "home": 50.0,
+            "away": 50.0
+          }
+        },
+        "totalScores": {
+          "home": 50.0,
+          "away": 50.0
+        },
+        "probabilities": {
+          "home": 0.4171,
+          "draw": 0.284,
+          "away": 0.2989
+        },
+        "dataCompleteness": 0.0,
+        "confidencePenalty": -12,
+        "missingItems": [
+          "hardStrength.home.leagueRanking",
+          "hardStrength.home.squadValue",
+          "hardStrength.home.recentForm",
+          "hardStrength.home.venueAttribute",
+          "hardStrength.away.leagueRanking",
+          "hardStrength.away.squadValue",
+          "hardStrength.away.recentForm",
+          "hardStrength.away.venueAttribute",
+          "tacticalMatchup.home.styleMatchup",
+          "tacticalMatchup.home.headToHead",
+          "tacticalMatchup.home.coreAvailability",
+          "tacticalMatchup.away.styleMatchup",
+          "tacticalMatchup.away.headToHead",
+          "tacticalMatchup.away.coreAvailability",
+          "psychologicalState.home.lastResult",
+          "psychologicalState.home.scheduleFitness",
+          "psychologicalState.home.motivation",
+          "psychologicalState.away.lastResult",
+          "psychologicalState.away.scheduleFitness",
+          "psychologicalState.away.motivation"
+        ],
+        "drawCaution": 0.0,
+        "method": "hard strength 40% + tactical matchup 35% + psychological state 25%; missing items use neutral 50"
+      },
       "goalPrediction": {
         "pick": "2",
         "probability": 0.3527,
@@ -1374,9 +1569,9 @@
       "homeRank": "",
       "awayRank": "",
       "probabilities": {
-        "home": 0.4438,
-        "draw": 0.2797,
-        "away": 0.2764
+        "home": 0.4985,
+        "draw": 0.2515,
+        "away": 0.2499
       },
       "direction": "home",
       "directionText": "主胜",
@@ -1394,9 +1589,9 @@
         "1",
         "3"
       ],
-      "confidenceScore": 59,
-      "confidence": "中",
-      "reason": "先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为主胜。市场与基本面存在分歧，降低信任度。 官方胜平负、比分、总进球和半全场赔率均未取得；方向与比分由对应赛事模型先验生成，不参与赔率价值审计或胜平负串关。",
+      "confidenceScore": 48,
+      "confidence": "中低",
+      "reason": "先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为主胜。 官方胜平负、比分、总进球和半全场赔率均未取得；方向与比分由对应赛事模型先验生成，不参与赔率价值审计或胜平负串关。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
         "crs": {},
@@ -1488,12 +1683,12 @@
         "away": 0.1794
       },
       "fundamentalProbabilities": {
-        "home": 0.32,
-        "draw": 0.3333,
-        "away": 0.3467
+        "home": 0.4143,
+        "draw": 0.2847,
+        "away": 0.301
       },
       "fundamentalFirst": true,
-      "marketContradiction": true,
+      "marketContradiction": false,
       "goalSelectionGate": {
         "attackEfficiencyProxy": 0.5671,
         "tempoProxy": 0.3256,
@@ -1564,6 +1759,103 @@
       },
       "headToHeadSummary": "暂无可核验的双方历史交手",
       "cupModelInputs": null,
+      "threeLayerModel": {
+        "enabled": true,
+        "version": "three-layer-v1-evidence-first",
+        "weights": {
+          "hardStrength": 0.4,
+          "tacticalMatchup": 0.35,
+          "psychologicalState": 0.25
+        },
+        "itemScores": {
+          "hardStrength": {
+            "home": {
+              "leagueRanking": 50.0,
+              "squadValue": 50.0,
+              "recentForm": 50.0,
+              "venueAttribute": 50.0
+            },
+            "away": {
+              "leagueRanking": 50.0,
+              "squadValue": 50.0,
+              "recentForm": 50.0,
+              "venueAttribute": 50.0
+            }
+          },
+          "tacticalMatchup": {
+            "home": {
+              "styleMatchup": 50.0,
+              "headToHead": 50.0,
+              "coreAvailability": 50.0
+            },
+            "away": {
+              "styleMatchup": 50.0,
+              "headToHead": 50.0,
+              "coreAvailability": 50.0
+            }
+          },
+          "psychologicalState": {
+            "home": {
+              "lastResult": 50.0,
+              "scheduleFitness": 50.0,
+              "motivation": 50.0
+            },
+            "away": {
+              "lastResult": 52.0,
+              "scheduleFitness": 50.0,
+              "motivation": 50.0
+            }
+          }
+        },
+        "layerScores": {
+          "hardStrength": {
+            "home": 50.0,
+            "away": 50.0
+          },
+          "tacticalMatchup": {
+            "home": 50.0,
+            "away": 50.0
+          },
+          "psychologicalState": {
+            "home": 50.0,
+            "away": 50.67
+          }
+        },
+        "totalScores": {
+          "home": 50.0,
+          "away": 50.17
+        },
+        "probabilities": {
+          "home": 0.4143,
+          "draw": 0.2847,
+          "away": 0.301
+        },
+        "dataCompleteness": 0.05,
+        "confidencePenalty": -11,
+        "missingItems": [
+          "hardStrength.home.leagueRanking",
+          "hardStrength.home.squadValue",
+          "hardStrength.home.recentForm",
+          "hardStrength.home.venueAttribute",
+          "hardStrength.away.leagueRanking",
+          "hardStrength.away.squadValue",
+          "hardStrength.away.recentForm",
+          "hardStrength.away.venueAttribute",
+          "tacticalMatchup.home.styleMatchup",
+          "tacticalMatchup.home.headToHead",
+          "tacticalMatchup.home.coreAvailability",
+          "tacticalMatchup.away.styleMatchup",
+          "tacticalMatchup.away.headToHead",
+          "tacticalMatchup.away.coreAvailability",
+          "psychologicalState.home.lastResult",
+          "psychologicalState.home.scheduleFitness",
+          "psychologicalState.home.motivation",
+          "psychologicalState.away.scheduleFitness",
+          "psychologicalState.away.motivation"
+        ],
+        "drawCaution": 0.0,
+        "method": "hard strength 40% + tactical matchup 35% + psychological state 25%; missing items use neutral 50"
+      },
       "goalPrediction": {
         "pick": "2",
         "probability": 0.3556,
@@ -1767,9 +2059,9 @@
       "homeRank": "",
       "awayRank": "",
       "probabilities": {
-        "home": 0.4739,
-        "draw": 0.2761,
-        "away": 0.2501
+        "home": 0.5516,
+        "draw": 0.2376,
+        "away": 0.2108
       },
       "direction": "home",
       "directionText": "主胜",
@@ -1787,8 +2079,8 @@
         "1",
         "3"
       ],
-      "confidenceScore": 59,
-      "confidence": "中",
+      "confidenceScore": 51,
+      "confidence": "中低",
       "reason": "先按基本面与比赛逻辑，再用赔率检查矛盾；当前方向为主胜。 官方胜平负、比分、总进球和半全场赔率均未取得；方向与比分由对应赛事模型先验生成，不参与赔率价值审计或胜平负串关。",
       "context": "按官方赛程、竞彩赔率与比分矩阵交叉校准。",
       "odds": {
@@ -1881,9 +2173,9 @@
         "away": 0.1794
       },
       "fundamentalProbabilities": {
-        "home": 0.3508,
-        "draw": 0.3333,
-        "away": 0.3158
+        "home": 0.485,
+        "draw": 0.2677,
+        "away": 0.2473
       },
       "fundamentalFirst": true,
       "marketContradiction": false,
@@ -1957,6 +2249,98 @@
       },
       "headToHeadSummary": "暂无可核验的双方历史交手",
       "cupModelInputs": null,
+      "threeLayerModel": {
+        "enabled": true,
+        "version": "three-layer-v1-evidence-first",
+        "weights": {
+          "hardStrength": 0.4,
+          "tacticalMatchup": 0.35,
+          "psychologicalState": 0.25
+        },
+        "itemScores": {
+          "hardStrength": {
+            "home": {
+              "leagueRanking": 50.0,
+              "squadValue": 50.0,
+              "recentForm": 65.0,
+              "venueAttribute": 50.0
+            },
+            "away": {
+              "leagueRanking": 50.0,
+              "squadValue": 50.0,
+              "recentForm": 35.0,
+              "venueAttribute": 50.0
+            }
+          },
+          "tacticalMatchup": {
+            "home": {
+              "styleMatchup": 50.0,
+              "headToHead": 50.0,
+              "coreAvailability": 50.0
+            },
+            "away": {
+              "styleMatchup": 50.0,
+              "headToHead": 50.0,
+              "coreAvailability": 50.0
+            }
+          },
+          "psychologicalState": {
+            "home": {
+              "lastResult": 65.0,
+              "scheduleFitness": 50.0,
+              "motivation": 50.0
+            },
+            "away": {
+              "lastResult": 52.0,
+              "scheduleFitness": 50.0,
+              "motivation": 50.0
+            }
+          }
+        },
+        "layerScores": {
+          "hardStrength": {
+            "home": 53.75,
+            "away": 46.25
+          },
+          "tacticalMatchup": {
+            "home": 50.0,
+            "away": 50.0
+          },
+          "psychologicalState": {
+            "home": 55.0,
+            "away": 50.67
+          }
+        },
+        "totalScores": {
+          "home": 52.75,
+          "away": 48.67
+        },
+        "probabilities": {
+          "home": 0.485,
+          "draw": 0.2677,
+          "away": 0.2473
+        },
+        "dataCompleteness": 0.3,
+        "confidencePenalty": -8,
+        "missingItems": [
+          "hardStrength.home.leagueRanking",
+          "hardStrength.home.squadValue",
+          "hardStrength.home.venueAttribute",
+          "hardStrength.away.leagueRanking",
+          "hardStrength.away.squadValue",
+          "hardStrength.away.venueAttribute",
+          "tacticalMatchup.home.styleMatchup",
+          "tacticalMatchup.home.headToHead",
+          "tacticalMatchup.home.coreAvailability",
+          "tacticalMatchup.away.styleMatchup",
+          "tacticalMatchup.away.headToHead",
+          "tacticalMatchup.away.coreAvailability",
+          "psychologicalState.home.motivation",
+          "psychologicalState.away.motivation"
+        ],
+        "drawCaution": 0.0,
+        "method": "hard strength 40% + tactical matchup 35% + psychological state 25%; missing items use neutral 50"
+      },
       "goalPrediction": {
         "pick": "2",
         "probability": 0.3545,

@@ -16,6 +16,7 @@ from generate_homepage import generate_homepage
 from market_model import ScorelineModel, expected_value, fit_scoreline_model, implied_probabilities
 from market_movement import load_market_movement
 from research_competition import collect_research_pack
+from three_layer_model import calculate_three_layer
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -799,7 +800,8 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
     scoreline_model = scoreline_model_for(match)
     market_baseline = competition_direction_probabilities(match, profile)
     market_baseline, cross_market_conflict = apply_cross_market_conflict(market_baseline, match, profile)
-    fundamental = fundamental_direction_probabilities(match, context)
+    three_layer = calculate_three_layer(context)
+    fundamental = three_layer.get("probabilities") if three_layer.get("enabled") else fundamental_direction_probabilities(match, context)
     probabilities = apply_match_context(blend_fundamental_and_market(market_baseline, fundamental, profile.get("fundamental_weight", .58)), context)
     scoreline_weight = float(profile.get("scoreline_weight", SCORELINE_MODEL_WEIGHT))
     goal_probs = competition_goal_probabilities(match, profile, context, scoreline_model, scoreline_weight)
@@ -823,12 +825,13 @@ def predict_by_competition(base: Any, match: dict[str, Any], context: dict[str, 
     match_brief = build_match_brief(match, context)
     total_goals = max(goal_probs, key=goal_probs.get)
     confidence_cap = min(int(volatility.get("confidenceCap", profile.get("confidence_cap", 82))), int(sample_control["cap"]))
-    confidence_score = max(25, min(confidence_cap, predicted["confidenceScore"] + profile["confidence_delta"] + volatility["confidencePenalty"] + sample_control["penalty"] + int(context.get("confidenceDelta", 0))))
+    confidence_score = max(25, min(confidence_cap, predicted["confidenceScore"] + profile["confidence_delta"] + volatility["confidencePenalty"] + sample_control["penalty"] + int(context.get("confidenceDelta", 0)) + int(three_layer.get("confidencePenalty", 0))))
     predicted.update({
         "probabilities": {key: round(value, 4) for key, value in probabilities.items()}, "direction": direction, "directionText": {"home": "主胜", "draw": "平", "away": "客胜"}[direction],
         "mainScore": main, "backupScores": backups[:2], "tailRiskScores": tails, "totalGoals": total_goals, "goalCandidates": sorted(goal_probs, key=goal_probs.get, reverse=True)[:3], "goalProbabilities": {key: round(value, 4) for key, value in goal_probs.items()},
         "scorePoolProbabilities": score_pool_probs, "halfFullProbabilities": half_full_probs, "scorelineFit": scoreline_model.summary() if scoreline_model else None, "marketBaselineProbabilities": {key: round(value, 4) for key, value in market_baseline.items()},
         "fundamentalProbabilities": {key: round(value, 4) for key, value in fundamental.items()} if fundamental else None, "fundamentalFirst": True, "marketContradiction": market_contradiction, "goalSelectionGate": goal_gate, "upsetAttackCapability": upset_attack_capability(match, probabilities), "fundamentalStats": context.get("fundamentalStats", {}), "fundamentalSummary": context.get("fundamentalSummary", "基本面数据不足，保持中性"), "upsetTriggers": context.get("upsetTriggers", "未核验弱侧进球与追分条件"), "headToHead": context.get("headToHead", {"sample": 0, "summary": "暂无可核验的双方历史交手"}), "headToHeadSummary": context.get("headToHeadSummary", "暂无可核验的双方历史交手"), "cupModelInputs": context.get("cupModelInputs"),
+        "threeLayerModel": three_layer,
         "goalPrediction": {"pick": total_goals, "probability": round(goal_probs[total_goals], 4), "type": "total_goals"}, "scorePrediction": {"pick": main, "probability": round(score_pool_probs.get(main, 0.0), 4), "type": "exact_score"}, "goalScoreSeparation": "总进球命中与精确比分命中分开统计", "marketMovement": match.get("marketMovement"),
         "confidenceScore": confidence_score, "modelProfile": {**{key: profile[key] for key in ("version", "had", "crs", "prior", "goal_shift", "review_sample", "review_strength")}, "historicalMatchCount": profile.get("allHistoricalMatches", profile.get("review_sample", 0)), "averageHistoricalGoals": profile.get("average_total_goals"), "competition": profile.get("competition", match.get("league")), "modelScope": profile.get("modelScope", "dedicated_competition"), "calibrationVersion": profile.get("calibrationVersion"), "researchCompleteness": profile.get("researchPack", {}).get("researchCompleteness"), "researchPack": profile.get("researchPack"), "scorelineWeight": scoreline_weight, "sampleControl": sample_control, "contextLayer": "fundamental-first-v3", "scorelineLayer": "dixon-coles-market-blend-v1"}, "modelLesson": source_profile["lesson"],
         "contextFactors": {key: context.get(key, "资料不足，保持中性") for key in ("stage", "schedule", "motivation", "weather", "teamNews", "coach", "upsetPath")}, "contextSources": context.get("sources", []), "evidenceStatus": context.get("evidenceStatus", "比赛级公开证据不足；情境层保持中性"), "verifiedFactors": context.get("verifiedFactors", []), "reasoningMethod": "fundamental-first-v3", "reasoningContract": reasoning,
@@ -1376,6 +1379,17 @@ def render(payload: dict[str, Any], styles: dict[str, dict[str, str]]) -> str:
             fit_text = f'比分矩阵拟合：主队期望进球 {fit["lambdaHome"]:.2f}、客队 {fit["lambdaAway"]:.2f}；' if fit else ""
             ev_text = f'主选价值审计（EV=模型概率×赔率-1）：{esc("；".join(audit_parts))}。' if audit_parts else ""
             model_audit_html = f'<p><b>模型层：</b>{fit_text}{ev_text}</p>'
+        three_layer = m.get("threeLayerModel") or {}
+        if three_layer.get("enabled"):
+            layer_scores = three_layer.get("layerScores", {})
+            missing_items = three_layer.get("missingItems", [])
+            model_audit_html += (
+                f'<p><b>三层模型：</b>硬实力 主{layer_scores.get("hardStrength", {}).get("home", 50):.1f}/客{layer_scores.get("hardStrength", {}).get("away", 50):.1f}；'
+                f'战术匹配 主{layer_scores.get("tacticalMatchup", {}).get("home", 50):.1f}/客{layer_scores.get("tacticalMatchup", {}).get("away", 50):.1f}；'
+                f'心理状态 主{layer_scores.get("psychologicalState", {}).get("home", 50):.1f}/客{layer_scores.get("psychologicalState", {}).get("away", 50):.1f}；'
+                f'资料完整度 {three_layer.get("dataCompleteness", 0):.1%}。'
+                f'{("缺失项：" + esc("、".join(missing_items))) if missing_items else ""}</p>'
+            )
         brief = m.get("matchBrief", {})
         brief_html = render_match_brief(brief)
         brief_section = f'<div class="factors"><p><b>赛前综合简报：</b></p>{brief_html}</div>' if brief_html else ''

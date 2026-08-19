@@ -1,6 +1,6 @@
 {
   "version": "public-context-v1",
-  "generatedAt": "2026-08-18T09:47:58",
+  "generatedAt": "2026-08-19T09:40:40",
   "matches": {
     "tue001": {
       "ranking": "里独立 未提供；弗鲁米嫩塞 未提供",
@@ -105,7 +105,26 @@
           "name": "Sporttery公开赛程/赔率接口",
           "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
-      ]
+      ],
+      "threeLayer": {
+        "enabled": true,
+        "hardStrength": {
+          "home": {},
+          "away": {}
+        },
+        "tacticalMatchup": {
+          "home": {},
+          "away": {}
+        },
+        "psychologicalState": {
+          "home": {},
+          "away": {
+            "lastResult": 52
+          }
+        },
+        "drawCaution": 0.0,
+        "evidenceMode": "verified-data-auto-mapped"
+      }
     },
     "tue002": {
       "ranking": "索列夫 未提供；雅典AEK 未提供",
@@ -202,7 +221,24 @@
           "name": "Sporttery公开赛程/赔率接口",
           "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
-      ]
+      ],
+      "threeLayer": {
+        "enabled": true,
+        "hardStrength": {
+          "home": {},
+          "away": {}
+        },
+        "tacticalMatchup": {
+          "home": {},
+          "away": {}
+        },
+        "psychologicalState": {
+          "home": {},
+          "away": {}
+        },
+        "drawCaution": 0.0,
+        "evidenceMode": "verified-data-auto-mapped"
+      }
     },
     "tue003": {
       "ranking": "萨格勒布迪纳摩 未提供；维京 未提供",
@@ -301,7 +337,26 @@
           "name": "Sporttery公开赛程/赔率接口",
           "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
-      ]
+      ],
+      "threeLayer": {
+        "enabled": true,
+        "hardStrength": {
+          "home": {},
+          "away": {}
+        },
+        "tacticalMatchup": {
+          "home": {},
+          "away": {}
+        },
+        "psychologicalState": {
+          "home": {},
+          "away": {
+            "lastResult": 52
+          }
+        },
+        "drawCaution": 0.0,
+        "evidenceMode": "verified-data-auto-mapped"
+      }
     },
     "tue004": {
       "ranking": "费内巴切 未提供；里昂 未提供",
@@ -401,7 +456,34 @@
           "name": "Sporttery公开赛程/赔率接口",
           "url": "https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c&poolCode=ttg,had,hhd,crs,hafu"
         }
-      ]
+      ],
+      "threeLayer": {
+        "enabled": true,
+        "hardStrength": {
+          "home": {
+            "recentForm": 65.0
+          },
+          "away": {
+            "recentForm": 35.0
+          }
+        },
+        "tacticalMatchup": {
+          "home": {},
+          "away": {}
+        },
+        "psychologicalState": {
+          "home": {
+            "lastResult": 65,
+            "scheduleFitness": 50.0
+          },
+          "away": {
+            "lastResult": 52,
+            "scheduleFitness": 50.0
+          }
+        },
+        "drawCaution": 0.0,
+        "evidenceMode": "verified-data-auto-mapped"
+      }
     }
   }
 }

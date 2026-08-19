@@ -23,6 +23,36 @@
    - 三比分池（主选+两备选）、尾部审计、串关组合；每场附价值审计
      （EV = 模型概率 × 赔率 − 1）与比分矩阵拟合参数，便于赛后复核。
 
+5. **三层证据模型**（`scripts/three_layer_model.py`）
+   - 硬实力 40%：联赛排名、身价/阵容、近期状态、主客场属性；
+   - 战术匹配 35%：打法克制、交锋记录、核心伤停/可用性；
+   - 心理状态 25%：上轮结果、体能赛程、晋级/积分战意；
+   - 每项使用 0–100 分。缺失项使用中性 50 分并记录在 `missingItems`，按缺失比例降低置信度；
+   - 生成器会把已核验的排名、近况、主客场、交锋和休息数据自动映射到 `threeLayer`；也可在 `data/match_context_<date>.json` 或外部证据中直接提供完整评分并设置 `enabled: true` 覆盖自动映射。赔率只作次要市场校验。
+
+三层证据字段示例：
+
+```json
+{
+  "threeLayer": {
+    "enabled": true,
+    "drawCaution": 0.04,
+    "hardStrength": {
+      "home": {"leagueRanking": 70, "squadValue": 65, "recentForm": 72, "venueAttribute": 76},
+      "away": {"leagueRanking": 62, "squadValue": 70, "recentForm": 58, "venueAttribute": 55}
+    },
+    "tacticalMatchup": {
+      "home": {"styleMatchup": 68, "headToHead": 60, "coreAvailability": 58},
+      "away": {"styleMatchup": 62, "headToHead": 55, "coreAvailability": 72}
+    },
+    "psychologicalState": {
+      "home": {"lastResult": 70, "scheduleFitness": 64, "motivation": 78},
+      "away": {"lastResult": 55, "scheduleFitness": 60, "motivation": 74}
+    }
+  }
+}
+```
+
 ## 日常工作流
 
 ```bash

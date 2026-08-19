@@ -206,6 +206,68 @@ def head_to_head(match, history):
             "unbeaten": unbeaten, "unbeatenStreak": streak, "lastMeetings": rows[:5], "summary": summary,
             "status": "verified_retained_results"}
 
+
+def three_layer_from_verified_data(match, fundamental, h2h):
+    """Translate only retained evidence into the reusable 0-100 model scale."""
+    stats = fundamental["fundamentalStats"]
+    home, away = stats["home"], stats["away"]
+    home_home, away_away = stats["homeHome"], stats["awayAway"]
+    home_rank, away_rank = rank(match.get("homeRank")), rank(match.get("awayRank"))
+
+    def pair_scores(home_value, away_value, spread=12):
+        if home_value is None or away_value is None:
+            return {}, {}
+        gap = clamp(float(home_value) - float(away_value), -spread, spread)
+        return round(50 + gap * 50 / spread, 2), round(50 - gap * 50 / spread, 2)
+
+    hard_home, hard_away = {}, {}
+    if home_rank is not None and away_rank is not None:
+        # Lower rank number is stronger.
+        gap = clamp(float(away_rank - home_rank), -10, 10)
+        hard_home["leagueRanking"], hard_away["leagueRanking"] = round(50 + gap * 3, 2), round(50 - gap * 3, 2)
+    form_home, form_away = pair_scores(
+        (home.get("points") or 1.0) + (home.get("gf") or 0) - (home.get("ga") or 0)
+        if home.get("sample") else None,
+        (away.get("points") or 1.0) + (away.get("gf") or 0) - (away.get("ga") or 0)
+        if away.get("sample") else None,
+        spread=5,
+    )
+    if form_home:
+        hard_home["recentForm"], hard_away["recentForm"] = form_home, form_away
+    venue_home, venue_away = pair_scores(
+        home_home.get("points") if home_home.get("sample") else None,
+        away_away.get("points") if away_away.get("sample") else None,
+        spread=2,
+    )
+    if venue_home:
+        hard_home["venueAttribute"], hard_away["venueAttribute"] = venue_home, venue_away
+
+    tactical_home, tactical_away = {}, {}
+    if h2h.get("sample"):
+        total = h2h["sample"]
+        tactical_home["headToHead"] = round(50 + (h2h["wins"] - h2h["losses"]) * 50 / total, 2)
+        tactical_away["headToHead"] = round(50 + (h2h["losses"] - h2h["wins"]) * 50 / total, 2)
+
+    psychological_home, psychological_away = {}, {}
+    for side, rows, target in (("home", fundamental["fundamentalStats"]["home"], psychological_home),
+                               ("away", fundamental["fundamentalStats"]["away"], psychological_away)):
+        if rows.get("sample"):
+            # The latest retained result is represented by the form sample's first result in context.
+            target["lastResult"] = 65 if rows.get("points", 0) >= 2.0 else 52 if rows.get("points", 0) >= 1.0 else 38
+    rest = fundamental.get("restDays", {})
+    if rest.get("home") is not None and rest.get("away") is not None:
+        psychological_home["scheduleFitness"], psychological_away["scheduleFitness"] = pair_scores(
+            clamp(rest["home"], 0, 14), clamp(rest["away"], 0, 14), spread=7
+        )
+    return {
+        "enabled": True,
+        "hardStrength": {"home": hard_home, "away": hard_away},
+        "tacticalMatchup": {"home": tactical_home, "away": tactical_away},
+        "psychologicalState": {"home": psychological_home, "away": psychological_away},
+        "drawCaution": 0.04 if h2h.get("draws", 0) else 0.0,
+        "evidenceMode": "verified-data-auto-mapped",
+    }
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", required=True)
@@ -311,6 +373,13 @@ def main():
             "analysisBasis": "竞彩赔率/比分矩阵作为市场层；排名、近况、进失球、主客场和赛程间隔作为基本面层；伤停、首发、战术和晋级动机未核验时不作硬修正。",
             "sources": sources,
         }
+        # Keep manually/externally collected three-layer evidence intact.  When
+        # it is absent, only retained numeric evidence is mapped automatically;
+        # unknown items remain neutral inside the model.
+        if isinstance(external.get("threeLayer"), dict):
+            context["threeLayer"] = external["threeLayer"]
+        else:
+            context["threeLayer"] = three_layer_from_verified_data(match, fundamental, h2h)
         contexts[key] = context
     output = {"version": "public-context-v1", "generatedAt": datetime.now().isoformat(timespec="seconds"), "matches": contexts}
     (DATA / f"match_context_{args.date}.json").write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
